@@ -273,6 +273,7 @@
     <div class="reveal">
         <div class="slides">
 
+            <!-- Section 0: Title Slide -->
             <section>
                 <div style="text-align: left; max-width: 80%;">
                     <h1>从 Low-Code 到 Pro-Code</h1>
@@ -289,6 +290,7 @@
                 </div>
             </section>
 
+            <!-- Section: Outline -->
             <section>
                 <div style="text-align: left; max-width: 950px;">
                     <h2>议程 Outline</h2>
@@ -299,13 +301,14 @@
                             <li>融合 —— 打破“低代码”的刻板印象</li>
                             <li>扩展 —— 构建你的军火库 (Marketplace & Plugins)</li>
                             <li>连接 —— 事件驱动的自动化 (Trigger)</li>
-                            <li>洞察 —— 开源社区的极客精神</li>
+                            <li>洞察 —— 全链路可观测实战 (OTEL)</li>
                             <li>总结 & Call for Action</li>
                         </ol>
                     </div>
                 </div>
             </section>
 
+            <!-- Section 1: 破局 -->
             <section>
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
@@ -369,38 +372,47 @@
                 </section>
             </section>
 
+            <!-- Section 2: 融合 (Revised) -->
             <section>
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
                         <h2>融合 · 打破“低代码”的刻板印象</h2>
-                        <p class="text-secondary" style="font-size: 0.8em;">低代码与高代码的辩证关系，如何共存与共赢。</p>
+                        <p class="text-secondary" style="font-size: 0.8em;">不仅是降低门槛，更是高阶工程能力的“可视化映射”。</p>
                     </div>
                     <div style="margin-top: 30px;">
-                        <img src="https://placehold.co/1000x340/f4f4f5/3b82f6?text=Low-Code+%3C-%3E+Pro-Code+Bridge" alt="低码与高码桥梁占位" class="img-shadow" style="width: 100%;">
+                        <img src="https://placehold.co/1000x340/f4f4f5/3b82f6?text=Visual+DSL+%26+Observability" alt="可视化DSL与可观测性示意图" class="img-shadow" style="width: 100%;">
                     </div>
                 </section>
 
                 <section>
                     <div class="split-container">
                         <div class="col-half">
-                            <h3>2.1 低代码 vs 高代码</h3>
+                            <h3>2.1 可视化的辩证统一</h3>
+                            <p class="text-secondary" style="font-size: 0.7em; margin-bottom: 20px;">
+                                高低代码都离不开可视化，但核心目的不同：
+                            </p>
                             <ul class="status-list">
-                                <li class="status-bad">
-                                    <i class="ri-close-circle-fill"></i>
-                                    <div>误区：低代码只能拖拽，缺乏可控性与扩展性。</div>
+                                <li class="status-good">
+                                    <i class="ri-code-s-slash-line" style="color: var(--dify-blue);"></i>
+                                    <div>
+                                        <strong>Low-Code 视角：可视化 = 编程语言</strong>
+                                        <div style="color: #6b7280; font-size: 0.9em; margin-top: 4px;">降低认知负荷，让逻辑可解释、可教学，成为编程本身。</div>
+                                    </div>
                                 </li>
                                 <li class="status-good">
-                                    <i class="ri-checkbox-circle-fill"></i>
-                                    <div>辩证：低代码负责编排，Pro-Code 负责深逻辑与性能。</div>
-                                </li>
-                                <li class="status-good">
-                                    <i class="ri-checkbox-circle-fill"></i>
-                                    <div>协作：可视化让产品/运营协同，代码沉淀可复用资产。</div>
+                                    <i class="ri-terminal-box-line" style="color: var(--text-main);"></i>
+                                    <div>
+                                        <strong>Pro-Code 视角：可视化 = 抽象理解 & 调试</strong>
+                                        <div style="color: #6b7280; font-size: 0.9em; margin-top: 4px;">
+                                            加速对复杂 DSL 的理解。核心价值在于：<br>
+                                            <span style="color: var(--dify-blue); font-weight: 600;">“看得懂、比得出、说得清、做的快”</span>。
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-half">
-                            <img src="https://placehold.co/620x380/e5e7eb/6b7280?text=Visual+Editor+%2B+Code+IDE" alt="可视化与代码协同占位" class="img-shadow">
+                            <img src="https://placehold.co/620x400/e5e7eb/6b7280?text=Workflow+as+Visual+DSL" alt="工作流即DSL" class="img-shadow">
                         </div>
                     </div>
                 </section>
@@ -408,21 +420,61 @@
                 <section data-background-color="#ffffff">
                     <div class="split-container">
                         <div class="col-half">
-                            <h3>2.2 程序员最佳实践</h3>
-                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
-                                <li>使用环境与版本控制：Staging/Prod，安全灰度。</li>
-                                <li>组合节点与自定义 Code Node，将业务逻辑嵌入工作流。</li>
-                                <li>复用资产：Prompt 模板、组件化 Tool、共享连接器。</li>
-                                <li>自动化测试：利用 API Mock + Replay 校验模型升级。</li>
-                            </ul>
+                            <h3>2.2 程序员的“透视眼”：全链路可观测</h3>
+                            <p class="text-secondary" style="font-size: 0.8em;">
+                                Dify 的可视化不仅是编排，更是运行时的<strong>拓扑调试器</strong>。基于 Trace Link 技术，解决 "Black Box" 问题。
+                            </p>
+                            <div class="outline-card" style="padding: 20px; margin-top: 15px;">
+                                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                                    <i class="ri-git-merge-line" style="color: var(--dify-blue); font-size: 1.2em;"></i>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 0.8em;">App Trace <-> Infra Trace</h4>
+                                        <p style="font-size: 0.65em; margin: 2px 0 0;">从 LLM 的 Token 消耗跳转到 Nginx/Redis/Celery 的底层执行耗时，精准定位“慢调用”根因。</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 15px;">
+                                    <i class="ri-bug-line" style="color: #dc2626; font-size: 1.2em;"></i>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 0.8em; color: #dc2626;">Glass Box Debugging</h4>
+                                        <p style="font-size: 0.65em; margin: 2px 0 0;">通过 OTel 探针，无需侵入代码即可捕获 Plugin 运行时或 Sandbox 中的异常堆栈。</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-half">
-                            <img src="https://placehold.co/620x380/0033ff/ffffff?text=Best+Practice+Checklist" alt="最佳实践检查列表占位" class="img-shadow">
+                            <img src="https://placehold.co/620x380/0033ff/ffffff?text=Trace+Topology+%26+Span+Details" alt="全链路追踪示意图" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div style="text-align: left; max-width: 900px;">
+                        <h3>2.3 最佳实践：高密度开发模式</h3>
+                        <p class="text-secondary" style="font-size: 0.8em; margin-bottom: 30px;">
+                            利用 Dify 的可视化 DSL 处理 80% 的胶水逻辑，用 Pro-Code 解决 20% 的核心计算。
+                        </p>
+                        <div class="grid-cards" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                            <div class="card">
+                                <i class="ri-mind-map card-icon"></i>
+                                <h4>可视编排 (DSL)</h4>
+                                <p>处理分支、循环、RAG 检索管道，利用可视化界面快速对齐业务需求。</p>
+                            </div>
+                            <div class="card">
+                                <i class="ri-code-box-line card-icon"></i>
+                                <h4>代码节点 (Code Node)</h4>
+                                <p>在工作流中嵌入 Python/Node.js 脚本，处理数据清洗与复杂数学计算。</p>
+                            </div>
+                            <div class="card">
+                                <i class="ri-pulse-line card-icon"></i>
+                                <h4>观测闭环 (Feedback)</h4>
+                                <p>利用 Trace ID 串联会话日志，反向优化 Prompt 与 代码逻辑。</p>
+                            </div>
                         </div>
                     </div>
                 </section>
             </section>
 
+            <!-- Section 3: 扩展 -->
             <section>
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
@@ -469,21 +521,75 @@
                 <section data-background-color="#ffffff">
                     <div class="split-container">
                         <div class="col-half">
-                            <h3>3.2 实战：由浅入深开发一个 Tool</h3>
-                            <ol style="font-size: 0.8em; color: var(--text-secondary); line-height: 1.6; padding-left: 18px;">
-                                <li>定义 OpenAPI/JSON Schema 描述能力。</li>
-                                <li>实现 Handler：鉴权、参数校验、错误兜底。</li>
-                                <li>封装到 Marketplace：描述、版本、依赖。</li>
-                                <li>在 Workflow 中调用，结合 Memory 与分支。</li>
+                            <h3>3.2 实战：开发 Slack Bot 插件</h3>
+                            <p class="text-secondary" style="font-size: 0.8em; margin-bottom: 20px;">
+                                以开发一个 Slack 消息发送工具为例，演示 Dify 插件的“定义即开发”流程。
+                            </p>
+                            <ol style="font-size: 0.7em; color: var(--text-secondary); line-height: 1.8; padding-left: 18px;">
+                                <li style="margin-bottom: 12px;">
+                                    <strong>Manifest 定义 (YAML):</strong><br>
+                                    定义插件元数据（Identity）和 Tool 参数（如 <code class="text-blue">bot_token</code>, <code class="text-blue">channel_id</code>）。
+                                </li>
+                                <li style="margin-bottom: 12px;">
+                                    <strong>代码实现 (Python):</strong><br>
+                                    继承 <code class="text-blue">Tool</code> 类，在 <code class="text-blue">_invoke</code> 方法中调用 Slack SDK 发送消息。
+                                </li>
+                                <li>
+                                    <strong>调试与发布:</strong><br>
+                                    本地验证 <code class="text-blue">invoke</code> 结果，打包发布至 Dify Marketplace。
+                                </li>
                             </ol>
                         </div>
                         <div class="col-half">
-                            <img src="https://placehold.co/620x380/0f172a/f8fafc?text=Tool+Execution+Logs" alt="工具调用日志占位" class="img-shadow">
+                            <!-- Code Editor Window for Slack Bot -->
+                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 400px; overflow: hidden; display: flex; flex-direction: column;">
+                                
+                                <!-- Fake Tabs -->
+                                <div style="display: flex; gap: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                    <div style="color: #fff; font-weight: 600; border-bottom: 2px solid var(--dify-blue); padding-bottom: 4px;">manifest.yaml</div>
+                                    <div style="color: #888;">main.py</div>
+                                </div>
+
+                                <div style="overflow-y: auto; flex: 1;">
+                                    <!-- YAML Content -->
+                                    <div style="color: #569cd6;">identity:</div>
+                                    <div style="padding-left: 20px;">name: <span style="color: #ce9178;">slack_bot</span></div>
+                                    <div style="padding-left: 20px;">label: { en_US: <span style="color: #ce9178;">Slack Bot</span> }</div>
+                                    
+                                    <div style="color: #569cd6; margin-top: 10px;">parameters:</div>
+                                    <div style="padding-left: 20px; color: #6a9955;"># 定义输入参数: Token (Secret) & Channel</div>
+                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">bot_token</span></div>
+                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">secret-input</span></div>
+                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">channel_id</span></div>
+                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span></div>
+                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">text</span></div>
+                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span></div>
+
+                                    <!-- Divider -->
+                                    <div style="height: 1px; background: #333; margin: 15px 0;"></div>
+                                    <div style="color: #888; font-size: 0.9em; margin-bottom: 5px;">// main.py Preview</div>
+
+                                    <!-- Python Content -->
+                                    <div><span style="color: #c586c0;">class</span> <span style="color: #dcdcaa;">SlackBotTool</span>(Tool):</div>
+                                    <div style="padding-left: 20px;"><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_invoke</span>(self, params: dict):</div>
+                                    <div style="padding-left: 40px; color: #6a9955;"># 1. 获取凭据与参数</div>
+                                    <div style="padding-left: 40px;">token = params.get(<span style="color: #ce9178;">'bot_token'</span>)</div>
+                                    <div style="padding-left: 40px;">client = WebClient(token=token)</div>
+                                    
+                                    <div style="padding-left: 40px; margin-top: 5px; color: #6a9955;"># 2. 执行业务逻辑 (Call SDK)</div>
+                                    <div style="padding-left: 40px;">res = client.chat_postMessage(</div>
+                                    <div style="padding-left: 60px;">channel=params.get(<span style="color: #ce9178;">'channel_id'</span>),</div>
+                                    <div style="padding-left: 60px;">text=params.get(<span style="color: #ce9178;">'text'</span>)</div>
+                                    <div style="padding-left: 40px;">)</div>
+                                    <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> { <span style="color: #ce9178;">"result"</span>: res.data }</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </section>
 
+            <!-- Section 4: 连接 -->
             <section>
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
@@ -549,7 +655,9 @@
                 </section>
             </section>
 
+            <!-- Section 5: 洞察 (New Enhanced Section) -->
             <section>
+                <!-- 5.0 Chapter Cover -->
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
                         <h2>洞察 · 开源社区的极客精神</h2>
@@ -560,53 +668,355 @@
                     </div>
                 </section>
 
+                <!-- 5.1 Overview with HTML-based Architecture Diagram -->
+                <section>
+                    <div style="text-align: left;">
+                        <h2>5.1 OTEL 全链路追踪实战</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">不仅是日志，更是贯穿 LLM 与 Infra 的“上帝视角”。</p>
+                    </div>
+                    
+                    <!-- 交互式架构图容器 -->
+                    <div style="margin-top: 40px; position: relative; height: 380px; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; padding: 20px; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08); display: flex; align-items: center; justify-content: center;">
+                        
+                        <!-- Left: App Layer -->
+                        <div style="width: 25%; text-align: center; position: relative;">
+                            <div style="background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid var(--dify-blue); padding: 25px 15px; border-radius: 12px; color: var(--dify-blue); box-shadow: 0 8px 20px rgba(0,51,255,0.1); z-index: 2; position: relative;">
+                                <i class="ri-layout-grid-fill" style="font-size: 2em; margin-bottom: 10px; display: block;"></i>
+                                <span style="font-weight: 700;">Workflow App</span>
+                                <div style="font-size: 0.5em; font-weight: 500; margin-top: 10px; color: var(--text-secondary); background: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 4px; display: inline-block;">Trace ID: T-1001</div>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div style="width: 20%; position: relative; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 10px;">
+                            <div style="font-size: 0.6em; color: var(--dify-blue); font-weight: 600; background: #fff; z-index: 2; padding: 0 10px; margin-bottom: -13px;">Trace Link</div>
+                            <div style="width: 100%; height: 2px; background: #e5e7eb; position: relative;">
+                                <div style="position: absolute; right: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #e5e7eb;"></div>
+                            </div>
+                            <div style="font-size: 0.5em; color: var(--text-secondary); margin-top: 15px; text-align: center;">HTTP Header<br>Propagation</div>
+                        </div>
+
+                        <!-- Right: Infra Layer -->
+                        <div style="width: 45%; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 25px; border-radius: 16px; position: relative;">
+                            <div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 0.65em; font-weight: 600; color: var(--text-secondary);">Dify Infrastructure</div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <!-- Python Side -->
+                                <div style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                                    <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
+                                        <i class="ri-python-line" style="vertical-align: middle; margin-right: 5px;"></i>API / Worker
+                                    </div>
+                                    <div style="font-size: 0.55em; color: #059669; background: #ecfdf5; padding: 4px 8px; border-radius: 4px; display: inline-block;">● Monkey Patch</div>
+                                </div>
+                                
+                                <!-- Go Side -->
+                                <div style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                                    <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
+                                        <i class="ri-box-3-line" style="vertical-align: middle; margin-right: 5px;"></i>Plugin Daemon
+                                    </div>
+                                    <div style="font-size: 0.55em; color: #d97706; background: #fffbeb; padding: 4px 8px; border-radius: 4px; display: inline-block;">● Compile Probe</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Downstream -->
+                            <div style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px; display: flex; gap: 10px; justify-content: center;">
+                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">Redis</span>
+                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">PostgreSQL</span>
+                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">VectorDB</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 5.1 Implementation Code View -->
                 <section>
                     <div class="split-container">
                         <div class="col-half">
-                            <h3>5.1 OTEL 全链路追踪</h3>
-                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
-                                <li>痛点：调用链长、Token 消耗不透明、延迟难定位。</li>
-                                <li>方案：OpenTelemetry 链路，指标 + 日志 + Trace 合一。</li>
-                                <li>收益：透明调优成本，支撑 A/B 与回放测试。</li>
-                            </ul>
+                            <h3>技术内幕：无侵入探针</h3>
+                            <p class="text-secondary" style="font-size: 0.7em;">
+                                面对 Dify 频繁的迭代，我们不能修改源码。
+                                方案：<strong>Monkey Patch (Python)</strong> 与 <strong>Compile-time Instrumentation (Go)</strong>。
+                            </p>
+                            <div class="outline-card" style="margin-top: 20px;">
+                                <h4>接入方案概览</h4>
+                                <ul style="font-size: 0.65em; line-height: 1.8; color: var(--text-secondary);">
+                                    <li><strong>API / Worker (Python):</strong> 使用 <code class="text-blue">aliyun-bootstrap</code> 动态劫持 Flask/Celery 入口，注入 Trace 上下文。</li>
+                                    <li><strong>Plugin-Daemon (Go):</strong> 修改 Dockerfile，在 <code class="text-blue">go build</code> 阶段注入 instgo 工具，自动插桩。</li>
+                                    <li><strong>Trace Link:</strong> 在 HTTP Header 中透传 TraceID，串联业务日志与基础设施。</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-half">
-                            <img src="https://placehold.co/620x380/0033ff/ffffff?text=Tracing+Dashboard" alt="Tracing 仪表盘占位" class="img-shadow">
+                            <!-- Code Editor Window -->
+                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; position: relative;">
+                                <!-- Window Controls -->
+                                <div style="display: flex; gap: 6px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
+                                    <span style="margin-left: auto; color: #888; font-size: 0.9em;">entrypoint.sh</span>
+                                </div>
+                                
+                                <div style="color: #6a9955; margin-bottom: 5px;"># 1. Python 启动脚本劫持</div>
+                                <div><span style="color: #c586c0;">if</span> [ "<span style="color: #9cdcfe;">$DEBUG</span>" = "<span style="color: #ce9178;">true</span>" ]; <span style="color: #c586c0;">then</span></div>
+                                <div style="padding-left: 20px;">exec flask run ...</div>
+                                <div><span style="color: #c586c0;">else</span></div>
+                                <div style="padding-left: 20px; color: #6a9955;"># 注入 aliyun-instrument</div>
+                                <div style="padding-left: 20px; background: rgba(255, 255, 255, 0.05); border-left: 2px solid #569cd6; padding-left: 10px;"><span style="color: #569cd6;">exec</span> <span style="color: #dcdcaa;">aliyun-instrument</span> gunicorn \</div>
+                                <div style="padding-left: 40px;">--bind ... \</div>
+                                <div style="padding-left: 40px;">--workers ... \</div>
+                                <div style="padding-left: 40px;">app:app</div>
+                                <div><span style="color: #c586c0;">fi</span></div>
+                                <br>
+                                <div style="height: 1px; background: #333; margin: 15px 0;"></div>
+                                
+                                <div style="color: #6a9955; margin-bottom: 5px;">// 2. Go Dockerfile 编译插桩</div>
+                                <div><span style="color: #569cd6;">RUN</span> wget .../instgo-linux-amd64 -O instgo</div>
+                                <div style="background: rgba(255, 255, 255, 0.05); border-left: 2px solid #d97706; padding-left: 10px;"><span style="color: #569cd6;">RUN</span> ./instgo go build -o main cmd/server/main.go</div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section data-background-color="#ffffff">
+                <!-- New Section: Python Monkey Patch Deep Dive -->
+                <section>
                     <div class="split-container">
                         <div class="col-half">
-                            <h3>5.2 数据库适配的架构解耦</h3>
-                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
-                                <li>从 PostgreSQL-only 到支持 MySQL：存储抽象层演进。</li>
-                                <li>SQLAlchemy 抽象：迁移、兼容性与性能调优。</li>
-                                <li>对开发者价值：自由选择存储栈，便于私有化部署。</li>
+                            <h3>5.1 技术深潜：Python Monkey Patch 原理</h3>
+                            <p class="text-secondary" style="font-size: 0.7em;">
+                                <span style="color: var(--dify-blue);">aliyun-instrument</span> 的核心在于使用 <code>wrapt</code> 库在运行时劫持 Dify 关键方法。
+                            </p>
+                            <div class="outline-card" style="margin-top: 20px; background: linear-gradient(135deg, #fff7ed 0%, #fff 100%); border-color: #fdba74;">
+                                <h4 style="color: #d97706;">核心机制拆解</h4>
+                                <ul style="font-size: 0.65em; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">
+                                    <li><i class="ri-shuffle-line"></i> <strong>动态替换:</strong> 模块加载时，定位目标函数（如 <code>WorkflowRunner.run</code>），替换为 Wrapper。</li>
+                                    <li><i class="ri-eye-line"></i> <strong>上下文透明:</strong> <code>wrapt</code> 确保原函数的元数据（如 <code>__name__</code>）保持不变，对上层业务透明。</li>
+                                    <li><i class="ri-bug-line"></i> <strong>异常穿透:</strong> 捕获异常记录到 Span Event，随后原样抛出，不影响业务流。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <!-- Python Code Window -->
+                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.5em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 420px; overflow-y: auto;">
+                                <div style="color: #6a9955;"># Pseudo-code: Dify Instrumentation Logic</div>
+                                <div><span style="color: #c586c0;">import</span> wrapt</div>
+                                <div><span style="color: #c586c0;">from</span> opentelemetry <span style="color: #c586c0;">import</span> trace</div>
+                                <br>
+                                <div><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_instrument</span>(self, **kwargs):</div>
+                                <div style="padding-left: 20px; color: #6a9955;"># 1. 定位并劫持目标函数</div>
+                                <div style="padding-left: 20px;">wrapt.wrap_function_wrapper(</div>
+                                <div style="padding-left: 40px;"><span style="color: #ce9178;">"dify.core.workflow.runner"</span>,  <span style="color: #6a9955;"># Module</span></div>
+                                <div style="padding-left: 40px;"><span style="color: #ce9178;">"WorkflowRunner.run"</span>,         <span style="color: #6a9955;"># Method</span></div>
+                                <div style="padding-left: 40px;">self._trace_wrapper           <span style="color: #6a9955;"># Hook</span></div>
+                                <div style="padding-left: 20px;">)</div>
+                                <br>
+                                <div><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_trace_wrapper</span>(self, wrapped, instance, args, kwargs):</div>
+                                <div style="padding-left: 20px;">tracer = trace.get_tracer(<span style="color: #ce9178;">"aliyun.dify"</span>)</div>
+                                <div style="padding-left: 20px; color: #6a9955;"># 2. 开启 Span</div>
+                                <div style="padding-left: 20px;"><span style="color: #c586c0;">with</span> tracer.start_as_current_span(<span style="color: #ce9178;">"workflow.run"</span>) <span style="color: #c586c0;">as</span> span:</div>
+                                <div style="padding-left: 40px; color: #6a9955;"># 3. 记录输入参数</div>
+                                <div style="padding-left: 40px;">span.set_attribute(<span style="color: #ce9178;">"user_id"</span>, kwargs.get(<span style="color: #ce9178;">"user_id"</span>))</div>
+                                <br>
+                                <div style="padding-left: 40px; color: #6a9955;"># 4. 执行原业务逻辑</div>
+                                <div style="padding-left: 40px;">result = wrapped(*args, **kwargs)</div>
+                                <br>
+                                <div style="padding-left: 40px; color: #6a9955;"># 5. 记录结果并返回</div>
+                                <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> result</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5.1 Case Study Story -->
+                <section data-background-color="#ffffff">
+                    <div style="text-align: left; margin-bottom: 30px;">
+                        <h3>实战案例：定位“幽灵”报错</h3>
+                        <p class="text-secondary" style="font-size: 0.8em;">场景：前端显示正常，RAG 检索结果却为空，Dify 业务日志无报错。</p>
+                    </div>
+                    
+                    <div class="grid-cards" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                        <!-- Step 1: Symptom -->
+                        <div class="card" style="border: 1px solid #fee2e2; background: #fef2f2; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; right: 0; background: #dc2626; color: #fff; font-size: 0.4em; padding: 2px 8px; border-bottom-left-radius: 8px;">Step 1</div>
+                            <div style="color: #dc2626; font-weight: 700; font-size: 0.8em; margin-bottom: 10px;">
+                                <i class="ri-alarm-warning-line"></i> 发现异常
+                            </div>
+                            <p style="font-size: 0.65em;">查看 Workflow Trace，发现 Retriever 节点耗时极短，且 Output 为空字符串。</p>
+                            <div style="background: #fff; padding: 12px; border-radius: 6px; margin-top: 15px; border: 1px dashed #dc2626; text-align: center;">
+                                <code style="font-size: 0.7em; color: #dc2626;">output: ""</code>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Link -->
+                        <div class="card" style="border: 1px solid #dbeafe; background: #eff6ff; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; right: 0; background: var(--dify-blue); color: #fff; font-size: 0.4em; padding: 2px 8px; border-bottom-left-radius: 8px;">Step 2</div>
+                            <div style="color: var(--dify-blue); font-weight: 700; font-size: 0.8em; margin-bottom: 10px;">
+                                <i class="ri-link-m"></i> Trace Link
+                            </div>
+                            <p style="font-size: 0.65em;">点击 Span 详情中的 "Infrastructure Link" 按钮，携带 Trace ID 跳转至 SLS/Jaeger。</p>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button style="background: var(--dify-blue); color: #fff; border: none; padding: 8px 16px; border-radius: 4px; font-size: 0.6em; cursor: pointer; box-shadow: 0 4px 6px rgba(0,51,255,0.2);">View Infra Trace →</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Root Cause -->
+                        <div class="card" style="border: 1px solid #d1fae5; background: #ecfdf5; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; right: 0; background: #059669; color: #fff; font-size: 0.4em; padding: 2px 8px; border-bottom-left-radius: 8px;">Step 3</div>
+                            <div style="color: #059669; font-weight: 700; font-size: 0.8em; margin-bottom: 10px;">
+                                <i class="ri-bug-2-line"></i> 根因定位
+                            </div>
+                            <p style="font-size: 0.65em;">在 Worker 的底层 Span 中捕获到未抛出的异常堆栈，发现向量库版本不兼容。</p>
+                            <div style="background: #fff; padding: 12px; border-radius: 6px; margin-top: 15px; border: 1px dashed #059669; text-align: left;">
+                                <code style="font-size: 0.5em; color: #059669; display: block; word-break: break-all; font-family: 'Fira Code', monospace;">ValueError: Weaviate version 1.19.0 not supported...</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5.2 DB Support (Expanded) -->
+                <section>
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>5.2 数据库适配：架构解耦 (Schema)</h3>
+                            <ul class="text-secondary" style="font-size: 0.7em; line-height: 1.6; margin-bottom: 20px;">
+                                <li><strong>DB_TYPE 支持:</strong> <code class="text-blue">DatabaseConfig</code> 新增类型选择，支持 PostgreSQL, MySQL, OceanBase。</li>
+                                <li><strong>动态引擎:</strong> SQLAlchemy URI 与 Engine Options 根据类型动态调整。</li>
+                                <li><strong>配置更新:</strong> 移除 OceanBase 向量配置，统一管理。</li>
+                            </ul>
+                            <div class="outline-card" style="padding: 15px;">
+                                <h4 style="font-size: 0.7em;">配置示例 (.env)</h4>
+                                <div style="font-family: 'Fira Code', monospace; font-size: 0.5em; color: #4b5563;">
+                                    <div># Select Database Type</div>
+                                    <div>DB_TYPE=<span style="color: var(--dify-blue);">mysql</span></div>
+                                    <div style="margin-top: 5px;"># MySQL Configuration</div>
+                                    <div>MYSQL_HOST=localhost</div>
+                                    <div>MYSQL_PORT=3306</div>
+                                    <div>MYSQL_USER=dify_user</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <!-- Diagram for DB Architecture -->
+                            <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                                <div style="background: #eff6ff; padding: 10px; border-radius: 8px; display: inline-block; color: var(--dify-blue); font-weight: 700; font-size: 0.8em; width: 80%;">Dify API / Worker</div>
+                                <div style="height: 30px; border-left: 2px dashed #cbd5e1; margin: 0 auto;"></div>
+                                <div style="background: #f3f4f6; padding: 8px; border-radius: 20px; font-size: 0.6em; color: var(--text-secondary); display: inline-block; border: 1px solid #e5e7eb;">SQLAlchemy Engine Factory</div>
+                                <div style="height: 30px; border-left: 2px dashed #cbd5e1; margin: 0 auto;"></div>
+                                <div style="display: flex; justify-content: space-around; gap: 10px;">
+                                    <div style="border: 2px solid #0064a5; border-radius: 8px; padding: 10px; width: 80px;">
+                                        <i class="ri-database-2-fill" style="color: #0064a5; font-size: 1.5em;"></i>
+                                        <div style="font-size: 0.5em; font-weight: 600;">Postgres</div>
+                                    </div>
+                                    <div style="border: 2px solid #e48e00; border-radius: 8px; padding: 10px; width: 80px;">
+                                        <i class="ri-database-2-line" style="color: #e48e00; font-size: 1.5em;"></i>
+                                        <div style="font-size: 0.5em; font-weight: 600;">MySQL</div>
+                                    </div>
+                                    <div style="border: 2px solid #00a1ff; border-radius: 8px; padding: 10px; width: 80px;">
+                                        <i class="ri-cloud-line" style="color: #00a1ff; font-size: 1.5em;"></i>
+                                        <div style="font-size: 0.5em; font-weight: 600;">OceanBase</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5.3 CI/CD (Migration Versions) -->
+                <section data-background-color="#ffffff">
+                     <div class="split-container">
+                        <div class="col-half">
+                            <h3>5.3 质量保障：差异化 CI/CD</h3>
+                            <p class="text-secondary" style="font-size: 0.8em;">
+                                为了保障 Schema 在不同数据库方言下的兼容性，引入了针对 MySQL 的独立迁移测试。
+                            </p>
+                            <ul class="text-secondary" style="font-size: 0.7em; line-height: 1.8; margin-top: 20px;">
+                                <li><i class="ri-git-branch-line"></i> <strong>GitHub Actions 改造:</strong> 区分 Postgres 与 MySQL Service。</li>
+                                <li><i class="ri-test-tube-line"></i> <strong>Migration Test Job:</strong> 针对 MySQL 运行完整的 Alembic 迁移脚本，确保无语法错误。</li>
+                                <li><i class="ri-shield-check-line"></i> <strong>兼容性红线:</strong> 任何 Schema 变更必须同时通过双库测试。</li>
                             </ul>
                         </div>
                         <div class="col-half">
-                            <img src="https://placehold.co/620x380/e5e7eb/6b7280?text=DB+Abstraction+Layers" alt="数据库架构占位" class="img-shadow">
+                            <!-- Diagram for CI Pipeline -->
+                            <div style="font-size: 0.6em; font-family: 'Fira Code', monospace;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="background: #e2e8f0; padding: 8px 15px; border-radius: 4px;">Pull Request</div>
+                                    <div style="flex: 1; height: 2px; background: #cbd5e1; margin: 0 10px;"></div>
+                                    <div style="background: var(--dify-blue); color: #fff; padding: 8px 15px; border-radius: 4px;">Matrix Strategy</div>
+                                </div>
+                                
+                                <div style="margin-left: 20px; border-left: 2px solid #cbd5e1; padding-left: 20px;">
+                                    <div style="background: #ecfdf5; border: 1px solid #059669; color: #059669; padding: 10px; border-radius: 6px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                        <span>Job: test-api (Postgres)</span>
+                                        <i class="ri-checkbox-circle-fill"></i>
+                                    </div>
+                                    <div style="background: #fffbeb; border: 1px solid #d97706; color: #d97706; padding: 10px; border-radius: 6px; display: flex; justify-content: space-between;">
+                                        <span>Job: migration-test (MySQL)</span>
+                                        <i class="ri-loader-4-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5.4 Code Refactoring (A little SQL) -->
+                <section>
+                    <div style="text-align: left; margin-bottom: 20px;">
+                        <h3>5.4 代码重构：SQL 兼容性抽象</h3>
+                        <p class="text-secondary" style="font-size: 0.8em;">用 Python Helper 与 ORM 方法替代方言特定的 Raw SQL。</p>
+                    </div>
+                    
+                    <div class="grid-cards" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <!-- Date Time Helper -->
+                        <div class="card" style="padding: 20px;">
+                            <h4 style="font-size: 0.8em; margin-bottom: 10px;">Portable Date Functions</h4>
+                            <p style="font-size: 0.6em; color: var(--text-secondary); margin-bottom: 15px;">
+                                <code class="text-blue">convert_datetime_to_date</code> 封装了不同数据库的日期截断逻辑 (Postgres <code>date_trunc</code> vs MySQL <code>date_format</code>)。
+                            </p>
+                            <div style="background: #1e1e1e; padding: 10px; border-radius: 6px; color: #d4d4d4; font-size: 0.45em; font-family: 'Fira Code', monospace; text-align: left;">
+                                <div style="color: #6a9955;"># api/controllers/console/app/statistic.py</div>
+                                <div><span style="color: #c586c0;">def</span> convert_datetime_to_date(column):</div>
+                                <div style="padding-left: 10px;"><span style="color: #c586c0;">if</span> db.engine.name == <span style="color: #ce9178;">'postgresql'</span>:</div>
+                                <div style="padding-left: 20px;"><span style="color: #c586c0;">return</span> func.date_trunc(<span style="color: #ce9178;">'day'</span>, column)</div>
+                                <div style="padding-left: 10px;"><span style="color: #c586c0;">return</span> func.date(column)</div>
+                            </div>
+                        </div>
+
+                        <!-- JSON Filter -->
+                        <div class="card" style="padding: 20px;">
+                            <h4 style="font-size: 0.8em; margin-bottom: 10px;">Metadata Filter Standardization</h4>
+                            <p style="font-size: 0.6em; color: var(--text-secondary); margin-bottom: 15px;">
+                                <code class="text-blue">dataset_retrieval.py</code> 移除 Raw SQL 片段，使用 SQLAlchemy JSON 方法增强类型安全。
+                            </p>
+                            <div style="background: #1e1e1e; padding: 10px; border-radius: 6px; color: #d4d4d4; font-size: 0.45em; font-family: 'Fira Code', monospace; text-align: left;">
+                                <div style="color: #d16969;">- sql += f"meta->>'{key}' = '{value}'"</div>
+                                <div style="color: #6a9955;">+ filter_conditions.append(</div>
+                                <div style="color: #6a9955; padding-left: 10px;">+     Dataset.meta[key].as_string() == value</div>
+                                <div style="color: #6a9955;">+ )</div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </section>
 
+            <!-- Section 6: 总结 -->
             <section>
                 <div style="text-align: left; max-width: 920px;">
-                    <h2>总结 · 从原型到生产级 API</h2>
+                    <h2>总结 · LLM 应用开发的进化路径</h2>
                     <ul class="text-secondary" style="font-size: 0.85em; line-height: 1.6;">
-                        <li>工程化：配额、重试、分支与可观测，降低运维压力。</li>
-                        <li>扩展性：Marketplace & Plugin & Tool，快速对接外部世界。</li>
-                        <li>协作性：低代码编排 + 高代码定制，团队共建资产库。</li>
+                        <li>范式升级：从低代码到高代码，Dify 实现可视化与工程能力的融合。</li>
+                        <li>生态扩展：插件、工具、Marketplace 构建开放、可复用的智能工作流。</li>
+                        <li>可观测性：全链路 Trace、异常穿透，保障生产级稳定与调试效率。</li>
+                        <li>协作共建：团队资产沉淀，支持多语言、多数据库，适配多场景。</li>
                     </ul>
                     <div style="margin-top: 26px; font-size: 0.9em;">
-                        <strong>Call for Action：</strong>欢迎提交 PR，贡献插件与案例，共建 Dify 生态。
+                        <strong>Call for Action：</strong>加入 Dify 社区，贡献插件、案例与最佳实践，共同推动 LLM 应用创新。
                     </div>
                 </div>
             </section>
 
+            <!-- Section 7: Thank You -->
             <section data-background-color="#f9fafb">
                 <div class="thankyou-wrap">
                     <div>
