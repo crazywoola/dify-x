@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Dify Style Presentation Template</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dify-blue: #0033ff; /* 核心品牌色 */
+            --dify-blue-light: rgba(0, 51, 255, 0.08);
+            --text-main: #111827; /* 接近黑色的深灰，参考 cover.png */
+            --text-secondary: #4b5563; /* 次要文字 */
+            --bg-card: #f3f4f6; /* 浅灰卡片背景 */
+            --bg-page: #ffffff;
+            
+            /* 字体栈 */
+            --font-stack: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        /* --- 基础排版设定 --- */
+        body {
+            background-color: var(--bg-page);
+            /* 弥散背景：模拟 customers.jpg 边缘的极柔和蓝光 */
+            background-image: 
+                radial-gradient(circle at 90% 10%, rgba(0, 51, 255, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 0% 90%, rgba(0, 51, 255, 0.04) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .reveal {
+            font-family: var(--font-stack);
+            color: var(--text-main);
+            font-size: 28px; /* 【关键】整体调小字号，更显精致 */
+        }
+
+        /* 标题风格 - 参考 cover.png */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            text-transform: none;
+            font-family: var(--font-stack);
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            text-align: left; /* 强制左对齐 */
+        }
+
+        .reveal h1 { font-size: 2.8em; line-height: 1.1; margin-bottom: 0.5em; }
+        .reveal h2 { font-size: 1.8em; line-height: 1.2; margin-bottom: 0.8em; }
+        .reveal h3 { font-size: 1.2em; font-weight: 600; }
+
+        /* 强调色文字 */
+        .text-blue { color: var(--dify-blue) !important; }
+        .text-gray { color: var(--text-secondary) !important; }
+
+        /* --- 布局组件 (Grid & Flex) --- */
+        
+        /* 1. Metric Grid (参考 github.jpg) */
+        .grid-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: left;
+            margin-top: 40px;
+        }
+        .metric-item {
+            border-left: 3px solid var(--dify-blue);
+            padding-left: 16px;
+        }
+        .metric-label {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            display: block;
+            font-weight: 600;
+        }
+        .metric-value {
+            font-size: 1.6em;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .metric-desc {
+            font-size: 0.6em;
+            color: var(--text-secondary);
+        }
+
+        /* 2. Feature Cards (参考 build-with-dify.jpg) */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+        .card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 1.5em; color: var(--dify-blue); margin-bottom: 12px; }
+        .card h4 { font-size: 0.9em; margin-bottom: 8px; }
+        .card p { font-size: 0.7em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+
+        /* 3. Split Layout (参考 maersk-example-compare.png) */
+        .split-container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            gap: 60px;
+        }
+        .col-half { flex: 1; text-align: left; }
+        
+        /* 红色/蓝色状态点 (参考 Maersk Before/After) */
+        .status-list { list-style: none; margin: 0; padding: 0; }
+        .status-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 0.8em;
+        }
+        .status-list li i { margin-right: 10px; margin-top: 2px; }
+        .status-bad i { color: #dc2626; } /* Red */
+        .status-good i { color: var(--dify-blue); } /* Blue */
+
+        /* 4. Architecture/Workflow Layout (参考 agentic-workflow.jpg) */
+        .workflow-header {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .workflow-step { flex: 1; }
+        .workflow-step i { 
+            font-size: 1.2em; 
+            color: var(--dify-blue); 
+            background: var(--dify-blue-light);
+            padding: 8px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .workflow-step strong { display: block; font-size: 0.75em; margin-bottom: 5px; }
+        .workflow-step p { font-size: 0.55em; color: var(--text-secondary); line-height: 1.4; }
+
+        /* 图片样式 */
+        .img-shadow {
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* 品牌 Logo */
+        .logo-fixed {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-family: var(--font-stack);
+            font-weight: 700;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        /* 垂直导航提示 */
+        .vertical-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 12px;
+            color: var(--dify-blue);
+            opacity: 0.5;
+        }
+
+        /* 联系方式 / 感谢页 */
+        .thankyou-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 900px;
+            text-align: left;
+            margin: 0 auto;
+        }
+        .contact-box {
+            background: var(--bg-card);
+            padding: 22px 24px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8em;
+        }
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .qr-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+        .qr-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #fff;
+        }
+        .qr-label {
+            margin-top: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* Outline 卡片 */
+        .outline-card {
+            background: linear-gradient(135deg, rgba(0, 51, 255, 0.06), rgba(0, 51, 255, 0.02));
+            border: 1px solid rgba(0, 51, 255, 0.08);
+            border-radius: 14px;
+            padding: 28px 30px;
+            box-shadow: 0 25px 60px -28px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+        }
+        .outline-card ol {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            line-height: 1.65;
+        }
+        .outline-card h4 {
+            margin: 0 0 12px;
+            font-size: 0.9em;
+            letter-spacing: 0.01em;
+            color: var(--dify-blue);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo-fixed">
+        D<span style="color: var(--dify-blue)">ify</span>
+    </div>
+    
+    <div class="vertical-hint">按键盘 ↓ 查看详情</div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <div style="text-align: left; max-width: 80%;">
+                    <h1>从 Low-Code 到 Pro-Code</h1>
+                    <h3 style="font-weight: 600; margin-top: 10px;">程序员如何驾驭 Dify 进行 LLM 应用开发</h3>
+                    <p class="text-secondary" style="font-size: 0.9em; margin-top: 30px; line-height: 1.6;">
+                        Dify x PUPU · 开源、可观测、可扩展的智能工作流与插件生态。
+                    </p>
+                    <div style="margin-top: 26px; font-size: 0.9em; font-weight: 600; color: var(--text-secondary);">
+                        郑立 · Dify 开源生态负责人
+                    </div>
+                    <div style="margin-top: 60px;">
+                        <span style="font-size: 0.6em; color: #9ca3af;">2025 / Sharing Deck</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div style="text-align: left; max-width: 950px;">
+                    <h2>议程 Outline</h2>
+                    <div class="outline-card">
+                        <h4>本次分享导航</h4>
+                        <ol>
+                            <li>破局 —— 下一代 LLM 应用开发范式</li>
+                            <li>融合 —— 打破“低代码”的刻板印象</li>
+                            <li>扩展 —— 构建你的军火库 (Marketplace & Plugins)</li>
+                            <li>连接 —— 事件驱动的自动化 (Trigger)</li>
+                            <li>洞察 —— 开源社区的极客精神</li>
+                            <li>总结 & Call for Action</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <section data-background-color="#f9fafb">
+                    <div style="text-align: left;">
+                        <h2>破局 · 下一代 LLM 应用开发范式</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">从痛点切入，思考 Dify 的技术定位。</p>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <img src="https://placehold.co/1000x360/edf2ff/1f2a44?text=Paradigm+Shift+Illustration" alt="范式转移示意图占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section>
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>1.1 现状痛点</h3>
+                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
+                                <li>模型接口碎片化：调用、计费、监控各自为政。</li>
+                                <li>迭代周期慢：Prompt/Workflow 更新缺少环境隔离与灰度。</li>
+                                <li>团队协作难：缺少统一资产库、复用与可观测手段。</li>
+                                <li>生产级要求：审计、指标、重试、配额等“工程化缺口”。</li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x420/e5e7eb/6b7280?text=Legacy+LLM+Stack+Pain+Points" alt="痛点示意图占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>1.2 Dify 的技术定位</h3>
+                            <p class="text-secondary" style="font-size: 0.8em;">一站式 LLM 应用平台：从构建、编排到运行。</p>
+                            <div class="grid-cards" style="grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 10px;">
+                                <div class="card">
+                                    <i class="ri-flow-chart card-icon"></i>
+                                    <h4>编排</h4>
+                                    <p>Workflow / Prompt Studio / RAG 管道。</p>
+                                </div>
+                                <div class="card">
+                                    <i class="ri-shield-check-line card-icon"></i>
+                                    <h4>工程化</h4>
+                                    <p>重试、分支、配额、环境隔离。</p>
+                                </div>
+                                <div class="card">
+                                    <i class="ri-plug-line card-icon"></i>
+                                    <h4>扩展</h4>
+                                    <p>Plugin & Tooling，开放能力对接外部系统。</p>
+                                </div>
+                                <div class="card">
+                                    <i class="ri-bar-chart-2-line card-icon"></i>
+                                    <h4>可观测</h4>
+                                    <p>Tracing / Token / 成本可视，保障生产稳定。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x420/0033ff/ffffff?text=Dify+Platform+Positioning" alt="Dify 定位图占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background-color="#f9fafb">
+                    <div style="text-align: left;">
+                        <h2>融合 · 打破“低代码”的刻板印象</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">低代码与高代码的辩证关系，如何共存与共赢。</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <img src="https://placehold.co/1000x340/f4f4f5/3b82f6?text=Low-Code+%3C-%3E+Pro-Code+Bridge" alt="低码与高码桥梁占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section>
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>2.1 低代码 vs 高代码</h3>
+                            <ul class="status-list">
+                                <li class="status-bad">
+                                    <i class="ri-close-circle-fill"></i>
+                                    <div>误区：低代码只能拖拽，缺乏可控性与扩展性。</div>
+                                </li>
+                                <li class="status-good">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div>辩证：低代码负责编排，Pro-Code 负责深逻辑与性能。</div>
+                                </li>
+                                <li class="status-good">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div>协作：可视化让产品/运营协同，代码沉淀可复用资产。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/e5e7eb/6b7280?text=Visual+Editor+%2B+Code+IDE" alt="可视化与代码协同占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>2.2 程序员最佳实践</h3>
+                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
+                                <li>使用环境与版本控制：Staging/Prod，安全灰度。</li>
+                                <li>组合节点与自定义 Code Node，将业务逻辑嵌入工作流。</li>
+                                <li>复用资产：Prompt 模板、组件化 Tool、共享连接器。</li>
+                                <li>自动化测试：利用 API Mock + Replay 校验模型升级。</li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/0033ff/ffffff?text=Best+Practice+Checklist" alt="最佳实践检查列表占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background-color="#f9fafb">
+                    <div style="text-align: left;">
+                        <h2>扩展 · 构建你的军火库</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">Marketplace & Plugins：把 Dify 当成“平台的基础设施”。</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <img src="https://placehold.co/1000x320/f3f4f6/111827?text=Plugin+Marketplace+Gallery" alt="插件市场占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section>
+                    <div style="text-align: left; margin-bottom: 20px;">
+                        <h3>3.1 Dify Plugin 架构解析</h3>
+                        <p class="text-secondary" style="font-size: 0.8em;">标准化接口、鉴权与多语言运行时。</p>
+                    </div>
+                    <div class="workflow-header" style="margin-bottom: 20px;">
+                        <div class="workflow-step">
+                            <i class="ri-terminal-window-line"></i>
+                            <strong>Runtime</strong>
+                            <p>隔离执行环境，控制超时与重试。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-key-2-line"></i>
+                            <strong>Auth</strong>
+                            <p>支持 API Key / OAuth / 内部凭据。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-exchange-dollar-fill"></i>
+                            <strong>Billing</strong>
+                            <p>调用计费与配额管理可插拔。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-box-3-line"></i>
+                            <strong>Packaging</strong>
+                            <p>Marketplace 发布与版本化。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/1000x260/e5e7eb/6b7280?text=Plugin+Architecture+Diagram" alt="插件架构图占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>3.2 实战：由浅入深开发一个 Tool</h3>
+                            <ol style="font-size: 0.8em; color: var(--text-secondary); line-height: 1.6; padding-left: 18px;">
+                                <li>定义 OpenAPI/JSON Schema 描述能力。</li>
+                                <li>实现 Handler：鉴权、参数校验、错误兜底。</li>
+                                <li>封装到 Marketplace：描述、版本、依赖。</li>
+                                <li>在 Workflow 中调用，结合 Memory 与分支。</li>
+                            </ol>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/0f172a/f8fafc?text=Tool+Execution+Logs" alt="工具调用日志占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background-color="#f9fafb">
+                    <div style="text-align: left;">
+                        <h2>连接 · 事件驱动的自动化</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">Trigger 让应用从“被动问答”迈向“主动执行”。</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <img src="https://placehold.co/1000x320/ebf5ff/1d4ed8?text=Event-Driven+Automation" alt="事件驱动自动化占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section>
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>4.1 Trigger 的本质</h3>
+                            <ul class="status-list">
+                                <li class="status-bad">
+                                    <i class="ri-close-circle-fill"></i>
+                                    <div>Passive Response：等待用户提问，缺少上下文与时效。</div>
+                                </li>
+                                <li class="status-good">
+                                    <i class="ri-checkbox-circle-fill"></i>
+                                    <div>Active Execution：事件驱动，自动拉起 Workflow 完成动作。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/e5e7eb/6b7280?text=Event+Trigger+Flow" alt="事件触发流程占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div style="text-align: left; margin-bottom: 14px;">
+                        <h3>4.2 场景演示</h3>
+                        <p class="text-secondary" style="font-size: 0.8em;">外部 Webhook -> Dify 解析 Payload -> LLM 决策 -> 输出结果。</p>
+                    </div>
+                    <div class="workflow-header">
+                        <div class="workflow-step">
+                            <i class="ri-global-line"></i>
+                            <strong>Webhook</strong>
+                            <p>接收外部事件，校验签名。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-cpu-line"></i>
+                            <strong>LLM Routing</strong>
+                            <p>基于上下文选择模型与链路。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-loop-left-line"></i>
+                            <strong>Action</strong>
+                            <p>调用 Plugin/Tool，写入结果。</p>
+                        </div>
+                        <div class="workflow-step">
+                            <i class="ri-bar-chart-line"></i>
+                            <strong>Observe</strong>
+                            <p>Tracing + Token 成本监控。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/1000x240/0033ff/ffffff?text=Trigger+Workflow+UI" alt="触发器工作流界面占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section data-background-color="#f9fafb">
+                    <div style="text-align: left;">
+                        <h2>洞察 · 开源社区的极客精神</h2>
+                        <p class="text-secondary" style="font-size: 0.8em;">透明、可观测、可移植的工程能力。</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <img src="https://placehold.co/1000x320/f3f4f6/0f172a?text=Open+Telemetry+%2B+Database+Flexibility" alt="开源洞察占位" class="img-shadow" style="width: 100%;">
+                    </div>
+                </section>
+
+                <section>
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>5.1 OTEL 全链路追踪</h3>
+                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
+                                <li>痛点：调用链长、Token 消耗不透明、延迟难定位。</li>
+                                <li>方案：OpenTelemetry 链路，指标 + 日志 + Trace 合一。</li>
+                                <li>收益：透明调优成本，支撑 A/B 与回放测试。</li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/0033ff/ffffff?text=Tracing+Dashboard" alt="Tracing 仪表盘占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="split-container">
+                        <div class="col-half">
+                            <h3>5.2 数据库适配的架构解耦</h3>
+                            <ul class="text-secondary" style="font-size: 0.8em; line-height: 1.6;">
+                                <li>从 PostgreSQL-only 到支持 MySQL：存储抽象层演进。</li>
+                                <li>SQLAlchemy 抽象：迁移、兼容性与性能调优。</li>
+                                <li>对开发者价值：自由选择存储栈，便于私有化部署。</li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <img src="https://placehold.co/620x380/e5e7eb/6b7280?text=DB+Abstraction+Layers" alt="数据库架构占位" class="img-shadow">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <div style="text-align: left; max-width: 920px;">
+                    <h2>总结 · 从原型到生产级 API</h2>
+                    <ul class="text-secondary" style="font-size: 0.85em; line-height: 1.6;">
+                        <li>工程化：配额、重试、分支与可观测，降低运维压力。</li>
+                        <li>扩展性：Marketplace & Plugin & Tool，快速对接外部世界。</li>
+                        <li>协作性：低代码编排 + 高代码定制，团队共建资产库。</li>
+                    </ul>
+                    <div style="margin-top: 26px; font-size: 0.9em;">
+                        <strong>Call for Action：</strong>欢迎提交 PR，贡献插件与案例，共建 Dify 生态。
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#f9fafb">
+                <div class="thankyou-wrap">
+                    <div>
+                        <h2>Thank You</h2>
+                        <p class="text-secondary" style="font-size: 0.8em; margin-top: -6px;">
+                            欢迎联系，我们乐于分享更多产品细节与案例。
+                        </p>
+                    </div>
+
+                    <div class="contact-box">
+                        <i class="ri-mail-line" style="color: var(--dify-blue); font-size: 1.2em;"></i>
+                        <div>
+                            <div style="font-weight: 600;">Contact</div>
+                            <div class="text-secondary" style="font-size: 0.9em;">banana@dify.ai</div>
+                        </div>
+                    </div>
+
+                    <div class="qr-grid">
+                        <div class="qr-card">
+                            <img src="../assets/xiaohongshu.png" alt="小红书 QR Code" class="img-shadow" style="box-shadow: none;">
+                            <div class="qr-label">小红书</div>
+                        </div>
+                        <div class="qr-card">
+                            <img src="../assets/bilibili.png" alt="哔哩哔哩 QR Code" class="img-shadow" style="box-shadow: none;">
+                            <div class="qr-label">哔哩哔哩</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            controlsLayout: 'edges',
+            progress: true,
+            center: true,
+            width: 1200, /* 宽屏设置，更适合展示左右分栏 */
+            height: 750,
+            transition: 'slide', // 默认横向切换
+            backgroundTransition: 'fade', // 背景淡入淡出
+            
+            // 插件加载
+            plugins: [ RevealHighlight ]
+        });
+    </script>
+</body>
+</html>
