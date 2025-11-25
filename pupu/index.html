@@ -18,8 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Loaded fallbacks: Inter, Noto Sans SC, Fira Code -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&family=Fira+Code&display=swap" rel="stylesheet">
-     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -39,17 +41,18 @@
             },
         };
     </script>
-   
+
 
     <style>
         :root {
-            --dify-blue: #0033ff; /* Dify Brand Color */
+            --dify-blue: #0033ff;
+            /* Dify Brand Color */
             --dify-blue-light: rgba(0, 51, 255, 0.08);
             --text-main: #111827;
             --text-secondary: #4b5563;
             --bg-card: #f3f4f6;
             --bg-page: #ffffff;
-            
+
             /* Fonts Update: Söhne / MiSans priority */
             --font-stack: 'Söhne', 'MiSans', 'Inter', 'Noto Sans SC', sans-serif;
             --font-mono: 'Söhne Mono', 'Noto Sans Mono SC', 'Fira Code', monospace;
@@ -57,7 +60,7 @@
 
         body {
             background-color: var(--bg-page);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 90% 10%, rgba(0, 51, 255, 0.06) 0%, transparent 40%),
                 radial-gradient(circle at 0% 90%, rgba(0, 51, 255, 0.04) 0%, transparent 40%);
             background-attachment: fixed;
@@ -69,7 +72,10 @@
             font-size: 28px;
         }
 
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
             text-transform: none;
             font-family: var(--font-stack);
             font-weight: 700;
@@ -78,11 +84,25 @@
             text-align: left;
         }
 
-        .reveal h1 { font-size: 2.8em; line-height: 1.1; margin-bottom: 0.5em; }
-        .reveal h2 { font-size: 1.8em; line-height: 1.2; margin-bottom: 0.8em; }
-        .reveal h3 { font-size: 1.2em; font-weight: 600; }
-        
-        .reveal pre, .reveal code {
+        .reveal h1 {
+            font-size: 2.8em;
+            line-height: 1.1;
+            margin-bottom: 0.5em;
+        }
+
+        .reveal h2 {
+            font-size: 1.8em;
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .reveal pre,
+        .reveal code {
             font-family: var(--font-mono) !important;
         }
     </style>
@@ -93,7 +113,7 @@
     <div class="absolute top-10 left-10 font-bold text-2xl z-10" style="font-family: var(--font-stack);">
         D<span class="text-dify">if</span>y
     </div>
-    
+
     <div class="fixed bottom-5 right-5 text-xs text-dify opacity-50">按键盘 ↓ 查看详情</div>
 
     <div class="reveal">
@@ -122,42 +142,43 @@
                     <h2>Agenda</h2>
                     <div class="grid grid-cols-2 gap-x-[60px] gap-y-10 mt-10">
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">01</span>
+                            <span class="text-[1.2em] leading-none">🚀</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">范式破局</strong>
                                 <p class="text-xs text-text-secondary m-0 leading-[1.4]">LLM 应用开发的下一代标准与 Dify 定位。</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">02</span>
+                            <span class="text-[1.2em] leading-none">🤝</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">高低融合</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Visual DSL 与 Pro-Code 的辩证统一。</p>
+                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Visual DSL 与 Pro-Code 的辩证统一。
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">03</span>
+                            <span class="text-[1.2em] leading-none">🧰</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">生态扩展</strong>
                                 <p class="text-xs text-text-secondary m-0 leading-[1.4]">Marketplace、Plugins 与工具链构建。</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">04</span>
+                            <span class="text-[1.2em] leading-none">⚡</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">事件驱动</strong>
                                 <p class="text-xs text-text-secondary m-0 leading-[1.4]">Trigger 机制实现的自动化闭环。</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">05</span>
+                            <span class="text-[1.2em] leading-none">📊</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">全景洞察</strong>
                                 <p class="text-xs text-text-secondary m-0 leading-[1.4]">OpenTelemetry 全链路追踪与多库适配。</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="font-[var(--font-mono)] text-[1.2em] font-bold text-dify opacity-80 leading-none">06</span>
+                            <span class="text-[1.2em] leading-none">🎯</span>
                             <div>
                                 <strong class="block text-base mb-1.5 text-[var(--text-main)]">未来展望</strong>
                                 <p class="text-xs text-text-secondary m-0 leading-[1.4]">总结与 Call for Action。</p>
@@ -175,44 +196,58 @@
                         <p class="text-text-secondary" style="font-size: 0.8em;">从痛点切入，思考 Dify 的技术定位。</p>
                     </div>
                     <div style="margin-top: 40px;">
-                        <img src="assets/Paradigm+Shift+Illustration.png" alt="范式转移示意图" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Paradigm+Shift+Illustration.png" alt="范式转移示意图"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
                 <section>
                     <div class="text-left">
                         <h2>Community-Driven <br><span class="text-dify">Globally Recognized</span></h2>
-                        <p class="text-text-secondary text-[0.8em]">Ranked as one of the top 100 open-source repositories.</p>
+                        <p class="text-text-secondary text-[0.8em]">Ranked as one of the top 100 open-source
+                            repositories.</p>
                     </div>
 
                     <div class="grid grid-cols-3 gap-6 text-left mt-10">
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-install-line"></i> Install</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-install-line"></i> Install</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">1M+</span>
                             <span class="text-[0.6em] text-text-secondary">Powered by Dify</span>
                         </div>
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-star-line"></i> Popularity</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-star-line"></i> Popularity</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">120K+</span>
                             <span class="text-[0.6em] text-text-secondary">GitHub Stars</span>
                         </div>
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-global-line"></i> Global Reach</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-global-line"></i> Global Reach</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">150+</span>
                             <span class="text-[0.6em] text-text-secondary">Countries</span>
                         </div>
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-building-4-line"></i> Enterprise</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-building-4-line"></i> Enterprise</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">60+</span>
                             <span class="text-[0.6em] text-text-secondary">Industries</span>
                         </div>
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-team-line"></i> Contributors</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-team-line"></i> Contributors</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">1000+</span>
                             <span class="text-[0.6em] text-text-secondary">Open-source contributors</span>
                         </div>
                         <div class="border-l-4 border-dify pl-4">
-                            <span class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i class="ri-download-2-line"></i> Downloads</span>
+                            <span
+                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
+                                    class="ri-download-2-line"></i> Downloads</span>
                             <span class="text-[1.6em] font-bold leading-none mb-1 block">550M+</span>
                             <span class="text-[0.6em] text-text-secondary">Total downloads</span>
                         </div>
@@ -231,7 +266,8 @@
                             </ul>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="痛点示意图" class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="痛点示意图"
+                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
                         </div>
                     </div>
                 </section>
@@ -242,30 +278,38 @@
                             <h3>1.2 Dify 的技术定位</h3>
                             <p class="text-text-secondary text-[0.8em]">一站式 LLM 应用平台：从构建、编排到运行。</p>
                             <div class="grid grid-cols-2 gap-4 mt-2.5 text-left">
-                                <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                                <div
+                                    class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                     <i class="ri-flow-chart text-[1.5em] text-dify mb-3 block"></i>
                                     <h4 class="text-sm mb-2">编排</h4>
-                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Workflow / Prompt Studio / RAG 管道。</p>
+                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Workflow / Prompt Studio /
+                                        RAG 管道。</p>
                                 </div>
-                                <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                                <div
+                                    class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                     <i class="ri-shield-check-line text-[1.5em] text-dify mb-3 block"></i>
                                     <h4 class="text-sm mb-2">工程化</h4>
                                     <p class="text-xs text-text-secondary leading-[1.5] m-0">重试、分支、配额、环境隔离。</p>
                                 </div>
-                                <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                                <div
+                                    class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                     <i class="ri-plug-line text-[1.5em] text-dify mb-3 block"></i>
                                     <h4 class="text-sm mb-2">扩展</h4>
-                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Plugin & Tooling，开放能力对接外部系统。</p>
+                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Plugin &
+                                        Tooling，开放能力对接外部系统。</p>
                                 </div>
-                                <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                                <div
+                                    class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                     <i class="ri-bar-chart-2-line text-[1.5em] text-dify mb-3 block"></i>
                                     <h4 class="text-sm mb-2">可观测</h4>
-                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Tracing / Token / 成本可视，保障生产稳定。</p>
+                                    <p class="text-xs text-text-secondary leading-[1.5] m-0">Tracing / Token /
+                                        成本可视，保障生产稳定。</p>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Dify+Platform+Positioning.png" alt="Dify 定位图" class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Dify+Platform+Positioning.png" alt="Dify 定位图"
+                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
                         </div>
                     </div>
                 </section>
@@ -279,7 +323,8 @@
                         <p class="text-text-secondary" style="font-size: 0.8em;">不仅是降低门槛，更是高阶工程能力的“可视化映射”。</p>
                     </div>
                     <div style="margin-top: 30px;">
-                        <img src="assets/Visual+DSL&Observability.png" alt="可视化DSL与可观测性示意图" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Visual+DSL&Observability.png" alt="可视化DSL与可观测性示意图"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -311,7 +356,8 @@
                             </ul>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Workflow+as+Visual+DSL.png" alt="工作流即DSL" class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Workflow+as+Visual+DSL.png" alt="工作流即DSL"
+                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
                         </div>
                     </div>
                 </section>
@@ -323,20 +369,26 @@
                             利用 Dify 的可视化 DSL 处理 80% 的胶水逻辑，用 Pro-Code 解决 20% 的核心计算。
                         </p>
                         <div class="grid grid-cols-3 gap-5 text-left">
-                            <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                            <div
+                                class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                 <i class="ri-mind-map text-[1.5em] text-dify mb-3 block"></i>
                                 <h4 class="text-sm mb-2">可视编排 (DSL)</h4>
-                                <p class="text-xs text-text-secondary leading-[1.5] m-0">处理分支、循环、RAG 检索管道，利用可视化界面快速对齐业务需求。</p>
+                                <p class="text-xs text-text-secondary leading-[1.5] m-0">处理分支、循环、RAG
+                                    检索管道，利用可视化界面快速对齐业务需求。</p>
                             </div>
-                            <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                            <div
+                                class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                 <i class="ri-code-box-line text-[1.5em] text-dify mb-3 block"></i>
                                 <h4 class="text-sm mb-2">代码节点 (Code Node)</h4>
-                                <p class="text-xs text-text-secondary leading-[1.5] m-0">在工作流中嵌入 Python/Node.js 脚本，处理数据清洗与复杂数学计算。</p>
+                                <p class="text-xs text-text-secondary leading-[1.5] m-0">在工作流中嵌入 Python/Node.js
+                                    脚本，处理数据清洗与复杂数学计算。</p>
                             </div>
-                            <div class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
+                            <div
+                                class="bg-bg-card p-6 rounded-lg transition-transform duration-200 hover:-translate-y-1 text-left">
                                 <i class="ri-pulse-line text-[1.5em] text-dify mb-3 block"></i>
                                 <h4 class="text-sm mb-2">观测闭环 (Feedback)</h4>
-                                <p class="text-xs text-text-secondary leading-[1.5] m-0">利用 Trace ID 串联会话日志，反向优化 Prompt 与 代码逻辑。</p>
+                                <p class="text-xs text-text-secondary leading-[1.5] m-0">利用 Trace ID 串联会话日志，反向优化 Prompt
+                                    与 代码逻辑。</p>
                             </div>
                         </div>
                     </div>
@@ -348,10 +400,12 @@
                 <section data-background-color="#f9fafb">
                     <div style="text-align: left;">
                         <h2>扩展 · 构建你的军火库</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">Marketplace & Plugins：把 Dify 当成“平台的基础设施”。</p>
+                        <p class="text-text-secondary" style="font-size: 0.8em;">Marketplace & Plugins：把 Dify
+                            当成“平台的基础设施”。</p>
                     </div>
                     <div style="margin-top: 30px;">
-                        <img src="assets/Plugin+Marketplace+Gallery.png" alt="插件市场" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Plugin+Marketplace+Gallery.png" alt="插件市场"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -362,28 +416,33 @@
                     </div>
                     <div class="flex justify-between text-left gap-5 mb-5 flex-wrap">
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-terminal-window-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-terminal-window-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Runtime</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">隔离执行环境，控制超时与重试。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-key-2-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-key-2-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Auth</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">支持 API Key / OAuth / 内部凭据。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-exchange-dollar-fill text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-exchange-dollar-fill text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Billing</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">调用计费与配额管理可插拔。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-box-3-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-box-3-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Packaging</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">Marketplace 发布与版本化。</p>
                         </div>
                     </div>
                     <div>
-                        <img src="assets/Plugin+Architecture+Diagram.png" alt="插件架构图" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Plugin+Architecture+Diagram.png" alt="插件架构图"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -394,63 +453,75 @@
                             <p class="text-text-secondary text-[0.8em] mb-5">
                                 以开发一个 Slack 消息发送工具为例，演示 Dify 插件的“定义即开发”流程。
                             </p>
-                            <ol style="font-size: 0.7em; color: var(--text-secondary); line-height: 1.8; padding-left: 18px;">
-                                <li style="margin-bottom: 12px;">
-                                    <strong>Manifest 定义 (YAML):</strong><br>
-                                    定义插件元数据（Identity）和 Tool 参数（如 <code class="text-dify">bot_token</code>, <code class="text-dify">channel_id</code>）。
-                                </li>
-                                <li style="margin-bottom: 12px;">
-                                    <strong>代码实现 (Python):</strong><br>
-                                    继承 <code class="text-dify">Tool</code> 类，在 <code class="text-dify">_invoke</code> 方法中调用 Slack SDK 发送消息。
-                                </li>
-                                <li>
-                                    <strong>调试与发布:</strong><br>
-                                    本地验证 <code class="text-dify">invoke</code> 结果，打包发布至 Dify Marketplace。
-                                </li>
-                            </ol>
+                            <div class="text-[0.75em] text-text-secondary leading-[1.8] space-y-3">
+                                <div>🗂️ <strong>Manifest 定义 (YAML):</strong> 定义插件元数据（Identity）和 Tool 参数（如 <code class="text-dify">bot_token</code>, <code class="text-dify">channel_id</code>）。</div>
+                                <div>💻 <strong>代码实现 (Python):</strong> 继承 <code class="text-dify">Tool</code> 类，在 <code class="text-dify">_invoke</code> 方法中调用 Slack SDK 发送消息。</div>
+                                <div>✅ <strong>调试与发布:</strong> 本地验证 <code class="text-dify">invoke</code> 结果，打包发布至 Dify Marketplace。</div>
+                            </div>
                         </div>
                         <div class="flex-1 text-left">
                             <!-- Code Editor Window for Slack Bot -->
-                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 400px; overflow: hidden; display: flex; flex-direction: column;">
-                                
+                            <div
+                                style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 400px; overflow: hidden; display: flex; flex-direction: column;">
+
                                 <!-- Fake Tabs -->
-                                <div style="display: flex; gap: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
-                                    <div style="color: #fff; font-weight: 600; border-bottom: 2px solid var(--dify-blue); padding-bottom: 4px;">manifest.yaml</div>
+                                <div
+                                    style="display: flex; gap: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                    <div
+                                        style="color: #fff; font-weight: 600; border-bottom: 2px solid var(--dify-blue); padding-bottom: 4px;">
+                                        manifest.yaml</div>
                                     <div style="color: #888;">main.py</div>
                                 </div>
 
                                 <div style="overflow-y: auto; flex: 1;">
                                     <!-- YAML Content -->
                                     <div style="color: #569cd6;">identity:</div>
-                                    <div style="padding-left: 20px;">name: <span style="color: #ce9178;">slack_bot</span></div>
-                                    <div style="padding-left: 20px;">label: { en_US: <span style="color: #ce9178;">Slack Bot</span> }</div>
-                                    
+                                    <div style="padding-left: 20px;">name: <span
+                                            style="color: #ce9178;">slack_bot</span></div>
+                                    <div style="padding-left: 20px;">label: { en_US: <span style="color: #ce9178;">Slack
+                                            Bot</span> }</div>
+
                                     <div style="color: #569cd6; margin-top: 10px;">parameters:</div>
-                                    <div style="padding-left: 20px; color: #6a9955;"># 定义输入参数: Token (Secret) & Channel</div>
-                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">bot_token</span></div>
-                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">secret-input</span></div>
-                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">channel_id</span></div>
-                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span></div>
-                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">text</span></div>
-                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span></div>
+                                    <div style="padding-left: 20px; color: #6a9955;"># 定义输入参数: Token (Secret) & Channel
+                                    </div>
+                                    <div style="padding-left: 20px;">- name: <span
+                                            style="color: #ce9178;">bot_token</span></div>
+                                    <div style="padding-left: 30px;">type: <span
+                                            style="color: #ce9178;">secret-input</span></div>
+                                    <div style="padding-left: 20px;">- name: <span
+                                            style="color: #ce9178;">channel_id</span></div>
+                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span>
+                                    </div>
+                                    <div style="padding-left: 20px;">- name: <span style="color: #ce9178;">text</span>
+                                    </div>
+                                    <div style="padding-left: 30px;">type: <span style="color: #ce9178;">string</span>
+                                    </div>
 
                                     <!-- Divider -->
                                     <div style="height: 1px; background: #333; margin: 15px 0;"></div>
-                                    <div style="color: #888; font-size: 0.9em; margin-bottom: 5px;">// main.py Preview</div>
+                                    <div style="color: #888; font-size: 0.9em; margin-bottom: 5px;">// main.py Preview
+                                    </div>
 
                                     <!-- Python Content -->
-                                    <div><span style="color: #c586c0;">class</span> <span style="color: #dcdcaa;">SlackBotTool</span>(Tool):</div>
-                                    <div style="padding-left: 20px;"><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_invoke</span>(self, params: dict):</div>
+                                    <div><span style="color: #c586c0;">class</span> <span
+                                            style="color: #dcdcaa;">SlackBotTool</span>(Tool):</div>
+                                    <div style="padding-left: 20px;"><span style="color: #c586c0;">def</span> <span
+                                            style="color: #dcdcaa;">_invoke</span>(self, params: dict):</div>
                                     <div style="padding-left: 40px; color: #6a9955;"># 1. 获取凭据与参数</div>
-                                    <div style="padding-left: 40px;">token = params.get(<span style="color: #ce9178;">'bot_token'</span>)</div>
+                                    <div style="padding-left: 40px;">token = params.get(<span
+                                            style="color: #ce9178;">'bot_token'</span>)</div>
                                     <div style="padding-left: 40px;">client = WebClient(token=token)</div>
-                                    
-                                    <div style="padding-left: 40px; margin-top: 5px; color: #6a9955;"># 2. 执行业务逻辑 (Call SDK)</div>
+
+                                    <div style="padding-left: 40px; margin-top: 5px; color: #6a9955;"># 2. 执行业务逻辑 (Call
+                                        SDK)</div>
                                     <div style="padding-left: 40px;">res = client.chat_postMessage(</div>
-                                    <div style="padding-left: 60px;">channel=params.get(<span style="color: #ce9178;">'channel_id'</span>),</div>
-                                    <div style="padding-left: 60px;">text=params.get(<span style="color: #ce9178;">'text'</span>)</div>
+                                    <div style="padding-left: 60px;">channel=params.get(<span
+                                            style="color: #ce9178;">'channel_id'</span>),</div>
+                                    <div style="padding-left: 60px;">text=params.get(<span
+                                            style="color: #ce9178;">'text'</span>)</div>
                                     <div style="padding-left: 40px;">)</div>
-                                    <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> { <span style="color: #ce9178;">"result"</span>: res.data }</div>
+                                    <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> { <span
+                                            style="color: #ce9178;">"result"</span>: res.data }</div>
                                 </div>
                             </div>
                         </div>
@@ -466,7 +537,8 @@
                         <p class="text-text-secondary" style="font-size: 0.8em;">Trigger 让应用从“被动问答”迈向“主动执行”。</p>
                     </div>
                     <div style="margin-top: 30px;">
-                        <img src="assets/Event-Driven-Automation.png" alt="事件驱动自动化" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Event-Driven-Automation.png" alt="事件驱动自动化"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -486,7 +558,8 @@
                             </ul>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Event+Trigger+Flow.png" alt="事件触发流程" class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Event+Trigger+Flow.png" alt="事件触发流程"
+                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
                         </div>
                     </div>
                 </section>
@@ -494,32 +567,38 @@
                 <section data-background-color="#ffffff">
                     <div style="text-align: left; margin-bottom: 14px;">
                         <h3>4.2 场景演示</h3>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">外部 Webhook -> Dify 解析 Payload -> LLM 决策 -> 输出结果。</p>
+                        <p class="text-text-secondary" style="font-size: 0.8em;">外部 Webhook -> Dify 解析 Payload -> LLM 决策
+                            -> 输出结果。</p>
                     </div>
                     <div class="flex justify-between text-left gap-5 mb-10 flex-wrap">
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-global-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-global-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Webhook</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">接收外部事件，校验签名。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-cpu-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-cpu-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">LLM Routing</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">基于上下文选择模型与链路。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-loop-left-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-loop-left-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Action</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">调用 Plugin/Tool，写入结果。</p>
                         </div>
                         <div class="flex-1 min-w-[160px]">
-                            <i class="ri-bar-chart-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
+                            <i
+                                class="ri-bar-chart-line text-[1.2em] text-dify bg-dify-light p-2 rounded-full mb-2 inline-block"></i>
                             <strong class="block text-[0.75em] mb-1">Observe</strong>
                             <p class="text-[0.55em] text-text-secondary leading-[1.4]">Tracing + Token 成本监控。</p>
                         </div>
                     </div>
                     <div>
-                        <img src="assets/Event-Driven-Triggers.png" alt="触发器工作流界面" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/Event-Driven-Triggers.png" alt="触发器工作流界面"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -527,10 +606,14 @@
                     <div class="text-left max-w-[1000px]">
                         <h3>4.3 为什么需要 Trigger？</h3>
                         <ul class="text-text-secondary text-[0.8em] leading-[1.6] space-y-3 mt-4">
-                            <li><strong class="text-[var(--text-main)]">避免触发分散：</strong>UI 按钮、Cron、业务系统直调各自为政，难以排查和治理。</li>
-                            <li><strong class="text-[var(--text-main)]">让编排决定“何时启动”：</strong>把触发逻辑收回 Workflow 编排层，统一监听与路由。</li>
-                            <li><strong class="text-[var(--text-main)]">常驻后台的服务形态：</strong>Workflow 持续在线监听事件，满足条件即携带上下文启动。</li>
-                            <li><strong class="text-[var(--text-main)]">多路触发同盘编排：</strong>一个画布可配置多个 Trigger，先分支后汇合，逻辑一目了然。</li>
+                            <li><strong class="text-[var(--text-main)]">避免触发分散：</strong>UI 按钮、Cron、业务系统直调各自为政，难以排查和治理。
+                            </li>
+                            <li><strong class="text-[var(--text-main)]">让编排决定“何时启动”：</strong>把触发逻辑收回 Workflow
+                                编排层，统一监听与路由。</li>
+                            <li><strong class="text-[var(--text-main)]">常驻后台的服务形态：</strong>Workflow
+                                持续在线监听事件，满足条件即携带上下文启动。</li>
+                            <li><strong class="text-[var(--text-main)]">多路触发同盘编排：</strong>一个画布可配置多个
+                                Trigger，先分支后汇合，逻辑一目了然。</li>
                         </ul>
                     </div>
                 </section>
@@ -553,14 +636,16 @@
                                 <i class="ri-plug-2-line text-dify text-xl"></i>
                                 <div class="font-semibold text-sm">Plugin Trigger</div>
                             </div>
-                            <p class="text-text-secondary text-xs leading-[1.5] m-0">第三方事件驱动：PR 更新、工单变更、文档改动等。插件负责订阅和解析结构化 Payload，可一份订阅驱动多条 Workflow。</p>
+                            <p class="text-text-secondary text-xs leading-[1.5] m-0">第三方事件驱动：PR
+                                更新、工单变更、文档改动等。插件负责订阅和解析结构化 Payload，可一份订阅驱动多条 Workflow。</p>
                         </div>
                         <div class="bg-bg-card p-6 rounded-lg border border-black/5">
                             <div class="flex items-center gap-3 mb-3">
                                 <i class="ri-link text-dify text-xl"></i>
                                 <div class="font-semibold text-sm">Webhook Trigger</div>
                             </div>
-                            <p class="text-text-secondary text-xs leading-[1.5] m-0">面向自有/遗留系统。为每个 Trigger 生成唯一 HTTP URL，Query/Header/Body 直接转为变量；可将 Workflow 结果回传调用方。</p>
+                            <p class="text-text-secondary text-xs leading-[1.5] m-0">面向自有/遗留系统。为每个 Trigger 生成唯一 HTTP
+                                URL，Query/Header/Body 直接转为变量；可将 Workflow 结果回传调用方。</p>
                         </div>
                     </div>
                 </section>
@@ -571,16 +656,22 @@
                         <p class="text-text-secondary text-[0.8em] mb-6">结合 Plugin Trigger 与 LLM，让代码变更自动进入智能审查流程。</p>
                         <div class="grid grid-cols-3 gap-5 text-left">
                             <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                                <div class="text-xs font-semibold text-dify mb-1">Step 1 · 订阅事件</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">选择 GitHub Trigger 插件，订阅非 Draft 且目标为 main 的 PR 事件（打开/更新/关闭/合并）。</div>
+                            <div class="text-xs font-semibold text-dify mb-1">🛰️ 订阅事件</div>
+                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">选择 GitHub Trigger 插件，订阅非
+                                    Draft 且目标为 main 的 PR 事件（打开/更新/关闭/合并）。</div>
                             </div>
                             <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                                <div class="text-xs font-semibold text-dify mb-1">Step 2 · 变量入流</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">插件自动解析 Payload，输出 <code class="text-dify">action</code>、<code class="text-dify">pull_request</code>、<code class="text-dify">repository</code>、<code class="text-dify">sender</code> 供下游节点使用。</div>
+                            <div class="text-xs font-semibold text-dify mb-1">📥 变量入流</div>
+                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">插件自动解析 Payload，输出 <code
+                                        class="text-dify">action</code>、<code
+                                        class="text-dify">pull_request</code>、<code
+                                        class="text-dify">repository</code>、<code class="text-dify">sender</code>
+                                    供下游节点使用。</div>
                             </div>
                             <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                                <div class="text-xs font-semibold text-dify mb-1">Step 3 · LLM 审查与反馈</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">LLM 节点基于变量生成审查摘要，条件节点决定是否自动评论、请求变更或触发后续流水线。</div>
+                            <div class="text-xs font-semibold text-dify mb-1">🤖 LLM 审查与反馈</div>
+                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">LLM
+                                    节点基于变量生成审查摘要，条件节点决定是否自动评论、请求变更或触发后续流水线。</div>
                             </div>
                         </div>
                     </div>
@@ -596,7 +687,8 @@
                         <p class="text-text-secondary" style="font-size: 0.8em;">透明、可观测、可移植的工程能力。</p>
                     </div>
                     <div style="margin-top: 30px;">
-                        <img src="assets/OpenTelemetry+Database+Flexibility.png" alt="开源洞察" class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                        <img src="assets/OpenTelemetry+Database+Flexibility.png" alt="开源洞察"
+                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -606,55 +698,82 @@
                         <h2>5.1 OTEL 全链路追踪实战</h2>
                         <p class="text-text-secondary" style="font-size: 0.8em;">不仅是日志，更是贯穿 LLM 与 Infra 的“上帝视角”。</p>
                     </div>
-                    
+
                     <!-- 交互式架构图容器 -->
-                    <div style="margin-top: 40px; position: relative; height: 380px; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; padding: 20px; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08); display: flex; align-items: center; justify-content: center;">
-                        
+                    <div
+                        style="margin-top: 40px; position: relative; height: 380px; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; padding: 20px; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08); display: flex; align-items: center; justify-content: center;">
+
                         <!-- Left: App Layer -->
                         <div style="width: 25%; text-align: center; position: relative;">
-                            <div style="background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid var(--dify-blue); padding: 25px 15px; border-radius: 12px; color: var(--dify-blue); box-shadow: 0 8px 20px rgba(0,51,255,0.1); z-index: 2; position: relative;">
-                                <i class="ri-layout-grid-fill" style="font-size: 2em; margin-bottom: 10px; display: block;"></i>
+                            <div
+                                style="background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid var(--dify-blue); padding: 25px 15px; border-radius: 12px; color: var(--dify-blue); box-shadow: 0 8px 20px rgba(0,51,255,0.1); z-index: 2; position: relative;">
+                                <i class="ri-layout-grid-fill"
+                                    style="font-size: 2em; margin-bottom: 10px; display: block;"></i>
                                 <span style="font-weight: 700;">Workflow App</span>
-                                <div style="font-size: 0.5em; font-weight: 500; margin-top: 10px; color: var(--text-secondary); background: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 4px; display: inline-block;">Trace ID: T-1001</div>
+                                <div
+                                    style="font-size: 0.5em; font-weight: 500; margin-top: 10px; color: var(--text-secondary); background: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                    Trace ID: T-1001</div>
                             </div>
                         </div>
 
                         <!-- Connector -->
-                        <div style="width: 20%; position: relative; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 10px;">
-                            <div style="font-size: 0.6em; color: var(--dify-blue); font-weight: 600; background: #fff; z-index: 2; padding: 0 10px; margin-bottom: -13px;">Trace Link</div>
+                        <div
+                            style="width: 20%; position: relative; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 10px;">
+                            <div
+                                style="font-size: 0.6em; color: var(--dify-blue); font-weight: 600; background: #fff; z-index: 2; padding: 0 10px; margin-bottom: -13px;">
+                                Trace Link</div>
                             <div style="width: 100%; height: 2px; background: #e5e7eb; position: relative;">
-                                <div style="position: absolute; right: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #e5e7eb;"></div>
+                                <div
+                                    style="position: absolute; right: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #e5e7eb;">
+                                </div>
                             </div>
-                            <div style="font-size: 0.5em; color: var(--text-secondary); margin-top: 15px; text-align: center;">HTTP Header<br>Propagation</div>
+                            <div
+                                style="font-size: 0.5em; color: var(--text-secondary); margin-top: 15px; text-align: center;">
+                                HTTP Header<br>Propagation</div>
                         </div>
 
                         <!-- Right: Infra Layer -->
-                        <div style="width: 45%; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 25px; border-radius: 16px; position: relative;">
-                            <div style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 0.65em; font-weight: 600; color: var(--text-secondary);">Dify Infrastructure</div>
-                            
+                        <div
+                            style="width: 45%; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 25px; border-radius: 16px; position: relative;">
+                            <div
+                                style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 0.65em; font-weight: 600; color: var(--text-secondary);">
+                                Dify Infrastructure</div>
+
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                                 <!-- Python Side -->
-                                <div style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                                <div
+                                    style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
                                     <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
-                                        <i class="ri-python-line" style="vertical-align: middle; margin-right: 5px;"></i>API / Worker
+                                        <i class="ri-python-line"
+                                            style="vertical-align: middle; margin-right: 5px;"></i>API / Worker
                                     </div>
-                                    <div style="font-size: 0.55em; color: #059669; background: #ecfdf5; padding: 4px 8px; border-radius: 4px; display: inline-block;">● Monkey Patch</div>
+                                    <div
+                                        style="font-size: 0.55em; color: #059669; background: #ecfdf5; padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                        ● Monkey Patch</div>
                                 </div>
-                                
+
                                 <!-- Go Side -->
-                                <div style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                                <div
+                                    style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
                                     <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
-                                        <i class="ri-box-3-line" style="vertical-align: middle; margin-right: 5px;"></i>Plugin Daemon
+                                        <i class="ri-box-3-line"
+                                            style="vertical-align: middle; margin-right: 5px;"></i>Plugin Daemon
                                     </div>
-                                    <div style="font-size: 0.55em; color: #d97706; background: #fffbeb; padding: 4px 8px; border-radius: 4px; display: inline-block;">● Compile Probe</div>
+                                    <div
+                                        style="font-size: 0.55em; color: #d97706; background: #fffbeb; padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                                        ● Compile Probe</div>
                                 </div>
                             </div>
-                            
+
                             <!-- Downstream -->
-                            <div style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px; display: flex; gap: 10px; justify-content: center;">
-                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">Redis</span>
-                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">PostgreSQL</span>
-                                <span style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">VectorDB</span>
+                            <div
+                                style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px; display: flex; gap: 10px; justify-content: center;">
+                                <span
+                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">Redis</span>
+                                <span
+                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">PostgreSQL</span>
+                                <span
+                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">VectorDB</span>
                             </div>
                         </div>
 
@@ -668,44 +787,63 @@
                             <h3>技术内幕：无侵入探针</h3>
                             <p class="text-text-secondary" style="font-size: 0.7em;">
                                 面对 Dify 频繁的迭代，我们不能修改源码。
-                                方案：<strong>Monkey Patch (Python)</strong> 与 <strong>Compile-time Instrumentation (Go)</strong>。
+                                方案：<strong>Monkey Patch (Python)</strong> 与 <strong>Compile-time Instrumentation
+                                    (Go)</strong>。
                             </p>
                             <div class="outline-card" style="margin-top: 20px;">
                                 <h4>接入方案概览</h4>
                                 <ul style="font-size: 0.65em; line-height: 1.8; color: var(--text-secondary);">
-                                    <li><strong>API / Worker (Python):</strong> 使用 <code class="text-dify">aliyun-bootstrap</code> 动态劫持 Flask/Celery 入口，注入 Trace 上下文。</li>
-                                    <li><strong>Plugin-Daemon (Go):</strong> 修改 Dockerfile，在 <code class="text-dify">go build</code> 阶段注入 instgo 工具，自动插桩。</li>
+                                    <li><strong>API / Worker (Python):</strong> 使用 <code
+                                            class="text-dify">aliyun-bootstrap</code> 动态劫持 Flask/Celery 入口，注入 Trace 上下文。
+                                    </li>
+                                    <li><strong>Plugin-Daemon (Go):</strong> 修改 Dockerfile，在 <code
+                                            class="text-dify">go build</code> 阶段注入 instgo 工具，自动插桩。</li>
                                     <li><strong>Trace Link:</strong> 在 HTTP Header 中透传 TraceID，串联业务日志与基础设施。</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="flex-1 text-left">
                             <!-- Code Editor Window -->
-                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; position: relative;">
+                            <div
+                                style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.55em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; position: relative;">
                                 <!-- Window Controls -->
-                                <div style="display: flex; gap: 6px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
+                                <div
+                                    style="display: flex; gap: 6px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                                    <span
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
+                                    <span
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
+                                    <span
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                                     <span style="margin-left: auto; color: #888; font-size: 0.9em;">entrypoint.sh</span>
                                 </div>
-                                
+
                                 <div style="color: #6a9955; margin-bottom: 5px;"># 1. Python 启动脚本劫持</div>
-                                <div><span style="color: #c586c0;">if</span> [ "<span style="color: #9cdcfe;">$DEBUG</span>" = "<span style="color: #ce9178;">true</span>" ]; <span style="color: #c586c0;">then</span></div>
+                                <div><span style="color: #c586c0;">if</span> [ "<span
+                                        style="color: #9cdcfe;">$DEBUG</span>" = "<span
+                                        style="color: #ce9178;">true</span>" ]; <span
+                                        style="color: #c586c0;">then</span></div>
                                 <div style="padding-left: 20px;">exec flask run ...</div>
                                 <div><span style="color: #c586c0;">else</span></div>
                                 <div style="padding-left: 20px; color: #6a9955;"># 注入 aliyun-instrument</div>
-                                <div style="padding-left: 20px; background: rgba(255, 255, 255, 0.05); border-left: 2px solid #569cd6; padding-left: 10px;"><span style="color: #569cd6;">exec</span> <span style="color: #dcdcaa;">aliyun-instrument</span> gunicorn \</div>
+                                <div
+                                    style="padding-left: 20px; background: rgba(255, 255, 255, 0.05); border-left: 2px solid #569cd6; padding-left: 10px;">
+                                    <span style="color: #569cd6;">exec</span> <span
+                                        style="color: #dcdcaa;">aliyun-instrument</span> gunicorn \</div>
                                 <div style="padding-left: 40px;">--bind ... \</div>
                                 <div style="padding-left: 40px;">--workers ... \</div>
                                 <div style="padding-left: 40px;">app:app</div>
                                 <div><span style="color: #c586c0;">fi</span></div>
                                 <br>
                                 <div style="height: 1px; background: #333; margin: 15px 0;"></div>
-                                
+
                                 <div style="color: #6a9955; margin-bottom: 5px;">// 2. Go Dockerfile 编译插桩</div>
-                                <div><span style="color: #569cd6;">RUN</span> wget .../instgo-linux-amd64 -O instgo</div>
-                                <div style="background: rgba(255, 255, 255, 0.05); border-left: 2px solid #d97706; padding-left: 10px;"><span style="color: #569cd6;">RUN</span> ./instgo go build -o main cmd/server/main.go</div>
+                                <div><span style="color: #569cd6;">RUN</span> wget .../instgo-linux-amd64 -O instgo
+                                </div>
+                                <div
+                                    style="background: rgba(255, 255, 255, 0.05); border-left: 2px solid #d97706; padding-left: 10px;">
+                                    <span style="color: #569cd6;">RUN</span> ./instgo go build -o main
+                                    cmd/server/main.go</div>
                             </div>
                         </div>
                     </div>
@@ -717,44 +855,66 @@
                         <div class="flex-1 text-left">
                             <h3>5.1 技术深潜：Python Monkey Patch 原理</h3>
                             <p class="text-text-secondary" style="font-size: 0.7em;">
-                                <span style="color: var(--dify-blue);">aliyun-instrument</span> 的核心在于使用 <code>wrapt</code> 库在运行时劫持 Dify 关键方法。
+                                <span style="color: var(--dify-blue);">aliyun-instrument</span> 的核心在于使用
+                                <code>wrapt</code> 库在运行时劫持 Dify 关键方法。
                             </p>
-                            <div class="outline-card" style="margin-top: 20px; background: linear-gradient(135deg, #fff7ed 0%, #fff 100%); border-color: #fdba74;">
+                            <div class="outline-card"
+                                style="margin-top: 20px; background: linear-gradient(135deg, #fff7ed 0%, #fff 100%); border-color: #fdba74;">
                                 <h4 style="color: #d97706;">核心机制拆解</h4>
-                                <ul style="font-size: 0.65em; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">
-                                    <li><i class="ri-shuffle-line"></i> <strong>动态替换:</strong> 模块加载时，定位目标函数（如 <code>WorkflowRunner.run</code>），替换为 Wrapper。</li>
-                                    <li><i class="ri-eye-line"></i> <strong>上下文透明:</strong> <code>wrapt</code> 确保原函数的元数据（如 <code>__name__</code>）保持不变，对上层业务透明。</li>
-                                    <li><i class="ri-bug-line"></i> <strong>异常穿透:</strong> 捕获异常记录到 Span Event，随后原样抛出，不影响业务流。</li>
+                                <ul
+                                    style="font-size: 0.65em; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">
+                                    <li><i class="ri-shuffle-line"></i> <strong>动态替换:</strong> 模块加载时，定位目标函数（如
+                                        <code>WorkflowRunner.run</code>），替换为 Wrapper。</li>
+                                    <li><i class="ri-eye-line"></i> <strong>上下文透明:</strong> <code>wrapt</code>
+                                        确保原函数的元数据（如 <code>__name__</code>）保持不变，对上层业务透明。</li>
+                                    <li><i class="ri-bug-line"></i> <strong>异常穿透:</strong> 捕获异常记录到 Span
+                                        Event，随后原样抛出，不影响业务流。</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="flex-1 text-left">
                             <!-- Python Code Window -->
-                            <div style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.5em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 420px; overflow-y: auto;">
+                            <div
+                                style="background: #1e1e1e; border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.5em; color: #d4d4d4; box-shadow: 0 15px 40px rgba(0,0,0,0.4); text-align: left; height: 420px; overflow-y: auto;">
                                 <div style="color: #6a9955;"># Pseudo-code: Dify Instrumentation Logic</div>
                                 <div><span style="color: #c586c0;">import</span> wrapt</div>
-                                <div><span style="color: #c586c0;">from</span> opentelemetry <span style="color: #c586c0;">import</span> trace</div>
+                                <div><span style="color: #c586c0;">from</span> opentelemetry <span
+                                        style="color: #c586c0;">import</span> trace</div>
                                 <br>
-                                <div><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_instrument</span>(self, **kwargs):</div>
+                                <div><span style="color: #c586c0;">def</span> <span
+                                        style="color: #dcdcaa;">_instrument</span>(self, **kwargs):</div>
                                 <div style="padding-left: 20px; color: #6a9955;"># 1. 定位并劫持目标函数</div>
                                 <div style="padding-left: 20px;">wrapt.wrap_function_wrapper(</div>
-                                <div style="padding-left: 40px;"><span style="color: #ce9178;">"dify.core.workflow.runner"</span>,  <span style="color: #6a9955;"># Module</span></div>
-                                <div style="padding-left: 40px;"><span style="color: #ce9178;">"WorkflowRunner.run"</span>,         <span style="color: #6a9955;"># Method</span></div>
-                                <div style="padding-left: 40px;">self._trace_wrapper           <span style="color: #6a9955;"># Hook</span></div>
+                                <div style="padding-left: 40px;"><span
+                                        style="color: #ce9178;">"dify.core.workflow.runner"</span>, <span
+                                        style="color: #6a9955;"># Module</span></div>
+                                <div style="padding-left: 40px;"><span
+                                        style="color: #ce9178;">"WorkflowRunner.run"</span>, <span
+                                        style="color: #6a9955;"># Method</span></div>
+                                <div style="padding-left: 40px;">self._trace_wrapper <span style="color: #6a9955;">#
+                                        Hook</span></div>
                                 <div style="padding-left: 20px;">)</div>
                                 <br>
-                                <div><span style="color: #c586c0;">def</span> <span style="color: #dcdcaa;">_trace_wrapper</span>(self, wrapped, instance, args, kwargs):</div>
-                                <div style="padding-left: 20px;">tracer = trace.get_tracer(<span style="color: #ce9178;">"aliyun.dify"</span>)</div>
+                                <div><span style="color: #c586c0;">def</span> <span
+                                        style="color: #dcdcaa;">_trace_wrapper</span>(self, wrapped, instance, args,
+                                    kwargs):</div>
+                                <div style="padding-left: 20px;">tracer = trace.get_tracer(<span
+                                        style="color: #ce9178;">"aliyun.dify"</span>)</div>
                                 <div style="padding-left: 20px; color: #6a9955;"># 2. 开启 Span</div>
-                                <div style="padding-left: 20px;"><span style="color: #c586c0;">with</span> tracer.start_as_current_span(<span style="color: #ce9178;">"workflow.run"</span>) <span style="color: #c586c0;">as</span> span:</div>
+                                <div style="padding-left: 20px;"><span style="color: #c586c0;">with</span>
+                                    tracer.start_as_current_span(<span style="color: #ce9178;">"workflow.run"</span>)
+                                    <span style="color: #c586c0;">as</span> span:</div>
                                 <div style="padding-left: 40px; color: #6a9955;"># 3. 记录输入参数</div>
-                                <div style="padding-left: 40px;">span.set_attribute(<span style="color: #ce9178;">"user_id"</span>, kwargs.get(<span style="color: #ce9178;">"user_id"</span>))</div>
+                                <div style="padding-left: 40px;">span.set_attribute(<span
+                                        style="color: #ce9178;">"user_id"</span>, kwargs.get(<span
+                                        style="color: #ce9178;">"user_id"</span>))</div>
                                 <br>
                                 <div style="padding-left: 40px; color: #6a9955;"># 4. 执行原业务逻辑</div>
                                 <div style="padding-left: 40px;">result = wrapped(*args, **kwargs)</div>
                                 <br>
                                 <div style="padding-left: 40px; color: #6a9955;"># 5. 记录结果并返回</div>
-                                <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> result</div>
+                                <div style="padding-left: 40px;"><span style="color: #c586c0;">return</span> result
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -766,11 +926,11 @@
                         <h3>实战案例：定位“幽灵”报错</h3>
                         <p class="text-text-secondary" style="font-size: 0.8em;">场景：前端显示正常，RAG 检索结果却为空，Dify 业务日志无报错。</p>
                     </div>
-                    
+
                     <div class="grid grid-cols-3 gap-[25px]">
                         <!-- Step 1: Symptom -->
                         <div class="relative overflow-hidden rounded-lg border border-[#fee2e2] bg-[#fef2f2] p-5 text-left">
-                            <div class="absolute top-0 right-0 bg-[#dc2626] text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">Step 1</div>
+                            <div class="absolute top-0 right-0 bg-[#dc2626] text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">🛑</div>
                             <div class="text-[#dc2626] font-bold text-[0.8em] mb-2.5">
                                 <i class="ri-alarm-warning-line"></i> 发现异常
                             </div>
@@ -782,25 +942,29 @@
 
                         <!-- Step 2: Link -->
                         <div class="relative overflow-hidden rounded-lg border border-[#dbeafe] bg-[#eff6ff] p-5 text-left">
-                            <div class="absolute top-0 right-0 bg-dify text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">Step 2</div>
+                            <div class="absolute top-0 right-0 bg-dify text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">🔗</div>
                             <div class="text-dify font-bold text-[0.8em] mb-2.5">
                                 <i class="ri-link-m"></i> Trace Link
                             </div>
-                            <p class="text-[0.65em]">点击 Span 详情中的 "Infrastructure Link" 按钮，携带 Trace ID 跳转至 SLS/Jaeger。</p>
+                            <p class="text-[0.65em]">点击 Span 详情中的 "Infrastructure Link" 按钮，携带 Trace ID 跳转至 SLS/Jaeger。
+                            </p>
                             <div class="text-center mt-5">
-                                <button class="bg-dify text-white border-0 px-4 py-2 rounded text-[0.6em] shadow-[0_4px_6px_rgba(0,51,255,0.2)] cursor-pointer">View Infra Trace →</button>
+                                <button
+                                    class="bg-dify text-white border-0 px-4 py-2 rounded text-[0.6em] shadow-[0_4px_6px_rgba(0,51,255,0.2)] cursor-pointer">View
+                                    Infra Trace →</button>
                             </div>
                         </div>
 
                         <!-- Step 3: Root Cause -->
                         <div class="relative overflow-hidden rounded-lg border border-[#d1fae5] bg-[#ecfdf5] p-5 text-left">
-                            <div class="absolute top-0 right-0 bg-[#059669] text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">Step 3</div>
+                            <div class="absolute top-0 right-0 bg-[#059669] text-white text-[0.4em] px-2 py-0.5 rounded-bl-lg">🐞</div>
                             <div class="text-[#059669] font-bold text-[0.8em] mb-2.5">
                                 <i class="ri-bug-2-line"></i> 根因定位
                             </div>
                             <p class="text-[0.65em]">在 Worker 的底层 Span 中捕获到未抛出的异常堆栈，发现向量库版本不兼容。</p>
                             <div class="bg-white p-3 rounded-md mt-4 border border-dashed border-[#059669] text-left">
-                                <code class="text-[0.5em] text-[#059669] block break-words font-[var(--font-mono)]">ValueError: Weaviate version 1.19.0 not supported...</code>
+                                <code
+                                    class="text-[0.5em] text-[#059669] block break-words font-[var(--font-mono)]">ValueError: Weaviate version 1.19.0 not supported...</code>
                             </div>
                         </div>
                     </div>
@@ -812,7 +976,8 @@
                         <div class="flex-1 text-left">
                             <h3>5.2 数据库适配：架构解耦 (Schema)</h3>
                             <ul class="text-text-secondary text-[0.7em] leading-[1.6] mb-5">
-                                <li><strong>DB_TYPE 支持:</strong> <code class="text-dify">DatabaseConfig</code> 新增类型选择，支持 PostgreSQL, MySQL, OceanBase。</li>
+                                <li><strong>DB_TYPE 支持:</strong> <code class="text-dify">DatabaseConfig</code> 新增类型选择，支持
+                                    PostgreSQL, MySQL, OceanBase。</li>
                                 <li><strong>动态引擎:</strong> SQLAlchemy URI 与 Engine Options 根据类型动态调整。</li>
                                 <li><strong>配置更新:</strong> 移除 OceanBase 向量配置，统一管理。</li>
                             </ul>
@@ -830,21 +995,29 @@
                         </div>
                         <div class="flex-1 text-left">
                             <!-- Diagram for DB Architecture -->
-                            <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                                <div style="background: #eff6ff; padding: 10px; border-radius: 8px; display: inline-block; color: var(--dify-blue); font-weight: 700; font-size: 0.8em; width: 80%;">Dify API / Worker</div>
+                            <div
+                                style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                                <div
+                                    style="background: #eff6ff; padding: 10px; border-radius: 8px; display: inline-block; color: var(--dify-blue); font-weight: 700; font-size: 0.8em; width: 80%;">
+                                    Dify API / Worker</div>
                                 <div style="height: 30px; border-left: 2px dashed #cbd5e1; margin: 0 auto;"></div>
-                                <div style="background: #f3f4f6; padding: 8px; border-radius: 20px; font-size: 0.6em; color: var(--text-secondary); display: inline-block; border: 1px solid #e5e7eb;">SQLAlchemy Engine Factory</div>
+                                <div
+                                    style="background: #f3f4f6; padding: 8px; border-radius: 20px; font-size: 0.6em; color: var(--text-secondary); display: inline-block; border: 1px solid #e5e7eb;">
+                                    SQLAlchemy Engine Factory</div>
                                 <div style="height: 30px; border-left: 2px dashed #cbd5e1; margin: 0 auto;"></div>
                                 <div style="display: flex; justify-content: space-around; gap: 10px;">
-                                    <div style="border: 2px solid #0064a5; border-radius: 8px; padding: 10px; width: 80px;">
+                                    <div
+                                        style="border: 2px solid #0064a5; border-radius: 8px; padding: 10px; width: 80px;">
                                         <i class="ri-database-2-fill" style="color: #0064a5; font-size: 1.5em;"></i>
                                         <div style="font-size: 0.5em; font-weight: 600;">Postgres</div>
                                     </div>
-                                    <div style="border: 2px solid #e48e00; border-radius: 8px; padding: 10px; width: 80px;">
+                                    <div
+                                        style="border: 2px solid #e48e00; border-radius: 8px; padding: 10px; width: 80px;">
                                         <i class="ri-database-2-line" style="color: #e48e00; font-size: 1.5em;"></i>
                                         <div style="font-size: 0.5em; font-weight: 600;">MySQL</div>
                                     </div>
-                                    <div style="border: 2px solid #00a1ff; border-radius: 8px; padding: 10px; width: 80px;">
+                                    <div
+                                        style="border: 2px solid #00a1ff; border-radius: 8px; padding: 10px; width: 80px;">
                                         <i class="ri-cloud-line" style="color: #00a1ff; font-size: 1.5em;"></i>
                                         <div style="font-size: 0.5em; font-weight: 600;">OceanBase</div>
                                     </div>
@@ -856,33 +1029,41 @@
 
                 <!-- 5.3 CI/CD (Migration Versions) -->
                 <section data-background-color="#ffffff">
-                     <div class="flex h-full items-start gap-[60px]">
+                    <div class="flex h-full items-start gap-[60px]">
                         <div class="flex-1 text-left">
                             <h3>5.3 质量保障：差异化 CI/CD</h3>
                             <p class="text-text-secondary text-[0.8em]">
                                 为了保障 Schema 在不同数据库方言下的兼容性，引入了针对 MySQL 的独立迁移测试。
                             </p>
                             <ul class="text-text-secondary text-[0.7em] leading-[1.8] mt-5 space-y-2">
-                                <li><i class="ri-git-branch-line"></i> <strong>GitHub Actions 改造:</strong> 区分 Postgres 与 MySQL Service。</li>
-                                <li><i class="ri-test-tube-line"></i> <strong>Migration Test Job:</strong> 针对 MySQL 运行完整的 Alembic 迁移脚本，确保无语法错误。</li>
-                                <li><i class="ri-shield-check-line"></i> <strong>兼容性红线:</strong> 任何 Schema 变更必须同时通过双库测试。</li>
+                                <li><i class="ri-git-branch-line"></i> <strong>GitHub Actions 改造:</strong> 区分 Postgres 与
+                                    MySQL Service。</li>
+                                <li><i class="ri-test-tube-line"></i> <strong>Migration Test Job:</strong> 针对 MySQL
+                                    运行完整的 Alembic 迁移脚本，确保无语法错误。</li>
+                                <li><i class="ri-shield-check-line"></i> <strong>兼容性红线:</strong> 任何 Schema 变更必须同时通过双库测试。
+                                </li>
                             </ul>
                         </div>
                         <div class="flex-1 text-left">
                             <!-- Diagram for CI Pipeline -->
                             <div style="font-size: 0.6em; font-family: 'Fira Code', monospace;">
                                 <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                                    <div style="background: #e2e8f0; padding: 8px 15px; border-radius: 4px;">Pull Request</div>
+                                    <div style="background: #e2e8f0; padding: 8px 15px; border-radius: 4px;">Pull
+                                        Request</div>
                                     <div style="flex: 1; height: 2px; background: #cbd5e1; margin: 0 10px;"></div>
-                                    <div style="background: var(--dify-blue); color: #fff; padding: 8px 15px; border-radius: 4px;">Matrix Strategy</div>
+                                    <div
+                                        style="background: var(--dify-blue); color: #fff; padding: 8px 15px; border-radius: 4px;">
+                                        Matrix Strategy</div>
                                 </div>
-                                
+
                                 <div style="margin-left: 20px; border-left: 2px solid #cbd5e1; padding-left: 20px;">
-                                    <div style="background: #ecfdf5; border: 1px solid #059669; color: #059669; padding: 10px; border-radius: 6px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                    <div
+                                        style="background: #ecfdf5; border: 1px solid #059669; color: #059669; padding: 10px; border-radius: 6px; margin-bottom: 10px; display: flex; justify-content: space-between;">
                                         <span>Job: test-api (Postgres)</span>
                                         <i class="ri-checkbox-circle-fill"></i>
                                     </div>
-                                    <div style="background: #fffbeb; border: 1px solid #d97706; color: #d97706; padding: 10px; border-radius: 6px; display: flex; justify-content: space-between;">
+                                    <div
+                                        style="background: #fffbeb; border: 1px solid #d97706; color: #d97706; padding: 10px; border-radius: 6px; display: flex; justify-content: space-between;">
                                         <span>Job: migration-test (MySQL)</span>
                                         <i class="ri-loader-4-line"></i>
                                     </div>
@@ -896,22 +1077,28 @@
                 <section>
                     <div style="text-align: left; margin-bottom: 20px;">
                         <h3>5.4 代码重构：SQL 兼容性抽象</h3>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">用 Python Helper 与 ORM 方法替代方言特定的 Raw SQL。</p>
+                        <p class="text-text-secondary" style="font-size: 0.8em;">用 Python Helper 与 ORM 方法替代方言特定的 Raw
+                            SQL。</p>
                     </div>
-                    
+
                     <div class="grid grid-cols-2 gap-[30px]">
                         <!-- Date Time Helper -->
                         <div class="bg-bg-card p-5 rounded-lg text-left">
                             <h4 class="text-[0.8em] mb-2.5">Portable Date Functions</h4>
                             <p class="text-[0.6em] text-text-secondary mb-4">
-                                <code class="text-dify">convert_datetime_to_date</code> 封装了不同数据库的日期截断逻辑 (Postgres <code>date_trunc</code> vs MySQL <code>date_format</code>)。
+                                <code class="text-dify">convert_datetime_to_date</code> 封装了不同数据库的日期截断逻辑 (Postgres
+                                <code>date_trunc</code> vs MySQL <code>date_format</code>)。
                             </p>
-                            <div class="bg-[#1e1e1e] p-2.5 rounded-md text-[#d4d4d4] text-[0.45em] font-[var(--font-mono)] text-left">
+                            <div
+                                class="bg-[#1e1e1e] p-2.5 rounded-md text-[#d4d4d4] text-[0.45em] font-[var(--font-mono)] text-left">
                                 <div style="color: #6a9955;"># api/controllers/console/app/statistic.py</div>
                                 <div><span style="color: #c586c0;">def</span> convert_datetime_to_date(column):</div>
-                                <div style="padding-left: 10px;"><span style="color: #c586c0;">if</span> db.engine.name == <span style="color: #ce9178;">'postgresql'</span>:</div>
-                                <div style="padding-left: 20px;"><span style="color: #c586c0;">return</span> func.date_trunc(<span style="color: #ce9178;">'day'</span>, column)</div>
-                                <div style="padding-left: 10px;"><span style="color: #c586c0;">return</span> func.date(column)</div>
+                                <div style="padding-left: 10px;"><span style="color: #c586c0;">if</span> db.engine.name
+                                    == <span style="color: #ce9178;">'postgresql'</span>:</div>
+                                <div style="padding-left: 20px;"><span style="color: #c586c0;">return</span>
+                                    func.date_trunc(<span style="color: #ce9178;">'day'</span>, column)</div>
+                                <div style="padding-left: 10px;"><span style="color: #c586c0;">return</span>
+                                    func.date(column)</div>
                             </div>
                         </div>
 
@@ -919,12 +1106,15 @@
                         <div class="bg-bg-card p-5 rounded-lg text-left">
                             <h4 class="text-[0.8em] mb-2.5">Metadata Filter Standardization</h4>
                             <p class="text-[0.6em] text-text-secondary mb-4">
-                                <code class="text-dify">dataset_retrieval.py</code> 移除 Raw SQL 片段，使用 SQLAlchemy JSON 方法增强类型安全。
+                                <code class="text-dify">dataset_retrieval.py</code> 移除 Raw SQL 片段，使用 SQLAlchemy JSON
+                                方法增强类型安全。
                             </p>
-                            <div class="bg-[#1e1e1e] p-2.5 rounded-md text-[#d4d4d4] text-[0.45em] font-[var(--font-mono)] text-left">
+                            <div
+                                class="bg-[#1e1e1e] p-2.5 rounded-md text-[#d4d4d4] text-[0.45em] font-[var(--font-mono)] text-left">
                                 <div style="color: #d16969;">- sql += f"meta->>'{key}' = '{value}'"</div>
                                 <div style="color: #6a9955;">+ filter_conditions.append(</div>
-                                <div style="color: #6a9955; padding-left: 10px;">+     Dataset.meta[key].as_string() == value</div>
+                                <div style="color: #6a9955; padding-left: 10px;">+ Dataset.meta[key].as_string() ==
+                                    value</div>
                                 <div style="color: #6a9955;">+ )</div>
                             </div>
                         </div>
@@ -933,48 +1123,77 @@
             </section>
 
             <!-- Section 6: 总结 -->
-            <section>
-                <div style="text-align: left; max-width: 920px;">
-                    <h2>总结 · LLM 应用开发的进化路径</h2>
-                    <ul class="text-text-secondary" style="font-size: 0.85em; line-height: 1.6;">
-                        <li>范式升级：低代码编排 + Pro-Code 深逻辑，加速从想法到落地。</li>
-                        <li>工程护栏：分支、重试、配额与可观测性，保障生产级稳定。</li>
-                        <li>生态扩展：Marketplace / Plugin / Tool，让外部能力即插即用。</li>
-                        <li>主动连接：Trigger 事件驱动，从被动问答走向自动执行。</li>
-                        <li>开源透明：OTEL 全链路 & 多数据库适配，便于私有化与调优。</li>
-                    </ul>
-                    <div style="margin-top: 26px; font-size: 0.9em;">
-                        <strong>Call for Action：</strong>欢迎提交 PR，贡献插件、案例与最佳实践，共建 Dify 生态。
+            <section data-background-color="#ffffff">
+                <div class="max-w-4xl mx-auto text-left space-y-7">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">总结 · LLM 应用开发的进化路径</h2>
+                        <p class="text-text-secondary text-[0.95em] leading-[1.75] mt-3">
+                            以统一编排为核心，叠加工程护栏、生态扩展与事件驱动，构建可观测、可演进的生产级 AI 应用。</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">🚀 范式升级</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">低代码编排 + Pro-Code
+                                深逻辑，压缩从想法到上线的路径。</p>
+                        </div>
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">🛡️ 工程护栏</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">重试、分支、配额、可观测性与治理策略，守护可靠性与安全性。
+                            </p>
+                        </div>
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">🔌 生态扩展</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">Marketplace / Plugin / Tool
+                                打通外部能力，形成可复用的资产库。</p>
+                        </div>
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">⚡ 事件驱动</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">Trigger 让 Workflow
+                                持续监听、主动执行，推动业务闭环自动化。</p>
+                        </div>
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">📊 数据与透明</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">OTEL 全链路 +
+                                多数据库抽象，便于私有化部署与性能调优。</p>
+                        </div>
+                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
+                            <h4 class="text-[1em] font-semibold mb-1.5">♻️ 持续演进</h4>
+                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">以架构可视化与治理规范为基线，迭代能力、沉淀最佳实践。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Section 7: Thank You -->
             <section data-background-color="#f9fafb">
-                <div class="flex flex-col gap-7 max-w-[900px] text-left mx-auto">
-                    <div>
-                        <h2>Thank You</h2>
-                        <p class="text-text-secondary text-[0.8em] mt-[-6px]">
-                            欢迎联系，我们乐于分享更多产品细节与案例。
-                        </p>
+                <div class="flex flex-col gap-10 max-w-[900px] text-left mx-auto">
+                    <div class="bg-white rounded-xl border border-black/5 px-10 py-12 shadow-sm flex flex-col items-start">
+                        <h2 class="text-3xl font-bold mb-4 text-dify">Thank You</h2>
+                        <div class="text-[1.05em] mb-3 font-semibold text-text-secondary">
+                            <span class="text-dify">Call for Action：</span>
+                            欢迎提交 PR，贡献插件、案例与最佳实践，共建 Dify 生态。
+                        </div>
                     </div>
 
-                    <div class="bg-bg-card px-6 py-[22px] rounded-[10px] border border-black/5 flex items-center gap-3 text-[0.8em]">
-                        <i class="ri-mail-line text-dify text-[1.2em]"></i>
+                    <div class="bg-bg-card px-7 py-6 rounded-xl border border-black/5 flex items-center gap-4 text-[0.9em]">
+                        <i class="ri-mail-line text-dify text-[1.3em]"></i>
                         <div>
-                            <div style="font-weight: 600;">Contact</div>
-                            <div class="text-text-secondary text-[0.9em]">banana@dify.ai</div>
+                            <div class="font-semibold">Contact</div>
+                            <div class="text-text-secondary text-[0.95em]">banana@dify.ai</div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-[repeat(2,_minmax(220px,_1fr))] gap-5 justify-items-center">
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5 text-center w-full max-w-[260px]">
-                            <img src="../assets/xiaohongshu.png" alt="小红书 QR Code" class="w-[200px] h-[200px] object-cover rounded-lg border border-black/5 bg-white mx-auto">
-                            <div class="mt-3 text-[0.75em] font-semibold text-text-secondary tracking-[0.02em]">小红书</div>
+                    <div class="grid grid-cols-2 gap-7 justify-items-center">
+                        <div class="bg-bg-card p-6 rounded-xl border border-black/5 text-center w-full max-w-[260px]">
+                            <img src="../assets/xiaohongshu.png" alt="小红书 QR Code"
+                                class="w-[180px] h-[180px] object-cover rounded-lg border border-black/5 bg-white mx-auto">
+                            <div class="mt-3 text-[0.8em] font-semibold text-text-secondary tracking-[0.02em]">小红书</div>
                         </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5 text-center w-full max-w-[260px]">
-                            <img src="../assets/bilibili.png" alt="哔哩哔哔 QR Code" class="w-[200px] h-[200px] object-cover rounded-lg border border-black/5 bg-white mx-auto">
-                            <div class="mt-3 text-[0.75em] font-semibold text-text-secondary tracking-[0.02em]">哔哩哔哩</div>
+                        <div class="bg-bg-card p-6 rounded-xl border border-black/5 text-center w-full max-w-[260px]">
+                            <img src="../assets/bilibili.png" alt="哔哩哔哩 QR Code"
+                                class="w-[180px] h-[180px] object-cover rounded-lg border border-black/5 bg-white mx-auto">
+                            <div class="mt-3 text-[0.8em] font-semibold text-text-secondary tracking-[0.02em]">哔哩哔哩</div>
                         </div>
                     </div>
                 </div>
@@ -985,7 +1204,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    
+
     <script>
         Reveal.initialize({
             hash: true,
@@ -997,10 +1216,11 @@
             height: 750,
             transition: 'slide', // 默认横向切换
             backgroundTransition: 'fade', // 背景淡入淡出
-            
+
             // 插件加载
-            plugins: [ RevealHighlight ]
+            plugins: [RevealHighlight]
         });
     </script>
 </body>
+
 </html>
