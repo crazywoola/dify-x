@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAG 的演进之路：从“状态”到“记忆” — Dify × Milvus</title>
+    <!-- Reveal.js core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="reveal-theme" />
+    <!-- Theme variables -->
+    <link rel="stylesheet" href="styles/dify-theme.css" />
+    <!-- Custom base + theme variants -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" id="theme-variant" href="styles/theme-swiss.css" />
+  </head>
+  <body>
+    <div class="brand">
+      <img alt="Dify" src="assets/dify-logo.svg" />
+    </div>
+    <div id="bg-shapes" aria-hidden="true"></div>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Slide 1: Title -->
+        <section lang="zh-CN" data-state="title">
+          <h1 class="title-big"><span class="emph">RAG</span> 的演进之路：<br/>从“<span class="emph">状态</span>”到“<span class="emph">记忆</span>”</h1>
+          <p class="subtitle"><span class="emph">Dify</span> × <span class="emph">Milvus</span> 联合技术分享</p>
+          <p class="meta">演讲者：郑立（Zheng Li）· Dify 开源生态负责人</p>
+          <p class="meta">Unstructured Data Meetup · 30 分钟</p>
+          <aside class="notes">
+            目的：设定主线——从“状态（State）”走向可运营的“记忆（Memory）”，把 RAG 当作记忆架构，而非一次性技巧。
+            术语：RAG（Retrieval‑Augmented Generation，检索增强生成）；状态（模型参数承载的静态知识）；记忆（外部、动态、可治理的知识）。
+            上下文：本次围绕三阶段（Naive/Advanced/Agentic）与“Knowledge Pipeline + 外环（评估/治理）”展开。
+            行动导向：最终给出工程抓手与落地步骤，强调 Dify × Milvus 的分工协作。
+          </aside>
+        </section>
+
+        <!-- Slide 2: Compute vs Memory -->
+        <section lang="zh-CN">
+          <h2>RAG 的真正价值：为 LLM 构建“<span class="emph">记忆</span>”</h2>
+          <ul>
+            <li>LLM 擅长“<strong>计算</strong>”，参数承载的是训练期的<strong>静态知识</strong>。</li>
+            <li>RAG 本质：为 LLM 挂载<strong class="emph">外部、动态的记忆</strong>（Memory）。</li>
+            <li class="callout">行业观点：<span class="mono emph">RAG 是一个谱系</span>。</li>
+            <li>核心问题：如何<strong class="emph">构建—管理—使用</strong>这份“记忆”？</li>
+          </ul>
+          <aside class="notes">
+            目标：回答“为什么需要 RAG”——为 LLM 补上持续更新的外部记忆层。
+            概念：计算（Compute）= 推理与生成；记忆（Memory）= 外部知识的构建/管理/使用。
+            引用：Latent Space × Chroma 提醒我们“RAG 是一个谱系（spectrum）”。
+            原语：命名并运营检索原语（dense/lexical/filters/re‑rank/assembly/eval），避免空泛的“RAG 即可”。
+          </aside>
+        </section>
+
+        <!-- Slide 3: Spectrum -->
+        <section lang="zh-CN">
+          <h2><span class="emph">RAG</span> 演进谱系（Agenda）</h2>
+          <ul>
+            <li><span class="emph">Naive RAG</span>：简易“状态”检索</li>
+            <li><span class="emph">Advanced RAG</span>：系统性提升“状态”质量</li>
+            <li><span class="emph">Agentic RAG</span>：让“记忆”成为 Agent 的一部分</li>
+            <li><span class="emph">Knowledge Pipeline</span>：高质量“记忆”的生产线</li>
+          </ul>
+          <aside class="notes">
+            解释：
+            - Naive RAG：最小可用检索增强，缺少质量与治理。
+            - Advanced RAG：按原语分解并工程化提质（混合召回/精排/上下文组装）。
+            - Agentic RAG：引入工具使用、查询重写与多步检索，具备“用记忆思考”。
+            关键：Knowledge Pipeline 决定“记忆”的上限，外环（评估/治理）确保可持续优化。
+          </aside>
+        </section>
+
+        <!-- Slide 4: Naive RAG -->
+        <section lang="zh-CN">
+          <h2>阶段一 · <span class="emph">Naive RAG</span>（简单“状态”检索）</h2>
+          <ul>
+            <li>流程：Query → Embedding → 向量检索（<span class="emph">Milvus</span>）→ Chunks → LLM</li>
+            <li>痛点：语义割裂、检索噪音、<span class="mono">Lost in the Middle</span></li>
+            <li>结论：能用但不好用 → 静态、低质量的“状态”</li>
+          </ul>
+          <aside class="notes">
+            定义：Embedding（嵌入）将文本映射为向量，用于语义相似度检索；Chunk（分块）便于索引与召回。
+            痛点：语义割裂（分块破坏上下文连贯）、检索噪声、Lost in the Middle（长上下文中部信息丢失）。
+            角色：Milvus 提供高效、可扩展的向量检索，但仅有召回不足以保证答案质量。
+            结论：Naive 阶段“能用但不好用”，必须走向质量工程与治理。
+          </aside>
+        </section>
+
+        <!-- Slide 5: Advanced RAG principles -->
+        <section lang="zh-CN">
+          <h2>阶段二 · <span class="emph">Advanced RAG</span>（系统性提质）</h2>
+          <div class="grid-2">
+            <div>
+              <h3>三条硬原则</h3>
+              <ul>
+                <li><strong class="emph">混合召回</strong>：向量 + 关键词/正则 + 元数据过滤；候选 <span class="emph">100–300</span></li>
+                <li><strong class="emph">先精排后组装</strong>：Cross-Encoder 或 <span class="emph">LLM 精排</span> → Top <span class="emph">20–40</span></li>
+                <li><strong class="emph">尊重 Context Rot</strong>：结构化、紧凑上下文胜过堆满窗口</li>
+              </ul>
+              <p class="meta">上下文组装：指令优先、去重合并、多样化来源、严格 Token 上限</p>
+              <p class="meta">行业建议：第一阶段混合召回 <span class="emph">200–300</span> 候选也可行；随后务必 <span class="emph">re‑rank</span> 再组装上下文。</p>
+            </div>
+            <div>
+              <h3>Dify 实践</h3>
+              <ul>
+                <li><strong class="emph">父子文档检索</strong>：命中子块，回传父块，兼顾精准与上下文完整</li>
+                <li><strong class="emph">Reranking</strong>：<span class="emph">Milvus</span> 快召回 → 精排后再喂入 LLM</li>
+                <li><strong class="emph">趋势</strong>：<span class="emph">LLM 充当精排器</span> 正在普及；成本/延迟下降后更偏向“<span class="emph">brute‑force</span>”式信息整理。</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            术语：
+            - 混合召回（Hybrid Recall）= 向量 + 词法/正则 + 元数据过滤；候选 100–300 合理。
+            - 精排（Re‑rank）= Cross‑Encoder 或 LLM 对候选相关性排序，产出 20–40。
+            - Context Rot = 上下文越长越混乱，质量劣化，需结构化/控长。
+            实战：父子文档检索（命中子块、返回父块）兼顾精准与语境；Milvus 先快召回，再精排、再组装。
+          </aside>
+        </section>
+
+        <section lang="zh-CN" class="scribble">
+          <h2>“别交付 <span class="emph">RAG</span>”，交付 <span class="emph">检索</span></h2>
+          <ul>
+            <li><strong>挑战</strong>：把方案叫“RAG”会掩盖关键设计取舍。</li>
+            <li class="callout"><strong>原语</strong>：dense、lexical/regex、filters、<span class="emph">re‑rank</span>、assembly、eval loop。</li>
+            <li><strong>行动</strong>：先赢下第一阶段<span class="emph">混合召回</span>（<span class="emph">200–300</span> 候选也可）。</li>
+            <li><strong>纪律</strong>：<span class="emph">始终先精排，再组装上下文</span>；尊重 <span class="emph">Context Rot</span>。</li>
+          </ul>
+          <aside class="notes">
+            观点：Don’t ship “RAG.” Ship retrieval（交付检索原语）。
+            定义：原语包括向量召回、词法匹配、过滤、精排、上下文组装、评估闭环。
+            原则：第一阶段混合召回构建候选池（100–300）；随后必做精排；上下文结构化并严格控长，防止 Context Rot。
+          </aside>
+        </section>
+
+        <!-- Slide Y: 思考片段 · 精排的未来与权衡 -->
+        <section lang="zh-CN" class="card">
+          <h2>思考 · 精排的未来与权衡</h2>
+          <ul>
+            <li><strong>趋势</strong>：<span class="emph">LLM 充当精排器</span> 将成主流；专用 re‑ranker 可能边缘化。</li>
+            <li><strong>现实</strong>：并行 <span class="emph">300</span> 次 LLM 精排的<span class="emph">尾延迟</span>在今天仍是问题。</li>
+            <li><strong>策略</strong>：短期混用（Cross‑Encoder + LLM）；中期靠缓存/切分减少尾延迟。</li>
+            <li><strong>远期</strong>：更廉价/更快的 LLM → <span class="emph">brute‑force</span> 信息整理变得可行。</li>
+          </ul>
+          <aside class="notes">
+            定义：Re‑rank（精排）对候选进行相关性排序；尾延迟（Tail Latency）指大规模并发中最慢请求导致的整体等待。
+            策略：阶段性采用交叉编码器；针对热门查询/中间结果做缓存；控制候选池与并发度。
+            展望：随着 LLM 变快变便宜，LLM‑based re‑ranking 将普及，形成“暴力但有效”的信息整理范式。
+          </aside>
+        </section>
+
+        <!-- Slide 6: Agentic RAG -->
+        <section lang="zh-CN">
+          <h2>阶段三 · <span class="emph">Agentic RAG</span>（从“状态”到“记忆”）</h2>
+          <ul>
+            <li>RAG 由被动流程 → Agent 的主动工具</li>
+            <li><span class="emph">查询重写</span>：先把问题问清楚，再去检索</li>
+            <li><span class="emph">多步推理/循环检索</span>：基于中间结果决定下一步行动</li>
+            <li><span class="emph">Dify</span>：在 Agent 编排中将 RAG 工具化，支持规划→检索→反思→迭代</li>
+          </ul>
+          <aside class="notes">
+            定义：Agentic = 具备目标分解、工具调用与反思能力的智能体；Query Rewriting = 将含混问题改写为可检索的结构化意图。
+            路径：规划 → 检索 → 反思 → 迭代（可循环），并将“记忆”作为可调用的第一等公民。
+            实战：检索可多轮进行（递归或树状）；工具编排包括搜索、代码执行、数据库/知识库访问等。
+            风险：回路失控需配合预算/时延护栏与阶段性评估。
+          </aside>
+        </section>
+
+        <!-- Slide 7: Knowledge Pipeline ingest -->
+        <section lang="zh-CN">
+          <h2>根基 · <span class="emph">Knowledge Pipeline</span>（“记忆”的生产线）</h2>
+          <div class="grid-2">
+            <div>
+              <h3>[Ingest]</h3>
+              <ul>
+                <li>解析 + 分块（领域感知：标题、代码块、表格）</li>
+                <li>富化：标题、锚点、符号、元数据</li>
+                <li>可选：块摘要（代码/API 的 <span class="emph">NL gloss</span>）</li>
+                <li>嵌入：向量（dense）+ 可选<span class="emph">稀疏信号</span></li>
+                <li>写入 <span class="emph">Milvus</span>（文本、向量、元数据）</li>
+              </ul>
+            </div>
+            <div>
+              <h3>[Query]</h3>
+              <ul>
+                <li>第一阶段<span class="emph">混合召回</span>：向量 + 词法/正则 + 元数据过滤</li>
+                <li>候选池：约 <span class="emph">100–300</span> → 精排至 Top <span class="emph">20–40</span></li>
+                <li>上下文组装：指令优先、去重合并、多样化、硬性 Token 上限</li>
+              </ul>
+            </div>
+          </div>
+          <p class="meta">定律：Garbage In, Garbage Out</p>
+          <aside class="notes">
+            解释：[Ingest] 从连接器到清洗/标准化 → 分块（标题/表格/代码保留结构）→ 富化（标题/锚点/实体标签）→ 嵌入（dense+可选 sparse）→ 写入 Milvus（字段映射与元数据）。
+            术语：NL gloss（自然语言注释）为代码/API 块生成人类可读摘要，提升检索可发现性。
+            扩展：支持 OCR/多模态、父子分块层次，保障长文的“全局‑局部”一致。
+            原则：Garbage In, Garbage Out——源头质量决定检索上限。
+          </aside>
+        </section>
+
+        <!-- Slide 8: Outer loop -->
+        <section lang="zh-CN">
+          <h2>外环（Outer Loop）：评估与运营闭环</h2>
+          <ul>
+            <li>缓存与成本护栏（<span class="emph">Guardrails</span>）</li>
+            <li>小规模黄金集（<span class="emph">Gold Set</span>）→ 接入 CI 与看板</li>
+            <li>误差分析：重分块/调过滤/精排 Prompt 调优</li>
+            <li><span class="emph">记忆压缩</span>：将交互轨迹总结为可检索事实（<span class="emph">Compaction</span>）</li>
+          </ul>
+          <p class="meta">实践贴士：花一个晚上（披萨之夜）打造小型 <span class="emph">Gold Set</span>，并接入 CI 与数据看板。</p>
+          <aside class="notes">
+            定义：
+            - Gold Set = 小规模标注集，用于回归测试与度量（召回/精排/答案一致性）。
+            - Guardrails = 成本/延迟/质量边界（缓存、预算、超时、重试策略）。
+            - Compaction = 将交互轨迹压缩为可检索事实，沉淀持久记忆。
+            实践：把金集接入 CI/看板，跟踪错误类型（召回不足/精排失败/组装噪声）。
+          </aside>
+        </section>
+
+        <!-- Slide 9: Reuse -->
+        <section lang="zh-CN">
+          <h2>“一次处理，多处使用”</h2>
+          <ul>
+            <li><span class="emph">解耦</span>：知识处理 ↔ 应用研发</li>
+            <li><span class="emph">复用</span>：一个 <span class="emph">Milvus</span> 知识库服务多个 <span class="emph">Dify</span> 应用</li>
+            <li>质量：统一治理“记忆”，持续抬高上层应用上限</li>
+          </ul>
+          <aside class="notes">
+            解释：将知识生产（管道）与应用研发解耦，可实现“一次处理，多处使用”。
+            效益：集中治理（版本/回滚/快照/回填/访问控制/PII）降低维护成本，质量提升可一体化下发。
+            架构：一个 Milvus 知识库面向多个 Dify 应用，复用检索与评估资产。
+          </aside>
+        </section>
+
+        <!-- Slide 10: Dify × Milvus roles -->
+        <section lang="zh-CN">
+          <h2><span class="emph">Dify</span> × <span class="emph">Milvus</span>：各司其职，协同增效</h2>
+          <div class="grid-2">
+            <div>
+              <h3><span class="emph">Milvus</span> = 记忆基座</h3>
+              <ul>
+                <li>存储/索引/高效召回向量与元数据</li>
+                <li>稳定、可靠、可扩展</li>
+              </ul>
+            </div>
+            <div>
+              <h3><span class="emph">Dify</span> = 记忆与应用中台</h3>
+              <ul>
+                <li><span class="emph">知识管道</span>：构建/管理/优化“记忆”（写入 <span class="emph">Milvus</span>）</li>
+                <li><span class="emph">应用引擎</span>：编排与使用“记忆”（<span class="emph">Advanced/Agentic RAG</span>）</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            角色：Milvus = 记忆基座（存/索/召回，结构化元数据 + 向量）；Dify = 记忆与应用中台（知识管道 + Agent 编排）。
+            协作：Dify 负责构建/治理“记忆”并调用；Milvus 负责高性能存储与检索。
+            治理：字段映射、分区、标签与访问控制为上层检索提供可解释性与可控性。
+          </aside>
+        </section>
+
+        <!-- Slide 11: Dify capabilities -->
+        <section lang="zh-CN">
+          <h2><span class="emph">Dify</span> 平台能力（一站式）</h2>
+          <ul>
+            <li><span class="emph">提示词工程</span>与评测</li>
+            <li><span class="emph">知识管道</span>：父子文档、混合召回、精排</li>
+            <li><span class="emph">Agent 编排</span>：工具化与可视化流程</li>
+            <li>全生命周期运营：日志、标注、分析</li>
+          </ul>
+          <aside class="notes">
+            说明：平台侧覆盖提示词工程、知识管道（父子分块/混合召回/精排）、Agent 工具编排与评估回放。
+            场景：客服知识库、内部问答、财务/报表分析、研发知识助理与代码检索。
+            建议：示例演示中突出“节点调试/中间变量查看/回放与评测面板”。
+          </aside>
+        </section>
+
+        <!-- Slide 12: Knowledge Pipeline Details -->
+        <section lang="zh-CN">
+          <h2><span class="emph">Knowledge Pipeline</span> 的核心特性</h2>
+          <div class="grid-2">
+            <div>
+              <h3>企业级数据源集成</h3>
+              <ul>
+                <li>本地文件：支持 30+ 格式（PDF、Word、Excel 等）</li>
+                <li>云存储：Google Drive、S3、Azure Blob 等</li>
+                <li>在线文档：Notion、Confluence、SharePoint</li>
+                <li>网页爬虫：Firecrawl、Jina、Bright Data</li>
+              </ul>
+            </div>
+            <div>
+              <h3>可视化调试与编排</h3>
+              <ul>
+                <li>可视化编排：从源连接到文档处理的全流程</li>
+                <li>实时调试：逐步测试、检查中间变量</li>
+                <li>标准化处理：发布后进入规范化流程</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            扩展：
+            - 连接器：文件/网页/API/代码仓库，多源统一接入。
+            - 处理：清洗/标准化、结构识别（表格/代码）、OCR/多模态富化。
+            - 写入：向量 + 稀疏信号与元数据入 Milvus，保持字段清晰可检索。
+            效益：可视化调试/编排降低门槛，标准化流程保障质量一致性。
+          </aside>
+        </section>
+
+        <!-- Slide 13: Pipeline Templates -->
+        <section lang="zh-CN">
+          <h2>预置模板与处理流程</h2>
+          <ul>
+            <li><strong class="emph">通用文档处理</strong>：经济型索引，适合大批量处理</li>
+            <li><strong class="emph">长文档处理</strong>：父子层级分块，保持精准度与全局语境</li>
+            <li><strong class="emph">表格数据提取</strong>：结构化问答对构建</li>
+            <li><strong class="emph">复杂 PDF 解析</strong>：针对性提取图表</li>
+            <li><strong class="emph">多模态富化</strong>：使用 LLM 描述图表，提升检索效果</li>
+          </ul>
+          <p class="meta">Pipeline 核心步骤：Extract（提取）→ Transform（转换）→ Load（加载）</p>
+          <aside class="notes">
+            定义：ETL = Extract/Transform/Load；模板将分块策略、富化规则、嵌入与写入参数固化为可复用配置。
+            治理：支持版本/回滚、快照/回填，便于大规模修复历史索引与对比评估。
+            价值：把经验沉淀到模板，减少个案式试错与人肉操作。
+          </aside>
+        </section>
+
+        <!-- Slide 14: Enterprise Benefits -->
+        <section lang="zh-CN">
+          <h2>企业级价值</h2>
+          <div class="grid-2">
+            <div>
+              <h3>降低门槛</h3>
+              <ul>
+                <li>业务团队可直接参与数据处理</li>
+                <li>可视化调试，快速定位问题</li>
+                <li>工程师专注核心开发工作</li>
+              </ul>
+            </div>
+            <div>
+              <h3>提升效率</h3>
+              <ul>
+                <li>处理流程模板化，可复用</li>
+                <li>灵活替换各环节组件</li>
+                <li>稳定架构，降低维护成本</li>
+              </ul>
+            </div>
+          </div>
+          <p class="meta">愿景：让企业非结构化数据处理变得简单、可靠、高效</p>
+          <aside class="notes">
+            价值：降低门槛（业务侧可参与）、提升效率（流程复用）、保障质量（统一治理与评估）。
+            安全：访问控制、PII 脱敏与审计在治理层统一实现，避免“各做一套”。
+            展望：知识处理的标准化/工程化基础设施，反哺上层多类应用。
+          </aside>
+        </section>
+
+        <!-- Slide 15: Summary -->
+        <section lang="zh-CN">
+          <h2>总结与行动</h2>
+          <ul>
+            <li><span class="emph">RAG</span> 正从“静态状态”进化为“动态记忆”。</li>
+            <li>“记忆”的上限由知识管道与外环评估决定。</li>
+            <li><span class="emph">Dify × Milvus</span> 提供“记忆构建—存储—使用”的端到端路径。</li>
+          </ul>
+          <aside class="notes">
+            回顾：RAG 的价值在于“记忆”的构建与使用；上限由 Knowledge Pipeline 与外环治理决定。
+            行动：
+            - 快速搭建小型 Gold Set + CI 看板。
+            - 启用混合召回 + 精排 + 结构化上下文组装。
+            - 以模板化管道沉淀经验，逐步引入 Agentic 流程。
+          </aside>
+        </section>
+
+        
+
+        <!-- Closing -->
+        <section lang="zh-CN" class="accent">
+          <div class="centered">
+            <img src="assets/dify-logo.svg" alt="Dify" class="logo-large" />
+            <h2>谢谢</h2>
+            <p class="meta">联系：banana@dify.ai · GitHub：dify</p>
+          </div>
+          <aside class="notes">
+            结束语：感谢参与；如需 Demo/PoC 讨论、数据接入建议与评估落地实践，欢迎邮件或 GitHub Issue 联系。
+            跟进：可提供样例 Gold Set、评估指标建议、Milvus 字段映射范式与父子分块最佳实践。
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        width: 1920,
+        height: 1080,
+        margin: 0.04,
+        controls: true,
+        progress: true,
+        slideNumber: 'c/t',
+        transition: 'fade',
+        plugins: [ RevealNotes ]
+      });
+
+      // Theme toggler: 1 = Swiss, 2 = Atelier (diffused gradient), 3 = Ukiyo (Japanese)
+      const themeLink = document.getElementById('theme-variant');
+      const indicator = document.createElement('div');
+      indicator.id = 'theme-indicator';
+      indicator.style.cssText = 'position:fixed;right:20px;top:20px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.5);color:#fff;font:14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial;z-index:999;opacity:0;transition:opacity .2s;';
+      document.body.appendChild(indicator);
+      const showIndicator = (text) => {
+        indicator.textContent = text;
+        indicator.style.opacity = '1';
+        clearTimeout(showIndicator._t);
+        showIndicator._t = setTimeout(()=>indicator.style.opacity='0', 1200);
+      };
+      const setTheme = (name) => {
+        themeLink.setAttribute('href', `styles/${name}.css`);
+        const label = name.replace('theme-','').replace('.css','');
+        showIndicator(`Theme: ${label}`);
+      };
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '1') setTheme('theme-swiss');
+        if (e.key === '2') setTheme('theme-atelier');
+        if (e.key === '3') setTheme('theme-ukiyo');
+      });
+
+      // Random background shapes generator (subtle, performance-aware)
+      (function(){
+        const c = document.getElementById('bg-shapes');
+        if (!c) return;
+        const render = () => {
+          c.innerHTML='';
+          const N = 9; // keep small for perf
+          const vw = window.innerWidth, vh = window.innerHeight;
+          for(let i=0;i<N;i++){
+            const d = document.createElement('div');
+            d.className = 'shape s' + (1 + (i%3));
+            const size = Math.round(160 + Math.random()*380);
+            const x = Math.round(Math.random() * (vw - size));
+            const y = Math.round(Math.random() * (vh - size));
+            d.style.width = d.style.height = size + 'px';
+            d.style.left = x + 'px';
+            d.style.top = y + 'px';
+            d.style.opacity = (0.08 + Math.random()*0.1).toFixed(2);
+            d.style.borderRadius = Math.random() > .5 ? '50%' : Math.round(16+Math.random()*32)+'px';
+            c.appendChild(d);
+          }
+        };
+        render();
+        let to;
+        window.addEventListener('resize', ()=>{
+          clearTimeout(to);
+          to = setTimeout(render, 120);
+        },{passive:true});
+      })();
+    </script>
+  </body>
+  </html>

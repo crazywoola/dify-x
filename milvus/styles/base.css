@@ -1,0 +1,89 @@
+/* Base styles shared across themes */
+:root{
+  --dify-blue:#0033ff;
+  --text:#0a0a0a;
+  --muted:#5d5d5d;
+}
+
+html,body{height:100%}
+body{
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-family:"Söhne","Inter","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  color:var(--text);
+}
+
+/* CJK override */
+.lang-cjk, .reveal section:lang(zh), .reveal section:lang(zh-CN), .reveal section:lang(ja){
+  font-family:"Mi Sans","PingFang SC","Noto Sans SC","Microsoft YaHei","Heiti SC",system-ui,sans-serif;
+}
+
+code, pre, .mono{
+  font-family:"Söhne Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+
+.reveal{z-index:1}
+.reveal .slides{text-align:left}
+.reveal h1,.reveal h2,.reveal h3{font-weight:800;letter-spacing:-0.02em}
+.reveal h1{font-size:96px}
+.reveal h2{font-size:60px}
+.reveal h3{font-size:40px;color:var(--muted)}
+.reveal p,.reveal li{font-size:34px;line-height:1.32}
+.reveal a{color:var(--dify-blue);text-decoration:none;border-bottom:1px solid rgba(0,51,255,.25)}
+.reveal strong{color:#111}
+.emph{color:var(--dify-blue);font-weight:800}
+mark{background:rgba(0,51,255,.12);color:inherit; padding:.05em .25em;border-radius:.2em}
+.hl{background:linear-gradient(transparent 60%, rgba(0,51,255,.18) 0);}
+.reveal ul{margin:.6em 0 0 1.1em}
+.reveal li+li{margin-top:.24em}
+
+/* Accent bullets (where supported) */
+.reveal ul{list-style:disc}
+.reveal ul li::marker{color:var(--dify-blue)}
+
+.brand{position:fixed;top:22px;left:28px;z-index:9;opacity:.92}
+.brand img{height:34px}
+
+.title-big{font-size:108px;line-height:1.03;margin-bottom:24px}
+.subtitle{font-size:40px;color:#111;opacity:.9}
+.meta{font-size:26px;color:var(--muted);margin-top:6px}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(0,51,255,.08);color:#0a0a0a;font-size:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.callout{border-left:6px solid rgba(0,51,255,.45);padding-left:14px}
+
+/* Scribble accent (optional) */
+.scribble{position:relative}
+.scribble::after{content:"";position:absolute;left:-6px;right:-6px;bottom:-4px;height:10px;background:repeating-linear-gradient(90deg,rgba(0,51,255,.28) 0 8px,rgba(0,51,255,.14) 8px 16px);transform:rotate(-1.2deg);filter:blur(1px);z-index:-1}
+
+/* Theme indicator styling moved to HTML inline for speed; kept class hook here if needed */
+#theme-indicator{backdrop-filter:saturate(140%) blur(6px)}
+
+/* Background random shapes */
+#bg-shapes{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#bg-shapes .shape{position:absolute;filter:blur(28px) saturate(115%);opacity:.12;transform:translate3d(0,0,0)}
+#bg-shapes .shape.s1{background:radial-gradient(closest-side, rgba(0,51,255,.5), transparent 70%)}
+#bg-shapes .shape.s2{background:conic-gradient(from 90deg, rgba(0,51,255,.35), transparent 45%, rgba(0,51,255,.15))}
+#bg-shapes .shape.s3{background:radial-gradient(closest-side, rgba(0,51,255,.32), transparent 65%)}
+
+/* Closing slide helpers */
+.centered{display:flex;min-height:60vh;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:18px}
+.logo-large{height:100px}
+
+/* Optional accent overlay per slide */
+section.accent{position:relative;overflow:hidden}
+section.accent::before{
+  content:""; position:absolute; inset:-10%; pointer-events:none; z-index:-1;
+  background:
+    radial-gradient(1200px 800px at 12% 10%, rgba(0,51,255,.14), transparent 60%),
+    radial-gradient(900px 700px at 88% 20%, rgba(0,51,255,.10), transparent 62%);
+}
+
+/* Card-like slide option */
+section.card{
+  background: rgba(255,255,255,0.92);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:22px;
+  box-shadow: 0 22px 48px -24px rgba(8,14,48,0.22), 0 6px 18px -10px rgba(8,14,48,0.12);
+  padding:22px 24px;
+  backdrop-filter: saturate(120%) blur(4px);
+}

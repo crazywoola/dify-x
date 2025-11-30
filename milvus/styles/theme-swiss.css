@@ -1,0 +1,19 @@
+/* Theme A: Swiss — minimal, confident, grid, subtle diffusion */
+body{
+  background:
+    radial-gradient(1200px 800px at 15% 20%, rgba(0,51,255,0.12), transparent 60%),
+    radial-gradient(1000px 700px at 85% 30%, rgba(0,51,255,0.08), transparent 62%),
+    #ffffff;
+}
+
+.reveal .slides{max-width: 1600px; margin: 0 auto;}
+.reveal h1,.reveal h2{text-transform:none}
+.reveal h1{letter-spacing:-0.03em}
+.reveal h2{letter-spacing:-0.02em}
+.callout{border-left-color:#0033ff}
+
+/* thin baseline for Swiss feel */
+.reveal section::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: 5%; height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
+}

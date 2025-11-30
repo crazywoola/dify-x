@@ -1,0 +1,22 @@
+/* Theme */
+:root {
+  --dify-primary: #0033ff;
+  --dify-black: #0e0f12;
+  --dify-dim: #5b6575;
+  --dify-midnight: #050816;
+  --dify-ink: #0d1330;
+  --dify-iris: #3346ff;
+  --dify-plasma: #63f4ff;
+  --dify-lilac: #a3acff;
+  --brand-white: #ffffff;
+  --brand-on-blue: #ffffff;
+  --surface-card: rgba(255, 255, 255, 0.94);
+  --surface-border: rgba(255, 255, 255, 0.48);
+  --surface-shadow: 0 28px 64px -32px rgba(8, 14, 48, 0.45);
+  --soft-blue: rgba(0, 51, 255, 0.08);
+  --line: #E5E7EB;
+  --muted: #6B7280;
+  --grid-baseline: 8px;
+  --grid-gutter: 24px;
+  --grid-columns: 12;
+}

@@ -1,0 +1,53 @@
+/* Theme C: Ukiyo — washi paper, indigo accents, hand‑drawn notes */
+/* Japanese-inspired minimalism; keep Dify Blue as primary */
+
+body{
+  color:#0a0a0a;
+  /* Washi paper base with subtle fibers and diffused indigo */
+  background:
+    radial-gradient(1000px 700px at 12% 10%, rgba(0,51,255,0.16), transparent 60%),
+    radial-gradient(900px 700px at 86% 18%, rgba(0,51,255,0.10), transparent 62%),
+    radial-gradient(800px 600px at 50% 120%, rgba(0,51,255,0.08), transparent 64%),
+    repeating-linear-gradient(135deg, rgba(15,23,42,0.03) 0 2px, rgba(15,23,42,0.0) 2px 6px),
+    #fbfbf7;
+}
+
+.reveal .slides{max-width: 1600px; margin: 0 auto;}
+.reveal h1,.reveal h2,.reveal h3{color:#0a0a0a; text-transform:none}
+.reveal p,.reveal li{color:#141414}
+.reveal a{color:#0033ff; border-bottom:1px solid rgba(0,51,255,.35)}
+
+/* Ukiyo-e brush underline for main headings */
+.reveal h1{letter-spacing:-0.02em}
+.reveal h2{letter-spacing:-0.01em; position:relative}
+.reveal h2::after{
+  content:""; position:absolute; left:-4px; right:-18%; bottom:-10px; height:12px;
+  background: linear-gradient(90deg, rgba(0,51,255,.35), rgba(0,51,255,.08));
+  transform: rotate(-1.2deg); filter: blur(1px) saturate(110%);
+  border-radius: 6px; pointer-events:none;
+}
+
+/* Hand-sketched card edges (optional) */
+section.card{
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 22px;
+  box-shadow:
+    0 22px 48px -24px rgba(8,14,48,0.25),
+    0 6px 18px -10px rgba(8,14,48,0.12);
+  backdrop-filter: saturate(120%) blur(4px);
+  padding: 22px 24px;
+}
+
+/* Callout indigo sash */
+.callout{border-left-color: rgba(0,51,255,.55)}
+
+/* Subtle canvas texture drift line */
+.reveal section::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: 6%; height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
+}
+
+/* Accents for scribble */
+.scribble::after{background: repeating-linear-gradient(90deg, rgba(0,51,255,0.28) 0 10px, rgba(0,51,255,0.12) 10px 20px)}
+
