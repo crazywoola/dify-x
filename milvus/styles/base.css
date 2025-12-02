@@ -87,3 +87,33 @@ section.card{
   padding:22px 24px;
   backdrop-filter: saturate(120%) blur(4px);
 }
+
+/* Language toggle */
+.lang-switch{
+  position:fixed;
+  top:20px;
+  right:24px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:999px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  font-size:14px;
+  z-index:12;
+}
+.lang-switch a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:999px;
+  transition:background .2s, color .2s;
+}
+.lang-switch a.active{
+  background:rgba(0,51,255,.12);
+  color:var(--dify-blue);
+}
+.lang-switch a:hover{color:var(--dify-blue);background:rgba(0,51,255,.08);}

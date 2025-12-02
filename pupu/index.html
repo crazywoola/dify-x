@@ -108,6 +108,41 @@
             font-family: var(--font-mono) !important;
         }
 
+        .lang-switch {
+            position: fixed;
+            top: 16px;
+            right: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            font-size: 14px;
+            z-index: 30;
+        }
+
+        .lang-switch a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-switch a.active {
+            background: rgba(0, 51, 255, 0.12);
+            color: var(--dify-blue);
+        }
+
+        .lang-switch a:hover {
+            color: var(--dify-blue);
+            background: rgba(0, 51, 255, 0.08);
+        }
+
         /* Milvus-style gradient shapes */
         #bg-shapes {
             position: fixed;
@@ -129,6 +164,12 @@
 </head>
 
 <body>
+
+    <div class="lang-switch">
+        <a class="active" href="index.html">中文</a>
+        <span>/</span>
+        <a href="index_en.html">EN</a>
+    </div>
 
     <div id="bg-shapes" aria-hidden="true">
         <div class="shape s1"></div>

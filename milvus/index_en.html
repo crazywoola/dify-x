@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Evolution of RAG: From State to Memory — Dify × Milvus</title>
+    <!-- Reveal.js core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="reveal-theme" />
+    <!-- Theme variables -->
+    <link rel="stylesheet" href="styles/dify-theme.css" />
+    <!-- Custom base + theme variants -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" id="theme-variant" href="styles/theme-swiss.css" />
+  </head>
+  <body>
+    <div class="lang-switch">
+      <a href="index.html">中文</a>
+      <span>/</span>
+      <a class="active" href="index_en.html">EN</a>
+    </div>
+    <div class="brand">
+      <img alt="Dify" src="assets/dify-logo.svg" />
+    </div>
+    <div id="bg-shapes" aria-hidden="true"></div>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Slide 1: Title -->
+        <section lang="en" data-state="title">
+          <h1 class="title-big">The Evolution of <span class="emph">RAG</span>:<br/>From <span class="emph">State</span> to <span class="emph">Memory</span></h1>
+          <p class="subtitle"><span class="emph">Dify</span> × <span class="emph">Milvus</span> Joint Tech Talk</p>
+          <p class="meta">Speaker: Zheng Li · Head of Open Source Ecosystem @ Dify</p>
+          <p class="meta">Unstructured Data Meetup · 30 minutes</p>
+          <aside class="notes">
+            Goal: set the storyline—from static "state" to operable "memory," treating RAG as a memory architecture rather than a one-off trick.
+            Terms: RAG = Retrieval-Augmented Generation; State = static knowledge baked into model weights; Memory = external, dynamic, governable knowledge.
+            Scope: three stages (Naive / Advanced / Agentic) plus the "Knowledge Pipeline + outer loop (eval/governance)."
+            Takeaway: end with engineering handles and rollout steps, highlighting Dify × Milvus roles.
+          </aside>
+        </section>
+
+        <!-- Slide 2: Compute vs Memory -->
+        <section lang="en">
+          <h2>The real value of RAG: give the LLM <span class="emph">memory</span></h2>
+          <ul>
+            <li>LLMs excel at <strong>compute</strong>; their weights hold <strong>static knowledge</strong> from training time.</li>
+            <li>RAG mounts an <strong class="emph">external, dynamic memory</strong> onto the model.</li>
+            <li class="callout">Industry view: <span class="mono emph">RAG is a spectrum</span>.</li>
+            <li>Key question: how do we <strong class="emph">build—govern—use</strong> that memory?</li>
+          </ul>
+          <aside class="notes">
+            Objective: answer "why RAG"—to add a continually refreshed external memory layer to the LLM.
+            Concepts: Compute = inference/generation; Memory = constructing/managing/using external knowledge.
+            Quote: Latent Space × Chroma remind us that "RAG is a spectrum."
+            Primitive thinking: name and operate the retrieval primitives (dense/lexical/filters/re-rank/assembly/eval) instead of the vague "just do RAG."
+          </aside>
+        </section>
+
+        <!-- Slide 3: Spectrum -->
+        <section lang="en">
+          <h2><span class="emph">RAG</span> spectrum (agenda)</h2>
+          <ul>
+            <li><span class="emph">Naive RAG</span>: simple "state" retrieval</li>
+            <li><span class="emph">Advanced RAG</span>: systematically upgrading the "state" quality</li>
+            <li><span class="emph">Agentic RAG</span>: turning memory into part of an agent</li>
+            <li><span class="emph">Knowledge Pipeline</span>: the production line for high-quality memory</li>
+          </ul>
+          <aside class="notes">
+            Explain:
+            - Naive RAG: minimal retrieval augmentation, lacking quality/governance.
+            - Advanced RAG: decompose into primitives and engineer quality (hybrid recall / re-rank / context assembly).
+            - Agentic RAG: add tool use, query rewriting, and multi-step retrieval—"thinking with memory."
+            Key: the Knowledge Pipeline sets the ceiling; the outer loop (eval/governance) keeps improving it.
+          </aside>
+        </section>
+
+        <!-- Slide 4: Naive RAG -->
+        <section lang="en">
+          <h2>Phase 1 · <span class="emph">Naive RAG</span> (simple state retrieval)</h2>
+          <ul>
+            <li>Flow: Query → Embedding → vector search (<span class="emph">Milvus</span>) → chunks → LLM</li>
+            <li>Pain: semantic breaks, noisy hits, <span class="mono">Lost in the Middle</span></li>
+            <li>Conclusion: usable but not delightful → static, low-quality "state"</li>
+          </ul>
+          <aside class="notes">
+            Definition: Embedding maps text to vectors for semantic similarity search; chunks make indexing/recall easier.
+            Pain: semantic breaks (chunking hurts coherence), retrieval noise, Lost in the Middle (mid-context loss in long prompts).
+            Role: Milvus delivers efficient, scalable vector search; recall alone does not guarantee answer quality.
+            Verdict: Naive means "works but meh"—you need quality engineering and governance next.
+          </aside>
+        </section>
+
+        <!-- Slide 5: Advanced RAG principles -->
+        <section lang="en">
+          <h2>Phase 2 · <span class="emph">Advanced RAG</span> (systematic quality lift)</h2>
+          <div class="grid-2">
+            <div>
+              <h3>Three hard rules</h3>
+              <ul>
+                <li><strong class="emph">Hybrid recall</strong>: vectors + keyword/regex + metadata filters; candidates <span class="emph">100–300</span></li>
+                <li><strong class="emph">Re-rank before assembly</strong>: Cross-Encoder or <span class="emph">LLM re-rank</span> → top <span class="emph">20–40</span></li>
+                <li><strong class="emph">Respect context rot</strong>: structured, tight context beats stuffing the window</li>
+              </ul>
+              <p class="meta">Context assembly: instruction-first, dedupe/merge, diversify sources, strict token budget</p>
+              <p class="meta">Industry tip: first-stage hybrid recall with <span class="emph">200–300</span> candidates is fine; <span class="emph">always re-rank</span> before assembling context.</p>
+            </div>
+            <div>
+              <h3>Dify practice</h3>
+              <ul>
+                <li><strong class="emph">Parent-child retrieval</strong>: hit child chunks, return parent blocks to balance precision and context</li>
+                <li><strong class="emph">Reranking</strong>: <span class="emph">Milvus</span> fast recall → re-rank → feed the LLM</li>
+                <li><strong class="emph">Trend</strong>: <span class="emph">LLM-as-reranker</span> is rising; as cost/latency drop, expect more <span class="emph">brute-force</span> style information cleanup.</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            Terms:
+            - Hybrid recall = vectors + lexical/regex + metadata filters; 100–300 candidates is reasonable.
+            - Re-rank = Cross-Encoder or LLM to order candidates, keep 20–40.
+            - Context rot = longer context decays quality; structure and shorten aggressively.
+            Practice: parent-child retrieval (hit child, return parent) balances precision and full context; Milvus recalls fast, then re-rank, then assemble.
+          </aside>
+        </section>
+
+        <section lang="en" class="scribble">
+          <h2>Don’t ship <span class="emph">RAG</span>; ship <span class="emph">retrieval</span></h2>
+          <ul>
+            <li><strong>Problem</strong>: calling it "RAG" hides the key design trade-offs.</li>
+            <li class="callout"><strong>Primitives</strong>: dense, lexical/regex, filters, <span class="emph">re-rank</span>, assembly, eval loop.</li>
+            <li><strong>Move</strong>: win the first phase with <span class="emph">hybrid recall</span> (<span class="emph">200–300</span> candidates is okay).</li>
+            <li><strong>Discipline</strong>: <span class="emph">always re-rank before context assembly</span>; respect <span class="emph">context rot</span>.</li>
+          </ul>
+          <aside class="notes">
+            View: Don’t ship "RAG." Ship retrieval primitives.
+            Definition: primitives = vector recall, lexical match, filters, re-rank, context assembly, eval loop.
+            Principle: build a first-stage hybrid pool (100–300), then re-rank, then structure/shorten context to avoid context rot.
+          </aside>
+        </section>
+
+        <!-- Slide Y: Thought on reranking -->
+        <section lang="en" class="card">
+          <h2>Thoughts · The future and trade-offs of re-ranking</h2>
+          <ul>
+            <li><strong>Trend</strong>: <span class="emph">LLM-as-reranker</span> will become mainstream; specialized rerankers may fade.</li>
+            <li><strong>Reality</strong>: firing <span class="emph">300</span> parallel LLM re-ranks still hurts <span class="emph">tail latency</span> today.</li>
+            <li><strong>Strategy</strong>: mix models short-term (Cross-Encoder + LLM); mid-term rely on caching/sharding to tame the tail.</li>
+            <li><strong>Future</strong>: cheaper/faster LLMs make <span class="emph">brute-force</span> info cleanup viable.</li>
+          </ul>
+          <aside class="notes">
+            Definition: re-rank orders candidates by relevance; tail latency = slowest request dominates total wait under parallelism.
+            Strategy: use cross-encoders for part of traffic; cache hot queries/intermediate results; control pool size and concurrency.
+            Outlook: as LLMs get faster/cheaper, LLM-based reranking becomes the default "brutal but effective" sorter.
+          </aside>
+        </section>
+
+        <!-- Slide 6: Agentic RAG -->
+        <section lang="en">
+          <h2>Phase 3 · <span class="emph">Agentic RAG</span> (state → memory)</h2>
+          <ul>
+            <li>RAG moves from passive flow to an active agent tool</li>
+            <li><span class="emph">Query rewriting</span>: clarify the ask before searching</li>
+            <li><span class="emph">Multi-step / looped retrieval</span>: decide next action from intermediate results</li>
+            <li><span class="emph">Dify</span>: turn RAG into tools inside agent orchestration—plan → retrieve → reflect → iterate</li>
+          </ul>
+          <aside class="notes">
+            Definition: Agentic = goal decomposition, tool calls, reflection; Query rewriting = turn vague asks into structured, retrievable intents.
+            Path: plan → retrieve → reflect → iterate (loop if needed), treating memory as a first-class callable.
+            Practice: retrieval can be multi-round (recursive/tree); tools include search, code, DB/knowledge access.
+            Risk: guardrails for budget/latency and stage-wise eval to avoid runaway loops.
+          </aside>
+        </section>
+
+        <!-- Slide 7: Knowledge Pipeline ingest -->
+        <section lang="en">
+          <h2>Foundation · <span class="emph">Knowledge Pipeline</span> (memory production line)</h2>
+          <div class="grid-2">
+            <div>
+              <h3>[Ingest]</h3>
+              <ul>
+                <li>Parse + chunk (domain-aware: headings, code blocks, tables)</li>
+                <li>Enrich: headings, anchors, symbols, metadata</li>
+                <li>Optional: block summaries (code/API <span class="emph">NL gloss</span>)</li>
+                <li>Embed: dense vectors + optional <span class="emph">sparse signals</span></li>
+                <li>Write to <span class="emph">Milvus</span> (text, vectors, metadata)</li>
+              </ul>
+            </div>
+            <div>
+              <h3>[Query]</h3>
+              <ul>
+                <li>First-stage <span class="emph">hybrid recall</span>: vectors + lexical/regex + metadata filters</li>
+                <li>Candidate pool: about <span class="emph">100–300</span> → re-rank to top <span class="emph">20–40</span></li>
+                <li>Context assembly: instruction-first, dedupe/merge, diversify, hard token cap</li>
+              </ul>
+            </div>
+          </div>
+          <p class="meta">Law: garbage in, garbage out</p>
+          <aside class="notes">
+            Explain: [Ingest] from connectors to cleaning/normalizing → chunking (keep headings/tables/code structures) → enrichment (titles/anchors/entity tags) → embedding (dense + optional sparse) → write into Milvus with clear fields/metadata.
+            Term: NL gloss = human-friendly summary for code/API blocks to improve discoverability.
+            Extras: OCR/multimodal, parent-child hierarchical chunks to keep global-local consistency on long docs.
+            Principle: garbage in, garbage out—the source quality sets the upper bound.
+          </aside>
+        </section>
+
+        <!-- Slide 8: Outer loop -->
+        <section lang="en">
+          <h2>Outer loop: evaluation and operational feedback</h2>
+          <ul>
+            <li>Cache + cost guardrails (<span class="emph">guardrails</span>)</li>
+            <li>Small <span class="emph">gold set</span> → plug into CI + dashboards</li>
+            <li>Error analysis: re-chunk / tweak filters / tune re-rank prompts</li>
+            <li><span class="emph">Memory compaction</span>: summarize interaction traces into retrievable facts (<span class="emph">compaction</span>)</li>
+          </ul>
+          <p class="meta">Tip: spend an evening (pizza night) to build a tiny <span class="emph">gold set</span> and wire it into CI and dashboards.</p>
+          <aside class="notes">
+            Definitions:
+            - Gold set = small labeled set for regression testing and metrics (recall/re-rank/answer fidelity).
+            - Guardrails = cost/latency/quality boundaries (cache, budgets, timeouts, retries).
+            - Compaction = compress traces into retrievable facts, forming durable memory.
+            Practice: attach the gold set to CI/boards; track error types (missing recall / failed re-rank / noisy assembly).
+          </aside>
+        </section>
+
+        <!-- Slide 9: Reuse -->
+        <section lang="en">
+          <h2>Process once, reuse everywhere</h2>
+          <ul>
+            <li><span class="emph">Decouple</span>: knowledge processing ↔ app development</li>
+            <li><span class="emph">Reuse</span>: one <span class="emph">Milvus</span> knowledge base serves multiple <span class="emph">Dify</span> apps</li>
+            <li>Quality: govern memory in one place, raise the ceiling for all downstream apps</li>
+          </ul>
+          <aside class="notes">
+            Explain: decouple knowledge production (pipeline) from app dev to "process once, use many." 
+            Benefit: centralized governance (versioning/rollback/snapshots/backfill/access/PII) cuts maintenance; quality lifts roll out uniformly.
+            Architecture: one Milvus knowledge base fronts multiple Dify apps, reusing retrieval and eval assets.
+          </aside>
+        </section>
+
+        <!-- Slide 10: Dify × Milvus roles -->
+        <section lang="en">
+          <h2><span class="emph">Dify</span> × <span class="emph">Milvus</span>: division of labor</h2>
+          <div class="grid-2">
+            <div>
+              <h3><span class="emph">Milvus</span> = memory foundation</h3>
+              <ul>
+                <li>Store/index/recall vectors and metadata efficiently</li>
+                <li>Stable, reliable, scalable</li>
+              </ul>
+            </div>
+            <div>
+              <h3><span class="emph">Dify</span> = memory + app platform</h3>
+              <ul>
+                <li><span class="emph">Knowledge pipeline</span>: build/manage/optimize memory (write to <span class="emph">Milvus</span>)</li>
+                <li><span class="emph">Application engine</span>: orchestrate and use memory (<span class="emph">Advanced/Agentic RAG</span>)</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            Roles: Milvus = memory base (store/index/recall vectors + metadata); Dify = memory & app platform (pipeline + agent orchestration).
+            Collaboration: Dify builds/governs memory and calls it; Milvus delivers high-performance storage/retrieval.
+            Governance: field mapping, partitions, tags, and access control make retrieval explainable and controllable.
+          </aside>
+        </section>
+
+        <!-- Slide 11: Dify capabilities -->
+        <section lang="en">
+          <h2><span class="emph">Dify</span> platform capabilities (one-stop)</h2>
+          <ul>
+            <li><span class="emph">Prompt engineering</span> and evaluation</li>
+            <li><span class="emph">Knowledge pipeline</span>: parent-child docs, hybrid recall, re-rank</li>
+            <li><span class="emph">Agent orchestration</span>: tool-augmented, visual workflows</li>
+            <li>Full lifecycle ops: logs, labeling, analytics</li>
+          </ul>
+          <aside class="notes">
+            Coverage: prompt engineering, knowledge pipelines (parent-child chunking/hybrid recall/re-rank), agent tool orchestration, eval/replay.
+            Scenarios: support, internal Q&A, finance/report analysis, engineering assistants and code retrieval.
+            Tip: showcase node debugging/intermediate variables/replay & eval panels in demos.
+          </aside>
+        </section>
+
+        <!-- Slide 12: Knowledge Pipeline Details -->
+        <section lang="en">
+          <h2><span class="emph">Knowledge Pipeline</span> core capabilities</h2>
+          <div class="grid-2">
+            <div>
+              <h3>Enterprise connectors</h3>
+              <ul>
+                <li>Local files: 30+ formats (PDF, Word, Excel, etc.)</li>
+                <li>Cloud storage: Google Drive, S3, Azure Blob, etc.</li>
+                <li>Online docs: Notion, Confluence, SharePoint</li>
+                <li>Web crawling: Firecrawl, Jina, Bright Data</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Visual debugging & orchestration</h3>
+              <ul>
+                <li>Canvas orchestration: source connect → document processing</li>
+                <li>Live debugging: step testing, inspect intermediate variables</li>
+                <li>Standardized pipelines: publish into managed flows</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            Extra:
+            - Connectors: files/web/API/repos—unified ingestion.
+            - Processing: clean/normalize, structure detection (tables/code), OCR/multimodal enrichment.
+            - Write: vectors + sparse signals + metadata into Milvus with clear fields.
+            Benefit: visual debugging/orchestration lowers the bar; standardized flows keep quality consistent.
+          </aside>
+        </section>
+
+        <!-- Slide 13: Pipeline Templates -->
+        <section lang="en">
+          <h2>Prebuilt templates & flows</h2>
+          <ul>
+            <li><strong class="emph">General document</strong>: cost-effective indexing for bulk corpora</li>
+            <li><strong class="emph">Long document</strong>: parent-child chunking to keep precision + global context</li>
+            <li><strong class="emph">Table extraction</strong>: build structured QA pairs</li>
+            <li><strong class="emph">Complex PDF parsing</strong>: targeted chart/figure extraction</li>
+            <li><strong class="emph">Multimodal enrichment</strong>: LLM-generated chart descriptions for better recall</li>
+          </ul>
+          <p class="meta">Pipeline core steps: Extract → Transform → Load</p>
+          <aside class="notes">
+            Definition: ETL = Extract/Transform/Load; templates capture chunking rules, enrichment, embedding, and write params as reusable configs.
+            Governance: versioning/rollback, snapshots/backfill make bulk fixes and A/B comparisons practical.
+            Value: bottle up hard-won patterns to avoid bespoke trial-and-error.
+          </aside>
+        </section>
+
+        <!-- Slide 14: Enterprise Benefits -->
+        <section lang="en">
+          <h2>Enterprise value</h2>
+          <div class="grid-2">
+            <div>
+              <h3>Lower the barrier</h3>
+              <ul>
+                <li>Business teams can participate directly</li>
+                <li>Visual debugging to spot issues fast</li>
+                <li>Engineers focus on core product work</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Boost efficiency</h3>
+              <ul>
+                <li>Templatized flows are reusable</li>
+                <li>Swap components flexibly</li>
+                <li>Stable architecture cuts maintenance cost</li>
+              </ul>
+            </div>
+          </div>
+          <p class="meta">Vision: make enterprise unstructured data processing simple, reliable, and efficient</p>
+          <aside class="notes">
+            Value: lower the barrier (business can join), raise efficiency (flow reuse), safeguard quality (unified governance & eval).
+            Security: access control, PII masking, and audit at the governance layer—avoid everyone building their own.
+            Outlook: standardized/engineered knowledge processing that powers many upper-layer apps.
+          </aside>
+        </section>
+
+        <!-- Slide 15: Summary -->
+        <section lang="en">
+          <h2>Summary & actions</h2>
+          <ul>
+            <li><span class="emph">RAG</span> is evolving from static "state" to dynamic "memory."</li>
+            <li>The ceiling of memory is set by the knowledge pipeline and outer-loop evaluation.</li>
+            <li><span class="emph">Dify × Milvus</span> provide an end-to-end path to build, store, and use memory.</li>
+          </ul>
+          <aside class="notes">
+            Recap: the value of RAG sits in building/using memory; the ceiling is defined by the Knowledge Pipeline and governance loop.
+            Actions:
+            - Build a small gold set + CI dashboard quickly.
+            - Enable hybrid recall + re-rank + structured context assembly.
+            - Template pipelines to codify learnings; gradually add agentic flows.
+          </aside>
+        </section>
+
+        <!-- Closing -->
+        <section lang="en" class="accent">
+          <div class="centered">
+            <img src="assets/dify-logo.svg" alt="Dify" class="logo-large" />
+            <h2>Thank you</h2>
+            <p class="meta">Contact: banana@dify.ai · GitHub: dify</p>
+          </div>
+          <aside class="notes">
+            Closing: thank you for joining; reach out for demo/PoC discussions, ingestion advice, or eval rollout tips.
+            Follow-up: we can share sample gold sets, metric suggestions, Milvus field mapping patterns, and parent-child chunking best practices.
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        width: 1920,
+        height: 1080,
+        margin: 0.04,
+        controls: true,
+        progress: true,
+        slideNumber: 'c/t',
+        transition: 'fade',
+        plugins: [ RevealNotes ]
+      });
+
+      // Theme toggler: 1 = Swiss, 2 = Atelier (diffused gradient), 3 = Ukiyo (Japanese)
+      const themeLink = document.getElementById('theme-variant');
+      const indicator = document.createElement('div');
+      indicator.id = 'theme-indicator';
+      indicator.style.cssText = 'position:fixed;right:20px;top:20px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.5);color:#fff;font:14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial;z-index:999;opacity:0;transition:opacity .2s;';
+      document.body.appendChild(indicator);
+      const showIndicator = (text) => {
+        indicator.textContent = text;
+        indicator.style.opacity = '1';
+        clearTimeout(showIndicator._t);
+        showIndicator._t = setTimeout(()=>indicator.style.opacity='0', 1200);
+      };
+      const setTheme = (name) => {
+        themeLink.setAttribute('href', `styles/${name}.css`);
+        const label = name.replace('theme-','').replace('.css','');
+        showIndicator(`Theme: ${label}`);
+      };
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '1') setTheme('theme-swiss');
+        if (e.key === '2') setTheme('theme-atelier');
+        if (e.key === '3') setTheme('theme-ukiyo');
+      });
+
+      // Random background shapes generator (subtle, performance-aware)
+      (function(){
+        const c = document.getElementById('bg-shapes');
+        if (!c) return;
+        const render = () => {
+          c.innerHTML='';
+          const N = 9; // keep small for perf
+          const vw = window.innerWidth, vh = window.innerHeight;
+          for(let i=0;i<N;i++){
+            const d = document.createElement('div');
+            d.className = 'shape s' + (1 + (i%3));
+            const size = Math.round(160 + Math.random()*380);
+            const x = Math.round(Math.random() * (vw - size));
+            const y = Math.round(Math.random() * (vh - size));
+            d.style.width = d.style.height = size + 'px';
+            d.style.left = x + 'px';
+            d.style.top = y + 'px';
+            d.style.opacity = (0.08 + Math.random()*0.1).toFixed(2);
+            d.style.borderRadius = Math.random() > .5 ? '50%' : Math.round(16+Math.random()*32)+'px';
+            c.appendChild(d);
+          }
+        };
+        render();
+        let to;
+        window.addEventListener('resize', () =>{
+          clearTimeout(to);
+          to = setTimeout(render, 120);
+        },{passive:true});
+      })();
+    </script>
+  </body>
+  </html>
