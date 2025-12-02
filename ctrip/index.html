@@ -33,7 +33,7 @@
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
             background-color: #ffffff;
             /* 弥散渐变背景：白色底 + 柔和的 Dify Blue 光晕 */
-            background-image: 
+            background-image:
                 radial-gradient(circle at 0% 0%, rgba(0, 51, 255, 0.08) 0%, transparent 60%),
                 radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 1) 0%, transparent 50%),
                 radial-gradient(circle at 100% 100%, rgba(0, 51, 255, 0.08) 0%, transparent 60%),
@@ -41,14 +41,16 @@
             background-attachment: fixed;
             height: 100vh;
             margin: 0;
-            overflow: hidden; /* 防止背景溢出 */
+            overflow: hidden;
+            /* 防止背景溢出 */
         }
 
         .reveal {
             font-size: 26px;
             /* 稍微调小字体以容纳更多干货 */
             position: relative;
-            z-index: 2; /* 确保内容在背景之上 */
+            z-index: 2;
+            /* 确保内容在背景之上 */
         }
 
         .reveal h1,
@@ -69,7 +71,8 @@
 
         /* Dify Node Visualization */
         .node-box {
-            background: rgba(255, 255, 255, 0.9); /* 稍微透明一点 */
+            background: rgba(255, 255, 255, 0.9);
+            /* 稍微透明一点 */
             backdrop-filter: blur(10px);
             border: 2px solid rgba(229, 231, 235, 0.8);
             border-radius: 12px;
@@ -99,7 +102,7 @@
 
         /* Code Block Styling */
         .reveal pre {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             width: 100%;
             margin-top: 20px;
             white-space: pre-wrap;
@@ -166,8 +169,10 @@
         #bg-shapes .shape {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px); /* 增加高斯模糊，制造弥散感 */
-            opacity: 0.5; /* 调整透明度，更通透 */
+            filter: blur(80px);
+            /* 增加高斯模糊，制造弥散感 */
+            opacity: 0.5;
+            /* 调整透明度，更通透 */
         }
 
         #bg-shapes .s1 {
@@ -189,25 +194,42 @@
         }
 
         #bg-shapes .s3 {
-             background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
-             width: 40vw;
-             height: 40vw;
-             top: 40%;
-             left: 30%;
-             filter: blur(50px);
-             opacity: 0.4;
-             animation: pulse 10s infinite;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+            width: 40vw;
+            height: 40vw;
+            top: 40%;
+            left: 30%;
+            filter: blur(50px);
+            opacity: 0.4;
+            animation: pulse 10s infinite;
         }
-        
+
         @keyframes float {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(40px, 60px); }
-            100% { transform: translate(0, 0); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 60px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.2); opacity: 0.2; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.2;
+            }
         }
     </style>
 </head>
@@ -228,142 +250,151 @@
     <div class="reveal">
         <div class="slides">
 
-        <!-- =========================================================
+            <!-- =========================================================
              SECTION 1: TITLE (Opening)
              ========================================================= -->
-        <section>
-            <div class="flex flex-col items-center justify-center h-full">
-                <div class="mb-6 p-4 bg-blue-50/80 backdrop-blur-sm rounded-full animate-bounce shadow-sm">
-                    <i class="fas fa-shield-cat text-6xl text-blue-600"></i>
-                </div>
-                <h1 class="text-5xl font-bold text-slate-800 mb-4">自动化风控：从入门到<span
-                        class="line-through text-gray-400 decoration-4">放弃</span>精通</h1>
-                <h3 class="text-2xl text-blue-600 mb-8">基于 Dify 工作流的"猫鼠游戏"实战指南</h3>
-                <p class="text-lg text-gray-700 mb-6 font-semibold">郑立 · DevRel @ Dify</p>
-                <div class="bg-slate-100/80 backdrop-blur-md p-6 rounded-lg text-left max-w-2xl border-l-4 border-blue-500 shadow-sm">
-                    <p class="text-lg text-slate-700 font-bold mb-2">👋 嘿，携程的伙伴们！</p>
-                    <p class="text-base text-slate-600">今天我们不讲枯燥的数学公式，我们聊聊如何用在风控这种场景中使用 Dify </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================================================
-             SECTION 1B: AGENDA
-             ========================================================= -->
-        <section>
-            <div class="max-w-5xl mx-auto text-left">
-                <h2 class="text-4xl font-bold text-slate-800 mb-6">Agenda</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🚦</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">开场 & 痛点</strong>
-                            <p class="text-sm text-slate-600 m-0">黄牛 / 羊毛党 / 黑产三板斧，为什么要用 Dify 而不是硬编码。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🧠</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">神话破解</strong>
-                            <p class="text-sm text-slate-600 m-0">迷思一：LLM 幻觉；迷思二：LLM 很慢 ➜ MADRA 辩论 + 分层防御。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">⚖️</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">两个“傻瓜”模型</strong>
-                            <p class="text-sm text-slate-600 m-0">简单线性归因 & 朴素贝叶斯，白盒+概率的黄金搭档。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🧩</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">Dify Workflow 拆解</strong>
-                            <p class="text-sm text-slate-600 m-0">数据富化 ➜ LLM 鉴诈 ➜ Python 判分，拖拉拽调参，分钟级上线。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🛡️</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">动态防御</strong>
-                            <p class="text-sm text-slate-600 m-0">动态策略、异动归因、对抗哲学：让攻击变成亏本生意。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🕵️‍♂️</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">CASE 007</strong>
-                            <p class="text-sm text-slate-600 m-0">谁偷走了 GMV？SQL 切片、Adtributor 算法、自动化侦探团。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🎭</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">携程实战剧场</strong>
-                            <p class="text-sm text-slate-600 m-0">演唱会抢票、酒店点评反注水，产品/运营/研发的打法清单。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                        <span class="text-2xl">🔒</span>
-                        <div>
-                            <strong class="block text-lg text-slate-800 mb-1">AI 安全进阶</strong>
-                            <p class="text-sm text-slate-600 m-0">红队对抗、思维链解释性、提示词注入防御，打造数字免疫系统。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================================================
-             SECTION 2: CONTEXT (Pain points)
-             ========================================================= -->
-        <section>
             <section>
-                <h2 class="text-left mb-8">为什么我们需要风控？<br><span
-                        class="text-gray-400 text-xl">因为这个世界充满了"爱"（薅羊毛的爱）</span></h2>
-                <div class="grid grid-cols-3 gap-6 mt-8">
-                    <div
-                        class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-red-500 transform hover:scale-105 transition duration-300">
-                        <div class="text-4xl mb-4 text-red-500"><i class="fas fa-bolt"></i></div>
-                        <h3 class="text-xl font-bold mb-2">黄牛 (The Flash)</h3>
-                        <p class="text-gray-600 text-sm">
-                            <span class="font-bold">特征：</span> 手速是单身30年的水平（其实是脚本）。<br>
-                            <span class="font-bold">目标：</span> 演唱会门票、春节回家票。<br>
-                            <span class="font-bold">危害：</span> 用户骂娘，服务器宕机。
-                        </p>
+                <div class="flex flex-col items-center justify-center h-full">
+                    <div class="mb-6 p-4 bg-blue-50/80 backdrop-blur-sm rounded-full animate-bounce shadow-sm">
+                        <i class="fas fa-shield-cat text-6xl text-blue-600"></i>
                     </div>
+                    <h1 class="text-5xl font-bold text-slate-800 mb-4">自动化风控：从入门到<span
+                            class="line-through text-gray-400 decoration-4">放弃</span>精通</h1>
+                    <h3 class="text-2xl text-blue-600 mb-8">基于 Dify 工作流的"猫鼠游戏"实战指南</h3>
+                    <p class="text-lg text-gray-700 mb-6 font-semibold">郑立 · DevRel @ Dify</p>
                     <div
-                        class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-orange-500 transform hover:scale-105 transition duration-300">
-                        <div class="text-4xl mb-4 text-orange-500"><i class="fas fa-sheep"></i></div>
-                        <h3 class="text-xl font-bold mb-2">羊毛党 (The Army)</h3>
-                        <p class="text-gray-600 text-sm">
-                            <span class="font-bold">特征：</span> 拥有5000个手机号，为了5块钱优惠券能和你拼命。<br>
-                            <span class="font-bold">目标：</span> 新客立减、免单活动。<br>
-                            <span class="font-bold">危害：</span> 营销经费像水一样流走。
-                        </p>
-                    </div>
-                    <div
-                        class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-gray-800 transform hover:scale-105 transition duration-300">
-                        <div class="text-4xl mb-4 text-gray-800"><i class="fas fa-mask"></i></div>
-                        <h3 class="text-xl font-bold mb-2">黑产 (The Mafia)</h3>
-                        <p class="text-gray-600 text-sm">
-                            <span class="font-bold">特征：</span> 专业团队，设备农场，猫池。<br>
-                            <span class="font-bold">目标：</span> 盗刷信用卡，洗钱。<br>
-                            <span class="font-bold">危害：</span> 警察叔叔会来找我们喝茶。
-                        </p>
+                        class="bg-slate-100/80 backdrop-blur-md p-6 rounded-lg text-left max-w-2xl border-l-4 border-blue-500 shadow-sm">
+                        <p class="text-lg text-slate-700 font-bold mb-2">👋 嘿，携程的伙伴们！</p>
+                        <p class="text-base text-slate-600">今天我们不讲枯燥的数学公式，我们聊聊如何用在风控这种场景中使用 Dify </p>
                     </div>
                 </div>
             </section>
 
+            <!-- =========================================================
+             SECTION 1B: AGENDA
+             ========================================================= -->
             <section>
-                <h2 class="text-left">Dify vs. 传统代码</h2>
-                <p class="text-left text-gray-500 mb-8">别再写几千行的 `if-else` 面条代码了，求求了 🙏</p>
+                <div class="max-w-5xl mx-auto text-left">
+                    <h2 class="text-4xl font-bold text-slate-800 mb-6">Agenda</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🚦</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">开场 & 痛点</strong>
+                                <p class="text-sm text-slate-600 m-0">黄牛 / 羊毛党 / 黑产三板斧，为什么要用 Dify 而不是硬编码。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🧠</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">神话破解</strong>
+                                <p class="text-sm text-slate-600 m-0">迷思一：LLM 幻觉；迷思二：LLM 很慢 ➜ MADRA 辩论 + 分层防御。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">⚖️</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">两个“傻瓜”模型</strong>
+                                <p class="text-sm text-slate-600 m-0">简单线性归因 & 朴素贝叶斯，白盒+概率的黄金搭档。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🧩</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">Dify Workflow 拆解</strong>
+                                <p class="text-sm text-slate-600 m-0">数据富化 ➜ LLM 鉴诈 ➜ Python 判分，拖拉拽调参，分钟级上线。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🛡️</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">动态防御</strong>
+                                <p class="text-sm text-slate-600 m-0">动态策略、异动归因、对抗哲学：让攻击变成亏本生意。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🕵️‍♂️</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">CASE 007</strong>
+                                <p class="text-sm text-slate-600 m-0">谁偷走了 GMV？SQL 切片、Adtributor 算法、自动化侦探团。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🎭</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">携程实战剧场</strong>
+                                <p class="text-sm text-slate-600 m-0">演唱会抢票、酒店点评反注水，产品/运营/研发的打法清单。</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                            <span class="text-2xl">🔒</span>
+                            <div>
+                                <strong class="block text-lg text-slate-800 mb-1">AI 安全进阶</strong>
+                                <p class="text-sm text-slate-600 m-0">红队对抗、思维链解释性、提示词注入防御，打造数字免疫系统。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <div class="grid grid-cols-2 gap-10">
-                    <div class="bg-red-50/90 backdrop-blur-sm p-6 rounded-lg relative overflow-hidden">
-                        <div class="absolute -right-4 -top-4 text-6xl opacity-10 rotate-12">💩</div>
-                        <h3 class="text-xl font-bold text-red-700 mb-4">😭 传统硬编码</h3>
-                        <pre class="text-xs bg-red-100 text-red-900 border-none p-2 rounded">
+            <!-- =========================================================
+             SECTION 2: CONTEXT (Pain points)
+             ========================================================= -->
+            <section>
+                <section>
+                    <h2 class="text-left mb-8">为什么我们需要风控？<br><span
+                            class="text-gray-400 text-xl">因为这个世界充满了"爱"（薅羊毛的爱）</span></h2>
+                    <div class="grid grid-cols-3 gap-6 mt-8">
+                        <div
+                            class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-red-500 transform hover:scale-105 transition duration-300">
+                            <div class="text-4xl mb-4 text-red-500"><i class="fas fa-bolt"></i></div>
+                            <h3 class="text-xl font-bold mb-2">黄牛 (The Flash)</h3>
+                            <p class="text-gray-600 text-sm">
+                                <span class="font-bold">特征：</span> 手速是单身30年的水平（其实是脚本）。<br>
+                                <span class="font-bold">目标：</span> 演唱会门票、春节回家票。<br>
+                                <span class="font-bold">危害：</span> 用户骂娘，服务器宕机。
+                            </p>
+                        </div>
+                        <div
+                            class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-orange-500 transform hover:scale-105 transition duration-300">
+                            <div class="text-4xl mb-4 text-orange-500"><i class="fas fa-sheep"></i></div>
+                            <h3 class="text-xl font-bold mb-2">羊毛党 (The Army)</h3>
+                            <p class="text-gray-600 text-sm">
+                                <span class="font-bold">特征：</span> 拥有5000个手机号，为了5块钱优惠券能和你拼命。<br>
+                                <span class="font-bold">目标：</span> 新客立减、免单活动。<br>
+                                <span class="font-bold">危害：</span> 营销经费像水一样流走。
+                            </p>
+                        </div>
+                        <div
+                            class="bg-white/90 backdrop-blur-sm p-6 shadow-lg rounded-xl border-t-4 border-gray-800 transform hover:scale-105 transition duration-300">
+                            <div class="text-4xl mb-4 text-gray-800"><i class="fas fa-mask"></i></div>
+                            <h3 class="text-xl font-bold mb-2">黑产 (The Mafia)</h3>
+                            <p class="text-gray-600 text-sm">
+                                <span class="font-bold">特征：</span> 专业团队，设备农场，猫池。<br>
+                                <span class="font-bold">目标：</span> 盗刷信用卡，洗钱。<br>
+                                <span class="font-bold">危害：</span> 警察叔叔会来找我们喝茶。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-left">Dify vs. 传统代码</h2>
+                    <p class="text-left text-gray-500 mb-8">别再写几千行的 `if-else` 面条代码了，求求了 🙏</p>
+
+                    <div class="grid grid-cols-2 gap-10">
+                        <div class="bg-red-50/90 backdrop-blur-sm p-6 rounded-lg relative overflow-hidden">
+                            <div class="absolute -right-4 -top-4 text-6xl opacity-10 rotate-12">💩</div>
+                            <h3 class="text-xl font-bold text-red-700 mb-4">😭 传统硬编码</h3>
+                            <pre class="text-xs bg-red-100 text-red-900 border-none p-2 rounded">
 if (ip_count > 100) {
     block();
 } else if (user_agent == "python") {
@@ -377,7 +408,8 @@ if (ip_count > 100) {
                         </pre>
                             <p class="text-sm mt-2 text-red-600">痛点：改个阈值要走发布流程，等上线了黄牛都收工回家数钱了。</p>
                         </div>
-                        <div class="bg-blue-50/90 backdrop-blur-sm p-6 rounded-lg border border-blue-200 relative overflow-hidden">
+                        <div
+                            class="bg-blue-50/90 backdrop-blur-sm p-6 rounded-lg border border-blue-200 relative overflow-hidden">
                             <div class="absolute -right-4 -top-4 text-6xl opacity-10 rotate-12">✨</div>
                             <h3 class="text-xl font-bold text-blue-700 mb-4">😎 Dify Workflow</h3>
                             <div class="flex flex-col gap-2">
@@ -425,7 +457,8 @@ if (ip_count > 100) {
                         </div>
 
                         <!-- Truth -->
-                        <div class="bg-green-50/90 backdrop-blur-sm p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
+                        <div
+                            class="bg-green-50/90 backdrop-blur-sm p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
                             <h4 class="text-green-700 font-bold text-lg mb-2"><i class="fas fa-check-circle mr-2"></i>
                                 真相 (Truth)</h4>
                             <p class="text-sm text-gray-700 leading-relaxed">
@@ -477,7 +510,8 @@ if (ip_count > 100) {
                                 风控必须在<strong>亚 100ms</strong> 内给决策，否则会拖慢下单体验；而 LLM 出一个 Token 就要几十毫秒，完整推理要几秒，似乎无法实时对抗。
                             </p>
                         </div>
-                        <div class="bg-green-50/90 backdrop-blur-sm p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
+                        <div
+                            class="bg-green-50/90 backdrop-blur-sm p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
                             <h4 class="text-green-700 font-bold text-lg mb-2"><i class="fas fa-check-circle mr-2"></i>
                                 真相</h4>
                             <p class="text-sm text-gray-700 leading-relaxed">
@@ -486,7 +520,8 @@ if (ip_count > 100) {
                         </div>
                     </div>
 
-                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow border border-gray-100 space-y-3 text-left text-sm">
+                    <div
+                        class="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow border border-gray-100 space-y-3 text-left text-sm">
                         <h4 class="font-bold text-blue-700 mb-1">🛠️ 深度修正：分层防御架构 (Tiered Defense)</h4>
                         <ul class="list-disc pl-5 space-y-2 text-gray-700">
                             <li><strong>L1 极速层（同步）</strong>：Redis 计数器、布隆过滤器等传统手段，10ms 内拦截 90% 明显机器流量。</li>
@@ -541,20 +576,39 @@ if (ip_count > 100) {
                                 结论：虽然我没见过你，但你是鸭子的概率是 99.9%！
                             </div>
                         </div>
-                        <div class="bg-gray-50/90 backdrop-blur-sm p-4 rounded-lg text-sm font-mono text-gray-600">
-                            # 灵魂拷问
-                            P(坏人 | IP是新的) = ?
+                        <div class="backdrop-blur-sm p-4 rounded-lg text-lg font-mono text-gray-600">
+                            <code>
+# 灵魂拷问
+P(坏人 | IP是新的) = ?
 
-                            如果：
-                            1. 坏人里 80% 用新IP
-                            2. 好人里 10% 用新IP
+如果：
+1. 坏人里 80% 用新IP
+2. 好人里 10% 用新IP
 
-                            当你看到一个新IP：
-                            警报响起的概率飙升！🚨
+当你看到一个新IP：
+警报响起的概率飙升！🚨
+                            </code>
                         </div>
                     </div>
                     <div class="joke-alert mt-4">
                         为什么叫"朴素"贝叶斯？因为它很天真 (Naive)，假设你"像鸭子"和"吃鸭食"这两件事没关系。虽然很傻，但在风控里贼好用。
+                    </div>
+                </section>
+                <section>
+                    <h3 class="text-left">朴素贝叶斯公式</h3>
+                    <div class="formula-box text-center text-2xl">
+                        P(坏人 | 特征) = <span class="text-blue-700 font-bold">P(特征 | 坏人) × P(坏人)</span> / P(特征)
+                    </div>
+                    <div class="mt-6 text-left text-sm text-gray-700">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>P(坏人 | 特征)：</strong> 看到某特征后，这个人是坏人的概率。</li>
+                            <li><strong>P(特征 | 坏人)：</strong> 坏人出现该特征的概率。</li>
+                            <li><strong>P(坏人)：</strong> 坏人在总体中的比例。</li>
+                            <li><strong>P(特征)：</strong> 所有人出现该特征的概率。</li>
+                        </ul>
+                        <div class="mt-4 p-4 bg-blue-50 rounded text-blue-800 font-bold">
+                            结论：只要某特征在坏人中出现得多，在好人中很少，看到这个特征就要警惕！
+                        </div>
                     </div>
                 </section>
             </section>
@@ -612,7 +666,8 @@ if (ip_count > 100) {
                         光看一个 IP `1.2.3.4` 你能看出啥？啥也看不出。我们需要<strong>上下文 (Context)</strong>。
                     </div>
 
-                    <div class="bg-gray-800/95 backdrop-blur-sm p-4 rounded-lg text-white font-mono text-xs text-left mb-4 shadow-lg">
+                    <div
+                        class="bg-gray-800/95 backdrop-blur-sm p-4 rounded-lg text-white font-mono text-xs text-left mb-4 shadow-lg">
                         // 原始数据
                         { "ip": "114.114.114.114" }
 
@@ -860,7 +915,8 @@ def main(llm_risk, ip_type, history_count):
                         <br>2. <strong>Explanatory Power (贡献度):</strong> 虽然惊奇，但如果它只占大盘的 0.01%，那也不重要。
                     </div>
 
-                    <div class="bg-gray-800/95 backdrop-blur-sm text-white p-4 rounded-lg font-mono text-xs text-left shadow-lg">
+                    <div
+                        class="bg-gray-800/95 backdrop-blur-sm text-white p-4 rounded-lg font-mono text-xs text-left shadow-lg">
                         <pre class="whitespace-pre-wrap text-xs bg-transparent border-0 p-0 m-0"><code class="python" data-trim>
 # 伪代码：谁是凶手？
 def find_culprit(df):
@@ -1042,7 +1098,8 @@ def find_culprit(df):
                         </p>
                     </div>
 
-                    <div class="relative bg-gray-900/95 backdrop-blur-sm text-gray-200 p-6 rounded-lg font-mono text-sm text-left shadow-lg">
+                    <div
+                        class="relative bg-gray-900/95 backdrop-blur-sm text-gray-200 p-6 rounded-lg font-mono text-sm text-left shadow-lg">
                         <div class="absolute top-0 right-0 p-2 text-xs text-gray-500">Prompt Engineering</div>
                         <p class="text-purple-400 mb-2"># User Prompt</p>
                         <p class="mb-4">请分析该交易风险...</p>
@@ -1061,7 +1118,8 @@ Reason: 异地高变现商品，建议人工复核。
 
                 <section>
                     <h3 class="text-left text-2xl font-bold mb-6">提示词注入防御 (Sandwich Defense)</h3>
-                    <div class="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg border-l-4 border-orange-500 mb-6">
+                    <div
+                        class="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg border-l-4 border-orange-500 mb-6">
                         <h4 class="font-bold text-orange-700 flex items-center mb-2">
                             <i class="fas fa-book-open mr-2"></i> 理论来源
                         </h4>
@@ -1119,16 +1177,16 @@ Reason: 异地高变现商品，建议人工复核。
         </div>
     </div>
 
-<!-- Reveal.js Init Script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>
-    hljs.highlightAll();
-    Reveal.initialize({
-        controls: true,
-        progress: true,
-        center: true,
-        hash: false, 
+    <!-- Reveal.js Init Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
             history: false,
             transition: 'slide',
         });
