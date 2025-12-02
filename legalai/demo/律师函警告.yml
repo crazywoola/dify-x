@@ -1,0 +1,1327 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#D1E9FF'
+  mode: workflow
+  name: 律师函警告
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/email:0.0.7@7c7284565f153155516412e6d77d72ebf7ecd380808b908a65d793267516a4c5
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.7@9031bbf9b37d9f6341a20c78a8bd18d686afd3ff627545496c3557705419d084
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: if-else
+      id: 1762398110036-source-1762397855254-target
+      selected: false
+      source: '1762398110036'
+      sourceHandle: source
+      target: '1762397855254'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1762397851002-source-1762398813659-target
+      selected: false
+      source: '1762397851002'
+      sourceHandle: source
+      target: '1762398813659'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 17623988799680-source-1762398813659-target
+      selected: false
+      source: '17623988799680'
+      sourceHandle: source
+      target: '1762398813659'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 17623989187260-source-1762398813659-target
+      selected: false
+      source: '17623989187260'
+      sourceHandle: source
+      target: '1762398813659'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1762397742603-source-1762398110036-target
+      selected: false
+      source: '1762397742603'
+      sourceHandle: source
+      target: '1762398110036'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1762397855254-true-1762400425243-target
+      selected: false
+      source: '1762397855254'
+      sourceHandle: 'true'
+      target: '1762400425243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1762400425243-source-1762397851002-target
+      selected: false
+      source: '1762400425243'
+      sourceHandle: source
+      target: '1762397851002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 17624004651760-source-17623989187260-target
+      selected: false
+      source: '17624004651760'
+      sourceHandle: source
+      target: '17623989187260'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1762397855254-50585e78-bd49-4b6c-92c8-742cbc2748ff-17624004651760-target
+      selected: false
+      source: '1762397855254'
+      sourceHandle: 50585e78-bd49-4b6c-92c8-742cbc2748ff
+      target: '17624004651760'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1762397855254-false-17624005170370-target
+      selected: false
+      source: '1762397855254'
+      sourceHandle: 'false'
+      target: '17624005170370'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 17624005170370-source-17623988799680-target
+      selected: false
+      source: '17624005170370'
+      sourceHandle: source
+      target: '17623988799680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1762399438843-source-1762398008519-target
+      source: '1762399438843'
+      sourceHandle: source
+      target: '1762398008519'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1762398813659-source-1762443669932-target
+      source: '1762398813659'
+      sourceHandle: source
+      target: '1762443669932'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1762443669932-source-1762399438843-target
+      source: '1762443669932'
+      sourceHandle: source
+      target: '1762399438843'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: Entity
+          max_length: 200
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: Entity
+        - default: ''
+          hint: ''
+          label: Contact
+          max_length: 100
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: Contact
+        - default: Chinese
+          hint: ''
+          label: Language
+          max_length: 48
+          options:
+          - English
+          - Chinese
+          - Japanese
+          placeholder: ''
+          required: true
+          type: select
+          variable: Language
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: EV
+          max_length: 5
+          options: []
+          placeholder: ''
+          required: false
+          type: file-list
+          variable: EV
+      height: 187
+      id: '1762397742603'
+      position:
+        x: 23.947226351960808
+        y: -32.96644489633567
+      positionAbsolute:
+        x: 23.947226351960808
+        y: -32.96644489633567
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\"\
+          \ content=\"text/html; charset=UTF-8\">\n<title>合规通知</title>\n</head>\n\
+          <body style=\"margin:0; padding:0; background-color:#ffffff;\">\n<table\
+          \ role=\"presentation\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"\
+          0\">\n  <tr>\n    <td align=\"center\" style=\"padding:20px 0;\">\n    \
+          \  <table role=\"presentation\" width=\"600\" style=\"max-width:600px;\"\
+          >\n        <tr>\n          <td style=\"font-family:Arial, Helvetica, sans-serif;\
+          \ font-size:14px; color:#000000; line-height:1.6; padding:20px;\">\n\n \
+          \           <p>致：{{entity}}</p>\n\n            <p>本函由 FakeCorp China（以下简称“我方”）向贵方发送，旨在就贵方在使用\
+          \ Project X（以下简称“X 软件”）过程中存在的涉嫌违反开源协议的行为进行沟通。</p>\n\n            <p>我方系\
+          \ FakeCorp（依据美国法律注册设立）在中国境内的授权代表，受其委托负责处理与 X 软件相关的合规、维权及争议事宜。</p>\n\n  \
+          \          <p>X 软件于 2023 年以开源方式发布，并在 GitHub 等平台公开，凭借易用性和开放性获得较高行业关注。目前已获得大量\
+          \ Stars。</p>\n\n            <p>根据 X 软件的开源协议：  \n            （1）未经书面授权，不得使用\
+          \ X 软件源代码运营多租户 SaaS 服务；  \n            （2）不得移除或修改前端组件中的原始标识、版权信息等内容。</p>\n\
+          \n            <p>近期，我们注意到贵方平台存在以下行为：移除 X 软件的相关标识，或在多租户商业环境下使用其源代码但未获得有效授权。上述行为构成对开源协议的重大违反。</p>\n\
+          \n            <p>基于上述情况，我方要求贵方：</p>\n            <p style=\"margin-left:20px;\"\
+          >• 立即停止使用 X 软件并删除相关代码；</p>\n            <p style=\"margin-left:20px;\">•\
+          \ 于 5 个工作日内指派专人与我方对接，商讨合规使用方案或商业授权模式。</p>\n\n            <p>如贵方未在合理期限内回复，我方将保留采取进一步法律措施的权利，包括诉讼等。</p>\n\
+          \n            <p>如有任何疑问或希望友好协商，请联系我方联系人：  \n            联系人：Person A  \n\
+          \            邮箱：contact@example.com  \n            电话：+86 00000000000</p>\n\
+          \n            <p>FakeCorp China</p>\n            <p>{{ time }}</p>\n\n \
+          \           <p>--</p>\n\n            <p style=\"font-weight:bold; color:#0033ff;\"\
+          >Person A | Legal Department</p>\n            <p style=\"color:#0033ff;\"\
+          >Tel: +86 00000000000</p>\n            <p>FakeCorp China &amp; FakeCorp</p>\n\
+          \n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>\n\
+          </body>\n</html>\n"
+        title: Template CN
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+        - value_selector:
+          - '1762398110036'
+          - text
+          value_type: string
+          variable: time
+      height: 52
+      id: '1762397851002'
+      position:
+        x: 660.0596208001176
+        y: 4.840280093417391
+      positionAbsolute:
+        x: 660.0596208001176
+        y: 4.840280093417391
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 7123172a-be8c-408d-ba57-eb69f17ec5de
+            value: Chinese
+            varType: string
+            variable_selector:
+            - '1762397742603'
+            - Language
+          id: 'true'
+          logical_operator: and
+        - case_id: 50585e78-bd49-4b6c-92c8-742cbc2748ff
+          conditions:
+          - comparison_operator: is
+            id: d0bb268d-d4dc-4fed-8662-754216bec15b
+            value: English
+            varType: string
+            variable_selector:
+            - '1762397742603'
+            - Language
+          id: 50585e78-bd49-4b6c-92c8-742cbc2748ff
+          logical_operator: and
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 172
+      id: '1762397855254'
+      position:
+        x: 23.947226351960808
+        y: 306.29362608982365
+      positionAbsolute:
+        x: 23.947226351960808
+        y: 306.29362608982365
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1762443669932'
+          - text
+          value_type: string
+          variable: validation
+        selected: false
+        title: End
+        type: end
+      height: 88
+      id: '1762398008519'
+      position:
+        x: 1339.152718966282
+        y: 476.72337922854126
+      positionAbsolute:
+        x: 1339.152718966282
+        y: 476.72337922854126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - icon: null
+            label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - icon: null
+            label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - icon: null
+            label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - icon: null
+            label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - icon: null
+            label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - icon: null
+            label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - icon: null
+            label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - icon: null
+            label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - icon: null
+            label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - icon: null
+            label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - icon: null
+            label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - icon: null
+            label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - icon: null
+            label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - icon: null
+            label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - icon: null
+            label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - icon: null
+            label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - icon: null
+            label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - icon: null
+            label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: Current Time
+        tool_configurations:
+          format:
+            type: mixed
+            value: '%Y/%m/%d'
+          timezone:
+            type: constant
+            value: UTC
+        tool_description: A tool for getting the current time.
+        tool_label: Current Time
+        tool_name: current_time
+        tool_node_version: '2'
+        tool_parameters: {}
+        type: tool
+      height: 114
+      id: '1762398110036'
+      position:
+        x: 23.947226351960808
+        y: 171.24544730549636
+      positionAbsolute:
+        x: 23.947226351960808
+        y: 171.24544730549636
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 0c614ebc-5c96-4148-8b50-8bde78944d90
+            group_name: Content
+            output_type: string
+            variables:
+            - - '1762397851002'
+              - output
+            - - '17623989187260'
+              - output
+            - - '17623988799680'
+              - output
+          - groupId: 557d5e4b-3653-48b4-9d43-b2da68ba8b61
+            group_name: Title
+            output_type: string
+            variables:
+            - - '17624004651760'
+              - output
+            - - '17624005170370'
+              - output
+            - - '1762400425243'
+              - output
+        output_type: string
+        selected: false
+        title: Variable Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1762397851002'
+          - output
+        - - '17623989187260'
+          - output
+        - - '17623988799680'
+          - output
+      height: 268
+      id: '1762398813659'
+      position:
+        x: 1027.4211885492589
+        y: 4.840280093417391
+      positionAbsolute:
+        x: 1027.4211885492589
+        y: 4.840280093417391
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\"\
+          \ content=\"text/html; charset=UTF-8\">\n<title>コンプライアンス通知</title>\n</head>\n\
+          <body style=\"margin:0; padding:0; background-color:#ffffff;\">\n<table\
+          \ role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"\
+          0\">\n  <tr>\n    <td align=\"center\" style=\"padding:20px 0;\">\n    \
+          \  <table role=\"presentation\" width=\"600\" style=\"max-width:600px;\"\
+          >\n        <tr>\n          <td style=\"font-family:Arial, Helvetica, sans-serif;\
+          \ font-size:14px; color:#000000; line-height:1.6; padding:20px;\">\n\n \
+          \           <p>宛先：{{entity}}</p>\n\n            <p>本書面は、FakeCorp China（以下「当社」）が、貴社による\
+          \ Project X（以下「X ソフトウェア」）のオープンソースライセンス違反の疑いに関し通知するものです。</p>\n\n        \
+          \    <p>FakeCorp は、X ソフトウェアを 2023 年にオープンソースとして公開した開発元です。X プロジェクトは業界内で広く利用され、多数の\
+          \ GitHub スターを獲得しています。</p>\n\n            <p>X ソフトウェアのライセンスでは、以下が厳格に禁止されています：\
+          \  \n            （1）書面による許可なしに、マルチテナント型 SaaS 環境を運用すること；  \n            （2）フロントエンドに含まれるロゴや著作権表示などの識別要素を削除・変更すること。</p>\n\
+          \n            <p>当社の調査によれば、貴社プラットフォームにおいて、これらの識別情報が削除されている、または正当な許諾なしに商用マルチテナント用途で\
+          \ X ソフトウェアが使用されている疑いがあります。</p>\n\n            <p>つきましては、以下の対応を求めます。</p>\n\
+          \            <p style=\"margin-left:20px;\">• X ソフトウェアの使用を直ちに停止し、関連コードを削除すること；</p>\n\
+          \            <p style=\"margin-left:20px;\">• 5 営業日以内にご担当者様より当社へ連絡し、適切な利用形態または商用ライセンスについて協議すること。</p>\n\
+          \n            <p>期限内にご回答いただけない場合、当社は法的措置を含む対応を検討いたします。</p>\n\n         \
+          \   <p>本件に関するご質問や協議のご希望については、以下までご連絡ください。  \n            担当者：Person A  \n\
+          \            メール：contact@example.com  \n            電話：+86 00000000000</p>\n\
+          \n            <p>FakeCorp China</p>\n            <p>{{ time }}</p>\n\n \
+          \           <p>--</p>\n            <p style=\"font-weight:bold; color:#0033ff;\"\
+          >Person A｜Legal Department</p>\n            <p style=\"color:#0033ff;\"\
+          >Tel: +86 00000000000</p>\n            <p>FakeCorp China &amp; FakeCorp</p>\n\
+          \n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>\n\
+          </body>\n</html>\n"
+        title: Template JA
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+        - value_selector:
+          - '1762398110036'
+          - text
+          value_type: string
+          variable: time
+      height: 52
+      id: '17623988799680'
+      position:
+        x: 660.0596208001176
+        y: 190.46989147729738
+      positionAbsolute:
+        x: 660.0596208001176
+        y: 190.46989147729738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\"\
+          \ content=\"text/html; charset=UTF-8\">\n<title>Compliance Notice</title>\n\
+          </head>\n<body style=\"margin:0; padding:0; background-color:#ffffff;\"\
+          >\n<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"\
+          0\">\n  <tr>\n    <td align=\"center\" style=\"padding:20px 0;\">\n    \
+          \  <table role=\"presentation\" width=\"600\" style=\"max-width:600px;\"\
+          >\n        <tr>\n          <td style=\"font-family:Arial, Helvetica, sans-serif;\
+          \ font-size:14px; color:#000000; line-height:1.6; padding:20px;\">\n\n \
+          \           <p>To: {{entity}}</p>\n\n            <p>This letter is issued\
+          \ by FakeCorp China (“we/us”) on behalf of FakeCorp, in relation to your\
+          \ company’s suspected breach of the open-source license governing Project\
+          \ X (“X Software”).</p>\n\n            <p>FakeCorp is the original developer\
+          \ of X Software, an AI application development framework released as open-source\
+          \ in 2023. The project has since received significant industry adoption\
+          \ and a substantial number of GitHub stars.</p>\n\n            <p>The open-source\
+          \ license for X Software strictly prohibits:  \n            (1) Use of the\
+          \ source code to operate multi-tenant SaaS environments without explicit\
+          \ written authorization;  \n            (2) Removal or modification of embedded\
+          \ branding, copyright notices, or other identifying elements within its\
+          \ frontend components.</p>\n\n            <p>We have recently identified\
+          \ that your platform may have removed original visual identifiers of X Software\
+          \ and/or used its source code to provide commercial multi-tenant services\
+          \ without proper authorization. These actions constitute material violations\
+          \ of the license terms.</p>\n\n            <p>Accordingly, we hereby demand\
+          \ that you:</p>\n            <p style=\"margin-left:20px;\">• Immediately\
+          \ cease all use of X Software and remove all associated code;</p>\n    \
+          \        <p style=\"margin-left:20px;\">• Designate a representative to\
+          \ contact us within 5 business days to discuss compliant usage or commercial\
+          \ licensing.</p>\n\n            <p>Should we not receive a timely response,\
+          \ we reserve the right to pursue legal remedies, including litigation.</p>\n\
+          \n            <p>For inquiries or to resolve this matter amicably, please\
+          \ contact:  \n            Contact Person: Person A  \n            Email:\
+          \ contact@example.com  \n            Phone: +86 00000000000</p>\n\n    \
+          \        <p>FakeCorp China</p>\n            <p>{{ time }}</p>\n\n      \
+          \      <p>--</p>\n            <p style=\"font-weight:bold; color:#0033ff;\"\
+          >Person A | Legal Department</p>\n            <p style=\"color:#0033ff;\"\
+          >Tel: +86 00000000000</p>\n            <p>FakeCorp China &amp; FakeCorp</p>\n\
+          \n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>\n\
+          </body>\n</html>\n"
+        title: Template EN
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+        - value_selector:
+          - '1762398110036'
+          - text
+          value_type: string
+          variable: time
+      height: 52
+      id: '17623989187260'
+      position:
+        x: 660.0596208001176
+        y: 90.26885152198884
+      positionAbsolute:
+        x: 660.0596208001176
+        y: 90.26885152198884
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Recipient email account
+            ja_JP: Recipient email account
+            pt_BR: Recipient email account
+            zh_Hans: 收件人邮箱账号
+          label:
+            en_US: Recipient email account
+            ja_JP: Recipient email account
+            pt_BR: Recipient email account
+            zh_Hans: 收件人邮箱账号
+          llm_description: Recipient email account
+          max: null
+          min: null
+          name: send_to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Reply-to email address
+            ja_JP: Reply-to email address
+            pt_BR: Reply-to email address
+            zh_Hans: 回复电子邮件地址
+          label:
+            en_US: Reply-to email address
+            ja_JP: Reply-to email address
+            pt_BR: Reply-to email address
+            zh_Hans: 回复电子邮件地址
+          llm_description: Reply-to email address
+          max: null
+          min: null
+          name: reply_to
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Carbon copy email account
+            ja_JP: Carbon copy email account
+            pt_BR: Carbon copy email account
+            zh_Hans: 抄送邮箱账号
+          label:
+            en_US: Carbon copy email account(json list)
+            ja_JP: Carbon copy email account(json list)
+            pt_BR: Carbon copy email account(json list)
+            zh_Hans: 抄送邮箱账号(json list)
+          llm_description: Carbon copy email account(json list)
+          max: null
+          min: null
+          name: cc
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Blind carbon copy email account
+            ja_JP: Blind carbon copy email account
+            pt_BR: Blind carbon copy email account
+            zh_Hans: 密送邮箱账号
+          label:
+            en_US: Blind carbon copy email account(json list)
+            ja_JP: Blind carbon copy email account(json list)
+            pt_BR: Blind carbon copy email account(json list)
+            zh_Hans: 密送邮箱账号(json list)
+          llm_description: Blind carbon copy email account(json list)
+          max: null
+          min: null
+          name: bcc
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: email subject
+            ja_JP: email subject
+            pt_BR: email subject
+            zh_Hans: 邮件主题
+          label:
+            en_US: email subject
+            ja_JP: email subject
+            pt_BR: email subject
+            zh_Hans: 邮件主题
+          llm_description: email subject
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: email content
+            ja_JP: email content
+            pt_BR: email content
+            zh_Hans: 邮件内容
+          label:
+            en_US: email content
+            ja_JP: email content
+            pt_BR: email content
+            zh_Hans: 邮件内容
+          llm_description: email content
+          max: null
+          min: null
+          name: email_content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: false
+          form: form
+          human_description:
+            en_US: Convert content from markdown to HTML
+            ja_JP: Convert content from markdown to HTML
+            pt_BR: Convert content from markdown to HTML
+            zh_Hans: 将内容从Markdown转换为HTML
+          label:
+            en_US: Convert to HTML
+            ja_JP: Convert to HTML
+            pt_BR: Convert to HTML
+            zh_Hans: 转换为HTML
+          llm_description: Whether to convert the email content from markdown to HTML
+            format
+          max: null
+          min: null
+          name: convert_to_html
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Files to attach to the email
+            ja_JP: Files to attach to the email
+            pt_BR: Files to attach to the email
+            zh_Hans: 要附加到电子邮件的文件
+          label:
+            en_US: File Attachments
+            ja_JP: File Attachments
+            pt_BR: File Attachments
+            zh_Hans: 文件附件
+          llm_description: Files to attach to the email
+          max: null
+          min: null
+          name: attachments
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: files
+        params:
+          attachments: ''
+          bcc: ''
+          cc: ''
+          convert_to_html: ''
+          email_content: ''
+          reply_to: ''
+          send_to: ''
+          subject: ''
+        provider_id: langgenius/email/email
+        provider_name: langgenius/email/email
+        provider_type: builtin
+        selected: false
+        title: send email
+        tool_configurations:
+          convert_to_html:
+            type: constant
+            value: true
+        tool_description: A tool for sending email
+        tool_label: send email
+        tool_name: send_mail
+        tool_node_version: '2'
+        tool_parameters:
+          attachments:
+            type: variable
+            value:
+            - '1762397742603'
+            - EV
+          bcc:
+            type: mixed
+            value: null
+          cc:
+            type: mixed
+            value: ''
+          email_content:
+            type: mixed
+            value: '{{#1762398813659.Content.output#}}'
+          reply_to:
+            type: mixed
+            value: ''
+          send_to:
+            type: mixed
+            value: '{{#1762397742603.Contact#}}'
+          subject:
+            type: mixed
+            value: '{{#1762398813659.Title.output#}}'
+        type: tool
+      height: 88
+      id: '1762399438843'
+      position:
+        x: 1339.152718966282
+        y: 350.4310499126745
+      positionAbsolute:
+        x: 1339.152718966282
+        y: 350.4310499126745
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: 关于{{entity}}侵权的正式函告
+        title: Title CN
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+      height: 52
+      id: '1762400425243'
+      position:
+        x: 342.9167636572605
+        y: 4.840280093417391
+      positionAbsolute:
+        x: 342.9167636572605
+        y: 4.840280093417391
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: Official Notification of {{entity}}’s Unauthorized Use of X Source
+          Code
+        title: Title EN
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+      height: 52
+      id: '17624004651760'
+      position:
+        x: 342.9167636572605
+        y: 90.26885152198884
+      positionAbsolute:
+        x: 342.9167636572605
+        y: 90.26885152198884
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: '{{entity}} 権利侵害に対する修正要求通知'
+        title: Title JA
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1762397742603'
+          - Entity
+          value_type: string
+          variable: entity
+      height: 52
+      id: '17624005170370'
+      position:
+        x: 342.9167636572605
+        y: 189.12599437913173
+      positionAbsolute:
+        x: 342.9167636572605
+        y: 189.12599437913173
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1762398813659'
+          - Content
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-5-chat-latest
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 92eb4241-9c5f-49bb-9371-4ad83e45a775
+          role: system
+          text: 'You should act as a professional legal in a company
+
+            Based on the context {{#context#}}
+
+            - Validate the format
+
+            - Validate the entity
+
+            - Validate the wording
+
+            '
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1762443669932'
+      position:
+        x: 1027.4211885492589
+        y: 463.4618932256104
+      positionAbsolute:
+        x: 1027.4211885492589
+        y: 463.4618932256104
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        author: BananaLab
+        desc: ''
+        height: 547
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"中英日三个版本的公司函","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"标题 和 内容 单独处理","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0}],"direction":null,"format":"","indent":0,"type":"root","version":1,"textStyle":"font-size:
+          16px;"}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 640
+      height: 547
+      id: '1764229690006'
+      position:
+        x: 302.80772426124315
+        y: -46.44808934595608
+      positionAbsolute:
+        x: 302.80772426124315
+        y: -46.44808934595608
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 640
+    - data:
+        author: BananaLab
+        desc: ''
+        height: 329
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"Entity 侵权实体","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"Contact 侵权实体联系邮箱","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"Language 选择公司函的语言版本","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"EV 侵权证据，作为附件发送","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0}],"direction":null,"format":"","indent":0,"type":"root","version":1,"textStyle":"font-size:
+          16px;"}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 269
+      height: 329
+      id: '1764229841743'
+      position:
+        x: -260.7086491461547
+        y: -33.818856414369385
+      positionAbsolute:
+        x: -260.7086491461547
+        y: -33.818856414369385
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 269
+    - data:
+        author: BananaLab
+        desc: ''
+        height: 183
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"邮件包含","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"收件人","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"邮件主题","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"邮件正文 从 Template 中获取","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"邮件附件 选择的 EV 会作为附件发送给对方收件人","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1,"textStyle":"font-size:
+          16px;"}}'
+        theme: green
+        title: ''
+        type: ''
+        width: 379
+      height: 183
+      id: '1764229975183'
+      position:
+        x: 1339.152718966282
+        y: 155.20004575614908
+      positionAbsolute:
+        x: 1339.152718966282
+        y: 155.20004575614908
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 379
+    - data:
+        author: BananaLab
+        desc: ''
+        height: 335
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"用于验证内容是否完整","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"- Validate the format","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"- Validate the entity","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          16px;","text":"- Validate the wording","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textStyle":"font-size:
+          16px;","textFormat":0}],"direction":null,"format":"","indent":0,"type":"root","version":1,"textStyle":"font-size:
+          16px;"}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 337
+      height: 335
+      id: '1764230074987'
+      position:
+        x: 985.034622306908
+        y: 306.29362608982365
+      positionAbsolute:
+        x: 985.034622306908
+        y: 306.29362608982365
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 337
+    viewport:
+      x: 356.10654628587605
+      y: 271.0998662094541
+      zoom: 0.6460770081347345
+  rag_pipeline_variables: []

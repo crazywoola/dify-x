@@ -1,0 +1,371 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#D1E0FF'
+  mode: advanced-chat
+  name: GDPR Master
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/jina:0.0.9@6b0dbaae9fab9a823d540c3cd4a51f298322a29393b71dcadd1acd045c1d87db
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.7@9031bbf9b37d9f6341a20c78a8bd18d686afd3ff627545496c3557705419d084
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1764230456291-llm
+      source: '1764230456291'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: llm-source-1764230550181-target
+      source: llm
+      sourceHandle: source
+      target: '1764230550181'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1764230582079-source-answer-target
+      source: '1764230582079'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: 1764230456291-source-1764230621918-target
+      source: '1764230456291'
+      sourceHandle: source
+      target: '1764230621918'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: template-transform
+      id: 1764230550181-source-1764230692456-target
+      source: '1764230550181'
+      sourceHandle: source
+      target: '1764230692456'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1764230692456-source-1764230582079-target
+      source: '1764230692456'
+      sourceHandle: source
+      target: '1764230582079'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: template-transform
+      id: 1764230621918-source-1764230692456-target
+      source: '1764230621918'
+      sourceHandle: source
+      target: '1764230692456'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables: []
+      height: 73
+      id: '1764230456291'
+      position:
+        x: 0
+        y: 21
+      positionAbsolute:
+        x: 0
+        y: 21
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}
+
+
+            Rewrite the user''s question for better understanding and it should related
+            to GDPR.
+
+
+            Output the question only.'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 580de884-a1af-4355-87d9-7b6ffe668f88
+          role: system
+          text: ''
+        selected: false
+        title: Question Rewrite
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: llm
+      position:
+        x: 362
+        y: 1
+      positionAbsolute:
+        x: 362
+        y: 1
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1764230582079.text#}}'
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 103
+      id: answer
+      position:
+        x: 1750
+        y: 2
+      positionAbsolute:
+        x: 1750
+        y: 2
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - pSA2AwUkIGP1cqSFncjxKqqcPs22A1MVvpuNOw7iUze60uOG4lsilXqE/QvlbkSs
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: jina-reranker-v2-base-multilingual
+            provider: langgenius/jina/jina
+          top_k: 4
+        query_variable_selector:
+        - llm
+        - text
+        retrieval_mode: multiple
+        selected: false
+        title: Rewrite Retrieval
+        type: knowledge-retrieval
+      height: 90
+      id: '1764230550181'
+      position:
+        x: 704
+        y: 0
+      positionAbsolute:
+        x: 704
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1764230692456'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 6696005f-ca2f-4b23-baaa-ebdcf65ba2c7
+          role: system
+          text: '{{#context#}}'
+        - id: 6d72d10d-9617-4067-80d7-cf0b0ec20304
+          role: user
+          text: Reorg and compare the context, output the answer
+        selected: false
+        title: Organize
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1764230582079'
+      position:
+        x: 1408
+        y: 10
+      positionAbsolute:
+        x: 1408
+        y: 10
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - pSA2AwUkIGP1cqSFncjxKqqcPs22A1MVvpuNOw7iUze60uOG4lsilXqE/QvlbkSs
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: jina-reranker-v2-base-multilingual
+            provider: langgenius/jina/jina
+          top_k: 4
+        query_variable_selector:
+        - '1764230456291'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Original Retrieval
+        type: knowledge-retrieval
+      height: 90
+      id: '1764230621918'
+      position:
+        x: 704
+        y: 170
+      positionAbsolute:
+        x: 704
+        y: 170
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        selected: false
+        template: '## The results of rewrote questions
+
+          {{ rewrite }}
+
+
+          ## The results of original questions
+
+          {{ original }}'
+        title: Template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1764230550181'
+          - result
+          value_type: array[object]
+          variable: rewrite
+        - value_selector:
+          - '1764230621918'
+          - result
+          value_type: array[object]
+          variable: original
+      height: 52
+      id: '1764230692456'
+      position:
+        x: 1066
+        y: 28
+      positionAbsolute:
+        x: 1066
+        y: 28
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 187
+      y: 366
+      zoom: 0.7
+  rag_pipeline_variables: []
