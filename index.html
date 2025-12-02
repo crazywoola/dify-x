@@ -5,32 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Dify X · Presentations</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Dify Brand Colors */
       --dify-blue: #0033ff;
       --dify-blue-light: #e0e7ff;
-      --dify-blue-hover: #0026cc;
-      
-      /* Text Colors */
       --text-main: #0f172a;
       --text-secondary: #475569;
       --text-tertiary: #94a3b8;
-      
-      /* Backgrounds */
       --bg-page: #f8fafc;
       --bg-card: #ffffff;
       --bg-sidebar: #ffffff;
-      
-      /* Borders */
       --border-light: rgba(226, 232, 240, 0.8);
-      
-      /* Spacing */
       --sidebar-width: 320px;
     }
 
@@ -44,7 +33,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout Structure */
     .app-container {
       display: flex;
       min-height: 100vh;
@@ -55,7 +43,7 @@
       width: var(--sidebar-width);
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border-light);
-      padding: 40px 32px;
+      padding: 48px 32px 32px;
       display: flex;
       flex-direction: column;
       position: fixed;
@@ -64,156 +52,125 @@
       z-index: 10;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 48px;
-      text-decoration: none;
-    }
+    .brand { display: inline-block; margin-bottom: 40px; }
+    .brand img { height: 32px; width: auto; }
 
-    /* Logo placeholder if image fails or for cleaner look */
-    .brand-logo-box {
-      width: 40px;
-      height: 40px;
-      background: var(--dify-blue);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-    
-    .brand-logo-box svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .brand-name {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
-    }
-
+    .intro-text { margin-bottom: 48px; }
     .intro-text h2 {
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       color: var(--text-tertiary);
-      margin: 0 0 16px 0;
-      font-weight: 600;
+      margin: 0 0 12px 0;
+      font-weight: 700;
     }
-
     .intro-text p {
       font-size: 15px;
       line-height: 1.6;
       color: var(--text-secondary);
-      margin: 0 0 32px 0;
+      margin: 0;
     }
 
-    /* VI & Tech Stack Panel */
-    .vi-panel {
-      background: var(--bg-page);
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid var(--border-light);
+    /* Meta Section */
+    .meta-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       margin-bottom: auto; /* Pushes footer down */
     }
 
-    .vi-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .vi-item:last-child { margin-bottom: 0; }
-
-    .vi-icon {
-      color: var(--dify-blue);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .vi-content h4 {
-      margin: 0 0 4px 0;
-      font-size: 13px;
+    .meta-group h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      margin: 0 0 12px 0;
       font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .vi-content p {
-      margin: 0;
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .color-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background-color: var(--dify-blue);
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-
-    /* Sidebar Footer */
-    .sidebar-footer {
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-light);
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-
-    .author-link {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: var(--text-main);
-      font-weight: 500;
-      text-decoration: none;
-      margin-bottom: 4px;
-      transition: color 0.2s;
+      gap: 6px;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
     }
     
-    .author-link:hover {
+    .color-swatch {
+      width: 12px;
+      height: 12px;
+      background-color: var(--dify-blue);
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* --- Footer & Links Styling (Updated) --- */
+    .sidebar-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      padding: 8px 12px;
+      background: #f8fafc; /* Slightly lighter bg */
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+    
+    .sidebar-link:hover {
       color: var(--dify-blue);
+      background: var(--dify-blue-light);
+      border-color: rgba(0, 51, 255, 0.1);
+    }
+
+    .sidebar-link svg {
+      opacity: 0.7;
+    }
+    .sidebar-link:hover svg {
+      opacity: 1;
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+      padding-left: 4px; /* Align visually with link text */
     }
 
     /* --- Main Content Area --- */
     .main-content {
       flex: 1;
-      margin-left: var(--sidebar-width); /* Match sidebar width */
+      margin-left: var(--sidebar-width);
       padding: 64px 64px 40px;
       background: 
         radial-gradient(circle at 90% 0%, rgba(0, 51, 255, 0.03), transparent 40%),
         radial-gradient(circle at 10% 100%, rgba(0, 51, 255, 0.03), transparent 40%);
     }
 
-    .page-header {
-      margin-bottom: 48px;
-      max-width: 800px;
-    }
+    .page-header { margin-bottom: 48px; max-width: 800px; }
+    h1 { font-size: 36px; font-weight: 700; margin: 0 0 16px 0; color: var(--text-main); }
+    .subtitle { font-size: 18px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
 
-    h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin: 0 0 16px 0;
-      color: var(--text-main);
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* Grid Layout */
     .deck-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -221,7 +178,6 @@
       margin-bottom: 64px;
     }
 
-    /* Card Styling */
     .card {
       display: flex;
       flex-direction: column;
@@ -231,7 +187,7 @@
       padding: 24px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
       height: 100%;
@@ -239,125 +195,45 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
       border-color: rgba(0, 51, 255, 0.3);
     }
 
     .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--dify-blue);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: var(--dify-blue); opacity: 0; transition: opacity 0.3s ease;
     }
+    .card:hover::before { opacity: 1; }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .pill-wrapper {
-      margin-bottom: 16px;
-    }
-
+    .pill-wrapper { margin-bottom: 16px; }
     .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 12px;
-      border-radius: 100px;
-      background: rgba(0, 51, 255, 0.06);
-      color: var(--dify-blue);
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.02em;
+      display: inline-flex; align-items: center; padding: 6px 12px;
+      border-radius: 100px; background: rgba(0, 51, 255, 0.06);
+      color: var(--dify-blue); font-weight: 600; font-size: 12px;
     }
 
-    .card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin: 0 0 12px 0;
-      line-height: 1.4;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin: 0;
-      flex-grow: 1; /* Pushes the arrow down if content is short */
-    }
+    .card h3 { font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0 0 12px 0; }
+    .card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0; flex-grow: 1; }
 
     .card-footer {
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dify-blue);
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      margin-top: 24px; display: flex; align-items: center;
+      font-size: 14px; font-weight: 600; color: var(--dify-blue); opacity: 0.8; transition: opacity 0.2s;
     }
+    .card:hover .card-footer { opacity: 1; }
+    .card-footer svg { margin-left: 6px; transition: transform 0.2s; }
+    .card:hover .card-footer svg { transform: translateX(4px); }
 
-    .card:hover .card-footer {
-      opacity: 1;
-    }
-
-    .card-footer svg {
-      margin-left: 6px;
-      transition: transform 0.2s;
-    }
-
-    .card:hover .card-footer svg {
-      transform: translateX(4px);
-    }
-
-    /* Main Footer */
-    .main-footer {
-      border-top: 1px solid var(--border-light);
-      padding-top: 32px;
-      color: var(--text-tertiary);
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 900px) {
-      .app-container {
-        flex-direction: column;
-      }
-
+      .app-container { flex-direction: column; }
       .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-right: none;
-        border-bottom: 1px solid var(--border-light);
+        width: 100%; height: auto; position: relative;
+        border-right: none; border-bottom: 1px solid var(--border-light);
         padding: 32px 24px;
       }
-
-      .vi-panel {
-        display: none; /* Hide VI panel on mobile to save space, or style differently */
-      }
-      
-      /* Option to keep VI but make it compact */
-      /* .vi-panel { margin-top: 24px; } */
-
-      .main-content {
-        margin-left: 0;
-        padding: 40px 24px;
-      }
-
-      h1 { font-size: 28px; }
-      
-      .deck-grid {
-        grid-template-columns: 1fr;
-      }
+      .meta-section, .sidebar-footer { display: none; }
+      .main-content { margin-left: 0; padding: 40px 24px; }
+      .deck-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -365,14 +241,9 @@
 
   <div class="app-container">
     
-    <!-- Sidebar: Brand & Info -->
     <aside class="sidebar">
       <a href="#" class="brand">
-        <!-- SVG Logo Placeholder -->
-        <div class="brand-logo-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>
-        </div>
-        <span class="brand-name">Dify X</span>
+        <img src="assets/logo.svg" alt="Dify Logo">
       </a>
 
       <div class="intro-text">
@@ -380,51 +251,65 @@
         <p>探索 Dify 团队在技术架构、产品演进与生态合作方面的深度分享。</p>
       </div>
 
-      <!-- Tech Stack & VI Section -->
-      <div class="vi-panel">
-        <div class="vi-item">
-          <div class="vi-icon">
-             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-          </div>
-          <div class="vi-content">
-            <h4>Brand Color</h4>
-            <p><span class="color-dot"></span>#0033ff</p>
-          </div>
+      <div class="meta-section">
+        <div class="meta-group">
+          <h3>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+            Brand Color
+          </h3>
+          <div class="meta-item"><span class="color-swatch"></span>#0033FF</div>
         </div>
 
-        <div class="vi-item">
-          <div class="vi-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-          </div>
-          <div class="vi-content">
-            <h4>Typography</h4>
-            <p>Inter / Noto Sans SC</p>
-          </div>
+        <div class="meta-group">
+          <h3>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            Typography
+          </h3>
+          <div class="meta-item">EN: Söhne / Mono</div>
+          <div class="meta-item">CN: Mi Sans / Noto</div>
         </div>
 
-        <div class="vi-item">
-          <div class="vi-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          </div>
-          <div class="vi-content">
-            <h4>Tech Stack</h4>
-            <p>Reveal.js Decks</p>
-          </div>
+        <div class="meta-group">
+          <h3>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            Tech Stack
+          </h3>
+          <div class="meta-item">Reveal.js Decks</div>
         </div>
       </div>
 
       <div class="sidebar-footer">
-        <div class="author-block">
-          <div>Maintainer:</div>
-          <a href="mailto:banana@dify.ai" class="author-link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            banana@dify.ai
+        <div class="footer-links">
+          
+          <a href="mailto:banana@dify.ai" class="sidebar-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email Maintainer
           </a>
+
+          <a href="https://github.com/crazywoola" target="_blank" class="sidebar-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            @crazywoola
+          </a>
+
+          <a href="https://github.com/crazywoola/dify-x" target="_blank" class="sidebar-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            Dify-X Repo
+          </a>
+
+          <a href="https://crazywoola.github.io/dify-x/" target="_blank" class="sidebar-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            Online Demo
+          </a>
+
+        </div>
+
+        <div class="copyright">
+          &copy; 2026 LangGenius, Inc.<br>
+          All rights reserved.
         </div>
       </div>
     </aside>
 
-    <!-- Main Content: Cards -->
     <main class="main-content">
       <div class="page-header">
         <h1>Presentations</h1>
@@ -432,55 +317,26 @@
       </div>
 
       <div class="deck-grid">
-        
-        <!-- Card 1 -->
         <a class="card" href="ctrip/index.html">
-          <div class="pill-wrapper">
-            <span class="pill">Dify × Ctrip</span>
-          </div>
+          <div class="pill-wrapper"><span class="pill">Dify × Ctrip</span></div>
           <h3>自动化风控：从入门到精通</h3>
           <p>基于 Dify Workflow 的“猫鼠游戏”实战指南，涵盖分层防御、归因与对抗演示。深入了解企业级风控策略。</p>
-          <div class="card-footer">
-            Start Presentation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
+          <div class="card-footer">Start Presentation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         </a>
-
-        <!-- Card 2 -->
         <a class="card" href="pupu/index.html">
-          <div class="pill-wrapper">
-            <span class="pill">Dify × PUPU</span>
-          </div>
+          <div class="pill-wrapper"><span class="pill">Dify × PUPU</span></div>
           <h3>从 Low-Code 到 Pro-Code</h3>
           <p>程序员如何驾驭 Dify 进行 LLM 应用开发：范式转换、代码融合、插件生态构建与自动化触发机制详解。</p>
-          <div class="card-footer">
-            Start Presentation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
+          <div class="card-footer">Start Presentation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         </a>
-
-        <!-- Card 3 -->
         <a class="card" href="milvus/index.html">
-          <div class="pill-wrapper">
-            <span class="pill">Dify × Milvus</span>
-          </div>
+          <div class="pill-wrapper"><span class="pill">Dify × Milvus</span></div>
           <h3>RAG 的演进之路</h3>
           <p>从 Naive 到 Agentic RAG。探讨 Knowledge Pipeline 设计、RAG 评估方法论以及向量数据库的深度协同实践。</p>
-          <div class="card-footer">
-            Start Presentation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
+          <div class="card-footer">Start Presentation<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         </a>
-
       </div>
-
-      <footer class="main-footer">
-        <div>Powered by Dify Blue · Keep shipping.</div>
-        <div>&copy; 2024 LangGenius, Inc. All rights reserved.</div>
-      </footer>
     </main>
-
   </div>
-
 </body>
 </html>
