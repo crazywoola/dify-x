@@ -1,530 +1,486 @@
 <!doctype html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dify X · Presentations</title>
 
-    <title>Dify Style Presentation Template</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <style>
+    :root {
+      /* Dify Brand Colors */
+      --dify-blue: #0033ff;
+      --dify-blue-light: #e0e7ff;
+      --dify-blue-hover: #0026cc;
+      
+      /* Text Colors */
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #94a3b8;
+      
+      /* Backgrounds */
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-sidebar: #ffffff;
+      
+      /* Borders */
+      --border-light: rgba(226, 232, 240, 0.8);
+      
+      /* Spacing */
+      --sidebar-width: 320px;
+    }
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+    * { box-sizing: border-box; }
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
+    /* Layout Structure */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
 
-    <style>
-        :root {
-            --dify-blue: #0033ff; /* 核心品牌色 */
-            --dify-blue-light: rgba(0, 51, 255, 0.08);
-            --text-main: #111827; /* 接近黑色的深灰，参考 cover.png */
-            --text-secondary: #4b5563; /* 次要文字 */
-            --bg-card: #f3f4f6; /* 浅灰卡片背景 */
-            --bg-page: #ffffff;
-            
-            /* 字体栈 */
-            --font-stack: 'Inter', 'Noto Sans SC', sans-serif;
-            --font-mono: 'Fira Code', monospace;
-        }
+    /* --- Sidebar Styling --- */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-light);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 10;
+    }
 
-        /* --- 基础排版设定 --- */
-        body {
-            background-color: var(--bg-page);
-            /* 弥散背景：模拟 customers.jpg 边缘的极柔和蓝光 */
-            background-image: 
-                radial-gradient(circle at 90% 10%, rgba(0, 51, 255, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 0% 90%, rgba(0, 51, 255, 0.04) 0%, transparent 40%);
-            background-attachment: fixed;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      text-decoration: none;
+    }
 
-        .reveal {
-            font-family: var(--font-stack);
-            color: var(--text-main);
-            font-size: 28px; /* 【关键】整体调小字号，更显精致 */
-        }
+    /* Logo placeholder if image fails or for cleaner look */
+    .brand-logo-box {
+      width: 40px;
+      height: 40px;
+      background: var(--dify-blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    .brand-logo-box svg {
+      width: 24px;
+      height: 24px;
+    }
 
-        /* 标题风格 - 参考 cover.png */
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-            text-transform: none;
-            font-family: var(--font-stack);
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.02em;
-            text-align: left; /* 强制左对齐 */
-        }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
 
-        .reveal h1 { font-size: 2.8em; line-height: 1.1; margin-bottom: 0.5em; }
-        .reveal h2 { font-size: 1.8em; line-height: 1.2; margin-bottom: 0.8em; }
-        .reveal h3 { font-size: 1.2em; font-weight: 600; }
+    .intro-text h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      margin: 0 0 16px 0;
+      font-weight: 600;
+    }
 
-        /* 强调色文字 */
-        .text-blue { color: var(--dify-blue) !important; }
-        .text-gray { color: var(--text-secondary) !important; }
+    .intro-text p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0 0 32px 0;
+    }
 
-        /* --- 布局组件 (Grid & Flex) --- */
-        
-        /* 1. Metric Grid (参考 github.jpg) */
-        .grid-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            text-align: left;
-            margin-top: 40px;
-        }
-        .metric-item {
-            border-left: 3px solid var(--dify-blue);
-            padding-left: 16px;
-        }
-        .metric-label {
-            font-size: 0.5em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-            display: block;
-            font-weight: 600;
-        }
-        .metric-value {
-            font-size: 1s.6em;
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 4px;
-            display: block;
-        }
-        .metric-desc {
-            font-size: 0.6em;
-            color: var(--text-secondary);
-        }
+    /* VI & Tech Stack Panel */
+    .vi-panel {
+      background: var(--bg-page);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border-light);
+      margin-bottom: auto; /* Pushes footer down */
+    }
 
-        /* 2. Feature Cards (参考 build-with-dify.jpg) */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: left;
-        }
-        .card {
-            background: var(--bg-card);
-            padding: 24px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card-icon { font-size: 1.5em; color: var(--dify-blue); margin-bottom: 12px; }
-        .card h4 { font-size: 0.9em; margin-bottom: 8px; }
-        .card p { font-size: 0.7em; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .vi-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
 
-        /* 3. Split Layout (参考 maersk-example-compare.png) */
-        .split-container {
-            display: flex;
-            height: 100%;
-            align-items: center;
-            gap: 60px;
-        }
-        .col-half { flex: 1; text-align: left; }
-        
-        /* 红色/蓝色状态点 (参考 Maersk Before/After) */
-        .status-list { list-style: none; margin: 0; padding: 0; }
-        .status-list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            font-size: 0.8em;
-        }
-        .status-list li i { margin-right: 10px; margin-top: 2px; }
-        .status-bad i { color: #dc2626; } /* Red */
-        .status-good i { color: var(--dify-blue); } /* Blue */
+    .vi-item:last-child { margin-bottom: 0; }
 
-        /* 4. Architecture/Workflow Layout (参考 agentic-workflow.jpg) */
-        .workflow-header {
-            display: flex;
-            justify-content: space-between;
-            text-align: left;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-        .workflow-step { flex: 1; }
-        .workflow-step i { 
-            font-size: 1.2em; 
-            color: var(--dify-blue); 
-            background: var(--dify-blue-light);
-            padding: 8px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        .workflow-step strong { display: block; font-size: 0.75em; margin-bottom: 5px; }
-        .workflow-step p { font-size: 0.55em; color: var(--text-secondary); line-height: 1.4; }
+    .vi-icon {
+      color: var(--dify-blue);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
 
-        /* 图片样式 */
-        .img-shadow {
-            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        /* 品牌 Logo */
-        .logo-fixed {
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            font-family: var(--font-stack);
-            font-weight: 700;
-            font-size: 24px;
-            z-index: 10;
-        }
+    .vi-content h4 {
+      margin: 0 0 4px 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
 
-        /* 垂直导航提示 */
-        .vertical-hint {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 12px;
-            color: var(--dify-blue);
-            opacity: 0.5;
-        }
+    .vi-content p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-        /* 联系方式 / 感谢页 */
-        .thankyou-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            max-width: 900px;
-            text-align: left;
-            margin: 0 auto;
-        }
-        .contact-box {
-            background: var(--bg-card);
-            padding: 22px 24px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.8em;
-        }
-        .qr-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .qr-card {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            text-align: center;
-        }
-        .qr-card img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            background: #fff;
-        }
-        .qr-label {
-            margin-top: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            color: var(--text-secondary);
-            letter-spacing: 0.02em;
-        }
-    </style>
+    .color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: var(--dify-blue);
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* Sidebar Footer */
+    .sidebar-footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .author-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+    
+    .author-link:hover {
+      color: var(--dify-blue);
+    }
+
+    /* --- Main Content Area --- */
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width); /* Match sidebar width */
+      padding: 64px 64px 40px;
+      background: 
+        radial-gradient(circle at 90% 0%, rgba(0, 51, 255, 0.03), transparent 40%),
+        radial-gradient(circle at 10% 100%, rgba(0, 51, 255, 0.03), transparent 40%);
+    }
+
+    .page-header {
+      margin-bottom: 48px;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px 0;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Grid Layout */
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    /* Card Styling */
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border-color: rgba(0, 51, 255, 0.3);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--dify-blue);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .pill-wrapper {
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: rgba(0, 51, 255, 0.06);
+      color: var(--dify-blue);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1; /* Pushes the arrow down if content is short */
+    }
+
+    .card-footer {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dify-blue);
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover .card-footer {
+      opacity: 1;
+    }
+
+    .card-footer svg {
+      margin-left: 6px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-footer svg {
+      transform: translateX(4px);
+    }
+
+    /* Main Footer */
+    .main-footer {
+      border-top: 1px solid var(--border-light);
+      padding-top: 32px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .app-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding: 32px 24px;
+      }
+
+      .vi-panel {
+        display: none; /* Hide VI panel on mobile to save space, or style differently */
+      }
+      
+      /* Option to keep VI but make it compact */
+      /* .vi-panel { margin-top: 24px; } */
+
+      .main-content {
+        margin-left: 0;
+        padding: 40px 24px;
+      }
+
+      h1 { font-size: 28px; }
+      
+      .deck-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="logo-fixed">
-        D<span style="color: var(--dify-blue)">ify</span>
-    </div>
+  <div class="app-container">
     
-    <div class="vertical-hint">按键盘 ↓ 查看详情</div>
-
-    <div class="reveal">
-        <div class="slides">
-
-            <section>
-                <div style="text-align: left; max-width: 80%;">
-                    <h1>Build Production-Ready<br>Agentic Workflow</h1>
-                    <p class="text-secondary" style="font-size: 1em; margin-top: 30px; line-height: 1.6;">
-                        Develop, deploy, and manage agentic workflow, RAG pipelines,<br>
-                        and more for teams at any scale, effortlessly.
-                    </p>
-                    <div style="margin-top: 60px;">
-                        <span style="font-size: 0.6em; color: #9ca3af;">Autumn 2025 / Presentation Template</span>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div style="text-align: left;">
-                    <h2>Community-Driven <br><span class="text-blue">Globally Recognized</span></h2>
-                    <p class="text-secondary" style="font-size: 0.8em;">Ranked as one of the top 100 open-source repositories.</p>
-                </div>
-
-                <div class="grid-metrics">
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-install-line"></i> Install</span>
-                        <span class="metric-value">1M+</span>
-                        <span class="metric-desc">Powered by Dify</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-star-line"></i> Popularity</span>
-                        <span class="metric-value">120K+</span>
-                        <span class="metric-desc">GitHub Stars</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-global-line"></i> Global Reach</span>
-                        <span class="metric-value">150+</span>
-                        <span class="metric-desc">Countries</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-building-4-line"></i> Enterprise</span>
-                        <span class="metric-value">60+</span>
-                        <span class="metric-desc">Industries</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-team-line"></i> Contributors</span>
-                        <span class="metric-value">1000+</span>
-                        <span class="metric-desc">Open-source contributors</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-label"><i class="ri-download-2-line"></i> Downloads</span>
-                        <span class="metric-value">550M+</span>
-                        <span class="metric-desc">Total downloads</span>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                
-                <section data-background-color="#f9fafb">
-                    <div class="split-container">
-                        <div class="col-half">
-                            <h5 style="color: #dc2626; font-size: 0.7em; font-weight: 700; margin-bottom: 10px;">BEFORE • CHALLENGE</h5>
-                            <h2>Manual & <br>Overwhelming</h2>
-                            <p class="text-secondary" style="font-size: 0.8em;">
-                                Team needs to process and manage thousands of contracts every day, which brings massive pressure.
-                            </p>
-                            <br>
-                            <ul class="status-list status-bad">
-                                <li><i class="ri-close-circle-fill"></i> Slow manual processing cycles</li>
-                                <li><i class="ri-close-circle-fill"></i> High management pressure</li>
-                                <li><i class="ri-close-circle-fill"></i> Scattered operational data</li>
-                            </ul>
-                        </div>
-                        <div class="col-half" style="opacity: 0.5;">
-                            <img src="https://placehold.co/600x400/e5e7eb/a3a3a3?text=Legacy+System+Screenshot" class="img-shadow">
-                        </div>
-                    </div>
-                    <div style="position:absolute; bottom:-100px; left:50%; transform:translateX(-50%); font-size:0.6em; color:var(--dify-blue);">
-                        ↓ 向下查看解决方案
-                    </div>
-                </section>
-
-                <section data-background-color="#ffffff">
-                    <div class="split-container">
-                        <div class="col-half">
-                            <h5 style="color: var(--dify-blue); font-size: 0.7em; font-weight: 700; margin-bottom: 10px;">AFTER • SOLUTION</h5>
-                            <h2>Automated & <br><span class="text-blue">Efficient</span></h2>
-                            <p class="text-secondary" style="font-size: 0.8em;">
-                                Intelligent workflows streamline the entire process.
-                            </p>
-                            <br>
-                            <ul class="status-list status-good">
-                                <li>
-                                    <i class="ri-checkbox-circle-fill"></i> 
-                                    <div>
-                                        <strong>Boost Processing Efficiency</strong><br>
-                                        <span class="text-secondary" style="font-size: 0.9em">Drastically cut processing time.</span>
-                                    </div>
-                                </li>
-                                <li style="margin-top: 20px;">
-                                    <i class="ri-checkbox-circle-fill"></i> 
-                                    <div>
-                                        <strong>Unlock Structured Data</strong><br>
-                                        <span class="text-secondary" style="font-size: 0.9em">From massive files to structured insights.</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-half">
-                            <img src="https://placehold.co/600x400/0033ff/ffffff?text=Dify+Automated+Workflow" class="img-shadow">
-                        </div>
-                    </div>
-                </section>
-
-            </section>
-
-            <section>
-                <div style="text-align: left; margin-bottom: 30px;">
-                    <h3>Build with Dify</h3>
-                </div>
-                
-                <div class="grid-cards">
-                    <div class="card">
-                        <i class="ri-robot-2-line card-icon"></i>
-                        <h4>Chatbot</h4>
-                        <p>Backendless frontend application development via API integration.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-flow-chart card-icon"></i>
-                        <h4>Workflow</h4>
-                        <p>Automate any task using advanced logic like custom Code and Loops.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-database-2-line card-icon"></i>
-                        <h4>Knowledge Pipeline</h4>
-                        <p>Design knowledge data processing procedures for accurate retrieval.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-server-line card-icon"></i>
-                        <h4>BaaS</h4>
-                        <p>Fully managed backend that includes APIs, user management, and logging.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-plug-line card-icon"></i>
-                        <h4>Plugin</h4>
-                        <p>Integrate and empower AI application capabilities with external tools.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-eye-line card-icon"></i>
-                        <h4>Observability</h4>
-                        <p>Monitor and analyze application performance in real-time.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-flashlight-line card-icon"></i>
-                        <h4>Trigger</h4>
-                        <p>Automatically respond to events with triggers for seamless workflow automation.</p>
-                    </div>
-                    <div class="card">
-                        <i class="ri-user-search-line card-icon"></i>
-                        <h4>HITL</h4>
-                        <p>Human-in-the-loop for review, correction, and enhanced reliability in workflows.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div style="text-align: left; margin-bottom: 20px;">
-                    <h2>Agentic Workflow</h2>
-                    <p class="text-secondary" style="font-size: 0.7em;">Drag and drop, orchestrate the nodes, and turn your AI vision into reality.</p>
-                </div>
-
-                <div class="workflow-header">
-                    <div class="workflow-step">
-                        <i class="ri-mind-map"></i>
-                        <strong>Cross-Multimodal</strong>
-                        <p>Optimal AI models (LLM, TTS, STT) for every task.</p>
-                    </div>
-                    <div class="workflow-step">
-                        <i class="ri-brain-line"></i>
-                        <strong>Memory Mgmt</strong>
-                        <p>Conversation variables store temporary data.</p>
-                    </div>
-                    <div class="workflow-step">
-                        <i class="ri-group-line"></i>
-                        <strong>Collaborate</strong>
-                        <p>Share with the community and collaborate.</p>
-                    </div>
-                    <div class="workflow-step">
-                        <i class="ri-shield-check-line"></i>
-                        <strong>Fault-Tolerant</strong>
-                        <p>Backup branches and retries ensure continuity.</p>
-                    </div>
-                </div>
-
-                <div style="margin-top: -10px;">
-                    <img src="https://placehold.co/1000x350/f8f9fa/cccccc?text=Complex+Workflow+UI+Screenshot" class="img-shadow" style="width: 100%;">
-                </div>
-            </section>
-
-            <section>
-                <div class="split-container">
-                    <div class="col-half">
-                        <h3>Code Friendly</h3>
-                        <p class="text-secondary" style="font-size: 0.8em;">
-                            Seamlessly integrate your business logic within the workflow.
-                        </p>
-                    </div>
-                    <div class="col-half">
-                        <pre><code class="hljs python" data-trim data-line-numbers>
-def handle_user_query(query: str):
-    """
-    Process user input via Dify API
-    """
-    client = DifyClient(api_key="sk-...")
-    
-    # Execute workflow
-    response = client.completion(
-        inputs={"query": query},
-        response_mode="blocking"
-    )
-    
-    return response.data['answer']
-                        </code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <section data-background-color="#f9fafb">
-                <div class="thankyou-wrap">
-                    <div>
-                        <h2>Thank You</h2>
-                        <p class="text-secondary" style="font-size: 0.8em; margin-top: -6px;">
-                            欢迎联系，我们乐于分享更多产品细节与案例。
-                        </p>
-                    </div>
-
-                    <div class="contact-box">
-                        <i class="ri-mail-line" style="color: var(--dify-blue); font-size: 1.2em;"></i>
-                        <div>
-                            <div style="font-weight: 600;">Contact</div>
-                            <div class="text-secondary" style="font-size: 0.9em;">banana@dify.ai</div>
-                        </div>
-                    </div>
-
-                    <div class="qr-grid">
-                        <div class="qr-card">
-                            <img src="assets/xiaohongshu.png" alt="小红书 QR Code" class="img-shadow" style="box-shadow: none;">
-                            <div class="qr-label">小红书</div>
-                        </div>
-                        <div class="qr-card">
-                            <img src="assets/bilibili.png" alt="哔哩哔哩 QR Code" class="img-shadow" style="box-shadow: none;">
-                            <div class="qr-label">哔哩哔哩</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+    <!-- Sidebar: Brand & Info -->
+    <aside class="sidebar">
+      <a href="#" class="brand">
+        <!-- SVG Logo Placeholder -->
+        <div class="brand-logo-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>
         </div>
-    </div>
+        <span class="brand-name">Dify X</span>
+      </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    
-    <script>
-        Reveal.initialize({
-            hash: true,
-            controls: true,
-            controlsLayout: 'edges',
-            progress: true,
-            center: true,
-            width: 1200, /* 宽屏设置，更适合展示左右分栏 */
-            height: 750,
-            transition: 'slide', // 默认横向切换
-            backgroundTransition: 'fade', // 背景淡入淡出
-            
-            // 插件加载
-            plugins: [ RevealHighlight ]
-        });
-    </script>
+      <div class="intro-text">
+        <h2>Presentation Hub</h2>
+        <p>探索 Dify 团队在技术架构、产品演进与生态合作方面的深度分享。</p>
+      </div>
+
+      <!-- Tech Stack & VI Section -->
+      <div class="vi-panel">
+        <div class="vi-item">
+          <div class="vi-icon">
+             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <div class="vi-content">
+            <h4>Brand Color</h4>
+            <p><span class="color-dot"></span>#0033ff</p>
+          </div>
+        </div>
+
+        <div class="vi-item">
+          <div class="vi-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+          </div>
+          <div class="vi-content">
+            <h4>Typography</h4>
+            <p>Inter / Noto Sans SC</p>
+          </div>
+        </div>
+
+        <div class="vi-item">
+          <div class="vi-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <div class="vi-content">
+            <h4>Tech Stack</h4>
+            <p>Reveal.js Decks</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="author-block">
+          <div>Maintainer:</div>
+          <a href="mailto:banana@dify.ai" class="author-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            banana@dify.ai
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content: Cards -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Presentations</h1>
+        <p class="subtitle">技术与商业的碰撞。点击卡片查看完整的演示文稿。</p>
+      </div>
+
+      <div class="deck-grid">
+        
+        <!-- Card 1 -->
+        <a class="card" href="ctrip/index.html">
+          <div class="pill-wrapper">
+            <span class="pill">Dify × Ctrip</span>
+          </div>
+          <h3>自动化风控：从入门到精通</h3>
+          <p>基于 Dify Workflow 的“猫鼠游戏”实战指南，涵盖分层防御、归因与对抗演示。深入了解企业级风控策略。</p>
+          <div class="card-footer">
+            Start Presentation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a class="card" href="pupu/index.html">
+          <div class="pill-wrapper">
+            <span class="pill">Dify × PUPU</span>
+          </div>
+          <h3>从 Low-Code 到 Pro-Code</h3>
+          <p>程序员如何驾驭 Dify 进行 LLM 应用开发：范式转换、代码融合、插件生态构建与自动化触发机制详解。</p>
+          <div class="card-footer">
+            Start Presentation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a class="card" href="milvus/index.html">
+          <div class="pill-wrapper">
+            <span class="pill">Dify × Milvus</span>
+          </div>
+          <h3>RAG 的演进之路</h3>
+          <p>从 Naive 到 Agentic RAG。探讨 Knowledge Pipeline 设计、RAG 评估方法论以及向量数据库的深度协同实践。</p>
+          <div class="card-footer">
+            Start Presentation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+
+      </div>
+
+      <footer class="main-footer">
+        <div>Powered by Dify Blue · Keep shipping.</div>
+        <div>&copy; 2024 LangGenius, Inc. All rights reserved.</div>
+      </footer>
+    </main>
+
+  </div>
+
 </body>
 </html>

@@ -59,10 +59,10 @@
         }
 
         body {
-            background-color: var(--bg-page);
+            background: #ffffff;
             background-image:
-                radial-gradient(circle at 90% 10%, rgba(0, 51, 255, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 0% 90%, rgba(0, 51, 255, 0.04) 0%, transparent 40%);
+                radial-gradient(circle at 12% 18%, rgba(0, 51, 255, 0.8), rgba(255, 255, 255, 0) 42%),
+                radial-gradient(circle at 88% 80%, rgba(0, 51, 255, 0.8), rgba(255, 255, 255, 0) 45%);
             background-attachment: fixed;
         }
 
@@ -70,6 +70,8 @@
             font-family: var(--font-stack);
             color: var(--text-main);
             font-size: 28px;
+            position: relative;
+            z-index: 1;
         }
 
         .reveal h1,
@@ -105,10 +107,34 @@
         .reveal code {
             font-family: var(--font-mono) !important;
         }
+
+        /* Milvus-style gradient shapes */
+        #bg-shapes {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        #bg-shapes .shape {
+            position: absolute;
+            filter: blur(28px) saturate(115%);
+            opacity: 0.12;
+            transform: translate3d(0,0,0);
+        }
+        #bg-shapes .s1 { background: radial-gradient(closest-side, rgba(0,51,255,0.5), transparent 70%); width: 50vw; height: 50vh; top: -10vh; left: -10vw; }
+        #bg-shapes .s2 { background: conic-gradient(from 90deg, rgba(0,51,255,0.35), transparent 45%, rgba(0,51,255,0.15)); width: 60vw; height: 60vh; top: 5vh; right: -20vw; }
+        #bg-shapes .s3 { background: radial-gradient(closest-side, rgba(0,51,255,0.32), transparent 65%); width: 70vw; height: 70vh; bottom: -20vh; left: 10vw; }
     </style>
 </head>
 
 <body>
+
+    <div id="bg-shapes" aria-hidden="true">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+    </div>
 
     <div class="absolute top-10 left-10 font-bold text-2xl z-10" style="font-family: var(--font-stack);">
         D<span class="text-dify">if</span>y
