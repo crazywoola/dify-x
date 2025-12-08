@@ -32,6 +32,13 @@ Speaker: 郑立 Dify 开源生态负责人
     Dify 对程序员的价值：快速原型 -> 生产级 API 的最短路径
     Call for Action：欢迎提交 PR，参与开源生态建设
 
+## 视觉 & 版式更新
+
+- 背景采用弥散蓝色主题，与 ctrip 样式一致。
+- 4 张主视觉插图（破局/融合/扩展/连接）统一限宽（max 1000px、50vh），避免挤压 Logo 与标题，中英双版本已同步。
+- 公共样式/脚本抽离到 `shared.css` 与 `shared.js`，Tailwind 配置与 Reveal 初始化共享。
+- Agenda 之后新增 10 张强化演示页（RAG+Guardrail、DSL↔Code Node、Trigger 动画、性能面板等），采用 Tailwind 排版与动画。
+
 ## 破局 —— 下一代 LLM 应用开发范式
 
 

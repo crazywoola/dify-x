@@ -17,150 +17,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Loaded fallbacks: Inter, Noto Sans SC, Fira Code -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&family=Fira+Code&display=swap"
         rel="stylesheet">
+
+    <script src="shared.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dify: '#0033ff',
-                        'dify-light': 'rgba(0, 51, 255, 0.08)',
-                        'text-main': '#111827',
-                        'text-secondary': '#4b5563',
-                        'bg-card': '#f3f4f6',
-                    },
-                    fontFamily: {
-                        sans: ['"Söhne"', '"MiSans"', 'Inter', '"Noto Sans SC"', 'sans-serif'],
-                        mono: ['"Söhne Mono"', '"Noto Sans Mono SC"', '"Fira Code"', 'monospace'],
-                    },
-                },
-            },
-        };
-    </script>
-
-
-    <style>
-        :root {
-            --dify-blue: #0033ff;
-            /* Dify Brand Color */
-            --dify-blue-light: rgba(0, 51, 255, 0.08);
-            --text-main: #111827;
-            --text-secondary: #4b5563;
-            --bg-card: #f3f4f6;
-            --bg-page: #ffffff;
-
-            /* Fonts Update: Söhne / MiSans priority */
-            --font-stack: 'Söhne', 'MiSans', 'Inter', 'Noto Sans SC', sans-serif;
-            --font-mono: 'Söhne Mono', 'Noto Sans Mono SC', 'Fira Code', monospace;
-        }
-
-        body {
-            background: #ffffff;
-            background-image:
-                radial-gradient(circle at 12% 18%, rgba(0, 51, 255, 0.8), rgba(255, 255, 255, 0) 42%),
-                radial-gradient(circle at 88% 80%, rgba(0, 51, 255, 0.8), rgba(255, 255, 255, 0) 45%);
-            background-attachment: fixed;
-        }
-
-        .reveal {
-            font-family: var(--font-stack);
-            color: var(--text-main);
-            font-size: 28px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .reveal h1,
-        .reveal h2,
-        .reveal h3,
-        .reveal h4 {
-            text-transform: none;
-            font-family: var(--font-stack);
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.01em;
-            text-align: left;
-        }
-
-        .reveal h1 {
-            font-size: 2.8em;
-            line-height: 1.1;
-            margin-bottom: 0.5em;
-        }
-
-        .reveal h2 {
-            font-size: 1.8em;
-            line-height: 1.2;
-            margin-bottom: 0.8em;
-        }
-
-        .reveal h3 {
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
-        .reveal pre,
-        .reveal code {
-            font-family: var(--font-mono) !important;
-        }
-
-        .lang-switch {
-            position: fixed;
-            top: 16px;
-            right: 24px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 999px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            font-size: 14px;
-            z-index: 30;
-        }
-
-        .lang-switch a {
-            color: #334155;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 999px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .lang-switch a.active {
-            background: rgba(0, 51, 255, 0.12);
-            color: var(--dify-blue);
-        }
-
-        .lang-switch a:hover {
-            color: var(--dify-blue);
-            background: rgba(0, 51, 255, 0.08);
-        }
-
-        /* Milvus-style gradient shapes */
-        #bg-shapes {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        #bg-shapes .shape {
-            position: absolute;
-            filter: blur(28px) saturate(115%);
-            opacity: 0.12;
-            transform: translate3d(0,0,0);
-        }
-        #bg-shapes .s1 { background: radial-gradient(closest-side, rgba(0,51,255,0.5), transparent 70%); width: 50vw; height: 50vh; top: -10vh; left: -10vw; }
-        #bg-shapes .s2 { background: conic-gradient(from 90deg, rgba(0,51,255,0.35), transparent 45%, rgba(0,51,255,0.15)); width: 60vw; height: 60vh; top: 5vh; right: -20vw; }
-        #bg-shapes .s3 { background: radial-gradient(closest-side, rgba(0,51,255,0.32), transparent 65%); width: 70vw; height: 70vh; bottom: -20vh; left: 10vw; }
-    </style>
+    <link rel="stylesheet" href="shared.css">
 </head>
 
 <body>
@@ -258,65 +121,130 @@
             <!-- Section 1: 破局 -->
             <section>
                 <section data-background-color="#f9fafb">
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>破局 · 下一代 LLM 应用开发范式</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">从痛点切入，思考 Dify 的技术定位。</p>
-                    </div>
-                    <div style="margin-top: 40px;">
+                        <p>从痛点切入，思考 Dify 的技术定位。</p>
                         <img src="assets/Paradigm+Shift+Illustration.png" alt="范式转移示意图"
-                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                            class="slide-visual shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
                 <section>
-                    <div class="text-left">
-                        <h2>Community-Driven <br><span class="text-dify">Globally Recognized</span></h2>
-                        <p class="text-text-secondary text-[0.8em]">Ranked as one of the top 100 open-source
-                            repositories.</p>
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h2>Community-Driven <span class="text-dify">·</span> 全球认可</h2>
+                        <p class="text-text-secondary text-[0.8em]">开源生态驱动，Top 100 GitHub 仓库。</p>
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-install-line"></i> Install</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">1M+</span>
+                                <span class="text-[0.6em] text-text-secondary">Powered by Dify</span>
+                            </div>
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-star-line"></i> Popularity</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">120K+</span>
+                                <span class="text-[0.6em] text-text-secondary">GitHub Stars</span>
+                            </div>
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-global-line"></i> Global Reach</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">150+</span>
+                                <span class="text-[0.6em] text-text-secondary">Countries</span>
+                            </div>
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-building-4-line"></i> Enterprise</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">60+</span>
+                                <span class="text-[0.6em] text-text-secondary">Industries</span>
+                            </div>
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-team-line"></i> Contributors</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">1000+</span>
+                                <span class="text-[0.6em] text-text-secondary">Contributors</span>
+                            </div>
+                            <div class="border-l-4 border-dify pl-4">
+                                <span
+                                    class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1 flex items-center gap-1"><i
+                                        class="ri-download-2-line"></i> Downloads</span>
+                                <span class="text-[1.6em] font-bold leading-none mb-1 block">550M+</span>
+                                <span class="text-[0.6em] text-text-secondary">Total downloads</span>
+                            </div>
+                        </div>
                     </div>
+                </section>
 
-                    <div class="grid grid-cols-3 gap-6 text-left mt-10">
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-install-line"></i> Install</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">1M+</span>
-                            <span class="text-[0.6em] text-text-secondary">Powered by Dify</span>
+                <section>
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>1.0 案例演示：RAG + 规则双轨</h3>
+                        <p class="text-text-secondary text-[0.85em]">30 分钟搭建：数据预处理 → 检索 → Guardrail → 结果回传。</p>
+                        <div class="grid grid-cols-3 gap-5">
+                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-semibold text-text-secondary">数据预处理</span>
+                                    <span class="text-xs text-dify bg-dify-light px-2 py-1 rounded-full">10 min</span>
+                                </div>
+                                <p class="text-[0.75em] text-text-secondary mt-2">批量清洗 + 分段，输出向量入库。</p>
+                                <code class="text-[0.65em] block bg-slate-900 text-slate-100 rounded p-3 mt-3"># python node\nchunks = split(doc, size=400)\nstore(chunks)</code>
+                            </div>
+                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-semibold text-text-secondary">检索 + Guardrail</span>
+                                    <span class="text-xs text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">14 ms</span>
+                                </div>
+                                <p class="text-[0.75em] text-text-secondary mt-2">Top-k 检索 + 违规语料过滤，保障安全。</p>
+                                <div class="ticker-line text-[0.7em] text-dify font-semibold mt-3">RAG → LLM → 正则/黑名单 → 结果</div>
+                            </div>
+                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-semibold text-text-secondary">回传 & 观测</span>
+                                    <span class="text-xs text-orange-600 bg-orange-50 px-2 py-1 rounded-full">可回放</span>
+                                </div>
+                                <p class="text-[0.75em] text-text-secondary mt-2">写回业务表，Trace ID 关联到 APM & Log。</p>
+                                <div class="text-[0.7em] text-text-secondary mt-3 space-y-1">
+                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Trace: workflow.run</div>
+                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Token: 115 / req</div>
+                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Cost: $0.0017</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-star-line"></i> Popularity</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">120K+</span>
-                            <span class="text-[0.6em] text-text-secondary">GitHub Stars</span>
-                        </div>
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-global-line"></i> Global Reach</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">150+</span>
-                            <span class="text-[0.6em] text-text-secondary">Countries</span>
-                        </div>
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-building-4-line"></i> Enterprise</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">60+</span>
-                            <span class="text-[0.6em] text-text-secondary">Industries</span>
-                        </div>
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-team-line"></i> Contributors</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">1000+</span>
-                            <span class="text-[0.6em] text-text-secondary">Open-source contributors</span>
-                        </div>
-                        <div class="border-l-4 border-dify pl-4">
-                            <span
-                                class="text-[0.5em] uppercase tracking-[1px] text-text-secondary font-semibold block mb-1"><i
-                                    class="ri-download-2-line"></i> Downloads</span>
-                            <span class="text-[1.6em] font-bold leading-none mb-1 block">550M+</span>
-                            <span class="text-[0.6em] text-text-secondary">Total downloads</span>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>1.0 数据流动画 · 从 Chaos 到 Clarity</h3>
+                        <div class="grid grid-cols-3 gap-5 items-center">
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">输入</div>
+                                <ul class="text-text-secondary text-[0.75em] space-y-1">
+                                    <li>原始日志 / 文档流</li>
+                                    <li>实时事件 Payload</li>
+                                    <li>自定义特征 (country, ua...)</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <div class="h-16 bg-gradient-to-r from-slate-100 to-slate-200 rounded-xl border border-black/5 flex items-center px-4 ticker-line">
+                                    <span class="text-text-secondary text-sm">Normalize → Vectorize → Route</span>
+                                </div>
+                                <div class="h-16 bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-xl border border-black/5 flex items-center px-4 animate-pulse">
+                                    <span class="text-emerald-700 text-sm">Guardrail + Policy Check</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">输出</div>
+                                <ul class="text-text-secondary text-[0.75em] space-y-1">
+                                    <li>响应体 / 回调</li>
+                                    <li>指标：p99, token, 成本</li>
+                                    <li>Trace 链路：APM & Log</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -385,13 +313,11 @@
             <!-- Section 2: 融合 -->
             <section>
                 <section data-background-color="#f9fafb">
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>融合 · 打破“低代码”的刻板印象</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">不仅是降低门槛，更是高阶工程能力的“可视化映射”。</p>
-                    </div>
-                    <div style="margin-top: 30px;">
+                        <p>不仅是降低门槛，更是高阶工程能力的“可视化映射”。</p>
                         <img src="assets/Visual+DSL&Observability.png" alt="可视化DSL与可观测性示意图"
-                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                            class="slide-visual shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -429,6 +355,37 @@
                     </div>
                 </section>
 
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>2.1 双轨示例：DSL ↔ Code Node</h3>
+                        <p class="text-text-secondary text-[0.8em]">同一逻辑，两种形态，协同演进。</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-white rounded-xl border border-black/5 p-6 shadow-sm glow-card">
+                                <div class="flex items-center gap-2 mb-3 text-sm font-semibold text-text-secondary">
+                                    <i class="ri-node-tree text-dify"></i> Workflow 画布
+                                </div>
+                                <ul class="text-[0.75em] text-text-secondary space-y-2">
+                                    <li class="flex items-start gap-2"><span class="text-dify">●</span> 变量映射：检索结果 → LLM → 条件分支</li>
+                                    <li class="flex items-start gap-2"><span class="text-dify">●</span> 可视断点：节点级耗时、重试、采样率</li>
+                                    <li class="flex items-start gap-2"><span class="text-dify">●</span> 业务可读：交付给运营/产品共建</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-900 text-slate-100 rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="flex items-center gap-2 text-sm font-semibold text-slate-200 mb-3">
+                                    <i class="ri-code-line text-dify"></i> Code Node (Python)
+                                </div>
+                                <pre class="text-[0.65em] leading-[1.5] whitespace-pre-wrap bg-transparent border border-slate-700 rounded-lg p-3"><code>def handler(payload):
+    country = payload["country"]
+    score = risk_model.predict(payload)
+    if country == "US" and score &lt; 0.2:
+        return {"route": "fast-lane"}
+    return {"route": "human-review", "score": score}</code></pre>
+                                <div class="text-[0.7em] text-emerald-300 mt-2 animate-pulse">输出变量 auto-bind → 下游节点</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section>
                     <div style="text-align: left; max-width: 900px;">
                         <h3>2.2 最佳实践：高密度开发模式</h3>
@@ -460,19 +417,45 @@
                         </div>
                     </div>
                 </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>2.3 调试视图 · 变量+日志</h3>
+                        <div class="grid grid-cols-3 gap-5">
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">变量快照</div>
+                                <p class="text-[0.75em] text-text-secondary">节点级输入/输出对比，diff 高亮。</p>
+                                <div class="text-[0.65em] bg-white rounded-md border border-black/5 p-3 mt-2 ticker-line">user_id: 91283 → 91283<br>country: CN → US (flag)</div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">Token & 成本</div>
+                                <ul class="text-[0.75em] text-text-secondary space-y-1">
+                                    <li>Prompt Tokens: 320</li>
+                                    <li>Completion Tokens: 88</li>
+                                    <li>成本: $0.0009 / req</li>
+                                </ul>
+                                <div class="h-2 w-full bg-slate-200 rounded-full mt-3 overflow-hidden">
+                                    <div class="h-full bg-dify animate-pulse" style="width:35%;"></div>
+                                </div>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">日志 & Trace</div>
+                                <p class="text-[0.75em] text-text-secondary">点击 Trace ID 跳转至 Jaeger / SLS。</p>
+                                <code class="text-[0.65em] block bg-slate-900 text-slate-100 rounded p-3 mt-2">trace_id=wf-1827 span=llm.call status=ok p95=180ms</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
 
             <!-- Section 3: 扩展 -->
             <section>
                 <section data-background-color="#f9fafb">
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>扩展 · 构建你的军火库</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">Marketplace & Plugins：把 Dify
-                            当成“平台的基础设施”。</p>
-                    </div>
-                    <div style="margin-top: 30px;">
+                        <p>Marketplace & Plugins：把 Dify 当成“平台的基础设施”。</p>
                         <img src="assets/Plugin+Marketplace+Gallery.png" alt="插件市场"
-                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                            class="slide-visual shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -510,6 +493,79 @@
                     <div>
                         <img src="assets/Plugin+Architecture+Diagram.png" alt="插件架构图"
                             class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>3.1 调用示例：Slack Bot Plugin</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm glow-card">
+                                <div class="flex items-center gap-2 text-sm font-semibold text-text-secondary mb-3">
+                                    <i class="ri-terminal-window-line text-dify"></i> 请求示例 (cURL)
+                                </div>
+                                <pre class="text-[0.65em] leading-[1.6] whitespace-pre-wrap bg-slate-900 text-slate-100 rounded-lg p-4"><code>curl -X POST https://api.dify.ai/plugins/slack_bot \\
+  -H "Authorization: Bearer &lt;token&gt;" \\
+  -d '{
+    "channel_id": "ops-alert",
+    "text": "Build passed ✅",
+    "bot_token": "******"
+  }'</code></pre>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="flex items-center gap-2 text-sm font-semibold text-text-secondary mb-3">
+                                    <i class="ri-bar-chart-box-line text-dify"></i> 响应 & 观测
+                                </div>
+                                <ul class="text-[0.8em] text-text-secondary space-y-2">
+                                    <li>status: <span class="text-emerald-600 font-semibold">success</span></li>
+                                    <li>message_ts: <code class="text-dify">171103.23</code></li>
+                                    <li>trace_id: <code class="text-dify">plugin-9821</code> (跳转日志)</li>
+                                </ul>
+                                <div class="mt-4 grid grid-cols-3 gap-3 text-[0.75em] text-text-secondary">
+                                    <div class="bg-white rounded-lg border border-black/5 p-3 text-center">
+                                        <div class="text-lg font-semibold text-dify">180ms</div>
+                                        <div class="text-xs">p95</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg border border-black/5 p-3 text-center">
+                                        <div class="text-lg font-semibold text-dify">0.0003</div>
+                                        <div class="text-xs">Cost $</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg border border-black/5 p-3 text-center">
+                                        <div class="text-lg font-semibold text-dify">99.9%</div>
+                                        <div class="text-xs">成功率</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>3.2 发布流水线 · 4 步上线</h3>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 text-center glow-card">
+                                <div class="text-dify text-xl mb-2">1</div>
+                                <div class="text-sm font-semibold">定义</div>
+                                <p class="text-[0.7em] text-text-secondary mt-1">manifest + schema</p>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 text-center glow-card">
+                                <div class="text-dify text-xl mb-2">2</div>
+                                <div class="text-sm font-semibold">开发</div>
+                                <p class="text-[0.7em] text-text-secondary mt-1">code node / runtime</p>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 text-center glow-card">
+                                <div class="text-dify text-xl mb-2">3</div>
+                                <div class="text-sm font-semibold">验证</div>
+                                <p class="text-[0.7em] text-text-secondary mt-1">本地 + 沙箱</p>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 text-center glow-card">
+                                <div class="text-dify text-xl mb-2">4</div>
+                                <div class="text-sm font-semibold">发布</div>
+                                <p class="text-[0.7em] text-text-secondary mt-1">Marketplace / 内部</p>
+                            </div>
+                        </div>
+                        <div class="h-1 bg-gradient-to-r from-dify to-blue-200 rounded-full animate-pulse"></div>
                     </div>
                 </section>
 
@@ -599,13 +655,11 @@
             <!-- Section 4: 连接 -->
             <section>
                 <section data-background-color="#f9fafb">
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>连接 · 事件驱动的自动化</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">Trigger 让应用从“被动问答”迈向“主动执行”。</p>
-                    </div>
-                    <div style="margin-top: 30px;">
+                        <p>Trigger 让应用从“被动问答”迈向“主动执行”。</p>
                         <img src="assets/Event-Driven-Automation.png" alt="事件驱动自动化"
-                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                            class="slide-visual shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
@@ -627,6 +681,41 @@
                         <div class="flex-1 text-left">
                             <img src="assets/Event+Trigger+Flow.png" alt="事件触发流程"
                                 class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>4.1 自动化动画：事件 → Workflow</h3>
+                        <div class="grid grid-cols-3 gap-5 items-center">
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">事件源</div>
+                                <ul class="text-[0.75em] text-text-secondary space-y-1">
+                                    <li>Webhook: /orders/created</li>
+                                    <li>Plugin: GitHub PR</li>
+                                    <li>Schedule: cron(0/10 * * *)</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <div class="h-14 bg-gradient-to-r from-dify-light to-white border border-black/5 rounded-xl flex items-center px-4 ticker-line">
+                                    <span class="text-text-secondary text-sm">事件 → 变量映射 → 条件路由</span>
+                                </div>
+                                <div class="h-14 bg-gradient-to-r from-emerald-50 to-white border border-black/5 rounded-xl flex items-center px-4 animate-pulse">
+                                    <span class="text-emerald-700 text-sm">LLM 选择模型 · 自动重试</span>
+                                </div>
+                                <div class="h-14 bg-gradient-to-r from-orange-50 to-white border border-black/5 rounded-xl flex items-center px-4">
+                                    <span class="text-orange-700 text-sm">回调 / 写库 / 通知</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-black/5 p-5 shadow-sm">
+                                <div class="text-sm font-semibold text-text-secondary mb-2">可观测</div>
+                                <ul class="text-[0.75em] text-text-secondary space-y-1">
+                                    <li>Trace ID: trig-2039</li>
+                                    <li>p95: 420ms</li>
+                                    <li>Drools/Rules: version v2.1</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -717,28 +806,50 @@
                     </div>
                 </section>
 
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>4.4 用例矩阵</h3>
+                        <div class="quadrant mt-4">
+                            <div class="quadrant-label" style="top:8px; left:8px;">实时</div>
+                            <div class="quadrant-label" style="top:8px; right:8px;">高复杂</div>
+                            <div class="quadrant-label" style="bottom:8px; left:8px;">批量</div>
+                            <div class="quadrant-label" style="bottom:8px; right:8px;">标准化</div>
+
+                            <div class="quadrant-item" style="top:18%; left:20%;">监控告警<br><span class="text-dify text-[0.75em]">Prom → Trigger → Slack</span></div>
+                            <div class="quadrant-item" style="top:28%; right:18%;">代码审查<br><span class="text-dify text-[0.75em]">PR → Plugin Trigger → 摘要</span></div>
+                            <div class="quadrant-item" style="bottom:18%; left:22%;">RAG 回放<br><span class="text-dify text-[0.75em]">KB 更新 → 重跑 → Diff</span></div>
+                            <div class="quadrant-item" style="bottom:22%; right:22%;">CRM 自动化<br><span class="text-dify text-[0.75em]">线索 → Workflow → 邮件/工单</span></div>
+                            <div class="quadrant-item" style="top:55%; left:46%;">内容审核<br><span class="text-dify text-[0.75em]">Webhook → 多模态 → 封禁</span></div>
+                            <div class="quadrant-item" style="top:40%; right:40%;">电商履约<br><span class="text-dify text-[0.75em]">订单 → LLM 路由 → 仓储</span></div>
+                        </div>
+                    </div>
+                </section>
+
                 <section data-background-color="#f9fafb">
                     <div class="text-left max-w-[1000px]">
                         <h3>4.5 实战示例：GitHub PR 自动审查</h3>
                         <p class="text-text-secondary text-[0.8em] mb-6">结合 Plugin Trigger 与 LLM，让代码变更自动进入智能审查流程。</p>
-                        <div class="grid grid-cols-3 gap-5 text-left">
-                            <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                            <div class="text-xs font-semibold text-dify mb-1">🛰️ 订阅事件</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">选择 GitHub Trigger 插件，订阅非
-                                    Draft 且目标为 main 的 PR 事件（打开/更新/关闭/合并）。</div>
+                        <div class="roadmap-horizontal">
+                            <div class="roadmap-h-step">
+                                <div class="roadmap-card bg-white p-5 rounded-lg border border-black/5 shadow-sm flex flex-col gap-1">
+                                    <div class="text-xs font-semibold text-dify mb-1">🛰️ 订阅事件</div>
+                                    <div class="text-text-secondary text-[0.75em] leading-[1.6]">GitHub Trigger 订阅非 Draft、目标 main 的 PR 事件。</div>
+                                    <span class="text-xs text-text-secondary bg-slate-100 px-2 py-1 rounded-full animate-pulse w-fit">t0</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                            <div class="text-xs font-semibold text-dify mb-1">📥 变量入流</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">插件自动解析 Payload，输出 <code
-                                        class="text-dify">action</code>、<code
-                                        class="text-dify">pull_request</code>、<code
-                                        class="text-dify">repository</code>、<code class="text-dify">sender</code>
-                                    供下游节点使用。</div>
+                            <div class="roadmap-h-step">
+                                <div class="roadmap-card bg-bg-card p-5 rounded-lg border border-black/5 flex flex-col gap-1">
+                                    <div class="text-xs font-semibold text-dify mb-1">📥 变量入流</div>
+                                    <div class="text-text-secondary text-[0.75em] leading-[1.6]">解析 payload → <code class="text-dify">action</code>/<code class="text-dify">pull_request</code>/<code class="text-dify">repo</code>/<code class="text-dify">sender</code>。</div>
+                                    <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full w-fit">t0+30ms</span>
+                                </div>
                             </div>
-                            <div class="bg-white p-5 rounded-lg border border-black/5 shadow-sm">
-                            <div class="text-xs font-semibold text-dify mb-1">🤖 LLM 审查与反馈</div>
-                                <div class="text-text-secondary text-[0.75em] leading-[1.6]">LLM
-                                    节点基于变量生成审查摘要，条件节点决定是否自动评论、请求变更或触发后续流水线。</div>
+                            <div class="roadmap-h-step">
+                                <div class="roadmap-card bg-white p-5 rounded-lg border border-black/5 shadow-sm flex flex-col gap-1">
+                                    <div class="text-xs font-semibold text-dify mb-1">🤖 LLM 审查与反馈</div>
+                                    <div class="text-text-secondary text-[0.75em] leading-[1.6]">生成审查摘要，条件判断：自动评论 / 请求变更 / 触发 CI。</div>
+                                    <span class="text-xs text-orange-700 bg-orange-50 px-2 py-1 rounded-full animate-pulse w-fit">t0+180ms</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -749,101 +860,56 @@
             <section>
                 <!-- 5.0 Chapter Cover -->
                 <section data-background-color="#f9fafb">
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>洞察 · 开源社区的极客精神</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">透明、可观测、可移植的工程能力。</p>
-                    </div>
-                    <div style="margin-top: 30px;">
+                        <p>透明、可观测、可移植的工程能力。</p>
                         <img src="assets/OpenTelemetry+Database+Flexibility.png" alt="开源洞察"
-                            class="w-full max-w-5xl mx-auto block shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
+                            class="slide-visual shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5">
                     </div>
                 </section>
 
                 <!-- 5.1 Overview with HTML-based Architecture Diagram -->
                 <section>
-                    <div style="text-align: left;">
+                    <div class="slide-hero">
                         <h2>5.1 OTEL 全链路追踪实战</h2>
-                        <p class="text-text-secondary" style="font-size: 0.8em;">不仅是日志，更是贯穿 LLM 与 Infra 的“上帝视角”。</p>
-                    </div>
-
-                    <!-- 交互式架构图容器 -->
-                    <div
-                        style="margin-top: 40px; position: relative; height: 380px; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; padding: 20px; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08); display: flex; align-items: center; justify-content: center;">
-
-                        <!-- Left: App Layer -->
-                        <div style="width: 25%; text-align: center; position: relative;">
-                            <div
-                                style="background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 2px solid var(--dify-blue); padding: 25px 15px; border-radius: 12px; color: var(--dify-blue); box-shadow: 0 8px 20px rgba(0,51,255,0.1); z-index: 2; position: relative;">
-                                <i class="ri-layout-grid-fill"
-                                    style="font-size: 2em; margin-bottom: 10px; display: block;"></i>
-                                <span style="font-weight: 700;">Workflow App</span>
-                                <div
-                                    style="font-size: 0.5em; font-weight: 500; margin-top: 10px; color: var(--text-secondary); background: rgba(255,255,255,0.8); padding: 4px 8px; border-radius: 4px; display: inline-block;">
-                                    Trace ID: T-1001</div>
-                            </div>
-                        </div>
-
-                        <!-- Connector -->
+                        <p>不仅是日志，更是贯穿 LLM 与 Infra 的“上帝视角”。</p>
                         <div
-                            style="width: 20%; position: relative; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 10px;">
-                            <div
-                                style="font-size: 0.6em; color: var(--dify-blue); font-weight: 600; background: #fff; z-index: 2; padding: 0 10px; margin-bottom: -13px;">
-                                Trace Link</div>
-                            <div style="width: 100%; height: 2px; background: #e5e7eb; position: relative;">
-                                <div
-                                    style="position: absolute; right: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #e5e7eb;">
-                                </div>
-                            </div>
-                            <div
-                                style="font-size: 0.5em; color: var(--text-secondary); margin-top: 15px; text-align: center;">
-                                HTTP Header<br>Propagation</div>
-                        </div>
-
-                        <!-- Right: Infra Layer -->
-                        <div
-                            style="width: 45%; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 25px; border-radius: 16px; position: relative;">
-                            <div
-                                style="position: absolute; top: -12px; left: 20px; background: #fff; padding: 0 10px; font-size: 0.65em; font-weight: 600; color: var(--text-secondary);">
-                                Dify Infrastructure</div>
-
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                                <!-- Python Side -->
-                                <div
-                                    style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
-                                    <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
-                                        <i class="ri-python-line"
-                                            style="vertical-align: middle; margin-right: 5px;"></i>API / Worker
-                                    </div>
+                            class="mt-6 relative h-[380px] bg-white rounded-xl border border-slate-200 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] flex items-center justify-center">
+                            <div class="absolute top-4 left-4 text-xs text-text-secondary bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">Trace Link</div>
+                            <div class="grid grid-cols-5 gap-4 w-full px-6">
+                                <div class="col-span-1 text-center">
                                     <div
-                                        style="font-size: 0.55em; color: #059669; background: #ecfdf5; padding: 4px 8px; border-radius: 4px; display: inline-block;">
-                                        ● Monkey Patch</div>
-                                </div>
-
-                                <!-- Go Side -->
-                                <div
-                                    style="background: #fff; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
-                                    <div style="font-weight: 600; font-size: 0.7em; margin-bottom: 8px;">
-                                        <i class="ri-box-3-line"
-                                            style="vertical-align: middle; margin-right: 5px;"></i>Plugin Daemon
+                                        class="bg-gradient-to-br from-blue-50 to-white border-2 border-dify px-4 py-5 rounded-xl text-dify font-semibold shadow-md">
+                                        <i class="ri-layout-grid-fill text-2xl block mb-2"></i>
+                                        Workflow App
+                                        <div class="text-[0.65em] text-text-secondary bg-white/80 px-2 py-1 rounded mt-2 inline-block">Trace ID: T-1001</div>
                                     </div>
-                                    <div
-                                        style="font-size: 0.55em; color: #d97706; background: #fffbeb; padding: 4px 8px; border-radius: 4px; display: inline-block;">
-                                        ● Compile Probe</div>
                                 </div>
-                            </div>
-
-                            <!-- Downstream -->
-                            <div
-                                style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px; display: flex; gap: 10px; justify-content: center;">
-                                <span
-                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">Redis</span>
-                                <span
-                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">PostgreSQL</span>
-                                <span
-                                    style="font-size: 0.5em; color: var(--text-secondary); border: 1px solid #e2e8f0; padding: 4px 8px; border-radius: 4px;">VectorDB</span>
+                                <div class="col-span-1 flex flex-col justify-center items-center text-[0.75em] text-text-secondary">
+                                    <div class="h-1 w-20 bg-slate-200 relative overflow-hidden rounded-full">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-dify/60 to-transparent animate-[sweep_3s_linear_infinite]"></div>
+                                    </div>
+                                    <div class="mt-2 text-center">HTTP Header<br>Propagation</div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm text-left">
+                                            <div class="text-sm font-semibold mb-2"><i class="ri-python-line mr-1"></i>API / Worker</div>
+                                            <span class="text-[0.7em] text-emerald-600 bg-emerald-50 px-2 py-1 rounded">● Monkey Patch</span>
+                                        </div>
+                                        <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm text-left">
+                                            <div class="text-sm font-semibold mb-2"><i class="ri-box-3-line mr-1"></i>Plugin Daemon</div>
+                                            <span class="text-[0.7em] text-amber-600 bg-amber-50 px-2 py-1 rounded">● Compile Probe</span>
+                                        </div>
+                                    </div>
+                                    <div class="border-t border-slate-200 mt-3 pt-3 flex gap-3 text-[0.7em] text-text-secondary justify-center">
+                                        <span class="border border-slate-200 px-3 py-1 rounded">Redis</span>
+                                        <span class="border border-slate-200 px-3 py-1 rounded">PostgreSQL</span>
+                                        <span class="border border-slate-200 px-3 py-1 rounded">VectorDB</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </section>
 
@@ -987,6 +1053,26 @@
                     </div>
                 </section>
 
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>5.1 采样与限流策略</h3>
+                        <div class="grid grid-cols-3 gap-4 text-[0.8em] text-text-secondary">
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 glow-card">
+                                <div class="text-sm font-semibold text-text-main mb-2">动态采样</div>
+                                <p>按 Span 类型设置采样率：LLM 20%，向量检索 50%，关键交易 100%。</p>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 glow-card">
+                                <div class="text-sm font-semibold text-text-main mb-2">Token 限流</div>
+                                <p>结合队列长度与 TPS，动态调节 prompt 长度与并发窗口。</p>
+                            </div>
+                            <div class="bg-bg-card rounded-xl border border-black/5 p-4 glow-card">
+                                <div class="text-sm font-semibold text-text-main mb-2">异常升级</div>
+                                <p>捕获错误率>1% 时提升采样到 100%，自动打开调试日志。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 5.1 Case Study Story -->
                 <section data-background-color="#ffffff">
                     <div style="text-align: left; margin-bottom: 30px;">
@@ -1094,6 +1180,47 @@
                     </div>
                 </section>
 
+                <section data-background-color="#ffffff">
+                    <div class="max-w-5xl mx-auto text-left space-y-6">
+                        <h3>5.2 性能指标看板</h3>
+                        <div class="grid grid-cols-3 gap-4 text-[0.85em] text-text-secondary">
+                            <div class="bg-white rounded-xl border border-black/5 p-4 shadow-sm text-center">
+                                <div class="text-2xl font-bold text-dify">410 ms</div>
+                                <div class="text-xs uppercase tracking-wide">p95 延迟</div>
+                                <div class="h-1 bg-gradient-to-r from-dify to-blue-200 rounded-full mt-2 animate-pulse"></div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-black/5 p-4 shadow-sm text-center">
+                                <div class="text-2xl font-bold text-dify">0.0021</div>
+                                <div class="text-xs uppercase tracking-wide">$/Request</div>
+                                <div class="text-xs text-text-secondary mt-1">含 RAG 检索 & LLM</div>
+                            </div>
+                            <div class="bg-white rounded-xl border border-black/5 p-4 shadow-sm text-center">
+                                <div class="text-2xl font-bold text-dify">99.96%</div>
+                                <div class="text-xs uppercase tracking-wide">成功率</div>
+                                <div class="text-xs text-text-secondary mt-1">过去 7d</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-[0.75em] text-text-secondary">
+                            <div class="bg-bg-card rounded-lg border border-black/5 p-4">
+                                <div class="font-semibold text-text-main mb-2">热点 Span</div>
+                                <ul class="space-y-1">
+                                    <li>workflow.run → 35%</li>
+                                    <li>retriever.query → 22%</li>
+                                    <li>llm.call → 18%</li>
+                                </ul>
+                            </div>
+                            <div class="bg-bg-card rounded-lg border border-black/5 p-4">
+                                <div class="font-semibold text-text-main mb-2">优化动作</div>
+                                <ul class="space-y-1">
+                                    <li>分片向量库，减少 tail latency</li>
+                                    <li>Prompt 缓存命中率提升 12%</li>
+                                    <li>异步回调降低 API 阻塞</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 5.3 CI/CD (Migration Versions) -->
                 <section data-background-color="#ffffff">
                     <div class="flex h-full items-start gap-[60px]">
@@ -1191,42 +1318,38 @@
 
             <!-- Section 6: 总结 -->
             <section data-background-color="#ffffff">
-                <div class="max-w-4xl mx-auto text-left space-y-7">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">总结 · LLM 应用开发的进化路径</h2>
-                        <p class="text-text-secondary text-[0.95em] leading-[1.75] mt-3">
-                            以统一编排为核心，叠加工程护栏、生态扩展与事件驱动，构建可观测、可演进的生产级 AI 应用。</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-5">
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">🚀 范式升级</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">低代码编排 + Pro-Code
-                                深逻辑，压缩从想法到上线的路径。</p>
+                <div class="max-w-4xl mx-auto text-left space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">总结 · LLM 应用开发的进化路径</h2>
+                    <p class="text-text-secondary text-[0.95em] leading-[1.75]">
+                        以统一编排为核心，叠加工程护栏、生态扩展与事件驱动，构建可观测、可演进的生产级 AI 应用。</p>
+                    <div class="roadmap-horizontal">
+                        <div class="roadmap-h-step">
+                            <div class="roadmap-card bg-bg-card p-4 rounded-xl border border-black/5 flex flex-col gap-1">
+                                <div class="text-sm font-semibold text-text-main">阶段 1 · 范式升级</div>
+                                <div class="text-text-secondary text-[0.85em]">低代码编排 + Pro-Code 深逻辑，压缩从想法到上线。</div>
+                                <span class="text-xs text-dify bg-dify-light px-2 py-1 rounded-full self-start">Week 1</span>
+                            </div>
                         </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">🛡️ 工程护栏</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">重试、分支、配额、可观测性与治理策略，守护可靠性与安全性。
-                            </p>
+                        <div class="roadmap-h-step">
+                            <div class="roadmap-card bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col gap-1">
+                                <div class="text-sm font-semibold text-text-main">阶段 2 · 工程护栏</div>
+                                <div class="text-text-secondary text-[0.85em]">重试、分支、配额、可观测性与治理策略，守护可靠性。</div>
+                                <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full self-start">Week 2</span>
+                            </div>
                         </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">🔌 生态扩展</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">Marketplace / Plugin / Tool
-                                打通外部能力，形成可复用的资产库。</p>
+                        <div class="roadmap-h-step">
+                            <div class="roadmap-card bg-bg-card p-4 rounded-xl border border-black/5 flex flex-col gap-1">
+                                <div class="text-sm font-semibold text-text-main">阶段 3 · 生态扩展 & 事件驱动</div>
+                                <div class="text-text-secondary text-[0.85em]">Marketplace / Plugin / Trigger 打通外部能力，形成资产库。</div>
+                                <span class="text-xs text-orange-700 bg-orange-50 px-2 py-1 rounded-full self-start">Week 3</span>
+                            </div>
                         </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">⚡ 事件驱动</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">Trigger 让 Workflow
-                                持续监听、主动执行，推动业务闭环自动化。</p>
-                        </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">📊 数据与透明</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">OTEL 全链路 +
-                                多数据库抽象，便于私有化部署与性能调优。</p>
-                        </div>
-                        <div class="bg-bg-card p-5 rounded-xl border border-black/5">
-                            <h4 class="text-[1em] font-semibold mb-1.5">♻️ 持续演进</h4>
-                            <p class="text-text-secondary text-[0.9em] leading-[1.7] m-0">以架构可视化与治理规范为基线，迭代能力、沉淀最佳实践。
-                            </p>
+                        <div class="roadmap-h-step">
+                            <div class="roadmap-card bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col gap-1">
+                                <div class="text-sm font-semibold text-text-main">阶段 4 · 数据透明与演进</div>
+                                <div class="text-text-secondary text-[0.85em]">OTEL 全链路 + 多库抽象，持续优化性能与成本。</div>
+                                <span class="text-xs text-dify bg-dify-light px-2 py-1 rounded-full self-start">持续</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1234,24 +1357,21 @@
 
             <!-- Section 7: Thank You -->
             <section data-background-color="#f9fafb">
-                <div class="flex flex-col gap-10 max-w-[900px] text-left mx-auto">
-                    <div class="bg-white rounded-xl border border-black/5 px-10 py-12 shadow-sm flex flex-col items-start">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1 bg-white rounded-xl border border-black/5 px-10 py-12 shadow-sm">
                         <h2 class="text-3xl font-bold mb-4 text-dify">Thank You</h2>
                         <div class="text-[1.05em] mb-3 font-semibold text-text-secondary">
                             <span class="text-dify">Call for Action：</span>
                             欢迎提交 PR，贡献插件、案例与最佳实践，共建 Dify 生态。
                         </div>
-                    </div>
-
-                    <div class="bg-bg-card px-7 py-6 rounded-xl border border-black/5 flex items-center gap-4 text-[0.9em]">
-                        <i class="ri-mail-line text-dify text-[1.3em]"></i>
-                        <div>
-                            <div class="font-semibold">Contact</div>
-                            <div class="text-text-secondary text-[0.95em]">banana@dify.ai</div>
+                        <div class="bg-bg-card px-5 py-4 rounded-xl border border-black/5 flex items-center gap-3 text-[0.95em] mt-6">
+                            <i class="ri-mail-line text-dify text-[1.4em]"></i>
+                            <div>
+                                <div class="text-text-secondary">banana@dify.ai</div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="grid grid-cols-2 gap-7 justify-items-center">
+                    <div class="flex-1 grid grid-cols-2 gap-7 justify-items-center">
                         <div class="bg-bg-card p-6 rounded-xl border border-black/5 text-center w-full max-w-[260px]">
                             <img src="../assets/xiaohongshu.png" alt="小红书 QR Code"
                                 class="w-[180px] h-[180px] object-cover rounded-lg border border-black/5 bg-white mx-auto">
@@ -1272,22 +1392,7 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
 
-    <script>
-        Reveal.initialize({
-            hash: true,
-            controls: true,
-            controlsLayout: 'edges',
-            progress: true,
-            center: true,
-            width: 1200, /* 宽屏设置，更适合展示左右分栏 */
-            height: 750,
-            transition: 'slide', // 默认横向切换
-            backgroundTransition: 'fade', // 背景淡入淡出
-
-            // 插件加载
-            plugins: [RevealHighlight]
-        });
-    </script>
+    <script>initReveal();</script>
 </body>
 
 </html>
