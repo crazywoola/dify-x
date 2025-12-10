@@ -1045,7 +1045,7 @@ Risk alarm! 🚨
                     </div>
                 </section>
 
-                <!-- NEW: Feature Engineering -->
+                <!-- Page 1: Good vs Bad Features -->
                 <section data-background-gradient="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)">
                     <h2 class="text-left mb-6">Feature Engineering: Risk Control's "Alchemy" 🧪</h2>
                     <p class="text-left text-gray-700 mb-6">No matter how strong the model, garbage features = garbage results. What makes a "good feature"?</p>
@@ -1097,60 +1097,69 @@ Risk alarm! 🚨
                             </div>
                         </div>
                     </div>
+                </section>
 
-                    <div class="mt-6 p-5 glass-card rounded-xl">
-                        <h4 class="font-bold text-blue-800 mb-3">🎯 "Golden Feature Library" for PayPal Scenarios</h4>
-                        <div class="grid grid-cols-3 gap-3 text-xs">
-                            <div class="p-2 bg-blue-50 rounded">
-                                <p class="font-bold text-blue-700">🌐 Network Layer</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• IP reputation score</li>
-                                    <li>• VPN/Proxy detection</li>
-                                    <li>• IP-to-account historical geo deviation</li>
-                                </ul>
-                            </div>
-                            <div class="p-2 bg-purple-50 rounded">
-                                <p class="font-bold text-purple-700">📱 Device Layer</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• Device fingerprint stability</li>
-                                    <li>• Device shared account count</li>
-                                    <li>• Emulator/VM detection</li>
-                                </ul>
-                            </div>
-                            <div class="p-2 bg-green-50 rounded">
-                                <p class="font-bold text-green-700">👤 Behavior Layer</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• Mouse movement trajectory</li>
-                                    <li>• Page dwell time</li>
-                                    <li>• Payment time vs browsing duration ratio</li>
-                                </ul>
-                            </div>
-                            <div class="p-2 bg-orange-50 rounded">
-                                <p class="font-bold text-orange-700">💳 Transaction Layer</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• Card BIN risk level</li>
-                                    <li>• Issuing country vs consumption location</li>
-                                    <li>• Recent chargeback rate</li>
-                                </ul>
-                            </div>
-                            <div class="p-2 bg-pink-50 rounded">
-                                <p class="font-bold text-pink-700">📊 Profile Layer</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• Account age</li>
-                                    <li>• Historical transaction frequency</li>
-                                    <li>• Recent password/email change count</li>
-                                </ul>
-                            </div>
-                            <div class="p-2 bg-yellow-50 rounded">
-                                <p class="font-bold text-yellow-700">🧠 Semantic Layer (LLM)</p>
-                                <ul class="text-gray-600 ml-3 mt-1">
-                                    <li>• Customer service dialogue tone</li>
-                                    <li>• Dispute reason template degree</li>
-                                    <li>• User narrative-behavior consistency</li>
-                                </ul>
-                            </div>
+                <!-- Page 2: Golden Feature Library -->
+                <section data-background-gradient="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)">
+                    <h2 class="text-left mb-6">"Golden Feature Library" for PayPal Scenarios 🎯</h2>
+                    <p class="text-left text-gray-700 mb-6">Six dimensions to build a complete risk control feature system</p>
+                    
+                    <div class="grid grid-cols-3 gap-4 text-sm">
+                        <div class="glass-card p-4 rounded-xl bg-blue-50">
+                            <p class="font-bold text-blue-700 mb-2">🌐 Network Layer</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• IP reputation score</li>
+                                <li>• VPN/Proxy detection</li>
+                                <li>• IP-to-account historical geo deviation</li>
+                            </ul>
                         </div>
-                        <p class="mt-3 text-xs text-gray-500 italic">💡 In Dify, use different nodes to extract these features separately, then aggregate for scoring.</p>
+                        <div class="glass-card p-4 rounded-xl bg-purple-50">
+                            <p class="font-bold text-purple-700 mb-2">📱 Device Layer</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• Device fingerprint stability</li>
+                                <li>• Device shared account count</li>
+                                <li>• Emulator/VM detection</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl bg-green-50">
+                            <p class="font-bold text-green-700 mb-2">👤 Behavior Layer</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• Mouse movement trajectory</li>
+                                <li>• Page dwell time</li>
+                                <li>• Payment time vs browsing duration ratio</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl bg-orange-50">
+                            <p class="font-bold text-orange-700 mb-2">💳 Transaction Layer</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• Card BIN risk level</li>
+                                <li>• Issuing country vs consumption location</li>
+                                <li>• Recent chargeback rate</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl bg-pink-50">
+                            <p class="font-bold text-pink-700 mb-2">📊 Profile Layer</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• Account age</li>
+                                <li>• Historical transaction frequency</li>
+                                <li>• Recent password/email change count</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl bg-yellow-50">
+                            <p class="font-bold text-yellow-700 mb-2">🧠 Semantic Layer (LLM)</p>
+                            <ul class="text-gray-700 ml-3 space-y-1 text-xs">
+                                <li>• Customer service dialogue tone</li>
+                                <li>• Dispute reason template degree</li>
+                                <li>• User narrative-behavior consistency</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white/90 rounded-lg shadow">
+                        <p class="text-sm text-gray-700 text-center">
+                            <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
+                            <strong>In Dify:</strong> Use different nodes to extract these features separately, then aggregate for scoring
+                        </p>
                     </div>
                 </section>
             </section>
@@ -1280,7 +1289,7 @@ def main(llm_risk, ip_type, history_count):
                     </code></pre>
                 </section>
 
-                <!-- NEW: Advanced Node Configuration -->
+                <!-- Page 1: Four Advanced Nodes -->
                 <section data-background-color="#f0fdf4">
                     <h2 class="text-left mb-6">Advanced Moves: Dify Nodes' "Hidden Skills" 🎮</h2>
                     <p class="text-left text-gray-600 mb-6">The basic three-node setup is just an appetizer—here's the hardcore config</p>
@@ -1352,123 +1361,220 @@ ELSE:
                             <p class="text-xs text-orange-700 mt-2"><strong>Effect:</strong> All sub-workflows auto-respond, no manual intervention needed</p>
                         </div>
                     </div>
+                </section>
 
-                    <div class="mt-6 p-4 bg-white rounded-lg shadow">
-                        <h4 class="font-bold text-gray-800 mb-2">🎯 Combo: Complex Scenario Handling</h4>
-                        <p class="text-sm text-gray-700">In practice, often need multiple nodes working together. For example:</p>
-                        <div class="mt-3 p-3 bg-blue-50 rounded text-sm">
-                            <p class="font-bold text-blue-800">Scenario: Black Friday promo protection</p>
-                            <p class="text-gray-700 mt-1">
-                                <span class="font-mono text-xs">Variable node</span> (set war mode) → 
-                                <span class="font-mono text-xs">Branch node</span> (VIP skip check) → 
-                                <span class="font-mono text-xs">Loop node</span> (check cart items) → 
-                                <span class="font-mono text-xs">LLM node</span> (analyze purchase intent) → 
-                                <span class="font-mono text-xs">Delay node</span> (suspicious users delay 5s) → 
-                                <span class="font-mono text-xs">Python node</span> (final scoring)
-                            </p>
+                <!-- Page 2: Combo Example -->
+                <section data-background-color="#f0fdf4">
+                    <h2 class="text-left mb-6">Combo: Complex Scenario Handling 🥊</h2>
+                    <p class="text-left text-gray-600 mb-6">In practice, often need multiple nodes working together</p>
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Example: Black Friday Promo Protection</h3>
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-blue-700">Variable node</span>
+                                        <span class="text-gray-700 text-sm ml-2">Set war mode (global defense_level = 5)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-green-700">Branch node</span>
+                                        <span class="text-gray-700 text-sm ml-2">VIP users skip check, new users take strict flow</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-purple-700">Loop node</span>
+                                        <span class="text-gray-700 text-sm ml-2">Check each cart item (all high-price products?)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-orange-700">LLM node</span>
+                                        <span class="text-gray-700 text-sm ml-2">Analyze purchase intent (text looks like coupon hunting?)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-yellow-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">5</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-yellow-700">Delay node</span>
+                                        <span class="text-gray-700 text-sm ml-2">Suspicious users delay 5s (increase fraud cost)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">6</div>
+                                    <div>
+                                        <span class="font-mono font-bold text-red-700">Python node</span>
+                                        <span class="text-gray-700 text-sm ml-2">Combine all signals, final decision (PASS / BLOCK / REVIEW)</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white/90 rounded-lg shadow">
+                        <p class="text-sm text-gray-700 text-center">
+                            <i class="fas fa-star text-yellow-500 mr-2"></i>
+                            <strong>Key:</strong> Each node has its role, layered filtering leaves attackers no opening
+                        </p>
                     </div>
                 </section>
 
-                <!-- NEW: Debugging & Monitoring -->
+                <!-- Page 1: Debugging Tools & Checklist -->
                 <section>
                     <h2 class="text-left mb-6">Debugging Arsenal: Make Bugs Nowhere to Hide 🐛</h2>
                     <p class="text-left text-gray-600 mb-6">Workflow not running? Don't panic—these tools help pinpoint problems</p>
                     
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-4xl mb-2">🔍</div>
-                                <h4 class="font-bold text-blue-700 mb-2">Real-time Logs</h4>
-                                <p class="text-xs text-gray-600">See every node's input/output, errors jump out</p>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-4xl mb-2">⏱️</div>
-                                <h4 class="font-bold text-orange-700 mb-2">Performance Monitoring</h4>
-                                <p class="text-xs text-gray-600">Which node is slow? LLM call latency? Metrics has it all</p>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-4xl mb-2">🧪</div>
-                                <h4 class="font-bold text-green-700 mb-2">Test Cases</h4>
-                                <p class="text-xs text-gray-600">Prepare typical cases, run them before going live</p>
-                            </div>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-4xl mb-2">🔍</div>
+                            <h4 class="font-bold text-blue-700 mb-2">Real-time Logs</h4>
+                            <p class="text-xs text-gray-600">See every node's input/output, errors jump out</p>
                         </div>
-
-                        <div class="glass-card p-5 rounded-xl">
-                            <h3 class="text-lg font-bold text-purple-700 mb-4">📋 Debugging Checklist</h3>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2">Common Issue Troubleshooting</h4>
-                                    <ul class="space-y-2 text-gray-700">
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-red-500">❌</span>
-                                            <div>
-                                                <strong>Node error:</strong> Check input format (JSON format wrong? Required fields missing?)
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-orange-500">⚠️</span>
-                                            <div>
-                                                <strong>LLM output unstable:</strong> Strengthen prompt constraints (require fixed-format JSON return)
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-yellow-500">⏳</span>
-                                            <div>
-                                                <strong>Workflow timeout:</strong> Check for infinite loops or slow API call responses
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-blue-500">🔄</span>
-                                            <div>
-                                                <strong>Results not as expected:</strong> Use test data to check node by node, find logic issue
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-2">Performance Optimization Tips</h4>
-                                    <ul class="space-y-2 text-gray-700">
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-green-500">✅</span>
-                                            <div>
-                                                <strong>Parallel execution:</strong> Independent API calls can run in parallel (e.g., query IP lib and device lib simultaneously)
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-green-500">✅</span>
-                                            <div>
-                                                <strong>Cache results:</strong> Same input doesn't need recomputation (e.g., same IP risk score can cache 5 min)
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-green-500">✅</span>
-                                            <div>
-                                                <strong>Fallback strategy:</strong> When LLM times out, fallback to rules engine (ensure availability)
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <span class="text-green-500">✅</span>
-                                            <div>
-                                                <strong>Async processing:</strong> Non-critical path operations (like log reporting) execute async
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-4xl mb-2">⏱️</div>
+                            <h4 class="font-bold text-orange-700 mb-2">Performance Monitoring</h4>
+                            <p class="text-xs text-gray-600">Which node is slow? LLM call latency? Metrics has it all</p>
                         </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-4xl mb-2">🧪</div>
+                            <h4 class="font-bold text-green-700 mb-2">Test Cases</h4>
+                            <p class="text-xs text-gray-600">Prepare typical cases, run them before going live</p>
+                        </div>
+                    </div>
 
-                        <div class="p-5 glass-card rounded-xl border-l-4 border-blue-600">
-                            <h4 class="text-lg font-bold text-blue-800 mb-3">💡 Pro Tip: Version Management</h4>
-                            <p class="text-sm text-gray-700 mb-3">In Dify, every workflow modification auto-saves a version. If problems arise, one-click rollback.</p>
-                            <div class="bg-blue-50 p-3 rounded">
-                                <p class="text-xs text-gray-700"><strong>Best practices:</strong></p>
-                                <ul class="text-xs text-gray-600 mt-2 space-y-1">
-                                    <li>• Before major changes, tag current version (e.g., "v1.2-black-friday")</li>
-                                    <li>• Validate in test environment first, then switch to production</li>
-                                    <li>• Canary release: Let 10% traffic use new version first, observe metrics</li>
+                    <div class="glass-card p-5 rounded-xl">
+                        <h3 class="text-lg font-bold text-purple-700 mb-4">📋 Debugging Checklist</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Common Issue Troubleshooting</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-red-500">❌</span>
+                                        <div>
+                                            <strong>Node error:</strong> Check input format (JSON format wrong? Required fields missing?)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-orange-500">⚠️</span>
+                                        <div>
+                                            <strong>LLM output unstable:</strong> Strengthen prompt constraints (require fixed-format JSON return)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-yellow-500">⏳</span>
+                                        <div>
+                                            <strong>Workflow timeout:</strong> Check for infinite loops or slow API call responses
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-500">🔄</span>
+                                        <div>
+                                            <strong>Results not as expected:</strong> Use test data to check node by node, find logic issue
+                                        </div>
+                                    </li>
                                 </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Performance Optimization Tips</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-green-500">✅</span>
+                                        <div>
+                                            <strong>Parallel execution:</strong> Independent API calls can run in parallel (e.g., query IP lib and device lib simultaneously)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-green-500">✅</span>
+                                        <div>
+                                            <strong>Cache results:</strong> Same input doesn't need recomputation (e.g., same IP risk score can cache 5 min)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-green-500">✅</span>
+                                        <div>
+                                            <strong>Fallback strategy:</strong> When LLM times out, fallback to rules engine (ensure availability)
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-green-500">✅</span>
+                                        <div>
+                                            <strong>Async processing:</strong> Non-critical path operations (like log reporting) execute async
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page 2: Version Management -->
+                <section>
+                    <h2 class="text-left mb-6">Pro Tip: Version Management & Release Strategy 🚀</h2>
+                    <p class="text-left text-gray-600 mb-6">Make your workflow updates safer and more controllable</p>
+                    
+                    <div class="glass-card p-6 rounded-xl mb-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">
+                            <i class="fas fa-code-branch mr-2"></i>Automatic Version Saving
+                        </h3>
+                        <p class="text-gray-700 mb-4">In Dify, every workflow modification auto-saves a version. If problems arise, one-click rollback.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="text-3xl">📝</div>
+                                <div>
+                                    <p class="font-bold text-blue-800">Auto-archive every change</p>
+                                    <p class="text-sm text-gray-600">Node modifications, parameter adjustments, prompt updates all recorded</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="text-3xl">⏪</div>
+                                <div>
+                                    <p class="font-bold text-blue-800">One-click rollback</p>
+                                    <p class="text-sm text-gray-600">Found an issue? Instantly restore to previous stable version</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">
+                            <i class="fas fa-rocket mr-2"></i>Best Release Practices
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Tag important versions</p>
+                                    <p class="text-sm text-gray-600">Before major changes, tag current version (e.g., "v1.2-black-friday", "v2.0-stable")</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Validate in test environment first</p>
+                                    <p class="text-sm text-gray-600">Run typical cases in test environment, ensure functionality before switching to production</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Canary release</p>
+                                    <p class="text-sm text-gray-600">Let 10% traffic use new version first, observe metrics (false positive rate, block rate) before full rollout</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Monitoring & alerts</p>
+                                    <p class="text-sm text-gray-600">Set up alerts for key metrics (e.g., error rate > 5%, response time > 3s) to detect issues early</p>
+                                </div>
                             </div>
                         </div>
                     </div>

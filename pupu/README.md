@@ -8,55 +8,51 @@ Speaker: 郑立 Dify 开源生态负责人
 
 ## Outline
 
-- 破局 —— 下一代 LLM 应用开发范式
-    1.1 现状痛点
-    1.2 Dify 的技术定位
-- 融合 —— 打破“低代码”的刻板印象
-    2.1 低代码 vs 高代码的辩证关系
-    2.2 程序员的最佳实践
-- 扩展 —— 构建你的军火库 (Marketplace & Plugins)
-    3.1 Dify Plugin 架构解析
-    3.2 实战：由浅入深开发一个 Tool
-- 连接 —— 事件驱动的自动化 (Trigger)
-    4.1 Trigger 的本质
-        从 "Passive Response" (用户问) 到 "Active Execution" (事件触发)
-    4.2 场景演示
-        Workflow：外部 Webhook 触发 -> Dify 解析 Payload -> 运行 LLM 决策 ->输出结果
-- 洞察 —— 开源社区的极客精神
-    5.1 让黑盒变透明：OTEL (OpenTelemetry) 全链路追踪
-        痛点：LLM 调用链长，Token 消耗不明，延迟难定位
-    5.2 数据库适配的架构解耦
-        从 PostgreSQL-only 到支持 MySQL
-        ORM 层 (SQLAlchemy) 的抽象与迁移挑战
-- 总结
-    Dify 对程序员的价值：快速原型 -> 生产级 API 的最短路径
-    Call for Action：欢迎提交 PR，参与开源生态建设
+- **破局 —— 下一代 LLM 应用开发范式**
+    - 1.1 现状痛点：碎片化、协作难、工程缺口
+    - 1.2 Dify 的技术定位：编排、工程、扩展、可观测
+    - **1.3 为什么是现在？**：技术临界点 (Transformer -> GPT-3 -> Dify)
+    - **1.4 传统开发 vs LLM 原生开发**：确定性 vs 概率性，单元测试 vs Eval
+    - **1.5 Dify 生态全景**：连接模型、基础设施与最终用户
+
+- **融合 —— 打破“低代码”的刻板印象**
+    - 2.1 可视化的辩证统一：Low-Code (编程语言) vs Pro-Code (调试视图)
+    - 2.2 最佳实践：Visual DSL 处理胶水逻辑，Code Node 处理核心计算
+    - 2.3 调试视图：变量快照、Token 成本、Trace 链路
+    - **2.4 Prompt Engineering as Code**：版本控制与差异对比
+    - **2.5 团队协作机制**：Admin (Infra), Builder (App), Operator (Biz)
+    - **2.6 复杂逻辑编排**：循环、迭代与条件判断的可视化
+
+- **扩展 —— 构建你的军火库 (Marketplace & Plugins)**
+    - 3.1 Dify Plugin 架构解析：Runtime, Auth, Billing, Packaging
+    - 3.2 实战：由浅入深开发一个 Slack Bot Tool
+    - **3.3 工具安全与沙箱机制**：Namespace 隔离与资源限制
+    - **3.4 进阶：工具逆向调用 Workflow**：Agentic Behavior
+    - **3.5 插件市场经济展望**：开发者、平台与企业的价值闭环
+
+- **连接 —— 事件驱动的自动化 (Trigger)**
+    - 4.1 Trigger 的本质：从 Passive Response 到 Active Execution
+    - 4.2 场景演示：Webhook -> LLM Routing -> Action
+    - 4.3 Trigger 类型：Schedule, Plugin, Webhook
+    - 4.4 用例矩阵：实时/批量/复杂/标准
+    - 4.5 实战：GitHub PR 自动审查
+    - **4.6 技术揭秘：高并发事件总线架构**：Redis Broker + Celery Worker
+    - **4.7 真实案例：智能客服工单路由**：Email -> Intent -> RAG/Action -> Human Loop
+
+- **洞察 —— 开源社区的极客精神**
+    - 5.1 OTEL 全链路追踪：Monkey Patch (Python) & Compile Probe (Go)
+    - 5.2 数据库适配的架构解耦：PostgreSQL / MySQL / OceanBase
+    - 5.3 质量保障：差异化 Matrix CI/CD
+    - 5.4 代码重构：SQL 兼容性抽象
+    - **5.5 成本分析与优化**：精细化运营，Token/Storage 成本可视化
+
+- **总结**
+    - 进化路径：范式升级 -> 工程护栏 -> 生态扩展 -> 数据透明
+    - Call for Action：欢迎提交 PR，参与开源生态建设
 
 ## 视觉 & 版式更新
 
-- 背景采用弥散蓝色主题，与 ctrip 样式一致。
-- 4 张主视觉插图（破局/融合/扩展/连接）统一限宽（max 1000px、50vh），避免挤压 Logo 与标题，中英双版本已同步。
-- 公共样式/脚本抽离到 `shared.css` 与 `shared.js`，Tailwind 配置与 Reveal 初始化共享。
-- Agenda 之后新增 10 张强化演示页（RAG+Guardrail、DSL↔Code Node、Trigger 动画、性能面板等），采用 Tailwind 排版与动画。
-
-## 破局 —— 下一代 LLM 应用开发范式
-
-
-## 融合 —— 打破“低代码”的刻板印象
-
-高低代码都需要可视化，二者都离不开，但是原因和侧重点不同，高代码靠可视化加速理解与调试，它的代码语言是经过抽象的 DSL
-核心是 看得懂 比得出 说的清 做的快
-
-低代码靠可视化成为编程本身
-    - 可视化 = 编程语言
-    - 降低门槛与认知负荷
-    - 可解释性可教学
-
-
-## 扩展 —— 构建你的军火库 (Marketplace & Plugins)
-
-## 连接 —— 事件驱动的自动化 (Trigger)
-
-## 洞察 —— 开源社区的极客精神
-
-## 总结
+- **UI 风格统一**：采用弥散蓝色主题，Tailwind CSS 重构，与 Dify 品牌色保持一致。
+- **内容增强**：每个章节补充 3-4 页深度内容，覆盖技术原理、生态图谱与真实案例。
+- **中英同步**：`index.html` 与 `index_en.html` 内容完全对齐。
+- **可视化升级**：新增时间轴、架构图、代码窗口、对比表格等多种可视化组件。
