@@ -16,6 +16,7 @@ Online:
 ## Repo map
 - `assets/`: brand assets (`logo.svg`, `bilibili.png`, `xiaohongshu.png`).
 - `ctrip/`: automated risk control deck (CN/EN) plus outline (`ctrip/README.md`).
+- `paypal/`: payment risk control deck (CN/EN) covering auth rate defense, ATO, and dispute-abuse playbooks.
 - `pupu/`: low-to-pro-code developer practice (CN/EN) with slide visuals.
 - `milvus/`: RAG evolution + vector DB collaboration deck, shared styles in `milvus/styles/` and notes (`AGENTS.md`, `context.md`, `target_audience.md`).
 - `oceanbase/`: Dify × Oceanbase integration guide and sample `docker-compose.yaml`.
@@ -23,6 +24,7 @@ Online:
 
 ## Decks
 - `ctrip/index.html`: automated risk control and adversarial demos (layered defense, attribution, counter-strategy).
+- `paypal/index.html`: payment risk & auth-defense playbook (card testing, ATO, dispute/chargeback abuse mitigation).
 - `pupu/index.html`: building with Dify as a developer (plugin architecture, triggers, observability).
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
 - English versions live in each folder’s `index_en.html`.
