@@ -219,6 +219,97 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 51, 255, 0.3), 0 0 10px rgba(0, 51, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 51, 255, 0.5), 0 0 30px rgba(0, 51, 255, 0.3);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .reveal .slides section {
+            transition: all 0.3s ease;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--dify-blue), var(--paypal-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
         .lang-switch {
             position: fixed;
             top: 18px;
@@ -406,6 +497,165 @@
                                 <span class="font-bold">Target:</span> Cash-out, laundering, account takeovers.<br>
                                 <span class="font-bold">Impact:</span> Fines, trust erosion, brand damage.
                             </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW: Three Nightmares of Risk Teams -->
+                <section data-background-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                    <div class="text-white">
+                        <h2 class="text-left mb-8">Three Nightmares of Risk Teams 💀</h2>
+                        <div class="space-y-6">
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">🔥</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Nightmare 1: Slow Policy Deployment</h3>
+                                        <p class="text-gray-700 mb-2">Spot a new attack Monday morning, push a fix by Friday. Five days of losses? Could be six figures.</p>
+                                        <div class="bg-red-100 p-3 rounded mt-3">
+                                            <p class="text-red-800 text-sm font-bold">👉 Legacy flow: File ticket → Sprint planning → Dev → QA → Canary → Rollout = 5-7 days</p>
+                                            <p class="text-green-800 text-sm font-bold mt-2">✨ Dify flow: Drag nodes → Test → Deploy = 30 minutes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">🤯</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Nightmare 2: Black-box Models Are Unexplainable</h3>
+                                        <p class="text-gray-700 mb-2">Model says "high risk" but can't tell you why. Compliance, support, even legal will interrogate you.</p>
+                                        <div class="bg-orange-100 p-3 rounded mt-3">
+                                            <p class="text-orange-800 text-sm"><strong>Scenario:</strong> A loyal customer gets blocked, escalates to management. You need to explain why 🤷‍♂️</p>
+                                            <p class="text-blue-800 text-sm font-bold mt-2">💡 Dify solution: Every node logs inputs/outputs, LLM can generate natural-language explanations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">⚡</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Nightmare 3: Cross-team Collaboration Hell</h3>
+                                        <p class="text-gray-700 mb-2">Product wants feature A, data says no data, eng says need refactor, ops says can we ship a temp fix...</p>
+                                        <div class="bg-purple-100 p-3 rounded mt-3">
+                                            <p class="text-purple-800 text-sm font-bold">🎯 Dify's power: Visual workflows become a shared language—product, ops, and eng all speak it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW: Hidden Costs of Risk Control -->
+                <section>
+                    <h2 class="text-left mb-6">Hidden Costs of Risk Control 💸</h2>
+                    <p class="text-left text-gray-600 mb-8">Beyond direct losses, here's what you don't see on the P&L</p>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-red-500">
+                                <h4 class="text-lg font-bold text-red-700 mb-2">💰 Direct Losses</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>Fraud losses:</strong> Avg $150-500 per fraudulent transaction</li>
+                                    <li>• <strong>Chargeback fees:</strong> $15-25 per case + manual review costs</li>
+                                    <li>• <strong>Promo abuse:</strong> Coupon hunters eat 20-40% of subsidies</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-orange-500">
+                                <h4 class="text-lg font-bold text-orange-700 mb-2">⏰ Time Costs</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>Policy iteration cycle:</strong> Legacy 5-7 days vs Dify 30 minutes</li>
+                                    <li>• <strong>Manual review:</strong> 3-5 hours/day triaging suspicious orders</li>
+                                    <li>• <strong>Incident investigation:</strong> 2-4 hours to trace root cause</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                                <h4 class="text-lg font-bold text-blue-700 mb-2">😢 User Experience Costs</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>False positive rate:</strong> Every 1% FPR = thousands of lost legit users</li>
+                                    <li>• <strong>Verification friction:</strong> Each extra step costs 10-15% conversion</li>
+                                    <li>• <strong>Support tickets:</strong> Angry falsely-blocked users flood CS</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-green-500">
+                                <h4 class="text-lg font-bold text-green-700 mb-2">🎯 Dify's Value Proposition</h4>
+                                <div class="text-sm text-gray-700 space-y-2">
+                                    <p class="font-bold text-green-800">✅ Lower direct losses: Sharper detection, fewer false negatives</p>
+                                    <p class="font-bold text-green-800">✅ Save time: Automate 70% of daily ops</p>
+                                    <p class="font-bold text-green-800">✅ Better UX: Smart tiering, block only when necessary</p>
+                                    <p class="mt-3 text-xs text-gray-500 italic">* Based on real customer case studies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW: Why Choose Dify? -->
+                <section data-background-color="#f0f9ff">
+                    <h2 class="text-left mb-6">Why Choose Dify? 🤔</h2>
+                    <p class="text-left text-gray-600 mb-6">So many risk solutions out there—what makes Dify different?</p>
+                    
+                    <div class="space-y-4">
+                        <table class="w-full text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-blue-600 text-white">
+                                    <th class="p-3 text-left">Dimension</th>
+                                    <th class="p-3 text-center">Legacy Rules Engine</th>
+                                    <th class="p-3 text-center">3rd-party Risk SaaS</th>
+                                    <th class="p-3 text-center bg-blue-700">✨ Dify</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">Deployment Speed</td>
+                                    <td class="p-3 text-center text-red-600">🐌 Weeks</td>
+                                    <td class="p-3 text-center text-orange-600">⚡ 1-2 days</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">⚡⚡ 30 minutes</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-3 font-bold">Policy Flexibility</td>
+                                    <td class="p-3 text-center text-red-600">❌ Requires dev</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ Limited config</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ Fully customizable</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">Data Privacy</td>
+                                    <td class="p-3 text-center text-green-600">✅ Self-hosted</td>
+                                    <td class="p-3 text-center text-red-600">⚠️ External</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ Private deployment</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-3 font-bold">Explainability</td>
+                                    <td class="p-3 text-center text-green-600">✅ Rule-based</td>
+                                    <td class="p-3 text-center text-red-600">❌ Black-box</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ Full trace</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">Cost Structure</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ High labor</td>
+                                    <td class="p-3 text-center text-red-600">💰 Usage-based</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">💚 Predictable</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-3 font-bold">AI Capabilities</td>
+                                    <td class="p-3 text-center text-red-600">❌ None</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ Fixed models</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ Any LLM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="mt-6 p-4 bg-blue-100 rounded-lg border-l-4 border-blue-600">
+                            <p class="text-blue-900 font-bold"><i class="fas fa-star mr-2"></i>Core advantage: Dify gives risk teams the transparency of rules engines AND the intelligence of AI models, while keeping agility.</p>
                         </div>
                     </div>
                 </section>
@@ -627,6 +877,282 @@ Risk alarm! 🚨
                         </div>
                     </div>
                 </section>
+
+                <!-- NEW: Real Battle - Linear vs Naive Bayes -->
+                <section data-background-color="#fef3c7">
+                    <h2 class="text-left mb-6">Real Battle: Which Fool Wins? 🥊</h2>
+                    <p class="text-left text-gray-600 mb-6">Comparing linear attribution vs naive Bayes in a real scenario</p>
+                    
+                    <div class="glass-card p-6 rounded-xl mb-6">
+                        <h3 class="text-xl font-bold text-orange-700 mb-4">📋 Case Background: Suspicious Transaction Detection</h3>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-700 mb-3"><strong>User profile:</strong></p>
+                            <ul class="text-sm text-gray-600 space-y-1 ml-4">
+                                <li>• IP from Singapore IDC data center (suspicious ⚠️)</li>
+                                <li>• Device fingerprint: iOS 17, first appearance (neutral 😐)</li>
+                                <li>• Transaction amount: $299 (normal range ✅)</li>
+                                <li>• Order time: 3:00 AM (suspicious ⚠️)</li>
+                                <li>• User history: 2-year-old account, 50+ past transactions (normal ✅)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- Linear Model -->
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-purple-500">
+                            <h4 class="text-lg font-bold text-purple-700 mb-3">🔢 Linear Scoring</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>IDC IP:</span>
+                                    <span class="font-bold text-red-600">+40 pts</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Late-night order:</span>
+                                    <span class="font-bold text-orange-600">+15 pts</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>New device:</span>
+                                    <span class="font-bold text-yellow-600">+10 pts</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Loyal customer discount:</span>
+                                    <span class="font-bold text-green-600">-20 pts</span>
+                                </div>
+                                <hr class="my-2">
+                                <div class="flex justify-between text-lg font-bold">
+                                    <span>Total:</span>
+                                    <span class="text-red-700">45 pts</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-orange-100 rounded">
+                                <p class="text-orange-800 text-sm font-bold">⚠️ Decision: Medium risk (threshold 50, allow)</p>
+                            </div>
+                        </div>
+
+                        <!-- Bayes Model -->
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                            <h4 class="text-lg font-bold text-blue-700 mb-3">📊 Naive Bayes Probability</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(IDC IP | bad)</strong> = 80%</p>
+                                    <p><strong>P(IDC IP | good)</strong> = 5%</p>
+                                    <p class="text-red-600 font-bold">Risk multiplier: 16x ⬆️</p>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(late night | bad)</strong> = 60%</p>
+                                    <p><strong>P(late night | good)</strong> = 20%</p>
+                                    <p class="text-orange-600 font-bold">Risk multiplier: 3x ⬆️</p>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(loyal | bad)</strong> = 5%</p>
+                                    <p><strong>P(loyal | good)</strong> = 40%</p>
+                                    <p class="text-green-600 font-bold">Risk multiplier: 0.125x ⬇️</p>
+                                </div>
+                                <hr class="my-2">
+                                <div class="p-2 bg-blue-100 rounded">
+                                    <p class="font-bold">Combined risk probability:</p>
+                                    <p class="text-2xl text-blue-800 font-bold">16 × 3 × 0.125 = 6x</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-green-100 rounded">
+                                <p class="text-green-800 text-sm font-bold">✅ Decision: Loyalty bonus offsets risk, recommend allow</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white rounded-lg shadow">
+                        <h4 class="font-bold text-gray-800 mb-2">🎯 Conclusion Comparison</h4>
+                        <p class="text-sm text-gray-700"><strong>Linear model:</strong> Crude and simple, easily dominated by "one-vote veto" (IDC IP weight too high).</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Bayes model:</strong> Can comprehensively consider "relative risk" of multiple features, where loyalty credit matters.</p>
+                        <p class="text-sm text-blue-700 font-bold mt-3">💡 Best practice: Combine both! Linear for first-pass (fast blocking), Bayes for review (lower false positives).</p>
+                    </div>
+                </section>
+
+                <!-- NEW: Models' Achilles Heel -->
+                <section>
+                    <h2 class="text-left mb-6">Models' Achilles Heel 🎯</h2>
+                    <p class="text-left text-gray-600 mb-6">No perfect model—the key is knowing their weaknesses</p>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="glass-card p-5 rounded-xl border-t-4 border-red-500">
+                                <h3 class="text-xl font-bold text-red-700 mb-3">⚠️ Linear Model Pitfalls</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">1. Feature Independence Assumption Fails</h4>
+                                        <p class="text-xs text-gray-600">IDC IP + high frequency might just be a scraper, not necessarily fraud. But linear models add both high scores directly.</p>
+                                        <div class="mt-2 p-2 bg-red-100 rounded text-xs">
+                                            <code>Risk = 40(IDC) + 30(high freq) = 70 → Block ❌</code>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">2. Hard to Tune Weights</h4>
+                                        <p class="text-xs text-gray-600">Should IDC IP be 40 or 50 points? All guesswork—once fraudsters discover the threshold, they can game it.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">3. Can't Handle Missing Features</h4>
+                                        <p class="text-xs text-gray-600">If some features unavailable (e.g., device fingerprint blocked), the whole scoring logic breaks.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="glass-card p-5 rounded-xl border-t-4 border-orange-500">
+                                <h3 class="text-xl font-bold text-orange-700 mb-3">⚠️ Naive Bayes Pitfalls</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">1. "Naive" Assumption Too Ideal</h4>
+                                        <p class="text-xs text-gray-600">Assumes all features independent. But in reality "IDC IP + batch devices" often co-occur (fraud device farms).</p>
+                                        <div class="mt-2 p-2 bg-orange-100 rounded text-xs">
+                                            Model will <strong>underestimate</strong> combined feature risk ⚠️
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">2. Needs Large Historical Data</h4>
+                                        <p class="text-xs text-gray-600">If an attack type appears for first time, model hasn't seen it, probability estimates inaccurate (cold start problem).</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">3. Sensitive to Probability Estimates</h4>
+                                        <p class="text-xs text-gray-600">If P(feature | bad) statistics are biased (insufficient samples), entire model goes awry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-5 glass-card rounded-xl border-l-4 border-blue-600">
+                        <h4 class="text-lg font-bold text-blue-800 mb-3"><i class="fas fa-lightbulb mr-2"></i>Dify's Hybrid Strategy</h4>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div class="p-3 bg-blue-50 rounded">
+                                <p class="font-bold text-blue-700 mb-1">L1: Linear Fast Blocking</p>
+                                <p class="text-xs text-gray-600">Block obvious bot traffic (QPS spikes, abnormal User-Agent)</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded">
+                                <p class="font-bold text-purple-700 mb-1">L2: Bayes Fine Scoring</p>
+                                <p class="text-xs text-gray-600">For L1 pass-through traffic, use Bayes for comprehensive judgment</p>
+                            </div>
+                            <div class="p-3 bg-green-50 rounded">
+                                <p class="font-bold text-green-700 mb-1">L3: LLM Fallback Review</p>
+                                <p class="text-xs text-gray-600">High-value transactions or edge cases, let LLM read context and decide</p>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-500 italic">💡 Three-layer architecture complements weaknesses, leaving attackers no entry point.</p>
+                    </div>
+                </section>
+
+                <!-- NEW: Feature Engineering -->
+                <section data-background-gradient="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)">
+                    <h2 class="text-left mb-6">Feature Engineering: Risk Control's "Alchemy" 🧪</h2>
+                    <p class="text-left text-gray-700 mb-6">No matter how strong the model, garbage features = garbage results. What makes a "good feature"?</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-green-700 mb-3">✅ Three Criteria for Good Features</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">1. High Discriminative Power</h4>
+                                    <p class="text-xs text-gray-700">Clear difference in distribution between bad and good users.</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>Example:</strong> IDC IPs appear in 80% of fraudsters but only 5% of legit users ✅</p>
+                                </div>
+                                
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">2. Hard to Forge</h4>
+                                    <p class="text-xs text-gray-700">Attackers can't easily simulate at low cost.</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>Example:</strong> Device fingerprints, behavioral trajectories (mouse movement speed) ✅</p>
+                                </div>
+                                
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">3. Stable & Accessible</h4>
+                                    <p class="text-xs text-gray-700">Won't become unavailable when users disable certain permissions.</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>Example:</strong> Account age, historical transaction frequency ✅</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-red-700 mb-3">❌ Three Traps of Bad Features</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">1. Low Discriminative Power</h4>
+                                    <p class="text-xs text-gray-700">Good and bad users look similar, model learns nothing.</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>Bad example:</strong> Browser type (Chrome 70% for both good and bad) ❌</p>
+                                </div>
+                                
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">2. Easy to Bypass</h4>
+                                    <p class="text-xs text-gray-700">Once attackers know you're checking, they swap identities.</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>Bad example:</strong> User-Agent (one line of code to change) ❌</p>
+                                </div>
+                                
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">3. Poor Temporal Stability</h4>
+                                    <p class="text-xs text-gray-700">Effective yesterday, useless today (fraud tactics change fast).</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>Bad example:</strong> Specific version numbers (after fraudsters upgrade, it's useless) ❌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-5 glass-card rounded-xl">
+                        <h4 class="font-bold text-blue-800 mb-3">🎯 "Golden Feature Library" for PayPal Scenarios</h4>
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                            <div class="p-2 bg-blue-50 rounded">
+                                <p class="font-bold text-blue-700">🌐 Network Layer</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• IP reputation score</li>
+                                    <li>• VPN/Proxy detection</li>
+                                    <li>• IP-to-account historical geo deviation</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-purple-50 rounded">
+                                <p class="font-bold text-purple-700">📱 Device Layer</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• Device fingerprint stability</li>
+                                    <li>• Device shared account count</li>
+                                    <li>• Emulator/VM detection</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-green-50 rounded">
+                                <p class="font-bold text-green-700">👤 Behavior Layer</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• Mouse movement trajectory</li>
+                                    <li>• Page dwell time</li>
+                                    <li>• Payment time vs browsing duration ratio</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-orange-50 rounded">
+                                <p class="font-bold text-orange-700">💳 Transaction Layer</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• Card BIN risk level</li>
+                                    <li>• Issuing country vs consumption location</li>
+                                    <li>• Recent chargeback rate</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-pink-50 rounded">
+                                <p class="font-bold text-pink-700">📊 Profile Layer</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• Account age</li>
+                                    <li>• Historical transaction frequency</li>
+                                    <li>• Recent password/email change count</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-yellow-50 rounded">
+                                <p class="font-bold text-yellow-700">🧠 Semantic Layer (LLM)</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• Customer service dialogue tone</li>
+                                    <li>• Dispute reason template degree</li>
+                                    <li>• User narrative-behavior consistency</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-500 italic">💡 In Dify, use different nodes to extract these features separately, then aggregate for scoring.</p>
+                    </div>
+                </section>
             </section>
 
             <section>
@@ -752,6 +1278,305 @@ def main(llm_risk, ip_type, history_count):
         "reason_str": "|".join(reasons) # for ops review
     }
                     </code></pre>
+                </section>
+
+                <!-- NEW: Advanced Node Configuration -->
+                <section data-background-color="#f0fdf4">
+                    <h2 class="text-left mb-6">Advanced Moves: Dify Nodes' "Hidden Skills" 🎮</h2>
+                    <p class="text-left text-gray-600 mb-6">The basic three-node setup is just an appetizer—here's the hardcore config</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-purple-500">
+                            <h3 class="text-lg font-bold text-purple-700 mb-3">🔁 Loop Node: Batch Detection</h3>
+                            <p class="text-sm text-gray-700 mb-3">When a user has multiple cards or devices, check each one</p>
+                            <div class="bg-purple-50 p-3 rounded text-xs font-mono">
+                                <pre class="whitespace-pre-wrap">
+// Pseudocode
+FOR EACH card IN user.cards:
+    risk_score = check_card_bin(card)
+    IF risk_score > 70:
+        RETURN "BLOCK"
+                                </pre>
+                            </div>
+                            <p class="text-xs text-purple-700 mt-2"><strong>Use case:</strong> Account takeover detection (one account suddenly binds 10 new cards)</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">🔀 Branch Node: Dynamic Routing</h3>
+                            <p class="text-sm text-gray-700 mb-3">Different user tiers/regions/amounts take different detection paths</p>
+                            <div class="bg-blue-50 p-3 rounded text-xs">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-green-200 px-2 py-1 rounded">VIP users</span>
+                                        <span>→</span>
+                                        <span class="bg-green-100 px-2 py-1 rounded">Simplified flow</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-orange-200 px-2 py-1 rounded">New users</span>
+                                        <span>→</span>
+                                        <span class="bg-orange-100 px-2 py-1 rounded">Strict validation</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-red-200 px-2 py-1 rounded">High-risk region</span>
+                                        <span>→</span>
+                                        <span class="bg-red-100 px-2 py-1 rounded">Mandatory 3DS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-blue-700 mt-2"><strong>Benefit:</strong> Reduce VIP friction, improve overall approval rate</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-green-500">
+                            <h3 class="text-lg font-bold text-green-700 mb-3">⏱️ Delay Node: Time Trap</h3>
+                            <p class="text-sm text-gray-700 mb-3">Intentionally make suspicious traffic "wait," observe subsequent behavior</p>
+                            <div class="bg-green-50 p-3 rounded text-xs">
+                                <p class="mb-2"><strong>Strategy:</strong> After detecting batch registration, don't block immediately</p>
+                                <p class="text-green-800 font-mono">DELAY 5 minutes → Observe if immediate order follows</p>
+                                <p class="mt-2 text-gray-600">If order within 5 min → Likely a script</p>
+                            </div>
+                            <p class="text-xs text-green-700 mt-2"><strong>Clever use:</strong> Let fraudsters think they "succeeded," actually collecting intel in honeypot</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-orange-500">
+                            <h3 class="text-lg font-bold text-orange-700 mb-3">📊 Variable Node: Global State</h3>
+                            <p class="text-sm text-gray-700 mb-3">Maintain a "war mode" switch, globally effective</p>
+                            <div class="bg-orange-50 p-3 rounded text-xs font-mono">
+                                <pre class="whitespace-pre-wrap">
+// Scheduled task checks every minute
+IF current_qps > 10000:
+    SET global.defense_level = 5
+ELSE:
+    SET global.defense_level = 1
+                                </pre>
+                            </div>
+                            <p class="text-xs text-orange-700 mt-2"><strong>Effect:</strong> All sub-workflows auto-respond, no manual intervention needed</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white rounded-lg shadow">
+                        <h4 class="font-bold text-gray-800 mb-2">🎯 Combo: Complex Scenario Handling</h4>
+                        <p class="text-sm text-gray-700">In practice, often need multiple nodes working together. For example:</p>
+                        <div class="mt-3 p-3 bg-blue-50 rounded text-sm">
+                            <p class="font-bold text-blue-800">Scenario: Black Friday promo protection</p>
+                            <p class="text-gray-700 mt-1">
+                                <span class="font-mono text-xs">Variable node</span> (set war mode) → 
+                                <span class="font-mono text-xs">Branch node</span> (VIP skip check) → 
+                                <span class="font-mono text-xs">Loop node</span> (check cart items) → 
+                                <span class="font-mono text-xs">LLM node</span> (analyze purchase intent) → 
+                                <span class="font-mono text-xs">Delay node</span> (suspicious users delay 5s) → 
+                                <span class="font-mono text-xs">Python node</span> (final scoring)
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW: Debugging & Monitoring -->
+                <section>
+                    <h2 class="text-left mb-6">Debugging Arsenal: Make Bugs Nowhere to Hide 🐛</h2>
+                    <p class="text-left text-gray-600 mb-6">Workflow not running? Don't panic—these tools help pinpoint problems</p>
+                    
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">🔍</div>
+                                <h4 class="font-bold text-blue-700 mb-2">Real-time Logs</h4>
+                                <p class="text-xs text-gray-600">See every node's input/output, errors jump out</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">⏱️</div>
+                                <h4 class="font-bold text-orange-700 mb-2">Performance Monitoring</h4>
+                                <p class="text-xs text-gray-600">Which node is slow? LLM call latency? Metrics has it all</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">🧪</div>
+                                <h4 class="font-bold text-green-700 mb-2">Test Cases</h4>
+                                <p class="text-xs text-gray-600">Prepare typical cases, run them before going live</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-purple-700 mb-4">📋 Debugging Checklist</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">Common Issue Troubleshooting</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-red-500">❌</span>
+                                            <div>
+                                                <strong>Node error:</strong> Check input format (JSON format wrong? Required fields missing?)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500">⚠️</span>
+                                            <div>
+                                                <strong>LLM output unstable:</strong> Strengthen prompt constraints (require fixed-format JSON return)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-yellow-500">⏳</span>
+                                            <div>
+                                                <strong>Workflow timeout:</strong> Check for infinite loops or slow API call responses
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-blue-500">🔄</span>
+                                            <div>
+                                                <strong>Results not as expected:</strong> Use test data to check node by node, find logic issue
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">Performance Optimization Tips</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>Parallel execution:</strong> Independent API calls can run in parallel (e.g., query IP lib and device lib simultaneously)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>Cache results:</strong> Same input doesn't need recomputation (e.g., same IP risk score can cache 5 min)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>Fallback strategy:</strong> When LLM times out, fallback to rules engine (ensure availability)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>Async processing:</strong> Non-critical path operations (like log reporting) execute async
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 glass-card rounded-xl border-l-4 border-blue-600">
+                            <h4 class="text-lg font-bold text-blue-800 mb-3">💡 Pro Tip: Version Management</h4>
+                            <p class="text-sm text-gray-700 mb-3">In Dify, every workflow modification auto-saves a version. If problems arise, one-click rollback.</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <p class="text-xs text-gray-700"><strong>Best practices:</strong></p>
+                                <ul class="text-xs text-gray-600 mt-2 space-y-1">
+                                    <li>• Before major changes, tag current version (e.g., "v1.2-black-friday")</li>
+                                    <li>• Validate in test environment first, then switch to production</li>
+                                    <li>• Canary release: Let 10% traffic use new version first, observe metrics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NEW: Hands-on Exercise -->
+                <section data-background-gradient="radial-gradient(circle, #667eea 0%, #764ba2 100%)">
+                    <div class="text-white">
+                        <h2 class="mb-6">🎯 Hands-on Exercise: Build Your First Risk Agent in 30 Minutes</h2>
+                        <p class="mb-8 text-blue-100">Follow this step-by-step tutorial, from zero to hero</p>
+                        
+                        <div class="glass-card p-6 rounded-xl text-gray-800">
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Create Workflow (5 min)</h4>
+                                        <p class="text-sm text-gray-700">Log into Dify → New Workflow → Choose "Start from Blank"</p>
+                                        <div class="mt-2 p-2 bg-blue-50 rounded text-xs">
+                                            <strong>Tip:</strong> Give your workflow a good name, like "PayPal-Fraud-Detection-v1"
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Configure Input Node (3 min)</h4>
+                                        <p class="text-sm text-gray-700">Define parameters to pass in: IP address, User-Agent, transaction amount, user ID</p>
+                                        <div class="mt-2 p-2 bg-purple-50 rounded text-xs font-mono">
+                                            input = {<br>
+                                            &nbsp;&nbsp;"ip": "string",<br>
+                                            &nbsp;&nbsp;"user_agent": "string",<br>
+                                            &nbsp;&nbsp;"amount": "number",<br>
+                                            &nbsp;&nbsp;"user_id": "string"<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Add HTTP Node - Check IP Reputation (5 min)</h4>
+                                        <p class="text-sm text-gray-700">Call third-party API (like IPinfo / MaxMind) or internal profile service</p>
+                                        <div class="mt-2 p-2 bg-green-50 rounded text-xs">
+                                            <p><strong>URL:</strong> https://ipinfo.io/{"{"}ip{"}"}/json</p>
+                                            <p class="mt-1"><strong>Parse response:</strong> Extract country, is_vpn, abuse_score</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Add LLM Node - Analyze User-Agent (7 min)</h4>
+                                        <p class="text-sm text-gray-700 mb-2">Let LLM judge if User-Agent is suspicious</p>
+                                        <div class="mt-2 p-3 bg-orange-50 rounded text-xs">
+                                            <p class="font-bold mb-1">Prompt template:</p>
+                                            <p class="font-mono whitespace-pre-wrap">Analyze the following User-Agent for bot/scraper signs:
+"{"{"}user_agent{"}"}"
+
+Please answer:
+1. Is it suspicious? (Yes/No)
+2. Reason (one sentence)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">5</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Add Python Node - Final Decision (7 min)</h4>
+                                        <p class="text-sm text-gray-700 mb-2">Combine all signals, calculate risk score</p>
+                                        <div class="mt-2 p-3 bg-red-50 rounded text-xs font-mono">
+                                            <pre class="whitespace-pre-wrap">def main(ip_info, llm_result, amount):
+    score = 0
+    if ip_info['is_vpn']: score += 30
+    if llm_result['suspicious'] == 'Yes': score += 40
+    if amount > 1000: score += 20
+    
+    return {
+        "action": "BLOCK" if score >= 70 else "PASS",
+        "score": score
+    }</pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-gray-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">6</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Test & Publish (3 min)</h4>
+                                        <p class="text-sm text-gray-700">Validate with test cases, then publish</p>
+                                        <div class="mt-2 p-2 bg-gray-100 rounded text-xs">
+                                            <p><strong>Test case 1:</strong> Normal user → Should PASS</p>
+                                            <p><strong>Test case 2:</strong> VPN + suspicious UA → Should BLOCK</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 bg-green-100 rounded-lg">
+                                <p class="text-green-800 font-bold text-center">🎉 Congrats! Your first risk agent is now live!</p>
+                                <p class="text-green-700 text-sm text-center mt-2">Next, gradually add more features and optimize policies</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </section>
 

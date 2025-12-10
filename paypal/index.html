@@ -234,6 +234,97 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 51, 255, 0.3), 0 0 10px rgba(0, 51, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 51, 255, 0.5), 0 0 30px rgba(0, 51, 255, 0.3);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .reveal .slides section {
+            transition: all 0.3s ease;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--dify-blue), var(--paypal-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
         .lang-switch {
             position: fixed;
             top: 18px;
@@ -469,6 +560,165 @@ if (ip_count > 100) {
                     </div>
                 </section>
 
+                <!-- 新增：风控团队的真实痛点 -->
+                <section data-background-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                    <div class="text-white">
+                        <h2 class="text-left mb-8">风控团队的三大噩梦 💀</h2>
+                        <div class="space-y-6">
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">🔥</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">噩梦一：策略上线慢</h3>
+                                        <p class="text-gray-700 mb-2">周一早上发现新型攻击，周五才能上线策略。这五天损失？可能是六位数美金。</p>
+                                        <div class="bg-red-100 p-3 rounded mt-3">
+                                            <p class="text-red-800 text-sm font-bold">👉 传统流程：提需求 → 排期 → 开发 → 测试 → 灰度 → 全量 = 5-7天</p>
+                                            <p class="text-green-800 text-sm font-bold mt-2">✨ Dify 流程：拖拽节点 → 测试 → 上线 = 30分钟</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">🤯</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">噩梦二：黑盒模型不可解释</h3>
+                                        <p class="text-gray-700 mb-2">模型说"高风险"，但说不清为什么。合规部门、客服、甚至法务都会来拷问你。</p>
+                                        <div class="bg-orange-100 p-3 rounded mt-3">
+                                            <p class="text-orange-800 text-sm"><strong>场景：</strong>一个忠实客户被拦截，投诉到管理层。你需要解释为什么 🤷‍♂️</p>
+                                            <p class="text-blue-800 text-sm font-bold mt-2">💡 Dify 方案：每个节点都有输入输出日志，LLM 还能生成自然语言解释。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl text-left transform hover:scale-105 transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-5xl">⚡</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-3">噩梦三：跨团队协作地狱</h3>
+                                        <p class="text-gray-700 mb-2">产品想要A特征，数据说没数据，开发说要改架构，运营说能不能先上个临时方案...</p>
+                                        <div class="bg-purple-100 p-3 rounded mt-3">
+                                            <p class="text-purple-800 text-sm font-bold">🎯 Dify 的力量：可视化 Workflow 成为共同语言，产品、运营、开发都能看懂。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 新增：风控成本分析 -->
+                <section>
+                    <h2 class="text-left mb-6">风控的隐藏成本 💸</h2>
+                    <p class="text-left text-gray-600 mb-8">除了直接损失，还有这些"看不见"的成本</p>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-red-500">
+                                <h4 class="text-lg font-bold text-red-700 mb-2">💰 直接损失</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>欺诈损失：</strong>平均每笔欺诈交易损失 $150-500</li>
+                                    <li>• <strong>拒付费用：</strong>$15-25/笔 + 人工处理成本</li>
+                                    <li>• <strong>营销滥用：</strong>补贴被羊毛党吃掉 20-40%</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-orange-500">
+                                <h4 class="text-lg font-bold text-orange-700 mb-2">⏰ 时间成本</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>策略迭代周期：</strong>传统 5-7天 vs Dify 30分钟</li>
+                                    <li>• <strong>人工审核：</strong>每天 3-5 小时排查可疑订单</li>
+                                    <li>• <strong>异常调查：</strong>2-4 小时定位问题根因</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                                <h4 class="text-lg font-bold text-blue-700 mb-2">😢 用户体验成本</h4>
+                                <ul class="text-sm text-gray-700 space-y-2">
+                                    <li>• <strong>误杀率：</strong>每 1% 误杀 = 流失数千优质客户</li>
+                                    <li>• <strong>验证码摩擦：</strong>每多一步损失 10-15% 转化</li>
+                                    <li>• <strong>客诉处理：</strong>被误封用户的愤怒值 📈</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-4 border-green-500">
+                                <h4 class="text-lg font-bold text-green-700 mb-2">🎯 Dify 的价值主张</h4>
+                                <div class="text-sm text-gray-700 space-y-2">
+                                    <p class="font-bold text-green-800">✅ 降低直接损失：更精准的识别，更低的误杀率</p>
+                                    <p class="font-bold text-green-800">✅ 节省时间成本：自动化 70% 的日常操作</p>
+                                    <p class="font-bold text-green-800">✅ 提升用户体验：智能分层，只在必要时拦截</p>
+                                    <p class="mt-3 text-xs text-gray-500 italic">* 基于真实客户案例统计</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 新增：竞争优势对比 -->
+                <section data-background-color="#f0f9ff">
+                    <h2 class="text-left mb-6">为什么选择 Dify？🤔</h2>
+                    <p class="text-left text-gray-600 mb-6">市面上的风控方案这么多，Dify 的差异化在哪里？</p>
+                    
+                    <div class="space-y-4">
+                        <table class="w-full text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-blue-600 text-white">
+                                    <th class="p-3 text-left">对比维度</th>
+                                    <th class="p-3 text-center">传统规则引擎</th>
+                                    <th class="p-3 text-center">第三方风控 SaaS</th>
+                                    <th class="p-3 text-center bg-blue-700">✨ Dify</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">部署速度</td>
+                                    <td class="p-3 text-center text-red-600">🐌 数周</td>
+                                    <td class="p-3 text-center text-orange-600">⚡ 1-2天</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">⚡⚡ 30分钟</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-3 font-bold">策略灵活性</td>
+                                    <td class="p-3 text-center text-red-600">❌ 需要开发</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ 有限配置</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ 完全自定义</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">数据隐私</td>
+                                    <td class="p-3 text-center text-green-600">✅ 自有</td>
+                                    <td class="p-3 text-center text-red-600">⚠️ 外部</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ 私有化部署</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-3 font-bold">可解释性</td>
+                                    <td class="p-3 text-center text-green-600">✅ 规则透明</td>
+                                    <td class="p-3 text-center text-red-600">❌ 黑盒模型</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ 全链路可追溯</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-bold">成本结构</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ 高人力</td>
+                                    <td class="p-3 text-center text-red-600">💰 按量付费</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">💚 可控成本</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-3 font-bold">AI 能力</td>
+                                    <td class="p-3 text-center text-red-600">❌ 无</td>
+                                    <td class="p-3 text-center text-orange-600">⚠️ 固定模型</td>
+                                    <td class="p-3 text-center text-green-600 font-bold">✅ 任意 LLM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="mt-6 p-4 bg-blue-100 rounded-lg border-l-4 border-blue-600">
+                            <p class="text-blue-900 font-bold"><i class="fas fa-star mr-2"></i>核心优势：Dify 让风控团队既有"规则引擎"的透明可控，又有"AI 模型"的智能决策，还能保持敏捷迭代。</p>
+                        </div>
+                    </div>
+                </section>
+
             </section>
 
             <!-- =========================================================
@@ -654,6 +904,282 @@ P(坏人 | IP是新的) = ?
                         </div>
                     </div>
                 </section>
+
+                <!-- 新增：实战案例 - 线性模型 vs 贝叶斯 -->
+                <section data-background-color="#fef3c7">
+                    <h2 class="text-left mb-6">实战对决：两个傻瓜谁更强？ 🥊</h2>
+                    <p class="text-left text-gray-600 mb-6">用真实场景对比线性归因和朴素贝叶斯</p>
+                    
+                    <div class="glass-card p-6 rounded-xl mb-6">
+                        <h3 class="text-xl font-bold text-orange-700 mb-4">📋 案例背景：可疑交易判定</h3>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-700 mb-3"><strong>用户画像：</strong></p>
+                            <ul class="text-sm text-gray-600 space-y-1 ml-4">
+                                <li>• IP 来自新加坡 IDC 机房（可疑 ⚠️）</li>
+                                <li>• 设备指纹：iOS 17，首次出现（中性 😐）</li>
+                                <li>• 交易金额：$299（正常范围 ✅）</li>
+                                <li>• 下单时间：凌晨 3:00（可疑 ⚠️）</li>
+                                <li>• 用户历史：账户注册 2 年，历史交易 50+ 笔（正常 ✅）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- 线性模型判断 -->
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-purple-500">
+                            <h4 class="text-lg font-bold text-purple-700 mb-3">🔢 线性归因打分</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>IDC IP:</span>
+                                    <span class="font-bold text-red-600">+40 分</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>凌晨下单:</span>
+                                    <span class="font-bold text-orange-600">+15 分</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>新设备:</span>
+                                    <span class="font-bold text-yellow-600">+10 分</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>老客户减免:</span>
+                                    <span class="font-bold text-green-600">-20 分</span>
+                                </div>
+                                <hr class="my-2">
+                                <div class="flex justify-between text-lg font-bold">
+                                    <span>总分:</span>
+                                    <span class="text-red-700">45 分</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-orange-100 rounded">
+                                <p class="text-orange-800 text-sm font-bold">⚠️ 判定：中等风险（阈值 50 以下放行）</p>
+                            </div>
+                        </div>
+
+                        <!-- 贝叶斯模型判断 -->
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                            <h4 class="text-lg font-bold text-blue-700 mb-3">📊 朴素贝叶斯概率</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(IDC IP | 坏人)</strong> = 80%</p>
+                                    <p><strong>P(IDC IP | 好人)</strong> = 5%</p>
+                                    <p class="text-red-600 font-bold">风险倍数：16x ⬆️</p>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(凌晨 | 坏人)</strong> = 60%</p>
+                                    <p><strong>P(凌晨 | 好人)</strong> = 20%</p>
+                                    <p class="text-orange-600 font-bold">风险倍数：3x ⬆️</p>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <p><strong>P(老客户 | 坏人)</strong> = 5%</p>
+                                    <p><strong>P(老客户 | 好人)</strong> = 40%</p>
+                                    <p class="text-green-600 font-bold">风险倍数：0.125x ⬇️</p>
+                                </div>
+                                <hr class="my-2">
+                                <div class="p-2 bg-blue-100 rounded">
+                                    <p class="font-bold">综合风险概率：</p>
+                                    <p class="text-2xl text-blue-800 font-bold">16 × 3 × 0.125 = 6x</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-green-100 rounded">
+                                <p class="text-green-800 text-sm font-bold">✅ 判定：老客户加成抵消风险，建议放行</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white rounded-lg shadow">
+                        <h4 class="font-bold text-gray-800 mb-2">🎯 结论对比</h4>
+                        <p class="text-sm text-gray-700"><strong>线性模型：</strong>简单粗暴，容易被"一票否决"（IDC IP 权重太高）。</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>贝叶斯模型：</strong>能综合考虑多个特征的"相对风险"，老客户信用起作用。</p>
+                        <p class="text-sm text-blue-700 font-bold mt-3">💡 最佳实践：两者结合！线性做初筛（快速拦截），贝叶斯做复审（降低误杀）。</p>
+                    </div>
+                </section>
+
+                <!-- 新增：模型的局限性 -->
+                <section>
+                    <h2 class="text-left mb-6">模型的"阿喀琉斯之踵" 🎯</h2>
+                    <p class="text-left text-gray-600 mb-6">没有完美的模型，关键是了解它们的弱点</p>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="glass-card p-5 rounded-xl border-t-4 border-red-500">
+                                <h3 class="text-xl font-bold text-red-700 mb-3">⚠️ 线性模型的坑</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">1. 特征独立假设失效</h4>
+                                        <p class="text-xs text-gray-600">IDC IP + 高频访问可能只是爬虫，不一定是盗刷。但线性模型会把两个高分直接相加。</p>
+                                        <div class="mt-2 p-2 bg-red-100 rounded text-xs">
+                                            <code>风险 = 40(IDC) + 30(高频) = 70 → 拦截 ❌</code>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">2. 权重难以调优</h4>
+                                        <p class="text-xs text-gray-600">到底 IDC IP 该打 40 分还是 50 分？全靠人工拍脑袋，黑产一旦发现阈值就能卡点绕过。</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">3. 无法处理缺失特征</h4>
+                                        <p class="text-xs text-gray-600">如果某些特征拿不到（如设备指纹被关闭），整个打分逻辑就崩了。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="glass-card p-5 rounded-xl border-t-4 border-orange-500">
+                                <h3 class="text-xl font-bold text-orange-700 mb-3">⚠️ 朴素贝叶斯的坑</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">1. "朴素"假设太理想</h4>
+                                        <p class="text-xs text-gray-600">假设所有特征独立。但现实中"IDC IP + 批量设备"往往同时出现（黑产设备农场）。</p>
+                                        <div class="mt-2 p-2 bg-orange-100 rounded text-xs">
+                                            模型会<strong>低估</strong>联合特征的风险 ⚠️
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">2. 需要大量历史数据</h4>
+                                        <p class="text-xs text-gray-600">如果某类攻击首次出现，模型没见过，概率估计不准（冷启动问题）。</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-sm mb-1">3. 对概率估计敏感</h4>
+                                        <p class="text-xs text-gray-600">如果 P(特征 | 坏人) 统计有偏差（样本不够），整个模型都会歪。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-5 glass-card rounded-xl border-l-4 border-blue-600">
+                        <h4 class="text-lg font-bold text-blue-800 mb-3"><i class="fas fa-lightbulb mr-2"></i>Dify 的混合策略</h4>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div class="p-3 bg-blue-50 rounded">
+                                <p class="font-bold text-blue-700 mb-1">L1: 线性快速拦截</p>
+                                <p class="text-xs text-gray-600">拦截明显机器流量（如 QPS 爆炸、User-Agent 异常）</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded">
+                                <p class="font-bold text-purple-700 mb-1">L2: 贝叶斯精细打分</p>
+                                <p class="text-xs text-gray-600">对 L1 放行的流量，用贝叶斯综合判断</p>
+                            </div>
+                            <div class="p-3 bg-green-50 rounded">
+                                <p class="font-bold text-green-700 mb-1">L3: LLM 兜底审查</p>
+                                <p class="text-xs text-gray-600">高价值交易或边缘 case，让 LLM 读上下文决策</p>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-500 italic">💡 三层架构互补短板，让攻击者无从下手。</p>
+                    </div>
+                </section>
+
+                <!-- 新增：如何选择特征 -->
+                <section data-background-gradient="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)">
+                    <h2 class="text-left mb-6">特征工程：风控的"炼金术" 🧪</h2>
+                    <p class="text-left text-gray-700 mb-6">模型再强，喂烂特征也白搭。什么样的特征才是"好特征"？</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-green-700 mb-3">✅ 好特征的三个标准</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">1. 区分度高</h4>
+                                    <p class="text-xs text-gray-700">坏人和好人的分布差异明显。</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>例子：</strong>IDC IP 在欺诈用户中占 80%，正常用户仅 5% ✅</p>
+                                </div>
+                                
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">2. 难以伪造</h4>
+                                    <p class="text-xs text-gray-700">攻击者很难低成本模拟。</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>例子：</strong>设备指纹、行为轨迹（鼠标移动速度）✅</p>
+                                </div>
+                                
+                                <div class="p-3 bg-green-50 rounded">
+                                    <h4 class="font-bold text-green-800 text-sm mb-1">3. 稳定可获取</h4>
+                                    <p class="text-xs text-gray-700">不会因为用户关闭某些权限就拿不到。</p>
+                                    <p class="text-xs text-green-700 mt-1"><strong>例子：</strong>账户年龄、历史交易频次 ✅</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-red-700 mb-3">❌ 烂特征的三个陷阱</h3>
+                            <div class="space-y-4">
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">1. 区分度低</h4>
+                                    <p class="text-xs text-gray-700">好人坏人都差不多，模型学不到东西。</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>反例：</strong>浏览器类型（Chrome 占 70%，坏人也 70%）❌</p>
+                                </div>
+                                
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">2. 容易被绕过</h4>
+                                    <p class="text-xs text-gray-700">攻击者一旦知道你在检测，就换个马甲。</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>反例：</strong>User-Agent（一行代码就能改）❌</p>
+                                </div>
+                                
+                                <div class="p-3 bg-red-50 rounded">
+                                    <h4 class="font-bold text-red-800 text-sm mb-1">3. 时效性差</h4>
+                                    <p class="text-xs text-gray-700">昨天有效，今天失效（黑产策略变化快）。</p>
+                                    <p class="text-xs text-red-700 mt-1"><strong>反例：</strong>特定版本号（黑产升级后就没用了）❌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-5 glass-card rounded-xl">
+                        <h4 class="font-bold text-blue-800 mb-3">🎯 PayPal 场景下的"黄金特征库"</h4>
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                            <div class="p-2 bg-blue-50 rounded">
+                                <p class="font-bold text-blue-700">🌐 网络层</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• IP 信誉分</li>
+                                    <li>• 是否 VPN/Proxy</li>
+                                    <li>• IP 与账户历史地理偏离度</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-purple-50 rounded">
+                                <p class="font-bold text-purple-700">📱 设备层</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• 设备指纹稳定性</li>
+                                    <li>• 设备共享账户数</li>
+                                    <li>• 是否模拟器/虚拟机</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-green-50 rounded">
+                                <p class="font-bold text-green-700">👤 行为层</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• 鼠标移动轨迹</li>
+                                    <li>• 页面停留时长</li>
+                                    <li>• 支付时间与浏览时长比</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-orange-50 rounded">
+                                <p class="font-bold text-orange-700">💳 交易层</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• 卡BIN 风险等级</li>
+                                    <li>• 发卡行国家 vs 消费地</li>
+                                    <li>• 近期拒付率</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-pink-50 rounded">
+                                <p class="font-bold text-pink-700">📊 画像层</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• 账户年龄</li>
+                                    <li>• 历史交易频次</li>
+                                    <li>• 近期密码/邮箱修改次数</li>
+                                </ul>
+                            </div>
+                            <div class="p-2 bg-yellow-50 rounded">
+                                <p class="font-bold text-yellow-700">🧠 语义层 (LLM)</p>
+                                <ul class="text-gray-600 ml-3 mt-1">
+                                    <li>• 客服对话语气</li>
+                                    <li>• 纠纷理由模板化程度</li>
+                                    <li>• 用户自述与行为一致性</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-500 italic">💡 在 Dify 中，可以用不同的 Node 分别提取这些特征，最后汇总打分。</p>
+                    </div>
+                </section>
             </section>
 
             <!-- =========================================================
@@ -782,6 +1308,305 @@ def main(llm_risk, ip_type, history_count):
         "reason_str": "|".join(reasons) # 方便运营排查
     }
                 </code></pre>
+                </section>
+
+                <!-- 新增：进阶节点配置 -->
+                <section data-background-color="#f0fdf4">
+                    <h2 class="text-left mb-6">进阶玩法：Dify 节点的"隐藏技能" 🎮</h2>
+                    <p class="text-left text-gray-600 mb-6">基础三节点只是开胃菜，这里是真正的硬核配置</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-purple-500">
+                            <h3 class="text-lg font-bold text-purple-700 mb-3">🔁 循环节点：批量检测</h3>
+                            <p class="text-sm text-gray-700 mb-3">当一个用户关联多张卡或多个设备时，需要逐个检查</p>
+                            <div class="bg-purple-50 p-3 rounded text-xs font-mono">
+                                <pre class="whitespace-pre-wrap">
+// 伪代码
+FOR EACH card IN user.cards:
+    risk_score = check_card_bin(card)
+    IF risk_score > 70:
+        RETURN "BLOCK"
+                                </pre>
+                            </div>
+                            <p class="text-xs text-purple-700 mt-2"><strong>适用场景：</strong>账户接管检测（一个账户突然绑定 10 张新卡）</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-blue-500">
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">🔀 分支节点：动态路由</h3>
+                            <p class="text-sm text-gray-700 mb-3">根据用户等级/地区/金额，走不同的检测链路</p>
+                            <div class="bg-blue-50 p-3 rounded text-xs">
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-green-200 px-2 py-1 rounded">VIP 用户</span>
+                                        <span>→</span>
+                                        <span class="bg-green-100 px-2 py-1 rounded">简化流程</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-orange-200 px-2 py-1 rounded">新用户</span>
+                                        <span>→</span>
+                                        <span class="bg-orange-100 px-2 py-1 rounded">严格校验</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-red-200 px-2 py-1 rounded">高风险地区</span>
+                                        <span>→</span>
+                                        <span class="bg-red-100 px-2 py-1 rounded">强制 3DS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-blue-700 mt-2"><strong>好处：</strong>减少 VIP 用户摩擦，提升整体通过率</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-green-500">
+                            <h3 class="text-lg font-bold text-green-700 mb-3">⏱️ 延迟节点：时间陷阱</h3>
+                            <p class="text-sm text-gray-700 mb-3">故意让可疑流量"等一等"，观察后续行为</p>
+                            <div class="bg-green-50 p-3 rounded text-xs">
+                                <p class="mb-2"><strong>策略：</strong>检测到批量注册后，不立即拦截</p>
+                                <p class="text-green-800 font-mono">DELAY 5 minutes → 观察是否立即下单</p>
+                                <p class="mt-2 text-gray-600">如果 5 分钟内下单 → 大概率是脚本</p>
+                            </div>
+                            <p class="text-xs text-green-700 mt-2"><strong>妙用：</strong>让黑产以为"成功"，实际在蜜罐中收集情报</p>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-orange-500">
+                            <h3 class="text-lg font-bold text-orange-700 mb-3">📊 变量节点：全局状态</h3>
+                            <p class="text-sm text-gray-700 mb-3">维护一个"战时模式"开关，全局生效</p>
+                            <div class="bg-orange-50 p-3 rounded text-xs font-mono">
+                                <pre class="whitespace-pre-wrap">
+// 定时任务每分钟检查
+IF current_qps > 10000:
+    SET global.defense_level = 5
+ELSE:
+    SET global.defense_level = 1
+                                </pre>
+                            </div>
+                            <p class="text-xs text-orange-700 mt-2"><strong>效果：</strong>所有子 Workflow 自动响应，无需人工干预</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-white rounded-lg shadow">
+                        <h4 class="font-bold text-gray-800 mb-2">🎯 组合拳：复杂场景处理</h4>
+                        <p class="text-sm text-gray-700">实战中，往往需要多个节点配合。例如：</p>
+                        <div class="mt-3 p-3 bg-blue-50 rounded text-sm">
+                            <p class="font-bold text-blue-800">场景：黑五大促防刷</p>
+                            <p class="text-gray-700 mt-1">
+                                <span class="font-mono text-xs">变量节点</span>（设置战时模式）→ 
+                                <span class="font-mono text-xs">分支节点</span>（VIP免检）→ 
+                                <span class="font-mono text-xs">循环节点</span>（检查购物车商品）→ 
+                                <span class="font-mono text-xs">LLM节点</span>（分析购买意图）→ 
+                                <span class="font-mono text-xs">延迟节点</span>（可疑用户延迟5秒）→ 
+                                <span class="font-mono text-xs">Python节点</span>（最终判分）
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 新增：调试与监控 -->
+                <section>
+                    <h2 class="text-left mb-6">调试神器：让 Bug 无处藏身 🐛</h2>
+                    <p class="text-left text-gray-600 mb-6">Workflow 跑不通？别慌，这些工具帮你定位问题</p>
+                    
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">🔍</div>
+                                <h4 class="font-bold text-blue-700 mb-2">实时日志</h4>
+                                <p class="text-xs text-gray-600">每个节点的输入输出都能看到，哪里出错一目了然</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">⏱️</div>
+                                <h4 class="font-bold text-orange-700 mb-2">性能监控</h4>
+                                <p class="text-xs text-gray-600">哪个节点慢？LLM 调用耗时多少？Metrics 全都有</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-4xl mb-2">🧪</div>
+                                <h4 class="font-bold text-green-700 mb-2">测试用例</h4>
+                                <p class="text-xs text-gray-600">准备几个典型 case，上线前跑一遍确保没问题</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl">
+                            <h3 class="text-lg font-bold text-purple-700 mb-4">📋 调试 Checklist</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">常见问题排查</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-red-500">❌</span>
+                                            <div>
+                                                <strong>节点报错：</strong>检查输入格式（JSON 格式错误？必填字段缺失？）
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500">⚠️</span>
+                                            <div>
+                                                <strong>LLM 输出不稳定：</strong>加强 Prompt 约束（要求返回固定格式的 JSON）
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-yellow-500">⏳</span>
+                                            <div>
+                                                <strong>Workflow 超时：</strong>检查是否有死循环，或 API 调用响应慢
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-blue-500">🔄</span>
+                                            <div>
+                                                <strong>结果不符合预期：</strong>用测试数据逐节点检查，找出哪个环节逻辑有问题
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-2">性能优化技巧</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>并行执行：</strong>不相关的 API 调用可以并行（如同时查 IP 库和设备库）
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>缓存结果：</strong>相同输入不用重复计算（如同一 IP 的风险分可以缓存 5 分钟）
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>降级策略：</strong>LLM 超时时，fallback 到规则引擎（保证可用性）
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-500">✅</span>
+                                            <div>
+                                                <strong>异步处理：</strong>非关键路径的操作（如日志上报）异步执行
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 glass-card rounded-xl border-l-4 border-blue-600">
+                            <h4 class="text-lg font-bold text-blue-800 mb-3">💡 Pro Tip: 版本管理</h4>
+                            <p class="text-sm text-gray-700 mb-3">在 Dify 中，每次修改 Workflow 都会自动保存版本。出问题时可以一键回滚。</p>
+                            <div class="bg-blue-50 p-3 rounded">
+                                <p class="text-xs text-gray-700"><strong>最佳实践：</strong></p>
+                                <ul class="text-xs text-gray-600 mt-2 space-y-1">
+                                    <li>• 每次大改前给当前版本打个 Tag（如"v1.2-black-friday"）</li>
+                                    <li>• 先在测试环境验证，再切到生产</li>
+                                    <li>• 灰度发布：先让 10% 流量走新版本，观察指标</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 新增：实战演练 -->
+                <section data-background-gradient="radial-gradient(circle, #667eea 0%, #764ba2 100%)">
+                    <div class="text-white">
+                        <h2 class="mb-6">🎯 实战演练：30 分钟搭建你的第一个风控 Agent</h2>
+                        <p class="mb-8 text-blue-100">跟着这个手把手教程，从零开始</p>
+                        
+                        <div class="glass-card p-6 rounded-xl text-gray-800">
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">创建 Workflow（5 分钟）</h4>
+                                        <p class="text-sm text-gray-700">登录 Dify → 新建 Workflow → 选择"从空白开始"</p>
+                                        <div class="mt-2 p-2 bg-blue-50 rounded text-xs">
+                                            <strong>提示：</strong>给 Workflow 起个好名字，如"PayPal-盗刷检测-v1"
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">配置输入节点（3 分钟）</h4>
+                                        <p class="text-sm text-gray-700">定义需要传入的参数：IP 地址、User-Agent、交易金额、用户 ID</p>
+                                        <div class="mt-2 p-2 bg-purple-50 rounded text-xs font-mono">
+                                            input = {<br>
+                                            &nbsp;&nbsp;"ip": "string",<br>
+                                            &nbsp;&nbsp;"user_agent": "string",<br>
+                                            &nbsp;&nbsp;"amount": "number",<br>
+                                            &nbsp;&nbsp;"user_id": "string"<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">添加 HTTP 节点 - 查 IP 信誉（5 分钟）</h4>
+                                        <p class="text-sm text-gray-700">调用第三方 API（如 IPinfo / MaxMind）或内部画像服务</p>
+                                        <div class="mt-2 p-2 bg-green-50 rounded text-xs">
+                                            <p><strong>URL:</strong> https://ipinfo.io/{"{"}ip{"}"}/json</p>
+                                            <p class="mt-1"><strong>解析响应：</strong>提取 country, is_vpn, abuse_score</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">添加 LLM 节点 - 分析 User-Agent（7 分钟）</h4>
+                                        <p class="text-sm text-gray-700 mb-2">让 LLM 判断 User-Agent 是否可疑</p>
+                                        <div class="mt-2 p-3 bg-orange-50 rounded text-xs">
+                                            <p class="font-bold mb-1">Prompt 模板：</p>
+                                            <p class="font-mono whitespace-pre-wrap">分析以下 User-Agent 是否为脚本/爬虫：
+"{"{"}user_agent{"}"}"
+
+请回答：
+1. 是否可疑（Yes/No）
+2. 理由（1句话）</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">5</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">添加 Python 节点 - 最终决策（7 分钟）</h4>
+                                        <p class="text-sm text-gray-700 mb-2">综合所有信号，计算风险分</p>
+                                        <div class="mt-2 p-3 bg-red-50 rounded text-xs font-mono">
+                                            <pre class="whitespace-pre-wrap">def main(ip_info, llm_result, amount):
+    score = 0
+    if ip_info['is_vpn']: score += 30
+    if llm_result['suspicious'] == 'Yes': score += 40
+    if amount > 1000: score += 20
+    
+    return {
+        "action": "BLOCK" if score >= 70 else "PASS",
+        "score": score
+    }</pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-gray-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">6</div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">测试 & 发布（3 分钟）</h4>
+                                        <p class="text-sm text-gray-700">用几个测试用例验证，然后发布</p>
+                                        <div class="mt-2 p-2 bg-gray-100 rounded text-xs">
+                                            <p><strong>测试用例 1：</strong>正常用户 → 应该 PASS</p>
+                                            <p><strong>测试用例 2：</strong>VPN + 可疑 UA → 应该 BLOCK</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 bg-green-100 rounded-lg">
+                                <p class="text-green-800 font-bold text-center">🎉 恭喜！你的第一个风控 Agent 已经上线了！</p>
+                                <p class="text-green-700 text-sm text-center mt-2">接下来可以逐步添加更多特征，优化策略</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </section>
 
