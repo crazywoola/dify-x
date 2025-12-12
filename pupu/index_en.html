@@ -22,7 +22,7 @@
         rel="stylesheet">
     <script src="shared.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="nordic.css">
     
 </head>
 
@@ -34,14 +34,9 @@
         <a class="active" href="index_en.html">EN</a>
     </div>
 
-    <div id="bg-shapes" aria-hidden="true">
-        <div class="shape s1"></div>
-        <div class="shape s2"></div>
-        <div class="shape s3"></div>
-    </div>
-
-    <div class="absolute top-10 left-10 font-bold text-2xl z-10" style="font-family: var(--font-stack);">
-        D<span class="text-dify">if</span>y
+    <div class="nordic-logo">
+        <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
+        <span class="nordic-logo-text">Dify x PUPU</span>
     </div>
 
     <div class="fixed bottom-5 right-5 text-xs text-dify opacity-50">Press ↓ to explore</div>
@@ -68,52 +63,54 @@
 
             <!-- Section: Outline (Updated) -->
             <section>
-                <div class="text-left max-w-[1000px]">
+                <div class="max-w-5xl mx-auto text-left space-y-6">
                     <h2>Agenda</h2>
-                    <div class="grid grid-cols-2 gap-x-[60px] gap-y-10 mt-10">
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🚀</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Paradigm shift</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">New standards for LLM app dev and where Dify fits.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🤝</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Low ↔ Pro fusion</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Visual DSL meets pro-code.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🧰</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Ecosystem</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Marketplace, plugins, toolchain.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">⚡</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Event-driven</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Triggers and automation loops.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">📊</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Observability</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">OpenTelemetry, multi-DB support.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🎯</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">Next steps</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Summary + call to action.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-text-secondary text-[0.85em] leading-[1.7]">
+                        From <span class="text-dify font-semibold">Low‑Code</span> to <span class="text-dify font-semibold">Pro‑Code</span>:
+                        connect orchestration, engineering guardrails, ecosystem, triggers, and observability into a production loop.
+                    </p>
+
+                    <table class="nordic-table text-[0.75em]">
+                        <thead>
+                            <tr>
+                                <th>Part</th>
+                                <th>Module</th>
+                                <th>Focus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">01</span></td>
+                                <td class="font-semibold">Breakthrough</td>
+                                <td class="text-text-secondary">Pain points · positioning · why now</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">02</span></td>
+                                <td class="font-semibold">Fusion</td>
+                                <td class="text-text-secondary">Visual DSL ↔ Pro‑Code · debugging view · collaboration</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">03</span></td>
+                                <td class="font-semibold">Extension</td>
+                                <td class="text-text-secondary">Plugins & Marketplace · tooling security · reuse</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">04</span></td>
+                                <td class="font-semibold">Connection</td>
+                                <td class="text-text-secondary">Triggers · types & matrix · hands-on cases</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">05</span></td>
+                                <td class="font-semibold">Observability</td>
+                                <td class="text-text-secondary">OpenTelemetry · multi-DB · cost/perf visibility</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">06</span></td>
+                                <td class="font-semibold">Summary</td>
+                                <td class="text-text-secondary">Evolution path · call to action</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -240,16 +237,16 @@
                     <div class="flex h-full items-center gap-[60px]">
                         <div class="flex-1 text-left">
                             <h3>1.1 Pain points today</h3>
-                            <ul class="text-secondary text-[0.8em] leading-[1.6] space-y-2.5">
-                                <li>Fragmented model interfaces: invocation/billing/monitoring all different.</li>
-                                <li>Slow iteration: prompts/workflows lack environment isolation and canary.</li>
-                                <li>Collaboration friction: no shared asset library, reuse, or observability.</li>
-                                <li>Production gaps: audit, metrics, retries, quotas—missing engineering hygiene.</li>
-                            </ul>
+                            <p class="text-text-secondary text-[0.8em] mb-6">The surface is “missing pieces”; the root is “engineering gaps”.</p>
+                            <div class="quadrant">
+                                <div class="quadrant-item" style="top:18%; left:18%;">Fragmented interfaces<br><span class="text-dify text-[0.75em]">invoke / bill / monitor</span></div>
+                                <div class="quadrant-item" style="top:20%; right:18%;">Slow iteration<br><span class="text-dify text-[0.75em]">isolation / canary</span></div>
+                                <div class="quadrant-item" style="bottom:22%; left:18%;">Collaboration friction<br><span class="text-dify text-[0.75em]">assets / reuse</span></div>
+                                <div class="quadrant-item" style="bottom:18%; right:16%;">Production gaps<br><span class="text-dify text-[0.75em]">audit / retry / quota</span></div>
+                            </div>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="Pain points"
-                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="Pain points" class="slide-visual">
                         </div>
                     </div>
                 </section>
@@ -311,12 +308,12 @@
                                     <div class="text-[0.6em] text-text-secondary mt-1">Few-shot learning emerges</div>
                                 </div>
                                 <div class="bg-white p-4 rounded-xl border border-black/5 shadow-sm text-center transform scale-110 border-dify ring-2 ring-dify/20">
-                                    <div class="text-dify font-bold text-xl mb-1">2023</div>
+                                    <div class="text-dify font-bold text-xl mb-1">2025.2</div>
                                     <div class="text-xs font-semibold">Dify v1.0</div>
                                     <div class="text-[0.6em] text-text-secondary mt-1">LLM middleware born</div>
                                 </div>
                                 <div class="bg-white p-4 rounded-xl border border-black/5 shadow-sm text-center">
-                                    <div class="text-dify font-bold text-xl mb-1">2024+</div>
+                                    <div class="text-dify font-bold text-xl mb-1">2025.11</div>
                                     <div class="text-xs font-semibold">Pro-Code</div>
                                     <div class="text-[0.6em] text-text-secondary mt-1">Production, Standards, Engineering</div>
                                 </div>
@@ -455,26 +452,37 @@
                         <div class="flex-1 text-left">
                             <h3>2.1 Visual dialectic</h3>
                             <p class="text-text-secondary text-[0.7em] mb-5">Both camps need visualization, for different reasons:</p>
-                            <ul class="list-none m-0 p-0 space-y-[15px] text-[0.8em]">
-                                <li class="flex items-start">
-                                    <i class="ri-code-s-slash-line text-dify mr-2.5 mt-[2px]"></i>
-                                    <div>
-                                        <strong>Low-code view: visualization = language</strong>
-                                        <div class="text-[#6b7280] text-[0.9em] mt-1">Reduce cognitive load; make logic explainable and teachable.</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="ri-terminal-box-line text-[var(--text-main)] mr-2.5 mt-[2px]"></i>
-                                    <div>
-                                        <strong>Pro-code view: visualization = debugging lens</strong>
-                                        <div class="text-[#6b7280] text-[0.9em] mt-1">Accelerate understanding of complex DSLs—see, compare, explain, move fast.</div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <table class="nordic-table nordic-table--kv text-[0.7em]">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Low‑Code</th>
+                                        <th>Pro‑Code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Role of visual</td>
+                                        <td>Programming language</td>
+                                        <td>Abstraction + debugging view</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Primary goal</td>
+                                        <td>Lower cognitive load<br>Explainable, teachable</td>
+                                        <td>Understand complex DSLs faster<br>Comparable, replayable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>What it surfaces</td>
+                                        <td>Runnable logic</td>
+                                        <td>Engineering facts<br>(Trace / Tokens / Variables)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-dify font-semibold text-[0.75em] mt-4">See · Compare · Explain · Move fast</div>
                         </div>
                         <div class="flex-1 text-left">
                             <img src="assets/Workflow+as+Visual+DSL.png" alt="Workflow as DSL"
-                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                                class="slide-visual">
                         </div>
                     </div>
                 </section>
@@ -1001,14 +1009,35 @@ def _invoke(self, params):
                 </section>
 
                 <section data-background-color="#ffffff">
-                    <div class="text-left max-w-[1000px]">
+                    <div class="max-w-5xl mx-auto text-left">
                         <h3>4.3 Why triggers matter</h3>
-                        <ul class="text-text-secondary text-[0.8em] leading-[1.6] space-y-3 mt-4">
-                            <li><strong class="text-[var(--text-main)]">Stop scattered triggers:</strong> buttons, cron, and direct calls become hard to govern.</li>
-                            <li><strong class="text-[var(--text-main)]">Orchestration owns start conditions:</strong> centralize listening/routing.</li>
-                            <li><strong class="text-[var(--text-main)]">Always-on service:</strong> workflows wait with context and launch when conditions fit.</li>
-                            <li><strong class="text-[var(--text-main)]">Multiple triggers, one canvas:</strong> branch first, merge later—clarity.</li>
-                        </ul>
+                        <p class="text-text-secondary text-[0.8em] mb-6">Bring “when to start” back to the orchestration layer.</p>
+                        <table class="nordic-table text-[0.75em]">
+                            <thead>
+                                <tr>
+                                    <th>Without triggers</th>
+                                    <th>With triggers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Scattered entrypoints: buttons / cron / direct calls</td>
+                                    <td>Unified entry: event source → mapping → routing</td>
+                                </tr>
+                                <tr>
+                                    <td>Hard to govern: no trace, hard to debug</td>
+                                    <td>Governable: replayable, observable, auditable</td>
+                                </tr>
+                                <tr>
+                                    <td>Start conditions live in scripts/code</td>
+                                    <td>Start conditions live in the workflow canvas</td>
+                                </tr>
+                                <tr>
+                                    <td>Trigger logic hard to reuse</td>
+                                    <td>One canvas: branch first, merge later</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
 

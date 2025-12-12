@@ -1,0 +1,846 @@
+/* Nordic Minimalist Design System for Dify PUPU */
+
+:root {
+    /* Brand Colors */
+    --dify-blue: #0033ff;
+    --dify-blue-light: rgba(0, 51, 255, 0.06);
+    --dify-blue-medium: rgba(0, 51, 255, 0.12);
+    
+    /* Neutral Palette - Nordic Inspired */
+    --white: #ffffff;
+    --gray-50: #fafafa;
+    --gray-100: #f5f5f5;
+    --gray-200: #e5e5e5;
+    --gray-300: #d4d4d4;
+    --gray-400: #a3a3a3;
+    --gray-500: #737373;
+    --gray-600: #525252;
+    --gray-700: #404040;
+    --gray-800: #262626;
+    --gray-900: #171717;
+    
+    /* Typography */
+    --font-sans: 'Söhne', 'Inter', 'Mi Sans', 'MiSans', 'Noto Sans SC', -apple-system, system-ui, sans-serif;
+    --font-mono: 'Söhne Mono', 'JetBrains Mono', 'Noto Sans Mono SC', monospace;
+    
+    /* Spacing Scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    
+    /* Shadows - Subtle */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
+
+    /* Compatibility vars (legacy decks) */
+    --text-main: var(--gray-900);
+    --text-secondary: var(--gray-600);
+    --bg-card: var(--gray-50);
+    --bg-page: var(--white);
+    --font-stack: var(--font-sans);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--white);
+    font-family: var(--font-sans);
+    color: var(--gray-900);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reveal.js Overrides */
+.reveal {
+    font-family: var(--font-sans);
+    font-size: 28px;
+    color: var(--gray-900);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--gray-900);
+    text-transform: none;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-lg) 0;
+}
+
+.reveal h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.reveal h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.reveal h3 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.reveal p {
+    margin: 0 0 var(--space-md) 0;
+}
+
+.reveal ul,
+.reveal ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.reveal code {
+    font-family: var(--font-mono);
+    background: var(--gray-100);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+}
+
+.reveal pre code {
+    background: var(--gray-900);
+    color: var(--gray-100);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    display: block;
+}
+
+/* Nordic Layout Components */
+.nordic-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+.nordic-grid {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.nordic-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.nordic-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nordic-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Nordic Cards */
+.nordic-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all 0.2s ease;
+}
+
+.nordic-card:hover {
+    border-color: var(--gray-300);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.nordic-card-flat {
+    background: var(--gray-50);
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+/* Data Visualization Cards */
+.data-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+}
+
+.data-card-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dify-blue);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.data-card-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.data-card-desc {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    margin-top: var(--space-xs);
+}
+
+/* Icon Cards */
+.icon-card {
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.icon-card-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dify-blue-light);
+    border-radius: var(--radius-xl);
+    color: var(--dify-blue);
+    font-size: 2rem;
+}
+
+.icon-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-sm);
+}
+
+.icon-card-desc {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* Timeline - Horizontal */
+.nordic-timeline {
+    position: relative;
+    padding: var(--space-2xl) 0;
+}
+
+.nordic-timeline-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gray-200);
+    transform: translateY(-50%);
+}
+
+.nordic-timeline-items {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.nordic-timeline-item {
+    flex: 1;
+    text-align: center;
+    background: var(--white);
+    padding: var(--space-lg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.nordic-timeline-item::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--dify-blue);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 1px var(--gray-200);
+}
+
+.nordic-timeline-year {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dify-blue);
+    margin-bottom: var(--space-xs);
+}
+
+.nordic-timeline-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-xs);
+}
+
+.nordic-timeline-desc {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+/* Comparison Layout */
+.nordic-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.nordic-comparison-item {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+.nordic-comparison-item.active {
+    background: var(--dify-blue-light);
+    border-color: var(--dify-blue);
+}
+
+.nordic-comparison-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.nordic-comparison-icon {
+    font-size: 1.5rem;
+    color: var(--gray-500);
+}
+
+.nordic-comparison-item.active .nordic-comparison-icon {
+    color: var(--dify-blue);
+}
+
+.nordic-comparison-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.nordic-comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nordic-comparison-list li {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    gap: var(--space-md);
+    font-size: 0.875rem;
+}
+
+.nordic-comparison-list li:last-child {
+    border-bottom: none;
+}
+
+.nordic-comparison-label {
+    background: var(--gray-200);
+    color: var(--gray-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.nordic-comparison-item.active .nordic-comparison-label {
+    background: var(--dify-blue);
+    color: var(--white);
+}
+
+/* Flow Diagram */
+.nordic-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.nordic-flow-step {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+}
+
+.nordic-flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--gray-400);
+}
+
+.nordic-flow-step:last-child::after {
+    display: none;
+}
+
+.nordic-flow-number {
+    width: 32px;
+    height: 32px;
+    background: var(--dify-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin: 0 auto var(--space-md);
+}
+
+.nordic-flow-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-xs);
+}
+
+.nordic-flow-desc {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+/* Stats Grid */
+.nordic-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.nordic-stat {
+    text-align: left;
+    padding-left: var(--space-lg);
+    border-left: 4px solid var(--dify-blue);
+}
+
+.nordic-stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.nordic-stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Feature Grid */
+.nordic-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.nordic-feature {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    gap: var(--space-lg);
+    transition: all 0.2s ease;
+}
+
+.nordic-feature:hover {
+    background: var(--dify-blue-light);
+}
+
+.nordic-feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dify-blue);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.nordic-feature-content {
+    flex: 1;
+}
+
+.nordic-feature-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-sm);
+}
+
+.nordic-feature-desc {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-dify {
+    color: var(--dify-blue);
+}
+
+.bg-dify {
+    background-color: var(--dify-blue);
+}
+
+.text-muted {
+    color: var(--gray-600);
+}
+
+.text-subtle {
+    color: var(--gray-500);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Language Switch - Nordic Style */
+.lang-switch {
+    position: fixed;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    padding: var(--space-sm) var(--space-md);
+    z-index: 100;
+    font-size: 0.875rem;
+}
+
+.lang-switch a {
+    color: var(--gray-600);
+    text-decoration: none;
+    font-weight: 600;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    transition: all 0.2s ease;
+}
+
+.lang-switch a.active {
+    background: var(--gray-900);
+    color: var(--white);
+}
+
+.lang-switch a:hover:not(.active) {
+    color: var(--gray-900);
+}
+
+/* Logo */
+.nordic-logo {
+    position: fixed;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+}
+
+.nordic-logo-img {
+    height: 22px;
+    width: auto;
+    display: block;
+}
+
+.nordic-logo-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    letter-spacing: -0.01em;
+}
+
+/* Deck Layout (legacy helpers) */
+.slide-visual {
+    width: 92%;
+    max-width: 1000px;
+    max-height: 52vh;
+    object-fit: contain;
+    margin: var(--space-lg) auto 0;
+    display: block;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-lg);
+}
+
+.slide-hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 var(--space-lg);
+}
+
+.slide-hero h2 {
+    margin: 0 0 var(--space-sm);
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+
+.slide-hero p {
+    margin: 0 0 var(--space-lg);
+    color: var(--gray-600);
+    font-size: 1.05rem;
+}
+
+/* Simple table style (for "charts over text") */
+.nordic-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.nordic-table th,
+.nordic-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+}
+
+.nordic-table thead th {
+    background: var(--gray-50);
+    font-weight: 700;
+    color: var(--gray-700);
+    text-align: left;
+}
+
+.nordic-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.nordic-table--kv td:first-child {
+    color: var(--gray-700);
+    font-weight: 600;
+    width: 28%;
+    white-space: nowrap;
+}
+
+/* Roadmap (legacy) */
+.roadmap-horizontal {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    position: relative;
+}
+
+.roadmap-h-step {
+    position: relative;
+    flex: 1;
+    padding-top: 20px;
+}
+
+.roadmap-h-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: var(--dify-blue);
+    box-shadow: 0 0 0 6px rgba(0, 51, 255, 0.08);
+}
+
+.roadmap-h-step::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 28px;
+    right: -14px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(0, 51, 255, 0.12), rgba(0, 51, 255, 0.32));
+}
+
+.roadmap-h-step:last-child::after {
+    display: none;
+}
+
+.roadmap-card {
+    height: 100%;
+}
+
+/* Quadrant (legacy) */
+.quadrant {
+    position: relative;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.quadrant::before,
+.quadrant::after {
+    content: '';
+    position: absolute;
+    background: var(--gray-200);
+}
+
+.quadrant::before {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+}
+
+.quadrant::after {
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+}
+
+.quadrant-label {
+    position: absolute;
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--gray-200);
+}
+
+.quadrant-item {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    color: var(--gray-700);
+    box-shadow: var(--shadow-md);
+}
+
+/* Legacy effects: keep class, drop the noise */
+.glow-card::after,
+.ticker-line::after {
+    content: none;
+}
+
+/* Animations - Subtle */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nordic-grid-2,
+    .nordic-grid-3,
+    .nordic-grid-4,
+    .nordic-comparison,
+    .nordic-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .nordic-flow {
+        flex-direction: column;
+    }
+    
+    .nordic-flow-step::after {
+        content: '↓';
+        right: 50%;
+        top: auto;
+        bottom: -25px;
+        transform: translateX(50%);
+    }
+}
+
+/* Reveal Controls - Nordic Style */
+.reveal .controls {
+    color: var(--gray-400);
+}
+
+.reveal .progress {
+    background: var(--gray-200);
+    height: 2px;
+}
+
+.reveal .progress span {
+    background: var(--dify-blue);
+}
+
+/* Slide Numbers */
+.reveal .slide-number {
+    color: var(--gray-500);
+    background: transparent;
+    font-size: 0.75rem;
+}

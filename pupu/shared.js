@@ -5,14 +5,14 @@ window.tailwind.config = {
         extend: {
             colors: {
                 dify: '#0033ff',
-                'dify-light': 'rgba(0, 51, 255, 0.08)',
+                'dify-light': 'rgba(0, 51, 255, 0.06)',
                 'text-main': '#111827',
-                'text-secondary': '#4b5563',
-                'bg-card': '#f3f4f6',
+                'text-secondary': '#525252',
+                'bg-card': '#fafafa',
             },
             fontFamily: {
-                sans: ['"Söhne"', '"MiSans"', 'Inter', '"Noto Sans SC"', 'sans-serif'],
-                mono: ['"Söhne Mono"', '"Noto Sans Mono SC"', '"Fira Code"', 'monospace'],
+                sans: ['"Söhne"', 'Inter', '"Mi Sans"', '"MiSans"', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+                mono: ['"Söhne Mono"', '"JetBrains Mono"', '"Noto Sans Mono SC"', '"Fira Code"', 'monospace'],
             },
         },
     },

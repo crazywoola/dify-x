@@ -23,7 +23,7 @@
 
     <script src="shared.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="nordic.css">
 </head>
 
 <body>
@@ -34,14 +34,9 @@
         <a href="index_en.html">EN</a>
     </div>
 
-    <div id="bg-shapes" aria-hidden="true">
-        <div class="shape s1"></div>
-        <div class="shape s2"></div>
-        <div class="shape s3"></div>
-    </div>
-
-    <div class="absolute top-10 left-10 font-bold text-2xl z-10" style="font-family: var(--font-stack);">
-        D<span class="text-dify">if</span>y
+    <div class="nordic-logo">
+        <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
+        <span class="nordic-logo-text">Dify x PUPU</span>
     </div>
 
     <div class="fixed bottom-5 right-5 text-xs text-dify opacity-50">按键盘 ↓ 查看详情</div>
@@ -68,53 +63,54 @@
 
             <!-- Section: Outline (Updated) -->
             <section>
-                <div class="text-left max-w-[1000px]">
+                <div class="max-w-5xl mx-auto text-left space-y-6">
                     <h2>Agenda</h2>
-                    <div class="grid grid-cols-2 gap-x-[60px] gap-y-10 mt-10">
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🚀</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">范式破局</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">LLM 应用开发的下一代标准与 Dify 定位。</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🤝</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">高低融合</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Visual DSL 与 Pro-Code 的辩证统一。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🧰</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">生态扩展</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Marketplace、Plugins 与工具链构建。</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">⚡</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">事件驱动</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">Trigger 机制实现的自动化闭环。</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">📊</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">全景洞察</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">OpenTelemetry 全链路追踪与多库适配。</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 pb-5 border-b border-black/5">
-                            <span class="text-[1.2em] leading-none">🎯</span>
-                            <div>
-                                <strong class="block text-base mb-1.5 text-[var(--text-main)]">未来展望</strong>
-                                <p class="text-xs text-text-secondary m-0 leading-[1.4]">总结与 Call for Action。</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-text-secondary text-[0.85em] leading-[1.7]">
+                        从 <span class="text-dify font-semibold">Low‑Code</span> 到 <span class="text-dify font-semibold">Pro‑Code</span>：
+                        把编排、工程护栏、生态扩展、事件驱动与可观测性串成生产闭环。
+                    </p>
+
+                    <table class="nordic-table text-[0.75em]">
+                        <thead>
+                            <tr>
+                                <th>Part</th>
+                                <th>模块</th>
+                                <th>关注点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">01</span></td>
+                                <td class="font-semibold">破局</td>
+                                <td class="text-text-secondary">现状痛点 · 技术定位 · 为什么是现在</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">02</span></td>
+                                <td class="font-semibold">融合</td>
+                                <td class="text-text-secondary">Visual DSL ↔ Pro‑Code 分工 · 调试视图 · 协作机制</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">03</span></td>
+                                <td class="font-semibold">扩展</td>
+                                <td class="text-text-secondary">Plugins & Marketplace · 工具安全 · 可复用资产</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">04</span></td>
+                                <td class="font-semibold">连接</td>
+                                <td class="text-text-secondary">Trigger 自动化闭环 · 类型与矩阵 · 实战案例</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">05</span></td>
+                                <td class="font-semibold">洞察</td>
+                                <td class="text-text-secondary">OTEL 全链路 · 多库适配 · 成本与性能可视化</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded-full font-semibold">06</span></td>
+                                <td class="font-semibold">总结</td>
+                                <td class="text-text-secondary">进化路径 · Call for Action</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -253,16 +249,16 @@
                     <div class="flex h-full items-center gap-[60px]">
                         <div class="flex-1 text-left">
                             <h3>1.1 现状痛点</h3>
-                            <ul class="text-secondary text-[0.8em] leading-[1.6] space-y-2.5">
-                                <li>模型接口碎片化：调用、计费、监控各自为政。</li>
-                                <li>迭代周期慢：Prompt/Workflow 更新缺少环境隔离与灰度。</li>
-                                <li>团队协作难：缺少统一资产库、复用与可观测手段。</li>
-                                <li>生产级要求：审计、指标、重试、配额等“工程化缺口”。</li>
-                            </ul>
+                            <p class="text-text-secondary text-[0.8em] mb-6">表面是“能力拼图”，本质是“工程断层”。</p>
+                            <div class="quadrant">
+                                <div class="quadrant-item" style="top:18%; left:18%;">接口碎片化<br><span class="text-dify text-[0.75em]">调用 / 计费 / 监控</span></div>
+                                <div class="quadrant-item" style="top:20%; right:18%;">迭代周期慢<br><span class="text-dify text-[0.75em]">隔离 / 灰度 / 回滚</span></div>
+                                <div class="quadrant-item" style="bottom:22%; left:18%;">协作难<br><span class="text-dify text-[0.75em]">资产库 / 复用 / 共享</span></div>
+                                <div class="quadrant-item" style="bottom:18%; right:16%;">工程缺口<br><span class="text-dify text-[0.75em]">审计 / 重试 / 配额</span></div>
+                            </div>
                         </div>
                         <div class="flex-1 text-left">
-                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="痛点示意图"
-                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                            <img src="assets/Legacy+LLM+Stack+Pain+Points.png" alt="痛点示意图" class="slide-visual">
                         </div>
                     </div>
                 </section>
@@ -331,12 +327,12 @@
                                     <div class="text-[0.6em] text-text-secondary mt-1">Few-shot learning 涌现</div>
                                 </div>
                                 <div class="bg-white p-4 rounded-xl border border-black/5 shadow-sm text-center transform scale-110 border-dify ring-2 ring-dify/20">
-                                    <div class="text-dify font-bold text-xl mb-1">2023</div>
+                                    <div class="text-dify font-bold text-xl mb-1">2025.2</div>
                                     <div class="text-xs font-semibold">Dify v1.0</div>
                                     <div class="text-[0.6em] text-text-secondary mt-1">LLM 应用中间件诞生</div>
                                 </div>
                                 <div class="bg-white p-4 rounded-xl border border-black/5 shadow-sm text-center">
-                                    <div class="text-dify font-bold text-xl mb-1">2024+</div>
+                                    <div class="text-dify font-bold text-xl mb-1">2025.11</div>
                                     <div class="text-xs font-semibold">Pro-Code</div>
                                     <div class="text-[0.6em] text-text-secondary mt-1">工程化、生产级、标准化</div>
                                 </div>
@@ -477,29 +473,37 @@
                             <p class="text-text-secondary text-[0.7em] mb-5">
                                 高低代码都离不开可视化，但核心目的不同：
                             </p>
-                            <ul class="list-none m-0 p-0 space-y-[15px] text-[0.8em]">
-                                <li class="flex items-start">
-                                    <i class="ri-code-s-slash-line text-dify mr-2.5 mt-[2px]"></i>
-                                    <div>
-                                        <strong>Low-Code 视角：可视化 = 编程语言</strong>
-                                        <div class="text-[#6b7280] text-[0.9em] mt-1">降低认知负荷，让逻辑可解释、可教学，成为编程本身。</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="ri-terminal-box-line text-[var(--text-main)] mr-2.5 mt-[2px]"></i>
-                                    <div>
-                                        <strong>Pro-Code 视角：可视化 = 抽象理解 & 调试</strong>
-                                        <div class="text-[#6b7280] text-[0.9em] mt-1">
-                                            加速对复杂 DSL 的理解。核心价值在于：<br>
-                                            <span class="text-dify font-semibold">“看得懂、比得出、说得清、做的快”</span>。
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <table class="nordic-table nordic-table--kv text-[0.7em]">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Low‑Code</th>
+                                        <th>Pro‑Code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>可视化的角色</td>
+                                        <td>编程语言</td>
+                                        <td>抽象理解 & 调试视图</td>
+                                    </tr>
+                                    <tr>
+                                        <td>核心目标</td>
+                                        <td>降低认知负荷<br>可解释、可教学</td>
+                                        <td>加速复杂 DSL 理解<br>可比较、可复盘</td>
+                                    </tr>
+                                    <tr>
+                                        <td>交付形态</td>
+                                        <td>可视逻辑可直接“运行”</td>
+                                        <td>让工程事实显性化<br>（Trace / Token / 变量）</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-dify font-semibold text-[0.75em] mt-4">看得懂、比得出、说得清、做得快</div>
                         </div>
                         <div class="flex-1 text-left">
                             <img src="assets/Workflow+as+Visual+DSL.png" alt="工作流即DSL"
-                                class="shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] rounded-lg border border-black/5 max-w-[520px] w-full mx-auto">
+                                class="slide-visual">
                         </div>
                     </div>
                 </section>
@@ -1113,18 +1117,35 @@ def _invoke(self, params):
                 </section>
 
                 <section data-background-color="#ffffff">
-                    <div class="text-left max-w-[1000px]">
+                    <div class="max-w-5xl mx-auto text-left">
                         <h3>4.3 为什么需要 Trigger？</h3>
-                        <ul class="text-text-secondary text-[0.8em] leading-[1.6] space-y-3 mt-4">
-                            <li><strong class="text-[var(--text-main)]">避免触发分散：</strong>UI 按钮、Cron、业务系统直调各自为政，难以排查和治理。
-                            </li>
-                            <li><strong class="text-[var(--text-main)]">让编排决定“何时启动”：</strong>把触发逻辑收回 Workflow
-                                编排层，统一监听与路由。</li>
-                            <li><strong class="text-[var(--text-main)]">常驻后台的服务形态：</strong>Workflow
-                                持续在线监听事件，满足条件即携带上下文启动。</li>
-                            <li><strong class="text-[var(--text-main)]">多路触发同盘编排：</strong>一个画布可配置多个
-                                Trigger，先分支后汇合，逻辑一目了然。</li>
-                        </ul>
+                        <p class="text-text-secondary text-[0.8em] mb-6">把“何时启动”收回到编排层，统一治理与回放。</p>
+                        <table class="nordic-table text-[0.75em]">
+                            <thead>
+                                <tr>
+                                    <th>没有 Trigger</th>
+                                    <th>有 Trigger</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>入口分散：按钮 / Cron / 直调</td>
+                                    <td>入口统一：事件源 → 变量映射 → 路由</td>
+                                </tr>
+                                <tr>
+                                    <td>难治理：缺 Trace、难排查</td>
+                                    <td>可治理：可回放、可观测、可审计</td>
+                                </tr>
+                                <tr>
+                                    <td>启动条件散落在代码/脚本</td>
+                                    <td>启动条件由 Workflow 编排决定</td>
+                                </tr>
+                                <tr>
+                                    <td>多条触发逻辑难复用</td>
+                                    <td>一张画布：先分支后汇合</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
 
