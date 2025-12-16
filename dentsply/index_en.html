@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify × Dental · Pop Art Edition</title>
+
+    <!-- Reveal.js Themes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/white.min.css" id="theme">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Pop Art Palette */
+            --pop-orange: #FF5A00;
+            --pop-blue: #3B82F6;
+            --pop-yellow: #FFD600;
+            --pop-purple: #9D4EDD;
+            --pop-green: #10B981;
+            --pop-pink: #EC4899;
+            --pop-black: #1a1a1a;
+            --pop-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--pop-bg);
+            /* Dot Pattern Background */
+            background-image: radial-gradient(var(--pop-black) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--pop-black);
+        }
+
+        .reveal {
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Pop Art Cards */
+        .pop-card {
+            background: white;
+            border: 3px solid var(--pop-black);
+            border-radius: 0px; /* Sharp edges */
+            box-shadow: 8px 8px 0px 0px var(--pop-black);
+            padding: 24px;
+            transition: transform 0.2s;
+        }
+        
+        .pop-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px 0px var(--pop-black);
+        }
+
+        /* Badges */
+        .pop-badge {
+            display: inline-block;
+            background: var(--pop-black);
+            color: white;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 0.8em;
+            transform: rotate(-2deg);
+            margin-bottom: 1rem;
+        }
+
+        /* Code Blocks */
+        .reveal pre {
+            border: 3px solid var(--pop-black);
+            box-shadow: 8px 8px 0px 0px var(--pop-purple);
+            border-radius: 0;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .reveal code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Custom Bullet Points */
+        .pop-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            padding-left: 1.5em;
+            position: relative;
+        }
+        .pop-list li::before {
+            content: "➜";
+            position: absolute;
+            left: 0;
+            color: var(--pop-orange);
+            font-weight: 900;
+        }
+
+        /* Layout Helpers */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Watermark */
+        .brand-pill {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            background: var(--pop-black);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 100;
+            font-size: 16px;
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.2);
+        }
+        
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .timeline-step {
+            border-left: 4px solid var(--pop-black);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-step::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--pop-yellow);
+            border: 3px solid var(--pop-black);
+            position: absolute;
+            left: -10px;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="brand-pill">
+        DIFY × DENTAL
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- =====================================================================================
+                 CHAPTER 0: INTRO (3 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#FFD600">
+                    <div class="pop-card bg-white" style="display: inline-block; padding: 60px;">
+                        <h1 class="text-8xl mb-4" style="color: black; text-shadow: 4px 4px 0px white;">DIGITAL<br>DENTISTRY</h1>
+                        <div class="bg-black text-white text-3xl p-4 transform -rotate-2 inline-block font-bold mt-4">
+                            POWERED BY DIFY
+                        </div>
+                    </div>
+                    <p class="mt-12 font-bold text-xl tracking-widest">FROM DICOM TO DECISION</p>
+                    <p class="text-sm mt-4 opacity-70">↓ 40-Page Deep Dive</p>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="text-left">
+                            <h2 class="text-5xl mb-6">WHY NOW?</h2>
+                            <p class="text-xl leading-relaxed">
+                                The dental industry is undergoing an <span class="bg-orange-400 px-2 text-white font-bold">AI revolution</span>.<br><br>
+                                It's no longer just about storing images, but understanding them.<br>
+                                It's no longer just about managing records, but assisting decisions.
+                            </p>
+                        </div>
+                        <div class="pop-card bg-blue-100 text-center">
+                            <i class="fas fa-bolt text-8xl text-blue-600 mb-6"></i>
+                            <h3 class="text-2xl font-bold">The Shift</h3>
+                            <ul class="pop-list text-left mt-6 text-sm">
+                                <li><strong>Old:</strong> Manual, Siloed, Slow</li>
+                                <li><strong>New:</strong> Automated, Connected, Real-time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="mb-12">THE AGENDA</h2>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-blue-600">01</h3>
+                            <h4 class="text-lg">Smart Triage</h4>
+                            <p class="text-xs text-gray-500 mt-2">DICOM Triage</p>
+                        </div>
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-purple-600">02</h3>
+                            <h4 class="text-lg">Ortho Monitoring</h4>
+                            <p class="text-xs text-gray-500 mt-2">Ortho Check</p>
+                        </div>
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-orange-600">03</h3>
+                            <h4 class="text-lg">Lab Automation</h4>
+                            <p class="text-xs text-gray-500 mt-2">Lab Automation</p>
+                        </div>
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-green-600">04</h3>
+                            <h4 class="text-lg">Voice Perio</h4>
+                            <p class="text-xs text-gray-500 mt-2">Voice Charting</p>
+                        </div>
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-yellow-600">05</h3>
+                            <h4 class="text-lg">Smart Claims</h4>
+                            <p class="text-xs text-gray-500 mt-2">Smart Claims</p>
+                        </div>
+                        <div class="pop-card">
+                            <h3 class="text-4xl mb-4 text-pink-600">06</h3>
+                            <h4 class="text-lg">Visual Inventory</h4>
+                            <p class="text-xs text-gray-500 mt-2">Vision Inventory</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 1: INTELLIGENT TRIAGE (5 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#E0F2FE">
+                    <div class="pop-badge bg-blue-600">SCENARIO 01</div>
+                    <h2 class="text-6xl text-blue-900">INTELLIGENT TRIAGE</h2>
+                    <h3 class="text-2xl text-blue-600 mt-4">AI-Assisted Reading & Initial Report</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="pop-card bg-red-50 border-red-500">
+                            <h3 class="text-red-600 text-3xl mb-4"><i class="fas fa-bomb"></i> THE PAIN</h3>
+                            <ul class="pop-list text-lg">
+                                <li>Doctors read 50+ panoramic X-rays daily</li>
+                                <li>Fatigue leads to missed diagnosis</li>
+                                <li>Patients don't understand B&W X-rays</li>
+                                <li>Low initial consultation conversion (< 20%)</li>
+                            </ul>
+                        </div>
+                        <div class="pop-card bg-green-50 border-green-500">
+                            <h3 class="text-green-600 text-3xl mb-4"><i class="fas fa-star"></i> THE GOAL</h3>
+                            <ul class="pop-list text-lg">
+                                <li>Instant Screening (Detection < 5s)</li>
+                                <li>Visual Bounding Box Annotation</li>
+                                <li>Auto-generate patient-friendly reports</li>
+                                <li>Conversion rate improved to 40%+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>THE WORKFLOW</h3>
+                    <div class="flex flex-col gap-4 items-center justify-center mt-8">
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-gray-50">
+                            <div class="font-bold">INPUT</div>
+                            <div class="font-mono text-sm bg-black text-white p-2">DICOM / Folder Watch</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-orange-50 border-orange-400">
+                            <div class="font-bold text-orange-600">CODE NODE</div>
+                            <div class="text-sm">Python (pydicom) Extract Metadata</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-purple-50 border-purple-400">
+                            <div class="font-bold text-purple-600">MODEL NODE</div>
+                            <div class="text-sm">Pearl AI / Custom Vision Model</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-blue-50 border-blue-400">
+                            <div class="font-bold text-blue-600">LLM NODE</div>
+                            <div class="text-sm">Generate Patient-Friendly Report</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-left">
+                        <div class="pop-badge bg-black mb-2">CODE SNIPPET</div>
+                        <h3>DICOM PARSER</h3>
+                    </div>
+                    <pre><code class="python">import pydicom
+from PIL import Image
+import numpy as np
+
+def main(file_path: str) -> dict:
+    # 1. Read DICOM
+    ds = pydicom.dcmread(file_path)
+    
+    # 2. Extract Clinical Meta
+    meta = {
+        "modality": ds.Modality,  # DX/CT
+        "exposure": f"{ds.KVP}kV",
+        "patient_id": ds.PatientID
+    }
+    
+    # 3. Convert to Image for Vision Model
+    # Apply Windowing (VOI LUT)
+    img_array = apply_voi_lut(ds.pixel_array, ds)
+    
+    return {
+        "meta": meta,
+        "image": to_base64(img_array)
+    }</code></pre>
+                </section>
+
+                <section>
+                    <div class="pop-card text-center bg-gray-900 text-white border-none shadow-2xl">
+                        <h3 class="text-2xl text-yellow-400 mb-6">OUTPUT: PATIENT REPORT</h3>
+                        <div class="text-left font-mono text-sm leading-loose">
+                            <p class="text-gray-400">// Generated by Dify</p>
+                            <p>
+                                <span class="text-purple-400">Title:</span> Oral Health Initial Report<br>
+                                <span class="text-purple-400">Patient:</span> Mr. Zhang (ID: 88392)<br>
+                                <span class="text-purple-400">Findings:</span><br>
+                                1. <span class="bg-red-600 text-white px-1">HIGH RISK</span> Proximal caries found on UL6 (#26), depth approaching pulp.<br>
+                                2. <span class="bg-yellow-600 text-white px-1">MEDIUM</span> Calculus accumulation visible in lower anterior region.<br>
+                                <br>
+                                <span class="text-purple-400">Suggestion:</span><br>
+                                Recommend prioritizing #26 caries (resin filling) and scheduling full mouth scaling.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 2: ORTHO MONITORING (5 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#F3E8FF">
+                    <div class="pop-badge bg-purple-600">SCENARIO 02</div>
+                    <h2 class="text-6xl text-purple-900">VIRTUAL CARE</h2>
+                    <h3 class="text-2xl text-purple-600 mt-4">Remote Invisible Orthodontics Monitoring</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="text-left">
+                            <h2 class="text-4xl mb-4">THE PROBLEM</h2>
+                            <p class="text-xl">
+                                Orthodontics is a long battle.<br>
+                                Doctors have no idea if patients are <strong>not wearing aligners</strong> or <strong>wearing them incorrectly</strong> at home.<br>
+                                By the next visit (2 months later), it's too late.
+                            </p>
+                        </div>
+                        <div class="pop-card rotate-3">
+                            <div class="bg-gray-200 h-48 flex items-center justify-center text-4xl font-bold text-gray-400">
+                                NO SHOW
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold">Ineffective Visit</h4>
+                                <p class="text-sm">Visiting the clinic just to hear: "Good, keep wearing it".</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>THE LOGIC</h3>
+                    <div class="grid grid-cols-2 gap-8 mt-8">
+                        <div class="pop-card bg-white">
+                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 1: Upload</h4>
+                            <p>Patient takes 3 photos (front/side) weekly using Cheek Retractor.</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 2: Compare</h4>
+                            <p>Dify extracts the current stage 3D simulation (STL Render).</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 3: Vision AI</h4>
+                            <p>Detect "Air Gap".<br>> 1mm = Off track.</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 4: Nudge</h4>
+                            <p>Auto-send WhatsApp/SMS reminding patient to use chewies.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-left">
+                        <div class="pop-badge bg-purple-600 mb-2">PROMPT ENGINEERING</div>
+                        <h3>VISION ANALYSIS PROMPT</h3>
+                    </div>
+                    <pre><code class="yaml">role: Ortho_Monitor
+task: Compare current_photo vs target_render
+
+checklist:
+  aligner_fit:
+    instruction: "Check for space between tooth edge and aligner."
+    threshold: "1mm"
+  attachments:
+    instruction: "Are all composite buttons visible?"
+  hygiene:
+    instruction: "Check for red/swollen gums."
+
+output_format:
+  status: "GO" | "NO-GO"
+  message: "Friendly feedback to patient."</code></pre>
+                </section>
+
+                <section>
+                    <div class="pop-card border-purple-500 shadow-xl bg-purple-50">
+                        <div class="flex items-start gap-4">
+                            <div class="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center text-3xl">📱</div>
+                            <div class="text-left flex-1">
+                                <h4 class="font-bold text-purple-800">SMS Notification</h4>
+                                <p class="mt-2 text-lg font-mono">
+                                    "Hi Alice! Dify AI noticed a small gap on your upper incisors. 🦷<br>
+                                    <strong>Action:</strong> Please use your chewies for 20 mins tonight.<br>
+                                    No need to come in! See you next week."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 3: LAB AUTOMATION (3 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#FFEDD5">
+                    <div class="pop-badge bg-orange-600">SCENARIO 03</div>
+                    <h2 class="text-6xl text-orange-900">LAB AUTOMATION</h2>
+                    <h3 class="text-2xl text-orange-600 mt-4">Digital Goalkeeper for Labs</h3>
+                </section>
+
+                <section>
+                    <h3>GIGO: GARBAGE IN, GARBAGE OUT</h3>
+                    <div class="flex items-center justify-center gap-8 mt-10">
+                        <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
+                            <div class="text-6xl mb-4">🗑️</div>
+                            <h4 class="font-bold">Bad Scan</h4>
+                            <p class="text-sm">Holes, distorted margins</p>
+                        </div>
+                        <i class="fas fa-arrow-right text-4xl"></i>
+                        <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
+                            <div class="text-6xl mb-4">👎</div>
+                            <h4 class="font-bold">Bad Crown</h4>
+                            <p class="text-sm">Doesn't fit, remake needed</p>
+                        </div>
+                    </div>
+                    <p class="mt-8 font-bold text-red-600 bg-white inline-block px-4 py-2 border-2 border-red-600">
+                        COST OF REMAKE: $50 + 3 Days Delay
+                    </p>
+                </section>
+
+                <section>
+                    <div class="text-left">
+                        <div class="pop-badge bg-orange-600 mb-2">PYTHON SCRIPT</div>
+                        <h3>STL GEOMETRY CHECK</h3>
+                    </div>
+                    <pre><code class="python">import trimesh
+
+def check_stl(file_path):
+    mesh = trimesh.load(file_path)
+    
+    # 1. Check for Holes (Watertight)
+    is_watertight = mesh.is_watertight
+    
+    # 2. Check Resolution
+    face_count = len(mesh.faces)
+    
+    # 3. Decision
+    if not is_watertight:
+        return {"status": "FAIL", "reason": "Mesh has holes"}
+        
+    if face_count < 10000:
+        return {"status": "FAIL", "reason": "Low resolution"}
+        
+    return {"status": "PASS"}</code></pre>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 4: PERIO VOICE (3 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#DCFCE7">
+                    <div class="pop-badge bg-green-600">SCENARIO 04</div>
+                    <h2 class="text-6xl text-green-900">VOICE CHARTING</h2>
+                    <h3 class="text-2xl text-green-600 mt-4">Hands-free Periodontal Exam</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="text-left">
+                            <h3 class="text-4xl mb-4 font-bold">168 Data Points</h3>
+                            <p class="text-xl">
+                                A complete perio exam requires recording:<br>
+                                28 teeth × 6 sites = 168 depth points.<br>
+                                Plus Bleeding on Probing (BOP) and mobility.
+                            </p>
+                            <br>
+                            <p class="font-bold bg-green-100 p-2 inline-block text-green-800">
+                                Traditional: Doctor dictates, nurse records (Requires 2 people).
+                            </p>
+                        </div>
+                        <div class="pop-card bg-green-50 border-green-500 flex flex-col items-center justify-center text-center">
+                            <i class="fas fa-microphone text-8xl text-green-600 mb-4"></i>
+                            <h4 class="text-2xl font-bold">"One Man Show"</h4>
+                            <p>Dify + ASR = One-person Operation</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>VOICE TO JSON FLOW</h3>
+                    <div class="mt-8 space-y-4">
+                        <div class="pop-card flex items-center gap-4 py-4">
+                            <div class="font-bold text-green-600 w-24">VOICE</div>
+                            <div class="font-mono text-sm bg-gray-100 p-2 flex-1">"One-Six, Distal 3, Center 2, Mesial 3, Bleeding."</div>
+                        </div>
+                        <div class="pop-card flex items-center gap-4 py-4 bg-green-50">
+                            <div class="font-bold text-green-600 w-24">ASR</div>
+                            <div class="font-mono text-sm bg-white p-2 flex-1">Text: "16 d3 c2 m3 bop"</div>
+                        </div>
+                        <div class="pop-card flex items-center gap-4 py-4 bg-green-100 border-green-500">
+                            <div class="font-bold text-green-600 w-24">LLM</div>
+                            <div class="font-mono text-sm bg-white p-2 flex-1">
+                                { "tooth": 16, "data": [3, 2, 3], "bop": true }
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 5: SMART CLAIMS (4 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#FEF9C3">
+                    <div class="pop-badge bg-yellow-600">SCENARIO 05</div>
+                    <h2 class="text-6xl text-yellow-900">SMART CLAIMS</h2>
+                    <h3 class="text-2xl text-yellow-600 mt-4">Automated Insurance Claim Verification</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="pop-card bg-red-50 border-red-500">
+                            <h3 class="text-red-600 mb-4">THE REJECTION</h3>
+                            <p class="text-lg">
+                                Top 3 reasons for insurance denial:<br>
+                                1. Incorrect CPT Code (30%)<br>
+                                2. Missing Evidence X-ray (40%)<br>
+                                3. Insufficient Medical Necessity (30%)
+                            </p>
+                        </div>
+                        <div class="text-left">
+                            <h2 class="text-4xl mb-4">THE PRE-CHECK</h2>
+                            <p class="text-xl">
+                                Before submitting to insurance, use Dify Agent for <strong>'Mock Claim'</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>AUTOMATED AUDIT FLOW</h3>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="pop-card bg-white">
+                            <h4 class="font-bold text-yellow-600">Step 1: Context</h4>
+                            <p class="text-sm">Extract Patient History + Treatment Plan (D2740 Crown).</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="font-bold text-yellow-600">Step 2: Evidence</h4>
+                            <p class="text-sm">Find latest X-ray (Bitewing) from that date.</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="font-bold text-yellow-600">Step 3: Vision Check</h4>
+                            <p class="text-sm">Does X-ray show decay? If No -> <span class="text-red-500 font-bold">FLAG</span>.</p>
+                        </div>
+                        <div class="pop-card bg-white">
+                            <h4 class="font-bold text-yellow-600">Step 4: Suggest</h4>
+                            <p class="text-sm">"Please attach Pre-op X-ray and Narrative."</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-left">
+                        <div class="pop-badge bg-yellow-600 mb-2">RULE ENGINE</div>
+                        <h3>CLAIMS VALIDATION LOGIC</h3>
+                    </div>
+                    <pre><code class="python">def validate_claim(cpt_code, evidence):
+    # D2740: Porcelain Crown
+    if cpt_code == 'D2740':
+        # 1. Must have X-ray
+        if not evidence.get('xray_date'):
+            return "FAIL: Missing X-ray"
+            
+        # 2. X-ray must be recent (< 6 months)
+        if days_since(evidence['xray_date']) > 180:
+            return "FAIL: X-ray too old"
+            
+        # 3. Vision AI check
+        if evidence['ai_caries_probability'] < 0.5:
+            return "WARN: Caries not clear in X-ray, add Narrative."
+            
+    return "PASS"</code></pre>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 6: INVENTORY VISION (4 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#FCE7F3">
+                    <div class="pop-badge bg-pink-600">SCENARIO 06</div>
+                    <h2 class="text-6xl text-pink-900">VISION INVENTORY</h2>
+                    <h3 class="text-2xl text-pink-600 mt-4">Snap & Count Inventory</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="text-left">
+                            <h2 class="text-4xl mb-4">THE $500 MISTAKE</h2>
+                            <p class="text-xl">
+                                Implants cost hundreds of dollars each.<br>
+                                Often happens:<br>
+                                - Used without recording (Lost Revenue)<br>
+                                - Out of stock when needed (Lost Patient)
+                            </p>
+                        </div>
+                        <div class="pop-card bg-pink-50 border-pink-500 text-center">
+                            <i class="fas fa-camera text-8xl text-pink-600 mb-4"></i>
+                            <h4 class="text-2xl font-bold">SNAP & COUNT</h4>
+                            <p>Don't count manually. Just take a photo of the drawer.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>OBJECT DETECTION FLOW</h3>
+                    <div class="flex gap-4 mt-8">
+                        <div class="w-1/2">
+                            <div class="pop-card bg-gray-800 text-white p-0 relative overflow-hidden h-64 flex items-center justify-center">
+                                <div class="absolute inset-0 bg-gray-700 opacity-50"></div>
+                                <div class="border-2 border-green-400 w-16 h-32 absolute top-10 left-10">
+                                    <span class="bg-green-400 text-black text-xs px-1 absolute -top-4 left-0">Straumann 3.3</span>
+                                </div>
+                                <div class="border-2 border-green-400 w-16 h-32 absolute top-10 left-32">
+                                    <span class="bg-green-400 text-black text-xs px-1 absolute -top-4 left-0">Nobel 4.3</span>
+                                </div>
+                            </div>
+                            <p class="text-center mt-2 font-mono text-sm">Input Image</p>
+                        </div>
+                        <div class="w-1/2 flex flex-col justify-center">
+                            <div class="pop-card bg-white">
+                                <h4 class="font-bold text-pink-600 mb-2">Inventory Update</h4>
+                                <ul class="font-mono text-sm">
+                                    <li class="flex justify-between"><span>Straumann 3.3mm</span> <span>Qty: 5 (-1)</span></li>
+                                    <li class="flex justify-between font-bold text-red-500"><span>Nobel 4.3mm</span> <span>Qty: 1 (REORDER)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-left">
+                        <div class="pop-badge bg-pink-600 mb-2">NOTIFICATION</div>
+                        <h3>AUTO-REORDER AGENT</h3>
+                    </div>
+                    <div class="pop-card bg-yellow-100 border-yellow-500 mt-4">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-shopping-cart text-3xl text-yellow-700"></i>
+                            <div>
+                                <h4 class="font-bold text-yellow-800">Order Draft Created</h4>
+                                <p class="text-sm mt-1">
+                                    Supplier: Nobel Biocare<br>
+                                    Items: 5x Active 4.3mm<br>
+                                    Total: $1,250<br>
+                                    <a href="#" class="underline font-bold">Click to Approve</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 7: SECURITY (3 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#F3F4F6">
+                    <div class="pop-badge bg-gray-800">SECURITY</div>
+                    <h2 class="text-6xl text-gray-900">COMPLIANCE</h2>
+                    <h3 class="text-2xl text-gray-600 mt-4">HIPAA & GDPR Ready</h3>
+                </section>
+
+                <section>
+                    <div class="split-layout">
+                        <div class="text-left">
+                            <h2 class="text-4xl mb-4">PII REDACTION</h2>
+                            <p class="text-xl">
+                                Before any data leaves the on-prem server for the cloud LLM, it must be redacted.
+                            </p>
+                        </div>
+                        <div class="pop-card bg-gray-100 border-gray-600">
+                            <pre class="m-0 border-0 shadow-none"><code class="python">text = "Patient John Doe (DOB: 1980-01-01)..."
+# Redacted
+text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>AUDIT TRAIL</h3>
+                    <div class="pop-card bg-white w-full text-left">
+                        <table class="w-full text-sm font-mono">
+                            <tr class="border-b-2 border-black">
+                                <th class="py-2">Time</th>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2">10:00:01</td>
+                                <td>Dr. Smith</td>
+                                <td>Viewed Report #882</td>
+                                <td class="text-green-600">SUCCESS</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2">10:05:23</td>
+                                <td>System</td>
+                                <td>AI Analysis #883</td>
+                                <td class="text-green-600">SUCCESS</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2">10:15:00</td>
+                                <td>Nurse Joy</td>
+                                <td>Export Patient Data</td>
+                                <td class="text-red-600">DENIED</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 CHAPTER 8: ROADMAP (3 Slides)
+                 ===================================================================================== -->
+            <section>
+                <section data-background-color="#FFFBEB">
+                    <div class="pop-badge bg-yellow-600">ROADMAP</div>
+                    <h2 class="text-6xl text-yellow-900">IMPLEMENTATION</h2>
+                    <h3 class="text-2xl text-yellow-600 mt-4">4 Weeks to Live</h3>
+                </section>
+
+                <section>
+                    <div class="timeline-step">
+                        <h4 class="font-bold text-xl">WEEK 1: PILOT</h4>
+                        <p class="text-sm">Connect 1 CBCT & 1 Computer. Test Triage Workflow manually.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <h4 class="font-bold text-xl">WEEK 2: INTEGRATION</h4>
+                        <p class="text-sm">Connect PMS (Dentrix) API. Automate Patient ID matching.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <h4 class="font-bold text-xl">WEEK 3: TRAINING</h4>
+                        <p class="text-sm">Train nurses on "Voice Charting" and "Photo Inventory".</p>
+                    </div>
+                    <div class="timeline-step border-l-4 border-green-500">
+                        <h4 class="font-bold text-xl text-green-600">WEEK 4: GO LIVE</h4>
+                        <p class="text-sm">Full automated workflow. Monitor ROI.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>ROI & VALUE</h3>
+                    <div class="grid grid-cols-3 gap-8 mt-12">
+                        <div class="pop-card bg-green-200 text-center">
+                            <h4 class="text-6xl font-black mb-2">30%</h4>
+                            <p class="font-bold">Conversion Rate ↑</p>
+                        </div>
+                        <div class="pop-card bg-orange-200 text-center">
+                            <h4 class="text-6xl font-black mb-2">2h</h4>
+                            <p class="font-bold">Daily Saved Time</p>
+                        </div>
+                        <div class="pop-card bg-blue-200 text-center">
+                            <h4 class="text-6xl font-black mb-2">0</h4>
+                            <p class="font-bold">GIGO Remakes</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- =====================================================================================
+                 Q&A (PayPal Style)
+                 ===================================================================================== -->
+            <section data-background-color="#003087">
+                <div class="flex flex-col items-center justify-center h-full text-white">
+                    <h1 class="text-7xl font-bold mb-6 tracking-tighter">Q & A</h1>
+                    <p class="text-xl opacity-80 mb-12 font-mono">Let's shape the future of digital dentistry.</p>
+                    
+                    <div class="flex gap-16">
+                        <!-- Card 1: Xiaohongshu -->
+                        <div class="bg-white text-black p-8 rounded-3xl w-64 text-center transform transition hover:scale-105 hover:rotate-2 shadow-2xl">
+                            <div class="mb-6 p-2 bg-gray-50 rounded-xl">
+                                <img src="../assets/xiaohongshu.png" alt="Xiaohongshu" class="w-full h-auto rounded-lg">
+                            </div>
+                            <div class="font-bold text-xl">Xiaohongshu</div>
+                            <div class="text-xs text-gray-500 mt-2">Scan to Follow</div>
+                        </div>
+                        
+                        <!-- Card 2: Bilibili -->
+                        <div class="bg-white text-black p-8 rounded-3xl w-64 text-center transform transition hover:scale-105 hover:-rotate-2 shadow-2xl">
+                            <div class="mb-6 p-2 bg-gray-50 rounded-xl">
+                                <img src="../assets/bilibili.png" alt="Bilibili" class="w-full h-auto rounded-lg">
+                            </div>
+                            <div class="font-bold text-xl">Bilibili</div>
+                            <div class="text-xs text-gray-500 mt-2">Watch Demos</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 opacity-60 font-mono text-sm">
+                        enterprise@dify.ai | github.com/langgenius/dify
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Init Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            history: true,
+            transition: 'convex', // Pop style transition
+            backgroundTransition: 'zoom',
+            slideNumber: 'c/t',
+            navigationMode: 'default', // Allow 2D navigation
+        });
+    </script>
+
+</body>
+
+</html>

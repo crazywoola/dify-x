@@ -16,6 +16,7 @@ Online:
 ## Repo map
 - `assets/`: brand assets (`logo.svg`, `bilibili.png`, `xiaohongshu.png`).
 - `ctrip/`: automated risk control deck (CN/EN) plus outline (`ctrip/README.md`).
+- `dentsply/`: digital dentistry deck (CN/EN) covering triage, ortho, lab, and claims.
 - `paypal/`: payment risk control deck (CN/EN) covering auth rate defense, ATO, and dispute-abuse playbooks.
 - `pupu/`: low-to-pro-code developer practice (CN/EN) with slide visuals.
 - `milvus/`: RAG evolution + vector DB collaboration deck, shared styles in `milvus/styles/` and notes (`AGENTS.md`, `context.md`, `target_audience.md`).
@@ -25,6 +26,7 @@ Online:
 
 ## Decks
 - `ctrip/index.html`: automated risk control and adversarial demos (layered defense, attribution, counter-strategy).
+- `dentsply/index.html`: digital dentistry (smart triage, ortho monitoring, lab automation, voice perio).
 - `paypal/index.html`: payment risk & auth-defense playbook (card testing, ATO, dispute/chargeback abuse mitigation).
 - `pupu/index.html`: building with Dify as a developer (plugin architecture, triggers, observability).
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
