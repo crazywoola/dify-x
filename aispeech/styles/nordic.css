@@ -1,69 +1,440 @@
-/* 基础背景与字体设置 */
+/* ========================================
+   Dify × AISPEECH · Nordic Minimalist Theme (Advanced)
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --dify-blue: #0033ff;
+  --dify-blue-light: rgba(0, 51, 255, 0.08);
+  --dify-blue-medium: rgba(0, 51, 255, 0.15);
+  --dify-gradient: linear-gradient(135deg, #0033ff 0%, #4f46e5 100%);
+
+  /* Nordic Neutrals */
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+
+  /* Accents */
+  --green: #10b981;
+  --orange: #f97316;
+  --red: #ef4444;
+  --purple: #8b5cf6;
+
+  /* Typography - Larger for Presentation */
+  --font-sans: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows & Glass */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(12px);
+}
+
+/* ========== Base Reset ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: #f8fafc; /* Slight off-white background */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 51, 255, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.03) 0px, transparent 50%);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== Reveal.js Overrides - Larger Fonts ========== */
 .reveal {
-    background-color: #f8fafc; /* Slate-50 */
-    font-family: 'Söhne', 'Inter', 'Noto Sans SC', sans-serif !important;
-    color: #1e293b; /* Slate-800 */
+  font-family: var(--font-sans);
+  font-size: 32px; /* Increased base size from 26px */
+  color: var(--gray-800);
 }
 
-/* 覆盖 Reveal 默认样式以适配 Tailwind */
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-    text-transform: none;
-    font-family: inherit;
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  color: var(--gray-900);
+  margin-bottom: var(--space-md);
+  line-height: 1.1;
 }
 
-/* Workflow Node Card Style */
-.node-card {
-    background: white;
-    padding: 1rem;
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 160px;
-    height: 140px;
-    justify-content: center;
-    border-top-width: 4px; /* colored top border */
-    transition: transform 0.2s;
+.reveal h1 { font-size: 3.5em; letter-spacing: -0.04em; } /* ~112px */
+.reveal h2 { font-size: 2.2em; } /* ~70px */
+.reveal h3 { font-size: 1.5em; font-weight: 600; color: var(--gray-800); } /* ~48px */
+.reveal h4 { font-size: 1.2em; font-weight: 600; color: var(--gray-700); } /* ~38px */
+
+.reveal p { line-height: 1.5; margin-bottom: var(--space-md); opacity: 0.9; }
+.reveal strong { font-weight: 700; color: var(--dify-blue); }
+.reveal ul, .reveal ol { margin: var(--space-md) 0; }
+.reveal li { margin-bottom: 0.5em; }
+
+.reveal code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+  color: #d946ef;
 }
 
-.node-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+.reveal pre {
+  width: 100%;
+  margin: var(--space-lg) 0;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
 }
 
-.node-card .icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+.reveal pre code {
+  padding: var(--space-md);
+  font-size: 0.7em;
+  line-height: 1.6;
+  border-radius: var(--radius-lg);
+  background: #1e1e1e; /* Darker bg for contrast */
 }
 
-.node-card .content .title {
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-    color: #0f172a;
+/* ========== Advanced Components ========== */
+
+/* Fixed Logo */
+.deck-logo {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+.deck-logo img { height: 28px; width: auto; }
+.deck-logo span { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); letter-spacing: -0.01em; }
+
+/* Meta Hint */
+.slide-meta {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 100;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: var(--glass-border);
+  font-weight: 500;
 }
 
-.node-card .content .desc {
-    font-size: 0.65rem;
-    color: #64748b;
-    line-height: 1.2;
+/* Card System - Glassmorphism */
+.card {
+  max-width: 1400px; /* Wider content area */
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl);
+  text-align: left;
 }
 
-/* 隐藏 Reveal 默认的进度条，使用更现代的风格 */
-.reveal .progress {
-    height: 4px;
-    color: #0033ff;
+.card-ghost {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 工具类调整 */
-.workflow-container {
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 transparent;
+.card-ghost:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 51, 255, 0.2);
+}
+
+.card-ghost h3 {
+  font-size: 1.2em;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.card-ghost h3 i { 
+  background: var(--dify-blue-light);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 0.8em;
+  color: var(--dify-blue); 
+}
+
+/* Stack Label */
+.stack-label {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(90deg, var(--dify-blue-light), transparent);
+  color: var(--dify-blue);
+  border-left: 3px solid var(--dify-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: var(--radius-md);
+  font-size: 0.85em;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+/* Grids */
+.grid-2, .grid-3, .grid-4, .grid-5 {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+/* Flow Diagram (Advanced) */
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+  padding: var(--space-md);
+  background: var(--gray-50);
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--gray-300);
+}
+
+.flow-step {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.flow-step h4 {
+  font-size: 0.9em;
+  margin-bottom: 4px;
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  color: var(--gray-800);
+}
+.flow-step h4 i { font-size: 1.4em; color: var(--dify-blue); }
+.flow-step p { font-size: 0.7em; color: var(--gray-500); margin: 0; }
+
+.flow-arrow {
+  color: var(--gray-300);
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+/* Node Grid (Advanced) */
+.node-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.node-box {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: all 0.3s;
+}
+
+.node-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--dify-blue);
+}
+
+.node-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.node-title .icon {
+  width: 48px;
+  height: 48px;
+  background: var(--dify-blue-gradient, linear-gradient(135deg, #e0e7ff 0%, #f5f3ff 100%));
+  color: var(--dify-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+/* Table (Advanced) */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.9em;
+}
+.table th, .table td { padding: 16px 24px; border-bottom: 1px solid var(--gray-100); }
+.table thead th { background: var(--gray-50); font-weight: 700; color: var(--gray-600); text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.05em; }
+.table tbody tr:hover { background: #f8fafc; }
+
+/* Lists (Advanced) */
+.list-dot li {
+  padding-left: 28px;
+  margin-bottom: 12px;
+}
+.list-dot li::before {
+  width: 8px;
+  height: 8px;
+  top: 0.6em;
+  background: var(--dify-blue);
+  box-shadow: 0 0 0 4px var(--dify-blue-light);
+}
+
+/* Hero Section */
+.hero {
+  padding: var(--space-2xl);
+  text-align: center;
+}
+.hero h1 {
+  font-size: 4em;
+  background: linear-gradient(to right, #fff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Metrics - General (White Background) */
+.metric {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.metric .label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-500);
+  margin-bottom: var(--space-xs);
+}
+.metric .value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dify-blue);
+  line-height: 1.1;
+}
+.metric .desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  margin-top: var(--space-xs);
+}
+
+/* Metrics - Hero Context (Dark Background) */
+.hero .metric {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: none;
+}
+.hero .metric .value { color: white; text-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.hero .metric .label { color: rgba(255,255,255,0.7); }
+.hero .metric .desc { color: rgba(255,255,255,0.6); }
+
+/* Timeline (Vertical) - actually horizontal in slides */
+.timeline {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.timeline-item {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--dify-blue);
+}
+.timeline-item h4 { color: var(--dify-blue); font-size: 1.2em; margin-bottom: 8px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .reveal { font-size: 24px; }
+  .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr 1fr; }
 }
