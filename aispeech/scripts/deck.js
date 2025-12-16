@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navigationMode: 'linear',
 
     // Plugins
-    plugins: [RevealHighlight],
+    plugins: [RevealHighlight, RevealMath],
   });
 
   // Add keyboard shortcut hints

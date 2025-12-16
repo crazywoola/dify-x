@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="styles/nordic.css">
 </head>
 <body>
+    <div class="lang-switch">
+        <a class="active" href="index.html">中文</a>
+        <span>/</span>
+        <a href="../index_en.html">EN</a>
+    </div>
     <!-- Fixed Elements -->
     <div class="deck-logo">
         <img src="../assets/logo.svg" alt="Dify">
@@ -385,6 +390,9 @@
                             <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 报告</h4><p>图表+结论</p></div>
                             <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                             <div class="flow-step"><h4><i class="fas fa-share"></i> 推送</h4><p>IM/邮件</p></div>
+                        </div>
+                        <div class="segment" style="margin-top: 16px;">
+                            \( z = \dfrac{x-\mu}{\sigma} \) → z-score 检测 + 维度贡献度排序，异常先聚类后解释
                         </div>
                         <div class="code-block">
                             <pre><span class="comment"># 异动归因 Python 代码示例</span>
@@ -1214,6 +1222,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
     <script src="scripts/deck.js"></script>
 </body>
 </html>

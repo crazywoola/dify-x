@@ -141,6 +141,33 @@ body {
 .deck-logo img { height: 28px; width: auto; }
 .deck-logo span { font-size: 0.9rem; font-weight: 600; color: var(--gray-800); letter-spacing: -0.01em; }
 
+.lang-switch {
+  position: fixed;
+  top: 28px;
+  right: 32px;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 10px 14px;
+  border-radius: var(--radius-full);
+  border: var(--glass-border);
+  box-shadow: var(--shadow-sm);
+}
+.lang-switch a {
+  color: var(--gray-700);
+  font-weight: 600;
+  text-decoration: none;
+}
+.lang-switch a.active {
+  color: var(--dify-blue);
+}
+.lang-switch span { color: var(--gray-400); }
+
 /* Meta Hint */
 .slide-meta {
   position: fixed;
