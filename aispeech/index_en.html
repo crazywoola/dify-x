@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dify × AISPEECH · AI Workflow Deck</title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind & Custom -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/nordic.css">
+</head>
+<body>
+  <!-- Diffused background shapes -->
+  <div id="bg-shapes" aria-hidden="true">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+    <div class="shape s4"></div>
+  </div>
+
+  <div class="lang-switch">
+    <a href="index.html">CN</a>
+    <span>/</span>
+    <a class="active" href="index_en.html">EN</a>
+  </div>
+
+  <!-- Fixed Elements -->
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>× AISPEECH</span>
+  </div>
+  <div class="slide-meta">↑/↓ Vertical details · ←/→ Sections</div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- =========================================================
+           Condensed deck (vertical stacks)
+           ========================================================= -->
+
+      <!-- Intro (vertical stack) -->
+      <section>
+      <!-- 01 · Title -->
+      <section data-background-gradient="linear-gradient(150deg, #e8f2ff 0%, #c3d9ff 45%, #8fb3ff 100%)">
+        <div class="hero hero--dark">
+          <div class="badge badge--ghost">
+            <i class="fas fa-bolt"></i> Dify × AISPEECH · AI Workflow
+          </div>
+          <h1>AI Workflows for<br>High-Frequency Enterprise Pain Points</h1>
+          <p>
+            Turn cross-team repetitive actions into <strong style="color:#fff;">reusable templates</strong>,<br>
+            and connect LLMs, AISPEECH, and enterprise systems with Dify orchestration
+          </p>
+          <div class="stats-row stats-row--hero">
+            <div class="stat-item">
+              <div class="number">5</div>
+              <div class="label">Core workflows</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">8+</div>
+              <div class="label">Roles covered</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">4</div>
+              <div class="label">Weeks to rollout</div>
+            </div>
+          </div>
+          <p class="footer-note footer-note--hero">Speaker: Zheng Li · DevRel @ Dify</p>
+        </div>
+      </section>
+
+      <!-- 02 · Executive Summary -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · One Slide</div>
+          <h2>Let Numbers & Formulas Clash</h2>
+          <div class="tension-grid">
+            <div class="tension-left">
+              <div class="formula-panel">
+                <div class="formula-kicker">Value Equation</div>
+                <div class="formula-big">
+                  \( \textbf{Value} = \text{Frequency} \times \text{Time} \times \text{Scale} \times \text{Automation} \)
+                </div>
+                <div class="formula-sub">
+                  Turn every repetition into a reusable template; turn every output into a traceable closed loop.
+                </div>
+              </div>
+              <div class="segment segment--strong">
+                <i class="fas fa-diagram-project"></i>
+                Core thesis: <strong>Workflow orchestration</strong> + <strong>System integration</strong> + <strong>Governance & ops</strong>
+              </div>
+            </div>
+            <div class="tension-right">
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-layer-group"></i> Use cases</span></div>
+                  <div class="kpi-value">5</div>
+                  <div class="kpi-label">workflow templates</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-users"></i> Coverage</span></div>
+                  <div class="kpi-value">8+</div>
+                  <div class="kpi-label">roles reusing</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-clock"></i> Savings</span></div>
+                  <div class="kpi-value">1000+</div>
+                  <div class="kpi-label">hours saved / year</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-chart-line"></i> Payback</span></div>
+                  <div class="kpi-value">3–6</div>
+                  <div class="kpi-label">months</div>
+                </div>
+              </div>
+              <div class="mini-note">
+                Numbers are not decoration: every use case is bound to <strong>input → decision → output → loop</strong> and measurable KPIs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02.5 · Key Numbers -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Key Numbers</div>
+          <h2>Put Value Into 6 Numbers</h2>
+          <div class="big-metrics">
+            <div class="big-metric">
+              <div class="big-val">1000+</div>
+              <div class="big-lab">hours saved / year</div>
+              <div class="big-sub">rolling estimate by role × frequency</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">3–6</div>
+              <div class="big-lab">months to payback</div>
+              <div class="big-sub">hours saved × labor cost</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">8+</div>
+              <div class="big-lab">roles reusable</div>
+              <div class="big-sub">template-first reuse</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">≥90%</div>
+              <div class="big-lab">adoption / receipts</div>
+              <div class="big-sub">read → confirm → execute</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">≥95%</div>
+              <div class="big-lab">completeness / consistency</div>
+              <div class="big-sub">definitions + field completion</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">&lt; 5%</div>
+              <div class="big-lab">legal false positive</div>
+              <div class="big-sub">rules + eval-gated</div>
+            </div>
+          </div>
+          <div class="segment segment--strong">
+            <i class="fas fa-arrow-down"></i> Next: make KPIs observable dashboards (not slogans)
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 · Cross-role repetition as charts -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Pain Map</div>
+          <h2>The Same Actions, Rebuilt by 8+ Roles</h2>
+          <div class="grid-2">
+            <div class="card-ghost">
+              <h3><i class="fas fa-fire"></i> Hidden annual cost (example)</h3>
+              <div class="bar-chart">
+                <div class="bar-row" style="--p:50;--c:var(--dify-blue);">
+                  <div class="bar-label"><i class="fas fa-share-nodes"></i> Info sync / version alignment</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~200h</div>
+                </div>
+                <div class="bar-row" style="--p:75;--c:var(--purple);">
+                  <div class="bar-label"><i class="fas fa-chart-line"></i> Data prep / reporting</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~300h</div>
+                </div>
+                <div class="bar-row" style="--p:100;--c:var(--orange);">
+                  <div class="bar-label"><i class="fas fa-comments"></i> Q&A / SOP coaching</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~400h</div>
+                </div>
+                <div class="bar-row" style="--p:38;--c:var(--red);">
+                  <div class="bar-label"><i class="fas fa-bug"></i> Ticket/Bug triage & routing</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~150h</div>
+                </div>
+                <div class="bar-row" style="--p:25;--c:var(--green);">
+                  <div class="bar-label"><i class="fas fa-clipboard-list"></i> Meetings / action tracking</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~100h</div>
+                </div>
+              </div>
+              <p class="footnote">Note: illustrative estimates to quantify prioritization.</p>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-filter"></i> Condense into 5 reusable workflows</h3>
+              <div class="scene-cards">
+                <div class="scene-card"><i class="fas fa-share-nodes"></i><div><div class="scene-title">Sync Officer</div><div class="scene-sub">multi-version summaries · receipts</div></div></div>
+                <div class="scene-card"><i class="fas fa-chart-line"></i><div><div class="scene-title">Auto Analyst</div><div class="scene-sub">clean → explain → report</div></div></div>
+                <div class="scene-card"><i class="fas fa-robot"></i><div><div class="scene-title">Knowledge Q&A</div><div class="scene-sub">RAG + SOP · traceable answers</div></div></div>
+                <div class="scene-card"><i class="fas fa-bug"></i><div><div class="scene-title">Bug Intake</div><div class="scene-sub">cluster/score · auto routing</div></div></div>
+                <div class="scene-card"><i class="fas fa-clipboard-list"></i><div><div class="scene-title">Meeting PMO</div><div class="scene-sub">structured notes · action tracking</div></div></div>
+              </div>
+              <div class="segment"><i class="fas fa-arrow-down"></i> For each use case: workflow, key nodes, KPIs</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 · Why now -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Why Now</div>
+          <h2>Why It Scales Now</h2>
+          <div class="grid-3">
+            <div class="card-ghost">
+              <h3><i class="fas fa-brain"></i> Model capability</h3>
+              <p>Summarize, extract, classify, route, and generate structured outputs—now stable and reusable.</p>
+              <div class="pill-row">
+                <span class="pill">Extract</span><span class="pill">Classify</span><span class="pill">Generate</span><span class="pill">Evaluate</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-plug"></i> Tools & systems</h3>
+              <p>IM, calendars, JIRA, ticketing, and BI all have APIs—turn “manual ops” into “automated chains”.</p>
+              <div class="pill-row">
+                <span class="pill">Webhook</span><span class="pill">HTTP</span><span class="pill">DB</span><span class="pill">Plugins</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-microphone-lines"></i> AISPEECH boost</h3>
+              <p>Speech → text (speaker diarization + timestamps) makes meetings orchestratable and traceable.</p>
+              <div class="pill-row">
+                <span class="pill">ASR</span><span class="pill">Diarization</span><span class="pill">Timestamp</span>
+              </div>
+            </div>
+          </div>
+          <div class="segment segment--strong" style="margin-top: 18px;">
+            <i class="fas fa-shield-halved"></i> Prerequisites to scale: <strong>observable</strong>, <strong>auditable</strong>, <strong>iterable</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 · Method -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Method</div>
+          <h2>From Actions to Templates: A Closed Loop</h2>
+          <div class="grid-2">
+            <div class="card-ghost">
+              <h3><i class="fas fa-compass"></i> Which one first?</h3>
+              <div class="compare-card">
+                <div class="compare-head">Priority score</div>
+                <div class="compare-body">
+                  <div class="formula-inline">
+                    \( \textbf{Priority} = \text{Frequency} \times \text{Time} \times \text{Reusability} \times \text{Measurability} \)
+                  </div>
+                  <div class="mini-note">Pick “high frequency + high time cost + high reuse + measurable” to earn trust and budget fastest.</div>
+                </div>
+              </div>
+              <div class="pill-row">
+                <span class="pill pill--blue">Frequency</span>
+                <span class="pill pill--blue">Time</span>
+                <span class="pill pill--blue">Reuse</span>
+                <span class="pill pill--blue">Measurable</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-recycle"></i> Deliver a library, not a one-off</h3>
+              <div class="loop-diagram">
+                <div class="loop-step"><span class="loop-dot">1</span> Identify actions</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">2</span> Orchestrate</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">3</span> Integrate</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">4</span> Observe KPIs</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">5</span> Iterate ops</div>
+              </div>
+              <div class="segment"><i class="fas fa-box"></i> Deliverables: workflow templates + prompt templates + knowledge assets + eval sets</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 · Workflows overview -->
+      <section>
+        <div class="card">
+          <div class="stack-label">02 · 5 Workflows</div>
+          <h2>One skeleton: input → processing → output → closed loop</h2>
+          <div class="flow flow--compact">
+            <div class="flow-step"><h4><i class="fas fa-bell"></i> Trigger</h4><p>event / message / schedule</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-folder-open"></i> Context</h4><p>files / links / data</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> Transform</h4><p>extract / classify / summarize</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-toolbox"></i> Tools</h4><p>HTTP / DB / plugins</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> Output</h4><p>IM / JIRA / docs</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-eye"></i> Loop</h4><p>receipts / metrics / audit</p></div>
+          </div>
+          <div class="segment segment--strong">
+            <i class="fas fa-arrow-down"></i> For each use case: pain + KPIs, workflow, and loop + integration
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <!-- =========================================================
+           02 · Workflows (5 stacks × 3 = 15 slides)
+           ========================================================= -->
+
+      <!-- Workflow 1 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">01</div>
+            <div class="stack-label">02 · Use Case 1</div>
+            <h2><i class="fas fa-share-nodes"></i> Sync Officer: Version Drift & Slow Confirmations</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Pain (who pays the cost)</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Repeat the same message to execs, operators, and external partners</li>
+                  <li>Definitions drift in transit; versions scatter across IM/email/docs</li>
+                  <li>No read receipts: hard to confirm “read / understood / executed”</li>
+                </ul>
+                <div class="pill-row">
+                  <span class="pill">Product</span><span class="pill">Biz</span><span class="pill">HR</span><span class="pill">Admin</span>
+                </div>
+              </div>
+              <div class="card-ghost">
+                <h3>Target KPIs (4 numbers)</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Sync time</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Receipt rate</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Alignment disputes</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Traceability</span><span class="kpi-val">100%</span><span class="kpi-spark" style="--p:100;"></span></div>
+                </div>
+                <div class="segment"><i class="fas fa-clock"></i> Current: 1–2 days feedback cycle (no receipts)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 1 · Workflow</div>
+            <h2>Multi-version summaries + receipt loop</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> Trigger</h4><p>meeting / IM / email</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-folder-open"></i> Context</h4><p>collect files / links</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-users"></i> Segment</h4><p>audience routing</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> Generate</h4><p>multi-view summaries</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> Deliver</h4><p>IM / email / groups</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-check-double"></i> Receipts</h4><p>confirm / ask</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-database"></i> Archive</h4><p>versioned log</p></div>
+            </div>
+            <div class="code-block">
+              <pre><code class="language-yaml" data-trim>
+trigger: webhook(meeting_end) | slash_command(/sync)
+steps:
+  - collect_context: fetch(attachments, links, participants)
+  - segment: classify(management | execution | external)
+  - generate: llm.generate(template_by_audience)
+  - deliver: send(im/email, read_receipt=true)
+  - close_loop: remind_unread + archive(version, confirmations)
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 1 · Loop</div>
+            <h2>Make “did you read it?” an observable metric</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Deliverables</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Role-based summaries: exec / ops / external</li>
+                  <li>Version IDs + change diff</li>
+                  <li>Receipt list: unread / read / pending-confirm</li>
+                </ul>
+                <div class="segment"><i class="fas fa-link"></i> Integrations: calendar, IM, email, docs</div>
+              </div>
+              <div class="card-ghost">
+                <h3>KPI dashboard (example)</h3>
+                <div class="kpi-line"><span class="kpi-key">Sync time</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Receipt confirmation</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Alignment disputes</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Full trace</span><span class="kpi-val">100%</span><span class="kpi-spark" style="--p:100;"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 2 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">02</div>
+            <div class="stack-label">02 · Use Case 2</div>
+            <h2><i class="fas fa-chart-line"></i> Auto Analyst: Inconsistent Definitions, Rebuilt Charts</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Pain</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Cleaning, definition alignment, and insights rely on personal experience</li>
+                  <li>Rewriting “why up / why down” reports again and again</li>
+                  <li>Frequent changes: definition drift makes conclusions non-reproducible</li>
+                </ul>
+                <div class="segment"><i class="fas fa-table"></i> Input: BI / DWH / CSV · Output: charts + insights + definition notes</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Target KPIs</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Time to report</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Definition consistency</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Anomaly recall</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Error rate</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 2 · Tension</div>
+            <h2>Who Owns the Narrative: Anomaly Detection + Contribution</h2>
+            <div class="tension-grid">
+              <div class="tension-left">
+                <div class="formula-panel">
+                  <div class="formula-kicker">Core formula</div>
+                  <div class="formula-big">
+                    \( z = \dfrac{x-\mu}{\sigma} \Rightarrow \text{z-score anomaly} \)
+                  </div>
+                  <div class="formula-sub">
+                    Find “what’s abnormal”, then “who caused it” (ranked by contribution), and write the explanation into the report.
+                  </div>
+                </div>
+                <div class="segment">
+                  <i class="fas fa-wand-magic-sparkles"></i> The key is not “compute it”, but <strong>reproduce it</strong>: definition version + lineage + report versioning
+                </div>
+              </div>
+              <div class="tension-right">
+                <div class="card-ghost" style="height: 100%;">
+                  <h3><i class="fas fa-chart-column"></i> Contribution breakdown (illustration)</h3>
+                  <div class="bar-chart bar-chart--mini">
+                    <div class="bar-row" style="--p:68;--c:var(--dify-blue);">
+                      <div class="bar-label">Channel A</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.68</div>
+                    </div>
+                    <div class="bar-row" style="--p:34;--c:var(--purple);">
+                      <div class="bar-label">Region B</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.34</div>
+                    </div>
+                    <div class="bar-row" style="--p:22;--c:var(--orange);">
+                      <div class="bar-label">Category C</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.22</div>
+                    </div>
+                    <div class="bar-row" style="--p:12;--c:var(--green);">
+                      <div class="bar-label">Other</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.12</div>
+                    </div>
+                  </div>
+                  <p class="footnote">Note: contribution is for illustrating the report structure; actual computation depends on definitions and data sources.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 2 · Workflow</div>
+            <h2>Clean → Detect → Explain → Report</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-database"></i> Data</h4><p>BI / DWH</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-filter"></i> Clean</h4><p>definition alignment</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-wave-square"></i> Anomaly</h4><p>detect / cluster</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> Attribute</h4><p>contribution</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-file-lines"></i> Report</h4><p>charts + insights</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> Distribute</h4><p>IM / email</p></div>
+            </div>
+            <div class="segment segment--strong">
+              <i class="fas fa-check-double"></i> Critical loop: definition changes must pass an eval gate (otherwise reports “look right, but are wrong”)
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 3 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">03</div>
+            <div class="stack-label">02 · Use Case 3</div>
+            <h2><i class="fas fa-robot"></i> Knowledge Q&amp;A: Expert Time Gets Fragmented</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Pain</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Answering the same basics repeatedly (policies / processes / clauses)</li>
+                  <li>SOPs scattered everywhere; search cost is high</li>
+                  <li>Inconsistent answers create compliance risk</li>
+                  <li><strong>Legal is high-frequency:</strong> clause questions, duplicated review notes, inconsistent approval standards</li>
+                </ul>
+                <div class="segment"><i class="fas fa-comments"></i> Current: 50+ repeated questions/day</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Target KPIs</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Self-serve resolution</span><span class="kpi-val">≥60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Knowledge hit rate</span><span class="kpi-val">≥85%</span><span class="kpi-spark" style="--p:85;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Satisfaction</span><span class="kpi-val">≥4.0/5</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Expert time saved</span><span class="kpi-val">50%+</span><span class="kpi-spark" style="--p:50;"></span></div>
+                </div>
+                <p class="footnote">Legal extensions: review time ↓ 60% · false positives &lt; 5% · first-pass approval ↑</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 3 · Workflow</div>
+            <h2>RAG + SOP: Traceable Answers, No Hallucinations</h2>
+            <div class="arch-diagram">
+              <div class="arch-row">
+                <div class="arch-box">User question</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-box primary">Dify Agent</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-box">Structured answer (with citations)</div>
+              </div>
+              <div class="arch-row" style="margin-top: -8px;">
+                <div style="width: 140px;"></div>
+                <div class="arch-arrow">↓↑</div>
+              </div>
+              <div class="arch-row">
+                <div class="arch-box secondary">Policy library</div>
+                <div class="arch-box secondary">SOP library</div>
+                <div class="arch-box secondary">FAQ library</div>
+                <div class="arch-box secondary">Clause library</div>
+              </div>
+            </div>
+            <div class="flow flow--compact">
+              <div class="flow-step"><h4><i class="fas fa-tags"></i> Intent</h4><p>classify</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> Retrieve</h4><p>Top-K</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-shield-halved"></i> Compliance</h4><p>sensitive filter</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-reply"></i> Respond</h4><p>cite sources</p></div>
+            </div>
+
+            <div class="compare-card">
+              <div class="compare-head"><i class="fas fa-scale-balanced"></i> Legal example: clause questions / review outputs</div>
+              <div class="compare-body">
+                <div class="grid-2" style="margin-top: 0;">
+                  <div class="card-ghost" style="padding: 16px;">
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-circle-question"></i> Input (question / excerpt)</h3>
+                    <ul class="list-dot list-dot--compact">
+                      <li>“Can the liability cap be written as <code>unlimited liability</code>?”</li>
+                      <li>“Is the cross-border data clause missing? What should we add?”</li>
+                      <li>“Do the payment terms violate our procurement SOP?”</li>
+                    </ul>
+                  </div>
+                  <div class="card-ghost" style="padding: 16px;">
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-clipboard-check"></i> Output (structured + cited)</h3>
+                    <ul class="list-dot list-dot--compact">
+                      <li><strong>Red flags:</strong> high-risk clauses (reason + suggested replacement)</li>
+                      <li><strong>Evidence:</strong> templates / policy clauses / checklists (with links)</li>
+                      <li><strong>Next:</strong> generate redline → request approval → audit trail</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="footnote">Note: this is for illustrating workflow and output format; legal decisions follow your company’s legal policy.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 3 · Legal Workflow</div>
+            <h2><i class="fas fa-scale-balanced"></i> Contract Review Copilot: Locate → Score → Redline</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Workflow (illustration)</h3>
+                <div class="flow">
+                  <div class="flow-step"><h4><i class="fas fa-file-contract"></i> Input</h4><p>contract / PDF / text</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-list-check"></i> Structure</h4><p>clauses / parties / amounts</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> Red flags</h4><p>rules hit</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> Score</h4><p>risk 1–5</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-pen-to-square"></i> Redline</h4><p>replace suggestions</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-stamp"></i> Approve</h4><p>OA + audit archive</p></div>
+                </div>
+                <p class="footnote">Outputs must include citations: templates / checklists / policy clauses (traceable).</p>
+              </div>
+              <div class="card-ghost">
+                <h3>Output (easy to verify)</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">Review time</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Red-flag recall</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">False positives</span><span class="kpi-val">&lt; 5%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">First-pass approval</span><span class="kpi-val">↑</span><span class="kpi-spark" style="--p:70;"></span></div>
+                </div>
+                <div class="segment">
+                  <i class="fas fa-link"></i> Integrations: contract system, OA approvals, seals, archiving
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 3 · Loop</div>
+            <h2>Answer Quality Isn’t a Feeling: Turn Feedback into an Eval Set</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Deliverables</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Structured answers + citations + related SOP links</li>
+                  <li>Unanswerable: route to humans + collect unanswered questions</li>
+                  <li>Conversation logs for evaluation and knowledge updates</li>
+                  <li><strong>Legal extensions:</strong> review checklist + risky clause locating + redline suggestions</li>
+                </ul>
+                <div class="segment"><i class="fas fa-plug"></i> Integrations: IM bot, ticketing, portal, contract/OA approvals</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Quality loop (critical path)</h3>
+                <div class="loop-diagram loop-diagram--stack">
+                  <div class="loop-step"><span class="loop-dot">1</span> User feedback</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">2</span> Sampling review</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">3</span> Eval set</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">4</span> Knowledge/prompt update</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">5</span> Regression</div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-check-double"></i> The eval set is the moat: it gets better with usage</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 4 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">04</div>
+            <div class="stack-label">02 · Use Case 4</div>
+            <h2><i class="fas fa-bug"></i> Bug Intake: Mis-triage, Missing Info, High Rework</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Pain</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Incomplete reports: missing repro info causes back-and-forth</li>
+                  <li>Duplicates everywhere: the same bug is filed multiple times</li>
+                  <li>Unclear severity: wrong routing drives 30%+ rework</li>
+                </ul>
+                <div class="segment"><i class="fas fa-rotate"></i> Current: 30%+ rework</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Target KPIs</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Triage latency</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Info completeness</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Mis-triage</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Rework rate</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 4 · Tension</div>
+            <h2>Rules × LLM × Similarity Clustering: Make Triage Explainable</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Decision formula (example)</h3>
+                <div class="formula-inline formula-inline--big">
+                  \( \textbf{Priority} = \text{RuleScore} + \text{LLMScore} + \text{SimBoost} \)
+                </div>
+                <ul class="list-dot list-dot--compact">
+                  <li>Rules: keywords / blast radius / version matching</li>
+                  <li>LLM: severity, module ownership, follow-up questions</li>
+                  <li>Clustering: merge duplicates, reduce noise</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3>Not “auto”, but “auto + rollback”</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">Auto-fill</span>
+                  <span class="pill pill--blue">Confidence threshold</span>
+                  <span class="pill pill--blue">Human fallback</span>
+                  <span class="pill pill--blue">Audit trail</span>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-shield-halved"></i> Low confidence → auto handoff to humans; don’t bet critical paths on probability</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 4 · Workflow</div>
+            <h2>Auto triage + completion + routing (write back to JIRA)</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-inbox"></i> Intake</h4><p>ticket / form</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-file-lines"></i> Structure</h4><p>extract fields</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-layer-group"></i> Cluster</h4><p>merge similar</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> Score</h4><p>rules + LLM</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-route"></i> Route</h4><p>owner / team</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-code-branch"></i> Write back</h4><p>JIRA / ticket</p></div>
+            </div>
+            <div class="segment"><i class="fas fa-eye"></i> Metrics: triage latency, mis-triage rate, completeness, rework (by team/module)</div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 5 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">05</div>
+            <div class="stack-label">02 · Use Case 5</div>
+            <h2><i class="fas fa-clipboard-list"></i> Meeting PMO: Notes Take Forever, Actions Get Lost</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Pain</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Too many meetings: 8+/week, notes are manual</li>
+                  <li>Actions are unstructured: owner / due date / dependencies missing</li>
+                  <li>No escalation: tracking relies on “people remembering”</li>
+                </ul>
+                <div class="segment"><i class="fas fa-calendar"></i> Current: 8+ meetings/week</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Target KPIs</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Note time</span><span class="kpi-val">↓90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Miss rate</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Completion</span><span class="kpi-val">↑40%</span><span class="kpi-spark" style="--p:65;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Re-alignment</span><span class="kpi-val">↓50%</span><span class="kpi-spark" style="--p:50;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 5 · AISPEECH</div>
+            <h2>Turn Speech into Orchestratable Events: ASR + Diarization + Timestamps</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Audio pipeline (traceable)</h3>
+                <div class="flow flow--compact">
+                  <div class="flow-step"><h4><i class="fas fa-microphone"></i> Audio</h4><p>meeting recording</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-wave-square"></i> Transcribe</h4><p>ASR</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-user-group"></i> Diarize</h4><p>speaker</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-clock"></i> Timestamp</h4><p>deep-linkable</p></div>
+                </div>
+                <div class="segment"><i class="fas fa-link"></i> Output: timestamped transcript + paragraphing (evidence you can trace back)</div>
+              </div>
+              <div class="card-ghost">
+                <h3>What meeting text can do (usable today)</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">Agenda extraction</span>
+                  <span class="pill pill--blue">Decisions</span>
+                  <span class="pill pill--blue">Action items</span>
+                  <span class="pill pill--blue">Risks / open items</span>
+                </div>
+                <div class="compare-card" style="margin-top: 14px;">
+                  <div class="compare-head">Structured output template</div>
+                  <div class="compare-body">
+                    <div class="mini-note">Turn notes into data: owner / due date / deps / evidence links (timestamps)</div>
+                  </div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-shield-halved"></i> Auditable: every conclusion links back to the original sentence</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · Use Case 5 · Workflow</div>
+            <h2>Structure notes → Split actions → Remind & escalate</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> Trigger</h4><p>meeting ends</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-microphone-lines"></i> ASR</h4><p>AISPEECH</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-table-list"></i> Structure</h4><p>topics / decisions</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-person-chalkboard"></i> Actions</h4><p>owner / due date</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-plug"></i> Write back</h4><p>JIRA / IM</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> Remind</h4><p>overdue escalation</p></div>
+            </div>
+            <div class="segment"><i class="fas fa-eye"></i> Metrics: note time, miss rate, completion, overdue rate, # follow-up meetings</div>
+          </div>
+        </section>
+      </section>
+
+      <!-- =========================================================
+           03 · Platform / Assets (1 stack × 5 = 5 slides)
+           ========================================================= -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Platform Base</div>
+            <h2>Dify Workflow: Productize Workflows</h2>
+            <div class="platform-grid">
+              <div class="platform-col">
+                <div class="platform-title">Input layer</div>
+                <div class="platform-item"><i class="fas fa-calendar"></i> Calendar events</div>
+                <div class="platform-item"><i class="fas fa-comment-dots"></i> IM messages</div>
+                <div class="platform-item"><i class="fas fa-envelope"></i> Email</div>
+                <div class="platform-item"><i class="fas fa-ticket"></i> Tickets</div>
+              </div>
+              <div class="platform-core">
+                <div class="platform-core-badge"><i class="fas fa-diagram-project"></i> Dify Workflow</div>
+                <div class="platform-core-items">
+                  <div class="platform-chip"><i class="fas fa-code-branch"></i> IF / Switch</div>
+                  <div class="platform-chip"><i class="fas fa-code"></i> Code (JS/Python)</div>
+                  <div class="platform-chip"><i class="fas fa-toolbox"></i> Tools / HTTP / DB</div>
+                  <div class="platform-chip"><i class="fas fa-robot"></i> Multi-LLM</div>
+                  <div class="platform-chip"><i class="fas fa-database"></i> RAG / KB</div>
+                  <div class="platform-chip"><i class="fas fa-eye"></i> Tracing</div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-plug"></i> Plugin ecosystem: 100+ tool integrations (extensible)</div>
+              </div>
+              <div class="platform-col">
+                <div class="platform-title">Output layer</div>
+                <div class="platform-item"><i class="fas fa-paper-plane"></i> IM / Email</div>
+                <div class="platform-item"><i class="fas fa-clipboard-check"></i> JIRA / Tickets</div>
+                <div class="platform-item"><i class="fas fa-file-lines"></i> Docs / Reports</div>
+                <div class="platform-item"><i class="fas fa-chart-simple"></i> Metrics writeback</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Integrations</div>
+            <h2>Connect AISPEECH + Enterprise Systems: One Orchestration Layer, Bi-directional Writeback</h2>
+            <div class="arch-diagram arch-diagram--large">
+              <div class="arch-row">
+                <div class="arch-box">Calendar</div>
+                <div class="arch-box">IM</div>
+                <div class="arch-box">Email</div>
+                <div class="arch-box">JIRA</div>
+                <div class="arch-box">Tickets</div>
+                <div class="arch-box">BI</div>
+              </div>
+              <div class="arch-row"><div class="arch-arrow arch-arrow--down">↓</div></div>
+              <div class="arch-row">
+                <div class="arch-box primary" style="min-width: 260px;">Dify Workflow orchestration layer</div>
+              </div>
+              <div class="arch-row"><div class="arch-arrow arch-arrow--down">↓</div></div>
+              <div class="arch-row">
+                <div class="arch-box secondary">LLM</div>
+                <div class="arch-box secondary">AISPEECH ASR</div>
+                <div class="arch-box secondary">Knowledge base</div>
+                <div class="arch-box secondary">DB / object storage</div>
+              </div>
+            </div>
+            <div class="grid-2" style="margin-top: 18px;">
+              <div class="card-ghost">
+                <h3>Event entry</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Schedules, webhooks, message events, status changes</li>
+                  <li>Audio upload / meeting-end triggers ASR</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3>Writeback loop</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Write back: JIRA/tickets/docs/BI metrics</li>
+                  <li>Track: receipts, overdue reminders, SLA</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Legal Integrations</div>
+            <h2><i class="fas fa-scale-balanced"></i> Contract / OA Compliance Chain: Review → Approve → Audit</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>System connections (examples)</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">Contract system</span>
+                  <span class="pill pill--blue">OA approvals</span>
+                  <span class="pill pill--blue">Seals/signing</span>
+                  <span class="pill pill--blue">Archiving</span>
+                  <span class="pill pill--blue">DLP/masking</span>
+                  <span class="pill pill--blue">Audit logs</span>
+                </div>
+                <div class="segment"><i class="fas fa-plug"></i> Triggers: contract upload / approval routing / signing complete</div>
+              </div>
+              <div class="card-ghost">
+                <h3>Standard outputs (easy to verify)</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li><strong>Risk scoring:</strong> levels 1–5 + evidence</li>
+                  <li><strong>Redline suggestions:</strong> replacement text + exact location</li>
+                  <li><strong>Approval suggestions:</strong> whether legal/executive signoff is required</li>
+                  <li><strong>Audit trail:</strong> review versions, annotations, signed attachments archived</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Legal Template Library</div>
+            <h2>Turn Review Experience into Reusable Templates & Checklists</h2>
+            <div class="grid-3">
+              <div class="card-ghost">
+                <h3><i class="fas fa-file-signature"></i> Contract-type templates</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Procurement / sales / NDA / outsourcing</li>
+                  <li>Clause order + required fields</li>
+                  <li>Mandatory approval paths</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-triangle-exclamation"></i> Red-flag checklist</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Unlimited liability / caps</li>
+                  <li>Cross-border data / subcontracting</li>
+                  <li>Non-compete / IP ownership</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-vial"></i> Evaluation & gates</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>False positive &lt; 5% (example)</li>
+                  <li>Changes must pass eval sets</li>
+                  <li>Rollbacks are available</li>
+                </ul>
+              </div>
+            </div>
+            <div class="segment segment--strong"><i class="fas fa-layer-group"></i> Templates + checklists + eval sets = scalable legal ops</div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Assetization</div>
+            <h2>Turn Experience into a Repeatable Four-Pack</h2>
+            <div class="grid-4">
+              <div class="card-ghost">
+                <h3><i class="fas fa-sitemap"></i> Workflow templates</h3>
+                <p>YAML/visual orchestration: inputs, nodes, outputs, and loops.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-pen-ruler"></i> Prompt templates</h3>
+                <p>Versioned by role/use case/definitions; supports gradual rollout and rollback.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-book"></i> Knowledge assets</h3>
+                <p>Policies/SOP/FAQ/definitions with governance and access control.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-vial"></i> Eval sets</h3>
+                <p>Golden set + production sampling: make quality measurable and verifiable.</p>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-rocket"></i> A template library is a compounding engine at scale
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Observability</div>
+            <h2>Observable + Auditable: Make AI an Engineering System</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-eye"></i> Suggested metrics</h3>
+                <div class="kpi-line"><span class="kpi-key">Latency</span><span class="kpi-val">P95 / peak</span><span class="kpi-spark" style="--p:78;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Cost</span><span class="kpi-val">tokens / call</span><span class="kpi-spark" style="--p:55;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Retrieval hit</span><span class="kpi-val">RAG hit</span><span class="kpi-spark" style="--p:85;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Adoption</span><span class="kpi-val">receipts/exec</span><span class="kpi-spark" style="--p:90;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">Quality</span><span class="kpi-val">sample/eval</span><span class="kpi-spark" style="--p:80;"></span></div>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-shield-halved"></i> Governance controls</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>Access control by role, system, and data domain</li>
+                  <li>Masking at field-level with rules + model filters</li>
+                  <li>Multi-model fallback configurable for critical paths</li>
+                  <li>Change gates: templates/definitions must pass eval sets</li>
+                </ul>
+                <div class="segment segment--strong"><i class="fas fa-lock"></i> “It runs” isn’t enough—you need “it’s controllable”</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · Risks & Mitigations</div>
+            <h2>Make Rollout Safer: Risks → Mitigations</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-shield-halved"></i> Data security</h3>
+                <p>Private/dedicated deployment; sensitive field masking; audit log retention.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-code-branch"></i> Definition drift</h3>
+                <p>Versioned knowledge + eval gates; every change must be regression-safe.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-server"></i> Model stability</h3>
+                <p>Caching/multi-model fallback; rule-based safeguards on key nodes.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-users"></i> Adoption</h3>
+                <p>Bind every workflow to an owner + KPIs; weekly ops cadence; template marketplace reuse.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- =========================================================
+           04 · Rollout / ROI / Closing (1 stack × 4 = 4 slides)
+           ========================================================= -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · 4-week rollout</div>
+            <h2>From One Workflow to a Reusable Template Library</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Week 1</h4>
+                <p>Select one scenario · sample data · build the MVP</p>
+                <div class="pill-row"><span class="pill">Flow ready</span><span class="pill">Define metrics</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 2</h4>
+                <p>Integrate with systems · pilot in a small cohort · close the loop</p>
+                <div class="pill-row"><span class="pill">Writeback</span><span class="pill">Receipts</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 3</h4>
+                <p>Expand to 3–5 scenarios · templatize · build evaluation sets</p>
+                <div class="pill-row"><span class="pill">Templating</span><span class="pill">Eval set</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 4</h4>
+                <p>Governance & ops · assign owners · publish dashboards</p>
+                <div class="pill-row"><span class="pill">Audit</span><span class="pill">Ops</span></div>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-flag-checkered"></i> Deliverables: template library + metric dashboards + ops/audit playbook
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · ROI</div>
+            <h2>Quantify the Payback: ROI Is Not a Slogan</h2>
+            <div class="tension-grid">
+              <div class="tension-left">
+                <div class="formula-panel">
+                  <div class="formula-kicker">ROI formula</div>
+                  <div class="formula-big">
+                    \( ROI = \dfrac{(\text{Hours Saved} \times \text{Labor Cost}) - \text{Platform Cost}}{\text{Platform Cost}} \)
+                  </div>
+                  <div class="formula-sub">
+                    Tie every workflow’s hour-savings to measurable KPIs (receipts/completeness/error rate) to earn trust and reusability.
+                  </div>
+                </div>
+                <div class="stats-row" style="margin-top: 16px;">
+                  <div class="stat-item">
+                    <div class="number">1000+</div>
+                    <div class="label">Hours saved / year</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">3–6</div>
+                    <div class="label">Months to payback</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">8+</div>
+                    <div class="label">Roles covered</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tension-right">
+                <div class="card-ghost" style="height:100%;">
+                  <h3><i class="fas fa-chart-area"></i> Payback curve (illustrative)</h3>
+                  <div class="breakeven">
+                    <div class="breakeven-axis">
+                      <div class="axis-label">Benefit</div>
+                      <div class="axis-grid"></div>
+                    </div>
+                    <div class="breakeven-lines">
+                      <div class="line cost"></div>
+                      <div class="line benefit"></div>
+                      <div class="breakeven-point">
+                        <div class="point-dot"></div>
+                        <div class="point-label">Break-even: Month 3–6</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="footnote">Illustrative only: plug in team size and labor cost for actual numbers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · Breakdown</div>
+            <h2>Where Payback Comes From: Cost × Output × Adoption</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-receipt"></i> Cost structure (example)</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">Model calls</span><span class="kpi-val">Cap & tune</span><span class="kpi-spark" style="--p:55;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Storage / retrieval</span><span class="kpi-val">Tiered</span><span class="kpi-spark" style="--p:40;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Integration ops</span><span class="kpi-val">Templated</span><span class="kpi-spark" style="--p:50;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Governance & audit</span><span class="kpi-val">Non-negotiable</span><span class="kpi-spark" style="--p:70;"></span></div>
+                </div>
+                <div class="segment"><i class="fas fa-shield-halved"></i> Cost levers: rate limits, caching, batch ops, fallback strategies</div>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-sparkles"></i> Revenue levers (example)</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">Hours saved</span><span class="kpi-val">Quantified</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Error reduction</span><span class="kpi-val">Traceable</span><span class="kpi-spark" style="--p:65;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Adoption / receipts</span><span class="kpi-val">Closed loop</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">Template reuse</span><span class="kpi-val">Scaled</span><span class="kpi-spark" style="--p:85;"></span></div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-check-double"></i> Key: make “is it used?” an instrumented metric, or compounding never happens</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · Operating model</div>
+            <h2>Who Maintains It? How Does It Get Better?</h2>
+            <div class="grid-3">
+              <div class="card-ghost">
+                <h3><i class="fas fa-user-gear"></i> Owner model</h3>
+                <p>Bind every workflow to an owner + KPIs: adoption, quality, cost.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-calendar-check"></i> Weekly cadence</h3>
+                <p>Weekly review: metrics → root cause → template/knowledge updates.</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-store"></i> Template marketplace</h3>
+                <p>Reuse beats rebuilding: share templates to avoid duplicated work.</p>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-arrow-right"></i> Destination: workflows become the organization’s operating system
+            </div>
+          </div>
+        </section>
+        <!-- Q&A (ported from paypal/index.html layout) -->
+        <section data-background-color="#0033ff">
+          <div class="flex flex-col items-center justify-center h-full text-white">
+            <h1 class="text-6xl font-bold mb-6">Q &amp; A</h1>
+            <p class="text-xl opacity-90 mb-8">Don't Panic.</p>
+            <div class="flex gap-8 mb-8">
+              <div class="text-center">
+                <i class="fas fa-envelope text-4xl mb-2"></i>
+                <p>banana@dify.ai</p>
+              </div>
+            </div>
+            <div class="flex gap-10">
+              <div class="flex flex-col items-center">
+                <img src="../assets/xiaohongshu.png" alt="Xiaohongshu QR"
+                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
+                <span class="text-sm mt-2 opacity-90">Xiaohongshu</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="../assets/bilibili.png" alt="Bilibili QR"
+                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
+                <span class="text-sm mt-2 opacity-90">Bilibili</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+  <script src="scripts/deck.js"></script>
+</body>
+</html>

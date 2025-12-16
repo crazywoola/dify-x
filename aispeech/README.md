@@ -1,9 +1,10 @@
 # Dify x AISPEECH
 
-企业高频痛点的 AI Workflow 解决方案（≤ 35 页纵向堆叠讲解）。
+企业高频痛点的 AI Workflow 解决方案（35 页纵向堆叠讲解，含中/英文双版本）。
 
 ## 查看方式
-- 直接打开 `aispeech/index.html`（Reveal.js deck，支持键盘 ↑/↓ 纵向查看同主题细节）。
+- 中文：打开 `aispeech/index.html`（Reveal.js deck，支持键盘 ↑/↓ 纵向查看同主题细节）。
+- English：打开 `aispeech/index_en.html`（内容完全翻译，结构与中文一致）。
 - 若需调整主题或字体，可编辑 `aispeech/styles/nordic.css`；Reveal 初始化在 `aispeech/scripts/deck.js`。
 
 ## 设计与依赖

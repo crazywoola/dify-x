@@ -166,48 +166,48 @@ body {
 #bg-shapes .shape {
   position: absolute;
   border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.60;
+  filter: blur(90px);
+  opacity: 0.55;
   transform: translate3d(0, 0, 0);
 }
 
 #bg-shapes .s1 {
-  background: radial-gradient(circle, rgba(196, 216, 255, 0.65) 0%, rgba(196, 216, 255, 0) 70%);
-  width: 60vw;
-  height: 60vw;
-  top: -28%;
-  left: -18%;
+  background: rgba(0, 51, 255, 0.20);
+  width: 55vw;
+  height: 55vw;
+  top: -25%;
+  left: -15%;
   animation: float 18s infinite ease-in-out;
 }
 
 #bg-shapes .s2 {
-  background: radial-gradient(circle, rgba(153, 187, 255, 0.50) 0%, rgba(153, 187, 255, 0) 70%);
-  width: 55vw;
-  height: 55vw;
-  bottom: -24%;
-  right: -18%;
+  background: rgba(79, 70, 229, 0.18);
+  width: 52vw;
+  height: 52vw;
+  bottom: -22%;
+  right: -16%;
   animation: float 22s infinite ease-in-out reverse;
 }
 
 #bg-shapes .s3 {
-  background: radial-gradient(circle, rgba(162, 222, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
-  width: 44vw;
-  height: 44vw;
-  top: 32%;
-  left: 26%;
-  filter: blur(85px);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 42vw;
+  height: 42vw;
+  top: 35%;
+  left: 28%;
+  filter: blur(70px);
   opacity: 0.35;
   animation: pulse 10s infinite;
 }
 
 #bg-shapes .s4 {
-  background: radial-gradient(circle, rgba(210, 239, 255, 0.48) 0%, rgba(255, 255, 255, 0) 70%);
-  width: 38vw;
-  height: 38vw;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 36vw;
+  height: 36vw;
   top: 58%;
-  left: -12%;
-  filter: blur(90px);
-  opacity: 0.32;
+  left: -10%;
+  filter: blur(70px);
+  opacity: 0.30;
   animation: pulse 12s infinite reverse;
 }
 
