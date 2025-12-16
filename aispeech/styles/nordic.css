@@ -1,0 +1,69 @@
+/* 基础背景与字体设置 */
+.reveal {
+    background-color: #f8fafc; /* Slate-50 */
+    font-family: 'Söhne', 'Inter', 'Noto Sans SC', sans-serif !important;
+    color: #1e293b; /* Slate-800 */
+}
+
+/* 覆盖 Reveal 默认样式以适配 Tailwind */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+    font-family: inherit;
+}
+
+/* Workflow Node Card Style */
+.node-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160px;
+    height: 140px;
+    justify-content: center;
+    border-top-width: 4px; /* colored top border */
+    transition: transform 0.2s;
+}
+
+.node-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.node-card .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.node-card .content .title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #0f172a;
+}
+
+.node-card .content .desc {
+    font-size: 0.65rem;
+    color: #64748b;
+    line-height: 1.2;
+}
+
+/* 隐藏 Reveal 默认的进度条，使用更现代的风格 */
+.reveal .progress {
+    height: 4px;
+    color: #0033ff;
+}
+
+/* 工具类调整 */
+.workflow-container {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}

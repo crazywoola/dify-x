@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dify × AISPEECH · AI Workflow 方案</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="scripts/deck.js"></script>
+    <link rel="stylesheet" href="styles/nordic.css">
+</head>
+<body>
+    <div class="deck-logo">
+        <img src="../assets/logo.svg" alt="Dify">
+        <span>Dify × AISPEECH</span>
+    </div>
+    <div class="slide-meta">按方向键 ↓ 展开同主题纵向细节</div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1. Title -->
+            <section data-background-gradient="linear-gradient(135deg, #0033ff 0%, #1f3b8f 100%)" data-background-transition="zoom">
+                <div class="hero" style="color: #fff; padding: 40px 20px;">
+                    <div class="badge" style="background: rgba(255,255,255,0.14); color: #fff;"><i class="fas fa-bolt"></i> AI Workflow</div>
+                    <h1 style="color:#fff;">企业高频痛点的 AI Workflow 方案</h1>
+                    <p style="color:rgba(255,255,255,0.82); max-width: 800px;">参考 PayPal deck 的层次化结构：先讲问题，再演绎工作流节点。聚焦 5 套跨岗位复用场景，纵向堆叠讲透触发到闭环。</p>
+                    <div class="grid-3" style="margin-top: 22px; max-width: 900px;">
+                        <div class="metric">
+                            <span class="label">范围</span>
+                            <span class="value">≤ 35</span>
+                            <span class="desc">纵向层级呈现</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">核心</span>
+                            <span class="value">5 套</span>
+                            <span class="desc">跨岗复用工作流</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">样式</span>
+                            <span class="value">HTML Flow</span>
+                            <span class="desc">图标 + div 演绎</span>
+                        </div>
+                    </div>
+                    <div class="footer-note" style="color:rgba(255,255,255,0.72);">Speaker: 郑立 · DevRel @ Dify</div>
+                </div>
+            </section>
+
+            <!-- 2. Goals -->
+            <section>
+                <div class="card">
+                    <div class="stack-label">我们要达成</div>
+                    <h2>精简大纲，强化“问题 + 演绎”双层</h2>
+                    <div class="grid-2">
+                        <div class="card-ghost">
+                            <h3>问题</h3>
+                            <ul class="list-dot">
+                                <li>跨岗位重复动作：同步、数据整理、问答、Bug Intake、会议纪要。</li>
+                                <li>流程碎片：触发零散，标准缺失，回执不可追踪。</li>
+                                <li>知识漂移：口径/模板无版本化，经验停留个人。</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>演绎</h3>
+                            <ul class="list-dot">
+                                <li>参考 PayPal 结构：每个场景两层——痛点 & HTML Flow → 节点演绎。</li>
+                                <li>Font Awesome 图标 + div 流程，去掉 Mermaid，突出开始到结束全链路。</li>
+                                <li>≤35 页，纵向深潜，方便决策/复用。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Outline -->
+            <section>
+                <div class="card">
+                    <div class="stack-label">新版大纲</div>
+                    <h2>6 模块 · 纵向展开</h2>
+                    <table class="table">
+                        <thead>
+                            <tr><th>#</th><th>模块</th><th>纵向内容</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>01</td><td>现状与共性</td><td>Why now → 重复动作 → 归并场景</td></tr>
+                            <tr><td>02</td><td>工作流深潜</td><td>5 套场景：痛点 → Flow → 节点演绎</td></tr>
+                            <tr><td>03</td><td>模板复用</td><td>矩阵 → 知识资产 → 运营</td></tr>
+                            <tr><td>04</td><td>基座与集成</td><td>编排基座 → 系统连接</td></tr>
+                            <tr><td>05</td><td>落地与收益</td><td>4 周计划 → 可观测 → ROI</td></tr>
+                            <tr><td>06</td><td>风险与行动</td><td>风险/FAQ → CTA</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. Current state -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">01 · Why now</div>
+                        <h2>企业级 AI 自动化窗口</h2>
+                        <div class="grid-3">
+                            <div class="metric"><span class="label">信息</span><span class="value">碎片</span><span class="desc">IM / 邮件 / JIRA / 表格 分散</span></div>
+                            <div class="metric"><span class="label">协作</span><span class="value">高频</span><span class="desc">跨团队需求多变</span></div>
+                            <div class="metric"><span class="label">交付</span><span class="value">缺闭环</span><span class="desc">AI 能力有了，生产系统缺位</span></div>
+                        </div>
+                        <p class="footer-note">目标：让高频动作可编排、可审计、可复用。</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">01 · 跨岗重复动作</div>
+                        <h2>相同场景在不同岗位反复出现</h2>
+                        <table class="table">
+                            <thead><tr><th>重复动作</th><th>涉及岗位</th><th>代价</th></tr></thead>
+                            <tbody>
+                                <tr><td>信息同步 / 纪要 / 版本对齐</td><td>产品、商务、HR、行政</td><td>多版本冲突，遗漏责任人</td></tr>
+                                <tr><td>数据整理 / 口径校验 / 报告</td><td>产品、测试、运营、财务</td><td>重复造表，解释口径耗时</td></tr>
+                                <tr><td>流程问答 / SOP 辅导</td><td>IT、法务、HR、客服</td><td>高频答疑占用专家时间</td></tr>
+                                <tr><td>工单 / Bug 收敛与路由</td><td>开发、测试、运维</td><td>误分拣、信息不全导致返工</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">01 · 归并场景</div>
+                        <h2>5 套跨岗复用工作流</h2>
+                        <div class="grid-2">
+                            <div class="card-ghost"><h3><i class="fas fa-share-nodes"></i> 信息同步官</h3><p>多版本摘要 + 回执闭环，适用于产品/商务/HR/行政。</p></div>
+                            <div class="card-ghost"><h3><i class="fas fa-chart-line"></i> 自动分析师</h3><p>清洗→解释→汇报，适用于产品/测试/运营/财务。</p></div>
+                            <div class="card-ghost"><h3><i class="fas fa-terminal"></i> 研发 Copilot</h3><p>检索→方案→代码→文档，支持开发/测试。</p></div>
+                            <div class="card-ghost"><h3><i class="fas fa-bug"></i> Bug Intake</h3><p>聚类/评级/路由/补全，全自动 JIRA 流程。</p></div>
+                            <div class="card-ghost"><h3><i class="fas fa-people-carry-box"></i> 会议 PMO</h3><p>转写→纪要→行动项→提醒，全员可用。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 5. Workflow deep dive: five scenes -->
+            <!-- Scene 1 -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 场景 1</div>
+                        <h2>信息同步官：版本不一致、确认慢</h2>
+                        <div class="grid-2">
+                            <ul class="list-dot">
+                                <li>同一信息向多角色重复讲解，版本漂移。</li>
+                                <li>管理层/执行层/外部颗粒度不同，易失真。</li>
+                                <li>缺回执与留痕，无法确认阅读与理解。</li>
+                            </ul>
+                            <div class="card-ghost">
+                                <div class="stack-label">后果</div>
+                                <p>决策延迟、责任模糊、品牌口径冲突。</p>
+                                <div class="segment"><i class="fas fa-hourglass-half"></i> 反馈周期 1–2 天</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · Flow</div>
+                        <h2>多版本摘要 + 回执闭环</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发</h4><p>会议/IM/邮件事件收敛。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-pen"></i> 上下文收集</h4><p>链接、附件、时效性标签。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-users"></i> 受众分群</h4><p>管理层/执行层/外部分类。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> 多版本摘要</h4><p>按模板生成 3 套口径。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 推送</h4><p>IM/邮件/群同步，附阅读要求。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-check"></i> 回执</h4><p>确认/疑问收集，写回记录。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-database"></i> 留痕</h4><p>版本存档，可审计与追踪。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 节点演绎</div>
+                        <h2>Dify 节点与责任</h2>
+                        <div class="node-grid">
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-bell"></i></span>触发器</div><p class="node-desc">会议日历 Webhook / 邮件钩子 / IM Slash 命令。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-database"></i></span>上下文汇聚</div><p class="node-desc">收集附件、链接、时效标签；落库保留原始上下文。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-users-gear"></i></span>分群模板</div><p class="node-desc">分支节点：管理层/执行层/外部调用不同提示词模板。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-share-nodes"></i></span>推送与回执</div><p class="node-desc">工具节点发送 IM/邮件，回执写回数据表并生成留痕。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Scene 2 -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 场景 2</div>
+                        <h2>自动分析师：数据整理与解释耗时</h2>
+                        <div class="grid-2">
+                            <ul class="list-dot">
+                                <li>Excel/BI 导出口径不一致，清洗靠人工。</li>
+                                <li>图表与结论撰写重复，缺模板。</li>
+                                <li>异常缺少自动归因与提醒。</li>
+                            </ul>
+                            <div class="card-ghost">
+                                <div class="stack-label">现状</div>
+                                <p>周报/月报多人轮值，难以追溯口径与版本。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · Flow</div>
+                        <h2>清洗 → 解释 → 汇报</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-file-excel"></i> 导入</h4><p>Excel / SQL 结果 / BI 导出。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-filter"></i> 清洗校验</h4><p>口径校验、缺失值补齐、格式标准化。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-chart-line"></i> 指标画像</h4><p>生成核心指标概览。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-bolt"></i> 异动检测</h4><p>阈值/同比环比异常识别。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-sitemap"></i> 异动归因</h4><p>找原因、给建议、列验证步骤。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 报告生成</h4><p>图表 + 结论模板化输出。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-share-from-square"></i> 推送</h4><p>IM/邮件/文档链接，写回版本。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 节点演绎</div>
+                        <h2>Dify 节点与责任</h2>
+                        <div class="node-grid">
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-database"></i></span>数据入口</div><p class="node-desc">上传文件/SQL 结果/BI 导出；元数据记录来源与口径。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-filter"></i></span>清洗校验</div><p class="node-desc">工具节点做正则/缺失补齐；失败写入错误日志。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-robot"></i></span>LLM 解读</div><p class="node-desc">按模板生成指标解释/异常归因，内嵌 Guardrails。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-chart-column"></i></span>报告模板</div><p class="node-desc">渲染图表与结论；版本化输出 + 回传 IM/邮件。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Scene 3 -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 场景 3</div>
+                        <h2>研发 Copilot：知识难复用，定位耗时</h2>
+                        <div class="grid-2">
+                            <ul class="list-dot">
+                                <li>日志/报错定位靠经验，重复提问浪费时间。</li>
+                                <li>脚本/代码片段分散，缺统一入口与标准。</li>
+                                <li>变更说明与测试建议缺模板、不可审计。</li>
+                            </ul>
+                            <div class="card-ghost">
+                                <div class="stack-label">痛点</div>
+                                <p>新人 ramp-up 慢，核心知识沉淀不到位。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · Flow</div>
+                        <h2>检索 → 方案 → 代码 → 文档</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-code-pull-request"></i> 输入</h4><p>需求 / PR / 报错 / 日志。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-database"></i> 检索</h4><p>代码库、知识库、过往案例。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> 分析</h4><p>定位根因、生成假设。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-diagram-project"></i> 方案</h4><p>修复/实现路径 + 验证步骤。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-code"></i> 代码节点</h4><p>脚本/代码片段自动生成。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-file-circle-check"></i> 文档</h4><p>MR 描述、测试建议、变更说明。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 同步</h4><p>推送到 MR/Wiki/IM，留痕。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 节点演绎</div>
+                        <h2>Dify 节点与责任</h2>
+                        <div class="node-grid">
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-folder-tree"></i></span>检索增强</div><p class="node-desc">代码/文档/FAQ 检索；引用追踪，减少幻觉。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-flask"></i></span>假设与验证</div><p class="node-desc">LLM 输出修复假设，工具节点生成验证 checklist。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-gears"></i></span>代码节点</div><p class="node-desc">脚本/SQL/配置片段生成，附解释与安全提示。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-book-open"></i></span>文档同步</div><p class="node-desc">MR 描述、变更说明、测试建议自动写回仓库/Wiki。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Scene 4 -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 场景 4</div>
+                        <h2>Bug Intake：提报/分拣/补全靠人工</h2>
+                        <div class="grid-2">
+                            <ul class="list-dot">
+                                <li>缺去重/聚类，重复 Bug 泛滥。</li>
+                                <li>严重级别与路由需要人工判断。</li>
+                                <li>复现步骤不完整，返工率高。</li>
+                            </ul>
+                            <div class="card-ghost">
+                                <div class="stack-label">代价</div>
+                                <p>误分拣导致延迟，测试/开发沟通成本高。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · Flow</div>
+                        <h2>自动分拣 + 补全 + 推送</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-envelope"></i> 收件</h4><p>工单/反馈/JIRA Webhook。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-layer-group"></i> 去重聚类</h4><p>相似度聚类，标记重复。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> 评级</h4><p>严重级别、影响面评估。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-route"></i> 路由</h4><p>按模块/值班表自动分派。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-clipboard-list"></i> 补全</h4><p>复现步骤、环境、日志缺口补齐。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-circle-check"></i> 创建/更新</h4><p>写入 JIRA，附标签与负责人。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-newspaper"></i> 摘要推送</h4><p>日报/提醒推送到群与责任人。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 节点演绎</div>
+                        <h2>Dify 节点与责任</h2>
+                        <div class="node-grid">
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-inbox"></i></span>入口</div><p class="node-desc">Webhook/表单/IM 收集；原始描述与附件留存。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-layer-group"></i></span>去重聚类</div><p class="node-desc">LLM + 相似度聚类，标记重复并归并。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-scale-balanced"></i></span>评级路由</div><p class="node-desc">规则 + LLM 判定严重级别，按模块/值班表分派。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-clipboard-list"></i></span>补全与推送</div><p class="node-desc">复现步骤补齐，调用 JIRA API 创建/更新，推送日报。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Scene 5 -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 场景 5</div>
+                        <h2>会议 PMO：纪要与行动项易丢失</h2>
+                        <div class="grid-2">
+                            <ul class="list-dot">
+                                <li>纪要整理耗时，难以结构化。</li>
+                                <li>行动项未分配负责人/截止时间。</li>
+                                <li>风险与依赖缺少提醒，跟进效率低。</li>
+                            </ul>
+                            <div class="card-ghost">
+                                <div class="stack-label">后果</div>
+                                <p>行动项执行率低，需要二次会议反复对齐。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · Flow</div>
+                        <h2>转写 → 纪要 → 行动项 → 提醒</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-microphone"></i> 录音/文本</h4><p>收录录音或纪要草稿。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 转写切片</h4><p>ASR + 段落切分。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-table-list"></i> 结构化纪要</h4><p>议题/结论/决策点输出。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-list-check"></i> 行动项</h4><p>拆解负责人、DDL、依赖。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-user-check"></i> 分配</h4><p>同步到 JIRA/IM/日历。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 提醒</h4><p>定时提醒 + 风险提示。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">02 · 节点演绎</div>
+                        <h2>Dify 节点与责任</h2>
+                        <div class="node-grid">
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-microphone-lines"></i></span>转写入口</div><p class="node-desc">音频/文本输入，ASR/分段，保留时间戳。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-table-list"></i></span>纪要结构化</div><p class="node-desc">议程/决策/风险生成，引用原文链接。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-person-chalkboard"></i></span>行动项拆解</div><p class="node-desc">提取负责人/DDL/依赖，缺失时自动补问。</p></div>
+                            <div class="node-box"><div class="node-title"><span class="icon"><i class="fas fa-bell"></i></span>同步与提醒</div><p class="node-desc">写回 JIRA/IM/日历；定时提醒 + 风险提示。</p></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 6. Template reuse -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">03 · 模板复用</div>
+                        <h2>跨岗矩阵（提取重复内容）</h2>
+                        <table class="table">
+                            <thead><tr><th>模板</th><th>覆盖岗位</th><th>复用点</th></tr></thead>
+                            <tbody>
+                                <tr><td>信息同步官</td><td>产品 / 商务 / HR / 行政</td><td>多版本摘要、回执确认、留痕</td></tr>
+                                <tr><td>自动分析师</td><td>产品 / 测试 / 运营 / 财务</td><td>清洗校验、口径模板、异常提醒</td></tr>
+                                <tr><td>知识化问答</td><td>IT / 法务 / HR / 客服</td><td>RAG 知识库、SOP 生成、版本管理</td></tr>
+                                <tr><td>Bug Intake</td><td>测试 / 开发 / 运维</td><td>聚类去重、严重级别、自动路由</td></tr>
+                                <tr><td>会议 PMO</td><td>全员</td><td>纪要结构化、行动项跟进</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">03 · 知识资产</div>
+                        <h2>模板、提示词、数据口径统一沉淀</h2>
+                        <div class="grid-3">
+                            <div class="card-ghost"><h3>模板库</h3><p>Workflow 模板 + 触发器 + 输出格式，按部门/级别分类。</p></div>
+                            <div class="card-ghost"><h3>知识库</h3><p>制度、SOP、条款、FAQ，版本化管理，配合评测集。</p></div>
+                            <div class="card-ghost"><h3>评测与监控</h3><p>离线评测集 + 在线指标，验证一致性与安全。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">03 · 运营</div>
+                        <h2>推广与治理的运营玩法</h2>
+                        <ul class="list-dot">
+                            <li>模板市场：按场景上架/下架/版本回滚。</li>
+                            <li>Owner 制：每条 Workflow 绑定责任人与指标。</li>
+                            <li>反馈闭环：用户反馈写回数据集，定期优化提示词/工具。</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 7. Platform -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">04 · 基座</div>
+                        <h2>Dify Workflow 编排基座</h2>
+                        <div class="flow">
+                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发器</h4><p>定时 / Webhook / 消息 / 工单事件。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-diagram-project"></i> 编排</h4><p>可视化 + 代码节点，条件与分支。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-toolbox"></i> 工具</h4><p>HTTP/DB/函数/插件调用。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-robot"></i> LLM/Agent</h4><p>模型调用 + 提示词/知识库版本化。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-database"></i> 知识库</h4><p>RAG、缓存/分层策略。</p></div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="flow-step"><h4><i class="fas fa-shield-halved"></i> 治理</h4><p>审计、评测、配额、告警。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">04 · 集成</div>
+                        <h2>连接 AISPEECH + 企业系统</h2>
+                        <ul class="list-dot">
+                            <li>事件入口：定时、Webhook、消息、工单状态，统一进入 Dify。</li>
+                            <li>外部系统：JIRA、IM、邮件、语音/转写、BI、工单平台。</li>
+                            <li>回传路径：文档/IM/邮件推送、JIRA 更新、指标写回监控。</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 8. Rollout -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">05 · 路线</div>
+                        <h2>4 周落地计划</h2>
+                        <ol class="list-dot">
+                            <li><strong>第 1 周：</strong>选 2 个场景（信息同步官 + Bug Intake），定义口径与指标。</li>
+                            <li><strong>第 2-3 周：</strong>上线 Workflow + 模板市场内测；沉淀知识库与评测集。</li>
+                            <li><strong>第 4 周：</strong>扩展到多部门；建立运营节奏与治理规范。</li>
+                        </ol>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">05 · 可观测</div>
+                        <h2>运维与守护</h2>
+                        <div class="grid-3">
+                            <div class="card-ghost"><h3>链路观测</h3><p>OpenTelemetry 追踪，节点耗时/错误可视化。</p></div>
+                            <div class="card-ghost"><h3>质量守护</h3><p>离线评测集、在线 A/B、人工抽查。</p></div>
+                            <div class="card-ghost"><h3>成本监控</h3><p>预算/配额、缓存命中率、模型降级策略。</p></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">05 · ROI</div>
+                        <h2>指标与回报</h2>
+                        <table class="table">
+                            <thead><tr><th>维度</th><th>指标</th><th>目标</th></tr></thead>
+                            <tbody>
+                                <tr><td>效率</td><td>人时/周节省、纪要产出时长、Bug 分拣时延</td><td>-40% 耗时，分拣 1h 内完成</td></tr>
+                                <tr><td>质量</td><td>回执率、口径一致性、复现信息完整率</td><td>回执率 90%+，完整率 95%+</td></tr>
+                                <tr><td>业务</td><td>自助解答率、SLA 遵守率、知识命中率</td><td>自助 60%+，命中率 85%+</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 9. Risks -->
+            <section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">06 · 风险</div>
+                        <h2>主要风险与缓解策略</h2>
+                        <ul class="list-dot">
+                            <li><strong>数据安全：</strong>采用私有化/专有云，敏感字段脱敏，按角色授权。</li>
+                            <li><strong>口径漂移：</strong>版本化知识库 + 评测集，变更需通过评测。</li>
+                            <li><strong>模型稳定性：</strong>缓存/多模型回退策略，关键链路加规则/校验。</li>
+                            <li><strong>采纳度：</strong>模板市场 + 培训/运营机制，设置 Owner 与 KPI。</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="card">
+                        <div class="stack-label">06 · FAQ</div>
+                        <h2>常见疑问</h2>
+                        <ul class="list-dot">
+                            <li><strong>能否复用现有系统？</strong> 支持 API/Webhook，对接 JIRA、IM、语音/转写、BI。</li>
+                            <li><strong>合规如何做？</strong> 权限分级、审计日志、脱敏策略、模型黑白名单。</li>
+                            <li><strong>如何控制成本？</strong> 调用限额、缓存/分层、离线批处理替代实时。</li>
+                            <li><strong>谁来维护？</strong> 为每条 Workflow 绑定 Owner + 指标，运营节奏周迭代。</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 10. Closing -->
+            <section>
+                <div class="card">
+                    <div class="stack-label">行动</div>
+                    <h2>把重复工作交给 Workflow，把人力投入高价值决策</h2>
+                    <ul class="list-dot">
+                        <li>确定首批 2 个场景：信息同步官、Bug Intake。</li>
+                        <li>共建模板库与知识库，建立评测与运营节奏。</li>
+                        <li>以 Dify 为编排层，连接 AISPEECH 能力与企业系统。</li>
+                    </ul>
+                    <div class="segment"><i class="fas fa-hand-point-right"></i> 下一步：确定试点团队与数据范围，启动一周内可上线的 MVP。</div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+</body>
+</html>
