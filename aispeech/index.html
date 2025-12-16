@@ -1,1228 +1,1255 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify × AISPEECH · AI Workflow 方案</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dify × AISPEECH · AI Workflow 方案</title>
 
-    <!-- Reveal.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
 
-    <!-- Icons & Fonts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind & Custom -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles/nordic.css">
+  <!-- Tailwind & Custom -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/nordic.css">
 </head>
 <body>
-    <div class="lang-switch">
-        <a class="active" href="index.html">中文</a>
-        <span>/</span>
-        <a href="../index_en.html">EN</a>
-    </div>
-    <!-- Fixed Elements -->
-    <div class="deck-logo">
-        <img src="../assets/logo.svg" alt="Dify">
-        <span>× AISPEECH</span>
-    </div>
-    <div class="slide-meta">按 ↓ 键展开同主题详情</div>
+  <!-- Diffused background shapes -->
+  <div id="bg-shapes" aria-hidden="true">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+    <div class="shape s4"></div>
+  </div>
 
-    <div class="reveal">
-        <div class="slides">
+  <div class="lang-switch">
+    <a class="active" href="index.html">中文</a>
+    <span>/</span>
+    <a href="../index_en.html">EN</a>
+  </div>
 
-            <!-- ============================================
-                 PART 1: OPENING (4 slides)
-                 ============================================ -->
+  <!-- Fixed Elements -->
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>× AISPEECH</span>
+  </div>
+  <div class="slide-meta">↑/↓ 纵向浏览 · ←/→ 切换章节</div>
 
-            <!-- 1.1 Title -->
-            <section data-background-gradient="linear-gradient(135deg, #0033ff 0%, #1a237e 100%)">
-                <div class="hero" style="color: #fff;">
-                    <div class="badge" style="background: rgba(255,255,255,0.15); color: #fff;">
-                        <i class="fas fa-bolt"></i> AI Workflow
-                    </div>
-                    <h1 style="color:#fff; font-size: 2.8rem;">企业高频痛点的<br>AI Workflow 解决方案</h1>
-                    <p style="color: rgba(255,255,255,0.8); max-width: 700px;">
-                        提取跨岗位重复动作，设计可复用 Workflow 模板，<br>用 Dify 编排层连接 AI 与企业系统
-                    </p>
-                    <div class="stats-row" style="margin-top: 32px;">
-                        <div class="stat-item">
-                            <div class="number" style="color: #fff;">5</div>
-                            <div class="label" style="color: rgba(255,255,255,0.7);">核心场景</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="number" style="color: #fff;">8+</div>
-                            <div class="label" style="color: rgba(255,255,255,0.7);">覆盖岗位</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="number" style="color: #fff;">4</div>
-                            <div class="label" style="color: rgba(255,255,255,0.7);">周落地</div>
-                        </div>
-                    </div>
-                    <p class="footer-note" style="color: rgba(255,255,255,0.6);">Speaker: 郑立 · DevRel @ Dify</p>
-                </div>
-            </section>
+  <div class="reveal">
+    <div class="slides">
 
-            <!-- 1.2 Agenda -->
-            <section>
-                <div class="card">
-                    <div class="stack-label">Agenda</div>
-                    <h2>今天的内容结构</h2>
-                    <div class="grid-3">
-                        <div class="card-ghost">
-                            <h3><i class="fas fa-magnifying-glass"></i> 问题发现</h3>
-                            <p>跨岗位重复动作分析，提取共性模式</p>
-                        </div>
-                        <div class="card-ghost">
-                            <h3><i class="fas fa-diagram-project"></i> 工作流设计</h3>
-                            <p>5 套场景深潜：触发 → 处理 → 输出 → 闭环</p>
-                        </div>
-                        <div class="card-ghost">
-                            <h3><i class="fas fa-rocket"></i> 落地路径</h3>
-                            <p>模板复用、平台集成、4 周计划</p>
-                        </div>
-                    </div>
-                    <table class="table" style="margin-top: 24px;">
-                        <thead><tr><th>#</th><th>模块</th><th>页数</th><th>关键内容</th></tr></thead>
-                        <tbody>
-                            <tr><td>01</td><td>问题与共性</td><td>4</td><td>Why now · 跨岗重复 · 归并场景</td></tr>
-                            <tr><td>02</td><td>工作流深潜</td><td>20</td><td>5 场景 × 4 页（问题 → 流程 → 节点 → 产出）</td></tr>
-                            <tr><td>03</td><td>模板与平台</td><td>8</td><td>复用矩阵 · Dify 基座 · 系统集成</td></tr>
-                            <tr><td>04</td><td>落地收尾</td><td>8</td><td>计划 · ROI · 风险 · 行动</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+      <!-- =========================================================
+           30-page condensed deck (vertical stacks)
+           ========================================================= -->
 
-            <!-- 1.3 Why Now (Vertical stack) -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">01 · Why Now</div>
-                        <h2>LLM 能力有了，生产系统缺位</h2>
-                        <div class="compare-grid">
-                            <div class="compare-card before">
-                                <h4><i class="fas fa-times-circle"></i> 现状</h4>
-                                <ul class="list-dot">
-                                    <li>信息分散：IM / 邮件 / JIRA / Excel 各自为政</li>
-                                    <li>流程靠人脑：无复用、无审计、无度量</li>
-                                    <li>经验在个人：离职即流失，新人 ramp-up 慢</li>
-                                </ul>
-                            </div>
-                            <div class="compare-card after">
-                                <h4><i class="fas fa-check-circle"></i> 目标</h4>
-                                <ul class="list-dot">
-                                    <li>高频动作 → 可编排的 Workflow</li>
-                                    <li>经验 → 可版本化的模板与知识库</li>
-                                    <li>执行 → 可观测、可审计、可迭代</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="segment"><i class="fas fa-arrow-down"></i> 按 ↓ 键查看跨岗分析</div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">01 · 跨岗重复动作</div>
-                        <h2>相同场景在 8+ 岗位反复出现</h2>
-                        <table class="table">
-                            <thead><tr><th>重复动作</th><th>涉及岗位</th><th>痛点</th><th>年隐性成本</th></tr></thead>
-                            <tbody>
-                                <tr>
-                                    <td><i class="fas fa-share-nodes text-dify-blue"></i> 信息同步 / 版本对齐</td>
-                                    <td>产品、商务、HR、行政</td>
-                                    <td>多版本冲突、确认慢</td>
-                                    <td>~200h/人/年</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-chart-line text-dify-blue"></i> 数据整理 / 报告撰写</td>
-                                    <td>产品、测试、运营、财务</td>
-                                    <td>口径不一、重复造表</td>
-                                    <td>~300h/人/年</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-comments text-dify-blue"></i> 流程问答 / SOP 辅导</td>
-                                    <td>IT、法务、HR、客服</td>
-                                    <td>专家时间被碎片占用</td>
-                                    <td>~400h/人/年</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-bug text-dify-blue"></i> 工单/Bug 收敛与路由</td>
-                                    <td>开发、测试、运维</td>
-                                    <td>误分拣、信息不全</td>
-                                    <td>~150h/人/年</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-clipboard-list text-dify-blue"></i> 会议纪要 / 行动项跟进</td>
-                                    <td>全员</td>
-                                    <td>纪要耗时、行动丢失</td>
-                                    <td>~100h/人/年</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">01 · 归并 5 套场景</div>
-                        <h2>提取共性，设计可复用 Workflow</h2>
-                        <div class="grid-5">
-                            <div class="card-ghost" style="text-align: center;">
-                                <i class="fas fa-share-nodes" style="font-size: 2rem; color: var(--dify-blue); margin-bottom: 12px;"></i>
-                                <h4>信息同步官</h4>
-                                <p style="font-size: 0.75rem;">多版本摘要<br>回执闭环</p>
-                            </div>
-                            <div class="card-ghost" style="text-align: center;">
-                                <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--dify-blue); margin-bottom: 12px;"></i>
-                                <h4>自动分析师</h4>
-                                <p style="font-size: 0.75rem;">清洗 → 解读<br>→ 报告</p>
-                            </div>
-                            <div class="card-ghost" style="text-align: center;">
-                                <i class="fas fa-robot" style="font-size: 2rem; color: var(--dify-blue); margin-bottom: 12px;"></i>
-                                <h4>知识问答</h4>
-                                <p style="font-size: 0.75rem;">RAG + SOP<br>自助解答</p>
-                            </div>
-                            <div class="card-ghost" style="text-align: center;">
-                                <i class="fas fa-bug" style="font-size: 2rem; color: var(--dify-blue); margin-bottom: 12px;"></i>
-                                <h4>Bug Intake</h4>
-                                <p style="font-size: 0.75rem;">聚类/评级<br>自动路由</p>
-                            </div>
-                            <div class="card-ghost" style="text-align: center;">
-                                <i class="fas fa-clipboard-list" style="font-size: 2rem; color: var(--dify-blue); margin-bottom: 12px;"></i>
-                                <h4>会议 PMO</h4>
-                                <p style="font-size: 0.75rem;">纪要结构化<br>行动项追踪</p>
-                            </div>
-                        </div>
-                        <div class="segment" style="margin-top: 24px;"><i class="fas fa-arrow-right"></i> 接下来逐个深潜每套工作流</div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- ============================================
-                 PART 2: WORKFLOW DEEP DIVES (5 × 4 = 20 slides)
-                 ============================================ -->
-
-            <!-- Workflow 1: 信息同步官 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 1 · 问题</div>
-                        <h2><i class="fas fa-share-nodes"></i> 信息同步官：版本冲突与确认慢</h2>
-                        <div class="grid-2">
-                            <div>
-                                <h3>痛点现象</h3>
-                                <ul class="list-dot">
-                                    <li>同一信息向管理层/执行层/外部反复讲解</li>
-                                    <li>口径随传递逐步失真</li>
-                                    <li>无阅读回执，无法确认理解</li>
-                                    <li>历史版本散落在 IM/邮件/文档</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>涉及岗位</h3>
-                                <div class="grid-2" style="gap: 8px; margin-top: 12px;">
-                                    <span class="badge">产品</span>
-                                    <span class="badge">商务</span>
-                                    <span class="badge">HR</span>
-                                    <span class="badge">行政</span>
-                                </div>
-                                <div class="segment" style="margin-top: 16px;">
-                                    <i class="fas fa-clock"></i> 反馈周期 1-2 天
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 1 · 流程</div>
-                        <h2>Workflow：多版本摘要 + 回执闭环</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发</h4><p>会议/IM/邮件</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-folder-open"></i> 上下文</h4><p>链接/附件收集</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-users"></i> 分群</h4><p>受众分类</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> 生成</h4><p>多版本摘要</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 推送</h4><p>IM/邮件/群</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-check-double"></i> 回执</h4><p>确认收集</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-database"></i> 留痕</h4><p>版本存档</p></div>
-                        </div>
-                        <div class="code-block">
-                            <pre><span class="comment"># Dify Workflow 伪代码</span>
-<span class="keyword">trigger</span>: webhook(meeting_end) | slash_command(/sync)
-<span class="keyword">step</span> collect_context:
-    <span class="function">fetch</span>(attachments, links, participants)
-<span class="keyword">step</span> segment_audience:
-    <span class="function">classify</span>(management | execution | external)
-<span class="keyword">step</span> generate_summary:
-    <span class="keyword">for</span> each audience:
-        <span class="function">llm.generate</span>(template=audience.template, context=context)
-<span class="keyword">step</span> distribute:
-    <span class="function">send</span>(im=dingtalk, email=smtp, with_read_receipt=<span class="keyword">true</span>)
-<span class="keyword">step</span> archive:
-    <span class="function">save</span>(version, timestamp, confirmations)</pre>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 1 · Dify 节点</div>
-                        <h2>节点设计与责任划分</h2>
-                        <div class="node-grid">
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-bell"></i></span>触发器节点</div>
-                                <p class="node-desc">Webhook 监听日历结束事件 / IM Slash 命令 / 定时任务。支持多入口汇聚到同一流程。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-database"></i></span>上下文收集</div>
-                                <p class="node-desc">HTTP 工具节点拉取附件、链接、参会人；落库保留原始上下文供审计。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-code-branch"></i></span>分支 + LLM</div>
-                                <p class="node-desc">IF 节点按受众分流；每条分支调用不同 Prompt 模板生成对应粒度摘要。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-share-nodes"></i></span>推送与回执</div>
-                                <p class="node-desc">工具节点调用 IM/邮件 API 发送；回执写回数据表，未确认触发提醒。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 1 · 产出</div>
-                        <h2>输出与衡量指标</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3>输出物</h3>
-                                <ul class="list-dot">
-                                    <li>管理层 1 页摘要</li>
-                                    <li>执行层行动清单</li>
-                                    <li>外部口径对外稿</li>
-                                    <li>版本号 + 变更对比</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>核心指标</h3>
-                                <ul class="list-dot">
-                                    <li>同步耗时 ↓ 70%</li>
-                                    <li>回执确认率 ≥ 90%</li>
-                                    <li>口径争议 ↓ 80%</li>
-                                    <li>历史可追溯 100%</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>治理要点</h3>
-                                <ul class="list-dot">
-                                    <li>模板版本化管理</li>
-                                    <li>敏感词过滤规则</li>
-                                    <li>审计日志保留 90 天</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Workflow 2: 自动分析师 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 2 · 问题</div>
-                        <h2><i class="fas fa-chart-line"></i> 自动分析师：数据整理与报告耗时</h2>
-                        <div class="grid-2">
-                            <div>
-                                <h3>痛点现象</h3>
-                                <ul class="list-dot">
-                                    <li>Excel/BI 导出口径不一，清洗靠人工</li>
-                                    <li>图表与结论撰写重复，缺模板</li>
-                                    <li>异动归因靠经验，难以自动化</li>
-                                    <li>周报/月报多人轮值，质量波动</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>涉及岗位</h3>
-                                <div class="grid-2" style="gap: 8px; margin-top: 12px;">
-                                    <span class="badge">产品</span>
-                                    <span class="badge">测试</span>
-                                    <span class="badge">运营</span>
-                                    <span class="badge">财务</span>
-                                </div>
-                                <div class="segment" style="margin-top: 16px;">
-                                    <i class="fas fa-hourglass-half"></i> 周报耗时 4-8h
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 2 · 流程</div>
-                        <h2>Workflow：清洗 → 解读 → 报告</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-file-excel"></i> 导入</h4><p>Excel/SQL/BI</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-filter"></i> 清洗</h4><p>口径校验</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-calculator"></i> 计算</h4><p>核心指标</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-bolt"></i> 异动</h4><p>阈值检测</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-sitemap"></i> 归因</h4><p>维度下钻</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 报告</h4><p>图表+结论</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-share"></i> 推送</h4><p>IM/邮件</p></div>
-                        </div>
-                        <div class="segment" style="margin-top: 16px;">
-                            \( z = \dfrac{x-\mu}{\sigma} \) → z-score 检测 + 维度贡献度排序，异常先聚类后解释
-                        </div>
-                        <div class="code-block">
-                            <pre><span class="comment"># 异动归因 Python 代码示例</span>
-<span class="keyword">def</span> <span class="function">detect_anomaly</span>(df, metric, threshold=0.15):
-    df[<span class="string">'wow'</span>] = df[metric].pct_change(7)  <span class="comment"># 周同比</span>
-    anomalies = df[abs(df[<span class="string">'wow'</span>]) > threshold]
-    <span class="keyword">return</span> anomalies
-
-<span class="keyword">def</span> <span class="function">drill_down</span>(anomaly, dimensions):
-    <span class="string">"""按维度下钻找根因"""</span>
-    results = []
-    <span class="keyword">for</span> dim <span class="keyword">in</span> dimensions:
-        contribution = calc_contribution(anomaly, dim)
-        <span class="keyword">if</span> contribution > 0.3:  <span class="comment"># 贡献度 > 30%</span>
-            results.append({<span class="string">'dim'</span>: dim, <span class="string">'contrib'</span>: contribution})
-    <span class="keyword">return</span> sorted(results, key=<span class="keyword">lambda</span> x: -x[<span class="string">'contrib'</span>])</pre>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 2 · Dify 节点</div>
-                        <h2>节点设计与责任划分</h2>
-                        <div class="node-grid">
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-upload"></i></span>数据入口</div>
-                                <p class="node-desc">文件上传节点 / SQL 连接器 / BI API。元数据记录来源、时间窗、口径版本。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-code"></i></span>代码节点</div>
-                                <p class="node-desc">Python 清洗校验、指标计算、异动检测、维度下钻归因。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-robot"></i></span>LLM 解读</div>
-                                <p class="node-desc">按模板生成指标解释、异常归因说明、行动建议。内嵌 Guardrails。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-chart-column"></i></span>报告渲染</div>
-                                <p class="node-desc">模板引擎渲染图表与结论；版本化输出 + 多渠道分发。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 2 · 产出</div>
-                        <h2>输出与衡量指标</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3>输出物</h3>
-                                <ul class="list-dot">
-                                    <li>结构化结论（3 行摘要）</li>
-                                    <li>核心指标图表</li>
-                                    <li>异动归因 + 验证建议</li>
-                                    <li>数据口径说明</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>核心指标</h3>
-                                <ul class="list-dot">
-                                    <li>出报告时间 ↓ 80%</li>
-                                    <li>口径一致性 ≥ 95%</li>
-                                    <li>异动召回率 ≥ 90%</li>
-                                    <li>错误率 ↓ 60%</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>治理要点</h3>
-                                <ul class="list-dot">
-                                    <li>口径定义版本管理</li>
-                                    <li>阈值规则可配置</li>
-                                    <li>数据血缘追踪</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Workflow 3: 知识问答 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 3 · 问题</div>
-                        <h2><i class="fas fa-robot"></i> 知识问答：专家时间被碎片化占用</h2>
-                        <div class="grid-2">
-                            <div>
-                                <h3>痛点现象</h3>
-                                <ul class="list-dot">
-                                    <li>基础问题反复回答（制度/流程/条款）</li>
-                                    <li>SOP 散落各处，查找困难</li>
-                                    <li>答案口径不一致，存在合规风险</li>
-                                    <li>专家成为"人肉搜索引擎"</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>涉及岗位</h3>
-                                <div class="grid-2" style="gap: 8px; margin-top: 12px;">
-                                    <span class="badge">IT</span>
-                                    <span class="badge">法务</span>
-                                    <span class="badge">HR</span>
-                                    <span class="badge">客服</span>
-                                </div>
-                                <div class="segment" style="margin-top: 16px;">
-                                    <i class="fas fa-comments"></i> 日均 50+ 重复问题
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 3 · 流程</div>
-                        <h2>Workflow：RAG + SOP 自助解答</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-comment-dots"></i> 提问</h4><p>IM/工单/网页</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-tags"></i> 意图</h4><p>分类识别</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> 检索</h4><p>知识库 RAG</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> 生成</h4><p>LLM 答案</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-shield-halved"></i> 校验</h4><p>合规过滤</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-reply"></i> 回复</h4><p>附引用来源</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-thumbs-up"></i> 反馈</h4><p>满意度收集</p></div>
-                        </div>
-                        <div class="arch-diagram" style="margin-top: 24px;">
-                            <div class="arch-row">
-                                <div class="arch-box">用户提问</div>
-                                <div class="arch-arrow">→</div>
-                                <div class="arch-box primary">Dify Agent</div>
-                                <div class="arch-arrow">→</div>
-                                <div class="arch-box">结构化答案</div>
-                            </div>
-                            <div class="arch-row" style="margin-top: -8px;">
-                                <div style="width: 120px;"></div>
-                                <div class="arch-arrow">↓↑</div>
-                            </div>
-                            <div class="arch-row">
-                                <div class="arch-box secondary">制度库</div>
-                                <div class="arch-box secondary">SOP 库</div>
-                                <div class="arch-box secondary">FAQ 库</div>
-                                <div class="arch-box secondary">条款库</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 3 · Dify 节点</div>
-                        <h2>节点设计与责任划分</h2>
-                        <div class="node-grid">
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-message"></i></span>对话入口</div>
-                                <p class="node-desc">IM Bot / 网页嵌入 / 工单系统集成。支持多轮对话与上下文保持。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-database"></i></span>知识库节点</div>
-                                <p class="node-desc">RAG 检索（制度/SOP/FAQ/条款），返回 Top-K 片段与相关度分数。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-robot"></i></span>LLM 生成</div>
-                                <p class="node-desc">基于检索结果生成答案，强制引用来源，拒绝无依据回答。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-shield-halved"></i></span>合规过滤</div>
-                                <p class="node-desc">敏感词检测、黑名单问题拦截、模糊问题转人工。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 3 · 产出</div>
-                        <h2>输出与衡量指标</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3>输出物</h3>
-                                <ul class="list-dot">
-                                    <li>结构化答案 + 引用来源</li>
-                                    <li>相关 SOP 链接</li>
-                                    <li>无法回答时转人工</li>
-                                    <li>对话日志与反馈</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>核心指标</h3>
-                                <ul class="list-dot">
-                                    <li>自助解答率 ≥ 60%</li>
-                                    <li>知识命中率 ≥ 85%</li>
-                                    <li>用户满意度 ≥ 4.0/5</li>
-                                    <li>专家工时节省 50%+</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>治理要点</h3>
-                                <ul class="list-dot">
-                                    <li>知识库版本管理</li>
-                                    <li>定期评测与更新</li>
-                                    <li>敏感问题熔断</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Workflow 4: Bug Intake -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 4 · 问题</div>
-                        <h2><i class="fas fa-bug"></i> Bug Intake：提报/分拣/补全靠人工</h2>
-                        <div class="grid-2">
-                            <div>
-                                <h3>痛点现象</h3>
-                                <ul class="list-dot">
-                                    <li>重复 Bug 泛滥，缺乏去重聚类</li>
-                                    <li>严重级别与路由需人工判断</li>
-                                    <li>复现步骤不完整，信息往返多</li>
-                                    <li>状态跟踪复杂，遗漏常发生</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>涉及岗位</h3>
-                                <div class="grid-2" style="gap: 8px; margin-top: 12px;">
-                                    <span class="badge">测试</span>
-                                    <span class="badge">开发</span>
-                                    <span class="badge">运维</span>
-                                    <span class="badge">产品</span>
-                                </div>
-                                <div class="segment" style="margin-top: 16px;">
-                                    <i class="fas fa-rotate"></i> 返工率 30%+
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 4 · 流程</div>
-                        <h2>Workflow：自动分拣 + 补全 + 路由</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-inbox"></i> 收件</h4><p>工单/反馈</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-layer-group"></i> 聚类</h4><p>相似度去重</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> 评级</h4><p>严重级别</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-route"></i> 路由</h4><p>模块/值班</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-clipboard-list"></i> 补全</h4><p>复现信息</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-ticket"></i> 创建</h4><p>JIRA Issue</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-newspaper"></i> 日报</h4><p>状态摘要</p></div>
-                        </div>
-                        <div class="code-block">
-                            <pre><span class="comment"># Bug 聚类与评级示例</span>
-<span class="keyword">def</span> <span class="function">cluster_bugs</span>(new_bug, existing_bugs, threshold=0.85):
-    <span class="string">"""基于语义相似度聚类"""</span>
-    embedding = <span class="function">get_embedding</span>(new_bug.description)
-    <span class="keyword">for</span> bug <span class="keyword">in</span> existing_bugs:
-        similarity = <span class="function">cosine_similarity</span>(embedding, bug.embedding)
-        <span class="keyword">if</span> similarity > threshold:
-            <span class="keyword">return</span> {<span class="string">'action'</span>: <span class="string">'merge'</span>, <span class="string">'target'</span>: bug.id}
-    <span class="keyword">return</span> {<span class="string">'action'</span>: <span class="string">'create'</span>}
-
-<span class="keyword">def</span> <span class="function">rate_severity</span>(bug):
-    <span class="string">"""基于规则 + LLM 判定严重级别"""</span>
-    rules_score = <span class="function">apply_rules</span>(bug)  <span class="comment"># 关键词/模块规则</span>
-    llm_score = <span class="function">llm_assess</span>(bug)      <span class="comment"># LLM 辅助判断</span>
-    <span class="keyword">return</span> <span class="function">weighted_avg</span>(rules_score, llm_score, weights=[0.6, 0.4])</pre>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 4 · Dify 节点</div>
-                        <h2>节点设计与责任划分</h2>
-                        <div class="node-grid">
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-inbox"></i></span>入口节点</div>
-                                <p class="node-desc">Webhook/表单/IM 收集；原始描述、截图、日志留存。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-brain"></i></span>聚类 + 评级</div>
-                                <p class="node-desc">向量相似度聚类标记重复；规则 + LLM 混合评级。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-route"></i></span>路由节点</div>
-                                <p class="node-desc">按模块/组件/值班表自动分派；支持升级与转派。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-plug"></i></span>JIRA 集成</div>
-                                <p class="node-desc">API 创建/更新 Issue；自动补全复现步骤、环境信息。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 4 · 产出</div>
-                        <h2>输出与衡量指标</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3>输出物</h3>
-                                <ul class="list-dot">
-                                    <li>规范化 JIRA Issue</li>
-                                    <li>重复标记与归并</li>
-                                    <li>日报状态摘要</li>
-                                    <li>SLA 预警通知</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>核心指标</h3>
-                                <ul class="list-dot">
-                                    <li>Triage 时间 ↓ 70%</li>
-                                    <li>复现信息完整率 ≥ 95%</li>
-                                    <li>误分拣率 ↓ 80%</li>
-                                    <li>返工率 ↓ 60%</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>治理要点</h3>
-                                <ul class="list-dot">
-                                    <li>路由规则可配置</li>
-                                    <li>聚类阈值可调</li>
-                                    <li>人工复核入口</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Workflow 5: 会议 PMO -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 5 · 问题</div>
-                        <h2><i class="fas fa-clipboard-list"></i> 会议 PMO：纪要与行动项易丢失</h2>
-                        <div class="grid-2">
-                            <div>
-                                <h3>痛点现象</h3>
-                                <ul class="list-dot">
-                                    <li>纪要整理耗时，格式不统一</li>
-                                    <li>行动项缺负责人/截止时间</li>
-                                    <li>风险与依赖无人跟进</li>
-                                    <li>二次会议反复对齐同一话题</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>涉及岗位</h3>
-                                <div style="text-align: center; margin-top: 16px;">
-                                    <span class="badge" style="font-size: 1rem; padding: 12px 24px;">全员适用</span>
-                                </div>
-                                <div class="segment" style="margin-top: 16px;">
-                                    <i class="fas fa-calendar"></i> 周均 8+ 会议
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 5 · 流程</div>
-                        <h2>Workflow：转写 → 纪要 → 行动项 → 提醒</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-microphone"></i> 录入</h4><p>录音/草稿</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 转写</h4><p>ASR + 切分</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-table-list"></i> 纪要</h4><p>结构化输出</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-list-check"></i> 行动项</h4><p>负责人/DDL</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-user-check"></i> 分配</h4><p>JIRA/IM</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 提醒</h4><p>定时跟进</p></div>
-                        </div>
-                        <div class="code-block">
-                            <pre><span class="comment"># 纪要结构化 Prompt 示例</span>
-<span class="keyword">system</span>: 你是专业的会议纪要助手。请将会议内容结构化为以下格式：
-
-<span class="string">## 会议纪要
-- **日期**: {date}
-- **参会人**: {participants}
-
-### 议题与结论
-1. {topic_1}: {conclusion_1}
-2. {topic_2}: {conclusion_2}
-
-### 行动项
-| 事项 | 负责人 | 截止日期 | 依赖 |
-|------|--------|----------|------|
-| {item} | {owner} | {deadline} | {dependency} |
-
-### 风险与待决
-- {risk_or_open_item}</span></pre>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 5 · Dify 节点</div>
-                        <h2>节点设计与责任划分</h2>
-                        <div class="node-grid">
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-microphone-lines"></i></span>转写入口</div>
-                                <p class="node-desc">音频/文本输入；ASR 转写 + 说话人分离 + 时间戳标记。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-table-list"></i></span>纪要结构化</div>
-                                <p class="node-desc">LLM 提取议题/结论/决策；引用原文链接，保留可追溯性。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-person-chalkboard"></i></span>行动项拆解</div>
-                                <p class="node-desc">提取负责人/DDL/依赖；缺失时自动生成补问清单。</p>
-                            </div>
-                            <div class="node-box">
-                                <div class="node-title"><span class="icon"><i class="fas fa-bell"></i></span>同步与提醒</div>
-                                <p class="node-desc">写回 JIRA/IM/日历；定时提醒 + 逾期升级。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">02 · 场景 5 · 产出</div>
-                        <h2>输出与衡量指标</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3>输出物</h3>
-                                <ul class="list-dot">
-                                    <li>统一格式纪要</li>
-                                    <li>行动项任务清单</li>
-                                    <li>风险与待决项</li>
-                                    <li>跟进提醒通知</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>核心指标</h3>
-                                <ul class="list-dot">
-                                    <li>纪要产出时间 ↓ 90%</li>
-                                    <li>行动项遗漏率 ↓ 80%</li>
-                                    <li>执行完成率 ↑ 40%</li>
-                                    <li>二次对齐会议 ↓ 50%</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>治理要点</h3>
-                                <ul class="list-dot">
-                                    <li>模板可按会议类型配</li>
-                                    <li>敏感内容自动脱敏</li>
-                                    <li>存档期限可配置</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- ============================================
-                 PART 3: TEMPLATE & PLATFORM (8 slides)
-                 ============================================ -->
-
-            <!-- 模板复用 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">03 · 模板复用</div>
-                        <h2>跨岗位复用矩阵</h2>
-                        <table class="table">
-                            <thead><tr><th>Workflow</th><th>产品</th><th>测试</th><th>开发</th><th>IT</th><th>法务</th><th>HR</th><th>商务</th><th>行政</th></tr></thead>
-                            <tbody>
-                                <tr><td><i class="fas fa-share-nodes"></i> 信息同步官</td><td>●</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td><td>●</td></tr>
-                                <tr><td><i class="fas fa-chart-line"></i> 自动分析师</td><td>●</td><td>●</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                                <tr><td><i class="fas fa-robot"></i> 知识问答</td><td></td><td></td><td></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
-                                <tr><td><i class="fas fa-bug"></i> Bug Intake</td><td>●</td><td>●</td><td>●</td><td></td><td></td><td></td><td></td><td></td></tr>
-                                <tr><td><i class="fas fa-clipboard-list"></i> 会议 PMO</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-                            </tbody>
-                        </table>
-                        <p class="footer-note">● = 直接复用 | 空 = 按需扩展</p>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">03 · 知识资产</div>
-                        <h2>模板、提示词、口径统一沉淀</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-folder-tree"></i> 模板库</h3>
-                                <ul class="list-dot">
-                                    <li>Workflow 模板 YAML</li>
-                                    <li>触发器配置</li>
-                                    <li>输出格式模板</li>
-                                    <li>按部门/场景分类</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-book"></i> 知识库</h3>
-                                <ul class="list-dot">
-                                    <li>制度/SOP/FAQ</li>
-                                    <li>数据口径定义</li>
-                                    <li>版本化管理</li>
-                                    <li>定期评测更新</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-chart-simple"></i> 评测集</h3>
-                                <ul class="list-dot">
-                                    <li>离线 Golden Set</li>
-                                    <li>在线 A/B 测试</li>
-                                    <li>人工抽检机制</li>
-                                    <li>回归验证自动化</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Dify 平台 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">04 · 平台基座</div>
-                        <h2>Dify Workflow 编排能力</h2>
-                        <div class="flow">
-                            <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发器</h4><p>定时/Webhook/消息</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-diagram-project"></i> 编排</h4><p>可视化+代码</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-toolbox"></i> 工具</h4><p>HTTP/DB/函数</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-robot"></i> LLM</h4><p>多模型切换</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-database"></i> 知识库</h4><p>RAG 检索</p></div>
-                            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="flow-step"><h4><i class="fas fa-shield-halved"></i> 治理</h4><p>审计/配额</p></div>
-                        </div>
-                        <div class="grid-4" style="margin-top: 24px;">
-                            <div class="icon-feature">
-                                <div class="icon-feature-icon"><i class="fas fa-code-branch"></i></div>
-                                <div class="icon-feature-content">
-                                    <h4>条件分支</h4>
-                                    <p>IF/Switch 节点</p>
-                                </div>
-                            </div>
-                            <div class="icon-feature">
-                                <div class="icon-feature-icon"><i class="fas fa-code"></i></div>
-                                <div class="icon-feature-content">
-                                    <h4>代码节点</h4>
-                                    <p>Python/JS 执行</p>
-                                </div>
-                            </div>
-                            <div class="icon-feature">
-                                <div class="icon-feature-icon"><i class="fas fa-plug"></i></div>
-                                <div class="icon-feature-content">
-                                    <h4>插件生态</h4>
-                                    <p>100+ 工具集成</p>
-                                </div>
-                            </div>
-                            <div class="icon-feature">
-                                <div class="icon-feature-icon"><i class="fas fa-eye"></i></div>
-                                <div class="icon-feature-content">
-                                    <h4>可观测</h4>
-                                    <p>Tracing/日志</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">04 · 系统集成</div>
-                        <h2>连接 AISPEECH + 企业系统</h2>
-                        <div class="arch-diagram">
-                            <div class="arch-row">
-                                <div class="arch-box">日历</div>
-                                <div class="arch-box">IM</div>
-                                <div class="arch-box">邮件</div>
-                                <div class="arch-box">JIRA</div>
-                                <div class="arch-box">工单</div>
-                            </div>
-                            <div class="arch-row"><div class="arch-arrow" style="font-size: 1.5rem;">↓</div></div>
-                            <div class="arch-row">
-                                <div class="arch-box primary" style="min-width: 200px;">Dify Workflow 编排层</div>
-                            </div>
-                            <div class="arch-row"><div class="arch-arrow" style="font-size: 1.5rem;">↓</div></div>
-                            <div class="arch-row">
-                                <div class="arch-box secondary">LLM</div>
-                                <div class="arch-box secondary">AISPEECH ASR</div>
-                                <div class="arch-box secondary">知识库</div>
-                                <div class="arch-box secondary">BI/数据</div>
-                            </div>
-                        </div>
-                        <ul class="list-dot" style="margin-top: 16px;">
-                            <li><strong>事件入口：</strong>定时、Webhook、消息事件、工单状态变化</li>
-                            <li><strong>回传路径：</strong>IM/邮件推送、JIRA 更新、文档写入、指标回传</li>
-                        </ul>
-                    </div>
-                </section>
-            </section>
-
-            <!-- ============================================
-                 PART 4: ROLLOUT & CLOSING (8 slides)
-                 ============================================ -->
-
-            <!-- 落地计划 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">05 · 路线图</div>
-                        <h2>4 周落地计划</h2>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>Week 1</h4>
-                                <p>选 2 场景<br>定义指标</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>Week 2-3</h4>
-                                <p>上线 MVP<br>知识库建设</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>Week 4</h4>
-                                <p>多部门扩展<br>运营机制</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>持续</h4>
-                                <p>模板市场<br>指标优化</p>
-                            </div>
-                        </div>
-                        <table class="table" style="margin-top: 24px;">
-                            <thead><tr><th>阶段</th><th>目标</th><th>交付物</th></tr></thead>
-                            <tbody>
-                                <tr><td>Week 1</td><td>确定试点场景与成功标准</td><td>场景定义文档、指标 baseline</td></tr>
-                                <tr><td>Week 2-3</td><td>MVP 上线并验证效果</td><td>2 套 Workflow、知识库 v1、评测集</td></tr>
-                                <tr><td>Week 4</td><td>横向复制与运营固化</td><td>模板库、Owner 机制、运营 SOP</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">05 · 可观测</div>
-                        <h2>运维与质量守护</h2>
-                        <div class="grid-3">
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-route"></i> 链路追踪</h3>
-                                <ul class="list-dot">
-                                    <li>OpenTelemetry 集成</li>
-                                    <li>节点耗时可视化</li>
-                                    <li>错误链路定位</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-flask-vial"></i> 质量守护</h3>
-                                <ul class="list-dot">
-                                    <li>离线评测自动化</li>
-                                    <li>在线 A/B 实验</li>
-                                    <li>人工抽检 SOP</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-coins"></i> 成本控制</h3>
-                                <ul class="list-dot">
-                                    <li>预算/配额管理</li>
-                                    <li>缓存命中率监控</li>
-                                    <li>模型降级策略</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">05 · ROI</div>
-                        <h2>指标与回报预期</h2>
-                        <table class="table">
-                            <thead><tr><th>维度</th><th>指标</th><th>目标</th></tr></thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>效率</strong></td>
-                                    <td>人时节省、纪要产出时长、Bug 分拣时延</td>
-                                    <td>-40% 耗时，分拣 < 1h</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>质量</strong></td>
-                                    <td>回执率、口径一致性、信息完整率</td>
-                                    <td>回执 90%+，完整 95%+</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>业务</strong></td>
-                                    <td>自助解答率、SLA 遵守、知识命中</td>
-                                    <td>自助 60%+，命中 85%+</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="stats-row" style="margin-top: 24px;">
-                            <div class="stat-item">
-                                <div class="number">1000+</div>
-                                <div class="label">预计年节省工时</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="number">3-6</div>
-                                <div class="label">个月回本周期</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="number">8+</div>
-                                <div class="label">岗位覆盖</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- 风险与 FAQ -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">06 · 风险</div>
-                        <h2>主要风险与缓解策略</h2>
-                        <div class="grid-2">
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-shield-halved"></i> 数据安全</h3>
-                                <p>私有化/专有云部署，敏感字段脱敏，按角色授权，审计日志保留。</p>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-code-branch"></i> 口径漂移</h3>
-                                <p>知识库版本管理 + 评测集验证，变更需通过自动化评测。</p>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-server"></i> 模型稳定性</h3>
-                                <p>缓存/多模型回退策略，关键链路加规则校验兜底。</p>
-                            </div>
-                            <div class="card-ghost">
-                                <h3><i class="fas fa-users"></i> 采纳度</h3>
-                                <p>模板市场 + 培训机制，设置 Owner 与 KPI 绑定。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="card">
-                        <div class="stack-label">06 · FAQ</div>
-                        <h2>常见疑问</h2>
-                        <ul class="list-dot">
-                            <li><strong>能否复用现有系统？</strong> 支持 API/Webhook 对接 JIRA、IM、语音转写、BI 等。</li>
-                            <li><strong>合规如何做？</strong> 权限分级、审计日志、脱敏策略、模型黑白名单。</li>
-                            <li><strong>如何控制成本？</strong> 调用限额、缓存分层、离线批处理替代实时。</li>
-                            <li><strong>谁来维护？</strong> 每条 Workflow 绑定 Owner + 指标，运营节奏周迭代。</li>
-                            <li><strong>效果不好怎么办？</strong> 评测集驱动，A/B 实验验证，持续优化 Prompt/知识库。</li>
-                        </ul>
-                    </div>
-                </section>
-            </section>
-
-            <!-- 行动 -->
-            <section>
-                <section>
-                    <div class="card">
-                        <div class="stack-label">07 · 行动</div>
-                        <h2>首批试点建议</h2>
-                        <div class="grid-2">
-                            <div class="card-ghost">
-                                <h3>推荐场景</h3>
-                                <ul class="list-dot">
-                                    <li><strong>信息同步官</strong> - 快速见效，全员可用</li>
-                                    <li><strong>Bug Intake</strong> - 痛点明确，指标可量化</li>
-                                </ul>
-                            </div>
-                            <div class="card-ghost">
-                                <h3>启动条件</h3>
-                                <ul class="list-dot">
-                                    <li>确定 1 个试点团队（5-10 人）</li>
-                                    <li>准备基础知识库/数据</li>
-                                    <li>明确成功标准与指标</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="segment" style="margin-top: 24px;">
-                            <i class="fas fa-hand-point-right"></i> 下一步：确定试点团队与数据范围，一周内启动 MVP
-                        </div>
-                    </div>
-                </section>
-
-                <section data-background-gradient="linear-gradient(135deg, #0033ff 0%, #1a237e 100%)">
-                    <div class="hero" style="color: #fff;">
-                        <h2 style="color: #fff; font-size: 2.2rem;">把重复工作交给 Workflow<br>把人力投入高价值决策</h2>
-                        <p style="color: rgba(255,255,255,0.8); max-width: 600px;">
-                            5 套跨岗位复用场景 · Dify 编排基座 · 4 周可落地
-                        </p>
-                        <div style="margin-top: 32px;">
-                            <div class="badge" style="background: rgba(255,255,255,0.2); color: #fff; font-size: 1rem; padding: 12px 24px;">
-                                <i class="fas fa-envelope"></i> banana@dify.ai
-                            </div>
-                        </div>
-                        <p class="footer-note" style="color: rgba(255,255,255,0.5); margin-top: 32px;">Q&A</p>
-                    </div>
-                </section>
-            </section>
-
+      <!-- Intro (vertical stack) -->
+      <section>
+      <!-- 01 · Title -->
+      <section data-background-gradient="linear-gradient(135deg, #0033ff 0%, #1a237e 100%)">
+        <div class="hero hero--dark">
+          <div class="badge badge--ghost">
+            <i class="fas fa-bolt"></i> Dify × AISPEECH · AI Workflow
+          </div>
+          <h1>企业高频痛点的<br>AI Workflow 解决方案</h1>
+          <p>
+            把跨岗位重复动作抽象成 <strong style="color:#fff;">可复用模板</strong>，<br>
+            用 Dify 编排层连接 LLM、AISPEECH 与企业系统
+          </p>
+          <div class="stats-row stats-row--hero">
+            <div class="stat-item">
+              <div class="number">5</div>
+              <div class="label">核心工作流</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">8+</div>
+              <div class="label">覆盖岗位</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">4</div>
+              <div class="label">周落地节奏</div>
+            </div>
+          </div>
+          <p class="footer-note footer-note--hero">Speaker: 郑立 · DevRel @ Dify</p>
         </div>
-    </div>
+      </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
-    <script src="scripts/deck.js"></script>
+      <!-- 02 · Executive Summary -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · One Slide</div>
+          <h2>让数字和公式“打起来”</h2>
+          <div class="tension-grid">
+            <div class="tension-left">
+              <div class="formula-panel">
+                <div class="formula-kicker">价值公式</div>
+                <div class="formula-big">
+                  \( \textbf{价值} = \text{频次} \times \text{耗时} \times \text{规模} \times \text{自动化率} \)
+                </div>
+                <div class="formula-sub">
+                  把每一次重复，变成一次模板复用；把每一次产出，变成可追溯的闭环。
+                </div>
+              </div>
+              <div class="segment segment--strong">
+                <i class="fas fa-diagram-project"></i>
+                核心思路：<strong>Workflow 编排</strong> + <strong>系统集成</strong> + <strong>治理运营</strong>
+              </div>
+            </div>
+            <div class="tension-right">
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-layer-group"></i> 场景</span></div>
+                  <div class="kpi-value">5</div>
+                  <div class="kpi-label">套工作流模板</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-users"></i> 覆盖</span></div>
+                  <div class="kpi-value">8+</div>
+                  <div class="kpi-label">岗位复用</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-clock"></i> 收益</span></div>
+                  <div class="kpi-value">1000+</div>
+                  <div class="kpi-label">预计年节省工时</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-top"><span class="kpi-badge"><i class="fas fa-chart-line"></i> 回本</span></div>
+                  <div class="kpi-value">3–6</div>
+                  <div class="kpi-label">个月</div>
+                </div>
+              </div>
+              <div class="mini-note">
+                数字不是装饰：每个场景都绑定 <strong>输入-决策-输出-闭环</strong> 与可量化 KPI。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02.5 · Key Numbers -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Key Numbers</div>
+          <h2>把“价值”落在 6 个数字上</h2>
+          <div class="big-metrics">
+            <div class="big-metric">
+              <div class="big-val">1000+</div>
+              <div class="big-lab">预计年节省工时</div>
+              <div class="big-sub">按岗位与频次滚动估算</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">3–6</div>
+              <div class="big-lab">个月回本窗口</div>
+              <div class="big-sub">节省人时 × 人力成本</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">8+</div>
+              <div class="big-lab">岗位可复用</div>
+              <div class="big-sub">模板库复用优先</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">≥90%</div>
+              <div class="big-lab">采纳 / 回执率</div>
+              <div class="big-sub">闭环指标：看过→确认→执行</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">≥95%</div>
+              <div class="big-lab">信息完整 / 一致性</div>
+              <div class="big-sub">数据口径/字段补全</div>
+            </div>
+            <div class="big-metric">
+              <div class="big-val">&lt; 5%</div>
+              <div class="big-lab">法务红线误报率</div>
+              <div class="big-sub">规则 + 评测集门禁</div>
+            </div>
+          </div>
+          <div class="segment segment--strong">
+            <i class="fas fa-arrow-down"></i> 下面每个场景：把 KPI 做成可观测面板（而不是口号）
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 · Cross-role repetition as charts -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · 痛点地图</div>
+          <h2>相同动作，在 8+ 岗位被反复“手搓”</h2>
+          <div class="grid-2">
+            <div class="card-ghost">
+              <h3><i class="fas fa-fire"></i> 年度隐性成本（人/年）</h3>
+              <div class="bar-chart">
+                <div class="bar-row" style="--p:50;--c:var(--dify-blue);">
+                  <div class="bar-label"><i class="fas fa-share-nodes"></i> 信息同步 / 版本对齐</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~200h</div>
+                </div>
+                <div class="bar-row" style="--p:75;--c:var(--purple);">
+                  <div class="bar-label"><i class="fas fa-chart-line"></i> 数据整理 / 报告撰写</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~300h</div>
+                </div>
+                <div class="bar-row" style="--p:100;--c:var(--orange);">
+                  <div class="bar-label"><i class="fas fa-comments"></i> 流程问答 / SOP 辅导</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~400h</div>
+                </div>
+                <div class="bar-row" style="--p:38;--c:var(--red);">
+                  <div class="bar-label"><i class="fas fa-bug"></i> 工单/Bug 收敛与路由</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~150h</div>
+                </div>
+                <div class="bar-row" style="--p:25;--c:var(--green);">
+                  <div class="bar-label"><i class="fas fa-clipboard-list"></i> 会议纪要 / 行动项跟进</div>
+                  <div class="bar-track"><div class="bar-fill"></div></div>
+                  <div class="bar-value">~100h</div>
+                </div>
+              </div>
+              <p class="footnote">注：示例为典型岗位年隐性成本估算，用于量化优先级。</p>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-filter"></i> 提炼成 5 套可复用 Workflow</h3>
+              <div class="scene-cards">
+                <div class="scene-card"><i class="fas fa-share-nodes"></i><div><div class="scene-title">信息同步官</div><div class="scene-sub">多版本摘要 · 回执闭环</div></div></div>
+                <div class="scene-card"><i class="fas fa-chart-line"></i><div><div class="scene-title">自动分析师</div><div class="scene-sub">清洗 → 解读 → 报告</div></div></div>
+                <div class="scene-card"><i class="fas fa-robot"></i><div><div class="scene-title">知识问答</div><div class="scene-sub">RAG + SOP · 可追溯回答</div></div></div>
+                <div class="scene-card"><i class="fas fa-bug"></i><div><div class="scene-title">Bug Intake</div><div class="scene-sub">聚类/评级 · 自动路由</div></div></div>
+                <div class="scene-card"><i class="fas fa-clipboard-list"></i><div><div class="scene-title">会议 PMO</div><div class="scene-sub">纪要结构化 · 行动项追踪</div></div></div>
+              </div>
+              <div class="segment"><i class="fas fa-arrow-down"></i> 接下来每个场景只讲 3 件事：流程、关键节点、KPI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 · Why now -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · Why Now</div>
+          <h2>现在做，能做到“可规模化”的关键</h2>
+          <div class="grid-3">
+            <div class="card-ghost">
+              <h3><i class="fas fa-brain"></i> 模型能力</h3>
+              <p>总结、抽取、分类、路由、生成结构化输出 —— 终于可控、可复用。</p>
+              <div class="pill-row">
+                <span class="pill">抽取</span><span class="pill">分类</span><span class="pill">生成</span><span class="pill">评测</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-plug"></i> 工具与系统</h3>
+              <p>IM/日历/JIRA/工单/BI 都有 API：把“人肉流程”变成“自动链路”。</p>
+              <div class="pill-row">
+                <span class="pill">Webhook</span><span class="pill">HTTP</span><span class="pill">DB</span><span class="pill">插件</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-microphone-lines"></i> AISPEECH 加成</h3>
+              <p>语音 → 文本（分离说话人/时间戳）让会议场景可被编排、可被追踪。</p>
+              <div class="pill-row">
+                <span class="pill">ASR</span><span class="pill">Diarization</span><span class="pill">Timestamp</span>
+              </div>
+            </div>
+          </div>
+          <div class="segment segment--strong" style="margin-top: 18px;">
+            <i class="fas fa-shield-halved"></i> 规模化的前提：<strong>可观测</strong>、<strong>可审计</strong>、<strong>可迭代</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 · Method -->
+      <section>
+        <div class="card">
+          <div class="stack-label">01 · 方法论</div>
+          <h2>从“动作”到“模板”的落地闭环</h2>
+          <div class="grid-2">
+            <div class="card-ghost">
+              <h3><i class="fas fa-compass"></i> 选择题：先做哪条？</h3>
+              <div class="compare-card">
+                <div class="compare-head">优先级评分</div>
+                <div class="compare-body">
+                  <div class="formula-inline">
+                    \( \textbf{Priority} = \text{频次} \times \text{耗时} \times \text{复用面} \times \text{可测性} \)
+                  </div>
+                  <div class="mini-note">选“高频 + 高耗时 + 高复用 + 可量化”的场景，最快拿到信任与预算。</div>
+                </div>
+              </div>
+              <div class="pill-row">
+                <span class="pill pill--blue">频次</span>
+                <span class="pill pill--blue">耗时</span>
+                <span class="pill pill--blue">复用面</span>
+                <span class="pill pill--blue">可测性</span>
+              </div>
+            </div>
+            <div class="card-ghost">
+              <h3><i class="fas fa-recycle"></i> 交付形态：模板库，而不是一次性项目</h3>
+              <div class="loop-diagram">
+                <div class="loop-step"><span class="loop-dot">1</span> 识别动作</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">2</span> 编排流程</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">3</span> 系统集成</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">4</span> 指标可观测</div>
+                <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="loop-step"><span class="loop-dot">5</span> 运营迭代</div>
+              </div>
+              <div class="segment"><i class="fas fa-box"></i> 产物：Workflow 模板 + Prompt 模板 + 知识资产 + 评测集</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 · Workflows overview -->
+      <section>
+        <div class="card">
+          <div class="stack-label">02 · 五套工作流</div>
+          <h2>统一骨架：输入 → 处理 → 输出 → 闭环</h2>
+          <div class="flow flow--compact">
+            <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发</h4><p>事件/消息/定时</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-folder-open"></i> 上下文</h4><p>附件/链接/数据</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> 生成</h4><p>抽取/分类/总结</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-toolbox"></i> 工具</h4><p>HTTP/DB/插件</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 输出</h4><p>IM/JIRA/文档</p></div>
+            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="flow-step"><h4><i class="fas fa-eye"></i> 闭环</h4><p>回执/指标/审计</p></div>
+          </div>
+          <div class="segment segment--strong">
+            <i class="fas fa-arrow-down"></i> 下面每个场景：一页讲痛点与 KPI，一页讲流程，一页讲闭环与集成
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <!-- =========================================================
+           02 · Workflows (5 stacks × 3 = 15 slides)
+           ========================================================= -->
+
+      <!-- Workflow 1 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">01</div>
+            <div class="stack-label">02 · 场景 1</div>
+            <h2><i class="fas fa-share-nodes"></i> 信息同步官：版本冲突与确认慢</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>痛点（谁在被耗着）</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>同一信息向管理层/执行层/外部重复解释</li>
+                  <li>口径随传递失真，版本散落在 IM/邮件/文档</li>
+                  <li>缺少阅读回执：无法确认“看过/理解/执行”</li>
+                </ul>
+                <div class="pill-row">
+                  <span class="pill">产品</span><span class="pill">商务</span><span class="pill">HR</span><span class="pill">行政</span>
+                </div>
+              </div>
+              <div class="card-ghost">
+                <h3>目标 KPI（4 个数字说话）</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">同步耗时</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">回执率</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">口径争议</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">可追溯</span><span class="kpi-val">100%</span><span class="kpi-spark" style="--p:100;"></span></div>
+                </div>
+                <div class="segment"><i class="fas fa-clock"></i> 现状：反馈周期 1–2 天（缺回执）</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 1 · 流程</div>
+            <h2>多版本摘要 + 回执闭环</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发</h4><p>会议/IM/邮件</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-folder-open"></i> 上下文</h4><p>附件/链接收集</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-users"></i> 分群</h4><p>受众分类</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-wand-magic-sparkles"></i> 生成</h4><p>多口径摘要</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 推送</h4><p>IM/邮件/群</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-check-double"></i> 回执</h4><p>确认/追问</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-database"></i> 留痕</h4><p>版本存档</p></div>
+            </div>
+            <div class="code-block">
+              <pre><code class="language-yaml" data-trim>
+trigger: webhook(meeting_end) | slash_command(/sync)
+steps:
+  - collect_context: fetch(attachments, links, participants)
+  - segment: classify(management | execution | external)
+  - generate: llm.generate(template_by_audience)
+  - deliver: send(im/email, read_receipt=true)
+  - close_loop: remind_unread + archive(version, confirmations)
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 1 · 闭环</div>
+            <h2>把“看过了吗？”变成可观测指标</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>输出物</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>管理层 / 执行层 / 外部：不同粒度摘要</li>
+                  <li>版本号 + 变更对比</li>
+                  <li>回执清单：未读/已读/待确认</li>
+                </ul>
+                <div class="segment"><i class="fas fa-link"></i> 对接：日历、IM、邮件、文档</div>
+              </div>
+              <div class="card-ghost">
+                <h3>KPI 看板（示例）</h3>
+                <div class="kpi-line"><span class="kpi-key">同步耗时</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">回执确认率</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">口径争议</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">追溯完整</span><span class="kpi-val">100%</span><span class="kpi-spark" style="--p:100;"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 2 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">02</div>
+            <div class="stack-label">02 · 场景 2</div>
+            <h2><i class="fas fa-chart-line"></i> 自动分析师：口径不一，重复造表</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>痛点</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>数据清洗、对齐口径、出结论高度依赖个人经验</li>
+                  <li>“为什么涨/为什么跌”写报告，重复劳动</li>
+                  <li>变更频繁：口径漂移导致结论不可复现</li>
+                </ul>
+                <div class="segment"><i class="fas fa-table"></i> 输入：BI/数仓/CSV；输出：图表 + 结论 + 口径说明</div>
+              </div>
+              <div class="card-ghost">
+                <h3>目标 KPI</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">出报告时间</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">口径一致</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">异动召回</span><span class="kpi-val">≥90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">错误率</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 2 · 张力</div>
+            <h2>数字背后的“解释权”：异常检测 + 贡献度</h2>
+            <div class="tension-grid">
+              <div class="tension-left">
+                <div class="formula-panel">
+                  <div class="formula-kicker">核心公式</div>
+                  <div class="formula-big">
+                    \( z = \dfrac{x-\mu}{\sigma} \Rightarrow \text{z-score 异常} \)
+                  </div>
+                  <div class="formula-sub">
+                    先找“异常”，再找“是谁导致的”（维度贡献度排序），最后把解释写进报告。
+                  </div>
+                </div>
+                <div class="segment">
+                  <i class="fas fa-wand-magic-sparkles"></i> 关键不是“算出来”，而是<strong>可复现</strong>：口径版本 + 数据血缘 + 报告版本化
+                </div>
+              </div>
+              <div class="tension-right">
+                <div class="card-ghost" style="height: 100%;">
+                  <h3><i class="fas fa-chart-column"></i> 异动贡献度（示意）</h3>
+                  <div class="bar-chart bar-chart--mini">
+                    <div class="bar-row" style="--p:68;--c:var(--dify-blue);">
+                      <div class="bar-label">渠道 A</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.68</div>
+                    </div>
+                    <div class="bar-row" style="--p:34;--c:var(--purple);">
+                      <div class="bar-label">地区 B</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.34</div>
+                    </div>
+                    <div class="bar-row" style="--p:22;--c:var(--orange);">
+                      <div class="bar-label">品类 C</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.22</div>
+                    </div>
+                    <div class="bar-row" style="--p:12;--c:var(--green);">
+                      <div class="bar-label">其他</div>
+                      <div class="bar-track"><div class="bar-fill"></div></div>
+                      <div class="bar-value">0.12</div>
+                    </div>
+                  </div>
+                  <p class="footnote">示意：贡献度仅用于展示报告结构，实际由口径与数据源定义。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 2 · 流程</div>
+            <h2>清洗 → 异动 → 解释 → 图表报告</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-database"></i> 数据</h4><p>BI/数仓</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-filter"></i> 清洗</h4><p>口径对齐</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 异动</h4><p>检测/聚类</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> 归因</h4><p>贡献度</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 报告</h4><p>图表+结论</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-paper-plane"></i> 分发</h4><p>IM/邮件</p></div>
+            </div>
+            <div class="segment segment--strong">
+              <i class="fas fa-check-double"></i> 关键闭环：口径变更必须过评测集（否则报告“看起来对、其实不对”）
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 3 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">03</div>
+            <div class="stack-label">02 · 场景 3</div>
+            <h2><i class="fas fa-robot"></i> 知识问答：专家时间被碎片化占用</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>痛点</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>基础问题反复回答（制度/流程/条款）</li>
+                  <li>SOP 散落各处，查找成本高</li>
+                  <li>答案口径不一致，存在合规风险</li>
+                  <li><strong>法务高频：</strong>合同条款咨询、审查意见重复、审批口径不统一</li>
+                </ul>
+                <div class="segment"><i class="fas fa-comments"></i> 现状：日均 50+ 重复问题</div>
+              </div>
+              <div class="card-ghost">
+                <h3>目标 KPI</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">自助解答</span><span class="kpi-val">≥60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">知识命中</span><span class="kpi-val">≥85%</span><span class="kpi-spark" style="--p:85;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">满意度</span><span class="kpi-val">≥4.0/5</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">专家节省</span><span class="kpi-val">50%+</span><span class="kpi-spark" style="--p:50;"></span></div>
+                </div>
+                <p class="footnote">法务扩展指标：审查时长 ↓ 60% · 红线误报率 &lt; 5% · 一次通过率 ↑</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 3 · 流程</div>
+            <h2>RAG + SOP：可追溯回答，拒绝胡编</h2>
+            <div class="arch-diagram">
+              <div class="arch-row">
+                <div class="arch-box">用户提问</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-box primary">Dify Agent</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-box">结构化答案（含引用）</div>
+              </div>
+              <div class="arch-row" style="margin-top: -8px;">
+                <div style="width: 140px;"></div>
+                <div class="arch-arrow">↓↑</div>
+              </div>
+              <div class="arch-row">
+                <div class="arch-box secondary">制度库</div>
+                <div class="arch-box secondary">SOP 库</div>
+                <div class="arch-box secondary">FAQ 库</div>
+                <div class="arch-box secondary">条款库</div>
+              </div>
+            </div>
+            <div class="flow flow--compact">
+              <div class="flow-step"><h4><i class="fas fa-tags"></i> 意图</h4><p>分类识别</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-magnifying-glass"></i> 检索</h4><p>Top-K</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-shield-halved"></i> 合规</h4><p>敏感过滤</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-reply"></i> 回复</h4><p>引用来源</p></div>
+            </div>
+
+            <div class="compare-card">
+              <div class="compare-head"><i class="fas fa-scale-balanced"></i> 法务示例：合同条款咨询 / 审查输出</div>
+              <div class="compare-body">
+                <div class="grid-2" style="margin-top: 0;">
+                  <div class="card-ghost" style="padding: 16px;">
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-circle-question"></i> 输入（问题/合同片段）</h3>
+                    <ul class="list-dot list-dot--compact">
+                      <li>“违约责任上限能否写成 <code>无限责任</code>？”</li>
+                      <li>“数据出境条款是否缺失？需要哪些补充？”</li>
+                      <li>“付款条件是否违反公司采购 SOP？”</li>
+                    </ul>
+                  </div>
+                  <div class="card-ghost" style="padding: 16px;">
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-clipboard-check"></i> 输出（结构化 + 引用）</h3>
+                    <ul class="list-dot list-dot--compact">
+                      <li><strong>红线提示：</strong>高风险条款（原因 + 建议替换文本）</li>
+                      <li><strong>依据引用：</strong>合同模板/制度条款/审查清单（带链接）</li>
+                      <li><strong>下一步：</strong>生成 Redline 建议 → 发起审批 → 留痕</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="footnote">注：示例用于展示流程与输出形态，具体法律判断以企业法务制度为准。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 3 · 法务 Workflow</div>
+            <h2><i class="fas fa-scale-balanced"></i> 合同审查 Copilot：条款定位 → 风险分级 → Redline</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>Workflow（示意）</h3>
+                <div class="flow">
+                  <div class="flow-step"><h4><i class="fas fa-file-contract"></i> 输入</h4><p>合同/PDF/正文</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-list-check"></i> 结构化</h4><p>条款/主体/金额</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> 红线</h4><p>命中规则库</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> 分级</h4><p>风险 1–5</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-pen-to-square"></i> Redline</h4><p>替换建议</p></div>
+                  <div class="flow-step"><h4><i class="fas fa-stamp"></i> 审批</h4><p>OA/留痕归档</p></div>
+                </div>
+                <p class="footnote">输出强制附引用：模板条款/审查清单/制度条文（可追溯）。</p>
+              </div>
+              <div class="card-ghost">
+                <h3>输出形态（更轻松好读）</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">审查时长</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">红线召回</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">红线误报</span><span class="kpi-val">&lt; 5%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">一次通过率</span><span class="kpi-val">↑</span><span class="kpi-spark" style="--p:70;"></span></div>
+                </div>
+                <div class="segment">
+                  <i class="fas fa-link"></i> 对接：合同系统、OA 审批、印章、归档系统
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 3 · 闭环</div>
+            <h2>答案质量不是感觉：把反馈变成评测集</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>输出物</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>结构化答案 + 引用来源 + 相关 SOP 链接</li>
+                  <li>无法回答：转人工 + 问题收集</li>
+                  <li>对话日志：用于评测与知识更新</li>
+                  <li><strong>法务扩展：</strong>合同审查清单 + 风险条款定位 + Redline 建议</li>
+                </ul>
+                <div class="segment"><i class="fas fa-plug"></i> 对接：IM Bot、工单系统、门户、合同/OA 审批</div>
+              </div>
+              <div class="card-ghost">
+                <h3>质量闭环（关键链路）</h3>
+                <div class="loop-diagram loop-diagram--stack">
+                  <div class="loop-step"><span class="loop-dot">1</span> 用户反馈</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">2</span> 采样抽检</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">3</span> 评测集</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">4</span> 知识/Prompt 更新</div>
+                  <div class="loop-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="loop-step"><span class="loop-dot">5</span> 回归验证</div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-check-double"></i> 评测集是“护城河”：越用越好</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 4 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">04</div>
+            <div class="stack-label">02 · 场景 4</div>
+            <h2><i class="fas fa-bug"></i> Bug Intake：误分拣、信息不全、返工高</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>痛点</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>描述不完整：复现信息缺失导致来回沟通</li>
+                  <li>重复问题多：同一个 Bug 被多次报修</li>
+                  <li>严重级别不清：路由不准，返工率 30%+</li>
+                </ul>
+                <div class="segment"><i class="fas fa-rotate"></i> 现状：返工率 30%+</div>
+              </div>
+              <div class="card-ghost">
+                <h3>目标 KPI</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">Triage 时延</span><span class="kpi-val">↓70%</span><span class="kpi-spark" style="--p:70;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">信息完整</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">误分拣</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">返工率</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 4 · 张力</div>
+            <h2>规则 × LLM × 相似聚类：把“分拣”做成可解释</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>决策公式（示意）</h3>
+                <div class="formula-inline formula-inline--big">
+                  \( \textbf{Priority} = \text{RuleScore} + \text{LLMScore} + \text{SimBoost} \)
+                </div>
+                <ul class="list-dot list-dot--compact">
+                  <li>规则：关键字/影响范围/版本命中</li>
+                  <li>LLM：严重级别、模块归属、补问清单</li>
+                  <li>相似聚类：重复合并，减少噪声</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3>结果不是“自动”，而是“自动 + 可回退”</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">自动补全</span>
+                  <span class="pill pill--blue">置信度阈值</span>
+                  <span class="pill pill--blue">人工兜底</span>
+                  <span class="pill pill--blue">审计留痕</span>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-shield-halved"></i> 低置信度自动转人工，关键链路不赌概率</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 4 · 流程</div>
+            <h2>自动分拣 + 补全 + 路由（写回 JIRA/工单）</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-inbox"></i> 入口</h4><p>工单/表单</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 结构化</h4><p>抽取字段</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-layer-group"></i> 聚类</h4><p>相似合并</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> 评级</h4><p>规则+LLM</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-route"></i> 路由</h4><p>Owner/团队</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-code-branch"></i> 写回</h4><p>JIRA/工单</p></div>
+            </div>
+            <div class="segment"><i class="fas fa-eye"></i> 指标：分拣时延、误分拣率、信息完整率、返工率（按团队/模块拆分）</div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Workflow 5 -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="ghost-num">05</div>
+            <div class="stack-label">02 · 场景 5</div>
+            <h2><i class="fas fa-clipboard-list"></i> 会议 PMO：纪要耗时，行动项丢失</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>痛点</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>会议多：周均 8+，纪要靠手写</li>
+                  <li>行动项不结构化：负责人/DDL/依赖缺失</li>
+                  <li>缺少提醒升级：追踪靠“人记得”</li>
+                </ul>
+                <div class="segment"><i class="fas fa-calendar"></i> 现状：周均 8+ 会议</div>
+              </div>
+              <div class="card-ghost">
+                <h3>目标 KPI</h3>
+                <div class="kpi-lines kpi-lines--2">
+                  <div class="kpi-line"><span class="kpi-key">纪要耗时</span><span class="kpi-val">↓90%</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">遗漏率</span><span class="kpi-val">↓80%</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">完成率</span><span class="kpi-val">↑40%</span><span class="kpi-spark" style="--p:65;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">二次对齐</span><span class="kpi-val">↓50%</span><span class="kpi-spark" style="--p:50;"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 5 · AISPEECH</div>
+            <h2>语音变成可编排事件：ASR + 说话人分离 + 时间戳</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>音频链路（可追溯）</h3>
+                <div class="flow flow--compact">
+                  <div class="flow-step"><h4><i class="fas fa-microphone"></i> 音频</h4><p>会议录音</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 转写</h4><p>ASR</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-user-group"></i> 分离</h4><p>Speaker</p></div>
+                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="flow-step"><h4><i class="fas fa-clock"></i> 时间戳</h4><p>可定位</p></div>
+                </div>
+                <div class="segment"><i class="fas fa-link"></i> 输出：带时间戳的逐字稿 + 段落切分（支持回溯证据）</div>
+              </div>
+              <div class="card-ghost">
+                <h3>会议文本能做什么（立刻可用）</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">议题抽取</span>
+                  <span class="pill pill--blue">决策点</span>
+                  <span class="pill pill--blue">行动项</span>
+                  <span class="pill pill--blue">风险/待决</span>
+                </div>
+                <div class="compare-card" style="margin-top: 14px;">
+                  <div class="compare-head">结构化输出模板</div>
+                  <div class="compare-body">
+                    <div class="mini-note">让“纪要”变成数据：负责人/DDL/依赖/证据链接（时间戳）</div>
+                  </div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-shield-halved"></i> 可审计：每条结论都能回到原句</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">02 · 场景 5 · 流程</div>
+            <h2>纪要结构化 → 行动项拆解 → 提醒升级</h2>
+            <div class="flow">
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> 触发</h4><p>会议结束</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-microphone-lines"></i> ASR</h4><p>AISPEECH</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-table-list"></i> 结构化</h4><p>议题/结论</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-person-chalkboard"></i> 行动项</h4><p>Owner/DDL</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-plug"></i> 写回</h4><p>JIRA/IM</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-bell"></i> 提醒</h4><p>逾期升级</p></div>
+            </div>
+            <div class="segment"><i class="fas fa-eye"></i> 指标：纪要时长、遗漏率、完成率、逾期率、二次对齐会议数</div>
+          </div>
+        </section>
+      </section>
+
+      <!-- =========================================================
+           03 · Platform / Assets (1 stack × 5 = 5 slides)
+           ========================================================= -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 平台基座</div>
+            <h2>Dify Workflow：把“流程”做成产品能力</h2>
+            <div class="platform-grid">
+              <div class="platform-col">
+                <div class="platform-title">输入层</div>
+                <div class="platform-item"><i class="fas fa-calendar"></i> 日历事件</div>
+                <div class="platform-item"><i class="fas fa-comment-dots"></i> IM 消息</div>
+                <div class="platform-item"><i class="fas fa-envelope"></i> 邮件</div>
+                <div class="platform-item"><i class="fas fa-ticket"></i> 工单</div>
+              </div>
+              <div class="platform-core">
+                <div class="platform-core-badge"><i class="fas fa-diagram-project"></i> Dify Workflow</div>
+                <div class="platform-core-items">
+                  <div class="platform-chip"><i class="fas fa-code-branch"></i> IF / Switch</div>
+                  <div class="platform-chip"><i class="fas fa-code"></i> Code (JS/Python)</div>
+                  <div class="platform-chip"><i class="fas fa-toolbox"></i> Tools / HTTP / DB</div>
+                  <div class="platform-chip"><i class="fas fa-robot"></i> Multi-LLM</div>
+                  <div class="platform-chip"><i class="fas fa-database"></i> RAG / KB</div>
+                  <div class="platform-chip"><i class="fas fa-eye"></i> Tracing</div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-plug"></i> 插件生态：100+ 工具集成（可扩展）</div>
+              </div>
+              <div class="platform-col">
+                <div class="platform-title">输出层</div>
+                <div class="platform-item"><i class="fas fa-paper-plane"></i> IM / 邮件</div>
+                <div class="platform-item"><i class="fas fa-clipboard-check"></i> JIRA / 工单</div>
+                <div class="platform-item"><i class="fas fa-file-lines"></i> 文档 / 报告</div>
+                <div class="platform-item"><i class="fas fa-chart-simple"></i> 指标回传</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 系统集成</div>
+            <h2>连接 AISPEECH + 企业系统：一层编排，双向回传</h2>
+            <div class="arch-diagram arch-diagram--large">
+              <div class="arch-row">
+                <div class="arch-box">日历</div>
+                <div class="arch-box">IM</div>
+                <div class="arch-box">邮件</div>
+                <div class="arch-box">JIRA</div>
+                <div class="arch-box">工单</div>
+                <div class="arch-box">BI</div>
+              </div>
+              <div class="arch-row"><div class="arch-arrow arch-arrow--down">↓</div></div>
+              <div class="arch-row">
+                <div class="arch-box primary" style="min-width: 260px;">Dify Workflow 编排层</div>
+              </div>
+              <div class="arch-row"><div class="arch-arrow arch-arrow--down">↓</div></div>
+              <div class="arch-row">
+                <div class="arch-box secondary">LLM</div>
+                <div class="arch-box secondary">AISPEECH ASR</div>
+                <div class="arch-box secondary">知识库</div>
+                <div class="arch-box secondary">DB/对象存储</div>
+              </div>
+            </div>
+            <div class="grid-2" style="margin-top: 18px;">
+              <div class="card-ghost">
+                <h3>事件入口</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>定时、Webhook、消息事件、状态变化</li>
+                  <li>音频上传/会议结束触发 ASR</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3>回传闭环</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>写回：JIRA/工单/文档/BI 指标</li>
+                  <li>追踪：回执、逾期提醒、SLA</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 法务集成</div>
+            <h2><i class="fas fa-scale-balanced"></i> 合同 / OA 合规链路：审查 → 审批 → 留痕</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3>系统对接（示例）</h3>
+                <div class="pill-row">
+                  <span class="pill pill--blue">合同系统</span>
+                  <span class="pill pill--blue">OA 审批</span>
+                  <span class="pill pill--blue">印章/签署</span>
+                  <span class="pill pill--blue">归档</span>
+                  <span class="pill pill--blue">DLP/脱敏</span>
+                  <span class="pill pill--blue">审计日志</span>
+                </div>
+                <div class="segment"><i class="fas fa-plug"></i> 触发：上传合同 / 审批流转 / 签署完成</div>
+              </div>
+              <div class="card-ghost">
+                <h3>标准输出（更易验收）</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li><strong>风险分级：</strong>1–5 级 + 命中依据</li>
+                  <li><strong>Redline 建议：</strong>替换文本 + 原文定位</li>
+                  <li><strong>审批建议：</strong>是否必须法务/高管会签</li>
+                  <li><strong>留痕：</strong>审查版本、批注、签署附件归档</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 法务模板库</div>
+            <h2>把“审查经验”做成可复用的模板与清单</h2>
+            <div class="grid-3">
+              <div class="card-ghost">
+                <h3><i class="fas fa-file-signature"></i> 合同类型模板</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>采购 / 销售 / NDA / 外包</li>
+                  <li>条款顺序与必填项</li>
+                  <li>强制审批路径</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-triangle-exclamation"></i> 风险红线清单</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>无限责任 / 赔付上限</li>
+                  <li>数据出境 / 转委托</li>
+                  <li>竞业 / 知产归属</li>
+                </ul>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-vial"></i> 评测与门禁</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>误报率 &lt; 5%（示例）</li>
+                  <li>变更必须过评测集</li>
+                  <li>版本回滚可用</li>
+                </ul>
+              </div>
+            </div>
+            <div class="segment segment--strong"><i class="fas fa-layer-group"></i> 模板 + 清单 + 评测集 = 法务规模化</div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 资产化</div>
+            <h2>把经验沉淀成“可复制”的四件套</h2>
+            <div class="grid-4">
+              <div class="card-ghost">
+                <h3><i class="fas fa-sitemap"></i> Workflow 模板</h3>
+                <p>YAML/可视化编排：输入、节点、输出、闭环。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-pen-ruler"></i> Prompt 模板</h3>
+                <p>按角色/场景/口径版本化，支持灰度与回滚。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-book"></i> 知识资产</h3>
+                <p>制度/SOP/FAQ/口径定义，治理与权限分级。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-vial"></i> 评测集</h3>
+                <p>Golden Set + 线上采样：把效果变成可验收。</p>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-rocket"></i> 模板库 = 规模化的“复利机器”
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 可观测</div>
+            <h2>可观测 + 可审计：让 AI 成为“工程系统”</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-eye"></i> 观测指标（建议）</h3>
+                <div class="kpi-line"><span class="kpi-key">时延</span><span class="kpi-val">P95 / 峰值</span><span class="kpi-spark" style="--p:78;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">成本</span><span class="kpi-val">Token / 次</span><span class="kpi-spark" style="--p:55;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">命中</span><span class="kpi-val">RAG Hit</span><span class="kpi-spark" style="--p:85;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">采纳</span><span class="kpi-val">回执/执行</span><span class="kpi-spark" style="--p:90;"></span></div>
+                <div class="kpi-line"><span class="kpi-key">质量</span><span class="kpi-val">抽检/评测</span><span class="kpi-spark" style="--p:80;"></span></div>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-shield-halved"></i> 治理控制点</h3>
+                <ul class="list-dot list-dot--compact">
+                  <li>权限分级：按角色、按系统、按数据域</li>
+                  <li>脱敏策略：字段级、规则 + 模型双重过滤</li>
+                  <li>多模型回退：关键链路可配置兜底</li>
+                  <li>变更门禁：模板/口径更新必须过评测集</li>
+                </ul>
+                <div class="segment segment--strong"><i class="fas fa-lock"></i> “能跑”不够，要“能控”</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">03 · 风险与对策</div>
+            <h2>让落地更稳：风险 → 缓解策略</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-shield-halved"></i> 数据安全</h3>
+                <p>私有化/专有云部署；敏感字段脱敏；审计日志留存。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-code-branch"></i> 口径漂移</h3>
+                <p>知识库版本管理 + 评测集门禁，变更必须可回归。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-server"></i> 模型稳定性</h3>
+                <p>缓存/多模型回退；关键节点加规则校验兜底。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-users"></i> 采纳度</h3>
+                <p>Workflow 绑定 Owner + KPI；周节奏运营；模板市场复用。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- =========================================================
+           04 · Rollout / ROI / Closing (1 stack × 4 = 4 slides)
+           ========================================================= -->
+      <section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · 4 周落地</div>
+            <h2>从 1 条 Workflow 到可复用模板库</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Week 1</h4>
+                <p>选 1 场景 · 采样数据 · 搭建 MVP</p>
+                <div class="pill-row"><span class="pill">流程跑通</span><span class="pill">指标定义</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 2</h4>
+                <p>接入系统 · 小范围试点 · 打通闭环</p>
+                <div class="pill-row"><span class="pill">写回</span><span class="pill">回执</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 3</h4>
+                <p>扩展 3–5 场景 · 模板复用 · 建评测集</p>
+                <div class="pill-row"><span class="pill">模板化</span><span class="pill">评测</span></div>
+              </div>
+              <div class="timeline-item">
+                <h4>Week 4</h4>
+                <p>治理与运营 · Owner 制 · 可观测面板</p>
+                <div class="pill-row"><span class="pill">审计</span><span class="pill">运营</span></div>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-flag-checkered"></i> 交付：模板库 + 指标面板 + 运维/审计策略
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · ROI</div>
+            <h2>把收益算清楚：回本不是口号</h2>
+            <div class="tension-grid">
+              <div class="tension-left">
+                <div class="formula-panel">
+                  <div class="formula-kicker">ROI 公式</div>
+                  <div class="formula-big">
+                    \( ROI = \dfrac{(\text{节省人时} \times \text{人力成本}) - \text{平台成本}}{\text{平台成本}} \)
+                  </div>
+                  <div class="formula-sub">
+                    把每条 Workflow 的节省人时与指标（回执/完整率/错误率）挂钩，才能稳定复用。
+                  </div>
+                </div>
+                <div class="stats-row" style="margin-top: 16px;">
+                  <div class="stat-item">
+                    <div class="number">1000+</div>
+                    <div class="label">预计年节省工时</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">3–6</div>
+                    <div class="label">个月回本周期</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="number">8+</div>
+                    <div class="label">岗位覆盖</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tension-right">
+                <div class="card-ghost" style="height:100%;">
+                  <h3><i class="fas fa-chart-area"></i> 回本曲线（示意）</h3>
+                  <div class="breakeven">
+                    <div class="breakeven-axis">
+                      <div class="axis-label">收益</div>
+                      <div class="axis-grid"></div>
+                    </div>
+                    <div class="breakeven-lines">
+                      <div class="line cost"></div>
+                      <div class="line benefit"></div>
+                      <div class="breakeven-point">
+                        <div class="point-dot"></div>
+                        <div class="point-label">Break-even：3–6 月</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="footnote">示意：展示沟通结构，具体数值由团队规模与人力成本代入。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · 拆解</div>
+            <h2>回本怎么来的：成本 × 产出 × 采纳</h2>
+            <div class="grid-2">
+              <div class="card-ghost">
+                <h3><i class="fas fa-receipt"></i> 成本构成（示意）</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">模型调用</span><span class="kpi-val">可控</span><span class="kpi-spark" style="--p:55;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">存储/检索</span><span class="kpi-val">分层</span><span class="kpi-spark" style="--p:40;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">集成运维</span><span class="kpi-val">模板化</span><span class="kpi-spark" style="--p:50;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">治理与审计</span><span class="kpi-val">必选</span><span class="kpi-spark" style="--p:70;"></span></div>
+                </div>
+                <div class="segment"><i class="fas fa-shield-halved"></i> 成本关键：限额、缓存、批处理、回退策略</div>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-sparkles"></i> 收益抓手（示意）</h3>
+                <div class="kpi-lines">
+                  <div class="kpi-line"><span class="kpi-key">节省人时</span><span class="kpi-val">可量化</span><span class="kpi-spark" style="--p:80;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">错误率下降</span><span class="kpi-val">可追溯</span><span class="kpi-spark" style="--p:65;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">采纳/回执</span><span class="kpi-val">闭环</span><span class="kpi-spark" style="--p:90;"></span></div>
+                  <div class="kpi-line"><span class="kpi-key">复用覆盖</span><span class="kpi-val">规模化</span><span class="kpi-spark" style="--p:85;"></span></div>
+                </div>
+                <div class="segment segment--strong"><i class="fas fa-check-double"></i> 关键：把“用没用”做成指标，否则没有复利</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="card">
+            <div class="stack-label">04 · 运营模型</div>
+            <h2>谁来维护？怎么越用越好？</h2>
+            <div class="grid-3">
+              <div class="card-ghost">
+                <h3><i class="fas fa-user-gear"></i> Owner 制</h3>
+                <p>每条 Workflow 绑定 Owner 与 KPI：采纳/质量/成本。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-calendar-check"></i> 周节奏迭代</h3>
+                <p>周报：指标回顾 → 问题复盘 → 模板/知识更新。</p>
+              </div>
+              <div class="card-ghost">
+                <h3><i class="fas fa-store"></i> 模板市场</h3>
+                <p>复用比构建更重要：共享模板，减少重复工程。</p>
+              </div>
+            </div>
+            <div class="segment segment--strong" style="margin-top: 18px;">
+              <i class="fas fa-arrow-right"></i> 最终目标：Workflow 成为组织的“操作系统”
+            </div>
+          </div>
+        </section>
+        <!-- Q&A (ported from paypal/index.html layout) -->
+        <section data-background-color="#0033ff">
+          <div class="flex flex-col items-center justify-center h-full text-white">
+            <h1 class="text-6xl font-bold mb-6">Q &amp; A</h1>
+            <p class="text-xl opacity-90 mb-8">Don't Panic.</p>
+            <div class="flex gap-8 mb-8">
+              <div class="text-center">
+                <i class="fas fa-envelope text-4xl mb-2"></i>
+                <p>banana@dify.ai</p>
+              </div>
+            </div>
+            <div class="flex gap-10">
+              <div class="flex flex-col items-center">
+                <img src="../assets/xiaohongshu.png" alt="Xiaohongshu QR"
+                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
+                <span class="text-sm mt-2 opacity-90">小红书</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="../assets/bilibili.png" alt="Bilibili QR"
+                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
+                <span class="text-sm mt-2 opacity-90">Bilibili</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+  <script src="scripts/deck.js"></script>
 </body>
 </html>

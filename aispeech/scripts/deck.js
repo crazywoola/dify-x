@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Display
     width: 1920,
     height: 1080,
-    margin: 0.04,
+    margin: 0.015,
     minScale: 0.2,
     maxScale: 2.0,
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     history: true,
     keyboard: true,
     overview: true,
-    center: true,
+    center: false,
     touch: true,
 
     // Transitions
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
     transitionSpeed: 'default',
     backgroundTransition: 'fade',
 
-    // Vertical slides
-    navigationMode: 'linear',
+    // Navigation mode (keep vertical stacks visible)
+    navigationMode: 'default',
 
     // Plugins
     plugins: [RevealHighlight, RevealMath],
