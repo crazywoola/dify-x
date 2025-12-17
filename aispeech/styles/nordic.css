@@ -782,6 +782,64 @@ body {
   margin-top: var(--space-xs);
 }
 
+/* Community Grid */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.community-card {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-xl);
+  padding: 24px 24px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.community-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.community-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.community-label i {
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--dify-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.community-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 16px 0 6px;
+}
+
+.community-subtext {
+  font-size: 0.92rem;
+  color: var(--gray-600);
+  font-weight: 600;
+}
+
 /* Metrics - Hero Context (Dark Background) */
 .hero .metric {
   background: rgba(255,255,255,0.1);
@@ -1418,4 +1476,5 @@ body {
   .tension-grid { grid-template-columns: 1fr; }
   .platform-grid { grid-template-columns: 1fr; }
   .big-metrics { grid-template-columns: 1fr; }
+  .community-grid { grid-template-columns: 1fr; }
 }

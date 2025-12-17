@@ -147,6 +147,54 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .community-card {
+            background: white;
+            border: 3px solid var(--pop-black);
+            box-shadow: 6px 6px 0px 0px var(--pop-black);
+            padding: 22px;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+        .community-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 10px 10px 0px 0px var(--pop-black);
+        }
+        .community-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #555;
+        }
+        .community-label i {
+            width: 36px;
+            height: 36px;
+            border: 3px solid var(--pop-black);
+            background: var(--pop-yellow);
+            color: var(--pop-black);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .community-value {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 16px 0 6px;
+        }
+        .community-subtext {
+            font-size: 0.85em;
+            color: #333;
+        }
         
         .timeline-step {
             border-left: 4px solid var(--pop-black);
@@ -164,6 +212,12 @@
             position: absolute;
             left: -10px;
             top: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -210,6 +264,51 @@
                                 <li><strong>New:</strong> Automated, Connected, Real-time</li>
                             </ul>
                         </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="pop-card">
+                        <div class="pop-badge">COMMUNITY</div>
+                        <h2 class="mb-4">Community-Driven · 全球认可</h2>
+                        <p class="text-lg leading-relaxed">
+                            由开源社区驱动的 Dify：GitHub Star Top 100，真实安装量级与行业采纳在持续加速。
+                        </p>
+                        <div class="community-grid">
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-cloud-arrow-down"></i> INSTALL</div>
+                                <div class="community-value">1M+</div>
+                                <div class="community-subtext">Powered by Dify</div>
+                            </div>
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-star"></i> POPULARITY</div>
+                                <div class="community-value">120K+</div>
+                                <div class="community-subtext">GitHub Stars</div>
+                            </div>
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-earth-asia"></i> GLOBAL</div>
+                                <div class="community-value">150+</div>
+                                <div class="community-subtext">国家 / 地区</div>
+                            </div>
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-building"></i> ENTERPRISE</div>
+                                <div class="community-value">60+</div>
+                                <div class="community-subtext">行业落地</div>
+                            </div>
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-people-group"></i> CONTRIBUTORS</div>
+                                <div class="community-value">1000+</div>
+                                <div class="community-subtext">开源贡献者</div>
+                            </div>
+                            <div class="community-card">
+                                <div class="community-label"><i class="fas fa-download"></i> DOWNLOADS</div>
+                                <div class="community-value">550M+</div>
+                                <div class="community-subtext">累计下载量</div>
+                            </div>
+                        </div>
+                        <p class="mt-6 font-bold text-sm tracking-widest">
+                            社区势能让插件、Workflow、行业资产形成复利。
+                        </p>
                     </div>
                 </section>
 

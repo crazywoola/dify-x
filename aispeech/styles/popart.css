@@ -237,6 +237,55 @@ strong {
 .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+.community-card {
+  background: var(--pop-white);
+  border: var(--border-standard);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s;
+}
+.community-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--pop-black);
+}
+.community-label {
+  font-size: 0.68em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.community-label i {
+  background: var(--pop-black);
+  color: var(--pop-yellow);
+  border: 2px solid var(--pop-black);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0 var(--pop-cyan);
+}
+.community-value {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin: 14px 0 6px;
+  color: var(--pop-black);
+}
+.community-subtext {
+  font-size: 0.85em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 /* Flow Diagram */
 .flow {
   border: var(--border-standard);
@@ -602,7 +651,7 @@ section[data-background-color="#0033ff"] {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4, .community-grid { grid-template-columns: 1fr; }
   .card { padding: 10px; width: 100vw; }
   .reveal h1 { font-size: 2.5em; }
   .tension-grid { grid-template-columns: 1fr; }
