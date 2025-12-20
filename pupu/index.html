@@ -176,43 +176,6 @@
                     </div>
                 </section>
 
-                <section>
-                    <div class="max-w-5xl mx-auto text-left space-y-6">
-                        <h3>1.0 案例演示：RAG + 规则双轨</h3>
-                        <p class="text-text-secondary text-[0.85em]">30 分钟搭建：数据预处理 → 检索 → Guardrail → 结果回传。</p>
-                        <div class="grid grid-cols-3 gap-5">
-                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-semibold text-text-secondary">数据预处理</span>
-                                    <span class="text-xs text-dify bg-dify-light px-2 py-1 rounded-full">10 min</span>
-                                </div>
-                                <p class="text-[0.75em] text-text-secondary mt-2">批量清洗 + 分段，输出向量入库。</p>
-                                <code class="text-[0.65em] block bg-slate-900 text-slate-100 rounded p-3 mt-3"># python node\nchunks = split(doc, size=400)\nstore(chunks)</code>
-                            </div>
-                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-semibold text-text-secondary">检索 + Guardrail</span>
-                                    <span class="text-xs text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">14 ms</span>
-                                </div>
-                                <p class="text-[0.75em] text-text-secondary mt-2">Top-k 检索 + 违规语料过滤，保障安全。</p>
-                                <div class="ticker-line text-[0.7em] text-dify font-semibold mt-3">RAG → LLM → 正则/黑名单 → 结果</div>
-                            </div>
-                            <div class="bg-white/90 rounded-xl border border-black/5 p-5 shadow-sm glow-card">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm font-semibold text-text-secondary">回传 & 观测</span>
-                                    <span class="text-xs text-orange-600 bg-orange-50 px-2 py-1 rounded-full">可回放</span>
-                                </div>
-                                <p class="text-[0.75em] text-text-secondary mt-2">写回业务表，Trace ID 关联到 APM & Log。</p>
-                                <div class="text-[0.7em] text-text-secondary mt-3 space-y-1">
-                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Trace: workflow.run</div>
-                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Token: 115 / req</div>
-                                    <div class="flex items-center gap-2"><span class="text-dify">●</span> Cost: $0.0017</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 <section data-background-color="#ffffff">
                     <div class="max-w-5xl mx-auto text-left space-y-6">
                         <h3>1.0 数据流动画 · 从 Chaos 到 Clarity</h3>
