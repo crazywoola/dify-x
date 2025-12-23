@@ -481,71 +481,33 @@
             <section>
                 <div class="max-w-5xl mx-auto text-left">
                     <h2 class="text-4xl font-bold text-slate-800 mb-6">Agenda</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🚦</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">开场 & 痛点</strong>
-                                <p class="text-sm text-slate-600 m-0">盗刷 / 套现 / 账户接管三板斧，为什么要用 Dify 而不是硬编码。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🧠</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">神话破解</strong>
-                                <p class="text-sm text-slate-600 m-0">迷思一：LLM 幻觉；迷思二：LLM 很慢 ➜ MADRA 辩论 + 分层防御。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">⚖️</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">两个“傻瓜”模型</strong>
-                                <p class="text-sm text-slate-600 m-0">简单线性归因 & 朴素贝叶斯，白盒+概率的黄金搭档。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🧩</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">Dify Workflow 拆解</strong>
-                                <p class="text-sm text-slate-600 m-0">数据富化 ➜ LLM 鉴诈 ➜ Python 判分，拖拉拽调参，分钟级上线。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🛡️</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">动态防御</strong>
-                                <p class="text-sm text-slate-600 m-0">动态策略、异动归因、对抗哲学：让攻击变成亏本生意。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🕵️‍♂️</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">CASE 007</strong>
-                                <p class="text-sm text-slate-600 m-0">谁偷走了授权通过率？SQL 切片、Adtributor 算法、自动化侦探团。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🎭</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">PayPal 实战剧场</strong>
-                                <p class="text-sm text-slate-600 m-0">黑五防刷、账户接管、退款滥用，产品/运营/研发的打法清单。</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
-                            <span class="text-2xl">🔒</span>
-                            <div>
-                                <strong class="block text-lg text-slate-800 mb-1">AI 安全进阶</strong>
-                                <p class="text-sm text-slate-600 m-0">红队对抗、思维链解释性、提示词注入防御，打造数字免疫系统。</p>
-                            </div>
-                        </div>
+                    <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm p-8">
+                        <ol class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-slate-800">
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">1</span>
+                                <span>开场与风控痛点</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">2</span>
+                                <span>LLM 迷思拆解</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">3</span>
+                                <span>线性 + 贝叶斯模型</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">4</span>
+                                <span>Dify Workflow 实操</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">5</span>
+                                <span>动态防御与侦探案例</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold">6</span>
+                                <span>PayPal 实战与总结</span>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </section>
@@ -2032,11 +1994,11 @@ def find_culprit(df):
                 </section>
 
                 <section>
-                    <h2 class="text-left">剧本一：黑五风暴 (Checkout 防刷)</h2>
+                    <h2 class="text-left">剧本一：黑五风暴 (PayPal Checkout 防刷)</h2>
                     <div class="mt-6 text-left space-y-4">
                         <div class="p-4 bg-red-50/90 backdrop-blur-sm border-l-4 border-red-500">
                             <h4 class="font-bold">敌情通报：</h4>
-                            <p class="text-sm">黑五 00:00 开售，预计 300 万支付尝试在 3 秒内打爆网关，其中 20% 是卡测/撞库脚本。</p>
+                            <p class="text-sm">黑五 00:00 开售，预计 300 万次 PayPal Checkout 支付尝试在 3 秒内打爆网关，其中 20% 是卡测/撞库脚本。</p>
                         </div>
 
                         <div class="relative pl-8 border-l-2 border-gray-300 space-y-8">
@@ -2044,38 +2006,38 @@ def find_culprit(df):
                                 <span
                                     class="absolute -left-10 bg-gray-200 rounded-full w-6 h-6 flex items-center justify-center text-xs">23:55</span>
                                 <p class="font-bold">动态策略启动</p>
-                                <p class="text-sm text-gray-500">Dify 自动将高风险区域切到“严格模式”：更高 CVV 校验 + 3DS 强制。</p>
+                                <p class="text-sm text-gray-500">Dify 自动将高风险地区切到“严格模式”：更高 CVV 校验 + 强制 3DS，PayPal 风险分加权。</p>
                             </div>
                             <div class="relative">
                                 <span
                                     class="absolute -left-10 bg-red-200 rounded-full w-6 h-6 flex items-center justify-center text-xs">00:00</span>
                                 <p class="font-bold">开闸放流量</p>
-                                <p class="text-sm text-gray-500">第一层(线性)：限频 + JS PoW 拦截 90% 脚本。<br>第二层(图谱)：识别并拦截共享设备团伙。</p>
+                                <p class="text-sm text-gray-500">第一层(线性)：限频 + JS PoW 拦截 90% 脚本。<br>第二层(图谱)：识别共享设备团伙与异常商户下单链路。</p>
                             </div>
                             <div class="relative">
                                 <span
                                     class="absolute -left-10 bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs">00:01</span>
                                 <p class="font-bold">战斗结束</p>
-                                <p class="text-sm text-gray-500">真用户支付成功率 92%，脚本被 Rate Limit/Hold，盗刷账单没过网关。</p>
+                                <p class="text-sm text-gray-500">真用户支付成功率 92%，脚本被 Rate Limit/Hold，PayPal 账户授权稳定。</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-left">剧本二：账户接管 & 盗刷</h2>
+                    <h2 class="text-left">剧本二：账户接管 & 余额转移</h2>
                     <div class="grid grid-cols-2 gap-8 mt-6">
                         <div class="bg-gray-100/90 backdrop-blur-sm p-6 rounded-lg">
                             <h4 class="font-bold mb-4 text-gray-700">场景还原</h4>
-                            <p class="text-sm mb-4">黑产用钓鱼页 + SIM 换卡拿到 OTP，瞬间登录 300 个账户并发起支付。</p>
-                            <p class="text-sm text-red-500">难点：设备/IP 全新，看起来像真用户；客服第一时间收到大量“并非本人支付”投诉。</p>
+                            <p class="text-sm mb-4">黑产用钓鱼页 + SIM 换卡拿到 OTP，瞬间登录 300 个 PayPal 账户并发起余额转出与购物支付。</p>
+                            <p class="text-sm text-red-500">难点：设备/IP 全新，看起来像真用户；客服第一时间收到大量“并非本人转账/支付”投诉。</p>
                         </div>
                         <div class="bg-white/90 backdrop-blur-sm border border-gray-200 p-6 rounded-lg shadow-lg">
                             <h4 class="font-bold mb-4 text-blue-700">Dify 反击</h4>
                             <ul class="text-sm space-y-3">
-                                <li><strong>1. 语义指纹 (LLM):</strong> 实时分析客服/邮件文案，抓取“我没买过”“账户被偷”等高危语境。</li>
-                                <li><strong>2. 时空逻辑 (Code):</strong> 计算登录地与支付地距离 + 设备共用度，输出风险分。</li>
-                                <li><strong>3. 处置:</strong> 高分直接冻结并触发二次验证，低分进入资金保留队列，向用户推送确认。</li>
+                                <li><strong>1. 语义指纹 (LLM):</strong> 实时分析客服/邮件/聊天文案，抓取“未授权转账”“账户被盗”等高危语境。</li>
+                                <li><strong>2. 行为序列 (Code):</strong> 登录后 2 分钟内新增收款人、修改地址、绑定新卡并高额转出，直接加权。</li>
+                                <li><strong>3. 处置:</strong> 高分冻结账户 + 触发二次验证，中分提升摩擦，低分进入资金保留队列并推送确认。</li>
                             </ul>
                         </div>
                     </div>
@@ -2086,15 +2048,15 @@ def find_culprit(df):
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                         <div class="node-box border-l-4 border-blue-500">
                             <div class="flex items-center gap-2 mb-2 text-blue-700 font-bold"><i class="fas fa-signal"></i> 信号收集</div>
-                            <p class="text-sm text-gray-600 mb-1">交易画像：近 30 天退款/拒付率、是否跨境、虚拟商品。</p>
-                            <p class="text-sm text-gray-600">文本画像：纠纷理由、聊天记录、卖家回复。</p>
+                            <p class="text-sm text-gray-600 mb-1">交易画像：近 30 天 PayPal 纠纷率、跨境交易、数字商品。</p>
+                            <p class="text-sm text-gray-600">文本画像：纠纷理由、站内信、卖家申诉。</p>
                         </div>
                         <div class="node-box border-l-4 border-amber-500">
                             <div class="flex items-center gap-2 mb-2 text-amber-700 font-bold"><i class="fas fa-scale-balanced"></i> 智能判别</div>
                             <p class="text-sm text-gray-600 mb-1">LLM 提炼纠纷理由模式（模板化、批量复制、缺失细节）。</p>
-                            <p class="text-sm text-gray-600">Python 校验行为特征：下单-退款间隔过短、批量同商户退款。</p>
+                            <p class="text-sm text-gray-600">Python 校验行为特征：下单-退款间隔过短、批量同商户申诉。</p>
                         </div>
-                            <div class="node-box border-l-4 border-green-500">
+                        <div class="node-box border-l-4 border-green-500">
                             <div class="flex items-center gap-2 mb-2 text-green-700 font-bold"><i class="fas fa-gavel"></i> 决策动作</div>
                             <p class="text-sm text-gray-600 mb-1">自动下发部分退款 + 资金保留；标记账号进入“高争议”名单。</p>
                             <p class="text-sm text-gray-600">向卖家推送防诈提示，必要时请求额外佐证材料。</p>
@@ -2102,6 +2064,20 @@ def find_culprit(df):
                     </div>
                     <p class="text-xs text-gray-500 mt-4">收益：减少人工邮件拉扯，争议处理时效从 T+1 天缩短到分钟级。</p>
                 </section>
+            </section>
+
+            <!-- =========================================================
+             SECTION 6B: PROJECT SUMMARY
+             ========================================================= -->
+            <section>
+                <div class="max-w-5xl mx-auto text-left">
+                    <h2 class="text-4xl font-bold text-slate-800 mb-6">道高一尺，魔高一丈</h2>
+                    <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-100 shadow-sm p-8 space-y-5 text-base text-slate-700 leading-relaxed">
+                        <p>专家观点指出，黑灰产已进入“自动化攻击”阶段，但平台仍主要依赖人工防守。攻击者借助自动化工具批量注册与操控账号，违规内容可在秒级铺开，规模远超人工审核的处理上限。</p>
+                        <p>人工审核的节奏天然落后于机器化攻击，面对每秒数十条的违规洪流，常常出现“封了还在增”的困局，即便追加人力也难以追平效率差距。</p>
+                        <p>本质上是“攻击自动化”对“防御人工化”的不对称对抗：攻击门槛被技术显著拉低，而传统防护体系难以承受这种降维打击，最终演变为服务瘫痪与违规内容泛滥的关键诱因。</p>
+                    </div>
+                </div>
             </section>
 
             <!-- =========================================================
