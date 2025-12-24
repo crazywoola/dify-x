@@ -131,71 +131,123 @@
       <section>
         <div class="card">
           <div class="stack-label">01 · Key Numbers</div>
-          <h2>把“价值”落在 6 个数字上</h2>
-          <div class="value-board">
-            <div class="value-tile" style="--accent: var(--pop-cyan); --p:88;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-clock"></i> 效率</span>
-                <span class="value-code">01</span>
+          <h2>把"价值"落在 6 个数字上</h2>
+          <p style="opacity: 0.8; margin-bottom: 24px;">用图形化指标体系，把抽象价值变成可量化、可追踪的数字</p>
+          
+          <div class="grid-2">
+            <!-- 左侧：核心价值指标 -->
+            <div class="card-ghost">
+              <h3 style="margin-bottom: 20px;"><i class="fas fa-bullseye"></i> 核心价值指标</h3>
+              
+              <!-- 01 效率 -->
+              <div style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, rgba(0,188,212,0.1) 0%, rgba(0,188,212,0.05) 100%); border-left: 4px solid var(--pop-cyan); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-cyan); font-weight: 600;"><i class="fas fa-clock"></i> 01 · 效率</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-cyan);">1000+</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">预计年节省工时</div>
+                <svg viewBox="0 0 100 8" style="width: 100%; height: 8px; margin-bottom: 6px;">
+                  <rect x="0" y="2" width="88" height="4" fill="var(--pop-cyan)" rx="2"/>
+                  <circle cx="88" cy="4" r="4" fill="var(--pop-cyan)"/>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">按岗位与频次滚动估算</div>
               </div>
-              <div class="value-number">1000+</div>
-              <div class="value-title">预计年节省工时</div>
-              <div class="value-foot">按岗位与频次滚动估算</div>
-              <div class="value-meter"></div>
+              
+              <!-- 02 ROI -->
+              <div style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, rgba(233,30,99,0.1) 0%, rgba(233,30,99,0.05) 100%); border-left: 4px solid var(--pop-magenta); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-magenta); font-weight: 600;"><i class="fas fa-chart-line"></i> 02 · ROI</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-magenta);">3–6</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">个月回本窗口</div>
+                <svg viewBox="0 0 100 20" style="width: 100%; height: 20px; margin-bottom: 6px;">
+                  <polyline points="5,18 30,12 55,7 80,3" stroke="var(--pop-magenta)" stroke-width="2.5" fill="none"/>
+                  <circle cx="5" cy="18" r="3" fill="var(--pop-magenta)"/>
+                  <circle cx="30" cy="12" r="3" fill="var(--pop-magenta)"/>
+                  <circle cx="55" cy="7" r="3.5" fill="var(--pop-magenta)"/>
+                  <circle cx="80" cy="3" r="4" fill="var(--pop-magenta)"/>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">节省人时 × 人力成本</div>
+              </div>
+              
+              <!-- 03 复用 -->
+              <div style="padding: 16px; background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(255,193,7,0.05) 100%); border-left: 4px solid var(--pop-yellow); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-yellow); font-weight: 600;"><i class="fas fa-users"></i> 03 · 复用</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-yellow);">8+</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">岗位可复用</div>
+                <svg viewBox="0 0 100 16" style="width: 100%; height: 16px; margin-bottom: 6px;">
+                  <circle cx="10" cy="8" r="6" fill="var(--pop-yellow)" opacity="0.9"/>
+                  <circle cx="24" cy="8" r="6" fill="var(--pop-yellow)" opacity="0.9"/>
+                  <circle cx="38" cy="8" r="6" fill="var(--pop-yellow)" opacity="0.9"/>
+                  <circle cx="52" cy="8" r="6" fill="var(--pop-yellow)" opacity="0.9"/>
+                  <circle cx="66" cy="8" r="6" fill="var(--pop-yellow)" opacity="0.9"/>
+                  <text x="76" y="12" fill="var(--pop-yellow)" font-size="11" font-weight="bold">+3</text>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">模板库优先共享</div>
+              </div>
             </div>
-            <div class="value-tile" style="--accent: var(--pop-magenta); --p:62;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-chart-line"></i> ROI</span>
-                <span class="value-code">02</span>
+            
+            <!-- 右侧：质量保障指标 -->
+            <div class="card-ghost">
+              <h3 style="margin-bottom: 20px;"><i class="fas fa-shield-check"></i> 质量保障指标</h3>
+              
+              <!-- 04 采纳 -->
+              <div style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, rgba(33,150,243,0.1) 0%, rgba(33,150,243,0.05) 100%); border-left: 4px solid var(--pop-blue); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-blue); font-weight: 600;"><i class="fas fa-check-double"></i> 04 · 采纳</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-blue);">≥90%</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">采纳 / 回执率</div>
+                <svg viewBox="0 0 100 24" style="width: 100%; height: 24px; margin-bottom: 6px;">
+                  <circle cx="18" cy="12" r="10" fill="var(--pop-blue)" opacity="0.2"/>
+                  <path d="M 18 12 L 18 2 A 10 10 0 1 1 17.98 2" fill="var(--pop-blue)" opacity="0.9"/>
+                  <text x="32" y="16" fill="var(--pop-blue)" font-size="10" font-weight="bold">看过 → 确认 → 执行</text>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">全流程可追踪闭环</div>
               </div>
-              <div class="value-number">3–6</div>
-              <div class="value-title">个月回本窗口</div>
-              <div class="value-foot">节省人时 × 人力成本</div>
-              <div class="value-meter"></div>
-            </div>
-            <div class="value-tile" style="--accent: var(--pop-yellow); --p:78;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-users"></i> 复用</span>
-                <span class="value-code">03</span>
+              
+              <!-- 05 一致性 -->
+              <div style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, rgba(76,175,80,0.1) 0%, rgba(76,175,80,0.05) 100%); border-left: 4px solid var(--pop-green); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-green); font-weight: 600;"><i class="fas fa-shield-halved"></i> 05 · 一致性</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-green);">≥95%</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">信息完整 / 一致性</div>
+                <svg viewBox="0 0 100 12" style="width: 100%; height: 12px; margin-bottom: 6px;">
+                  <rect x="1" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="12" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="23" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="34" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="45" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="56" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="67" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="78" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                  <rect x="89" y="2" width="9" height="9" fill="var(--pop-green)" opacity="0.95" rx="1"/>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">字段补全 + 口径统一</div>
               </div>
-              <div class="value-number">8+</div>
-              <div class="value-title">岗位可复用</div>
-              <div class="value-foot">模板库优先共享</div>
-              <div class="value-meter"></div>
-            </div>
-            <div class="value-tile" style="--accent: var(--pop-blue); --p:90;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-check-double"></i> 采纳</span>
-                <span class="value-code">04</span>
+              
+              <!-- 06 风险 -->
+              <div style="padding: 16px; background: linear-gradient(135deg, rgba(244,67,54,0.1) 0%, rgba(244,67,54,0.05) 100%); border-left: 4px solid var(--pop-red); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="color: var(--pop-red); font-weight: 600;"><i class="fas fa-triangle-exclamation"></i> 06 · 风险</span>
+                  <span style="font-size: 28px; font-weight: 700; color: var(--pop-red);">&lt; 5%</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">法务红线误报率</div>
+                <svg viewBox="0 0 100 8" style="width: 100%; height: 8px; margin-bottom: 6px;">
+                  <rect x="0" y="2" width="5" height="4" fill="var(--pop-red)" rx="2"/>
+                  <rect x="7" y="2" width="93" height="4" fill="#e5e5e5" rx="2"/>
+                  <circle cx="5" cy="4" r="4" fill="var(--pop-red)"/>
+                </svg>
+                <div style="font-size: 12px; opacity: 0.7;">规则 + 评测集门禁</div>
               </div>
-              <div class="value-number">≥90%</div>
-              <div class="value-title">采纳 / 回执率</div>
-              <div class="value-foot">看过 → 确认 → 执行</div>
-              <div class="value-meter"></div>
-            </div>
-            <div class="value-tile" style="--accent: var(--pop-green); --p:95;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-shield-halved"></i> 一致性</span>
-                <span class="value-code">05</span>
-              </div>
-              <div class="value-number">≥95%</div>
-              <div class="value-title">信息完整 / 一致性</div>
-              <div class="value-foot">字段补全 + 口径统一</div>
-              <div class="value-meter"></div>
-            </div>
-            <div class="value-tile" style="--accent: var(--pop-red); --p:10;">
-              <div class="value-top">
-                <span class="value-tag"><i class="fas fa-triangle-exclamation"></i> 风险</span>
-                <span class="value-code">06</span>
-              </div>
-              <div class="value-number">&lt; 5%</div>
-              <div class="value-title">法务红线误报率</div>
-              <div class="value-foot">规则 + 评测集门禁</div>
-              <div class="value-meter"></div>
             </div>
           </div>
-          <div class="segment segment--strong">
-            <i class="fas fa-arrow-down"></i> 下面每个场景：把 KPI 做成可观测面板（而不是口号）
+          
+          <div class="segment segment--strong" style="margin-top: 24px;">
+            <i class="fas fa-chart-pie"></i> 图形化 KPI 体系 → 每个场景都有可观测面板（而不是口号）
           </div>
         </div>
       </section>
@@ -689,29 +741,70 @@ steps:
           <div class="card">
             <div class="stack-label">02 · 场景 3 · 法务 Workflow</div>
             <h2><i class="fas fa-scale-balanced"></i> 合同审查 Copilot：条款定位 → 风险分级 → Redline</h2>
+            
+            <!-- 流程图：横向紧凑布局 -->
+            <div class="flow flow--compact" style="margin-bottom: 24px;">
+              <div class="flow-step"><h4><i class="fas fa-file-contract"></i> 输入</h4><p>合同/PDF</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-list-check"></i> 结构化</h4><p>条款抽取</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> 红线</h4><p>规则库</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> 分级</h4><p>风险 1–5</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-pen-to-square"></i> Redline</h4><p>替换建议</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-stamp"></i> 审批</h4><p>留痕归档</p></div>
+            </div>
+            
+            <!-- 左右布局：关键能力 vs KPI指标 -->
             <div class="grid-2">
-              <div class="card-ghost">
-                <h3>Workflow（示意）</h3>
-                <div class="flow">
-                  <div class="flow-step"><h4><i class="fas fa-file-contract"></i> 输入</h4><p>合同/PDF/正文</p></div>
-                  <div class="flow-step"><h4><i class="fas fa-list-check"></i> 结构化</h4><p>条款/主体/金额</p></div>
-                  <div class="flow-step"><h4><i class="fas fa-triangle-exclamation"></i> 红线</h4><p>命中规则库</p></div>
-                  <div class="flow-step"><h4><i class="fas fa-gauge-high"></i> 分级</h4><p>风险 1–5</p></div>
-                  <div class="flow-step"><h4><i class="fas fa-pen-to-square"></i> Redline</h4><p>替换建议</p></div>
-                  <div class="flow-step"><h4><i class="fas fa-stamp"></i> 审批</h4><p>OA/留痕归档</p></div>
-                </div>
-                <p class="footnote">输出强制附引用：模板条款/审查清单/制度条文（可追溯）。</p>
+              <div class="card-ghost" style="padding: 18px;">
+                <h3 style="margin-bottom: 12px; font-size: 16px;"><i class="fas fa-lightbulb"></i> 核心能力</h3>
+                <ul class="list-dot list-dot--compact" style="margin: 0;">
+                  <li style="margin-bottom: 6px;"><strong>智能定位：</strong>自动识别关键条款（违约、赔付、数据、知产）</li>
+                  <li style="margin-bottom: 6px;"><strong>风险分级：</strong>1-5 级风险评估 + 命中规则依据</li>
+                  <li style="margin-bottom: 6px;"><strong>Redline 生成：</strong>替换建议 + 原文定位 + 模板引用</li>
+                  <li style="margin-bottom: 6px;"><strong>审批路由：</strong>根据风险级别自动匹配审批流</li>
+                  <li style="margin-bottom: 0;"><strong>全程可追溯：</strong>审查版本、批注、签署附件归档</li>
+                </ul>
+                <p class="footnote" style="margin: 10px 0 0 0;">
+                  <i class="fas fa-shield-halved"></i> 输出强制附引用：模板条款/审查清单/制度条文
+                </p>
               </div>
-              <div class="card-ghost">
-                <h3>输出形态（更轻松好读）</h3>
-                <div class="kpi-lines">
-                  <div class="kpi-line"><span class="kpi-key">审查时长</span><span class="kpi-val">↓60%</span><span class="kpi-spark" style="--p:60;"></span></div>
-                  <div class="kpi-line"><span class="kpi-key">红线召回</span><span class="kpi-val">≥95%</span><span class="kpi-spark" style="--p:95;"></span></div>
-                  <div class="kpi-line"><span class="kpi-key">红线误报</span><span class="kpi-val">&lt; 5%</span><span class="kpi-spark" style="--p:90;"></span></div>
-                  <div class="kpi-line"><span class="kpi-key">一次通过率</span><span class="kpi-val">↑</span><span class="kpi-spark" style="--p:70;"></span></div>
+              
+              <div class="card-ghost" style="padding: 18px;">
+                <h3 style="margin-bottom: 12px; font-size: 16px;"><i class="fas fa-chart-bar"></i> 量化收益</h3>
+                <div class="kpi-lines kpi-lines--2" style="margin-bottom: 10px;">
+                  <div class="kpi-line">
+                    <span class="kpi-key"><i class="fas fa-clock"></i> 审查时长</span>
+                    <span class="kpi-val">↓60%</span>
+                    <span class="kpi-spark" style="--p:60;"></span>
+                  </div>
+                  <div class="kpi-line">
+                    <span class="kpi-key"><i class="fas fa-bullseye"></i> 红线召回</span>
+                    <span class="kpi-val">≥95%</span>
+                    <span class="kpi-spark" style="--p:95;"></span>
+                  </div>
+                  <div class="kpi-line">
+                    <span class="kpi-key"><i class="fas fa-triangle-exclamation"></i> 红线误报</span>
+                    <span class="kpi-val">&lt; 5%</span>
+                    <span class="kpi-spark" style="--p:90;"></span>
+                  </div>
+                  <div class="kpi-line">
+                    <span class="kpi-key"><i class="fas fa-check-circle"></i> 一次通过率</span>
+                    <span class="kpi-val">↑40%</span>
+                    <span class="kpi-spark" style="--p:70;"></span>
+                  </div>
                 </div>
-                <div class="segment">
-                  <i class="fas fa-link"></i> 对接：合同系统、OA 审批、印章、归档系统
+                <div class="segment" style="margin: 0 0 8px 0; padding: 8px 12px;">
+                  <i class="fas fa-plug"></i> 系统对接：合同系统、OA 审批、印章、归档、DLP
+                </div>
+                <div class="pill-row" style="margin: 0;">
+                  <span class="pill pill--blue">合同系统</span>
+                  <span class="pill pill--blue">OA审批</span>
+                  <span class="pill pill--blue">印章</span>
+                  <span class="pill pill--blue">归档</span>
                 </div>
               </div>
             </div>
@@ -865,35 +958,52 @@ steps:
           <div class="card">
             <div class="stack-label">02 · 场景 5 · AISPEECH</div>
             <h2>语音变成可编排事件：ASR + 说话人分离 + 时间戳</h2>
+            
+            <!-- 顶部：音频处理流程图 -->
+            <div class="flow flow--compact" style="margin-bottom: 24px;">
+              <div class="flow-step"><h4><i class="fas fa-microphone"></i> 音频</h4><p>会议录音</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 转写</h4><p>ASR</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-user-group"></i> 说话人</h4><p>Diarization</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-clock"></i> 时间戳</h4><p>可定位</p></div>
+              <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="flow-step"><h4><i class="fas fa-file-lines"></i> 逐字稿</h4><p>结构化</p></div>
+            </div>
+            
+            <!-- 左右布局：能力 vs 应用 -->
             <div class="grid-2">
-              <div class="card-ghost">
-                <h3>音频链路（可追溯）</h3>
-                <div class="flow flow--compact">
-                  <div class="flow-step"><h4><i class="fas fa-microphone"></i> 音频</h4><p>会议录音</p></div>
-                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                  <div class="flow-step"><h4><i class="fas fa-wave-square"></i> 转写</h4><p>ASR</p></div>
-                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                  <div class="flow-step"><h4><i class="fas fa-user-group"></i> 分离</h4><p>Speaker</p></div>
-                  <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                  <div class="flow-step"><h4><i class="fas fa-clock"></i> 时间戳</h4><p>可定位</p></div>
+              <div class="card-ghost" style="padding: 18px;">
+                <h3 style="margin-bottom: 12px; font-size: 16px;"><i class="fas fa-microphone-lines"></i> AISPEECH 核心能力</h3>
+                <ul class="list-dot list-dot--compact" style="margin: 0;">
+                  <li style="margin-bottom: 6px;"><strong>高精度转写：</strong>支持多语言、行业术语、口语化表达</li>
+                  <li style="margin-bottom: 6px;"><strong>说话人分离：</strong>自动识别不同发言人（最多支持 10+ 人）</li>
+                  <li style="margin-bottom: 6px;"><strong>精准时间戳：</strong>每句话定位到秒级，支持跳转回溯</li>
+                  <li style="margin-bottom: 0;"><strong>段落切分：</strong>智能分段，按议题/主题自动组织</li>
+                </ul>
+                <div class="segment" style="margin: 10px 0 0 0; padding: 8px 12px;">
+                  <i class="fas fa-link"></i> 输出：带时间戳的逐字稿 + 段落切分（支持回溯证据）
                 </div>
-                <div class="segment"><i class="fas fa-link"></i> 输出：带时间戳的逐字稿 + 段落切分（支持回溯证据）</div>
               </div>
-              <div class="card-ghost">
-                <h3>会议文本能做什么（立刻可用）</h3>
-                <div class="pill-row">
+              
+              <div class="card-ghost" style="padding: 18px;">
+                <h3 style="margin-bottom: 12px; font-size: 16px;"><i class="fas fa-wand-magic-sparkles"></i> 会议文本应用场景</h3>
+                <div class="pill-row" style="margin-bottom: 14px;">
                   <span class="pill pill--blue">议题抽取</span>
                   <span class="pill pill--blue">决策点</span>
                   <span class="pill pill--blue">行动项</span>
                   <span class="pill pill--blue">风险/待决</span>
                 </div>
-                <div class="compare-card" style="margin-top: 14px;">
-                  <div class="compare-head">结构化输出模板</div>
-                  <div class="compare-body">
-                    <div class="mini-note">让“纪要”变成数据：负责人/DDL/依赖/证据链接（时间戳）</div>
+                <div class="compare-card" style="margin: 0;">
+                  <div class="compare-head" style="padding: 8px 12px;">结构化输出模板</div>
+                  <div class="compare-body" style="padding: 10px 12px;">
+                    <div class="mini-note" style="margin: 0;">让"纪要"变成数据：负责人/DDL/依赖/证据链接（时间戳）</div>
                   </div>
                 </div>
-                <div class="segment segment--strong"><i class="fas fa-shield-halved"></i> 可审计：每条结论都能回到原句</div>
+                <div class="segment segment--strong" style="margin: 10px 0 0 0; padding: 8px 12px;">
+                  <i class="fas fa-shield-halved"></i> 可审计：每条结论都能回到原句
+                </div>
               </div>
             </div>
           </div>
@@ -1284,29 +1394,69 @@ steps:
             </div>
           </div>
         </section>
-        <!-- Q&A (ported from paypal/index.html layout) -->
-        <section data-background-color="#0033ff">
-          <div class="flex flex-col items-center justify-center h-full text-white">
-            <h1 class="text-6xl font-bold mb-6">Q &amp; A</h1>
-            <p class="text-xl opacity-90 mb-8">Don't Panic.</p>
-            <div class="flex gap-8 mb-8">
-              <div class="text-center">
-                <i class="fas fa-envelope text-4xl mb-2"></i>
-                <p>banana@dify.ai</p>
+        <!-- Q&A - POP ART STYLE -->
+        <section data-background-color="#fff">
+          <div class="flex flex-col items-center justify-center h-full" style="padding: 60px 40px;">
+            <!-- POP 标题 -->
+            <div style="position: relative; margin-bottom: 40px;">
+              <h1 style="font-size: 96px; font-weight: 900; color: #FF1744; text-transform: uppercase; letter-spacing: -2px; line-height: 1; margin: 0; text-shadow: 6px 6px 0 #00BCD4, 12px 12px 0 #FFC107;">
+                Q &amp; A
+              </h1>
+              <div style="position: absolute; top: -20px; right: -30px; background: #FF1744; color: white; padding: 8px 16px; border-radius: 50%; font-size: 18px; font-weight: 700; border: 4px solid #000; box-shadow: 4px 4px 0 #000;">
+                !
               </div>
             </div>
-            <div class="flex gap-10">
-              <div class="flex flex-col items-center">
-                <img src="../assets/xiaohongshu.png" alt="Xiaohongshu QR"
-                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
-                <span class="text-sm mt-2 opacity-90">小红书</span>
-              </div>
-              <div class="flex flex-col items-center">
-                <img src="../assets/bilibili.png" alt="Bilibili QR"
-                     class="h-28 w-28 rounded shadow-lg bg-white p-2">
-                <span class="text-sm mt-2 opacity-90">Bilibili</span>
+            
+            <p style="font-size: 28px; font-weight: 700; color: #000; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px;">
+              Don't Panic.
+            </p>
+            
+            <!-- 邮箱 POP 卡片 -->
+            <div style="background: linear-gradient(135deg, #FF1744 0%, #F50057 100%); padding: 6px; margin-bottom: 50px; transform: rotate(-1deg); box-shadow: 8px 8px 0 rgba(0,0,0,0.2);">
+              <div style="background: #FFF; padding: 30px 50px; transform: rotate(1deg);">
+                <div style="text-align: center;">
+                  <div style="display: inline-block; background: #FF1744; color: white; padding: 20px; border-radius: 50%; margin-bottom: 16px; border: 5px solid #000;">
+                    <i class="fas fa-envelope" style="font-size: 40px;"></i>
+                  </div>
+                  <p style="font-size: 32px; font-weight: 700; color: #000; margin: 0; letter-spacing: 0.5px;">
+                    banana@dify.ai
+                  </p>
+                </div>
               </div>
             </div>
+            
+            <!-- 二维码 POP 风格 -->
+            <div style="display: flex; gap: 60px; align-items: center;">
+              <!-- 小红书 -->
+              <div style="text-align: center; transform: rotate(2deg);">
+                <div style="background: #FF1744; padding: 6px; box-shadow: 8px 8px 0 rgba(0,0,0,0.15);">
+                  <div style="background: white; padding: 16px; border: 4px solid #000;">
+                    <img src="../assets/xiaohongshu.png" alt="Xiaohongshu QR" style="width: 140px; height: 140px; display: block;">
+                  </div>
+                </div>
+                <div style="background: #FFC107; padding: 12px 24px; margin-top: 16px; border: 4px solid #000; box-shadow: 4px 4px 0 rgba(0,0,0,0.15); transform: rotate(-2deg);">
+                  <span style="font-size: 20px; font-weight: 700; color: #000; text-transform: uppercase;">小红书</span>
+                </div>
+              </div>
+              
+              <!-- Bilibili -->
+              <div style="text-align: center; transform: rotate(-2deg);">
+                <div style="background: #00BCD4; padding: 6px; box-shadow: 8px 8px 0 rgba(0,0,0,0.15);">
+                  <div style="background: white; padding: 16px; border: 4px solid #000;">
+                    <img src="../assets/bilibili.png" alt="Bilibili QR" style="width: 140px; height: 140px; display: block;">
+                  </div>
+                </div>
+                <div style="background: #FF1744; padding: 12px 24px; margin-top: 16px; border: 4px solid #000; box-shadow: 4px 4px 0 rgba(0,0,0,0.15); transform: rotate(2deg);">
+                  <span style="font-size: 20px; font-weight: 700; color: #FFF; text-transform: uppercase;">Bilibili</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 装饰性 POP 元素 -->
+            <div style="position: absolute; top: 40px; left: 60px; width: 80px; height: 80px; background: #FFC107; border-radius: 50%; border: 5px solid #000; opacity: 0.3;"></div>
+            <div style="position: absolute; bottom: 60px; right: 80px; width: 60px; height: 60px; background: #00BCD4; transform: rotate(45deg); border: 5px solid #000; opacity: 0.3;"></div>
+            <div style="position: absolute; top: 120px; right: 100px; font-size: 40px; font-weight: 900; color: #FF1744; opacity: 0.2; transform: rotate(15deg);">POW!</div>
+            <div style="position: absolute; bottom: 100px; left: 100px; font-size: 36px; font-weight: 900; color: #00BCD4; opacity: 0.2; transform: rotate(-10deg);">BOOM!</div>
           </div>
         </section>
       </section>
@@ -1321,3 +1471,4 @@ steps:
   <script src="scripts/deck.js"></script>
 </body>
 </html>
+
