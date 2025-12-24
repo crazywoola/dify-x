@@ -325,6 +325,140 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 18px;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .value-card::after {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            right: -40px;
+            top: -50px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.18;
+        }
+
+        .value-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .value-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.65em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .value-index {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8em;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .value-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-top: 12px;
+            line-height: 1;
+            text-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        .value-label {
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 6px;
+        }
+
+        .value-spark {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 36px;
+            margin-top: 10px;
+        }
+
+        .value-spark span {
+            width: 10px;
+            border-radius: 6px;
+            background: var(--accent);
+            opacity: 0.8;
+        }
+
+        .value-spark span:nth-child(1) {
+            height: calc(var(--b1) * 1%);
+            opacity: 0.5;
+        }
+
+        .value-spark span:nth-child(2) {
+            height: calc(var(--b2) * 1%);
+            opacity: 0.7;
+        }
+
+        .value-spark span:nth-child(3) {
+            height: calc(var(--b3) * 1%);
+        }
+
+        .value-bar {
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.25);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .value-bar-fill {
+            height: 100%;
+            width: calc(var(--p) * 1%);
+            background: linear-gradient(90deg, var(--accent), rgba(255, 255, 255, 0.2));
+            border-radius: inherit;
+        }
+
+        .value-foot {
+            margin-top: 8px;
+            font-size: 0.75em;
+            color: #64748b;
+        }
+
+        @media (max-width: 1024px) {
+            .value-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .lang-switch {
             position: fixed;
             top: 18px;
@@ -689,6 +823,100 @@ if (ip_count > 100) {
                             </div>
                         </div>
                     </div>
+                </section>
+
+                <!-- 新增：价值数字面板 -->
+                <section>
+                    <h2 class="text-left mb-6">把“价值”落在 6 个数字上</h2>
+                    <p class="text-left text-gray-600 mb-6">用图表块把 ROI、效率、体验与质量可视化</p>
+
+                    <div class="value-grid">
+                        <div class="value-card" style="--accent: #0033ff; --p: 88; --b1: 35; --b2: 62; --b3: 90;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-clock"></i> 效率</span>
+                                <span class="value-index">01</span>
+                            </div>
+                            <div class="value-number">1000+</div>
+                            <div class="value-label">年节省工时</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">按岗位与频次滚动估算</div>
+                        </div>
+
+                        <div class="value-card" style="--accent: #ffb600; --p: 62; --b1: 28; --b2: 52; --b3: 74;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-chart-line"></i> ROI</span>
+                                <span class="value-index">02</span>
+                            </div>
+                            <div class="value-number">3–6</div>
+                            <div class="value-label">个月回本窗口</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">节省人时 × 人力成本</div>
+                        </div>
+
+                        <div class="value-card" style="--accent: #003087; --p: 78; --b1: 30; --b2: 55; --b3: 82;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-layer-group"></i> 复用</span>
+                                <span class="value-index">03</span>
+                            </div>
+                            <div class="value-number">8+</div>
+                            <div class="value-label">岗位 / 场景复用</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">模板库沉淀 → 快速上线</div>
+                        </div>
+
+                        <div class="value-card" style="--accent: #14b8a6; --p: 90; --b1: 52; --b2: 78; --b3: 95;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-check-double"></i> 采纳</span>
+                                <span class="value-index">04</span>
+                            </div>
+                            <div class="value-number">≥90%</div>
+                            <div class="value-label">采纳 / 回执率</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">看过 → 确认 → 执行</div>
+                        </div>
+
+                        <div class="value-card" style="--accent: #22c55e; --p: 95; --b1: 66; --b2: 82; --b3: 96;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-shield-halved"></i> 一致性</span>
+                                <span class="value-index">05</span>
+                            </div>
+                            <div class="value-number">≥95%</div>
+                            <div class="value-label">信息完整 / 一致性</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">字段补全 + 口径统一</div>
+                        </div>
+
+                        <div class="value-card" style="--accent: #ef4444; --p: 8; --b1: 22; --b2: 14; --b3: 8;">
+                            <div class="value-header">
+                                <span class="value-chip"><i class="fas fa-triangle-exclamation"></i> 风险</span>
+                                <span class="value-index">06</span>
+                            </div>
+                            <div class="value-number">&lt; 5%</div>
+                            <div class="value-label">误报 / 误杀率</div>
+                            <div class="value-spark">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill"></div></div>
+                            <div class="value-foot">规则 + 评测集门禁</div>
+                        </div>
+                    </div>
+
+                    <div class="text-left text-xs text-gray-500 mt-4">* 价值指标按落地场景聚合统计</div>
                 </section>
 
                 <!-- 新增：竞争优势对比 -->
