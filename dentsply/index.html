@@ -146,7 +146,38 @@
         .brand-watermark .ds-logo {
             height: 26px;
         }
-        
+
+        /* Language Switch Button */
+        .language-switch {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: var(--pop-white);
+            border: 3px solid var(--pop-black);
+            box-shadow: 4px 4px 0px 0px var(--pop-black);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .language-switch:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px var(--pop-black);
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            font-weight: 700;
+            color: var(--pop-black);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .language-switch .active {
+            background: var(--pop-yellow);
+        }
+
         /* Grid Layouts */
         .grid-3 {
             display: grid;
@@ -301,6 +332,11 @@
         <img src="./assets/ds-desktop-logo.svg" alt="Dentsply Sirona Logo" class="ds-logo">
     </div>
 
+    <div class="language-switch">
+        <button onclick="window.location.href='index_en.html'">EN</button>
+        <button class="active" onclick="window.location.href='index.html'">中文</button>
+    </div>
+
     <div class="reveal">
         <div class="slides">
 
@@ -316,9 +352,12 @@
                         </div>
                     </div>
                     <p class="mt-12 font-semibold text-xl tracking-widest text-black">覆盖研发、制造、临床与合规 · 25页实战指南</p>
-                </section>
+                                <aside class="notes">
+                    欢迎各位参加DIFY与登士柏合作演讲。这套25页幻灯片将全面展示AI如何革新口腔医疗器械行业，涵盖研发、生产、临床和合规全流程。为接下来的六大行业场景做好铺垫。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-5xl mb-6">为什么是 DIFY × Dentsply？</h2>
@@ -348,9 +387,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    介绍DIFY的三大核心优势：可视化工作流、设备即插即用、数据合规性。强调这些如何解决口腔行业的具体痛点。突出四大转型支柱的全面影响力。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card">
                         <div class="pop-badge">DIFY 社区数据</div>
                         <h2 class="text-4xl mb-4 text-center">开源驱动 · 行业认可</h2>
@@ -380,9 +422,12 @@
                             插件生态 × Workflow 引擎 × 行业资产库 = 口腔医疗器械专属解决方案
                         </p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示DIFY的市场表现：100万+企业部署、12万+GitHub星标、覆盖150+国家。证明这是经过验证的成熟技术，而非实验性产品。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h2 class="text-5xl mb-12 text-center">DIFY × Dentsply：产业核心价值</h2>
                     <div class="grid grid-cols-2 gap-8 stagger">
                         <div class="pop-card bg-blue-50 border-blue-500">
@@ -418,9 +463,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    总结四大核心价值：AI影像加速诊断、工作流自动化提效、合规保障安心、运营指标改善。同时满足临床和商务需求。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h2 class="mb-12">今日议程 · 6大产业场景</h2>
                     <div class="grid grid-cols-3 gap-6 stagger">
                         <div class="pop-card">
@@ -454,8 +502,11 @@
                             <p class="text-sm text-gray-600">耗材与设备智能盘点</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    预览六大场景路线图。简要介绍每个场景，帮助听众理解接下来的内容架构，建立全面AI应用的认知框架。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 1: SMART IMAGING (5 Slides)
@@ -465,9 +516,12 @@
                     <div class="pop-badge bg-blue-600">SCENARIO 01</div>
                     <h2 class="text-6xl text-blue-900">SMART IMAGING</h2>
                     <h3 class="text-2xl text-blue-600 mt-4">AI 影像辅助与设备协同诊断</h3>
-                </section>
+                                <aside class="notes">
+                    引入智能影像场景。阐述问题：医生每天审查大量影像导致疲劳，可能出现漏诊，影响初诊转化率。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
                             <h3 class="text-red-600 text-3xl mb-4"><i class="fas fa-bomb"></i> PAIN POINTS</h3>
@@ -488,9 +542,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    对比痛点与目标效果。展示每个痛点对应的解决方案，说明AI辅助诊断如何实现效率和准确性的跨越式提升。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>WORKFLOW</h3>
                     <div class="flex flex-col gap-4 items-center justify-center mt-8">
                         <div class="pop-card w-2/3 flex justify-between items-center bg-gray-50">
@@ -513,9 +570,12 @@
                             <div class="text-sm">Generate Patient-Friendly Report</div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    讲解四阶段技术工作流：DICOM输入、元数据提取、AI分析、生成患者友好报告。展示端到端自动化流程。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-black mb-2">CODE SNIPPET</div>
                         <h3>DICOM PARSER</h3>
@@ -543,9 +603,12 @@ def main(file_path: str) -> dict:
         "meta": meta,
         "image": to_base64(img_array)
     }</code></pre>
-                </section>
+                                <aside class="notes">
+                    展示DICOM解析代码。突出DIFY代码节点的自定义处理能力，解释临床元数据提取对质控的重要性。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card text-center bg-gray-900 text-white border-none shadow-2xl">
                         <h3 class="text-2xl text-yellow-400 mb-6">OUTPUT: PATIENT REPORT</h3>
                         <div class="text-left font-mono text-sm leading-loose">
@@ -562,8 +625,11 @@ def main(file_path: str) -> dict:
                             </p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示AI生成的报告范例。强调颜色编码的风险等级和通俗语言如何帮助患者理解，提高接受率。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 2: CONNECTED CARE (5 Slides)
@@ -573,9 +639,12 @@ def main(file_path: str) -> dict:
                     <div class="pop-badge bg-red-600">SCENARIO 02</div>
                     <h2 class="text-6xl text-red-900">CONNECTED CARE</h2>
                     <h3 class="text-2xl text-red-600 mt-4">远程治疗监控与用户随访</h3>
-                </section>
+                                <aside class="notes">
+                    总结AI影像工作流优势。强调整体自动化从DICOM导入到患者可用报告。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">CLINICAL CHALLENGE</h2>
@@ -595,9 +664,12 @@ def main(file_path: str) -> dict:
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    引入连接护理场景。阐述正畸治疗周期长，患者依从性差，导致治疗效果不佳。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>LOGIC</h3>
                     <div class="grid grid-cols-2 gap-8 mt-8 stagger">
                         <div class="pop-card bg-white">
@@ -617,9 +689,12 @@ def main(file_path: str) -> dict:
                             <p>自动发送 WhatsApp/SMS 提醒患者使用咬胶。</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    详细说明临床挑战。标准2个月复诊间隔使问题不能及时发现，影响治疗进度和结果。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-red-600 mb-2">PROMPT ENGINEERING</div>
                         <h3>VISION ANALYSIS PROMPT</h3>
@@ -639,9 +714,12 @@ checklist:
 output_format:
   status: "GO" | "NO-GO"
   message: "Friendly feedback to patient."</code></pre>
-                </section>
+                                <aside class="notes">
+                    介绍四步监测逻辑：患者每周拍照、AI对比目标模型、检测贴合问题、触发自动干预，形成连续护理模式。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card border-red-500 shadow-xl bg-red-50">
                         <div class="flex items-start gap-4">
                             <div class="w-16 h-16 bg-red-200 rounded-full flex items-center justify-center text-3xl">📱</div>
@@ -655,8 +733,11 @@ output_format:
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示视觉分析提示词工程。说明结构化提示词如何引导AI检查特定正畸参数，体现DIFY的LLM节点能力。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 3: DIGITAL LAB (3 Slides)
@@ -666,9 +747,12 @@ output_format:
                     <div class="pop-badge bg-orange-600">SCENARIO 03</div>
                     <h2 class="text-6xl text-orange-900">DIGITAL LAB</h2>
                     <h3 class="text-2xl text-orange-600 mt-4">技工与生产的数字质检</h3>
-                </section>
+                                <aside class="notes">
+                    展示自动SMS提醒示例。这种'轻推'让患者保持参与，无需人工干预，个性化且可执行。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>QUALITY IN, QUALITY OUT</h3>
                     <div class="flex items-center justify-center gap-8 mt-10">
                         <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
@@ -686,9 +770,12 @@ output_format:
                     <p class="mt-8 font-bold text-red-600 bg-white inline-block px-4 py-2 border-2 border-red-600">
                         返工成本：$50 + 3 天延期
                     </p>
-                </section>
+                                <aside class="notes">
+                    引入数字化实验室场景。阐述制造质量控制问题：输入质量差导致返工，增加成本和时间。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-orange-600 mb-2">PYTHON SCRIPT</div>
                         <h3>STL GEOMETRY CHECK</h3>
@@ -712,8 +799,11 @@ def check_stl(file_path):
         return {"status": "FAIL", "reason": "Low resolution"}
         
     return {"status": "PASS"}</code></pre>
-                </section>
+                                <aside class="notes">
+                    展示扫描缺陷导致的下游问题。50美元成本和3天延误突出质量失败的商业影响。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 4: CLINICAL DATA (3 Slides)
@@ -723,9 +813,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-green-600">SCENARIO 04</div>
                     <h2 class="text-6xl text-green-900">CLINICAL DATA CAPTURE</h2>
                     <h3 class="text-2xl text-green-600 mt-4">临床数据回传与标准化记录</h3>
-                </section>
+                                <aside class="notes">
+                    展示STL几何检查代码。这种AI驱动的质量门禁在生产前发现问题，是制造业的实用应用。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h3 class="text-4xl mb-4 font-bold">168 数据点</h3>
@@ -746,9 +839,12 @@ def check_stl(file_path):
                             <p>DIFY + ASR = 结构化临床数据</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    引入临床数据采集场景。解释牙周检查需要记录168个数据点，手动操作繁琐易错。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>VOICE TO JSON FLOW</h3>
                     <div class="mt-8 space-y-4">
                         <div class="pop-card flex items-center gap-4 py-4">
@@ -766,8 +862,11 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    对比传统文档与AI辅助语音记录。DIFY结合语音识别自动结构化数据录入，解放临床人员。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 5: REGULATORY OPS (4 Slides)
@@ -777,9 +876,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-yellow-500">SCENARIO 05</div>
                     <h2 class="text-6xl text-yellow-900">REGULATORY OPS</h2>
                     <h3 class="text-2xl text-yellow-700 mt-4">医疗器械合规与追溯自动化</h3>
-                </section>
+                                <aside class="notes">
+                    演示语音转JSON流程。自然语音通过ASR+LLM转换为结构化临床数据。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
                             <h3 class="text-red-600 mb-4">RISK SUMMARY</h3>
@@ -797,9 +899,12 @@ def check_stl(file_path):
                             </p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    引入监管运营场景。阐述合规挑战：追溯性要求、审计准备负担、CAPA管理碎片化。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>TRACEABILITY WORKFLOW</h3>
                     <div class="grid grid-cols-2 gap-6 mt-8 stagger">
                         <div class="pop-card bg-white">
@@ -819,9 +924,12 @@ def check_stl(file_path):
                             <p class="text-sm">自动生成审计包与 CAPA 建议。</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    详细风险总结和控制措施。强调手动合规流程耗时易错，在监管环境中造成商业风险。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-yellow-500 mb-2">COMPLIANCE ENGINE</div>
                         <h3>RELEASE VALIDATION LOGIC</h3>
@@ -840,8 +948,11 @@ def check_stl(file_path):
         return "WARN: UDI chain incomplete"
 
     return "PASS"</code></pre>
-                </section>
+                                <aside class="notes">
+                    展示四步追溯工作流。DIFY智能体自动化验证产品全生命周期的合规性。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 6: SUPPLY INTELLIGENCE (4 Slides)
@@ -851,9 +962,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-pink-600">SCENARIO 06</div>
                     <h2 class="text-6xl text-pink-900">SUPPLY INTELLIGENCE</h2>
                     <h3 class="text-2xl text-pink-600 mt-4">耗材与设备库存智能盘点</h3>
-                </section>
+                                <aside class="notes">
+                    展示发布验证代码。业务规则编码实现自动合规检查。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">库存与耗材损失成本</h2>
@@ -870,9 +984,12 @@ def check_stl(file_path):
                             <p>拍照识别数量，自动回写库存。</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    引入供应智能场景。阐述库存管理挑战：高值种植体、使用追踪缺口、缺货风险。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>OBJECT DETECTION FLOW</h3>
                     <div class="flex gap-4 mt-8">
                         <div class="w-1/2">
@@ -897,9 +1014,12 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    详细成本和物体检测。AI从照片中识别种植体类型，自动更新库存。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-pink-600 mb-2">NOTIFICATION</div>
                         <h3>AUTO-REORDER AGENT</h3>
@@ -918,8 +1038,11 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示自动补货通知。检测触发补货草案，节省人力并防止缺货。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 7: SECURITY (3 Slides)
@@ -929,9 +1052,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-gray-800">SECURITY</div>
                     <h2 class="text-6xl text-gray-900">COMPLIANCE</h2>
                     <h3 class="text-2xl text-gray-600 mt-4">HIPAA · GDPR · ISO 13485</h3>
-                </section>
+                                <aside class="notes">
+                    引入安全与合规章节。强调所有AI能力必须在HIPAA/GDPR医疗合规框架内运行。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">PII REDACTION</h2>
@@ -945,9 +1071,12 @@ def check_stl(file_path):
 text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示PII脱敏方法和审计跟踪。说明患者数据云处理前的保护措施及完整可追溯性。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>AUDIT TRAIL</h3>
                     <div class="pop-card bg-white w-full text-left">
                         <table class="w-full text-sm font-mono">
@@ -977,8 +1106,11 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                             </tr>
                         </table>
                     </div>
-                </section>
+                                <aside class="notes">
+                    引入DS Core集成场景。串联所有内容，展示DIFY AI如何增强现有登士柏生态系统。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 8: DS CORE INTEGRATION SCENARIOS (5 Slides)
@@ -988,9 +1120,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="pop-badge bg-blue-600">SCENARIOS & KEY TAKEAWAYS</div>
                     <h2 class="text-6xl text-blue-900">DS CORE INTEGRATION</h2>
                     <h3 class="text-2xl text-blue-600 mt-4">Five Strategic Scenarios for Digital Dentistry</h3>
-                </section>
+                                <aside class="notes">
+                    详细临床影像集成。DIFY AI为DS Core影像工作流增加自动分析，提升效率和治疗规划。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-blue-600">SCENARIO 01</div>
                     <h2 class="text-5xl mb-8 text-blue-900">Clinical Imaging & Diagnosis</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1016,9 +1151,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-yellow-100 border-2 border-yellow-500 rounded">
                         <p class="text-center font-bold text-yellow-900">Key Takeaway: Transform diagnostic efficiency while maintaining Dentsply Sirona ecosystem compatibility</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示实验室协作。AI质量控制与DS Core订单系统集成，减少返工并改善周转。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-orange-600">SCENARIO 02</div>
                     <h2 class="text-5xl mb-8 text-orange-900">Lab Collaboration & Manufacturing</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1044,9 +1182,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-green-100 border-2 border-green-500 rounded">
                         <p class="text-center font-bold text-green-900">Key Takeaway: Streamline digital workflows from design to production with AI-powered quality gates</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    解释患者沟通工具。SureSmile模拟器、沟通画布和远程监测，全部由AI增强。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-green-600">SCENARIO 03</div>
                     <h2 class="text-5xl mb-8 text-green-900">Patient Communication & Treatment Planning</h2>
                     <div class="grid grid-cols-3 gap-6">
@@ -1066,9 +1207,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-blue-100 border-2 border-blue-500 rounded">
                         <p class="text-center font-bold text-blue-900">Key Takeaway: Increase case acceptance through visual communication and continuous patient engagement</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    详细合规与数据管理。DIFY的语音转JSON能力消除转录错误，同时保持完整合规。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-red-600">SCENARIO 04</div>
                     <h2 class="text-5xl mb-8 text-red-900">Compliance & Data Management</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1094,9 +1238,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-red-100 border-2 border-red-500 rounded">
                         <p class="text-center font-bold text-red-900">Key Takeaway: Maintain regulatory compliance while reducing documentation burden through AI automation</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    展示供应链智能与ROI。15%成本降低、50%缺货减少、每年5万美元节省。
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-purple-600">SCENARIO 05</div>
                     <h2 class="text-5xl mb-8 text-purple-900">Supply Chain & Inventory Intelligence</h2>
                     <div class="grid grid-cols-3 gap-6 mb-8">
@@ -1130,8 +1277,11 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-purple-100 border-2 border-purple-500 rounded">
                         <p class="text-center font-bold text-purple-900">Key Takeaway: Transform reactive inventory management into predictive, AI-driven supply intelligence</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Q&A结束页。鼓励提问并提供DIFY与登士柏合作信息的联系方式。
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  Q&A (Pop Art Style)
@@ -1173,6 +1323,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
     <!-- Reveal.js Init Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
     <script>
         hljs.highlightAll();
         Reveal.initialize({
@@ -1185,6 +1336,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
             backgroundTransition: 'zoom',
             slideNumber: 'c/t',
             navigationMode: 'default', // Allow 2D navigation
+            plugins: [ RevealNotes ],
         });
     </script>
 

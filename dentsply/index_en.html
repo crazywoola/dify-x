@@ -146,7 +146,38 @@
         .brand-watermark .ds-logo {
             height: 26px;
         }
-        
+
+        /* Language Switch Button */
+        .language-switch {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: var(--pop-white);
+            border: 3px solid var(--pop-black);
+            box-shadow: 4px 4px 0px 0px var(--pop-black);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .language-switch:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px var(--pop-black);
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            font-weight: 700;
+            color: var(--pop-black);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .language-switch .active {
+            background: var(--pop-yellow);
+        }
+
         /* Grid Layouts */
         .grid-3 {
             display: grid;
@@ -301,6 +332,11 @@
         <img src="./assets/ds-desktop-logo.svg" alt="Dentsply Sirona Logo" class="ds-logo">
     </div>
 
+    <div class="language-switch">
+        <button class="active" onclick="window.location.href='index_en.html'">EN</button>
+        <button onclick="window.location.href='index.html'">中文</button>
+    </div>
+
     <div class="reveal">
         <div class="slides">
 
@@ -316,9 +352,15 @@
                         </div>
                     </div>
                     <p class="mt-12 font-semibold text-xl tracking-widest text-black">R&amp;D, manufacturing, clinical, and compliance - 25-slide playbook</p>
-                </section>
+                                <aside class="notes">
+                    Welcome everyone to this presentation on DIFY and Dentsply partnership. Set the stage for this comprehensive 25-slide playbook exploring AI transformation in oral medtech. Use this opening to create excitement about the journey through six practical industry scenarios.
+                </aside>
+                <aside class="notes">
+                    Welcome everyone to this presentation on DIFY and Dentsply partnership. This comprehensive 25-slide playbook explores how AI is transforming the oral medtech industry across R&amp;D, manufacturing, clinical, and compliance functions. Use this opening to set expectations for an exciting journey through six practical industry scenarios.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-5xl mb-6">Why DIFY × Dentsply?</h2>
@@ -348,9 +390,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Explain DIFY's three key strengths: visual workflows, device integration, and compliance. Highlight the four transformation pillars showing impact across R&D, manufacturing, supply, and service.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card">
                         <div class="pop-badge">DIFY Community Metrics</div>
                         <h2 class="text-4xl mb-4 text-center">Open-Source Driven - Industry Recognized</h2>
@@ -380,9 +425,12 @@
                             Plugin ecosystem × workflow engine × industry asset library = oral medtech-specific solution
                         </p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Present DIFY's market traction: 1M+ enterprise installations, 120K+ GitHub stars, 150+ countries. Emphasize this is proven technology, not experimental.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h2 class="text-5xl mb-12 text-center">DIFY × Dentsply: Core Industry Value</h2>
                     <div class="grid grid-cols-2 gap-8 stagger">
                         <div class="pop-card bg-blue-50 border-blue-500">
@@ -418,9 +466,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Summarize the four value propositions: AI imaging, workflow automation, compliance, and operational gains. These address both clinical and business needs.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h2 class="mb-12">Agenda - 6 Industry Scenarios</h2>
                     <div class="grid grid-cols-3 gap-6 stagger">
                         <div class="pop-card">
@@ -454,8 +505,11 @@
                             <p class="text-sm text-gray-600">Intelligent counting of consumables and equipment</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Provide a roadmap overview of the six scenarios ahead. Help the audience understand the comprehensive exploration of AI applications.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 1: SMART IMAGING (5 Slides)
@@ -465,9 +519,12 @@
                     <div class="pop-badge bg-blue-600">SCENARIO 01</div>
                     <h2 class="text-6xl text-blue-900">SMART IMAGING</h2>
                     <h3 class="text-2xl text-blue-600 mt-4">AI-assisted imaging and device-coordinated diagnosis</h3>
-                </section>
+                                <aside class="notes">
+                    Introduce Smart Imaging. Frame the problem: clinician fatigue from high imaging volume leading to potential missed diagnoses and low conversion rates.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
                             <h3 class="text-red-600 text-3xl mb-4"><i class="fas fa-bomb"></i> PAIN POINTS</h3>
@@ -488,9 +545,12 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Detail pain points vs. outcomes. Show the shift from manual review to AI-assisted detection improves both efficiency and accuracy.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>WORKFLOW</h3>
                     <div class="flex flex-col gap-4 items-center justify-center mt-8">
                         <div class="pop-card w-2/3 flex justify-between items-center bg-gray-50">
@@ -513,9 +573,12 @@
                             <div class="text-sm">Generate Patient-Friendly Report</div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Explain the four-stage technical workflow: DICOM input, metadata extraction, AI analysis, and patient-friendly output.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-black mb-2">CODE SNIPPET</div>
                         <h3>DICOM PARSER</h3>
@@ -543,9 +606,12 @@ def main(file_path: str) -> dict:
         "meta": meta,
         "image": to_base64(img_array)
     }</code></pre>
-                </section>
+                                <aside class="notes">
+                    Present the DICOM parsing code. Highlight DIFY's custom processing capabilities for clinical metadata extraction.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card text-center bg-gray-900 text-white border-none shadow-2xl">
                         <h3 class="text-2xl text-yellow-400 mb-6">OUTPUT: PATIENT REPORT</h3>
                         <div class="text-left font-mono text-sm leading-loose">
@@ -562,8 +628,11 @@ def main(file_path: str) -> dict:
                             </p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Show the AI-generated report. Emphasize color-coded risk levels and plain language that improve patient understanding and case acceptance.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 2: CONNECTED CARE (5 Slides)
@@ -573,9 +642,12 @@ def main(file_path: str) -> dict:
                     <div class="pop-badge bg-red-600">SCENARIO 02</div>
                     <h2 class="text-6xl text-red-900">CONNECTED CARE</h2>
                     <h3 class="text-2xl text-red-600 mt-4">Remote treatment monitoring and patient follow-up</h3>
-                </section>
+                                <aside class="notes">
+                    Summarize the AI imaging workflow benefits. Emphasize the complete automation from DICOM import to patient-ready report.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">CLINICAL CHALLENGE</h2>
@@ -595,9 +667,12 @@ def main(file_path: str) -> dict:
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Introduce Connected Care. Frame orthodontic compliance challenges with long treatment cycles and poor patient adherence.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>LOGIC</h3>
                     <div class="grid grid-cols-2 gap-8 mt-8 stagger">
                         <div class="pop-card bg-white">
@@ -617,9 +692,12 @@ def main(file_path: str) -> dict:
                             <p>Automatically sends WhatsApp/SMS reminders to use chewies.</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Explain the clinical challenge. 2-month follow-up intervals mean problems go undetected, impacting outcomes.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-red-600 mb-2">PROMPT ENGINEERING</div>
                         <h3>VISION ANALYSIS PROMPT</h3>
@@ -639,9 +717,12 @@ checklist:
 output_format:
   status: "GO" | "NO-GO"
   message: "Friendly feedback to patient."</code></pre>
-                </section>
+                                <aside class="notes">
+                    Walk through the four-step monitoring logic: weekly photos, AI comparison, fit detection, and automated interventions.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-card border-red-500 shadow-xl bg-red-50">
                         <div class="flex items-start gap-4">
                             <div class="w-16 h-16 bg-red-200 rounded-full flex items-center justify-center text-3xl">📱</div>
@@ -655,8 +736,11 @@ output_format:
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Present the vision analysis prompt. Show structured prompts guide AI to check orthodontic parameters.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 3: DIGITAL LAB (3 Slides)
@@ -666,9 +750,12 @@ output_format:
                     <div class="pop-badge bg-orange-600">SCENARIO 03</div>
                     <h2 class="text-6xl text-orange-900">DIGITAL LAB</h2>
                     <h3 class="text-2xl text-orange-600 mt-4">Digital QC for lab and manufacturing</h3>
-                </section>
+                                <aside class="notes">
+                    Display the automated SMS nudge. Personalized messages keep patients engaged without staff intervention.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>QUALITY IN, QUALITY OUT</h3>
                     <div class="flex items-center justify-center gap-8 mt-10">
                         <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
@@ -686,9 +773,12 @@ output_format:
                     <p class="mt-8 font-bold text-red-600 bg-white inline-block px-4 py-2 border-2 border-red-600">
                         Rework cost: $50 + 3-day delay
                     </p>
-                </section>
+                                <aside class="notes">
+                    Introduce Digital Lab. Frame quality control problems in manufacturing that lead to costly rework.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-orange-600 mb-2">PYTHON SCRIPT</div>
                         <h3>STL GEOMETRY CHECK</h3>
@@ -712,8 +802,11 @@ def check_stl(file_path):
         return {"status": "FAIL", "reason": "Low resolution"}
         
     return {"status": "PASS"}</code></pre>
-                </section>
+                                <aside class="notes">
+                    Show scan defects causing downstream problems. The $50 cost and 3-day delay emphasize business impact.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 4: CLINICAL DATA (3 Slides)
@@ -723,9 +816,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-green-600">SCENARIO 04</div>
                     <h2 class="text-6xl text-green-900">CLINICAL DATA CAPTURE</h2>
                     <h3 class="text-2xl text-green-600 mt-4">Clinical data feedback and standardized recording</h3>
-                </section>
+                                <aside class="notes">
+                    Present STL geometry validation code. This AI-powered quality gate catches issues before production.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h3 class="text-4xl mb-4 font-bold">168 Data Points</h3>
@@ -746,9 +842,12 @@ def check_stl(file_path):
                             <p>DIFY + ASR = structured clinical data</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Introduce Clinical Data Capture. Explain the burden of 168-point periodontal charting done manually.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>VOICE TO JSON FLOW</h3>
                     <div class="mt-8 space-y-4">
                         <div class="pop-card flex items-center gap-4 py-4">
@@ -766,8 +865,11 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Compare traditional documentation vs. AI-assisted voice capture. DIFY automates structured data entry.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 5: REGULATORY OPS (4 Slides)
@@ -777,9 +879,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-yellow-500">SCENARIO 05</div>
                     <h2 class="text-6xl text-yellow-900">REGULATORY OPS</h2>
                     <h3 class="text-2xl text-yellow-700 mt-4">MedTech compliance and traceability automation</h3>
-                </section>
+                                <aside class="notes">
+                    Demonstrate voice-to-JSON flow. Natural speech transforms into structured clinical data via ASR + LLM.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
                             <h3 class="text-red-600 mb-4">RISK SUMMARY</h3>
@@ -797,9 +902,12 @@ def check_stl(file_path):
                             </p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Introduce Regulatory Operations. Frame compliance challenges: traceability, audit prep, and CAPA management.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>TRACEABILITY WORKFLOW</h3>
                     <div class="grid grid-cols-2 gap-6 mt-8 stagger">
                         <div class="pop-card bg-white">
@@ -819,9 +927,12 @@ def check_stl(file_path):
                             <p class="text-sm">Automatically generate audit packages and CAPA recommendations.</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Detail risk summary and controls. Manual processes create business risk in regulated environments.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-yellow-500 mb-2">COMPLIANCE ENGINE</div>
                         <h3>RELEASE VALIDATION LOGIC</h3>
@@ -840,8 +951,11 @@ def check_stl(file_path):
         return "WARN: UDI chain incomplete"
 
     return "PASS"</code></pre>
-                </section>
+                                <aside class="notes">
+                    Present the four-step traceability workflow. DIFY agents automate compliance validation throughout the product lifecycle.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 6: SUPPLY INTELLIGENCE (4 Slides)
@@ -851,9 +965,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-pink-600">SCENARIO 06</div>
                     <h2 class="text-6xl text-pink-900">SUPPLY INTELLIGENCE</h2>
                     <h3 class="text-2xl text-pink-600 mt-4">Intelligent inventory counting for consumables and equipment</h3>
-                </section>
+                                <aside class="notes">
+                    Show release validation code. Business rules codify automated compliance checking.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">Cost of Inventory and Consumables Losses</h2>
@@ -870,9 +987,12 @@ def check_stl(file_path):
                             <p>Photo recognition counts items and auto-updates inventory.</p>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Introduce Supply Intelligence. Frame inventory challenges: high-value implants, tracking gaps, stockout risks.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>OBJECT DETECTION FLOW</h3>
                     <div class="flex gap-4 mt-8">
                         <div class="w-1/2">
@@ -897,9 +1017,12 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Detail cost and object detection. AI recognizes implant types from photos for automated inventory updates.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="text-left">
                         <div class="pop-badge bg-pink-600 mb-2">NOTIFICATION</div>
                         <h3>AUTO-REORDER AGENT</h3>
@@ -918,8 +1041,11 @@ def check_stl(file_path):
                             </div>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Display auto-reorder notification. Detection triggers reorder drafts, preventing stockouts.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 7: SECURITY (3 Slides)
@@ -929,9 +1055,12 @@ def check_stl(file_path):
                     <div class="pop-badge bg-gray-800">SECURITY</div>
                     <h2 class="text-6xl text-gray-900">COMPLIANCE</h2>
                     <h3 class="text-2xl text-gray-600 mt-4">HIPAA / GDPR / ISO 13485</h3>
-                </section>
+                                <aside class="notes">
+                    Introduce Security and Compliance. Emphasize HIPAA/GDPR frameworks for all AI capabilities.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="split-layout">
                         <div class="text-left">
                             <h2 class="text-4xl mb-4">PII REDACTION</h2>
@@ -945,9 +1074,12 @@ def check_stl(file_path):
 text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                         </div>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Present PII redaction and audit trail. Show data protection and complete traceability.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <h3>AUDIT TRAIL</h3>
                     <div class="pop-card bg-white w-full text-left">
                         <table class="w-full text-sm font-mono">
@@ -977,8 +1109,11 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                             </tr>
                         </table>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Introduce DS Core Integration. Tie everything together showing DIFY AI enhancing the Dentsply ecosystem.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  CHAPTER 8: DS CORE INTEGRATION SCENARIOS (5 Slides)
@@ -988,9 +1123,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="pop-badge bg-blue-600">SCENARIOS & KEY TAKEAWAYS</div>
                     <h2 class="text-6xl text-blue-900">DS CORE INTEGRATION</h2>
                     <h3 class="text-2xl text-blue-600 mt-4">Five Strategic Scenarios for Digital Dentistry</h3>
-                </section>
+                                <aside class="notes">
+                    Detail Clinical Imaging integration. DIFY AI adds automated analysis to DS Core workflows.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-blue-600">SCENARIO 01</div>
                     <h2 class="text-5xl mb-8 text-blue-900">Clinical Imaging & Diagnosis</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1016,9 +1154,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-yellow-100 border-2 border-yellow-500 rounded">
                         <p class="text-center font-bold text-yellow-900">Key Takeaway: Transform diagnostic efficiency while maintaining Dentsply Sirona ecosystem compatibility</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Present Lab Collaboration. AI quality control integrates with DS Core ordering.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-orange-600">SCENARIO 02</div>
                     <h2 class="text-5xl mb-8 text-orange-900">Lab Collaboration & Manufacturing</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1044,9 +1185,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-green-100 border-2 border-green-500 rounded">
                         <p class="text-center font-bold text-green-900">Key Takeaway: Streamline digital workflows from design to production with AI-powered quality gates</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Explain Patient Communication tools. SureSmile Simulator, Communication Canvas, and Remote Monitoring enhanced by AI.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-green-600">SCENARIO 03</div>
                     <h2 class="text-5xl mb-8 text-green-900">Patient Communication & Treatment Planning</h2>
                     <div class="grid grid-cols-3 gap-6">
@@ -1066,9 +1210,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-blue-100 border-2 border-blue-500 rounded">
                         <p class="text-center font-bold text-blue-900">Key Takeaway: Increase case acceptance through visual communication and continuous patient engagement</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Detail Compliance and Data Management. DIFY's voice-to-JSON eliminates errors while maintaining compliance.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-red-600">SCENARIO 04</div>
                     <h2 class="text-5xl mb-8 text-red-900">Compliance & Data Management</h2>
                     <div class="grid grid-cols-2 gap-8">
@@ -1094,9 +1241,12 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-red-100 border-2 border-red-500 rounded">
                         <p class="text-center font-bold text-red-900">Key Takeaway: Maintain regulatory compliance while reducing documentation burden through AI automation</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Present Supply Chain Intelligence with ROI. 15% cost reduction, 50% fewer stockouts, $50K annual savings.
+                </aside>
 
-                <section>
+                </section>
+<section>
                     <div class="pop-badge bg-purple-600">SCENARIO 05</div>
                     <h2 class="text-5xl mb-8 text-purple-900">Supply Chain & Inventory Intelligence</h2>
                     <div class="grid grid-cols-3 gap-6 mb-8">
@@ -1130,8 +1280,11 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                     <div class="mt-8 p-4 bg-purple-100 border-2 border-purple-500 rounded">
                         <p class="text-center font-bold text-purple-900">Key Takeaway: Transform reactive inventory management into predictive, AI-driven supply intelligence</p>
                     </div>
-                </section>
+                                <aside class="notes">
+                    Closing Q&A. Encourage questions and provide contact information.
+                </aside>
             </section>
+</section>
 
             <!-- =====================================================================================
                  Q&A (Pop Art Style)
@@ -1173,6 +1326,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
     <!-- Reveal.js Init Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
     <script>
         hljs.highlightAll();
         Reveal.initialize({
@@ -1185,6 +1339,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
             backgroundTransition: 'zoom',
             slideNumber: 'c/t',
             navigationMode: 'default', // Allow 2D navigation
+            plugins: [ RevealNotes ],
         });
     </script>
 
