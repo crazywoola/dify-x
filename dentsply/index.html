@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify × Dental · Pop Art Edition</title>
+    <title>DIFY × Dentsply · 口腔医疗器械行业智能化转型</title>
 
     <!-- Reveal.js Themes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
@@ -19,82 +19,86 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             /* Pop Art Palette */
-            --pop-orange: #FF5A00;
-            --pop-blue: #3B82F6;
-            --pop-yellow: #FFD600;
-            --pop-purple: #9D4EDD;
-            --pop-green: #10B981;
-            --pop-pink: #EC4899;
-            --pop-black: #1a1a1a;
-            --pop-bg: #f8f9fa;
+            --pop-red: #ff3b30;
+            --pop-yellow: #ffd600;
+            --pop-blue: #3b82f6;
+            --pop-green: #00c08b;
+            --pop-orange: #ff7a00;
+            --pop-black: #151515;
+            --pop-bg: #f7f5ef;
+            --pop-white: #ffffff;
         }
 
         body {
             font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
             background-color: var(--pop-bg);
-            /* Dot Pattern Background */
             background-image: radial-gradient(var(--pop-black) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 34px 34px;
             color: var(--pop-black);
         }
 
         .reveal {
-            font-size: 26px;
+            font-size: 25px;
             font-weight: 500;
         }
 
         .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-            font-family: 'Noto Sans SC', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            text-transform: uppercase;
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-transform: none;
         }
 
         /* Pop Art Cards */
-        .pop-card {
-            background: white;
-            border: 3px solid var(--pop-black);
-            border-radius: 0px; /* Sharp edges */
+        :where(.pop-card) {
+            background: var(--pop-white);
+            border-width: 3px;
+            border-style: solid;
+            border-color: var(--pop-black);
+            border-radius: 0;
             box-shadow: 8px 8px 0px 0px var(--pop-black);
             padding: 24px;
-            transition: transform 0.2s;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
-        .pop-card:hover {
+        :where(.pop-card):hover {
             transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px 0px var(--pop-black);
+            box-shadow: 10px 10px 0px 0px var(--pop-black);
         }
 
         /* Badges */
         .pop-badge {
             display: inline-block;
-            background: var(--pop-black);
-            color: white;
+            background: var(--pop-yellow);
+            color: var(--pop-black);
             padding: 4px 12px;
-            font-weight: bold;
-            font-size: 0.8em;
-            transform: rotate(-2deg);
+            font-weight: 800;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            border: 3px solid var(--pop-black);
             margin-bottom: 1rem;
         }
 
         /* Code Blocks */
         .reveal pre {
             border: 3px solid var(--pop-black);
-            box-shadow: 8px 8px 0px 0px var(--pop-purple);
+            box-shadow: 8px 8px 0px 0px var(--pop-blue);
             border-radius: 0;
             margin-top: 20px;
             width: 100%;
         }
         .reveal code {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
+            font-size: 14px;
             padding: 20px;
-            max-height: 500px;
+            max-height: 520px;
         }
 
         /* Custom Bullet Points */
@@ -108,7 +112,7 @@
             content: "➜";
             position: absolute;
             left: 0;
-            color: var(--pop-orange);
+            color: var(--pop-red);
             font-weight: 900;
         }
 
@@ -123,16 +127,18 @@
         /* Watermark */
         .brand-pill {
             position: fixed;
-            top: 24px;
-            left: 24px;
+            top: 22px;
+            left: 22px;
             background: var(--pop-black);
             color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 800;
             z-index: 100;
-            font-size: 16px;
-            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.2);
+            font-size: 13px;
+            letter-spacing: 0.16em;
+            box-shadow: 4px 4px 0px 0px var(--pop-yellow);
+            border: 3px solid var(--pop-black);
         }
         
         /* Grid Layouts */
@@ -156,16 +162,16 @@
         }
 
         .community-card {
-            background: white;
+            background: var(--pop-white);
             border: 3px solid var(--pop-black);
             box-shadow: 6px 6px 0px 0px var(--pop-black);
             padding: 22px;
             text-align: left;
-            transition: transform 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .community-card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 10px 10px 0px 0px var(--pop-black);
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--pop-black);
         }
         .community-label {
             display: inline-flex;
@@ -173,8 +179,8 @@
             gap: 10px;
             font-size: 0.75em;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #555;
+            letter-spacing: 0.12em;
+            color: #333;
         }
         .community-label i {
             width: 36px;
@@ -193,7 +199,7 @@
         }
         .community-subtext {
             font-size: 0.85em;
-            color: #333;
+            color: #222;
         }
         
         .timeline-step {
@@ -214,9 +220,66 @@
             top: 0;
         }
 
+        .hero-card {
+            background: var(--pop-white);
+            border: 4px solid var(--pop-black);
+            border-radius: 0;
+            box-shadow: 12px 12px 0px 0px var(--pop-black);
+        }
+
+        .hero-tag {
+            background: var(--pop-yellow);
+            color: var(--pop-black);
+            padding: 8px 20px;
+            border: 3px solid var(--pop-black);
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .reveal section.present .hero-card {
+            animation: popIn 0.6s ease forwards;
+        }
+
+        .reveal section.present .stagger > * {
+            opacity: 0;
+            animation: popIn 0.5s ease forwards;
+        }
+
+        .reveal section.present .stagger > *:nth-child(1) { animation-delay: 0.05s; }
+        .reveal section.present .stagger > *:nth-child(2) { animation-delay: 0.12s; }
+        .reveal section.present .stagger > *:nth-child(3) { animation-delay: 0.18s; }
+        .reveal section.present .stagger > *:nth-child(4) { animation-delay: 0.24s; }
+        .reveal section.present .stagger > *:nth-child(5) { animation-delay: 0.3s; }
+        .reveal section.present .stagger > *:nth-child(6) { animation-delay: 0.36s; }
+
         @media (max-width: 1024px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4,
             .community-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .brand-pill {
+                font-size: 12px;
+                letter-spacing: 0.12em;
             }
         }
     </style>
@@ -225,7 +288,7 @@
 <body>
 
     <div class="brand-pill">
-        DIFY × DENTAL
+        DIFY × DENTSPLY
     </div>
 
     <div class="reveal">
@@ -236,42 +299,42 @@
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FFD600">
-                    <div class="pop-card bg-white" style="display: inline-block; padding: 60px;">
-                        <h1 class="text-8xl mb-4" style="color: black; text-shadow: 4px 4px 0px white;">DIFY × 牙科</h1>
-                        <div class="bg-black text-white text-3xl p-4 transform -rotate-2 inline-block font-bold mt-4">
+                    <div class="pop-card hero-card" style="display: inline-block; padding: 64px;">
+                        <h1 class="text-8xl mb-6" style="color: var(--pop-black);">DIFY × DENTSPLY</h1>
+                        <div class="hero-tag text-3xl mt-2">
                             口腔医疗器械行业智能化转型
                         </div>
                     </div>
-                    <p class="mt-12 font-bold text-xl tracking-widest">从设备到智能决策 · 25页实战指南</p>
+                    <p class="mt-12 font-semibold text-xl tracking-widest text-black">覆盖研发、制造、临床与合规 · 25页实战指南</p>
                 </section>
 
                 <section>
                     <div class="split-layout">
                         <div class="text-left">
-                            <h2 class="text-5xl mb-6">为什么是 Dify？</h2>
-                            <div class="space-y-4">
+                            <h2 class="text-5xl mb-6">为什么是 DIFY × Dentsply？</h2>
+                            <div class="space-y-4 stagger">
                                 <div class="pop-card bg-white border-blue-500 p-4">
                                     <h3 class="text-xl text-blue-600 font-bold mb-2"><i class="fas fa-layer-group"></i> 可视化 Workflow</h3>
-                                    <p class="text-sm">无需编码即可构建 AI 诊断、控制、自动化流程</p>
+                                    <p class="text-sm">无需编码即可构建设备、临床与制造一体化的 AI 流程</p>
                                 </div>
-                                <div class="pop-card bg-white border-purple-500 p-4">
-                                    <h3 class="text-xl text-purple-600 font-bold mb-2"><i class="fas fa-plug"></i> 设备即插即用</h3>
-                                    <p class="text-sm">直连 CBCT、口扫、技工 CAD/CAM 设备</p>
+                                <div class="pop-card bg-white border-red-500 p-4">
+                                    <h3 class="text-xl text-red-600 font-bold mb-2"><i class="fas fa-plug"></i> 设备即插即用</h3>
+                                    <p class="text-sm">直连 CBCT、口扫、CAD/CAM 与生产设备</p>
                                 </div>
-                                <div class="pop-card bg-white border-orange-500 p-4">
+                                <div class="pop-card bg-white border-yellow-500 p-4">
                                     <h3 class="text-xl text-orange-600 font-bold mb-2"><i class="fas fa-database"></i> 数据合规</h3>
-                                    <p class="text-sm">私有化部署保障医疗数据安全，支持 HIPAA/GDPR</p>
+                                    <p class="text-sm">私有化部署保障医疗数据安全，支持 HIPAA/GDPR 与 ISO 13485</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="pop-card bg-blue-100 text-center">
-                            <i class="fas fa-bolt text-8xl text-blue-600 mb-6"></i>
+                        <div class="pop-card bg-yellow-100 text-center">
+                            <i class="fas fa-bolt text-8xl text-black mb-6"></i>
                             <h3 class="text-2xl font-bold">数字化转型关键</h3>
                             <ul class="pop-list text-left mt-6 text-sm">
-                                <li><strong>诊断：</strong>从胶片到 AI 影像分析</li>
-                                <li><strong>监控：</strong>从复诊到实时远程追踪</li>
-                                <li><strong>生产：</strong>从人工到智能质量控制</li>
-                                <li><strong>管理：</strong>从手动到自动化决策</li>
+                                <li><strong>研发：</strong>从碎片实验到知识驱动设计</li>
+                                <li><strong>制造：</strong>从人工质检到视觉 AI 闭环</li>
+                                <li><strong>供应：</strong>从经验备货到预测补货</li>
+                                <li><strong>服务：</strong>从被动报修到远程预测维护</li>
                             </ul>
                         </div>
                     </div>
@@ -281,7 +344,7 @@
                     <div class="pop-card">
                         <div class="pop-badge">DIFY 社区数据</div>
                         <h2 class="text-4xl mb-4 text-center">开源驱动 · 行业认可</h2>
-                        <div class="grid grid-cols-4 gap-4 mt-8">
+                        <div class="grid grid-cols-4 gap-4 mt-8 stagger">
                             <div class="community-card text-center">
                                 <div class="community-value text-4xl">1M+</div>
                                 <div class="community-label mt-1">企业安装</div>
@@ -300,138 +363,138 @@
                             <div class="community-card text-center">
                                 <div class="community-value text-4xl">60+</div>
                                 <div class="community-label mt-1">行业落地</div>
-                                <div class="community-subtext">医疗、金融等</div>
+                                <div class="community-subtext">医疗器械、制造、临床生态</div>
                             </div>
                         </div>
                         <p class="mt-6 font-bold text-sm tracking-widest text-center">
-                            插件生态 × Workflow 引擎 × 行业资产库 = 牙科专属解决方案
+                            插件生态 × Workflow 引擎 × 行业资产库 = 口腔医疗器械专属解决方案
                         </p>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-5xl mb-12 text-center">Dify x 牙科：核心价值</h2>
-                    <div class="grid grid-cols-2 gap-8">
+                    <h2 class="text-5xl mb-12 text-center">DIFY × Dentsply：产业核心价值</h2>
+                    <div class="grid grid-cols-2 gap-8 stagger">
                         <div class="pop-card bg-blue-50 border-blue-500">
-                            <h3 class="text-xl font-bold text-blue-600 mb-3"><i class="fas fa-robot"></i> AI 诊断助手</h3>
+                            <h3 class="text-xl font-bold text-blue-600 mb-3"><i class="fas fa-robot"></i> AI 影像与设备协同</h3>
                             <ul class="pop-list text-sm space-y-2">
-                                <li>30秒完成影像分析报告</li>
-                                <li>96% 龋齿检出准确率</li>
-                                <li>降低医生疲劳漏诊风险</li>
+                                <li>30 秒内完成影像分析报告</li>
+                                <li>影像质量自动评估与补采提示</li>
+                                <li>降低漏诊与返工风险</li>
                             </ul>
                         </div>
-                        <div class="pop-card bg-purple-50 border-purple-500">
-                            <h3 class="text-xl font-bold text-purple-600 mb-3"><i class="fas fa-sync"></i> 流程自动化</h3>
+                        <div class="pop-card bg-red-50 border-red-500">
+                            <h3 class="text-xl font-bold text-red-600 mb-3"><i class="fas fa-sync"></i> 流程自动化</h3>
                             <ul class="pop-list text-sm space-y-2">
                                 <li>全流程可视化 Workflow</li>
                                 <li>无需编程经验即可创建</li>
                                 <li>支持 API 扩展集成</li>
                             </ul>
                         </div>
-                        <div class="pop-card bg-orange-50 border-orange-500">
-                            <h3 class="text-xl font-bold text-orange-600 mb-3"><i class="fas fa-shield-alt"></i> 数据安全</h3>
+                        <div class="pop-card bg-yellow-50 border-yellow-500">
+                            <h3 class="text-xl font-bold text-orange-600 mb-3"><i class="fas fa-shield-alt"></i> 合规与可追溯性</h3>
                             <ul class="pop-list text-sm space-y-2">
                                 <li>私有化部署保障数据主权</li>
-                                <li>HIPAA/GDPR 合规审计</li>
-                                <li>PII 数据脱敏保护</li>
+                                <li>权限分级与审计追溯</li>
+                                <li>支持 HIPAA/GDPR/ISO 13485</li>
                             </ul>
                         </div>
                         <div class="pop-card bg-green-50 border-green-500">
-                            <h3 class="text-xl font-bold text-green-600 mb-3"><i class="fas fa-chart-line"></i> ROI 提升</h3>
+                            <h3 class="text-xl font-bold text-green-600 mb-3"><i class="fas fa-chart-line"></i> 运营效率提升</h3>
                             <ul class="pop-list text-sm space-y-2">
-                                <li>预约转化提升 35%</li>
-                                <li>技工返工减少 90%</li>
-                                <li>保险理赔通过率提升 50%</li>
+                                <li>产线良率提升 15%</li>
+                                <li>质检返工减少 40%</li>
+                                <li>售后响应时间缩短 50%</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="mb-12">今日议程 · 6大场景</h2>
-                    <div class="grid grid-cols-3 gap-6">
+                    <h2 class="mb-12">今日议程 · 6大产业场景</h2>
+                    <div class="grid grid-cols-3 gap-6 stagger">
                         <div class="pop-card">
                             <h3 class="text-4xl mb-3 text-blue-600">01</h3>
                             <h4 class="text-lg font-bold">智能影像诊断</h4>
-                            <p class="text-sm text-gray-600">CBCT/Pano AI 辅助阅片</p>
+                            <p class="text-sm text-gray-600">CBCT/Pano 影像质控与辅助阅片</p>
                         </div>
                         <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-purple-600">02</h3>
-                            <h4 class="text-lg font-bold">正畸远程监控</h4>
-                            <p class="text-sm text-gray-600">隐形矫正实时追踪</p>
+                            <h3 class="text-4xl mb-3 text-red-600">02</h3>
+                            <h4 class="text-lg font-bold">远程治疗监控</h4>
+                            <p class="text-sm text-gray-600">隐形矫正与术后随访</p>
                         </div>
                         <div class="pop-card">
                             <h3 class="text-4xl mb-3 text-orange-600">03</h3>
-                            <h4 class="text-lg font-bold">技工质量控制</h4>
-                            <p class="text-sm text-gray-600">CAD/STL 自动检测</p>
+                            <h4 class="text-lg font-bold">生产质控自动化</h4>
+                            <p class="text-sm text-gray-600">CAD/STL 工艺自动检测</p>
                         </div>
                         <div class="pop-card">
                             <h3 class="text-4xl mb-3 text-green-600">04</h3>
-                            <h4 class="text-lg font-bold">语音病历记录</h4>
-                            <p class="text-sm text-gray-600">释放双手的牙周检查</p>
+                            <h4 class="text-lg font-bold">临床语音记录</h4>
+                            <p class="text-sm text-gray-600">结构化病历与数据回传</p>
                         </div>
                         <div class="pop-card">
                             <h3 class="text-4xl mb-3 text-yellow-600">05</h3>
-                            <h4 class="text-lg font-bold">保险智能理赔</h4>
-                            <p class="text-sm text-gray-600">PMS 自动审核</p>
+                            <h4 class="text-lg font-bold">合规与追溯</h4>
+                            <p class="text-sm text-gray-600">UDI/审计自动化</p>
                         </div>
                         <div class="pop-card">
                             <h3 class="text-4xl mb-3 text-pink-600">06</h3>
-                            <h4 class="text-lg font-bold">设备耗材管理</h4>
-                            <p class="text-sm text-gray-600">智能库存盘点</p>
+                            <h4 class="text-lg font-bold">供应链与库存</h4>
+                            <p class="text-sm text-gray-600">耗材与设备智能盘点</p>
                         </div>
                     </div>
                 </section>
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 1: INTELLIGENT TRIAGE (5 Slides)
+                 CHAPTER 1: SMART IMAGING (5 Slides)
                  ===================================================================================== -->
             <section>
-                <section data-background-color="#E0F2FE">
+                <section data-background-color="#DBEAFE">
                     <div class="pop-badge bg-blue-600">SCENARIO 01</div>
-                    <h2 class="text-6xl text-blue-900">INTELLIGENT TRIAGE</h2>
-                    <h3 class="text-2xl text-blue-600 mt-4">AI 辅助阅片与初诊报告</h3>
+                    <h2 class="text-6xl text-blue-900">SMART IMAGING</h2>
+                    <h3 class="text-2xl text-blue-600 mt-4">AI 影像辅助与设备协同诊断</h3>
                 </section>
 
                 <section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
-                            <h3 class="text-red-600 text-3xl mb-4"><i class="fas fa-bomb"></i> THE PAIN</h3>
+                            <h3 class="text-red-600 text-3xl mb-4"><i class="fas fa-bomb"></i> PAIN POINTS</h3>
                             <ul class="pop-list text-lg">
-                                <li>医生每天阅读 50+ 张全景片</li>
-                                <li>疲劳导致漏诊 (Missed Diagnosis)</li>
-                                <li>患者看不懂黑白 X 光片</li>
-                                <li>初诊转化率低 (< 20%)</li>
+                                <li>医生日均阅读 50+ 张全景片</li>
+                                <li>疲劳导致漏诊风险上升</li>
+                                <li>患者对影像理解成本高</li>
+                                <li>初诊转化率低于 20%</li>
                             </ul>
                         </div>
                         <div class="pop-card bg-green-50 border-green-500">
-                            <h3 class="text-green-600 text-3xl mb-4"><i class="fas fa-star"></i> THE GOAL</h3>
+                            <h3 class="text-green-600 text-3xl mb-4"><i class="fas fa-star"></i> TARGET OUTCOMES</h3>
                             <ul class="pop-list text-lg">
-                                <li>秒级筛查 (Detection < 5s)</li>
+                                <li>检测耗时低于 5 秒</li>
                                 <li>可视化红框标注 (Bounding Box)</li>
-                                <li>自动生成通俗易懂的报告</li>
-                                <li>转化率提升至 40%+</li>
+                                <li>自动生成患者友好报告</li>
+                                <li>初诊转化提升至 40%</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3>THE WORKFLOW</h3>
+                    <h3>WORKFLOW</h3>
                     <div class="flex flex-col gap-4 items-center justify-center mt-8">
                         <div class="pop-card w-2/3 flex justify-between items-center bg-gray-50">
                             <div class="font-bold">INPUT</div>
                             <div class="font-mono text-sm bg-black text-white p-2">DICOM / Folder Watch</div>
                         </div>
                         <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
-                        <div class="pop-card w-2/3 flex justify-between items-center bg-orange-50 border-orange-400">
-                            <div class="font-bold text-orange-600">CODE NODE</div>
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-yellow-50 border-yellow-400">
+                            <div class="font-bold text-yellow-700">CODE NODE</div>
                             <div class="text-sm">Python (pydicom) Extract Metadata</div>
                         </div>
                         <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
-                        <div class="pop-card w-2/3 flex justify-between items-center bg-purple-50 border-purple-400">
-                            <div class="font-bold text-purple-600">MODEL NODE</div>
+                        <div class="pop-card w-2/3 flex justify-between items-center bg-red-50 border-red-400">
+                            <div class="font-bold text-red-600">MODEL NODE</div>
                             <div class="text-sm">Pearl AI / Custom Vision Model</div>
                         </div>
                         <i class="fas fa-arrow-down text-3xl text-gray-300"></i>
@@ -476,15 +539,15 @@ def main(file_path: str) -> dict:
                     <div class="pop-card text-center bg-gray-900 text-white border-none shadow-2xl">
                         <h3 class="text-2xl text-yellow-400 mb-6">OUTPUT: PATIENT REPORT</h3>
                         <div class="text-left font-mono text-sm leading-loose">
-                            <p class="text-gray-400">// Generated by Dify</p>
+                            <p class="text-gray-400">// Generated by DIFY</p>
                             <p>
-                                <span class="text-purple-400">Title:</span> 口腔健康初诊报告<br>
-                                <span class="text-purple-400">Patient:</span> 张先生 (ID: 88392)<br>
-                                <span class="text-purple-400">Findings:</span><br>
+                                <span class="text-yellow-400">Title:</span> 口腔健康初诊报告<br>
+                                <span class="text-yellow-400">Patient:</span> 张先生 (ID: 88392)<br>
+                                <span class="text-yellow-400">Findings:</span><br>
                                 1. <span class="bg-red-600 text-white px-1">HIGH RISK</span> 左上第一磨牙 (#26) 发现邻面龋坏，深度接近牙髓。<br>
                                 2. <span class="bg-yellow-600 text-white px-1">MEDIUM</span> 下前牙区可见牙结石堆积。<br>
                                 <br>
-                                <span class="text-purple-400">Suggestion:</span><br>
+                                <span class="text-yellow-400">Suggestion:</span><br>
                                 建议优先处理 #26 龋齿（树脂充填），并预约全口洁治。
                             </p>
                         </div>
@@ -493,54 +556,54 @@ def main(file_path: str) -> dict:
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 2: ORTHO MONITORING (5 Slides)
+                 CHAPTER 2: CONNECTED CARE (5 Slides)
                  ===================================================================================== -->
             <section>
-                <section data-background-color="#F3E8FF">
-                    <div class="pop-badge bg-purple-600">SCENARIO 02</div>
-                    <h2 class="text-6xl text-purple-900">VIRTUAL CARE</h2>
-                    <h3 class="text-2xl text-purple-600 mt-4">隐形正畸远程监控</h3>
+                <section data-background-color="#FEE2E2">
+                    <div class="pop-badge bg-red-600">SCENARIO 02</div>
+                    <h2 class="text-6xl text-red-900">CONNECTED CARE</h2>
+                    <h3 class="text-2xl text-red-600 mt-4">远程治疗监控与用户随访</h3>
                 </section>
 
                 <section>
                     <div class="split-layout">
                         <div class="text-left">
-                            <h2 class="text-4xl mb-4">THE PROBLEM</h2>
+                            <h2 class="text-4xl mb-4">CLINICAL CHALLENGE</h2>
                             <p class="text-xl">
-                                正畸是长周期的战役。<br>
-                                患者在家<strong>不戴牙套</strong>，或者<strong>戴不到位</strong>，医生完全不知道。<br>
-                                等下次复诊（2个月后），已经晚了。
+                                正畸治疗周期长，患者依从性波动大。<br>
+                                在家<strong>佩戴不足</strong>或<strong>不到位</strong>，医生难以及时发现。<br>
+                                等到复诊（约 2 个月后）往往已经滞后。
                             </p>
                         </div>
-                        <div class="pop-card rotate-3">
+                        <div class="pop-card">
                             <div class="bg-gray-200 h-48 flex items-center justify-center text-4xl font-bold text-gray-400">
-                                NO SHOW
+                                LOW COMPLIANCE
                             </div>
                             <div class="p-4">
-                                <h4 class="font-bold">无效复诊</h4>
-                                <p class="text-sm">跑一趟诊所只为了听医生说一句："挺好，继续戴"。</p>
+                                <h4 class="font-bold">随访效率低</h4>
+                                <p class="text-sm">复诊反馈滞后，影响疗程进度与效果评估。</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3>THE LOGIC</h3>
-                    <div class="grid grid-cols-2 gap-8 mt-8">
+                    <h3>LOGIC</h3>
+                    <div class="grid grid-cols-2 gap-8 mt-8 stagger">
                         <div class="pop-card bg-white">
-                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 1: Upload</h4>
+                            <h4 class="text-xl font-bold text-red-600 mb-2">Step 1: Upload</h4>
                             <p>患者每周使用 Cheek Retractor 拍摄 3 张照片（正面/侧面）。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 2: Compare</h4>
-                            <p>Dify 提取当前阶段的 3D 模拟图 (STL Render)。</p>
+                            <h4 class="text-xl font-bold text-red-600 mb-2">Step 2: Compare</h4>
+                            <p>DIFY 提取当前阶段的 3D 模拟图 (STL Render)。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 3: Vision AI</h4>
-                            <p>检测 "Air Gap" (间隙)。<br>> 1mm = 脱轨。</p>
+                            <h4 class="text-xl font-bold text-red-600 mb-2">Step 3: Vision AI</h4>
+                            <p>检测 "Air Gap" (间隙)。<br>大于 1 mm 视为脱轨。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="text-xl font-bold text-purple-600 mb-2">Step 4: Nudge</h4>
+                            <h4 class="text-xl font-bold text-red-600 mb-2">Step 4: Nudge</h4>
                             <p>自动发送 WhatsApp/SMS 提醒患者使用咬胶。</p>
                         </div>
                     </div>
@@ -548,7 +611,7 @@ def main(file_path: str) -> dict:
 
                 <section>
                     <div class="text-left">
-                        <div class="pop-badge bg-purple-600 mb-2">PROMPT ENGINEERING</div>
+                        <div class="pop-badge bg-red-600 mb-2">PROMPT ENGINEERING</div>
                         <h3>VISION ANALYSIS PROMPT</h3>
                     </div>
                     <pre><code class="yaml">role: Ortho_Monitor
@@ -557,7 +620,7 @@ task: Compare current_photo vs target_render
 checklist:
   aligner_fit:
     instruction: "Check for space between tooth edge and aligner."
-    threshold: "1mm"
+    threshold: "1 mm"
   attachments:
     instruction: "Are all composite buttons visible?"
   hygiene:
@@ -569,13 +632,13 @@ output_format:
                 </section>
 
                 <section>
-                    <div class="pop-card border-purple-500 shadow-xl bg-purple-50">
+                    <div class="pop-card border-red-500 shadow-xl bg-red-50">
                         <div class="flex items-start gap-4">
-                            <div class="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center text-3xl">📱</div>
+                            <div class="w-16 h-16 bg-red-200 rounded-full flex items-center justify-center text-3xl">📱</div>
                             <div class="text-left flex-1">
-                                <h4 class="font-bold text-purple-800">SMS Notification</h4>
+                                <h4 class="font-bold text-red-800">SMS Notification</h4>
                                 <p class="mt-2 text-lg font-mono">
-                                    "Hi Alice! Dify AI noticed a small gap on your upper incisors. 🦷<br>
+                                    "Hi Alice! DIFY AI noticed a small gap on your upper incisors. 🦷<br>
                                     <strong>Action:</strong> Please use your chewies for 20 mins tonight.<br>
                                     No need to come in! See you next week."
                                 </p>
@@ -586,32 +649,32 @@ output_format:
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 3: LAB AUTOMATION (3 Slides)
+                 CHAPTER 3: DIGITAL LAB (3 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FFEDD5">
                     <div class="pop-badge bg-orange-600">SCENARIO 03</div>
-                    <h2 class="text-6xl text-orange-900">LAB AUTOMATION</h2>
-                    <h3 class="text-2xl text-orange-600 mt-4">技工端的数字守门员</h3>
+                    <h2 class="text-6xl text-orange-900">DIGITAL LAB</h2>
+                    <h3 class="text-2xl text-orange-600 mt-4">技工与生产的数字质检</h3>
                 </section>
 
                 <section>
-                    <h3>GIGO: GARBAGE IN, GARBAGE OUT</h3>
+                    <h3>QUALITY IN, QUALITY OUT</h3>
                     <div class="flex items-center justify-center gap-8 mt-10">
                         <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
                             <div class="text-6xl mb-4">🗑️</div>
-                            <h4 class="font-bold">Bad Scan</h4>
-                            <p class="text-sm">Holes, distorted margins</p>
+                            <h4 class="font-bold">扫描缺陷</h4>
+                            <p class="text-sm">缺孔、边缘扭曲</p>
                         </div>
                         <i class="fas fa-arrow-right text-4xl"></i>
                         <div class="pop-card bg-red-100 border-red-500 w-1/3 text-center opacity-50">
                             <div class="text-6xl mb-4">👎</div>
-                            <h4 class="font-bold">Bad Crown</h4>
-                            <p class="text-sm">Doesn't fit, remake needed</p>
+                            <h4 class="font-bold">加工返工</h4>
+                            <p class="text-sm">装配偏差，需返工</p>
                         </div>
                     </div>
                     <p class="mt-8 font-bold text-red-600 bg-white inline-block px-4 py-2 border-2 border-red-600">
-                        COST OF REMAKE: $50 + 3 Days Delay
+                        返工成本：$50 + 3 天延期
                     </p>
                 </section>
 
@@ -643,13 +706,13 @@ def check_stl(file_path):
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 4: PERIO VOICE (3 Slides)
+                 CHAPTER 4: CLINICAL DATA (3 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#DCFCE7">
                     <div class="pop-badge bg-green-600">SCENARIO 04</div>
-                    <h2 class="text-6xl text-green-900">VOICE CHARTING</h2>
-                    <h3 class="text-2xl text-green-600 mt-4">释放双手的牙周检查</h3>
+                    <h2 class="text-6xl text-green-900">CLINICAL DATA CAPTURE</h2>
+                    <h3 class="text-2xl text-green-600 mt-4">临床数据回传与标准化记录</h3>
                 </section>
 
                 <section>
@@ -659,17 +722,18 @@ def check_stl(file_path):
                             <p class="text-xl">
                                 一次完整的牙周检查需要记录：<br>
                                 28 颗牙 × 6 个位点 = 168 个深度数据。<br>
-                                还要记录出血 (BOP)、松动度。
+                                还要记录出血 (BOP)、松动度。<br>
+                                标准化数据回流是器械优化与临床证据的核心。
                             </p>
                             <br>
                             <p class="font-bold bg-green-100 p-2 inline-block text-green-800">
-                                传统：医生读，护士记 (需要2个人)。
+                                传统：医生读，护士记 (需要 2 人)。
                             </p>
                         </div>
                         <div class="pop-card bg-green-50 border-green-500 flex flex-col items-center justify-center text-center">
                             <i class="fas fa-microphone text-8xl text-green-600 mb-4"></i>
-                            <h4 class="text-2xl font-bold">"One Man Show"</h4>
-                            <p>Dify + ASR = 单人操作</p>
+                            <h4 class="text-2xl font-bold">Hands-free Documentation</h4>
+                            <p>DIFY + ASR = 结构化临床数据</p>
                         </div>
                     </div>
                 </section>
@@ -696,106 +760,104 @@ def check_stl(file_path):
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 5: SMART CLAIMS (4 Slides)
+                 CHAPTER 5: REGULATORY OPS (4 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FEF9C3">
-                    <div class="pop-badge bg-yellow-600">SCENARIO 05</div>
-                    <h2 class="text-6xl text-yellow-900">SMART CLAIMS</h2>
-                    <h3 class="text-2xl text-yellow-600 mt-4">保险理赔自动核验</h3>
+                    <div class="pop-badge bg-yellow-500">SCENARIO 05</div>
+                    <h2 class="text-6xl text-yellow-900">REGULATORY OPS</h2>
+                    <h3 class="text-2xl text-yellow-700 mt-4">医疗器械合规与追溯自动化</h3>
                 </section>
 
                 <section>
                     <div class="split-layout">
                         <div class="pop-card bg-red-50 border-red-500">
-                            <h3 class="text-red-600 mb-4">THE REJECTION</h3>
-                            <p class="text-lg">
-                                保险公司拒赔的 3 大理由：<br>
-                                1. CPT 编码错误 (30%)<br>
-                                2. 缺少证据 X 光片 (40%)<br>
-                                3. 治疗必要性不足 (30%)
-                            </p>
+                            <h3 class="text-red-600 mb-4">RISK SUMMARY</h3>
+                            <ul class="pop-list text-lg">
+                                <li>UDI 追溯链断点，召回定位慢</li>
+                                <li>多市场法规差异导致重复文档</li>
+                                <li>审计准备耗时 (&gt; 2 周)</li>
+                                <li>CAPA 记录分散，闭环困难</li>
+                            </ul>
                         </div>
                         <div class="text-left">
-                            <h2 class="text-4xl mb-4">THE PRE-CHECK</h2>
+                            <h2 class="text-4xl mb-4">CONTROL MEASURES</h2>
                             <p class="text-xl">
-                                在提交给保险公司<strong>之前</strong>，先用 Dify Agent 进行"模拟理赔"。
+                                在出厂、分销、售后每个节点，DIFY Agent 自动校验合规包与追溯链。
                             </p>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3>AUTOMATED AUDIT FLOW</h3>
-                    <div class="grid grid-cols-2 gap-6 mt-8">
+                    <h3>TRACEABILITY WORKFLOW</h3>
+                    <div class="grid grid-cols-2 gap-6 mt-8 stagger">
                         <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-600">Step 1: Context</h4>
-                            <p class="text-sm">Extract Patient History + Treatment Plan (D2740 Crown).</p>
+                            <h4 class="font-bold text-yellow-700">Step 1: Ingest</h4>
+                            <p class="text-sm">采集 UDI + 批次 + DHR/DMR 记录。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-600">Step 2: Evidence</h4>
-                            <p class="text-sm">Find latest X-ray (Bitewing) from that date.</p>
+                            <h4 class="font-bold text-yellow-700">Step 2: Evidence</h4>
+                            <p class="text-sm">关联测试报告、灭菌/校准记录。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-600">Step 3: Vision Check</h4>
-                            <p class="text-sm">Does X-ray show decay? If No -> <span class="text-red-500 font-bold">FLAG</span>.</p>
+                            <h4 class="font-bold text-yellow-700">Step 3: AI Check</h4>
+                            <p class="text-sm">缺失字段、异常批次、质量漂移自动 <span class="text-red-500 font-bold">FLAG</span>。</p>
                         </div>
                         <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-600">Step 4: Suggest</h4>
-                            <p class="text-sm">"Please attach Pre-op X-ray and Narrative."</p>
+                            <h4 class="font-bold text-yellow-700">Step 4: Output</h4>
+                            <p class="text-sm">自动生成审计包与 CAPA 建议。</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <div class="text-left">
-                        <div class="pop-badge bg-yellow-600 mb-2">RULE ENGINE</div>
-                        <h3>CLAIMS VALIDATION LOGIC</h3>
+                        <div class="pop-badge bg-yellow-500 mb-2">COMPLIANCE ENGINE</div>
+                        <h3>RELEASE VALIDATION LOGIC</h3>
                     </div>
-                    <pre><code class="python">def validate_claim(cpt_code, evidence):
-    # D2740: Porcelain Crown
-    if cpt_code == 'D2740':
-        # 1. Must have X-ray
-        if not evidence.get('xray_date'):
-            return "FAIL: Missing X-ray"
-            
-        # 2. X-ray must be recent (< 6 months)
-        if days_since(evidence['xray_date']) > 180:
-            return "FAIL: X-ray too old"
-            
-        # 3. Vision AI check
-        if evidence['ai_caries_probability'] < 0.5:
-            return "WARN: Caries not clear in X-ray, add Narrative."
-            
+                    <pre><code class="python">def validate_release(udi, docs):
+    if not docs.get("dhr"):
+        return "FAIL: Missing DHR"
+
+    if docs.get("sterilization_status") != "PASS":
+        return "FAIL: Sterilization not passed"
+
+    if days_since(docs.get("calibration_date")) > 180:
+        return "WARN: Calibration overdue"
+
+    if docs.get("udi_traceability") != "OK":
+        return "WARN: UDI chain incomplete"
+
     return "PASS"</code></pre>
                 </section>
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 6: INVENTORY VISION (4 Slides)
+                 CHAPTER 6: SUPPLY INTELLIGENCE (4 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FCE7F3">
                     <div class="pop-badge bg-pink-600">SCENARIO 06</div>
-                    <h2 class="text-6xl text-pink-900">VISION INVENTORY</h2>
-                    <h3 class="text-2xl text-pink-600 mt-4">拍照盘点耗材</h3>
+                    <h2 class="text-6xl text-pink-900">SUPPLY INTELLIGENCE</h2>
+                    <h3 class="text-2xl text-pink-600 mt-4">耗材与设备库存智能盘点</h3>
                 </section>
 
                 <section>
                     <div class="split-layout">
                         <div class="text-left">
-                            <h2 class="text-4xl mb-4">THE $500 MISTAKE</h2>
+                            <h2 class="text-4xl mb-4">库存与耗材损失成本</h2>
                             <p class="text-xl">
-                                种植体 (Implant) 一颗几百美金。<br>
-                                经常发生：<br>
-                                - 用了没记账 (Lost Revenue)<br>
-                                - 想要的时候发现没货 (Lost Patient)
+                                种植体 (Implant) 单价高，库存波动直接影响交付。<br>
+                                常见问题：<br>
+                                - 使用未记录，形成财务偏差<br>
+                                - 库存断供，影响排期与收入
                             </p>
                         </div>
                         <div class="pop-card bg-pink-50 border-pink-500 text-center">
                             <i class="fas fa-camera text-8xl text-pink-600 mb-4"></i>
-                            <h4 class="text-2xl font-bold">SNAP & COUNT</h4>
-                            <p>Don't count manually. Just take a photo of the drawer.</p>
+                            <h4 class="text-2xl font-bold">视觉盘点</h4>
+                            <p>拍照识别数量，自动回写库存。</p>
                         </div>
                     </div>
                 </section>
@@ -817,7 +879,7 @@ def check_stl(file_path):
                         </div>
                         <div class="w-1/2 flex flex-col justify-center">
                             <div class="pop-card bg-white">
-                                <h4 class="font-bold text-pink-600 mb-2">Inventory Update</h4>
+                                <h4 class="font-bold text-pink-600 mb-2">库存更新</h4>
                                 <ul class="font-mono text-sm">
                                     <li class="flex justify-between"><span>Straumann 3.3mm</span> <span>Qty: 5 (-1)</span></li>
                                     <li class="flex justify-between font-bold text-red-500"><span>Nobel 4.3mm</span> <span>Qty: 1 (REORDER)</span></li>
@@ -836,12 +898,12 @@ def check_stl(file_path):
                         <div class="flex items-start gap-4">
                             <i class="fas fa-shopping-cart text-3xl text-yellow-700"></i>
                             <div>
-                                <h4 class="font-bold text-yellow-800">Order Draft Created</h4>
+                                <h4 class="font-bold text-yellow-800">补货草案已生成</h4>
                                 <p class="text-sm mt-1">
                                     Supplier: Nobel Biocare<br>
                                     Items: 5x Active 4.3mm<br>
                                     Total: $1,250<br>
-                                    <a href="#" class="underline font-bold">Click to Approve</a>
+                                    <a href="#" class="underline font-bold">点击审批</a>
                                 </p>
                             </div>
                         </div>
@@ -856,7 +918,7 @@ def check_stl(file_path):
                 <section data-background-color="#F3F4F6">
                     <div class="pop-badge bg-gray-800">SECURITY</div>
                     <h2 class="text-6xl text-gray-900">COMPLIANCE</h2>
-                    <h3 class="text-2xl text-gray-600 mt-4">HIPAA & GDPR Ready</h3>
+                    <h3 class="text-2xl text-gray-600 mt-4">HIPAA · GDPR · ISO 13485</h3>
                 </section>
 
                 <section>
@@ -912,61 +974,61 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                  CHAPTER 8: ROADMAP (3 Slides)
                  ===================================================================================== -->
             <section>
-                <section data-background-color="#FFFBEB">
-                    <div class="pop-badge bg-yellow-600">ROADMAP</div>
-                    <h2 class="text-6xl text-yellow-900">IMPLEMENTATION</h2>
-                    <h3 class="text-2xl text-yellow-600 mt-4">4 Weeks to Live</h3>
+                <section data-background-color="#FFF7ED">
+                    <div class="pop-badge bg-blue-600">ROADMAP</div>
+                    <h2 class="text-6xl text-blue-900">IMPLEMENTATION</h2>
+                    <h3 class="text-2xl text-blue-600 mt-4">4 Weeks to Live</h3>
                 </section>
 
                 <section>
                     <div class="timeline-step">
                         <h4 class="font-bold text-xl">WEEK 1: PILOT</h4>
-                        <p class="text-sm">Connect 1 CBCT & 1 Computer. Test Triage Workflow manually.</p>
+                        <p class="text-sm">试点 1 条影像链路 + 1 个生产站点，定义 KPI 并验证流程。</p>
                     </div>
                     <div class="timeline-step">
                         <h4 class="font-bold text-xl">WEEK 2: INTEGRATION</h4>
-                        <p class="text-sm">Connect PMS (Dentrix) API. Automate Patient ID matching.</p>
+                        <p class="text-sm">接入 MES/ERP/QMS，完成 UDI 与批次追溯映射。</p>
                     </div>
                     <div class="timeline-step">
                         <h4 class="font-bold text-xl">WEEK 3: TRAINING</h4>
-                        <p class="text-sm">Train nurses on "Voice Charting" and "Photo Inventory".</p>
+                        <p class="text-sm">培训 QC 与服务团队，完善 SOP 与数据闭环。</p>
                     </div>
                     <div class="timeline-step border-l-4 border-green-500">
                         <h4 class="font-bold text-xl text-green-600">WEEK 4: GO LIVE</h4>
-                        <p class="text-sm">Full automated workflow. Monitor ROI.</p>
+                        <p class="text-sm">制造-分销-服务全链路上线，持续监测 KPI。</p>
                     </div>
                 </section>
 
                 <section>
                     <h3>ROI & VALUE</h3>
-                    <div class="grid grid-cols-3 gap-8 mt-12">
+                    <div class="grid grid-cols-3 gap-8 mt-12 stagger">
                         <div class="pop-card bg-green-200 text-center">
-                            <h4 class="text-6xl font-black mb-2">30%</h4>
-                            <p class="font-bold">Conversion Rate ↑</p>
+                            <h4 class="text-6xl font-black mb-2">18%</h4>
+                            <p class="font-bold">产线良率 ↑</p>
                         </div>
-                        <div class="pop-card bg-orange-200 text-center">
-                            <h4 class="text-6xl font-black mb-2">2h</h4>
-                            <p class="font-bold">Daily Saved Time</p>
+                        <div class="pop-card bg-blue-200 text-center">
+                            <h4 class="text-6xl font-black mb-2">40%</h4>
+                            <p class="font-bold">审计准备时间 ↓</p>
                         </div>
                         <div class="pop-card bg-blue-200 text-center">
                             <h4 class="text-6xl font-black mb-2">0</h4>
-                            <p class="font-bold">GIGO Remakes</p>
+                            <p class="font-bold">关键缺陷流出</p>
                         </div>
                     </div>
                 </section>
             </section>
 
             <!-- =====================================================================================
-                 Q&A (PayPal Style)
+                 Q&A (Pop Art Style)
                  ===================================================================================== -->
-            <section data-background-color="#003087">
+            <section data-background-color="#111111">
                 <div class="flex flex-col items-center justify-center h-full text-white">
                     <h1 class="text-7xl font-bold mb-6 tracking-tighter">Q & A</h1>
-                    <p class="text-xl opacity-80 mb-12 font-mono">Let's shape the future of digital dentistry.</p>
+                    <p class="text-xl opacity-80 mb-12 font-mono">共建口腔医疗器械智能化新标准</p>
                     
                     <div class="flex gap-16">
                         <!-- Card 1: Xiaohongshu -->
-                        <div class="bg-white text-black p-8 rounded-3xl w-64 text-center transform transition hover:scale-105 hover:rotate-2 shadow-2xl">
+                        <div class="pop-card w-64 text-center">
                             <div class="mb-6 p-2 bg-gray-50 rounded-xl">
                                 <img src="../assets/xiaohongshu.png" alt="Xiaohongshu" class="w-full h-auto rounded-lg">
                             </div>
@@ -975,7 +1037,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
                         </div>
                         
                         <!-- Card 2: Bilibili -->
-                        <div class="bg-white text-black p-8 rounded-3xl w-64 text-center transform transition hover:scale-105 hover:-rotate-2 shadow-2xl">
+                        <div class="pop-card w-64 text-center">
                             <div class="mb-6 p-2 bg-gray-50 rounded-xl">
                                 <img src="../assets/bilibili.png" alt="Bilibili" class="w-full h-auto rounded-lg">
                             </div>
@@ -1004,7 +1066,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
             center: true,
             hash: true,
             history: true,
-            transition: 'convex', // Pop style transition
+            transition: 'convex', // Pop art transition
             backgroundTransition: 'zoom',
             slideNumber: 'c/t',
             navigationMode: 'default', // Allow 2D navigation
