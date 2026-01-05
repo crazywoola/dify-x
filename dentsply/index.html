@@ -124,21 +124,27 @@
             align-items: center;
         }
 
-        /* Watermark */
-        .brand-pill {
+        /* Persistent Logos */
+        .brand-watermark {
             position: fixed;
-            top: 22px;
-            left: 22px;
-            background: var(--pop-black);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-weight: 800;
+            top: 24px;
+            left: 24px;
             z-index: 100;
-            font-size: 13px;
-            letter-spacing: 0.16em;
-            box-shadow: 4px 4px 0px 0px var(--pop-yellow);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 6px 10px;
+            background: var(--pop-white);
             border: 3px solid var(--pop-black);
+            box-shadow: 4px 4px 0px 0px var(--pop-black);
+        }
+
+        .brand-watermark img {
+            height: 28px;
+        }
+
+        .brand-watermark .ds-logo {
+            height: 26px;
         }
         
         /* Grid Layouts */
@@ -277,9 +283,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .brand-pill {
-                font-size: 12px;
-                letter-spacing: 0.12em;
+            .brand-watermark img {
+                height: 24px;
+            }
+
+            .brand-watermark .ds-logo {
+                height: 22px;
             }
         }
     </style>
@@ -287,8 +296,9 @@
 
 <body>
 
-    <div class="brand-pill">
-        DIFY × DENTSPLY
+    <div class="brand-watermark">
+        <img src="../assets/logo.svg" alt="Dify Logo">
+        <img src="./assets/ds-desktop-logo.svg" alt="Dentsply Sirona Logo" class="ds-logo">
     </div>
 
     <div class="reveal">
