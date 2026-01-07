@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>香港开源生态：现状、潜力与全球连接</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/white.min.css" id="theme">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dify-blue: #0033ff;
+      --pop-yellow: #ffd400;
+      --pop-red: #ff3b30;
+      --pop-pink: #ff7eb6;
+      --pop-teal: #00c2ff;
+      --pop-green: #00c48c;
+      --pop-black: #111111;
+      --pop-cream: #fff7e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Söhne', 'Inter', 'Noto Sans SC', sans-serif;
+      background-color: var(--pop-cream);
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(255, 212, 0, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 90% 18%, rgba(0, 194, 255, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 75% 90%, rgba(255, 59, 48, 0.25) 0%, transparent 50%);
+      background-attachment: fixed;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(17, 17, 17, 0.12) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .reveal {
+      font-size: 26px;
+      color: var(--pop-black);
+      z-index: 1;
+    }
+
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      font-family: 'Bangers', 'ZCOOL KuaiLe', 'Söhne', 'Inter', 'Noto Sans SC', sans-serif;
+      letter-spacing: 1px;
+      text-transform: none;
+    }
+
+    .reveal h1 {
+      text-shadow: 4px 4px 0 var(--pop-black);
+    }
+
+    .reveal h2,
+    .reveal h3 {
+      text-shadow: 2px 2px 0 var(--pop-black);
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 3px solid var(--pop-black);
+      border-radius: 999px;
+      box-shadow: 6px 6px 0 var(--pop-black);
+      z-index: 20;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lang-switch a {
+      color: var(--pop-black);
+      text-decoration: none;
+    }
+
+    .lang-switch a.active {
+      color: var(--dify-blue);
+    }
+
+    .brand-watermark {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 20;
+      background: #ffffff;
+      border: 3px solid var(--pop-black);
+      padding: 8px 12px;
+      border-radius: 14px;
+      box-shadow: 6px 6px 0 var(--pop-black);
+    }
+
+    .brand-watermark img {
+      height: 24px;
+    }
+
+    #pop-shapes {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #pop-shapes .shape {
+      position: absolute;
+      border: 4px solid var(--pop-black);
+      box-shadow: 10px 10px 0 var(--pop-black);
+      opacity: 0.8;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    #pop-shapes .s1 {
+      width: 220px;
+      height: 220px;
+      background: var(--pop-yellow);
+      top: -60px;
+      left: -40px;
+      transform: rotate(-8deg);
+    }
+
+    #pop-shapes .s2 {
+      width: 180px;
+      height: 180px;
+      background: var(--pop-teal);
+      top: 10%;
+      right: -60px;
+      border-radius: 28px;
+      transform: rotate(12deg);
+      animation-delay: 1.5s;
+    }
+
+    #pop-shapes .s3 {
+      width: 200px;
+      height: 200px;
+      background: var(--pop-pink);
+      bottom: -80px;
+      left: 8%;
+      border-radius: 999px;
+      transform: rotate(-12deg);
+      animation-delay: 2s;
+    }
+
+    #pop-shapes .s4 {
+      width: 240px;
+      height: 160px;
+      background: var(--pop-green);
+      bottom: -60px;
+      right: 10%;
+      border-radius: 32px;
+      transform: rotate(6deg);
+      animation-delay: 3s;
+    }
+
+    .pop-title {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 24px;
+    }
+
+    .accent {
+      color: var(--dify-blue);
+    }
+
+    .pop-stamp {
+      display: inline-block;
+      padding: 10px 22px;
+      background: var(--pop-yellow);
+      border: 4px solid var(--pop-black);
+      box-shadow: 8px 8px 0 var(--pop-black);
+      font-family: 'Bangers', 'ZCOOL KuaiLe', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      animation: popIn 1s ease-out;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 18px 0 8px;
+    }
+
+    .badge {
+      padding: 6px 16px;
+      border: 3px solid var(--pop-black);
+      box-shadow: 5px 5px 0 var(--pop-black);
+      font-weight: 700;
+      background: #ffffff;
+      animation: wiggle 4s ease-in-out infinite;
+    }
+
+    .badge:nth-child(2) {
+      background: var(--pop-teal);
+      animation-delay: 0.5s;
+    }
+
+    .badge:nth-child(3) {
+      background: var(--pop-pink);
+      animation-delay: 1s;
+    }
+
+    .meta {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .pop-panel {
+      background: #ffffff;
+      border: 4px solid var(--pop-black);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 8px 8px 0 var(--pop-black);
+    }
+
+    .panel-title {
+      font-family: 'Bangers', 'ZCOOL KuaiLe', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .panel-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border: 3px solid var(--pop-black);
+      border-radius: 999px;
+      font-weight: 700;
+      background: var(--pop-yellow);
+      margin-bottom: 10px;
+    }
+
+    .pop-callout {
+      margin-top: 18px;
+      padding: 16px 20px;
+      border: 4px dashed var(--pop-black);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      font-weight: 700;
+    }
+
+    .pop-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .pop-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .pop-list li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pop-red);
+    }
+
+    .pop-chip {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 3px solid var(--pop-black);
+      border-radius: 10px;
+      font-weight: 700;
+      background: var(--pop-yellow);
+      margin-top: 12px;
+    }
+
+    .pop-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 3px solid var(--pop-black);
+      border-radius: 999px;
+      font-weight: 700;
+      background: #ffffff;
+    }
+
+    .pop-quote {
+      font-family: 'Söhne Mono', 'JetBrains Mono', 'Noto Sans Mono SC', monospace;
+      font-size: 0.95rem;
+      background: #fef3c7;
+      border: 3px solid var(--pop-black);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 6px 6px 0 var(--pop-black);
+    }
+
+    .pop-center {
+      text-align: center;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border: 4px solid var(--pop-black);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 8px 8px 0 var(--pop-black);
+      color: var(--pop-black);
+    }
+
+    .qr-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(var(--rotate, 0deg)); }
+      50% { transform: translateY(-12px) rotate(var(--rotate, 0deg)); }
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <a class="active" href="index.html">中文</a>
+    <span>/</span>
+    <a href="index_en.html">EN</a>
+  </div>
+
+  <div class="brand-watermark">
+    <img src="../assets/logo.svg" alt="Dify Logo">
+  </div>
+
+  <div id="pop-shapes" aria-hidden="true">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+    <div class="shape s4"></div>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 01. Title -->
+      <section>
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <span class="pop-stamp">Open Source Hong Kong</span>
+          <h1 class="pop-title">香港开源生态<br><span class="accent">现状 · 潜力 · 全球连接</span></h1>
+          <p class="text-xl font-semibold">基于 Open Source Hong Kong 的系统性研究</p>
+          <div class="hero-badges">
+            <span class="badge">生态演进</span>
+            <span class="badge">参与者版图</span>
+            <span class="badge">行业采用</span>
+          </div>
+          <p class="meta">分享者：Open Source Hong Kong 研究团队</p>
+        </div>
+        <aside class="notes">
+          说明本次分享基于 Open Source Hong Kong 的系统性研究，目标是全面呈现香港开源生态。
+          强调主线：演进历史、参与者、产业采用、国际连接与挑战。
+          提醒听众：最终会给出为什么开源重要，以及香港可如何发挥更大作用的建议。
+        </aside>
+      </section>
+
+      <!-- 02. Introduction -->
+      <section>
+        <h2 class="section-title">研究缘起与目标</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="pop-panel">
+            <div class="panel-title">看见生态</div>
+            <p>梳理社群演进、关键参与者与协作网络</p>
+            <span class="pop-chip">生态画像</span>
+          </div>
+          <div class="pop-panel">
+            <div class="panel-title">识别价值</div>
+            <p>理解开源在金融科技、智慧城市、AI 等领域的采用</p>
+            <span class="pop-chip">产业视角</span>
+          </div>
+          <div class="pop-panel">
+            <div class="panel-title">形成建议</div>
+            <p>直面挑战，提出面向未来的策略</p>
+            <span class="pop-chip">行动路径</span>
+          </div>
+        </div>
+        <div class="pop-callout">使命：让香港在全球开源网络中被看见、被连接、被参与</div>
+        <aside class="notes">
+          解释研究为什么要做：让生态被看见，帮助不同参与者对齐理解。
+          强调分析框架：社群演进、参与者角色、项目类型与全球连接。
+          带出最终目标：回答“开源为什么重要”“香港如何发挥更大作用”。
+        </aside>
+      </section>
+
+      <!-- 03. Agenda -->
+      <section>
+        <h2 class="section-title">内容一览</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="pop-panel fragment">
+            <span class="panel-tag">01</span>
+            <p class="text-lg font-semibold">生态演进与参与者</p>
+          </div>
+          <div class="pop-panel fragment">
+            <span class="panel-tag">02</span>
+            <p class="text-lg font-semibold">项目类型与社区</p>
+          </div>
+          <div class="pop-panel fragment">
+            <span class="panel-tag">03</span>
+            <p class="text-lg font-semibold">国际连接方式</p>
+          </div>
+          <div class="pop-panel fragment">
+            <span class="panel-tag">04</span>
+            <p class="text-lg font-semibold">行业采用案例</p>
+          </div>
+          <div class="pop-panel fragment">
+            <span class="panel-tag">05</span>
+            <p class="text-lg font-semibold">生态挑战</p>
+          </div>
+          <div class="pop-panel fragment">
+            <span class="panel-tag">06</span>
+            <p class="text-lg font-semibold">观察与建议</p>
+          </div>
+        </div>
+        <aside class="notes">
+          简述路线：先讲历史与参与者，再看项目类型与国际连接。
+          之后进入行业采用与挑战，最后给出建议与行动方向。
+        </aside>
+      </section>
+
+      <!-- 03. Content (Vertical Stack) -->
+      <section>
+        <section>
+          <h2 class="section-title">香港开源生态的三段式演进</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="pop-panel fragment">
+              <span class="panel-tag">阶段 1</span>
+              <div class="panel-title">社区自发</div>
+              <p>Meetup / Hackathon / GitHub 小组</p>
+            </div>
+            <div class="pop-panel fragment">
+              <span class="panel-tag">阶段 2</span>
+              <div class="panel-title">企业加入</div>
+              <p>开放基础设施，形成协作流程</p>
+            </div>
+            <div class="pop-panel fragment">
+              <span class="panel-tag">阶段 3</span>
+              <div class="panel-title">治理与连接</div>
+              <p>OSPO、基金会合作、公共政策</p>
+            </div>
+          </div>
+          <div class="pop-callout">从兴趣驱动到组织化协作</div>
+          <aside class="notes">
+            用三阶段描述香港开源生态的演进：从社区自发到企业投入，再到治理与协作。
+            强调这是“从兴趣到制度化”的过程，也为后续挑战埋下伏笔。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">主要参与者版图</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="pop-panel fragment">
+              <div class="panel-title">开发者与社群</div>
+              <p>技术 Meetup、维护者、贡献者生态</p>
+              <span class="pop-pill">社区驱动</span>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">企业与科技公司</div>
+              <p>金融科技、平台型企业、国际分支</p>
+              <span class="pop-pill">产业参与</span>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">初创公司</div>
+              <p>以开源作为产品与市场进入点</p>
+              <span class="pop-pill">创新引擎</span>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">高校与研究机构</div>
+              <p>研究项目开源、教育培养</p>
+              <span class="pop-pill">人才供给</span>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">公共机构与 NGO</div>
+              <p>开放数据、数字治理协作</p>
+              <span class="pop-pill">政策支撑</span>
+            </div>
+          </div>
+          <aside class="notes">
+            用角色地图说明生态不是单一主体，强调开发者、企业、初创、高校、公部门共同作用。
+            可以在此点名香港的高校与创业生态对开源的贡献。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">活跃项目与社区类型</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="pop-panel fragment">
+              <div class="panel-title">基础设施 &amp; DevTools</div>
+              <p>云原生、可观测性、CI/CD 与协作工具</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">金融科技 &amp; RegTech</div>
+              <p>风控、合规、身份与安全组件</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">智慧城市 &amp; GovTech</div>
+              <p>城市数据平台、IoT、开放服务</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">AI/ML &amp; 数据</div>
+              <p>模型、数据集、MLOps 与评测</p>
+            </div>
+          </div>
+          <div class="pop-callout">项目类型多元，兼具底层能力与行业场景</div>
+          <aside class="notes">
+            展示香港开源项目的类型与社区方向，强调既有基础设施也有行业场景。
+            强调项目类型多元，说明生态活跃度来自垂直行业的需求驱动。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">国际连接方式</h2>
+          <div class="flex flex-col md:flex-row gap-6 items-center">
+            <div class="pop-panel pop-center w-full md:w-2/5">
+              <div class="panel-title">Hong Kong</div>
+              <p>连接大湾区与全球开源网络</p>
+              <div class="pop-chip">Hub &amp; Connector</div>
+            </div>
+            <div class="flex flex-col gap-4 w-full md:w-3/5">
+              <div class="pop-panel fragment">
+                <div class="panel-title"><i class="fa-solid fa-earth-asia accent"></i> 国际基金会参与</div>
+                <p>CNCF / Apache / Linux Foundation 等</p>
+              </div>
+              <div class="pop-panel fragment">
+                <div class="panel-title"><i class="fa-solid fa-code-branch accent"></i> 双向贡献协作</div>
+                <p>Upstream 贡献 + 本地场景落地</p>
+              </div>
+              <div class="pop-panel fragment">
+                <div class="panel-title"><i class="fa-solid fa-network-wired accent"></i> 区域生态联动</div>
+                <p>大湾区与东南亚社区共建</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            说明香港的国际连接方式：基金会、全球协作平台与区域合作。
+            强调香港作为连接内地与国际的桥梁价值。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">行业采用：金融科技</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="pop-panel fragment">
+              <div class="panel-title">开放银行与 API 标准</div>
+              <p>沙盒、第三方接入、生态合作</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">风控与合规自动化</div>
+              <p>KYC/AML、可审计流程</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">安全与隐私计算</div>
+              <p>数据脱敏、联邦学习、可信执行</p>
+            </div>
+          </div>
+          <div class="pop-quote mt-6">开源降低了研发成本，也提升了合规与透明度</div>
+          <aside class="notes">
+            金融科技是香港开源采用最明显的行业之一，强调开放标准与合规自动化。
+            用案例思路说明开源降低了研发成本并提升可审计性。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">行业采用：智慧城市</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="pop-panel fragment">
+              <div class="panel-title">城市数据平台</div>
+              <p>开放数据、共享标准</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">交通与公共服务</div>
+              <p>可复用中间件、统一接口</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">数字治理</div>
+              <p>透明度、可协同、可审计</p>
+            </div>
+          </div>
+          <div class="pop-quote mt-6">跨机构协作依赖可复用的开源基础设施</div>
+          <aside class="notes">
+            智慧城市强调跨机构协作，开源可以帮助政府与产业建立可复用的数字底座。
+            提醒听众关注开放数据与可治理基础设施的重要性。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">行业采用：人工智能</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="pop-panel fragment">
+              <div class="panel-title">开源模型与工具链</div>
+              <p>基础模型、推理框架、评测基准</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">产学研协作</div>
+              <p>联合实验室、开源数据集</p>
+            </div>
+            <div class="pop-panel fragment">
+              <div class="panel-title">MLOps 与可靠性</div>
+              <p>可追踪、可复现、可治理</p>
+            </div>
+          </div>
+          <div class="pop-quote mt-6">开放协作缩短从研究到产业的距离</div>
+          <aside class="notes">
+            人工智能相关开源项目多与高校与企业合作相关。
+            说明香港在科研与产业结合方面具备桥接优势。
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="section-title">挑战与摩擦</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="pop-panel">
+              <div class="panel-title">生态挑战</div>
+              <ul class="pop-list">
+                <li>维护者可持续性与激励不足</li>
+                <li>社区多样性与规模瓶颈</li>
+                <li>贡献门槛与协作效率</li>
+              </ul>
+            </div>
+            <div class="pop-panel">
+              <div class="panel-title">组织挑战</div>
+              <ul class="pop-list">
+                <li>企业参与度不足，缺少 OSPO 机制</li>
+                <li>政策与资源支持有限</li>
+                <li>合规与知识产权治理复杂</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pop-callout">关键问题：如何把兴趣驱动升级为长期机制</div>
+          <aside class="notes">
+            系统梳理挑战：可持续性、企业参与度、政策与资源、人才供给、治理合规。
+            提醒这些挑战会决定生态能否从活跃走向可持续与可治理。
+          </aside>
+        </section>
+      </section>
+
+      <!-- 04. Conclusion -->
+      <section>
+        <h2 class="section-title">观察与建议</h2>
+        <ul class="pop-list">
+          <li class="fragment">开源是香港创新与数字治理的公共基础设施</li>
+          <li class="fragment">建立 OSPO 与社区基金，提升企业与初创参与</li>
+          <li class="fragment">开放数据与标准化接口，形成跨机构协作</li>
+          <li class="fragment">与全球基金会/区域社区建立双向贡献通道</li>
+          <li class="fragment">将开源教育纳入高校课程与职业培养</li>
+        </ul>
+        <div class="pop-callout">为什么开源重要：让协作可持续，让价值可扩散</div>
+        <aside class="notes">
+          给出可行动的建议：强调开源的重要性与香港的桥梁角色。
+          鼓励建立制度化机制（如 OSPO、基金、政策支持）。
+        </aside>
+      </section>
+
+      <!-- 05. Q&A -->
+      <section data-background-color="#0033ff">
+        <div class="flex flex-col items-center justify-center h-full text-center text-white">
+          <h1 class="pop-title">Q &amp; A</h1>
+          <p class="text-xl font-semibold">Ask Loud, Ask Bold.</p>
+        </div>
+        <aside class="notes">
+          邀请提问，强调开放式讨论。
+        </aside>
+      </section>
+
+      <!-- 06. References -->
+      <section>
+        <h2 class="section-title">参考资料</h2>
+        <div class="pop-panel">
+          <ul class="pop-list">
+            <li>Open Source Hong Kong 生态研究（主参考）</li>
+            <li>GitHub Octoverse 报告</li>
+            <li>CNCF Annual Survey</li>
+            <li>Linux Foundation / OSI 报告</li>
+            <li>香港智慧城市蓝图与相关公开资料</li>
+          </ul>
+        </div>
+        <aside class="notes">
+          引用公开研究与行业报告，说明数据来源与观点基础。
+        </aside>
+      </section>
+
+      <!-- 07. Contact -->
+      <section>
+        <div class="flex flex-col items-center justify-center h-full">
+          <div class="contact-card text-center">
+            <h2 class="section-title">Contact</h2>
+            <p class="text-lg font-semibold mb-4">banana@dify.ai</p>
+            <div class="flex flex-wrap justify-center gap-8">
+              <div class="flex flex-col items-center">
+                <img src="../assets/xiaohongshu.png" alt="Xiaohongshu QR" class="h-28 w-28 rounded bg-white p-2 border-4 border-black">
+                <span class="qr-label">小红书</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="../assets/bilibili.png" alt="Bilibili QR" class="h-28 w-28 rounded bg-white p-2 border-4 border-black">
+                <span class="qr-label">Bilibili</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          留下联系方式与二维码，便于后续交流。
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: false,
+      transition: 'slide',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
