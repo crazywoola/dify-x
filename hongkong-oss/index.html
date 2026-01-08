@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@antv/infographic@latest/dist/infographic.min.js"></script>
 
   <style>
     :root {
@@ -243,6 +244,27 @@
       box-shadow: 8px 8px 0 var(--pop-black);
     }
 
+    .infographic-frame {
+      background: #ffffff;
+      border: 4px solid var(--pop-black);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 8px 8px 0 var(--pop-black);
+    }
+
+    .infographic-stage {
+      width: 100%;
+      height: 60vh;
+      min-height: 360px;
+    }
+
+    @media (max-width: 768px) {
+      .infographic-stage {
+        height: 52vh;
+        min-height: 280px;
+      }
+    }
+
     .panel-title {
       font-family: 'Bangers', 'ZCOOL KuaiLe', sans-serif;
       font-size: 1.4rem;
@@ -429,31 +451,8 @@
       <!-- 03. Agenda -->
       <section>
         <h2 class="section-title">内容一览</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="pop-panel fragment">
-            <span class="panel-tag">01</span>
-            <p class="text-lg font-semibold">生态演进与参与者</p>
-          </div>
-          <div class="pop-panel fragment">
-            <span class="panel-tag">02</span>
-            <p class="text-lg font-semibold">项目类型与社区</p>
-          </div>
-          <div class="pop-panel fragment">
-            <span class="panel-tag">03</span>
-            <p class="text-lg font-semibold">国际连接方式</p>
-          </div>
-          <div class="pop-panel fragment">
-            <span class="panel-tag">04</span>
-            <p class="text-lg font-semibold">行业采用案例</p>
-          </div>
-          <div class="pop-panel fragment">
-            <span class="panel-tag">05</span>
-            <p class="text-lg font-semibold">生态挑战</p>
-          </div>
-          <div class="pop-panel fragment">
-            <span class="panel-tag">06</span>
-            <p class="text-lg font-semibold">观察与建议</p>
-          </div>
+        <div class="infographic-frame">
+          <div class="infographic-stage" data-infographic="agenda"></div>
         </div>
         <aside class="notes">
           简述路线：先讲历史与参与者，再看项目类型与国际连接。
@@ -465,22 +464,8 @@
       <section>
         <section>
           <h2 class="section-title">香港开源生态的三段式演进</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="pop-panel fragment">
-              <span class="panel-tag">阶段 1</span>
-              <div class="panel-title">社区自发</div>
-              <p>Meetup / Hackathon / GitHub 小组</p>
-            </div>
-            <div class="pop-panel fragment">
-              <span class="panel-tag">阶段 2</span>
-              <div class="panel-title">企业加入</div>
-              <p>开放基础设施，形成协作流程</p>
-            </div>
-            <div class="pop-panel fragment">
-              <span class="panel-tag">阶段 3</span>
-              <div class="panel-title">治理与连接</div>
-              <p>OSPO、基金会合作、公共政策</p>
-            </div>
+          <div class="infographic-frame">
+            <div class="infographic-stage" data-infographic="evolution"></div>
           </div>
           <div class="pop-callout">从兴趣驱动到组织化协作</div>
           <aside class="notes">
@@ -491,32 +476,8 @@
 
         <section>
           <h2 class="section-title">主要参与者版图</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="pop-panel fragment">
-              <div class="panel-title">开发者与社群</div>
-              <p>技术 Meetup、维护者、贡献者生态</p>
-              <span class="pop-pill">社区驱动</span>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">企业与科技公司</div>
-              <p>金融科技、平台型企业、国际分支</p>
-              <span class="pop-pill">产业参与</span>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">初创公司</div>
-              <p>以开源作为产品与市场进入点</p>
-              <span class="pop-pill">创新引擎</span>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">高校与研究机构</div>
-              <p>研究项目开源、教育培养</p>
-              <span class="pop-pill">人才供给</span>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">公共机构与 NGO</div>
-              <p>开放数据、数字治理协作</p>
-              <span class="pop-pill">政策支撑</span>
-            </div>
+          <div class="infographic-frame">
+            <div class="infographic-stage" data-infographic="participants"></div>
           </div>
           <aside class="notes">
             用角色地图说明生态不是单一主体，强调开发者、企业、初创、高校、公部门共同作用。
@@ -526,23 +487,8 @@
 
         <section>
           <h2 class="section-title">活跃项目与社区类型</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="pop-panel fragment">
-              <div class="panel-title">基础设施 &amp; DevTools</div>
-              <p>云原生、可观测性、CI/CD 与协作工具</p>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">金融科技 &amp; RegTech</div>
-              <p>风控、合规、身份与安全组件</p>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">智慧城市 &amp; GovTech</div>
-              <p>城市数据平台、IoT、开放服务</p>
-            </div>
-            <div class="pop-panel fragment">
-              <div class="panel-title">AI/ML &amp; 数据</div>
-              <p>模型、数据集、MLOps 与评测</p>
-            </div>
+          <div class="infographic-frame">
+            <div class="infographic-stage" data-infographic="project-types"></div>
           </div>
           <div class="pop-callout">项目类型多元，兼具底层能力与行业场景</div>
           <aside class="notes">
@@ -651,23 +597,8 @@
 
         <section>
           <h2 class="section-title">挑战与摩擦</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="pop-panel">
-              <div class="panel-title">生态挑战</div>
-              <ul class="pop-list">
-                <li>维护者可持续性与激励不足</li>
-                <li>社区多样性与规模瓶颈</li>
-                <li>贡献门槛与协作效率</li>
-              </ul>
-            </div>
-            <div class="pop-panel">
-              <div class="panel-title">组织挑战</div>
-              <ul class="pop-list">
-                <li>企业参与度不足，缺少 OSPO 机制</li>
-                <li>政策与资源支持有限</li>
-                <li>合规与知识产权治理复杂</li>
-              </ul>
-            </div>
+          <div class="infographic-frame">
+            <div class="infographic-stage" data-infographic="challenges"></div>
           </div>
           <div class="pop-callout">关键问题：如何把兴趣驱动升级为长期机制</div>
           <aside class="notes">
@@ -751,6 +682,135 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
   <script>
+    const infographicSyntax = {
+      agenda: [
+        'infographic list-grid-badge-card',
+        'data',
+        '  title 内容一览',
+        '  desc 研究路线概览',
+        '  items',
+        '    - label 生态演进与参与者',
+        '    - label 项目类型与社区',
+        '    - label 国际连接方式',
+        '    - label 行业采用案例',
+        '    - label 生态挑战',
+        '    - label 观察与建议'
+      ].join('\n'),
+      evolution: [
+        'infographic sequence-ascending-steps',
+        'data',
+        '  title 香港开源生态的三段式演进',
+        '  items',
+        '    - label 社区自发',
+        '      desc Meetup / Hackathon / GitHub 小组',
+        '    - label 企业加入',
+        '      desc 开放基础设施，形成协作流程',
+        '    - label 治理与连接',
+        '      desc OSPO、基金会合作、公共政策'
+      ].join('\n'),
+      participants: [
+        'infographic list-grid-ribbon-card',
+        'data',
+        '  title 主要参与者版图',
+        '  desc 多元主体共同塑造生态',
+        '  items',
+        '    - label 开发者与社群',
+        '      desc 技术 Meetup、维护者、贡献者生态',
+        '    - label 企业与科技公司',
+        '      desc 金融科技、平台型企业、国际分支',
+        '    - label 初创公司',
+        '      desc 以开源作为产品与市场进入点',
+        '    - label 高校与研究机构',
+        '      desc 研究项目开源、教育培养',
+        '    - label 公共机构与 NGO',
+        '      desc 开放数据、数字治理协作'
+      ].join('\n'),
+      'project-types': [
+        'infographic list-grid-candy-card-lite',
+        'data',
+        '  title 活跃项目与社区类型',
+        '  desc 兼具底层能力与行业场景',
+        '  items',
+        '    - label 基础设施 & DevTools',
+        '      desc 云原生、可观测性、CI/CD 与协作工具',
+        '    - label 金融科技 & RegTech',
+        '      desc 风控、合规、身份与安全组件',
+        '    - label 智慧城市 & GovTech',
+        '      desc 城市数据平台、IoT、开放服务',
+        '    - label AI/ML & 数据',
+        '      desc 模型、数据集、MLOps 与评测'
+      ].join('\n'),
+      challenges: [
+        'infographic compare-binary-horizontal-simple-fold',
+        'data',
+        '  title 挑战与摩擦',
+        '  items',
+        '    - label 生态挑战',
+        '      children',
+        '        - label 维护者可持续性与激励不足',
+        '        - label 社区多样性与规模瓶颈',
+        '        - label 贡献门槛与协作效率',
+        '    - label 组织挑战',
+        '      children',
+        '        - label 企业参与度不足，缺少 OSPO 机制',
+        '        - label 政策与资源支持有限',
+        '        - label 合规与知识产权治理复杂'
+      ].join('\n')
+    };
+
+    const renderInfographicsForSlide = (slide) => {
+      const Infographic = window.AntVInfographic && window.AntVInfographic.Infographic;
+      if (!Infographic || !slide) {
+        return;
+      }
+
+      slide.querySelectorAll('[data-infographic]').forEach((element) => {
+        const width = element.clientWidth;
+        const height = element.clientHeight;
+
+        if (!width || !height) {
+          return;
+        }
+
+        const key = element.getAttribute('data-infographic');
+        const syntax = infographicSyntax[key];
+
+        if (!syntax) {
+          return;
+        }
+
+        const widthKey = String(width);
+        const heightKey = String(height);
+
+        if (
+          element.dataset.rendered === 'true' &&
+          element.dataset.renderedWidth === widthKey &&
+          element.dataset.renderedHeight === heightKey
+        ) {
+          return;
+        }
+
+        element.innerHTML = '';
+        const infographic = new Infographic({
+          container: element,
+          width: '100%',
+          height: '100%',
+        });
+
+        infographic.render(syntax);
+        element.dataset.rendered = 'true';
+        element.dataset.renderedWidth = widthKey;
+        element.dataset.renderedHeight = heightKey;
+      });
+    };
+
+    const scheduleInfographicRender = (event) => {
+      const slide = event && event.currentSlide ? event.currentSlide : Reveal.getCurrentSlide();
+      window.requestAnimationFrame(() => {
+        renderInfographicsForSlide(slide);
+      });
+    };
+
     Reveal.initialize({
       controls: true,
       progress: true,
@@ -759,6 +819,10 @@
       transition: 'slide',
       plugins: [ RevealNotes ]
     });
+
+    Reveal.on('ready', scheduleInfographicRender);
+    Reveal.on('slidechanged', scheduleInfographicRender);
+    window.addEventListener('resize', scheduleInfographicRender);
   </script>
 </body>
 </html>
