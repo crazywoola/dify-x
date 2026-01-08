@@ -17,103 +17,108 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <!-- AntV Infographic -->
+    <script src="https://unpkg.com/@antv/infographic@latest/dist/infographic.min.js"></script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Pop Art Palette */
+            /* Brand Palette */
             --pop-red: #ff3b30;
             --pop-yellow: #ffd600;
             --pop-blue: #3b82f6;
             --pop-green: #00c08b;
             --pop-orange: #ff7a00;
             --pop-black: #151515;
-            --pop-bg: #f7f5ef;
+            --pop-bg: #ffffff;
             --pop-white: #ffffff;
+            --neutral-900: #111827;
+            --neutral-700: #374151;
+            --neutral-500: #6b7280;
+            --neutral-300: #d1d5db;
+            --neutral-200: #e5e7eb;
+            --neutral-100: #f8fafc;
         }
 
         body {
             font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
-            background-color: var(--pop-bg);
-            background-image: radial-gradient(var(--pop-black) 1px, transparent 1px);
-            background-size: 34px 34px;
-            color: var(--pop-black);
+            background-color: var(--neutral-100);
+            background-image: none;
+            color: var(--neutral-900);
+            line-height: 1.6;
         }
 
         .reveal {
-            font-size: 25px;
-            font-weight: 500;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--neutral-900);
         }
 
         .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
             font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+            font-weight: 700;
+            letter-spacing: -0.01em;
             text-transform: none;
         }
 
-        /* Pop Art Cards */
         :where(.pop-card) {
             background: var(--pop-white);
-            border-width: 3px;
-            border-style: solid;
-            border-color: var(--pop-black);
-            border-radius: 0;
-            box-shadow: 8px 8px 0px 0px var(--pop-black);
+            border: 1px solid var(--neutral-200);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
             padding: 24px;
             position: relative;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
         :where(.pop-card):hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px 0px var(--pop-black);
+            transform: translateY(-2px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
         }
 
-        /* Badges */
         .pop-badge {
             display: inline-block;
-            background: var(--pop-yellow);
-            color: var(--pop-black);
-            padding: 4px 12px;
-            font-weight: 800;
-            font-size: 0.75em;
+            background: rgba(255, 214, 0, 0.18);
+            color: var(--neutral-700);
+            padding: 6px 14px;
+            font-weight: 600;
+            font-size: 0.72em;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            border: 3px solid var(--pop-black);
+            letter-spacing: 0.08em;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 999px;
             margin-bottom: 1rem;
         }
 
-        /* Code Blocks */
         .reveal pre {
-            border: 3px solid var(--pop-black);
-            box-shadow: 8px 8px 0px 0px var(--pop-blue);
-            border-radius: 0;
+            border: 1px solid var(--neutral-200);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+            border-radius: 12px;
             margin-top: 20px;
             width: 100%;
+            background: #0f172a;
         }
         .reveal code {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: 13px;
             padding: 20px;
             max-height: 520px;
         }
 
-        /* Custom Bullet Points */
         .pop-list li {
             list-style: none;
-            margin-bottom: 12px;
-            padding-left: 1.5em;
+            margin-bottom: 10px;
+            padding-left: 1.2em;
             position: relative;
         }
         .pop-list li::before {
-            content: "➜";
+            content: "•";
             position: absolute;
             left: 0;
-            color: var(--pop-red);
-            font-weight: 900;
+            color: var(--pop-blue);
+            font-weight: 700;
         }
 
         /* Layout Helpers */
@@ -134,9 +139,10 @@
             align-items: center;
             gap: 12px;
             padding: 6px 10px;
-            background: var(--pop-white);
-            border: 3px solid var(--pop-black);
-            box-shadow: 4px 4px 0px 0px var(--pop-black);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--neutral-200);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
         }
 
         .brand-watermark img {
@@ -153,29 +159,30 @@
             top: 24px;
             right: 24px;
             z-index: 100;
-            background: var(--pop-white);
-            border: 3px solid var(--pop-black);
-            box-shadow: 4px 4px 0px 0px var(--pop-black);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--neutral-200);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+            border-radius: 999px;
+            transition: box-shadow 0.2s ease;
         }
 
         .language-switch:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px var(--pop-black);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
         }
 
         .language-switch button {
             background: none;
             border: none;
             padding: 8px 16px;
-            font-weight: 700;
-            color: var(--pop-black);
+            font-weight: 600;
+            color: var(--neutral-700);
             cursor: pointer;
             font-size: 14px;
         }
 
         .language-switch .active {
             background: var(--pop-yellow);
+            border-radius: 999px;
         }
 
         /* Grid Layouts */
@@ -200,47 +207,48 @@
 
         .community-card {
             background: var(--pop-white);
-            border: 3px solid var(--pop-black);
-            box-shadow: 6px 6px 0px 0px var(--pop-black);
+            border: 1px solid var(--neutral-200);
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             padding: 22px;
             text-align: left;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .community-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px 0px var(--pop-black);
+            transform: translateY(-2px);
+            box-shadow: 0 24px 56px rgba(15, 23, 42, 0.12);
         }
         .community-label {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.75em;
+            font-size: 0.72em;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #333;
+            letter-spacing: 0.1em;
+            color: var(--neutral-500);
         }
         .community-label i {
             width: 36px;
             height: 36px;
-            border: 3px solid var(--pop-black);
-            background: var(--pop-yellow);
-            color: var(--pop-black);
+            border: 1px solid var(--neutral-200);
+            background: var(--neutral-100);
+            color: var(--neutral-700);
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
         .community-value {
-            font-size: 2.5em;
-            font-weight: 900;
+            font-size: 2.2em;
+            font-weight: 700;
             margin: 16px 0 6px;
         }
         .community-subtext {
             font-size: 0.85em;
-            color: #222;
+            color: var(--neutral-500);
         }
         
         .timeline-step {
-            border-left: 4px solid var(--pop-black);
+            border-left: 2px solid var(--neutral-200);
             padding-left: 20px;
             margin-bottom: 30px;
             position: relative;
@@ -248,40 +256,56 @@
         
         .timeline-step::before {
             content: '';
-            width: 16px;
-            height: 16px;
-            background: var(--pop-yellow);
-            border: 3px solid var(--pop-black);
+            width: 10px;
+            height: 10px;
+            background: var(--pop-blue);
+            border: 2px solid var(--neutral-100);
             position: absolute;
-            left: -10px;
-            top: 0;
+            left: -6px;
+            top: 2px;
+            border-radius: 999px;
         }
 
         .hero-card {
             background: var(--pop-white);
-            border: 4px solid var(--pop-black);
-            border-radius: 0;
-            box-shadow: 12px 12px 0px 0px var(--pop-black);
+            border: 1px solid var(--neutral-200);
+            border-radius: 24px;
+            box-shadow: 0 32px 70px rgba(15, 23, 42, 0.12);
         }
 
         .hero-tag {
-            background: var(--pop-yellow);
-            color: var(--pop-black);
-            padding: 8px 20px;
-            border: 3px solid var(--pop-black);
+            background: rgba(255, 214, 0, 0.2);
+            color: var(--neutral-700);
+            padding: 8px 18px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 999px;
             display: inline-block;
-            font-weight: 800;
+            font-weight: 600;
             letter-spacing: 0.08em;
+        }
+
+        .infographic-frame {
+            background: var(--pop-white);
+            border: 1px solid var(--neutral-200);
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            padding: 16px;
+        }
+
+        .infographic-stage {
+            width: 100%;
+            height: 56vh;
+            min-height: 340px;
         }
 
         @keyframes popIn {
             from {
                 opacity: 0;
-                transform: translateY(14px) scale(0.98);
+                transform: translateY(12px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
 
@@ -321,6 +345,11 @@
             .brand-watermark .ds-logo {
                 height: 22px;
             }
+
+            .infographic-stage {
+                height: 50vh;
+                min-height: 260px;
+            }
         }
     </style>
 </head>
@@ -341,7 +370,7 @@
         <div class="slides">
 
             <!-- =====================================================================================
-                 CHAPTER 0: INTRO (5 Slides)
+                 CHAPTER 0: INTRO (6 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FFD600">
@@ -351,12 +380,12 @@
                             Intelligent Transformation for the Oral MedTech Industry
                         </div>
                     </div>
-                    <p class="mt-12 font-semibold text-xl tracking-widest text-black">R&amp;D, manufacturing, clinical, and compliance - 43-slide playbook</p>
+                    <p class="mt-12 font-semibold text-xl tracking-widest text-black">R&amp;D, manufacturing, clinical, and compliance - 33-slide playbook</p>
                                 <aside class="notes">
-                    Welcome everyone to this presentation on DIFY and Dentsply partnership. Set the stage for this comprehensive 43-slide playbook exploring AI transformation in oral medtech, plus a cross-industry AIOps case. Use this opening to create excitement about the journey through six practical industry scenarios.
+                    Welcome everyone to this presentation on DIFY and Dentsply partnership. Set the stage for this comprehensive 33-slide playbook exploring AI transformation in oral medtech, plus a cross-industry AIOps case. Use this opening to create excitement about the journey through three practical industry scenarios.
                 </aside>
                 <aside class="notes">
-                    Welcome everyone to this presentation on DIFY and Dentsply partnership. This comprehensive 43-slide playbook explores how AI is transforming the oral medtech industry across R&amp;D, manufacturing, clinical, and compliance functions, plus a cross-industry AIOps case. Use this opening to set expectations for an exciting journey through six practical industry scenarios.
+                    Welcome everyone to this presentation on DIFY and Dentsply partnership. This comprehensive 33-slide playbook explores how AI is transforming the oral medtech industry across R&amp;D, manufacturing, clinical, and compliance functions, plus a cross-industry AIOps case. Use this opening to set expectations for an exciting journey through three practical industry scenarios.
                 </aside>
 
                 </section>
@@ -431,40 +460,19 @@
 
                 </section>
 <section>
+                    <h2 class="text-5xl mb-10 text-center">The Real Challenges of AI Adoption</h2>
+                    <div class="infographic-frame">
+                        <div class="infographic-stage" data-infographic="ai-challenges"></div>
+                    </div>
+                                <aside class="notes">
+                    Use key ratios to highlight adoption barriers: data integration drag, organizational readiness, daily usage gaps, and insufficient scaled training.
+                </aside>
+
+                </section>
+<section>
                     <h2 class="text-5xl mb-12 text-center">DIFY × Dentsply: Core Industry Value</h2>
-                    <div class="grid grid-cols-2 gap-8 stagger">
-                        <div class="pop-card bg-blue-50 border-blue-500">
-                            <h3 class="text-xl font-bold text-blue-600 mb-3"><i class="fas fa-robot"></i> AI Imaging & Device Collaboration</h3>
-                            <ul class="pop-list text-sm space-y-2">
-                                <li>Imaging analysis reports in under 30 seconds</li>
-                                <li>Automated image quality checks and retake prompts</li>
-                                <li>Reduce missed diagnoses and rework risk</li>
-                            </ul>
-                        </div>
-                        <div class="pop-card bg-red-50 border-red-500">
-                            <h3 class="text-xl font-bold text-red-600 mb-3"><i class="fas fa-sync"></i> Workflow Automation</h3>
-                            <ul class="pop-list text-sm space-y-2">
-                                <li>End-to-end visual workflows</li>
-                                <li>Build without programming experience</li>
-                                <li>Supports API extensions and integrations</li>
-                            </ul>
-                        </div>
-                        <div class="pop-card bg-yellow-50 border-yellow-500">
-                            <h3 class="text-xl font-bold text-orange-600 mb-3"><i class="fas fa-shield-alt"></i> Compliance & Traceability</h3>
-                            <ul class="pop-list text-sm space-y-2">
-                                <li>Private deployment protects data sovereignty</li>
-                                <li>Role-based access and audit trails</li>
-                                <li>Supports HIPAA/GDPR/ISO 13485</li>
-                            </ul>
-                        </div>
-                        <div class="pop-card bg-green-50 border-green-500">
-                            <h3 class="text-xl font-bold text-green-600 mb-3"><i class="fas fa-chart-line"></i> Operational Efficiency Gains</h3>
-                            <ul class="pop-list text-sm space-y-2">
-                                <li>Production yield up 15%</li>
-                                <li>QC rework down 40%</li>
-                                <li>Service response time down 50%</li>
-                            </ul>
-                        </div>
+                    <div class="infographic-frame">
+                        <div class="infographic-stage" data-infographic="core-value"></div>
                     </div>
                                 <aside class="notes">
                     Summarize the four value propositions: AI imaging, workflow automation, compliance, and operational gains. These address both clinical and business needs.
@@ -472,42 +480,13 @@
 
                 </section>
 <section>
-                    <h2 class="mb-12">Agenda - 6 Industry Scenarios</h2>
-                    <div class="grid grid-cols-3 gap-6 stagger">
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-blue-600">01</h3>
-                            <h4 class="text-lg font-bold">Smart Imaging Diagnosis</h4>
-                            <p class="text-sm text-gray-600">CBCT/Pano image QC and assisted reading</p>
-                        </div>
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-red-600">02</h3>
-                            <h4 class="text-lg font-bold">Remote Treatment Monitoring</h4>
-                            <p class="text-sm text-gray-600">Clear aligner and post-op follow-up</p>
-                        </div>
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-orange-600">03</h3>
-                            <h4 class="text-lg font-bold">Production QC Automation</h4>
-                            <p class="text-sm text-gray-600">Automated CAD/STL process inspection</p>
-                        </div>
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-green-600">04</h3>
-                            <h4 class="text-lg font-bold">Clinical Voice Charting</h4>
-                            <p class="text-sm text-gray-600">Structured records and data feedback</p>
-                        </div>
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-yellow-600">05</h3>
-                            <h4 class="text-lg font-bold">Compliance & Traceability</h4>
-                            <p class="text-sm text-gray-600">UDI and audit automation</p>
-                        </div>
-                        <div class="pop-card">
-                            <h3 class="text-4xl mb-3 text-pink-600">06</h3>
-                            <h4 class="text-lg font-bold">Supply Chain & Inventory</h4>
-                            <p class="text-sm text-gray-600">Intelligent counting of consumables and equipment</p>
-                        </div>
+                    <h2 class="mb-12">Agenda - 3 Industry Scenarios</h2>
+                    <div class="infographic-frame">
+                        <div class="infographic-stage" data-infographic="agenda"></div>
                     </div>
                     <p class="mt-8 text-sm text-gray-600 text-center font-mono">Bonus: Cross-industry AIOps case (Michelin)</p>
                                 <aside class="notes">
-                    Provide a roadmap overview of the six scenarios ahead plus the Michelin AIOps case. Help the audience understand the comprehensive exploration of AI applications.
+                    Provide a roadmap overview of the three scenarios ahead plus the Michelin AIOps case. Help the audience understand the comprehensive exploration of AI applications.
                 </aside>
             </section>
 </section>
@@ -810,246 +789,7 @@ def check_stl(file_path):
 </section>
 
             <!-- =====================================================================================
-                 CHAPTER 4: CLINICAL DATA (3 Slides)
-                 ===================================================================================== -->
-            <section>
-                <section data-background-color="#DCFCE7">
-                    <div class="pop-badge bg-green-600">SCENARIO 04</div>
-                    <h2 class="text-6xl text-green-900">CLINICAL DATA CAPTURE</h2>
-                    <h3 class="text-2xl text-green-600 mt-4">Clinical data feedback and standardized recording</h3>
-                                <aside class="notes">
-                    Present STL geometry validation code. This AI-powered quality gate catches issues before production.
-                </aside>
-
-                </section>
-<section>
-                    <div class="split-layout">
-                        <div class="text-left">
-                            <h3 class="text-4xl mb-4 font-bold">168 Data Points</h3>
-                            <p class="text-xl">
-                                A complete periodontal exam requires recording:<br>
-                                28 teeth × 6 sites = 168 depth measurements.<br>
-                                Also record bleeding (BOP) and mobility.<br>
-                                Standardized data feedback is essential for device optimization and clinical evidence.
-                            </p>
-                            <br>
-                            <p class="font-bold bg-green-100 p-2 inline-block text-green-800">
-                                Traditional: doctor speaks, nurse records (requires 2 people).
-                            </p>
-                        </div>
-                        <div class="pop-card bg-green-50 border-green-500 flex flex-col items-center justify-center text-center">
-                            <i class="fas fa-microphone text-8xl text-green-600 mb-4"></i>
-                            <h4 class="text-2xl font-bold">Hands-free Documentation</h4>
-                            <p>DIFY + ASR = structured clinical data</p>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Introduce Clinical Data Capture. Explain the burden of 168-point periodontal charting done manually.
-                </aside>
-
-                </section>
-<section>
-                    <h3>VOICE TO JSON FLOW</h3>
-                    <div class="mt-8 space-y-4">
-                        <div class="pop-card flex items-center gap-4 py-4">
-                            <div class="font-bold text-green-600 w-24">VOICE</div>
-                            <div class="font-mono text-sm bg-gray-100 p-2 flex-1">"One-Six, Distal 3, Center 2, Mesial 3, Bleeding."</div>
-                        </div>
-                        <div class="pop-card flex items-center gap-4 py-4 bg-green-50">
-                            <div class="font-bold text-green-600 w-24">ASR</div>
-                            <div class="font-mono text-sm bg-white p-2 flex-1">Text: "16 d3 c2 m3 bop"</div>
-                        </div>
-                        <div class="pop-card flex items-center gap-4 py-4 bg-green-100 border-green-500">
-                            <div class="font-bold text-green-600 w-24">LLM</div>
-                            <div class="font-mono text-sm bg-white p-2 flex-1">
-                                { "tooth": 16, "data": [3, 2, 3], "bop": true }
-                            </div>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Compare traditional documentation vs. AI-assisted voice capture. DIFY automates structured data entry.
-                </aside>
-            </section>
-</section>
-
-            <!-- =====================================================================================
-                 CHAPTER 5: REGULATORY OPS (4 Slides)
-                 ===================================================================================== -->
-            <section>
-                <section data-background-color="#FEF9C3">
-                    <div class="pop-badge bg-yellow-500">SCENARIO 05</div>
-                    <h2 class="text-6xl text-yellow-900">REGULATORY OPS</h2>
-                    <h3 class="text-2xl text-yellow-700 mt-4">MedTech compliance and traceability automation</h3>
-                                <aside class="notes">
-                    Demonstrate voice-to-JSON flow. Natural speech transforms into structured clinical data via ASR + LLM.
-                </aside>
-
-                </section>
-<section>
-                    <div class="split-layout">
-                        <div class="pop-card bg-red-50 border-red-500">
-                            <h3 class="text-red-600 mb-4">RISK SUMMARY</h3>
-                            <ul class="pop-list text-lg">
-                                <li>Breaks in the UDI traceability chain slow recall localization</li>
-                                <li>Regulatory differences across markets create duplicate documentation</li>
-                                <li>Audit preparation takes more than 2 weeks</li>
-                                <li>CAPA records are fragmented, making closure difficult</li>
-                            </ul>
-                        </div>
-                        <div class="text-left">
-                            <h2 class="text-4xl mb-4">CONTROL MEASURES</h2>
-                            <p class="text-xl">
-                                At release, distribution, and after-sales stages, DIFY agents automatically validate compliance packets and traceability chains.
-                            </p>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Introduce Regulatory Operations. Frame compliance challenges: traceability, audit prep, and CAPA management.
-                </aside>
-
-                </section>
-<section>
-                    <h3>TRACEABILITY WORKFLOW</h3>
-                    <div class="grid grid-cols-2 gap-6 mt-8 stagger">
-                        <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-700">Step 1: Ingest</h4>
-                            <p class="text-sm">Ingest UDI, batch, and DHR/DMR records.</p>
-                        </div>
-                        <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-700">Step 2: Evidence</h4>
-                            <p class="text-sm">Link test reports and sterilization/calibration records.</p>
-                        </div>
-                        <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-700">Step 3: AI Check</h4>
-                            <p class="text-sm">Automatically <span class="text-red-500 font-bold">FLAG</span> missing fields, abnormal batches, and quality drift.</p>
-                        </div>
-                        <div class="pop-card bg-white">
-                            <h4 class="font-bold text-yellow-700">Step 4: Output</h4>
-                            <p class="text-sm">Automatically generate audit packages and CAPA recommendations.</p>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Detail risk summary and controls. Manual processes create business risk in regulated environments.
-                </aside>
-
-                </section>
-<section>
-                    <div class="text-left">
-                        <div class="pop-badge bg-yellow-500 mb-2">COMPLIANCE ENGINE</div>
-                        <h3>RELEASE VALIDATION LOGIC</h3>
-                    </div>
-                    <pre><code class="python">def validate_release(udi, docs):
-    if not docs.get("dhr"):
-        return "FAIL: Missing DHR"
-
-    if docs.get("sterilization_status") != "PASS":
-        return "FAIL: Sterilization not passed"
-
-    if days_since(docs.get("calibration_date")) > 180:
-        return "WARN: Calibration overdue"
-
-    if docs.get("udi_traceability") != "OK":
-        return "WARN: UDI chain incomplete"
-
-    return "PASS"</code></pre>
-                                <aside class="notes">
-                    Present the four-step traceability workflow. DIFY agents automate compliance validation throughout the product lifecycle.
-                </aside>
-            </section>
-</section>
-
-            <!-- =====================================================================================
-                 CHAPTER 6: SUPPLY INTELLIGENCE (4 Slides)
-                 ===================================================================================== -->
-            <section>
-                <section data-background-color="#FCE7F3">
-                    <div class="pop-badge bg-pink-600">SCENARIO 06</div>
-                    <h2 class="text-6xl text-pink-900">SUPPLY INTELLIGENCE</h2>
-                    <h3 class="text-2xl text-pink-600 mt-4">Intelligent inventory counting for consumables and equipment</h3>
-                                <aside class="notes">
-                    Show release validation code. Business rules codify automated compliance checking.
-                </aside>
-
-                </section>
-<section>
-                    <div class="split-layout">
-                        <div class="text-left">
-                            <h2 class="text-4xl mb-4">Cost of Inventory and Consumables Losses</h2>
-                            <p class="text-xl">
-                                Implants are high-value, and inventory volatility directly impacts delivery.<br>
-                                Common issues:<br>
-                                - Usage not recorded, creating financial variance<br>
-                                - Stockouts disrupt schedules and revenue
-                            </p>
-                        </div>
-                        <div class="pop-card bg-pink-50 border-pink-500 text-center">
-                            <i class="fas fa-camera text-8xl text-pink-600 mb-4"></i>
-                            <h4 class="text-2xl font-bold">Visual Counting</h4>
-                            <p>Photo recognition counts items and auto-updates inventory.</p>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Introduce Supply Intelligence. Frame inventory challenges: high-value implants, tracking gaps, stockout risks.
-                </aside>
-
-                </section>
-<section>
-                    <h3>OBJECT DETECTION FLOW</h3>
-                    <div class="flex gap-4 mt-8">
-                        <div class="w-1/2">
-                            <div class="pop-card bg-gray-800 text-white p-0 relative overflow-hidden h-64 flex items-center justify-center">
-                                <div class="absolute inset-0 bg-gray-700 opacity-50"></div>
-                                <div class="border-2 border-green-400 w-16 h-32 absolute top-10 left-10">
-                                    <span class="bg-green-400 text-black text-xs px-1 absolute -top-4 left-0">Straumann 3.3</span>
-                                </div>
-                                <div class="border-2 border-green-400 w-16 h-32 absolute top-10 left-32">
-                                    <span class="bg-green-400 text-black text-xs px-1 absolute -top-4 left-0">Nobel 4.3</span>
-                                </div>
-                            </div>
-                            <p class="text-center mt-2 font-mono text-sm">Input Image</p>
-                        </div>
-                        <div class="w-1/2 flex flex-col justify-center">
-                            <div class="pop-card bg-white">
-                                <h4 class="font-bold text-pink-600 mb-2">Inventory Update</h4>
-                                <ul class="font-mono text-sm">
-                                    <li class="flex justify-between"><span>Straumann 3.3mm</span> <span>Qty: 5 (-1)</span></li>
-                                    <li class="flex justify-between font-bold text-red-500"><span>Nobel 4.3mm</span> <span>Qty: 1 (REORDER)</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Detail cost and object detection. AI recognizes implant types from photos for automated inventory updates.
-                </aside>
-
-                </section>
-<section>
-                    <div class="text-left">
-                        <div class="pop-badge bg-pink-600 mb-2">NOTIFICATION</div>
-                        <h3>AUTO-REORDER AGENT</h3>
-                    </div>
-                    <div class="pop-card bg-yellow-100 border-yellow-500 mt-4">
-                        <div class="flex items-start gap-4">
-                            <i class="fas fa-shopping-cart text-3xl text-yellow-700"></i>
-                            <div>
-                                <h4 class="font-bold text-yellow-800">Reorder Draft Created</h4>
-                                <p class="text-sm mt-1">
-                                    Supplier: Nobel Biocare<br>
-                                    Items: 5x Active 4.3mm<br>
-                                    Total: $1,250<br>
-                                    <a href="#" class="underline font-bold">Click to approve</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                                <aside class="notes">
-                    Display auto-reorder notification. Detection triggers reorder drafts, preventing stockouts.
-                </aside>
-            </section>
-</section>
-
-            <!-- =====================================================================================
-                 CHAPTER 7: AIOPS CASE STUDY (4 Slides)
+                 CHAPTER 4: AIOPS CASE STUDY (4 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#E0F2FE">
@@ -1190,7 +930,7 @@ def check_stl(file_path):
             </section>
 
             <!-- =====================================================================================
-                 CHAPTER 8: SECURITY (3 Slides)
+                 CHAPTER 5: SECURITY (3 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#F3F4F6">
@@ -1258,7 +998,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
 </section>
 
             <!-- =====================================================================================
-                 CHAPTER 9: DS CORE INTEGRATION SCENARIOS (5 Slides)
+                 CHAPTER 6: DS CORE INTEGRATION SCENARIOS (5 Slides)
                  ===================================================================================== -->
             <section>
                 <section data-background-color="#FFF7ED">
@@ -1429,7 +1169,7 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
 </section>
 
             <!-- =====================================================================================
-                 Q&A (Pop Art Style)
+                 Q&A
                  ===================================================================================== -->
             <section data-background-color="#111111">
                 <div class="flex flex-col items-center justify-center h-full text-white">
@@ -1474,18 +1214,120 @@ text = "Patient [NAME] (DOB: [DATE])..."</code></pre>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
     <script>
         hljs.highlightAll();
+
+        const infographicSyntax = {
+            'ai-challenges': [
+                'infographic list-grid-badge-card',
+                'data',
+                '  title The Real Challenges of AI Adoption',
+                '  desc Key blockers and readiness gaps',
+                '  items',
+                '    - label 48% Projects reach production',
+                '      desc AI projects make it to true deployment',
+                '    - label 70% Teams struggle with data integration',
+                '      desc Knowledge is scattered across docs, email, wikis, and databases',
+                '    - label 25% Employees use AI daily',
+                '      desc Collaboration gaps slow rollout and confidence',
+                '    - label 1/3 Completed scaled AI training',
+                '      desc Most organizations remain in early exploration'
+            ].join('\n'),
+            'core-value': [
+                'infographic list-grid-ribbon-card',
+                'data',
+                '  title DIFY × Dentsply: Core Industry Value',
+                '  items',
+                '    - label AI Imaging & Device Collaboration',
+                '      desc Reports in under 30 seconds with quality checks',
+                '    - label Workflow Automation',
+                '      desc Visual workflows, no code, API integrations',
+                '    - label Compliance & Traceability',
+                '      desc Private deployment, audit trails, HIPAA/GDPR/ISO 13485',
+                '    - label Operational Efficiency Gains',
+                '      desc Yield +15%, rework -40%, response -50%'
+            ].join('\n'),
+            'agenda': [
+                'infographic list-row-horizontal-icon-arrow',
+                'data',
+                '  title Agenda - 3 Industry Scenarios',
+                '  items',
+                '    - label Smart Imaging Diagnosis',
+                '      desc CBCT/Pano QC and assisted reading',
+                '    - label Remote Treatment Monitoring',
+                '      desc Clear aligner and post-op follow-up',
+                '    - label Production QC Automation',
+                '      desc Automated CAD/STL process inspection'
+            ].join('\n')
+        };
+
+        const renderInfographicsForSlide = (slide) => {
+            const Infographic = window.AntVInfographic && window.AntVInfographic.Infographic;
+            if (!Infographic || !slide) {
+                return;
+            }
+
+            slide.querySelectorAll('[data-infographic]').forEach((element) => {
+                const width = element.clientWidth;
+                const height = element.clientHeight;
+
+                if (!width || !height) {
+                    return;
+                }
+
+                const key = element.getAttribute('data-infographic');
+                const syntax = infographicSyntax[key];
+
+                if (!syntax) {
+                    return;
+                }
+
+                const widthKey = String(width);
+                const heightKey = String(height);
+
+                if (
+                    element.dataset.rendered === 'true' &&
+                    element.dataset.renderedWidth === widthKey &&
+                    element.dataset.renderedHeight === heightKey
+                ) {
+                    return;
+                }
+
+                element.innerHTML = '';
+                const infographic = new Infographic({
+                    container: element,
+                    width: '100%',
+                    height: '100%',
+                });
+
+                infographic.render(syntax);
+                element.dataset.rendered = 'true';
+                element.dataset.renderedWidth = widthKey;
+                element.dataset.renderedHeight = heightKey;
+            });
+        };
+
+        const scheduleInfographicRender = (event) => {
+            const slide = event && event.currentSlide ? event.currentSlide : Reveal.getCurrentSlide();
+            window.requestAnimationFrame(() => {
+                renderInfographicsForSlide(slide);
+            });
+        };
+
         Reveal.initialize({
             controls: true,
             progress: true,
             center: true,
             hash: true,
             history: true,
-            transition: 'convex', // Pop art transition
-            backgroundTransition: 'zoom',
+            transition: 'fade',
+            backgroundTransition: 'fade',
             slideNumber: 'c/t',
             navigationMode: 'default', // Allow 2D navigation
             plugins: [ RevealNotes ],
         });
+
+        Reveal.on('ready', scheduleInfographicRender);
+        Reveal.on('slidechanged', scheduleInfographicRender);
+        window.addEventListener('resize', scheduleInfographicRender);
     </script>
 
 </body>
