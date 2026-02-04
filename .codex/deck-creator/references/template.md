@@ -14,6 +14,7 @@ All decks are built using:
 | **Tailwind CSS** | Utility-first styling | `cdn.tailwindcss.com` |
 | **FontAwesome 6.x** | Icons | `cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/` |
 | **Highlight.js** | Code syntax highlighting | `cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/` |
+| **AntV Infographic** (optional) | Data-driven infographics | `unpkg.com/@antv/infographic@latest/dist/infographic.min.js` |
 | **Google Fonts** | Typography | `fonts.googleapis.com` |
 | **MathJax** (optional) | Mathematical formulas | `cdn.jsdelivr.net/npm/mathjax@3/` |
 
@@ -38,6 +39,7 @@ All decks are built using:
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/{theme}.min.css">
+  <script src="https://unpkg.com/@antv/infographic@latest/dist/infographic.min.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -450,6 +452,19 @@ def main(input_param: str) -> dict:
 </section>
 ```
 
+### 6.11 Infographic Slide (AntV)
+
+Use a fixed-height container so charts can measure, and keep the `data-infographic` key aligned with the JS map.
+
+```html
+<section>
+  <h2>活跃项目与社区类型</h2>
+  <div class="infographic-frame">
+    <div class="infographic-stage" data-infographic="project-types"></div>
+  </div>
+</section>
+```
+
 ---
 
 ## 7. Layout Components
@@ -515,6 +530,24 @@ def main(input_param: str) -> dict:
 </div>
 ```
 
+### 7.5 Infographic Containers
+
+```css
+.infographic-frame {
+  background: #ffffff;
+  border: 3px solid var(--pop-black);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 8px 8px 0 var(--pop-black);
+}
+
+.infographic-stage {
+  width: 100%;
+  height: 60vh;
+  min-height: 360px;
+}
+```
+
 ---
 
 ## 8. Reveal.js Configuration
@@ -543,6 +576,39 @@ Reveal.initialize({
   // Plugins
   plugins: [RevealNotes, RevealHighlight, RevealMath]
 });
+```
+
+### 8.1 Infographic Render Hook
+
+Render when the slide is visible and re-render on resize to avoid zero-size containers.
+
+```javascript
+const infographicSyntax = {
+  'project-types': `infographic list-grid-candy-card-lite
+data
+  title 活跃项目与社区类型
+  items
+    - label 基础设施 & DevTools
+    - label 金融科技 & RegTech`,
+};
+
+const renderInfographicsForSlide = (slide) => {
+  const Infographic = window.AntVInfographic && window.AntVInfographic.Infographic;
+  if (!Infographic || !slide) return;
+
+  slide.querySelectorAll('[data-infographic]').forEach((node) => {
+    if (!node.clientWidth || !node.clientHeight) return;
+    const key = node.getAttribute('data-infographic');
+    const syntax = infographicSyntax[key];
+    if (!syntax) return;
+    node.innerHTML = '';
+    new Infographic({ container: node, width: '100%', height: '100%' }).render(syntax);
+  });
+};
+
+Reveal.on('ready', (event) => renderInfographicsForSlide(event.currentSlide));
+Reveal.on('slidechanged', (event) => renderInfographicsForSlide(event.currentSlide));
+window.addEventListener('resize', () => renderInfographicsForSlide(Reveal.getCurrentSlide()));
 ```
 
 ---
@@ -632,4 +698,4 @@ Decks may support multiple themes switchable via keyboard:
 6. **Mobile consideration** - Reveal.js handles responsiveness, but test
 7. **Accessibility** - Include alt text, ensure contrast ratios
 8. **Performance** - Limit animated background shapes (~9 max)
-
+9. **Infographic reliability** - Match `data-infographic` keys to the JS map and avoid zero-size containers
