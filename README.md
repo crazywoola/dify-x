@@ -21,6 +21,7 @@ Online:
 - `pupu/`: low-to-pro-code developer practice (CN/EN) with slide visuals.
 - `milvus/`: RAG evolution + vector DB collaboration deck, shared styles in `milvus/styles/` and notes (`AGENTS.md`, `context.md`, `target_audience.md`).
 - `aispeech/`: AI workflow solutions for AISPEECH (CN/EN) with 35-slide vertical stacks and shared `styles/nordic.css`.
+- `hongkong-oss/`: Dify GenAI workshop deck (CN/EN) for Python/Java developers, covering workflow, plugin dev, self-hosting, and demo.
 - `oceanbase/`: Dify × Oceanbase integration guide and sample `docker-compose.yaml`.
 - `legalai/`: legal workflow samples (YAML in `legalai/demo/`).
 
@@ -31,6 +32,7 @@ Online:
 - `pupu/index.html`: building with Dify as a developer (plugin architecture, triggers, observability).
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
 - `aispeech/index.html`: cross-role AI workflows for AISPEECH (sync officer, auto analyst, legal QA, bug intake, meeting PMO, ROI).
+- `hongkong-oss/index.html`: Dify hands-on training deck (basic GenAI workflow, Dify scope, plugin practice, self-hosting, demo).
 - English versions live in each folder’s `index_en.html`.
 
 ## Tech & design
