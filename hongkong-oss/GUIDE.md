@@ -102,7 +102,7 @@ Focus       Engineering Frameworks    Deployment     Maturity
 **Market Context:**
 
 - **1M+** installations powered by Dify
-- **120K+** GitHub stars
+- **125K+** GitHub stars
 - **150+** countries with active users
 - **1000+** open source contributors
 - **60+** industries adopting the platform

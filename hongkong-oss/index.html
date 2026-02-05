@@ -147,8 +147,8 @@
                 <!-- Slide 4: Community Stats -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 0.5rem;">全球社区认可</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">开源生态驱动，GitHub Top 100 仓库</p>
+                        <h2 style="margin-bottom: 0.5rem;">全球社区数据</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">开源生态驱动，GitHub Top 100 项目</p>
                         
                         <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem;">
                             <div class="nordic-stat">
@@ -156,7 +156,7 @@
                                 <div class="nordic-stat-label">Powered by Dify</div>
                             </div>
                             <div class="nordic-stat">
-                                <div class="nordic-stat-number">120K+</div>
+                                <div class="nordic-stat-number">125K+</div>
                                 <div class="nordic-stat-label">GitHub Stars</div>
                             </div>
                             <div class="nordic-stat">
@@ -165,7 +165,7 @@
                             </div>
                             <div class="nordic-stat">
                                 <div class="nordic-stat-number">1000+</div>
-                                <div class="nordic-stat-label">贡献者</div>
+                                <div class="nordic-stat-label">开源贡献者</div>
                             </div>
                             <div class="nordic-stat">
                                 <div class="nordic-stat-number">60+</div>
@@ -481,6 +481,7 @@
                         </div>
                     </div>
                 </section>
+
             </section>
 
             <!-- Section: Knowledge -->
@@ -630,6 +631,7 @@ retrieval:
                         </div>
                     </div>
                 </section>
+
             </section>
 
             <!-- Section: Deployment -->
@@ -663,7 +665,7 @@ open http://localhost/install
                     </div>
                 </section>
 
-                <!-- Slide 15: Architecture -->
+                <!-- Slide 15: Production Architecture -->
                 <section>
                     <div class="slide-content">
                         <h2 style="margin-bottom: 1.5rem;">生产架构</h2>
@@ -757,15 +759,514 @@ open http://localhost/install
                         </table>
                     </div>
                 </section>
+
+            </section>
+
+            <!-- Section: Advanced Topics -->
+            <section>
+                <!-- Slide 17: Code Node Best Practices -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">Code Node 最佳实践</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">使用 Python/Node.js 扩展 Workflow 能力</p>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-code-box-line text-dify mr-2"></i>适用场景</h4>
+                                <ul class="text-sm text-secondary space-y-2">
+                                    <li>• 复杂数据转换与清洗</li>
+                                    <li>• 自定义业务逻辑判断</li>
+                                    <li>• 调用外部算法模型</li>
+                                    <li>• 敏感数据脱敏处理</li>
+                                </ul>
+                            </div>
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-shield-check-line text-dify mr-2"></i>安全限制</h4>
+                                <ul class="text-sm text-secondary space-y-2">
+                                    <li>• 执行超时：默认 60 秒</li>
+                                    <li>• 内存限制：512 MB</li>
+                                    <li>• 禁止网络请求（沙箱）</li>
+                                    <li>• 标准库可用，三方库受限</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-4">
+                            <div class="font-semibold text-sm mb-2"><i class="ri-code-s-slash-line text-dify mr-2"></i>示例：风险评分逻辑</div>
+                            <div class="code-block" style="font-size: 0.65em;">
+def main(payload: dict) -> dict:
+    country = payload.get("country", "")
+    score = payload.get("risk_score", 0)
+    
+    # 自定义路由逻辑
+    if country in ["US", "UK"] and score < 0.3:
+        return {"route": "fast-lane", "reason": "low_risk"}
+    elif score > 0.8:
+        return {"route": "block", "reason": "high_risk"}
+    
+    return {"route": "standard", "score": score}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 18: Visual vs Pro-Code -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1.5rem;">低代码 vs 专业代码</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">找到可视化编排与代码的最佳结合点</p>
+                        
+                        <table class="nordic-table" style="font-size: 0.75em;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 120px;">维度</th>
+                                    <th>低代码编排 (DSL)</th>
+                                    <th>专业代码 (Pro-Code)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">核心用途</td>
+                                    <td class="text-secondary">流程编排、条件分支、RAG 管道</td>
+                                    <td class="text-secondary">复杂算法、自定义业务逻辑</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">交付速度</td>
+                                    <td class="text-secondary">快速迭代，业务人员可参与</td>
+                                    <td class="text-secondary">需要开发周期，但灵活性高</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">可维护性</td>
+                                    <td class="text-secondary">可视化直观，易于理解</td>
+                                    <td class="text-secondary">需要文档，代码审查保障</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">最佳实践</td>
+                                    <td class="text-secondary" colspan="2"><span class="text-dify font-semibold">80% DSL + 20% Code</span> — 胶水逻辑用可视化，核心计算用代码</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-lightbulb-line text-dify text-xl"></i>
+                                <div>
+                                    <div class="font-semibold">黄金法则</div>
+                                    <div class="text-sm text-secondary">可视化负责「编排」，代码负责「计算」。两者通过变量无缝传递数据。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 19: Plugin Ecosystem -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Extension</span>
+                        </div>
+                        <h2>插件生态系统</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            扩展 Dify 能力边界，集成第三方服务与自定义工具。
+                        </p>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 2.5rem; gap: 1.25rem;">
+                            <div class="nordic-card text-center">
+                                <i class="ri-database-2-line text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">模型插件</h4>
+                                <p class="text-sm text-secondary">接入 OpenAI、Claude、Llama 等 LLM</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-tools-line text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">工具插件</h4>
+                                <p class="text-sm text-secondary">Google 搜索、代码执行、数据库查询</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-upload-cloud-line text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">Agent 策略</h4>
+                                <p class="text-sm text-secondary">Function Calling、ReAct、计划执行</p>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-6" style="margin-top: 2rem;">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="font-semibold mb-1">插件市场</div>
+                                    <div class="text-sm text-secondary">官方维护 + 社区贡献，持续增长的工具生态</div>
+                                </div>
+                                <a href="https://marketplace.dify.ai" target="_blank" class="text-dify font-semibold text-sm hover:underline">
+                                    访问市场 <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 20: RAG Evaluation -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">RAG 评估方法</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化评估检索质量与生成效果</p>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div>
+                                <h4 class="font-semibold mb-3"><i class="ri-fingerprint-line text-dify mr-2"></i>检索质量指标</h4>
+                                <table class="nordic-table" style="font-size: 0.7em;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-semibold">召回率 (Recall)</td>
+                                            <td class="text-secondary">相关文档被成功检索的比例</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">精确率 (Precision)</td>
+                                            <td class="text-secondary">检索结果中相关文档的比例</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">MRR</td>
+                                            <td class="text-secondary">首个相关文档的平均排名倒数</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">NDCG</td>
+                                            <td class="text-secondary">考虑排序的加权相关性评分</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3"><i class="ri-chat-check-line text-dify mr-2"></i>生成质量指标</h4>
+                                <table class="nordic-table" style="font-size: 0.7em;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-semibold">忠实度</td>
+                                            <td class="text-secondary">答案是否基于检索上下文</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">相关性</td>
+                                            <td class="text-secondary">答案与问题的匹配程度</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">完整性</td>
+                                            <td class="text-secondary">是否覆盖问题的各个方面</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-semibold">幻觉率</td>
+                                            <td class="text-secondary">编造未提供的信息的比例</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-4" style="background: #fef3c7; border-color: #f59e0b;">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-flask-line text-amber-600 text-xl"></i>
+                                <div>
+                                    <div class="font-semibold text-amber-800">黄金测试集 (Gold Set)</div>
+                                    <div class="text-sm text-amber-700">建立 50-100 个标注好的问答对，作为回归测试基准。每次策略调整前跑一遍，确保不退化。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 21: Agent Architecture -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">Agent 架构设计</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从简单对话到自主任务执行的演进</p>
+                        
+                        <div class="nordic-flow" style="margin-bottom: 2rem;">
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-brain-line"></i></div>
+                                <div class="nordic-flow-title">推理 (Reasoning)</div>
+                                <div class="nordic-flow-desc">理解任务目标</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-tools-line"></i></div>
+                                <div class="nordic-flow-title">行动 (Acting)</div>
+                                <div class="nordic-flow-desc">调用工具执行</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-eye-line"></i></div>
+                                <div class="nordic-flow-title">观察 (Observing)</div>
+                                <div class="nordic-flow-desc">获取执行结果</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-refresh-line"></i></div>
+                                <div class="nordic-flow-title">迭代 (Iterating)</div>
+                                <div class="nordic-flow-desc">循环直至完成</div>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="gap: 1rem;">
+                            <div class="nordic-card text-center p-4">
+                                <div class="text-xs text-muted mb-1">策略模式</div>
+                                <div class="font-semibold text-sm">Function Calling</div>
+                                <div class="text-xs text-secondary mt-1">结构化工具调用</div>
+                            </div>
+                            <div class="nordic-card text-center p-4">
+                                <div class="text-xs text-muted mb-1">策略模式</div>
+                                <div class="font-semibold text-sm">ReAct</div>
+                                <div class="text-xs text-secondary mt-1">推理与行动交替</div>
+                            </div>
+                            <div class="nordic-card text-center p-4">
+                                <div class="text-xs text-muted mb-1">策略模式</div>
+                                <div class="font-semibold text-sm">Plan & Execute</div>
+                                <div class="text-xs text-secondary mt-1">先规划再执行</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 22: Knowledge Pipeline Deep Dive -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">知识库 Pipeline 深度解析</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从原始文档到可用记忆的完整流程</p>
+                        
+                        <div class="code-block" style="font-size: 0.6em; line-height: 1.5;">
+[Ingest Pipeline]                    [Query Pipeline]
+     │                                      │
+     ▼                                      ▼
+┌──────────┐    ┌──────────┐         ┌──────────────┐
+│  解析    │───▶│  分块    │         │   Query      │
+│  PDF/MD  │    │  Chunking│         │   Rewrite    │
+└──────────┘    └────┬─────┘         └──────┬───────┘
+                     │                        │
+     ┌───────────────┼──────────┐             ▼
+     ▼               ▼          ▼        ┌──────────┐
+┌─────────┐    ┌─────────┐  ┌────────┐   │  Hybrid  │
+│ Semantic│    │ Markdown│  │  Fixed │   │  Search  │
+│ Chunk   │    │  Header │  │  Size  │   └────┬─────┘
+└────┬────┘    └─────────┘  └────────┘        │
+     │                                         ▼
+     ▼                                    ┌──────────┐
+┌─────────┐                              │  Rerank  │
+│ Enrich  │                              │  Model   │
+│ Summary │                              └────┬─────┘
+└────┬────┘                                   │
+     │                                         ▼
+     ▼                                    ┌──────────┐
+┌─────────┐                              │ Context  │
+│Embedding│                              │ Assembly │
+└────┬────┘                              └──────────┘
+     │
+     ▼
+┌─────────┐
+│ Milvus  │
+│ Vector  │
+│  Store  │
+└─────────┘
+                        </div>
+                        
+                        <div class="mt-3 text-center">
+                            <span class="text-xs text-muted">Garbage In, Garbage Out —— 上游质量决定下游效果</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 23: Security & Guardrails -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">安全与护栏 (Guardrails)</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">保护应用免受滥用与攻击</p>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-shield-keyhole-line text-dify mr-2"></i>输入防护</h4>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• 敏感词过滤与内容审核</li>
+                                    <li>• Prompt 注入检测</li>
+                                    <li>• 请求频率限制 (Rate Limit)</li>
+                                    <li>• 用户身份验证与授权</li>
+                                </ul>
+                            </div>
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-shield-check-line text-dify mr-2"></i>输出防护</h4>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• 幻觉检测与事实校验</li>
+                                    <li>• PII 数据脱敏</li>
+                                    <li>• 输出长度限制</li>
+                                    <li>• 有害内容过滤</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-4" style="background: linear-gradient(135deg, rgba(239,68,68,0.05) 0%, rgba(239,68,68,0.1) 100%); border-color: rgba(239,68,68,0.2);">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                                    <i class="ri-alarm-warning-line text-red-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">预算护栏 (Budget Guardrails)</div>
+                                    <div class="text-sm text-secondary">设置单次请求 Token 上限、每日消费上限，防止成本失控。当触发阈值时自动降级或熔断。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 24: Observability Deep Dive -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">可观测性深度实践</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从日志到指标，全链路追踪应用表现</p>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="gap: 1.25rem;">
+                            <div class="nordic-card text-center">
+                                <i class="ri-file-list-3-line text-dify text-2xl mb-2 block"></i>
+                                <h4 class="font-semibold text-sm mb-1">日志 (Logs)</h4>
+                                <p class="text-xs text-secondary">执行轨迹、变量值、错误堆栈</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-bar-chart-box-line text-dify text-2xl mb-2 block"></i>
+                                <h4 class="font-semibold text-sm mb-1">指标 (Metrics)</h4>
+                                <p class="text-xs text-secondary">延迟、Token 消耗、成功率</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-route-line text-dify text-2xl mb-2 block"></i>
+                                <h4 class="font-semibold text-sm mb-1">追踪 (Traces)</h4>
+                                <p class="text-xs text-secondary">跨节点调用链、依赖关系</p>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-4">
+                            <div class="font-semibold text-sm mb-2"><i class="ri-dashboard-line text-dify mr-2"></i>成本分析看板</div>
+                            <div class="grid grid-cols-4 gap-4 text-center" style="font-size: 0.75rem;">
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <div class="text-dify font-bold text-lg">1.2M</div>
+                                    <div class="text-muted">总 Token 数</div>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <div class="text-dify font-bold text-lg">$42.5</div>
+                                    <div class="text-muted">今日消费</div>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <div class="text-dify font-bold text-lg">2.3s</div>
+                                    <div class="text-muted">P99 延迟</div>
+                                </div>
+                                <div class="p-2 bg-gray-50 rounded">
+                                    <div class="text-dify font-bold text-lg">99.8%</div>
+                                    <div class="text-muted">成功率</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 25: Debugging Tips -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">调试技巧与故障排查</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化定位与解决问题</p>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div>
+                                <h4 class="font-semibold mb-3"><i class="ri-bug-line text-dify mr-2"></i>常见问题</h4>
+                                <div class="space-y-2">
+                                    <div class="p-2 bg-red-50 rounded text-sm">
+                                        <span class="font-semibold text-red-700">超时错误</span>
+                                        <span class="text-secondary">→ 检查 LLM 节点超时设置</span>
+                                    </div>
+                                    <div class="p-2 bg-orange-50 rounded text-sm">
+                                        <span class="font-semibold text-orange-700">变量未找到</span>
+                                        <span class="text-secondary">→ 检查节点输出变量名</span>
+                                    </div>
+                                    <div class="p-2 bg-yellow-50 rounded text-sm">
+                                        <span class="font-semibold text-yellow-700">检索质量差</span>
+                                        <span class="text-secondary">→ 调整分块策略或阈值</span>
+                                    </div>
+                                    <div class="p-2 bg-blue-50 rounded text-sm">
+                                        <span class="font-semibold text-blue-700">API 限流</span>
+                                        <span class="text-secondary">→ 添加重试或降级逻辑</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3"><i class="ri-first-aid-kit-line text-dify mr-2"></i>排查步骤</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-start gap-2">
+                                        <span class="bg-dify text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0">1</span>
+                                        <span>查看执行日志，定位错误节点</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="bg-dify text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0">2</span>
+                                        <span>检查变量面板，验证数据流</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="bg-dify text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0">3</span>
+                                        <span>使用预览模式，逐步执行测试</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="bg-dify text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0">4</span>
+                                        <span>启用 Trace，查看详细调用链</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="bg-dify text-white rounded-full w-5 h-5 flex items-center justify-center text-xs flex-shrink-0">5</span>
+                                        <span>对比历史成功/失败执行差异</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 26: Community Contribution -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Community</span>
+                        </div>
+                        <h2>参与社区贡献</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            从使用者成长为贡献者，共建开源生态。
+                        </p>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 2.5rem; gap: 1.25rem;">
+                            <div class="nordic-card text-center">
+                                <i class="ri-github-line text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">贡献代码</h4>
+                                <p class="text-sm text-secondary">提交 PR，修复 Bug，实现新功能</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-plug-line text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">开发插件</h4>
+                                <p class="text-sm text-secondary">为社区创建 Model/Tool/Agent 插件</p>
+                            </div>
+                            <div class="nordic-card text-center">
+                                <i class="ri-translate-2 text-dify text-3xl mb-3 block"></i>
+                                <h4 class="font-semibold mb-2">翻译文档</h4>
+                                <p class="text-sm text-secondary">帮助文档多语言化，降低使用门槛</p>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card mt-6">
+                            <div class="flex items-center justify-center gap-8 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <i class="ri-discord-line text-dify"></i>
+                                    <span>Discord 社区</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="ri-github-line text-dify"></i>
+                                    <span>GitHub Discussions</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="ri-twitter-x-line text-dify"></i>
+                                    <span>@dify_ai</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
 
             <!-- Section: Projects -->
             <section>
-                <!-- Slide 17: Project 1 -->
+                <!-- Slide 27: Project 1 -->
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 5</span>
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 6</span>
                         </div>
                         <h2>实战项目一</h2>
                         <h3 style="font-size: 1.2rem; color: #525252;">Apple Watch 录音转录工作流</h3>
@@ -798,7 +1299,7 @@ open http://localhost/install
                     </div>
                 </section>
 
-                <!-- Slide 18: Project 2 -->
+                <!-- Slide 28: Project 2 -->
                 <section>
                     <div class="slide-content">
                         <h2 style="margin-bottom: 1rem;">实战项目二</h2>
@@ -841,7 +1342,7 @@ chatbot:
                 </section>
             </section>
 
-            <!-- Slide 19: Resources -->
+            <!-- Slide 29: Resources -->
             <section>
                 <div class="slide-content">
                     <h2 style="margin-bottom: 2rem;">学习资源</h2>
@@ -891,7 +1392,7 @@ chatbot:
                 </div>
             </section>
 
-            <!-- Slide 20: Thank You -->
+            <!-- Slide 30: Thank You -->
             <section data-background-color="#0033ff">
                 <div class="slide-hero text-center" style="color: white;">
                     <div style="font-size: 4rem; margin-bottom: 2rem;">🙏</div>
