@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dify x Hong Kong OSS Workshop - 从入门到生产</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lang-switch">
+        <a class="active" href="index.html">中文</a>
+        <span>/</span>
+        <a href="index_en.html">EN</a>
+    </div>
+
+    <div class="nordic-logo">
+        <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
+        <span class="nordic-logo-text">Dify x HK OSS</span>
+    </div>
+
+    <div class="slide-hint">按键盘 ↓ 查看详情</div>
+
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Title -->
+            <section data-background-color="#fafafa">
+                <div class="slide-hero text-center" style="max-width: 900px;">
+                    <div class="mb-8">
+                        <span class="tag tag-primary text-xs px-4 py-2">Workshop 2025</span>
+                    </div>
+                    <h1 style="font-size: 2.8rem;">Dify x Hong Kong OSS</h1>
+                    <h2 style="font-size: 1.4rem; font-weight: 500; color: #525252; margin-top: 1rem;">
+                        从入门到生产：构建 GenAI 应用
+                    </h2>
+                    <p class="text-secondary" style="margin-top: 2rem;">
+                        基于 Dify 平台的工作流编排、知识库管理与生产部署实践
+                    </p>
+                    <div style="margin-top: 4rem; font-size: 0.85rem; color: #737373;">
+                        <div style="font-weight: 600; color: #171717;">CrazyWoola (Banana)</div>
+                        <div style="margin-top: 0.25rem;">Developer Relations @ Dify</div>
+                        <div style="margin-top: 0.5rem; font-size: 0.75rem;">banana@dify.ai</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: Agenda -->
+            <section>
+                <div class="slide-content">
+                    <h2 style="margin-bottom: 2rem;">Workshop 议程</h2>
+                    <table class="nordic-table" style="font-size: 0.8em;">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">时间</th>
+                                <th style="width: 140px;">主题</th>
+                                <th>内容概要</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
+                                <td class="font-semibold">Dify 简介</td>
+                                <td class="text-secondary">平台定位、核心能力、生态系统</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
+                                <td class="font-semibold">Workflow 工作流</td>
+                                <td class="text-secondary">节点类型、编排逻辑、调试监控</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
+                                <td class="font-semibold">Knowledge 知识库</td>
+                                <td class="text-secondary">文档处理、向量化、检索优化</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
+                                <td class="font-semibold">部署与集成</td>
+                                <td class="text-secondary">Docker 部署、配置管理、生产实践</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
+                                <td class="font-semibold">实战项目</td>
+                                <td class="text-secondary">Apple Watch 转录工作流、GDPR 问答机器人</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: Introduction -->
+            <section>
+                <!-- Slide 3: What is Dify -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 1</span>
+                        </div>
+                        <h2>什么是 Dify？</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            Dify 是开源的 LLM 应用开发平台，连接大模型能力与生产级应用。
+                        </p>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 3rem; gap: 1.5rem;">
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-flow-chart"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">可视化编排</div>
+                                    <div class="nordic-feature-desc">Workflow、Agent、Chatflow 多模式工作流构建</div>
+                                </div>
+                            </div>
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-database-2-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">知识库管理</div>
+                                    <div class="nordic-feature-desc">RAG 全流程支持，从文档到向量化检索</div>
+                                </div>
+                            </div>
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-plug-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">插件生态</div>
+                                    <div class="nordic-feature-desc">模型、工具、扩展的开放插件市场</div>
+                                </div>
+                            </div>
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-bar-chart-2-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">可观测性</div>
+                                    <div class="nordic-feature-desc">全链路日志、Tracing、成本追踪</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4: Community Stats -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 0.5rem;">全球社区认可</h2>
+                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">开源生态驱动，GitHub Top 100 仓库</p>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem;">
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">1M+</div>
+                                <div class="nordic-stat-label">Powered by Dify</div>
+                            </div>
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">120K+</div>
+                                <div class="nordic-stat-label">GitHub Stars</div>
+                            </div>
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">150+</div>
+                                <div class="nordic-stat-label">覆盖国家</div>
+                            </div>
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">1000+</div>
+                                <div class="nordic-stat-label">贡献者</div>
+                            </div>
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">60+</div>
+                                <div class="nordic-stat-label">行业应用</div>
+                            </div>
+                            <div class="nordic-stat">
+                                <div class="nordic-stat-number">550M+</div>
+                                <div class="nordic-stat-label">总下载量</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 5: Evolution -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">LLM 应用开发生命周期</h2>
+                        
+                        <div class="nordic-timeline">
+                            <div class="nordic-timeline-items">
+                                <div class="nordic-timeline-item">
+                                    <div class="nordic-timeline-year">2017</div>
+                                    <div class="nordic-timeline-title">Transformer</div>
+                                    <div class="nordic-timeline-desc">Attention is all you need</div>
+                                </div>
+                                <div class="nordic-timeline-item">
+                                    <div class="nordic-timeline-year">2020</div>
+                                    <div class="nordic-timeline-title">GPT-3</div>
+                                    <div class="nordic-timeline-desc">Few-shot 涌现能力</div>
+                                </div>
+                                <div class="nordic-timeline-item active">
+                                    <div class="nordic-timeline-year">2023-24</div>
+                                    <div class="nordic-timeline-title">应用框架</div>
+                                    <div class="nordic-timeline-desc">Dify 等平台崛起</div>
+                                </div>
+                                <div class="nordic-timeline-item">
+                                    <div class="nordic-timeline-year">2025+</div>
+                                    <div class="nordic-timeline-title">工程化</div>
+                                    <div class="nordic-timeline-desc">生产级、标准化</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-card" style="margin-top: 3rem;">
+                            <div class="flex items-center gap-4">
+                                <div class="icon-badge"><i class="ri-lightbulb-line"></i></div>
+                                <div>
+                                    <div class="font-semibold text-lg">为什么是现在？</div>
+                                    <div class="text-secondary text-sm">算力、模型、数据三大要素齐备，LLM 应用进入工程化阶段</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 6: Comparison -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">传统开发 vs LLM 原生开发</h2>
+                        
+                        <div class="nordic-comparison">
+                            <div class="nordic-comparison-item">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="ri-code-s-slash-line text-2xl text-gray-400"></i>
+                                    <h3 class="text-lg font-semibold">传统软件开发</h3>
+                                </div>
+                                <table class="w-full text-sm">
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3"><span class="bg-gray-200 px-2 py-1 rounded text-xs">核心逻辑</span></td>
+                                        <td class="py-3 text-secondary">确定性 (Deterministic)<br>If-Then-Else 严密控制</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3"><span class="bg-gray-200 px-2 py-1 rounded text-xs">数据处理</span></td>
+                                        <td class="py-3 text-secondary">结构化 (SQL/JSON)<br>Schema 定义先行</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3"><span class="bg-gray-200 px-2 py-1 rounded text-xs">测试方法</span></td>
+                                        <td class="py-3 text-secondary">单元测试 (Pass/Fail)<br>逻辑覆盖率</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="nordic-comparison-item active">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="ri-magic-line text-2xl text-dify"></i>
+                                    <h3 class="text-lg font-semibold text-dify">LLM 原生开发</h3>
+                                </div>
+                                <table class="w-full text-sm">
+                                    <tr class="border-b border-blue-200">
+                                        <td class="py-3"><span class="bg-dify text-white px-2 py-1 rounded text-xs">核心逻辑</span></td>
+                                        <td class="py-3 text-secondary">概率性 (Probabilistic)<br>Prompt + Context 引导</td>
+                                    </tr>
+                                    <tr class="border-b border-blue-200">
+                                        <td class="py-3"><span class="bg-dify text-white px-2 py-1 rounded text-xs">数据处理</span></td>
+                                        <td class="py-3 text-secondary">非结构化 (Embedding)<br>语义检索与理解</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3"><span class="bg-dify text-white px-2 py-1 rounded text-xs">测试方法</span></td>
+                                        <td class="py-3 text-secondary">评估 (Eval)<br>准确率、幻觉率、相关性</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Section: Workflow -->
+            <section>
+                <!-- Slide 7: Workflow Intro -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 2</span>
+                        </div>
+                        <h2>Workflow 工作流编排</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            可视化构建复杂的 AI 处理流程，从简单对话到多步骤自动化。
+                        </p>
+                        
+                        <div class="nordic-flow" style="margin-top: 3rem;">
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number">1</div>
+                                <div class="nordic-flow-title">输入定义</div>
+                                <div class="nordic-flow-desc">Schema 校验</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number">2</div>
+                                <div class="nordic-flow-title">知识检索</div>
+                                <div class="nordic-flow-desc">RAG 增强</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number">3</div>
+                                <div class="nordic-flow-title">LLM 处理</div>
+                                <div class="nordic-flow-desc">智能生成</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number">4</div>
+                                <div class="nordic-flow-title">输出格式化</div>
+                                <div class="nordic-flow-desc">结果返回</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 8: Workflow Types -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">四种应用类型</h2>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div class="nordic-card">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="font-semibold text-lg">Chatbot</h3>
+                                    <span class="tag text-xs">低复杂度</span>
+                                </div>
+                                <p class="text-secondary text-sm mb-3">对话式 AI，保持上下文记忆，适合客服、问答场景</p>
+                                <div class="flex gap-2 text-xs text-muted">
+                                    <span><i class="ri-chat-3-line mr-1"></i>多轮对话</span>
+                                    <span><i class="ri-history-line mr-1"></i>上下文保持</span>
+                                </div>
+                            </div>
+                            
+                            <div class="nordic-card">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="font-semibold text-lg">Agent</h3>
+                                    <span class="tag text-xs">中复杂度</span>
+                                </div>
+                                <p class="text-secondary text-sm mb-3">自主任务执行，工具调用能力，适合研究、分析场景</p>
+                                <div class="flex gap-2 text-xs text-muted">
+                                    <span><i class="ri-tools-line mr-1"></i>工具调用</span>
+                                    <span><i class="ri-brain-line mr-1"></i>自主决策</span>
+                                </div>
+                            </div>
+                            
+                            <div class="nordic-card">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="font-semibold text-lg">Chatflow</h3>
+                                    <span class="tag text-xs">中复杂度</span>
+                                </div>
+                                <p class="text-secondary text-sm mb-3">多轮对话流程，条件分支处理，适合表单、向导场景</p>
+                                <div class="flex gap-2 text-xs text-muted">
+                                    <span><i class="ri-git-branch-line mr-1"></i>流程分支</span>
+                                    <span><i class="ri-guide-line mr-1"></i>步骤引导</span>
+                                </div>
+                            </div>
+                            
+                            <div class="nordic-card-featured">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="font-semibold text-lg">Workflow</h3>
+                                    <span class="tag bg-white text-dify text-xs">高复杂度</span>
+                                </div>
+                                <p class="text-sm mb-3 opacity-90">批量处理、自动化任务，无状态执行，适合数据处理场景</p>
+                                <div class="flex gap-2 text-xs opacity-80">
+                                    <span><i class="ri-loop-left-line mr-1"></i>批量处理</span>
+                                    <span><i class="ri-flashlight-line mr-1"></i>自动化</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 9: Node Types -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">核心节点类型</h2>
+                        
+                        <table class="nordic-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 120px;">分类</th>
+                                    <th style="width: 150px;">节点</th>
+                                    <th>功能说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2" class="font-semibold">输入/输出</td>
+                                    <td><i class="ri-play-circle-line text-dify mr-2"></i>Start</td>
+                                    <td class="text-secondary">定义输入参数 Schema，触发工作流执行</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="ri-stop-circle-line text-dify mr-2"></i>End</td>
+                                    <td class="text-secondary">定义输出格式，终止工作流</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="font-semibold">处理</td>
+                                    <td><i class="ri-code-box-line text-dify mr-2"></i>Code</td>
+                                    <td class="text-secondary">Python/Node.js 代码执行，数据转换</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="ri-template-line text-dify mr-2"></i>Template</td>
+                                    <td class="text-secondary">字符串模板渲染，Prompt 构建</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="font-semibold">AI</td>
+                                    <td><i class="ri-robot-2-line text-dify mr-2"></i>LLM</td>
+                                    <td class="text-secondary">大模型调用，支持多供应商、参数配置</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="ri-database-2-line text-dify mr-2"></i>Knowledge</td>
+                                    <td class="text-secondary">知识库检索，RAG 上下文注入</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="font-semibold">控制流</td>
+                                    <td><i class="ri-git-branch-line text-dify mr-2"></i>If/Else</td>
+                                    <td class="text-secondary">条件分支，基于表达式的路由</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="ri-loop-left-line text-dify mr-2"></i>Iteration</td>
+                                    <td class="text-secondary">列表迭代，批量处理数据</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Slide 10: Observability -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">可观测性与调试</h2>
+                        
+                        <div class="nordic-card" style="margin-bottom: 1.5rem;">
+                            <div class="font-mono text-xs text-muted mb-3">Execution Trace • Run ID: wf_8f3a9b2c</div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center gap-3 p-2 bg-green-50 rounded">
+                                    <span class="text-green-600"><i class="ri-check-line"></i></span>
+                                    <span class="font-mono text-xs w-24">0.01s</span>
+                                    <span class="font-medium">Start</span>
+                                    <span class="text-secondary text-xs">Input validated</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-2 bg-green-50 rounded">
+                                    <span class="text-green-600"><i class="ri-check-line"></i></span>
+                                    <span class="font-mono text-xs w-24">0.45s</span>
+                                    <span class="font-medium">Knowledge Retrieval</span>
+                                    <span class="text-secondary text-xs">3 chunks retrieved (score > 0.75)</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-2 bg-green-50 rounded">
+                                    <span class="text-green-600"><i class="ri-check-line"></i></span>
+                                    <span class="font-mono text-xs w-24">0.78s</span>
+                                    <span class="font-medium">LLM Call</span>
+                                    <span class="text-secondary text-xs">342 tokens generated</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-2 bg-blue-50 rounded border border-blue-200">
+                                    <span class="text-blue-600"><i class="ri-flag-line"></i></span>
+                                    <span class="font-mono text-xs w-24">1.24s</span>
+                                    <span class="font-medium">End</span>
+                                    <span class="text-secondary text-xs">Execution complete</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-gray-200 flex justify-between text-xs text-muted">
+                                <span>Tokens: 1,245 prompt | 342 completion</span>
+                                <span>Cost: $0.0042</span>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="gap: 1rem;">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <i class="ri-eye-line text-dify text-xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">变量检查器</div>
+                                <div class="text-xs text-muted">每步变量值查看</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <i class="ri-restart-line text-dify text-xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">节点重试</div>
+                                <div class="text-xs text-muted">失败节点重新执行</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <i class="ri-file-list-3-line text-dify text-xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">差异对比</div>
+                                <div class="text-xs text-muted">多轮执行对比</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Section: Knowledge -->
+            <section>
+                <!-- Slide 11: Knowledge Intro -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 3</span>
+                        </div>
+                        <h2>Knowledge 知识库</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            完整的 RAG 解决方案：从文档摄入到智能检索的全流程管理。
+                        </p>
+                        
+                        <div class="nordic-card" style="margin-top: 2rem;">
+                            <div class="code-block" style="font-size: 0.6em;">
+┌─────────────────────────────────────────────────────────────┐
+│                    KNOWLEDGE PIPELINE                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   Documents        Chunking        Embedding        Vector  │
+│  ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌────────┐│
+│  │  PDF    │────▶│Semantic │────▶│  text-  │────▶│ Qdrant ││
+│  │  Word   │     │ Chunker │     │embedding│     │Milvus  ││
+│  │  MD     │     │         │     │-3-large │     │Weaviate││
+│  └─────────┘     └─────────┘     └─────────┘     └────────┘│
+│                                                             │
+│  ┌─────────────────────────────────────────────────────────┐│
+│  │                   RETRIEVAL ENGINE                       ││
+│  │  [Query] → [Embedding] → [ANN Search] → [Rerank] → [TopK]││
+│  └─────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────┘
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 12: Chunking Strategies -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">分块策略</h2>
+                        
+                        <table class="nordic-table">
+                            <thead>
+                                <tr>
+                                    <th>策略</th>
+                                    <th>适用场景</th>
+                                    <th>分块大小</th>
+                                    <th>重叠</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">Recursive</td>
+                                    <td class="text-secondary">通用文档处理</td>
+                                    <td>500-1000 chars</td>
+                                    <td>50-100</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Semantic</td>
+                                    <td class="text-secondary">技术内容、代码</td>
+                                    <td>句子级别</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Fixed</td>
+                                    <td class="text-secondary">结构化数据</td>
+                                    <td>自定义</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Markdown</td>
+                                    <td class="text-secondary">文档、Wiki</td>
+                                    <td>标题层级</td>
+                                    <td>上下文</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="nordic-card mt-6">
+                            <div class="font-semibold text-sm mb-2"><i class="ri-settings-3-line text-dify mr-2"></i>推荐配置</div>
+                            <div class="code-block" style="font-size: 0.65em;">
+chunking:
+  method: "recursive"
+  chunk_size: 800
+  chunk_overlap: 80
+  separators: ["\n\n", "\n", ". ", " "]
+  
+indexing:
+  embedding_model: "text-embedding-3-large"
+  vector_db: "weaviate"
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 13: Retrieval -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 2rem;">检索优化</h2>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div>
+                                <h3 class="font-semibold mb-3">基础检索</h3>
+                                <div class="code-block" style="font-size: 0.65em;">
+retrieval:
+  method: "semantic_search"
+  top_k: 5
+  score_threshold: 0.75
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-3">混合检索 + Rerank</h3>
+                                <div class="code-block" style="font-size: 0.65em;">
+retrieval:
+  method: "hybrid_search"
+  top_k: 20                    # 初始检索
+  rerank:
+    enabled: true
+    model: "cohere-rerank-v3"
+    top_n: 5                   # 最终返回
+  filters:
+    - field: "metadata.source"
+      operator: "equals"
+      value: "official_docs"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="nordic-grid nordic-grid-3" style="gap: 1rem; margin-top: 2rem;">
+                            <div class="text-center p-4 border border-gray-200 rounded-lg">
+                                <i class="ri-fingerprint-line text-dify text-2xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">语义搜索</div>
+                                <div class="text-xs text-muted">基于向量相似度</div>
+                            </div>
+                            <div class="text-center p-4 border border-gray-200 rounded-lg">
+                                <i class="ri-text-spacing text-dify text-2xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">关键词搜索</div>
+                                <div class="text-xs text-muted">BM25 算法</div>
+                            </div>
+                            <div class="text-center p-4 border border-dify rounded-lg bg-dify-light">
+                                <i class="ri-bubble-chart-line text-dify text-2xl mb-2 block"></i>
+                                <div class="font-semibold text-sm">混合搜索</div>
+                                <div class="text-xs text-muted">语义 + 关键词</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Section: Deployment -->
+            <section>
+                <!-- Slide 14: Deployment -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 4</span>
+                        </div>
+                        <h2>部署与集成</h2>
+                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                            使用 Docker 快速部署 Dify，配置生产环境。
+                        </p>
+                        
+                        <div class="code-block" style="margin-top: 2rem; font-size: 0.7em;">
+# 1. 克隆仓库
+git clone https://github.com/langgenius/dify.git
+cd dify/docker
+
+# 2. 配置环境变量
+cp .env.example .env
+# 编辑 .env 设置 OPENAI_API_KEY, SECRET_KEY 等
+
+# 3. 启动服务
+docker compose up -d
+
+# 4. 访问控制台
+open http://localhost/install
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 15: Architecture -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1.5rem;">生产架构</h2>
+                        
+                        <div class="code-block" style="font-size: 0.55em; line-height: 1.4;">
+┌─────────────────────────────────────────────────────────────┐
+│                      PRODUCTION ARCH                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│    ┌─────────────┐                                          │
+│    │   CDN/WAF   │                                          │
+│    └──────┬──────┘                                          │
+│           │                                                 │
+│    ┌──────▼──────┐         ┌─────────────────┐             │
+│    │    Nginx    │────────▶│   Dify API      │             │
+│    │  (Load Bal) │         │ (Multiple Pods) │             │
+│    └──────┬──────┘         └────────┬────────┘             │
+│           │                         │                       │
+│           │    ┌────────┐  ┌────────┐  ┌────────┐          │
+│           └───▶│PostgreSQL│  │ Redis  │  │Weaviate│          │
+│                │   (HA)   │  │(Sentinel)│  │(Cluster)│         │
+│                └────────┘  └────────┘  └────────┘          │
+│                                                             │
+│    ┌─────────────┐                                          │
+│    │    Worker   │◄── Celery 任务队列                        │
+│    │    Nodes    │                                          │
+│    └─────────────┘                                          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold mb-2">安全检查清单</h4>
+                            <div class="checklist" style="font-size: 0.8em;">
+                                <li class="checked">修改默认密码</li>
+                                <li class="checked">启用 HTTPS / SSL 证书</li>
+                                <li>配置 CORS 策略</li>
+                                <li>设置限流策略</li>
+                                <li>开启审计日志</li>
+                                <li>网络隔离向量数据库</li>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 16: Environment -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1.5rem;">关键环境变量</h2>
+                        
+                        <table class="nordic-table" style="font-size: 0.75em;">
+                            <thead>
+                                <tr>
+                                    <th>变量</th>
+                                    <th>说明</th>
+                                    <th>示例值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-mono text-dify">CONSOLE_API_URL</td>
+                                    <td class="text-secondary">控制台 API 地址</td>
+                                    <td class="font-mono text-xs">http://localhost:5001</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-dify">APP_API_URL</td>
+                                    <td class="text-secondary">应用 API 地址</td>
+                                    <td class="font-mono text-xs">http://localhost:5001</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-dify">DB_DATABASE</td>
+                                    <td class="text-secondary">PostgreSQL 数据库名</td>
+                                    <td class="font-mono text-xs">dify</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-dify">REDIS_HOST</td>
+                                    <td class="text-secondary">Redis 主机</td>
+                                    <td class="font-mono text-xs">redis</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-dify">VECTOR_STORE</td>
+                                    <td class="text-secondary">向量数据库类型</td>
+                                    <td class="font-mono text-xs">weaviate/qdrant/milvus</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-dify">S3_BUCKET_NAME</td>
+                                    <td class="text-secondary">文件存储桶名</td>
+                                    <td class="font-mono text-xs">dify-files</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Section: Projects -->
+            <section>
+                <!-- Slide 17: Project 1 -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <div class="mb-4">
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 5</span>
+                        </div>
+                        <h2>实战项目一</h2>
+                        <h3 style="font-size: 1.2rem; color: #525252;">Apple Watch 录音转录工作流</h3>
+                        <p class="text-secondary" style="font-size: 0.95rem; max-width: 700px; margin-top: 1rem;">
+                            自动转录 Apple Watch 语音备忘录，生成结构化笔记并同步到 Notion。
+                        </p>
+                        
+                        <div class="nordic-flow" style="margin-top: 2rem;">
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-mic-line"></i></div>
+                                <div class="nordic-flow-title">语音输入</div>
+                                <div class="nordic-flow-desc">Apple Watch</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-file-text-line"></i></div>
+                                <div class="nordic-flow-title">Whisper 转录</div>
+                                <div class="nordic-flow-desc">语音 → 文字</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-brain-line"></i></div>
+                                <div class="nordic-flow-title">LLM 总结</div>
+                                <div class="nordic-flow-desc">提取要点</div>
+                            </div>
+                            <div class="nordic-flow-step">
+                                <div class="nordic-flow-number"><i class="ri-book-2-line"></i></div>
+                                <div class="nordic-flow-title">同步 Notion</div>
+                                <div class="nordic-flow-desc">结构化存储</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 18: Project 2 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 style="margin-bottom: 1rem;">实战项目二</h2>
+                        <h3 style="font-size: 1.2rem; color: #525252; margin-bottom: 2rem;">GDPR 合规问答机器人</h3>
+                        
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-database-line text-dify mr-2"></i>知识库构建</h4>
+                                <ul class="text-sm text-secondary space-y-2">
+                                    <li>• GDPR 官方文档</li>
+                                    <li>• ICO 指南</li>
+                                    <li>• 公司内部隐私政策</li>
+                                    <li>• 数据处理协议</li>
+                                </ul>
+                            </div>
+                            <div class="nordic-card">
+                                <h4 class="font-semibold mb-3"><i class="ri-shield-check-line text-dify mr-2"></i>合规特性</h4>
+                                <ul class="text-sm text-secondary space-y-2">
+                                    <li>• 每回答必有来源引用</li>
+                                    <li>• 置信度评分</li>
+                                    <li>• 低置信度转人工</li>
+                                    <li>• 免责声明自动追加</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="code-block mt-6" style="font-size: 0.65em;">
+chatbot:
+  system_prompt: |
+    你是 GDPR 合规助手。必须：
+    1. 引用具体条款回答问题
+    2. 标注置信度 (高/中/低)
+    3. 复杂情况建议咨询法务
+    4. 不提供法律意见，仅提供信息
+  guardrails:
+    confidence_threshold: 0.6
+    fallback: "需要更多上下文，将为您转接人工。"
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 19: Resources -->
+            <section>
+                <div class="slide-content">
+                    <h2 style="margin-bottom: 2rem;">学习资源</h2>
+                    
+                    <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem;">
+                        <div class="nordic-card text-center">
+                            <i class="ri-book-open-line text-dify text-3xl mb-4 block"></i>
+                            <h3 class="font-semibold mb-2">官方文档</h3>
+                            <p class="text-sm text-secondary mb-3">docs.dify.ai</p>
+                            <a href="https://docs.dify.ai" target="_blank" class="text-dify text-sm hover:underline">访问 →</a>
+                        </div>
+                        <div class="nordic-card text-center">
+                            <i class="ri-github-fill text-dify text-3xl mb-4 block"></i>
+                            <h3 class="font-semibold mb-2">GitHub</h3>
+                            <p class="text-sm text-secondary mb-3">github.com/langgenius/dify</p>
+                            <a href="https://github.com/langgenius/dify" target="_blank" class="text-dify text-sm hover:underline">Star →</a>
+                        </div>
+                        <div class="nordic-card text-center">
+                            <i class="ri-discord-fill text-dify text-3xl mb-4 block"></i>
+                            <h3 class="font-semibold mb-2">社区讨论</h3>
+                            <p class="text-sm text-secondary mb-3">Discord Community</p>
+                            <a href="https://discord.gg/8Tpq4AcN" target="_blank" class="text-dify text-sm hover:underline">加入 →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nordic-card mt-8 text-center">
+                        <h3 class="font-semibold mb-4">后续步骤</h3>
+                        <div class="flex justify-center gap-8 text-sm">
+                            <div class="flex items-center gap-2">
+                                <i class="ri-checkbox-circle-line text-green-600"></i>
+                                <span>加入 Discord 社区</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-checkbox-circle-line text-green-600"></i>
+                                <span>Star GitHub 仓库</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-checkbox-circle-line text-green-600"></i>
+                                <span>部署你的第一个实例</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-checkbox-circle-line text-green-600"></i>
+                                <span>分享你的工作流</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 20: Thank You -->
+            <section data-background-color="#0033ff">
+                <div class="slide-hero text-center" style="color: white;">
+                    <div style="font-size: 4rem; margin-bottom: 2rem;">🙏</div>
+                    <h1 style="color: white; font-size: 3rem;">感谢参与</h1>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 1rem;">
+                        有问题？欢迎随时联系
+                    </p>
+                    <div style="margin-top: 3rem; font-size: 1rem; color: rgba(255,255,255,0.9);">
+                        <div style="font-weight: 600;">CrazyWoola (Banana)</div>
+                        <div style="margin-top: 0.5rem; font-size: 0.9rem;">banana@dify.ai</div>
+                        <div style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.7;">
+                            Dify Developer Relations
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script>
+        // Tailwind config
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dify: '#0033ff',
+                        'dify-light': 'rgba(0, 51, 255, 0.06)',
+                    },
+                },
+            },
+        };
+        
+        // Reveal initialization
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            controlsLayout: 'edges',
+            progress: true,
+            center: true,
+            width: 1200,
+            height: 750,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            plugins: [RevealHighlight],
+        });
+    </script>
+</body>
+</html>
