@@ -722,7 +722,7 @@
                             Deploy Dify quickly with Docker, configure for production environments.
                         </p>
                         
-                        <div class="code-block" style="margin-top: 2rem; font-size: 0.7em;">
+                        <pre class="code-block" style="margin-top: 2rem; font-size: 0.62em;"><code>
 # 1. Clone repository
 git clone https://github.com/langgenius/dify.git
 cd dify/docker
@@ -736,7 +736,7 @@ docker compose up -d
 
 # 4. Access console
 open http://localhost/install
-                        </div>
+                        </code></pre>
                     </div>
                     <aside class="notes">
                         Keep this practical: "run first, optimize later" to avoid an ops rabbit hole.
@@ -880,7 +880,7 @@ open http://localhost/install
                         
                         <div class="nordic-card mt-4">
                             <div class="font-semibold text-sm mb-2"><i class="ri-code-s-slash-line text-dify mr-2"></i>Example: Risk Scoring Logic</div>
-                            <div class="code-block" style="font-size: 0.65em;">
+                            <pre class="code-block" style="font-size: 0.58em;"><code>
 def main(payload: dict) -> dict:
     country = payload.get("country", "")
     score = payload.get("risk_score", 0)
@@ -892,7 +892,7 @@ def main(payload: dict) -> dict:
         return {"route": "block", "reason": "high_risk"}
     
     return {"route": "standard", "score": score}
-                            </div>
+                            </code></pre>
                         </div>
                     </div>
                 </section>
@@ -1428,7 +1428,7 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                         
-                        <div class="code-block mt-6" style="font-size: 0.65em;">
+                        <pre class="code-block mt-6" style="font-size: 0.58em;"><code>
 chatbot:
   system_prompt: |
     You are a GDPR compliance assistant. You must:
@@ -1439,7 +1439,7 @@ chatbot:
   guardrails:
     confidence_threshold: 0.6
     fallback: "Need more context, connecting you to a human agent."
-                        </div>
+                        </code></pre>
                     </div>
                 </section>
             </section>

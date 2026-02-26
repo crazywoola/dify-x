@@ -722,7 +722,7 @@
                             使用 Docker 快速部署 Dify，配置生产环境。
                         </p>
                         
-                        <div class="code-block" style="margin-top: 2rem; font-size: 0.7em;">
+                        <pre class="code-block" style="margin-top: 2rem; font-size: 0.62em;"><code>
 # 1. 克隆仓库
 git clone https://github.com/langgenius/dify.git
 cd dify/docker
@@ -736,7 +736,7 @@ docker compose up -d
 
 # 4. 访问控制台
 open http://localhost/install
-                        </div>
+                        </code></pre>
                     </div>
                     <aside class="notes">
                         这一页强调“先跑起来，再谈高可用”，避免陷入运维细节。
@@ -880,7 +880,7 @@ open http://localhost/install
                         
                         <div class="nordic-card mt-4">
                             <div class="font-semibold text-sm mb-2"><i class="ri-code-s-slash-line text-dify mr-2"></i>示例：风险评分逻辑</div>
-                            <div class="code-block" style="font-size: 0.65em;">
+                            <pre class="code-block" style="font-size: 0.58em;"><code>
 def main(payload: dict) -> dict:
     country = payload.get("country", "")
     score = payload.get("risk_score", 0)
@@ -892,7 +892,7 @@ def main(payload: dict) -> dict:
         return {"route": "block", "reason": "high_risk"}
     
     return {"route": "standard", "score": score}
-                            </div>
+                            </code></pre>
                         </div>
                     </div>
                 </section>
@@ -1428,7 +1428,7 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                         
-                        <div class="code-block mt-6" style="font-size: 0.65em;">
+                        <pre class="code-block mt-6" style="font-size: 0.58em;"><code>
 chatbot:
   system_prompt: |
     你是 GDPR 合规助手。必须：
@@ -1439,7 +1439,7 @@ chatbot:
   guardrails:
     confidence_threshold: 0.6
     fallback: "需要更多上下文，将为您转接人工。"
-                        </div>
+                        </code></pre>
                     </div>
                 </section>
             </section>

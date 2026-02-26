@@ -545,12 +545,26 @@ body {
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     font-family: var(--font-mono);
-    font-size: 0.7em;
+    font-size: 0.64em;
     line-height: 1.5;
     color: var(--gray-100);
     white-space: pre;
     tab-size: 2;
     overflow-x: auto;
+}
+
+.reveal pre.code-block {
+    margin: 0;
+}
+
+.reveal pre.code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .code-block .comment { color: #6a9955; }
@@ -578,13 +592,13 @@ body {
 
 .kv-key {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     color: var(--gray-500);
 }
 
 .kv-value {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     color: var(--gray-900);
     font-weight: 600;
 }
@@ -595,7 +609,7 @@ body {
 }
 
 .pipeline-step {
-    padding: 0.75rem 0.9rem;
+    padding: 0.62rem 0.78rem;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-md);
     background: var(--white);
@@ -606,13 +620,13 @@ body {
 }
 
 .pipeline-step-label {
-    font-size: 0.82rem;
+    font-size: 0.74rem;
     font-weight: 600;
     color: var(--gray-800);
 }
 
 .pipeline-step-meta {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
     color: var(--gray-500);
     font-family: var(--font-mono);
 }
@@ -630,7 +644,7 @@ body {
 }
 
 .arch-tier-title {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     color: var(--gray-500);
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -646,7 +660,7 @@ body {
 
 .chip {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.66rem;
     color: var(--gray-700);
     background: var(--gray-100);
     border: 1px solid var(--gray-200);
