@@ -268,6 +268,190 @@ body {
     letter-spacing: 0.02em;
 }
 
+/* ── Section Tag  (Part 1 · Part 2 · etc.) ─────────────────
+   Replaces: <span class="text-dify font-semibold text-sm tracking-wider uppercase">
+   ──────────────────────────────────────────────────────────── */
+.section-tag {
+    display: inline-block;
+    font-size: var(--type-xs);
+    font-weight: var(--weight-bold);
+    color: var(--dify-blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+}
+
+/* ── Slide Subtitle  (hero desc below h2) ──────────────────
+   Replaces: <p class="text-secondary" style="font-size:1rem; max-width:700px">
+   ──────────────────────────────────────────────────────────── */
+.slide-subtitle {
+    font-size: var(--type-md);
+    font-weight: var(--weight-normal);
+    color: var(--gray-600);
+    line-height: var(--leading-normal);
+    max-width: 680px;
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+}
+
+/* ── Slide Sub-heading  (h3 under h2 on hero slides) ───────── */
+.slide-subheading {
+    font-size: var(--type-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--gray-600);
+    margin-bottom: var(--space-sm);
+}
+
+/* ── Author Block  (title slide) ───────────────────────────── */
+.author-block {
+    margin-top: 3.5rem;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.author-name {
+    font-size: var(--type-base);
+    font-weight: var(--weight-semibold);
+    color: var(--gray-900);
+}
+
+.author-meta {
+    font-size: var(--type-sm);
+    color: var(--gray-600);
+}
+
+.author-email {
+    font-family: var(--font-mono);
+    font-size: var(--type-xs);
+    color: var(--gray-500);
+    margin-top: 0.1rem;
+}
+
+/* ── Info Banner  (blue highlight box inside slide) ─────────
+   Replaces: <div class="nordic-card mt-4" style="background: var(--dify-blue-light)">
+   ──────────────────────────────────────────────────────────── */
+.info-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--dify-blue-light);
+    border: 1px solid var(--dify-blue-medium);
+    border-radius: var(--radius-lg);
+    font-size: var(--type-base);
+    color: var(--gray-700);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+}
+
+.info-banner-icon {
+    color: var(--dify-blue);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+/* ── Warning Banner  (amber/caution variant) ───────────────── */
+.warn-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: var(--radius-lg);
+    font-size: var(--type-base);
+    color: var(--gray-700);
+    line-height: var(--leading-normal);
+    margin-top: var(--space-lg);
+}
+
+/* ── Slide Grid  (hero → content transition grid) ──────────── */
+.slide-grid {
+    margin-top: var(--space-2xl);
+    gap: var(--space-lg) !important;
+}
+
+/* ── Time Badge  (agenda timing chips) ─────────────────────── */
+.time-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--type-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--dify-blue);
+    background: var(--dify-blue-light);
+    border: 1px solid var(--dify-blue-medium);
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.55rem;
+    letter-spacing: 0.02em;
+}
+
+/* ── Agenda Item  (redesigned agenda card) ──────────────────── */
+.agenda-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+}
+
+.agenda-num {
+    font-family: var(--font-mono);
+    font-size: var(--type-xl);
+    font-weight: var(--weight-bold);
+    color: var(--dify-blue);
+    opacity: 0.25;
+    line-height: 1;
+    min-width: 1.75rem;
+    margin-top: 0.1rem;
+}
+
+.agenda-body {
+    flex: 1;
+}
+
+.agenda-title {
+    font-size: var(--type-base);
+    font-weight: var(--weight-semibold);
+    color: var(--gray-900);
+    margin-bottom: 0.2rem;
+}
+
+.agenda-desc {
+    font-size: var(--type-sm);
+    color: var(--gray-500);
+    line-height: var(--leading-snug);
+}
+
+/* ── Insight Row  (icon + text highlight) ───────────────────── */
+.insight-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.insight-row-content {
+    flex: 1;
+}
+
+.insight-title {
+    font-size: var(--type-base);
+    font-weight: var(--weight-semibold);
+    color: var(--gray-900);
+    margin-bottom: 0.2rem;
+}
+
+.insight-desc {
+    font-size: var(--type-sm);
+    color: var(--gray-600);
+    line-height: var(--leading-snug);
+}
+
 /* ────────────────────────────────────────────────────────────
    Language Switch
    ──────────────────────────────────────────────────────────── */
@@ -343,7 +527,6 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     text-align: left;
-    padding: 0 var(--space-lg);
 }
 
 .slide-hero h2 {
@@ -359,8 +542,18 @@ body {
 }
 
 .slide-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
+}
+
+/* Consistent h2 margin in content slides */
+.slide-content h2 {
+    margin-bottom: 1.75rem;
+}
+
+/* Tighter margin when h2 is followed by a subtitle/tag */
+.slide-content h2.tight {
+    margin-bottom: var(--space-sm);
 }
 
 /* ────────────────────────────────────────────────────────────
@@ -371,13 +564,13 @@ body {
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
-    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nordic-card:hover {
     border-color: var(--gray-300);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .nordic-card-flat {
@@ -605,6 +798,10 @@ body {
     border-bottom: none;
 }
 
+.nordic-table tbody tr:nth-child(even) td {
+    background: var(--gray-50);
+}
+
 /* ────────────────────────────────────────────────────────────
    Comparison Layout
    ──────────────────────────────────────────────────────────── */
@@ -798,15 +995,11 @@ body {
    ──────────────────────────────────────────────────────────── */
 .nordic-feature {
     background: var(--gray-50);
+    border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     display: flex;
     gap: var(--space-lg);
-    transition: all 0.2s ease;
-}
-
-.nordic-feature:hover {
-    background: var(--dify-blue-light);
 }
 
 .nordic-feature-icon {
@@ -928,18 +1121,6 @@ body {
 }
 
 /* ────────────────────────────────────────────────────────────
-   Footer Hint
-   ──────────────────────────────────────────────────────────── */
-.slide-hint {
-    position: fixed;
-    bottom: var(--space-lg);
-    right: var(--space-lg);
-    font-size: var(--type-xs);
-    color: var(--gray-400);
-    z-index: 50;
-}
-
-/* ────────────────────────────────────────────────────────────
    Reveal Controls
    ──────────────────────────────────────────────────────────── */
 .reveal .controls {
@@ -983,7 +1164,6 @@ body {
 @media print {
     .lang-switch,
     .nordic-logo,
-    .slide-hint,
     .reveal .controls,
     .reveal .progress {
         display: none !important;

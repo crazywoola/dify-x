@@ -29,28 +29,26 @@
         <span class="nordic-logo-text">Dify x HK OSS</span>
     </div>
 
-    <div class="slide-hint">按键盘 ↓ 查看详情</div>
-
     <div class="reveal">
         <div class="slides">
             
             <!-- Slide 1: Title -->
             <section data-background-color="#fafafa">
-                <div class="slide-hero text-center" style="max-width: 900px;">
-                    <div class="mb-8">
-                        <span class="tag tag-primary text-xs px-4 py-2">Workshop 2025</span>
+                <div class="slide-hero text-center" style="max-width: 860px;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <span class="tag tag-primary">Workshop 2025</span>
                     </div>
-                    <h1 style="font-size: 2.8rem;">Dify x Hong Kong OSS</h1>
-                    <h2 style="font-size: 1.4rem; font-weight: 500; color: #525252; margin-top: 1rem;">
+                    <h1>Dify x Hong Kong OSS</h1>
+                    <p class="slide-subtitle" style="margin: 1rem auto 0; max-width: 520px;">
                         从入门到生产：构建 GenAI 应用
-                    </h2>
-                    <p class="text-secondary" style="margin-top: 2rem;">
+                    </p>
+                    <p class="text-muted" style="font-size: var(--type-base); margin-top: 0.6rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.5;">
                         基于 Dify 平台的工作流编排、知识库管理与生产部署实践
                     </p>
-                    <div style="margin-top: 4rem; font-size: 0.85rem; color: #737373;">
-                        <div style="font-weight: 600; color: #171717;">CrazyWoola (Banana)</div>
-                        <div style="margin-top: 0.25rem;">Developer Relations @ Dify</div>
-                        <div style="margin-top: 0.5rem; font-size: 0.75rem;">banana@dify.ai</div>
+                    <div class="author-block" style="align-items: center;">
+                        <div class="author-name">CrazyWoola (Banana)</div>
+                        <div class="author-meta">Developer Relations @ Dify</div>
+                        <div class="author-email">banana@dify.ai</div>
                     </div>
                 </div>
                 <aside class="notes">
@@ -65,55 +63,60 @@
             <!-- Slide 2: Agenda -->
             <section>
                 <div class="slide-content">
-                    <h2 style="margin-bottom: 2rem;">Workshop 议程</h2>
-                    <table class="nordic-table" style="font-size: 0.8em;">
-                        <thead>
-                            <tr>
-                                <th style="width: 80px;">时间</th>
-                                <th style="width: 140px;">主题</th>
-                                <th>内容概要</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">5min</span></td>
-                                <td class="font-semibold">开场与目标</td>
-                                <td class="text-secondary">听众背景对齐、今天的核心产出、45 分钟节奏说明</td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">8min</span></td>
-                                <td class="font-semibold">Dify 与 LLM 原生开发</td>
-                                <td class="text-secondary">平台定位、应用类型、为什么现在做工程化</td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">12min</span></td>
-                                <td class="font-semibold">Workflow 核心</td>
-                                <td class="text-secondary">节点职责、编排模式、端到端演示</td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">10min</span></td>
-                                <td class="font-semibold">Knowledge / RAG 核心</td>
-                                <td class="text-secondary">分块策略、检索优化、质量评估最小闭环</td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">6min</span></td>
-                                <td class="font-semibold">生产化要点</td>
-                                <td class="text-secondary">部署、安全护栏、可观测性的最低配置</td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">4min</span></td>
-                                <td class="font-semibold">案例与 Q&A</td>
-                                <td class="text-secondary">Apple Watch / GDPR 案例串讲 + 快速答疑</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
-                        <div class="flex items-center gap-3">
-                            <i class="ri-timer-line text-dify text-xl"></i>
-                            <div class="text-sm text-secondary">
-                                45 分钟主线建议覆盖 Slide 3-19 与 27-30；Slide 20-26 为可选深入，时间紧张可跳过。
+                    <h2>Workshop 议程</h2>
+                    <div class="nordic-grid nordic-grid-2" style="gap: 0.6rem; margin-top: 1.5rem;">
+                        <div class="agenda-item">
+                            <span class="agenda-num">01</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">开场与目标</div>
+                                <div class="agenda-desc">听众背景对齐、今天的核心产出</div>
                             </div>
+                            <span class="time-badge">5min</span>
                         </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">02</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Dify 与 LLM 原生开发</div>
+                                <div class="agenda-desc">平台定位、应用类型、为什么现在</div>
+                            </div>
+                            <span class="time-badge">8min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">03</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Workflow 核心</div>
+                                <div class="agenda-desc">节点职责、编排模式、端到端演示</div>
+                            </div>
+                            <span class="time-badge">12min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">04</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Knowledge / RAG 核心</div>
+                                <div class="agenda-desc">分块策略、检索优化、质量评估</div>
+                            </div>
+                            <span class="time-badge">10min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">05</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">生产化要点</div>
+                                <div class="agenda-desc">部署、安全护栏、可观测性配置</div>
+                            </div>
+                            <span class="time-badge">6min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">06</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">案例与 Q&A</div>
+                                <div class="agenda-desc">Apple Watch / GDPR 案例串讲 + 答疑</div>
+                            </div>
+                            <span class="time-badge">4min</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem;">
+                        <span class="text-muted" style="font-size: var(--type-sm);">合计</span>
+                        <span class="time-badge">45 min</span>
                     </div>
                 </div>
                 <aside class="notes">
@@ -133,14 +136,14 @@
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 1</span>
+                            <span class="section-tag">Part 1</span>
                         </div>
                         <h2>什么是 Dify？</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             Dify 是开源的 LLM 应用开发平台，连接大模型能力与生产级应用。
                         </p>
                         
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 3rem; gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2 slide-grid">
                             <div class="nordic-feature">
                                 <div class="nordic-feature-icon"><i class="ri-flow-chart"></i></div>
                                 <div class="nordic-feature-content">
@@ -176,8 +179,8 @@
                 <!-- Slide 4: Community Stats -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 0.5rem;">全球社区数据</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">开源生态驱动，GitHub Top 100 项目</p>
+                        <h2>全球社区数据</h2>
+                        <p class="slide-desc">开源生态驱动，GitHub Top 100 项目</p>
                         
                         <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem;">
                             <div class="nordic-stat">
@@ -211,7 +214,7 @@
                 <!-- Slide 5: Evolution -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">LLM 应用开发生命周期</h2>
+                        <h2>LLM 应用开发生命周期</h2>
                         
                         <div class="nordic-timeline">
                             <div class="nordic-timeline-items">
@@ -238,13 +241,11 @@
                             </div>
                         </div>
                         
-                        <div class="nordic-card" style="margin-top: 3rem;">
-                            <div class="flex items-center gap-4">
-                                <div class="icon-badge"><i class="ri-lightbulb-line"></i></div>
-                                <div>
-                                    <div class="font-semibold text-lg">为什么是现在？</div>
-                                    <div class="text-secondary text-sm">算力、模型、数据三大要素齐备，LLM 应用进入工程化阶段</div>
-                                </div>
+                        <div class="nordic-card insight-row" style="margin-top: 2.5rem;">
+                            <div class="icon-badge"><i class="ri-lightbulb-line"></i></div>
+                            <div class="insight-row-content">
+                                <div class="insight-title">为什么是现在？</div>
+                                <div class="insight-desc">算力、模型、数据三大要素齐备，LLM 应用进入工程化阶段</div>
                             </div>
                         </div>
                     </div>
@@ -253,7 +254,7 @@
                 <!-- Slide 6: Comparison -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">传统开发 vs LLM 原生开发</h2>
+                        <h2>传统开发 vs LLM 原生开发</h2>
                         
                         <div class="nordic-comparison">
                             <div class="nordic-comparison-item">
@@ -308,14 +309,14 @@
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 2</span>
+                            <span class="section-tag">Part 2</span>
                         </div>
                         <h2>Workflow 工作流编排</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             可视化构建复杂的 AI 处理流程，从简单对话到多步骤自动化。
                         </p>
                         
-                        <div class="nordic-flow" style="margin-top: 3rem;">
+                        <div class="nordic-flow slide-grid">
                             <div class="nordic-flow-step">
                                 <div class="nordic-flow-number">1</div>
                                 <div class="nordic-flow-title">输入定义</div>
@@ -348,9 +349,9 @@
                 <!-- Slide 8: Workflow Types -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">四种应用类型</h2>
+                        <h2>四种应用类型</h2>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div class="nordic-card">
                                 <div class="flex items-center justify-between mb-3">
                                     <h3 class="font-semibold text-lg">Chatbot</h3>
@@ -405,7 +406,7 @@
                 <!-- Slide 9: Node Types -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">核心节点类型</h2>
+                        <h2>核心节点类型</h2>
                         
                         <table class="nordic-table">
                             <thead>
@@ -460,7 +461,7 @@
                 <!-- Slide 10: Observability -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">可观测性与调试</h2>
+                        <h2>可观测性与调试</h2>
                         
                         <div class="nordic-card" style="margin-bottom: 1.5rem;">
                             <div class="font-mono text-xs text-muted mb-3">Execution Trace • Run ID: wf_8f3a9b2c</div>
@@ -524,10 +525,10 @@
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 3</span>
+                            <span class="section-tag">Part 3</span>
                         </div>
                         <h2>Knowledge 知识库</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             完整的 RAG 解决方案：从文档摄入到智能检索的全流程管理。
                         </p>
                         
@@ -575,11 +576,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
-                            <div class="flex items-center gap-3">
-                                <i class="ri-focus-3-line text-dify text-xl"></i>
-                                <div class="text-sm text-secondary">关键结论：Ingest 决定召回上限，Query 决定最终答案质量。</div>
-                            </div>
+                        <div class="info-banner">
+                            <i class="ri-focus-3-line info-banner-icon"></i>
+                            <div>关键结论：Ingest 决定召回上限，Query 决定最终答案质量。</div>
                         </div>
                     </div>
                     <aside class="notes">
@@ -592,7 +591,7 @@
                 <!-- Slide 12: Chunking Strategies -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">分块策略</h2>
+                        <h2>分块策略</h2>
                         
                         <table class="nordic-table">
                             <thead>
@@ -660,9 +659,9 @@
                 <!-- Slide 13: Retrieval -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 2rem;">检索优化</h2>
+                        <h2>检索优化</h2>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div>
                                 <h3 class="font-semibold mb-3">基础检索</h3>
                                 <div class="nordic-card">
@@ -715,14 +714,14 @@
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 4</span>
+                            <span class="section-tag">Part 4</span>
                         </div>
                         <h2>部署与集成</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             使用 Docker 快速部署 Dify，配置生产环境。
                         </p>
                         
-                        <pre class="code-block" style="margin-top: 2rem; font-size: 0.62em;"><code>
+                        <pre class="code-block" style="margin-top: 2rem;"><code>
 # 1. 克隆仓库
 git clone https://github.com/langgenius/dify.git
 cd dify/docker
@@ -748,7 +747,7 @@ open http://localhost/install
                 <!-- Slide 15: Production Architecture -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1.5rem;">生产架构</h2>
+                        <h2>生产架构</h2>
                         
                         <div class="arch-board">
                             <div class="arch-tier">
@@ -801,7 +800,7 @@ open http://localhost/install
                 <!-- Slide 16: Environment -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1.5rem;">关键环境变量</h2>
+                        <h2>关键环境变量</h2>
                         
                         <table class="nordic-table" style="font-size: 0.75em;">
                             <thead>
@@ -854,10 +853,10 @@ open http://localhost/install
                 <!-- Slide 17: Code Node Best Practices -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Code Node 最佳实践</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">使用 Python/Node.js 扩展 Workflow 能力</p>
+                        <h2>Code Node 最佳实践</h2>
+                        <p class="slide-desc">使用 Python/Node.js 扩展 Workflow 能力</p>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div class="nordic-card">
                                 <h4 class="font-semibold mb-3"><i class="ri-code-box-line text-dify mr-2"></i>适用场景</h4>
                                 <ul class="text-sm text-secondary space-y-2">
@@ -900,8 +899,8 @@ def main(payload: dict) -> dict:
                 <!-- Slide 18: Visual vs Pro-Code -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1.5rem;">低代码 vs 专业代码</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 2rem;">找到可视化编排与代码的最佳结合点</p>
+                        <h2>低代码 vs 专业代码</h2>
+                        <p class="slide-desc">找到可视化编排与代码的最佳结合点</p>
                         
                         <table class="nordic-table" style="font-size: 0.75em;">
                             <thead>
@@ -934,13 +933,11 @@ def main(payload: dict) -> dict:
                             </tbody>
                         </table>
                         
-                        <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
-                            <div class="flex items-center gap-3">
-                                <i class="ri-lightbulb-line text-dify text-xl"></i>
-                                <div>
-                                    <div class="font-semibold">黄金法则</div>
-                                    <div class="text-sm text-secondary">可视化负责「编排」，代码负责「计算」。两者通过变量无缝传递数据。</div>
-                                </div>
+                        <div class="info-banner">
+                            <i class="ri-lightbulb-line info-banner-icon"></i>
+                            <div>
+                                <div class="insight-title">黄金法则</div>
+                                <div class="insight-desc">可视化负责「编排」，代码负责「计算」。两者通过变量无缝传递数据。</div>
                             </div>
                         </div>
                     </div>
@@ -950,10 +947,10 @@ def main(payload: dict) -> dict:
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Extension</span>
+                            <span class="section-tag">Extension</span>
                         </div>
                         <h2>插件生态系统</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             扩展 Dify 能力边界，集成第三方服务与自定义工具。
                         </p>
                         
@@ -975,7 +972,7 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                         
-                        <div class="nordic-card mt-6" style="margin-top: 2rem;">
+                        <div class="nordic-card" style="margin-top: 2rem;">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="font-semibold mb-1">插件市场</div>
@@ -992,10 +989,10 @@ def main(payload: dict) -> dict:
                 <!-- Slide 20: RAG Evaluation -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">RAG 评估方法（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化评估检索质量与生成效果</p>
+                        <h2>RAG 评估方法（可选深入）</h2>
+                        <p class="slide-desc">系统化评估检索质量与生成效果</p>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div>
                                 <h4 class="font-semibold mb-3"><i class="ri-fingerprint-line text-dify mr-2"></i>检索质量指标</h4>
                                 <table class="nordic-table" style="font-size: 0.7em;">
@@ -1059,8 +1056,8 @@ def main(payload: dict) -> dict:
                 <!-- Slide 21: Agent Architecture -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Agent 架构设计（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从简单对话到自主任务执行的演进</p>
+                        <h2>Agent 架构设计（可选深入）</h2>
+                        <p class="slide-desc">从简单对话到自主任务执行的演进</p>
                         
                         <div class="nordic-flow" style="margin-bottom: 2rem;">
                             <div class="nordic-flow-step">
@@ -1108,8 +1105,8 @@ def main(payload: dict) -> dict:
                 <!-- Slide 22: Knowledge Pipeline Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">知识库 Pipeline 深度解析（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从原始文档到可用记忆的完整流程</p>
+                        <h2>知识库 Pipeline 深度解析（可选深入）</h2>
+                        <p class="slide-desc">从原始文档到可用记忆的完整流程</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1rem;">
                             <div class="nordic-card">
@@ -1165,10 +1162,10 @@ def main(payload: dict) -> dict:
                 <!-- Slide 23: Security & Guardrails -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">安全与护栏 (Guardrails)（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">保护应用免受滥用与攻击</p>
+                        <h2>安全与护栏 (Guardrails)（可选深入）</h2>
+                        <p class="slide-desc">保护应用免受滥用与攻击</p>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div class="nordic-card">
                                 <h4 class="font-semibold mb-3"><i class="ri-shield-keyhole-line text-dify mr-2"></i>输入防护</h4>
                                 <ul class="text-sm text-secondary space-y-1">
@@ -1189,15 +1186,11 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                         
-                        <div class="nordic-card mt-4" style="background: linear-gradient(135deg, rgba(239,68,68,0.05) 0%, rgba(239,68,68,0.1) 100%); border-color: rgba(239,68,68,0.2);">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
-                                    <i class="ri-alarm-warning-line text-red-600 text-xl"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">预算护栏 (Budget Guardrails)</div>
-                                    <div class="text-sm text-secondary">设置单次请求 Token 上限、每日消费上限，防止成本失控。当触发阈值时自动降级或熔断。</div>
-                                </div>
+                        <div class="warn-banner insight-row">
+                            <i class="ri-alarm-warning-line info-banner-icon" style="color: var(--warning);"></i>
+                            <div class="insight-row-content">
+                                <div class="insight-title">预算护栏 (Budget Guardrails)</div>
+                                <div class="insight-desc">设置单次请求 Token 上限、每日消费上限，防止成本失控。当触发阈值时自动降级或熔断。</div>
                             </div>
                         </div>
                     </div>
@@ -1206,8 +1199,8 @@ def main(payload: dict) -> dict:
                 <!-- Slide 24: Observability Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">可观测性深度实践（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从日志到指标，全链路追踪应用表现</p>
+                        <h2>可观测性深度实践（可选深入）</h2>
+                        <p class="slide-desc">从日志到指标，全链路追踪应用表现</p>
                         
                         <div class="nordic-grid nordic-grid-3" style="gap: 1.25rem;">
                             <div class="nordic-card text-center">
@@ -1254,10 +1247,10 @@ def main(payload: dict) -> dict:
                 <!-- Slide 25: Debugging Tips -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">调试技巧与故障排查（可选深入）</h2>
-                        <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化定位与解决问题</p>
+                        <h2>调试技巧与故障排查（可选深入）</h2>
+                        <p class="slide-desc">系统化定位与解决问题</p>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div>
                                 <h4 class="font-semibold mb-3"><i class="ri-bug-line text-dify mr-2"></i>常见问题</h4>
                                 <div class="space-y-2">
@@ -1312,10 +1305,10 @@ def main(payload: dict) -> dict:
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Community</span>
+                            <span class="section-tag">Community</span>
                         </div>
                         <h2>参与社区贡献（可选）</h2>
-                        <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
+                        <p class="slide-subtitle">
                             从使用者成长为贡献者，共建开源生态。
                         </p>
                         
@@ -1363,11 +1356,11 @@ def main(payload: dict) -> dict:
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 5</span>
+                            <span class="section-tag">Part 5</span>
                         </div>
                         <h2>实战项目一</h2>
-                        <h3 style="font-size: 1.2rem; color: #525252;">Apple Watch 录音转录工作流</h3>
-                        <p class="text-secondary" style="font-size: 0.95rem; max-width: 700px; margin-top: 1rem;">
+                        <h3 class="slide-subheading">Apple Watch 录音转录工作流</h3>
+                        <p class="slide-subtitle">
                             自动转录 Apple Watch 语音备忘录，生成结构化笔记并同步到 Notion。
                         </p>
                         
@@ -1404,10 +1397,10 @@ def main(payload: dict) -> dict:
                 <!-- Slide 28: Project 2 -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">实战项目二</h2>
-                        <h3 style="font-size: 1.2rem; color: #525252; margin-bottom: 2rem;">GDPR 合规问答机器人</h3>
+                        <h2>实战项目二</h2>
+                        <h3 class="slide-subheading">GDPR 合规问答机器人</h3>
                         
-                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
+                        <div class="nordic-grid nordic-grid-2">
                             <div class="nordic-card">
                                 <h4 class="font-semibold mb-3"><i class="ri-database-line text-dify mr-2"></i>知识库构建</h4>
                                 <ul class="text-sm text-secondary space-y-2">
@@ -1447,7 +1440,7 @@ chatbot:
             <!-- Slide 29: Resources -->
             <section>
                 <div class="slide-content">
-                    <h2 style="margin-bottom: 2rem;">学习资源</h2>
+                    <h2>学习资源</h2>
                     
                     <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem;">
                         <div class="nordic-card text-center">
