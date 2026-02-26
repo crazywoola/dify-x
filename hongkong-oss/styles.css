@@ -548,6 +548,8 @@ body {
     font-size: 0.7em;
     line-height: 1.5;
     color: var(--gray-100);
+    white-space: pre;
+    tab-size: 2;
     overflow-x: auto;
 }
 
@@ -556,6 +558,101 @@ body {
 .code-block .string { color: #ce9178; }
 .code-block .function { color: #dcdcaa; }
 .code-block .variable { color: #9cdcfe; }
+
+/* Config / Pipeline Cards */
+.kv-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.kv-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+}
+
+.kv-key {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--gray-500);
+}
+
+.kv-value {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--gray-900);
+    font-weight: 600;
+}
+
+.pipeline-board {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.pipeline-step {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.pipeline-step-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.pipeline-step-meta {
+    font-size: 0.72rem;
+    color: var(--gray-500);
+    font-family: var(--font-mono);
+}
+
+.arch-board {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.arch-tier {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 0.9rem 1rem;
+    background: var(--white);
+}
+
+.arch-tier-title {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--gray-700);
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: 999px;
+    padding: 0.3rem 0.6rem;
+}
 
 /* Feature Cards */
 .nordic-feature {

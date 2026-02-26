@@ -531,24 +531,54 @@
                             Complete RAG solution: full-cycle management from document ingestion to intelligent retrieval.
                         </p>
                         
-                        <div class="nordic-card" style="margin-top: 2rem;">
-                            <div class="code-block" style="font-size: 0.6em;">
-┌─────────────────────────────────────────────────────────────┐
-│                    KNOWLEDGE PIPELINE                       │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│   Documents        Chunking        Embedding        Vector  │
-│  ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌────────┐│
-│  │  PDF    │────▶│Semantic │────▶│  text-  │────▶│ Qdrant ││
-│  │  Word   │     │ Chunker │     │embedding│     │Milvus  ││
-│  │  MD     │     │         │     │-3-large │     │Weaviate││
-│  └─────────┘     └─────────┘     └─────────┘     └────────┘│
-│                                                             │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │                   RETRIEVAL ENGINE                       ││
-│  │  [Query] → [Embedding] → [ANN Search] → [Rerank] → [TopK]││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 2rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="font-semibold text-sm mb-3"><i class="ri-upload-cloud-2-line text-dify mr-2"></i>Ingest Pipeline</div>
+                                <div class="pipeline-board">
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">1. Document Intake</span>
+                                        <span class="pipeline-step-meta">PDF / DOCX / MD</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">2. Chunking Strategy</span>
+                                        <span class="pipeline-step-meta">Recursive / Semantic / Markdown</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">3. Embedding</span>
+                                        <span class="pipeline-step-meta">text-embedding-3-large</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">4. Vector Storage</span>
+                                        <span class="pipeline-step-meta">Weaviate / Milvus / Qdrant</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="font-semibold text-sm mb-3"><i class="ri-search-eye-line text-dify mr-2"></i>Query Pipeline</div>
+                                <div class="pipeline-board">
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">1. Query Rewrite</span>
+                                        <span class="pipeline-step-meta">Normalize intent + missing context</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">2. Hybrid Search</span>
+                                        <span class="pipeline-step-meta">Vector + keyword retrieval</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">3. Rerank</span>
+                                        <span class="pipeline-step-meta">Reorder Top-K candidates</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">4. Context Assembly</span>
+                                        <span class="pipeline-step-meta">Build final context for LLM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-focus-3-line text-dify text-xl"></i>
+                                <div class="text-sm text-secondary">Key takeaway: Ingest quality sets retrieval ceiling; query strategy determines answer quality.</div>
                             </div>
                         </div>
                     </div>
@@ -603,16 +633,25 @@
                         
                         <div class="nordic-card mt-6">
                             <div class="font-semibold text-sm mb-2"><i class="ri-settings-3-line text-dify mr-2"></i>Recommended Configuration</div>
-                            <div class="code-block" style="font-size: 0.65em;">
-chunking:
-  method: "recursive"
-  chunk_size: 800
-  chunk_overlap: 80
-  separators: ["\n\n", "\n", ". ", " "]
-  
-indexing:
-  embedding_model: "text-embedding-3-large"
-  vector_db: "weaviate"
+                            <div class="nordic-grid nordic-grid-2" style="gap: 1rem;">
+                                <div>
+                                    <div class="text-xs text-muted mb-2 font-semibold">CHUNKING</div>
+                                    <div class="kv-list">
+                                        <div class="kv-item"><span class="kv-key">method</span><span class="kv-value">recursive</span></div>
+                                        <div class="kv-item"><span class="kv-key">chunk_size</span><span class="kv-value">800</span></div>
+                                        <div class="kv-item"><span class="kv-key">chunk_overlap</span><span class="kv-value">80</span></div>
+                                        <div class="kv-item"><span class="kv-key">separators</span><span class="kv-value">\\n\\n, \\n, . , space</span></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-muted mb-2 font-semibold">INDEXING</div>
+                                    <div class="kv-list">
+                                        <div class="kv-item"><span class="kv-key">embedding_model</span><span class="kv-value">text-embedding-3-large</span></div>
+                                        <div class="kv-item"><span class="kv-key">vector_db</span><span class="kv-value">weaviate</span></div>
+                                        <div class="kv-item"><span class="kv-key">rerank</span><span class="kv-value">enabled</span></div>
+                                        <div class="kv-item"><span class="kv-key">top_k</span><span class="kv-value">5</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -626,27 +665,24 @@ indexing:
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
                             <div>
                                 <h3 class="font-semibold mb-3">Basic Retrieval</h3>
-                                <div class="code-block" style="font-size: 0.65em;">
-retrieval:
-  method: "semantic_search"
-  top_k: 5
-  score_threshold: 0.75
+                                <div class="nordic-card">
+                                    <div class="kv-list">
+                                        <div class="kv-item"><span class="kv-key">method</span><span class="kv-value">semantic_search</span></div>
+                                        <div class="kv-item"><span class="kv-key">top_k</span><span class="kv-value">5</span></div>
+                                        <div class="kv-item"><span class="kv-key">score_threshold</span><span class="kv-value">0.75</span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-3">Hybrid Search + Rerank</h3>
-                                <div class="code-block" style="font-size: 0.65em;">
-retrieval:
-  method: "hybrid_search"
-  top_k: 20                    # Initial retrieval
-  rerank:
-    enabled: true
-    model: "cohere-rerank-v3"
-    top_n: 5                   # Final results
-  filters:
-    - field: "metadata.source"
-      operator: "equals"
-      value: "official_docs"
+                                <div class="nordic-card">
+                                    <div class="kv-list">
+                                        <div class="kv-item"><span class="kv-key">method</span><span class="kv-value">hybrid_search</span></div>
+                                        <div class="kv-item"><span class="kv-key">top_k</span><span class="kv-value">20 (candidate)</span></div>
+                                        <div class="kv-item"><span class="kv-key">rerank_model</span><span class="kv-value">cohere-rerank-v3</span></div>
+                                        <div class="kv-item"><span class="kv-key">top_n</span><span class="kv-value">5 (final)</span></div>
+                                        <div class="kv-item"><span class="kv-key">filter</span><span class="kv-value">metadata.source = official_docs</span></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -714,31 +750,38 @@ open http://localhost/install
                     <div class="slide-content">
                         <h2 style="margin-bottom: 1.5rem;">Production Architecture</h2>
                         
-                        <div class="code-block" style="font-size: 0.55em; line-height: 1.4;">
-┌─────────────────────────────────────────────────────────────┐
-│                      PRODUCTION ARCH                        │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│    ┌─────────────┐                                          │
-│    │   CDN/WAF   │                                          │
-│    └──────┬──────┘                                          │
-│           │                                                 │
-│    ┌──────▼──────┐         ┌─────────────────┐             │
-│    │    Nginx    │────────▶│   Dify API      │             │
-│    │  (Load Bal) │         │ (Multiple Pods) │             │
-│    └──────┬──────┘         └────────┬────────┘             │
-│           │                         │                       │
-│           │    ┌────────┐  ┌────────┐  ┌────────┐          │
-│           └───▶│PostgreSQL│  │ Redis  │  │Weaviate│          │
-│                │   (HA)   │  │(Sentinel)│  │(Cluster)│         │
-│                └────────┘  └────────┘  └────────┘          │
-│                                                             │
-│    ┌─────────────┐                                          │
-│    │    Worker   │◄── Celery Task Queue                     │
-│    │    Nodes    │                                          │
-│    └─────────────┘                                          │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+                        <div class="arch-board">
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">Entry Layer</div>
+                                <div class="chip-list">
+                                    <span class="chip">CDN / WAF</span>
+                                    <span class="chip">Nginx Load Balancer</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">Application Layer</div>
+                                <div class="chip-list">
+                                    <span class="chip">Dify API (Multi Pods)</span>
+                                    <span class="chip">Web / Console</span>
+                                    <span class="chip">Worker Nodes</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">Data Layer</div>
+                                <div class="chip-list">
+                                    <span class="chip">PostgreSQL (HA)</span>
+                                    <span class="chip">Redis (Sentinel)</span>
+                                    <span class="chip">Weaviate / Milvus Cluster</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">Async Layer</div>
+                                <div class="chip-list">
+                                    <span class="chip">Celery Queue</span>
+                                    <span class="chip">Scheduled Jobs</span>
+                                    <span class="chip">Retry / Dead Letter</span>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="mt-4">
@@ -843,7 +886,7 @@ def main(payload: dict) -> dict:
     score = payload.get("risk_score", 0)
     
     # Custom routing logic
-    if country in ["US", "UK"] and score < 0.3:
+    if country in ["US", "UK"] and score &lt; 0.3:
         return {"route": "fast-lane", "reason": "low_risk"}
     elif score > 0.8:
         return {"route": "block", "reason": "high_risk"}
@@ -1068,39 +1111,49 @@ def main(payload: dict) -> dict:
                         <h2 style="margin-bottom: 1rem;">Knowledge Pipeline Deep Dive (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Complete journey from raw documents to usable memories</p>
                         
-                        <div class="code-block" style="font-size: 0.6em; line-height: 1.5;">
-[Ingest Pipeline]                    [Query Pipeline]
-     │                                      │
-     ▼                                      ▼
-┌──────────┐    ┌──────────┐         ┌──────────────┐
-│  Parse   │───▶│  Chunk   │         │   Query      │
-│ PDF/MD   │    │  Chunking│         │   Rewrite    │
-└──────────┘    └────┬─────┘         └──────┬───────┘
-                     │                        │
-     ┌───────────────┼──────────┐             ▼
-     ▼               ▼          ▼        ┌──────────┐
-┌─────────┐    ┌─────────┐  ┌────────┐   │  Hybrid  │
-│ Semantic│    │ Markdown│  │  Fixed │   │  Search  │
-│ Chunk   │    │  Header │  │  Size  │   └────┬─────┘
-└────┬────┘    └─────────┘  └────────┘        │
-     │                                         ▼
-     ▼                                    ┌──────────┐
-┌─────────┐                              │  Rerank  │
-│ Enrich  │                              │  Model   │
-│ Summary │                              └────┬─────┘
-└────┬────┘                                   │
-     │                                         ▼
-     ▼                                    ┌──────────┐
-┌─────────┐                              │ Context  │
-│Embedding│                              │ Assembly │
-└────┬────┘                              └──────────┘
-     │
-     ▼
-┌─────────┐
-│ Milvus  │
-│ Vector  │
-│  Store  │
-└─────────┘
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="font-semibold text-sm mb-3"><i class="ri-database-2-line text-dify mr-2"></i>Ingest Pipeline</div>
+                                <div class="pipeline-board">
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Parse</span>
+                                        <span class="pipeline-step-meta">PDF / Markdown / HTML</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Chunking</span>
+                                        <span class="pipeline-step-meta">Semantic / Markdown / Fixed</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Enrich Summary</span>
+                                        <span class="pipeline-step-meta">Add summary + metadata</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Embedding + Store</span>
+                                        <span class="pipeline-step-meta">Milvus / Weaviate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="font-semibold text-sm mb-3"><i class="ri-search-line text-dify mr-2"></i>Query Pipeline</div>
+                                <div class="pipeline-board">
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Query Rewrite</span>
+                                        <span class="pipeline-step-meta">Clarify intent and context</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Hybrid Search</span>
+                                        <span class="pipeline-step-meta">Vector + BM25</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Rerank</span>
+                                        <span class="pipeline-step-meta">Sort best Top-N chunks</span>
+                                    </div>
+                                    <div class="pipeline-step">
+                                        <span class="pipeline-step-label">Context Assembly</span>
+                                        <span class="pipeline-step-meta">Build final context for LLM</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="mt-3 text-center">
