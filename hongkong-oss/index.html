@@ -53,6 +53,13 @@
                         <div style="margin-top: 0.5rem; font-size: 0.75rem;">banana@dify.ai</div>
                     </div>
                 </div>
+                <aside class="notes">
+                    准备提示：
+                    1) 提前 30 分钟检查投屏比例与网络，确认现场可访问 Dify 和演示数据。
+                    2) 打开并预热所有 Demo 页面，避免首次请求延迟。
+                    3) 准备一套截图兜底，网络波动时直接切换到截图讲解。
+                    开场控制在 90 秒内：自我介绍 + 听众今天能带走什么。
+                </aside>
             </section>
 
             <!-- Slide 2: Agenda -->
@@ -69,33 +76,55 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">Dify 简介</td>
-                                <td class="text-secondary">平台定位、核心能力、生态系统</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">5min</span></td>
+                                <td class="font-semibold">开场与目标</td>
+                                <td class="text-secondary">听众背景对齐、今天的核心产出、45 分钟节奏说明</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
-                                <td class="font-semibold">Workflow 工作流</td>
-                                <td class="text-secondary">节点类型、编排逻辑、调试监控</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">8min</span></td>
+                                <td class="font-semibold">Dify 与 LLM 原生开发</td>
+                                <td class="text-secondary">平台定位、应用类型、为什么现在做工程化</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
-                                <td class="font-semibold">Knowledge 知识库</td>
-                                <td class="text-secondary">文档处理、向量化、检索优化</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">12min</span></td>
+                                <td class="font-semibold">Workflow 核心</td>
+                                <td class="text-secondary">节点职责、编排模式、端到端演示</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">部署与集成</td>
-                                <td class="text-secondary">Docker 部署、配置管理、生产实践</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">10min</span></td>
+                                <td class="font-semibold">Knowledge / RAG 核心</td>
+                                <td class="text-secondary">分块策略、检索优化、质量评估最小闭环</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">实战项目</td>
-                                <td class="text-secondary">Apple Watch 转录工作流、GDPR 问答机器人</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">6min</span></td>
+                                <td class="font-semibold">生产化要点</td>
+                                <td class="text-secondary">部署、安全护栏、可观测性的最低配置</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">4min</span></td>
+                                <td class="font-semibold">案例与 Q&A</td>
+                                <td class="text-secondary">Apple Watch / GDPR 案例串讲 + 快速答疑</td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-timer-line text-dify text-xl"></i>
+                            <div class="text-sm text-secondary">
+                                45 分钟主线建议覆盖 Slide 3-19 与 27-30；Slide 20-26 为可选深入，时间紧张可跳过。
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <aside class="notes">
+                    时间控制提示：
+                    - 20 分钟时应进入 Workflow 的演示或总结。
+                    - 35 分钟时必须切到案例与收尾，不再展开深度理论。
+                    准备提示：
+                    - 现场开一个静音计时器，设置 20 / 35 / 42 分钟提醒。
+                    - 提前准备 Demo 失败时的兜底话术和截图顺序。
+                    - 提问较多时使用 parking lot，承诺会后统一回复。
+                </aside>
             </section>
 
             <!-- Section: Introduction -->
@@ -309,6 +338,11 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        这一页控制在 90 秒内，只讲工作流四步心智模型。
+                        演示准备：提前准备一个最小可运行 Workflow（输入、检索、LLM、输出四节点），确保能在 3 分钟内走通一次。
+                        过渡语：下一页进入应用类型，解释为什么同一平台支持不同复杂度场景。
+                    </aside>
                 </section>
 
                 <!-- Slide 8: Workflow Types -->
@@ -518,6 +552,11 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        重点强调一句：RAG 质量上限由文档质量与分块策略决定。
+                        准备提示：带 1 个“坏分块”与 1 个“好分块”样例，对比召回结果更直观。
+                        时间不够时，后续的评估指标只保留 Recall、Faithfulness 两个核心指标。
+                    </aside>
                 </section>
 
                 <!-- Slide 12: Chunking Strategies -->
@@ -663,6 +702,11 @@ docker compose up -d
 open http://localhost/install
                         </div>
                     </div>
+                    <aside class="notes">
+                        这一页强调“先跑起来，再谈高可用”，避免陷入运维细节。
+                        准备提示：演示前一天在全新环境执行一次安装命令，确认文档和实际步骤一致。
+                        如果现场没有 Docker 环境，改用截图讲“关键配置项 + 常见错误”。
+                    </aside>
                 </section>
 
                 <!-- Slide 15: Production Architecture -->
@@ -905,7 +949,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 20: RAG Evaluation -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">RAG 评估方法</h2>
+                        <h2 style="margin-bottom: 1rem;">RAG 评估方法（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化评估检索质量与生成效果</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -972,7 +1016,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 21: Agent Architecture -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Agent 架构设计</h2>
+                        <h2 style="margin-bottom: 1rem;">Agent 架构设计（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从简单对话到自主任务执行的演进</p>
                         
                         <div class="nordic-flow" style="margin-bottom: 2rem;">
@@ -1021,7 +1065,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 22: Knowledge Pipeline Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">知识库 Pipeline 深度解析</h2>
+                        <h2 style="margin-bottom: 1rem;">知识库 Pipeline 深度解析（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从原始文档到可用记忆的完整流程</p>
                         
                         <div class="code-block" style="font-size: 0.6em; line-height: 1.5;">
@@ -1068,7 +1112,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 23: Security & Guardrails -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">安全与护栏 (Guardrails)</h2>
+                        <h2 style="margin-bottom: 1rem;">安全与护栏 (Guardrails)（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">保护应用免受滥用与攻击</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -1109,7 +1153,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 24: Observability Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">可观测性深度实践</h2>
+                        <h2 style="margin-bottom: 1rem;">可观测性深度实践（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">从日志到指标，全链路追踪应用表现</p>
                         
                         <div class="nordic-grid nordic-grid-3" style="gap: 1.25rem;">
@@ -1157,7 +1201,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 25: Debugging Tips -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">调试技巧与故障排查</h2>
+                        <h2 style="margin-bottom: 1rem;">调试技巧与故障排查（可选深入）</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">系统化定位与解决问题</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -1217,7 +1261,7 @@ def main(payload: dict) -> dict:
                         <div class="mb-4">
                             <span class="text-dify font-semibold text-sm tracking-wider uppercase">Community</span>
                         </div>
-                        <h2>参与社区贡献</h2>
+                        <h2>参与社区贡献（可选）</h2>
                         <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
                             从使用者成长为贡献者，共建开源生态。
                         </p>
@@ -1266,7 +1310,7 @@ def main(payload: dict) -> dict:
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 6</span>
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 5</span>
                         </div>
                         <h2>实战项目一</h2>
                         <h3 style="font-size: 1.2rem; color: #525252;">Apple Watch 录音转录工作流</h3>
@@ -1297,6 +1341,11 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        案例页建议二选一深入，不要两个都展开。
+                        准备提示：优先选择与现场听众行业更接近的案例；另一个用 30 秒带过。
+                        Q&A 前留 3-4 分钟，强调“可复制模板”：输入规范、输出结构、失败兜底。
+                    </aside>
                 </section>
 
                 <!-- Slide 28: Project 2 -->
@@ -1390,6 +1439,12 @@ chatbot:
                         </div>
                     </div>
                 </div>
+                <aside class="notes">
+                    收尾动作：
+                    1) 复述今天的三条主线：Workflow、Knowledge、Production。
+                    2) 给出会后 7 天可执行任务：部署实例、做一个最小工作流、提交一次社区反馈。
+                    3) 引导听众扫码或点击链接，不要只停留在口头邀请。
+                </aside>
             </section>
 
             <!-- Slide 30: Thank You -->
@@ -1415,6 +1470,7 @@ chatbot:
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
     <script>
         // Tailwind config
         window.tailwind = window.tailwind || {};
@@ -1440,7 +1496,7 @@ chatbot:
             height: 750,
             transition: 'slide',
             backgroundTransition: 'fade',
-            plugins: [RevealHighlight],
+            plugins: [RevealHighlight, RevealNotes],
         });
     </script>
 </body>

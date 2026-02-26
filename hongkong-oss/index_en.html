@@ -53,6 +53,13 @@
                         <div style="margin-top: 0.5rem; font-size: 0.75rem;">banana@dify.ai</div>
                     </div>
                 </div>
+                <aside class="notes">
+                    Preparation checklist:
+                    1) Arrive 30 minutes early to validate projector ratio, internet, and access to Dify.
+                    2) Pre-open all demo pages to avoid first-request latency.
+                    3) Prepare screenshot fallback in case the network is unstable.
+                    Keep opening within 90 seconds: who you are and what outcomes the audience gets today.
+                </aside>
             </section>
 
             <!-- Slide 2: Agenda -->
@@ -69,33 +76,55 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">Introduction to Dify</td>
-                                <td class="text-secondary">Platform positioning, core capabilities, ecosystem</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">5min</span></td>
+                                <td class="font-semibold">Opening & Goals</td>
+                                <td class="text-secondary">Audience alignment, expected outcomes, 45-minute pacing</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
-                                <td class="font-semibold">Workflow Orchestration</td>
-                                <td class="text-secondary">Node types, orchestration logic, debugging & monitoring</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">8min</span></td>
+                                <td class="font-semibold">Dify & LLM-Native Mindset</td>
+                                <td class="text-secondary">Platform role, app types, why now for engineering</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">45min</span></td>
-                                <td class="font-semibold">Knowledge Base</td>
-                                <td class="text-secondary">Document processing, vectorization, retrieval optimization</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">12min</span></td>
+                                <td class="font-semibold">Workflow Core</td>
+                                <td class="text-secondary">Node responsibilities, orchestration patterns, end-to-end demo</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">Deployment & Integration</td>
-                                <td class="text-secondary">Docker deployment, configuration management, production practices</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">10min</span></td>
+                                <td class="font-semibold">Knowledge / RAG Core</td>
+                                <td class="text-secondary">Chunking, retrieval optimization, minimum quality loop</td>
                             </tr>
                             <tr>
-                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">30min</span></td>
-                                <td class="font-semibold">Hands-on Projects</td>
-                                <td class="text-secondary">Apple Watch transcription workflow, GDPR Q&A bot</td>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">6min</span></td>
+                                <td class="font-semibold">Production Essentials</td>
+                                <td class="text-secondary">Deployment, guardrails, and minimum observability setup</td>
+                            </tr>
+                            <tr>
+                                <td><span class="font-mono bg-dify-light text-dify px-2 py-1 rounded font-semibold">4min</span></td>
+                                <td class="font-semibold">Case Study + Q&A</td>
+                                <td class="text-secondary">Apple Watch / GDPR walkthrough and quick discussion</td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="nordic-card mt-4" style="background: var(--dify-blue-light);">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-timer-line text-dify text-xl"></i>
+                            <div class="text-sm text-secondary">
+                                45-minute main track: cover Slides 3-19 and 27-30. Slides 20-26 are optional deep dives if time allows.
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <aside class="notes">
+                    Time control:
+                    - By minute 20, you should already be in Workflow demo or summary.
+                    - By minute 35, switch to case study and closing, avoid extra deep theory.
+                    Preparation hints:
+                    - Use a silent timer with reminders at 20 / 35 / 42 minutes.
+                    - Predefine your fallback script and screenshot order if demo fails.
+                    - If questions are long, park them and address after the session.
+                </aside>
             </section>
 
             <!-- Section: Introduction -->
@@ -309,6 +338,11 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        Keep this slide to ~90 seconds and teach only the 4-step workflow mental model.
+                        Demo prep: keep one minimal runnable workflow ready (input, retrieval, LLM, output), and replay it within 3 minutes.
+                        Transition line: next slide explains which app type to choose for each complexity level.
+                    </aside>
                 </section>
 
                 <!-- Slide 8: Workflow Types -->
@@ -518,6 +552,11 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        Emphasize one sentence: RAG quality ceiling is set by document quality and chunking.
+                        Prep hint: bring one bad chunking sample and one good sample, then compare retrieval outcomes.
+                        If time is tight, keep only Recall and Faithfulness as the two core metrics.
+                    </aside>
                 </section>
 
                 <!-- Slide 12: Chunking Strategies -->
@@ -663,6 +702,11 @@ docker compose up -d
 open http://localhost/install
                         </div>
                     </div>
+                    <aside class="notes">
+                        Keep this practical: "run first, optimize later" to avoid an ops rabbit hole.
+                        Prep hint: run this setup once in a clean environment the day before.
+                        If Docker is unavailable onsite, switch to screenshots and explain key config + common errors.
+                    </aside>
                 </section>
 
                 <!-- Slide 15: Production Architecture -->
@@ -905,7 +949,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 20: RAG Evaluation -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">RAG Evaluation Methods</h2>
+                        <h2 style="margin-bottom: 1rem;">RAG Evaluation Methods (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Systematically evaluate retrieval quality and generation effectiveness</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -972,7 +1016,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 21: Agent Architecture -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Agent Architecture Design</h2>
+                        <h2 style="margin-bottom: 1rem;">Agent Architecture Design (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Evolution from simple conversations to autonomous task execution</p>
                         
                         <div class="nordic-flow" style="margin-bottom: 2rem;">
@@ -1021,7 +1065,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 22: Knowledge Pipeline Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Knowledge Pipeline Deep Dive</h2>
+                        <h2 style="margin-bottom: 1rem;">Knowledge Pipeline Deep Dive (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Complete journey from raw documents to usable memories</p>
                         
                         <div class="code-block" style="font-size: 0.6em; line-height: 1.5;">
@@ -1068,7 +1112,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 23: Security & Guardrails -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Security & Guardrails</h2>
+                        <h2 style="margin-bottom: 1rem;">Security & Guardrails (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Protect your applications from abuse and attacks</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -1109,7 +1153,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 24: Observability Deep Dive -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Observability Deep Dive</h2>
+                        <h2 style="margin-bottom: 1rem;">Observability Deep Dive (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">From logs to metrics, full-stack tracking of application performance</p>
                         
                         <div class="nordic-grid nordic-grid-3" style="gap: 1.25rem;">
@@ -1157,7 +1201,7 @@ def main(payload: dict) -> dict:
                 <!-- Slide 25: Debugging Tips -->
                 <section>
                     <div class="slide-content">
-                        <h2 style="margin-bottom: 1rem;">Debugging Tips & Troubleshooting</h2>
+                        <h2 style="margin-bottom: 1rem;">Debugging Tips & Troubleshooting (Optional Deep Dive)</h2>
                         <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Systematically identify and resolve issues</p>
                         
                         <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem;">
@@ -1217,7 +1261,7 @@ def main(payload: dict) -> dict:
                         <div class="mb-4">
                             <span class="text-dify font-semibold text-sm tracking-wider uppercase">Community</span>
                         </div>
-                        <h2>Community Contribution</h2>
+                        <h2>Community Contribution (Optional)</h2>
                         <p class="text-secondary" style="font-size: 1rem; max-width: 700px;">
                             Grow from user to contributor, build the open source ecosystem together.
                         </p>
@@ -1266,7 +1310,7 @@ def main(payload: dict) -> dict:
                 <section data-background-color="#fafafa">
                     <div class="slide-hero">
                         <div class="mb-4">
-                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 6</span>
+                            <span class="text-dify font-semibold text-sm tracking-wider uppercase">Part 5</span>
                         </div>
                         <h2>Hands-on Project 1</h2>
                         <h3 style="font-size: 1.2rem; color: #525252;">Apple Watch Voice Transcription Workflow</h3>
@@ -1297,6 +1341,11 @@ def main(payload: dict) -> dict:
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        For this section, go deep on only one case study.
+                        Prep hint: pick the case that best matches your audience's industry; summarize the other in 30 seconds.
+                        Reserve 3-4 minutes for Q&A and highlight a reusable template: input contract, output schema, fallback path.
+                    </aside>
                 </section>
 
                 <!-- Slide 28: Project 2 -->
@@ -1390,6 +1439,12 @@ chatbot:
                         </div>
                     </div>
                 </div>
+                <aside class="notes">
+                    Closing checklist:
+                    1) Repeat the 3 takeaways: Workflow, Knowledge, Production.
+                    2) Give a concrete 7-day action list: deploy once, build one minimal workflow, submit one community feedback.
+                    3) Turn links into action now (QR code or click), not just verbal mention.
+                </aside>
             </section>
 
             <!-- Slide 30: Thank You -->
@@ -1415,6 +1470,7 @@ chatbot:
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
     <script>
         // Tailwind config
         window.tailwind = window.tailwind || {};
@@ -1440,7 +1496,7 @@ chatbot:
             height: 750,
             transition: 'slide',
             backgroundTransition: 'fade',
-            plugins: [RevealHighlight],
+            plugins: [RevealHighlight, RevealNotes],
         });
     </script>
 </body>
