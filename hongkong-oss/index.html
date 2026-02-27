@@ -749,49 +749,50 @@ open http://localhost/install
                     <div class="slide-content">
                         <h2>生产架构</h2>
                         
-                        <div class="arch-board">
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">入口层</div>
-                                <div class="chip-list">
-                                    <span class="chip">CDN / WAF</span>
-                                    <span class="chip">Nginx Load Balancer</span>
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem; align-items: start;">
+                            <div class="arch-board">
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">入口层</div>
+                                    <div class="chip-list">
+                                        <span class="chip">CDN / WAF</span>
+                                        <span class="chip">Nginx Load Balancer</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">应用层</div>
+                                    <div class="chip-list">
+                                        <span class="chip">Dify API (Multi Pods)</span>
+                                        <span class="chip">Web / Console</span>
+                                        <span class="chip">Worker Nodes</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">数据层</div>
+                                    <div class="chip-list">
+                                        <span class="chip">PostgreSQL (HA)</span>
+                                        <span class="chip">Redis (Sentinel)</span>
+                                        <span class="chip">Weaviate / Milvus Cluster</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">异步任务层</div>
+                                    <div class="chip-list">
+                                        <span class="chip">Celery Queue</span>
+                                        <span class="chip">Scheduled Jobs</span>
+                                        <span class="chip">Retry / Dead Letter</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">应用层</div>
-                                <div class="chip-list">
-                                    <span class="chip">Dify API (Multi Pods)</span>
-                                    <span class="chip">Web / Console</span>
-                                    <span class="chip">Worker Nodes</span>
+                            <div>
+                                <h4 class="font-semibold mb-3">安全检查清单</h4>
+                                <div class="checklist" style="font-size: 0.8em;">
+                                    <li class="checked">修改默认密码</li>
+                                    <li class="checked">启用 HTTPS / SSL 证书</li>
+                                    <li>配置 CORS 策略</li>
+                                    <li>设置限流策略</li>
+                                    <li>开启审计日志</li>
+                                    <li>网络隔离向量数据库</li>
                                 </div>
-                            </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">数据层</div>
-                                <div class="chip-list">
-                                    <span class="chip">PostgreSQL (HA)</span>
-                                    <span class="chip">Redis (Sentinel)</span>
-                                    <span class="chip">Weaviate / Milvus Cluster</span>
-                                </div>
-                            </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">异步任务层</div>
-                                <div class="chip-list">
-                                    <span class="chip">Celery Queue</span>
-                                    <span class="chip">Scheduled Jobs</span>
-                                    <span class="chip">Retry / Dead Letter</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <h4 class="font-semibold mb-2">安全检查清单</h4>
-                            <div class="checklist" style="font-size: 0.8em;">
-                                <li class="checked">修改默认密码</li>
-                                <li class="checked">启用 HTTPS / SSL 证书</li>
-                                <li>配置 CORS 策略</li>
-                                <li>设置限流策略</li>
-                                <li>开启审计日志</li>
-                                <li>网络隔离向量数据库</li>
                             </div>
                         </div>
                     </div>

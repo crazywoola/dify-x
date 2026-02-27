@@ -749,49 +749,50 @@ open http://localhost/install
                     <div class="slide-content">
                         <h2>Production Architecture</h2>
                         
-                        <div class="arch-board">
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">Entry Layer</div>
-                                <div class="chip-list">
-                                    <span class="chip">CDN / WAF</span>
-                                    <span class="chip">Nginx Load Balancer</span>
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1.5rem; align-items: start;">
+                            <div class="arch-board">
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Entry Layer</div>
+                                    <div class="chip-list">
+                                        <span class="chip">CDN / WAF</span>
+                                        <span class="chip">Nginx Load Balancer</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Application Layer</div>
+                                    <div class="chip-list">
+                                        <span class="chip">Dify API (Multi Pods)</span>
+                                        <span class="chip">Web / Console</span>
+                                        <span class="chip">Worker Nodes</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Data Layer</div>
+                                    <div class="chip-list">
+                                        <span class="chip">PostgreSQL (HA)</span>
+                                        <span class="chip">Redis (Sentinel)</span>
+                                        <span class="chip">Weaviate / Milvus Cluster</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Async Layer</div>
+                                    <div class="chip-list">
+                                        <span class="chip">Celery Queue</span>
+                                        <span class="chip">Scheduled Jobs</span>
+                                        <span class="chip">Retry / Dead Letter</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">Application Layer</div>
-                                <div class="chip-list">
-                                    <span class="chip">Dify API (Multi Pods)</span>
-                                    <span class="chip">Web / Console</span>
-                                    <span class="chip">Worker Nodes</span>
+                            <div>
+                                <h4 class="font-semibold mb-3">Security Checklist</h4>
+                                <div class="checklist" style="font-size: 0.8em;">
+                                    <li class="checked">Change default passwords</li>
+                                    <li class="checked">Enable HTTPS / SSL certificates</li>
+                                    <li>Configure CORS policies</li>
+                                    <li>Set rate limiting policies</li>
+                                    <li>Enable audit logging</li>
+                                    <li>Network isolate vector database</li>
                                 </div>
-                            </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">Data Layer</div>
-                                <div class="chip-list">
-                                    <span class="chip">PostgreSQL (HA)</span>
-                                    <span class="chip">Redis (Sentinel)</span>
-                                    <span class="chip">Weaviate / Milvus Cluster</span>
-                                </div>
-                            </div>
-                            <div class="arch-tier">
-                                <div class="arch-tier-title">Async Layer</div>
-                                <div class="chip-list">
-                                    <span class="chip">Celery Queue</span>
-                                    <span class="chip">Scheduled Jobs</span>
-                                    <span class="chip">Retry / Dead Letter</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <h4 class="font-semibold mb-2">Security Checklist</h4>
-                            <div class="checklist" style="font-size: 0.8em;">
-                                <li class="checked">Change default passwords</li>
-                                <li class="checked">Enable HTTPS / SSL certificates</li>
-                                <li>Configure CORS policies</li>
-                                <li>Set rate limiting policies</li>
-                                <li>Enable audit logging</li>
-                                <li>Network isolate vector database</li>
                             </div>
                         </div>
                     </div>
