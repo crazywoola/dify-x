@@ -45,7 +45,35 @@ By the end of this workshop, you will be able to:
 
 ## 📅 Agenda
 
-### Part 1: Introduction to Dify (30 min)
+| Time | Session | Duration |
+|------|---------|----------|
+| 15:10 – 15:40 | **Session 1** — Platform overview, Workflow, RAG, Production | 30 min |
+| 15:40 – 15:50 | Break | 10 min |
+| 15:50 – 16:20 | **Session 2** — Code Node, Low-code vs Pro-code, Plugins, Optional deep dives, Projects | 30 min |
+
+### Session 1 (15:10 – 15:40)
+
+| # | Topic | Time |
+|---|-------|------|
+| 01 | Opening & Goals | 3 min |
+| 02 | Dify & LLM-Native Mindset | 5 min |
+| 03 | Workflow Core | 9 min |
+| 04 | Knowledge / RAG Core | 7 min |
+| 05 | Production Essentials | 6 min |
+
+### Session 2 (15:50 – 16:20)
+
+| # | Topic | Notes |
+|---|-------|-------|
+| 06 | Code Node Best Practices | |
+| 07 | Low-Code vs Pro-Code | |
+| 08 | Plugin Ecosystem | |
+| 09–14 | Optional Deep Dives | RAG Eval, Agent Arch, Guardrails, Observability… |
+| 15–16 | Hands-on Projects | Apple Watch workflow · GDPR chatbot |
+
+---
+
+### Part 1: Introduction to Dify
 
 #### 1.1 What is Dify?
 
@@ -62,13 +90,19 @@ Dify is an **open-source LLM application development platform** that bridges the
 │  │  Engine   │  │ Pipeline │  │  Builder │  │  Engine  │    │
 │  └──────────┘  └──────────┘  └──────────┘  └──────────┘    │
 ├─────────────────────────────────────────────────────────────┤
+│  ┌──────────────┐  ┌──────────────┐  ┌─────────────────┐   │
+│  │     HITL     │  │    Skills    │  │    Triggers     │   │
+│  │(Human review │  │(Reusable tool│  │(Schedule/Event/ │   │
+│  │& approvals)  │  │  units)      │  │  Webhook)       │   │
+│  └──────────────┘  └──────────────┘  └─────────────────┘   │
+├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │              Plugin Ecosystem                        │   │
 │  │  [Models] [Tools] [Extensions] [Custom Nodes]       │   │
 │  └─────────────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │            Observability & Ops                     │   │
+│  │            Observability & Ops                      │   │
 │  │  [Logging] [Tracing] [Metrics] [Cost Tracking]      │   │
 │  └─────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
@@ -82,6 +116,9 @@ Dify is an **open-source LLM application development platform** that bridges the
 | Context Handling | Manual retrieval | Built-in RAG with vector DB |
 | Workflow Logic | Code-only | Visual DSL + Code nodes |
 | Multi-agent | Complex orchestration | Declarative agent definitions |
+| Human Review | Custom middleware | Built-in HITL nodes |
+| Reusable Logic | Copy-paste functions | Skills (encapsulated units) |
+| Event Automation | External schedulers | Native Triggers (schedule/webhook/event) |
 | Monitoring | External tools | Integrated observability |
 
 #### 1.2 Why Dify Now?
@@ -102,14 +139,14 @@ Focus       Engineering Frameworks    Deployment     Maturity
 **Market Context:**
 
 - **1M+** installations powered by Dify
-- **125K+** GitHub stars
+- **130K+** GitHub stars
 - **150+** countries with active users
 - **1000+** open source contributors
 - **60+** industries adopting the platform
 
 ---
 
-### Part 2: Dify Workflow Deep Dive (45 min)
+### Part 2: Dify Workflow Deep Dive
 
 #### 2.1 What is Dify Workflow?
 
@@ -242,7 +279,7 @@ input_node:
 
 ---
 
-### Part 3: Knowledge Pipeline (45 min)
+### Part 3: Knowledge Pipeline
 
 #### 3.1 What is Dify Knowledge?
 
@@ -333,7 +370,7 @@ retrieval:
 
 ---
 
-### Part 4: Self-Hosting and Integration (30 min)
+### Part 4: Self-Hosting and Integration
 
 #### 4.1 Deployment Options
 
@@ -430,7 +467,7 @@ S3_BUCKET_NAME=dify-files
 
 ---
 
-### Part 5: Real-World Projects (30 min)
+### Part 5: Real-World Projects (Session 2)
 
 #### 5.1 Project 1: Apple Watch Recording Transcription Workflow
 
@@ -625,4 +662,4 @@ Dify platform is licensed under [Apache 2.0](https://github.com/langgenius/dify/
 
 ---
 
-*Last updated: 2025-02-05*
+*Last updated: 2026-02-27*
