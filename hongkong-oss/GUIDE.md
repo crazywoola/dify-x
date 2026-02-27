@@ -10,7 +10,7 @@
 
 | Field | Details |
 |-------|---------|
-| **Name** | CrazyWoola (Banana) |
+| **Name** | crazywoola (Banana) |
 | **Role** | Dify Developer Relations |
 | **Contact** | banana@dify.ai |
 | **Organization** | [LangGenius](https://langgenius.ai) |
