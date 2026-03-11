@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>From Autonomous AI to Production-Grade Agent Systems — Dify</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lang-switch">
+        <a href="index.html">中文</a>
+        <span>/</span>
+        <a class="active" href="index_en.html">EN</a>
+    </div>
+
+    <div class="nordic-logo">
+        <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
+        <span class="nordic-logo-text">Dify · Agent Systems</span>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 1 · Title
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div class="slide-hero text-center" style="max-width: 860px;">
+                    <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
+                        <span class="tag tag-primary">Dify · Latest</span>
+                        <span class="tag">Production AI</span>
+                    </div>
+                    <h1 style="font-size: 2.8rem; line-height: 1.1;">
+                        From Autonomous AI<br>to Production-Grade<br>Agent Systems
+                    </h1>
+                    <p class="slide-subtitle" style="margin: 1.2rem auto 0; max-width: 560px;">
+                        Orchestrated, auditable, and modular — how Dify redefines LLM workflows.
+                    </p>
+                    <div class="author-block" style="align-items: center;">
+                        <div class="author-name">crazywoola (Banana)</div>
+                        <div class="author-meta">Developer Relations @ Dify</div>
+                        <div class="author-email">banana@dify.ai</div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Opening framing (~90 s):
+                    - "We're at an inflection point — LLMs can act, not just answer."
+                    - Today's session covers three architectural shifts in Dify's latest releases.
+                    - No prior Dify experience needed; production engineers will get the most from Part 2 & 3.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 2 · Agenda
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2>Session Agenda</h2>
+                    <div class="nordic-grid nordic-grid-2" style="gap: 0.6rem; margin-top: 1.5rem;">
+                        <div class="agenda-item">
+                            <span class="agenda-num">01</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">The Evolution</div>
+                                <div class="agenda-desc">From prompt pipelines to orchestrated agents — why the shift matters</div>
+                            </div>
+                            <span class="time-badge">3 min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">02</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Human-in-the-Loop (HITL)</div>
+                                <div class="agenda-desc">Pause / resume / approve mid-execution for compliance-safe deployments</div>
+                            </div>
+                            <span class="time-badge">8 min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">03</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Agent × Skills</div>
+                                <div class="agenda-desc">Modular, reusable skill units + dynamic variable assembly</div>
+                            </div>
+                            <span class="time-badge">8 min</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-num">04</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title">Sandboxed Runtime & Collaboration</div>
+                                <div class="agenda-desc">Safe code execution + team-based workflow authoring</div>
+                            </div>
+                            <span class="time-badge">6 min</span>
+                        </div>
+                        <div class="agenda-item" style="grid-column: span 2; background: rgba(0,51,255,0.04); border-color: rgba(0,51,255,0.18);">
+                            <span class="agenda-num" style="color: #0033ff; opacity: 1;">Q&A</span>
+                            <div class="agenda-body">
+                                <div class="agenda-title" style="color: #0033ff;">Open Discussion</div>
+                                <div class="agenda-desc">Live demo · your production use-cases · roadmap preview</div>
+                            </div>
+                            <span class="time-badge">5 min</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem;">
+                        <span class="text-muted" style="font-size: var(--type-sm);">Total</span>
+                        <span class="time-badge">~30 min</span>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Keep this slide on-screen for &lt;20 s — just map the journey, don't read each item.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 PART 1 · The Evolution
+            ══════════════════════════════════════════════ -->
+            <section>
+
+                <!-- Slide 3 · Section Break -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <span class="section-tag">Part 1</span>
+                        <h2>The Evolution of AI Systems</h2>
+                        <p class="slide-subtitle">
+                            Moving beyond one-shot prompts into fully orchestrated, controllable agent architectures.
+                        </p>
+                    </div>
+                    <aside class="notes">
+                        Transition: "Let's start with why we're here — and what changed."
+                    </aside>
+                </section>
+
+                <!-- Slide 4 · Three Generations -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Three Generations of LLM Applications</h2>
+                        <p class="slide-desc">Each generation unlocks new value — and new complexity.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem;">
+                            <div class="nordic-card" style="border-top: 3px solid var(--gray-300);">
+                                <div class="card-heading">Gen 1</div>
+                                <h3 style="font-size: var(--type-xl); margin-bottom: 0.5rem;">Prompt → Response</h3>
+                                <p class="card-body">Single-turn completions. No memory, no tools, no state.</p>
+                                <div class="chip-list" style="margin-top: 1rem;">
+                                    <span class="chip">ChatGPT wrappers</span>
+                                    <span class="chip">one-shot summarizers</span>
+                                </div>
+                            </div>
+                            <div class="nordic-card" style="border-top: 3px solid var(--gray-300);">
+                                <div class="card-heading">Gen 2</div>
+                                <h3 style="font-size: var(--type-xl); margin-bottom: 0.5rem;">Pipeline Orchestration</h3>
+                                <p class="card-body">Chained nodes with data transformation, RAG, and conditional branching.</p>
+                                <div class="chip-list" style="margin-top: 1rem;">
+                                    <span class="chip">LangChain</span>
+                                    <span class="chip">Dify Workflow</span>
+                                </div>
+                            </div>
+                            <div class="nordic-card-featured">
+                                <div class="card-heading" style="color: rgba(255,255,255,0.7);">Gen 3 · Now</div>
+                                <h3 style="font-size: var(--type-xl); margin-bottom: 0.5rem; color: white;">Agent Systems</h3>
+                                <p class="card-body" style="color: rgba(255,255,255,0.85);">Pause, resume, branch on human input. Reusable skills. Sandboxed execution. Collaborative authoring.</p>
+                                <div class="chip-list" style="margin-top: 1rem;">
+                                    <span class="chip" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2);">HITL</span>
+                                    <span class="chip" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2);">Skills</span>
+                                    <span class="chip" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2);">Sandbox</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Gen 1 → Gen 2 transition happened fast (2022-2023).
+                        Gen 3 is where production teams are hitting friction today — compliance, repeatability, team scale.
+                        That's what Dify's latest releases directly address.
+                    </aside>
+                </section>
+
+                <!-- Slide 5 · Three Architectural Advances -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Three Architectural Advances</h2>
+                        <p class="slide-desc">The features that define production-grade agent systems in Dify's latest releases.</p>
+                        <div style="margin-top: 1.5rem;" class="nordic-grid" style="gap: 1rem;">
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-user-received-2-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">Human-in-the-Loop Nodes</div>
+                                    <div class="nordic-feature-desc">Dedicated execution nodes that pause a workflow and wait for human approval, override, or rejection before continuing. Enables auditable, compliance-friendly AI.</div>
+                                </div>
+                            </div>
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-function-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">Agent × Skills</div>
+                                    <div class="nordic-feature-desc">Encapsulated, reusable skill modules that decouple reasoning from execution. Agents compose skills dynamically, reducing duplication and enabling scalable multi-step designs.</div>
+                                </div>
+                            </div>
+                            <div class="nordic-feature">
+                                <div class="nordic-feature-icon"><i class="ri-shield-check-line"></i></div>
+                                <div class="nordic-feature-content">
+                                    <div class="nordic-feature-title">Sandboxed Runtime &amp; Collaboration</div>
+                                    <div class="nordic-feature-desc">Isolated code execution environment for Python / JS nodes, plus team-level workflow co-authoring with role-based editing and version history.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Each feature maps to a real production pain-point:
+                        HITL → compliance &amp; audit trails
+                        Skills → code duplication &amp; maintenance burden
+                        Sandbox + Collab → team scale &amp; security
+                    </aside>
+                </section>
+
+            </section><!-- /Part 1 -->
+
+            <!-- ══════════════════════════════════════════════
+                 PART 2 · Human-in-the-Loop
+            ══════════════════════════════════════════════ -->
+            <section>
+
+                <!-- Slide 6 · Section Break -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <span class="section-tag">Part 2</span>
+                        <h2>Human-in-the-Loop (HITL)</h2>
+                        <p class="slide-subtitle">
+                            Controllable, auditable AI — workflows that pause for humans and resume on decision.
+                        </p>
+                        <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
+                            <i class="ri-information-line info-banner-icon"></i>
+                            <span>Available in <strong>Workflow</strong> and <strong>Chatflow</strong> modes</span>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Key message: "AI can be wrong. HITL is the safety net that makes it deployable in regulated environments."
+                    </aside>
+                </section>
+
+                <!-- Slide 7 · The Problem -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">The Problem with Fully Autonomous AI</h2>
+                        <p class="slide-desc">Real compliance scenarios need human checkpoints — not trust-me-AI.</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚠️</div>
+                                <h4>No Audit Trail</h4>
+                                <p class="card-body">Fully autonomous pipelines produce outputs with no record of who decided what, making compliance reporting impossible.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔁</div>
+                                <h4>Silent Errors Cascade</h4>
+                                <p class="card-body">A bad intermediate output propagates downstream before anyone notices — sometimes triggering irreversible side effects.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔒</div>
+                                <h4>Regulatory Blockers</h4>
+                                <p class="card-body">Finance, healthcare, and legal AI deployments require documented human sign-off at key decision points.</p>
+                            </div>
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">✅</div>
+                                <h4 style="color: var(--dify-blue);">HITL Nodes solve this</h4>
+                                <p class="card-body">Insert a pause gate anywhere in the workflow. A human reviews context, approves or overrides, and execution resumes with full trace.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Concrete industries: medical report generation, contract drafting, financial anomaly review, moderation queues.
+                    </aside>
+                </section>
+
+                <!-- Slide 8 · How HITL Works -->
+                <section>
+                    <div class="slide-content">
+                        <h2>How HITL Nodes Work</h2>
+                        <div style="margin-top: 1.75rem;">
+                            <!-- Flow diagram -->
+                            <div class="nordic-flow" style="gap: 0.5rem;">
+                                <div class="nordic-flow-step">
+                                    <div class="nordic-flow-number">1</div>
+                                    <div class="nordic-flow-title">Trigger</div>
+                                    <div class="nordic-flow-desc">Workflow runs to the HITL node boundary</div>
+                                </div>
+                                <div class="nordic-flow-step">
+                                    <div class="nordic-flow-number">2</div>
+                                    <div class="nordic-flow-title">Pause</div>
+                                    <div class="nordic-flow-desc">Execution suspends; context + LLM output surfaced to reviewer</div>
+                                </div>
+                                <div class="nordic-flow-step">
+                                    <div class="nordic-flow-number">3</div>
+                                    <div class="nordic-flow-title">Decide</div>
+                                    <div class="nordic-flow-desc">Human approves, edits, or rejects with optional comment</div>
+                                </div>
+                                <div class="nordic-flow-step">
+                                    <div class="nordic-flow-number">4</div>
+                                    <div class="nordic-flow-title">Resume</div>
+                                    <div class="nordic-flow-desc">Workflow continues with the human decision recorded in trace</div>
+                                </div>
+                            </div>
+
+                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.5rem;">
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading">Decision Outcomes</div>
+                                    <ul class="checklist" style="margin-top: 0.5rem;">
+                                        <li class="checked" style="font-size: var(--type-sm);">Approve — continue with AI output as-is</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Edit &amp; Approve — override content, then continue</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Reject — branch to fallback or terminate</li>
+                                    </ul>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading">Audit Capture</div>
+                                    <ul class="checklist" style="margin-top: 0.5rem;">
+                                        <li class="checked" style="font-size: var(--type-sm);">Reviewer identity &amp; timestamp</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Original AI output vs. final value</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Decision comment / rationale</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Demo cue: show the HITL node in Dify canvas → trigger a run → open the approval inbox → approve → show trace.
+                        Emphasize: the workflow is truly paused — it does not time-out by default (configurable).
+                    </aside>
+                </section>
+
+                <!-- Slide 9 · HITL Use Cases -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">HITL in Practice</h2>
+                        <p class="slide-desc">Real deployment patterns across compliance-sensitive industries.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-text-line"></i></div>
+                                <h4>Contract Review</h4>
+                                <p class="card-body">LLM drafts clause summaries; legal team approves before client delivery.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-heart-pulse-line"></i></div>
+                                <h4>Medical Triage</h4>
+                                <p class="card-body">AI suggests urgency score; clinician confirms before routing patient.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bank-line"></i></div>
+                                <h4>Financial Alerts</h4>
+                                <p class="card-body">Anomaly detection flags a transaction; analyst approves escalation or dismisses.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-user-line"></i></div>
+                                <h4>Content Moderation</h4>
+                                <p class="card-body">Low-confidence classifier outputs wait for human judgment before enforcement action.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-mail-send-line"></i></div>
+                                <h4>Outbound Comms</h4>
+                                <p class="card-body">AI drafts customer emails; manager approves batch before send.</p>
+                            </div>
+                            <div class="nordic-card" style="background: var(--gray-50); border-style: dashed;">
+                                <div style="color: var(--gray-400); font-size: 2rem; text-align: center; margin-bottom: 0.5rem;">+</div>
+                                <h4 style="color: var(--gray-500);">Your Use Case</h4>
+                                <p class="card-body" style="color: var(--gray-400);">Any step where a wrong AI decision has meaningful real-world consequence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Ask the audience: "Which of these resonates with your current or planned AI deployment?"
+                        This is a good point to surface Q&A or discussion before moving on.
+                    </aside>
+                </section>
+
+            </section><!-- /Part 2 -->
+
+            <!-- ══════════════════════════════════════════════
+                 PART 3 · Agent × Skills
+            ══════════════════════════════════════════════ -->
+            <section>
+
+                <!-- Slide 10 · Section Break -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <span class="section-tag">Part 3</span>
+                        <h2>Agent × Skills</h2>
+                        <p class="slide-subtitle">
+                            Modular, reusable skill-based agent design — decouple reasoning from execution at scale.
+                        </p>
+                        <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
+                            <i class="ri-information-line info-banner-icon"></i>
+                            <span>Works across <strong>Workflow</strong> and <strong>Agent</strong> modes</span>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Transition: "Great — humans are in the loop. Now, how do we make the AI side more maintainable and scalable?"
+                    </aside>
+                </section>
+
+                <!-- Slide 11 · The Problem with Monolithic Agents -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">The Monolithic Agent Problem</h2>
+                        <p class="slide-desc">As agents grow, they become tangled, hard to test, and impossible to reuse.</p>
+                        <div class="nordic-comparison" style="margin-top: 1.75rem;">
+                            <div class="nordic-comparison-item">
+                                <div class="card-heading" style="color: var(--error);">Before — Monolithic Agent</div>
+                                <div class="arch-board" style="margin-top: 0.75rem;">
+                                    <div class="arch-tier" style="border-color: rgba(239,68,68,0.3);">
+                                        <div class="arch-tier-title">Agent Prompt (500+ tokens)</div>
+                                        <div class="chip-list">
+                                            <span class="chip">search logic</span>
+                                            <span class="chip">format rules</span>
+                                            <span class="chip">API calls</span>
+                                            <span class="chip">error handling</span>
+                                            <span class="chip">output schema</span>
+                                            <span class="chip">retry logic</span>
+                                        </div>
+                                    </div>
+                                    <div class="arch-tier" style="border-color: rgba(239,68,68,0.3);">
+                                        <div class="arch-tier-title">Problems</div>
+                                        <div class="chip-list">
+                                            <span class="chip">duplicated across agents</span>
+                                            <span class="chip">hard to test in isolation</span>
+                                            <span class="chip">version drift</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nordic-comparison-item active">
+                                <div class="card-heading" style="color: var(--dify-blue);">After — Skill-Based Agent</div>
+                                <div class="arch-board" style="margin-top: 0.75rem;">
+                                    <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
+                                        <div class="arch-tier-title" style="color: var(--dify-blue);">Agent (thin orchestrator)</div>
+                                        <div class="chip-list">
+                                            <span class="chip">goal</span>
+                                            <span class="chip">context</span>
+                                            <span class="chip">skill calls</span>
+                                        </div>
+                                    </div>
+                                    <div class="arch-tier">
+                                        <div class="arch-tier-title">Skill Library (shared)</div>
+                                        <div class="chip-list">
+                                            <span class="chip">search_web</span>
+                                            <span class="chip">format_report</span>
+                                            <span class="chip">call_api</span>
+                                            <span class="chip">retry_safe</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Analogy: Skills are like functions in software — you don't inline the sort algorithm every time.
+                        Same principle applies to LLM reasoning building blocks.
+                    </aside>
+                </section>
+
+                <!-- Slide 12 · What is a Skill -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">What Is a Skill?</h2>
+                        <p class="slide-desc">A versioned, testable, composable execution unit with defined inputs and outputs.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-box-3-line"></i></div>
+                                <h4>Encapsulated</h4>
+                                <p class="card-body">Self-contained logic with explicit input schema, output schema, and internal prompt.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-refresh-line"></i></div>
+                                <h4>Reusable</h4>
+                                <p class="card-body">Published once, invoked from any Agent or Workflow across your workspace.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-test-tube-line"></i></div>
+                                <h4>Testable</h4>
+                                <p class="card-body">Run skills in isolation with fixture inputs — no need to trigger the full agent flow.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-branch-line"></i></div>
+                                <h4>Versioned</h4>
+                                <p class="card-body">Publish major/minor versions; agents pin to a version to avoid breakage on update.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-input-cursor-move"></i></div>
+                                <h4>Dynamic Variables</h4>
+                                <p class="card-body">Skill inputs are assembled at runtime from conversation context, prior node outputs, or static config.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-stack-line"></i></div>
+                                <h4>Composable</h4>
+                                <p class="card-body">Chain multiple skills in sequence or fan-out in parallel inside a single agent step.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Demo cue: Open Skill Editor — show schema definition → publish → add to an agent → run.
+                        Highlight the variable assembly panel where you map context → skill inputs.
+                    </aside>
+                </section>
+
+                <!-- Slide 13 · Skill Architecture -->
+                <section>
+                    <div class="slide-content">
+                        <h2>Skill-Based Agent Architecture</h2>
+                        <div style="margin-top: 1.75rem;">
+                            <div class="arch-board">
+                                <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
+                                    <div class="arch-tier-title" style="color: var(--dify-blue);">User / Trigger</div>
+                                    <div class="chip-list">
+                                        <span class="chip">chat message</span>
+                                        <span class="chip">API call</span>
+                                        <span class="chip">scheduled event</span>
+                                        <span class="chip">webhook</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Agent (Reasoning Layer)</div>
+                                    <div class="chip-list">
+                                        <span class="chip">goal decomposition</span>
+                                        <span class="chip">skill selection</span>
+                                        <span class="chip">variable assembly</span>
+                                        <span class="chip">result synthesis</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier">
+                                    <div class="arch-tier-title">Skill Library (Execution Layer)</div>
+                                    <div class="chip-list">
+                                        <span class="chip">web_search v2</span>
+                                        <span class="chip">summarize_doc v1</span>
+                                        <span class="chip">send_email v3</span>
+                                        <span class="chip">query_db v1</span>
+                                        <span class="chip">validate_output v2</span>
+                                        <span class="chip">format_json v1</span>
+                                    </div>
+                                </div>
+                                <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
+                                    <div class="arch-tier-title" style="color: var(--success);">External Systems</div>
+                                    <div class="chip-list">
+                                        <span class="chip">APIs</span>
+                                        <span class="chip">databases</span>
+                                        <span class="chip">knowledge bases</span>
+                                        <span class="chip">plugins</span>
+                                        <span class="chip">HITL gates</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-banner" style="margin-top: 1rem;">
+                                <i class="ri-lightbulb-line info-banner-icon"></i>
+                                <span>Skills live in the <strong>Execution Layer</strong> — agents in the <strong>Reasoning Layer</strong>. Separating these concerns is what makes large agent systems maintainable.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        This layered view maps directly to how software architects think about service layers.
+                        Reasoning: "what to do?" — Execution: "how to do it?"
+                        The Skills model makes both layers independently testable and scalable.
+                    </aside>
+                </section>
+
+            </section><!-- /Part 3 -->
+
+            <!-- ══════════════════════════════════════════════
+                 PART 4 · Sandboxed Runtime & Collaboration
+            ══════════════════════════════════════════════ -->
+            <section>
+
+                <!-- Slide 14 · Section Break -->
+                <section data-background-color="#fafafa">
+                    <div class="slide-hero">
+                        <span class="section-tag">Part 4</span>
+                        <h2>Sandboxed Runtime &amp; Collaboration</h2>
+                        <p class="slide-subtitle">
+                            Secure code execution + team-scale workflow authoring — the production infrastructure layer.
+                        </p>
+                        <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
+                            <i class="ri-information-line info-banner-icon"></i>
+                            <span>Available in self-hosted and <strong>Dify Cloud</strong></span>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Transition: "The last piece: running code safely and letting teams work together."
+                    </aside>
+                </section>
+
+                <!-- Slide 15 · Sandboxed Runtime -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Sandboxed Code Execution</h2>
+                        <p class="slide-desc">Python and JavaScript nodes run in an isolated environment — no shared state, no host access.</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="nordic-card">
+                                    <div class="card-heading">Isolation Guarantees</div>
+                                    <ul class="checklist" style="margin-top: 0.5rem;">
+                                        <li class="checked" style="font-size: var(--type-sm);">No access to host filesystem</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Network calls restricted by allowlist</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Memory &amp; CPU limits enforced per run</li>
+                                        <li class="checked" style="font-size: var(--type-sm);">Execution timeout configurable per node</li>
+                                    </ul>
+                                </div>
+                                <div class="nordic-card">
+                                    <div class="card-heading">Supported Runtimes</div>
+                                    <div class="chip-list" style="margin-top: 0.5rem;">
+                                        <span class="chip">Python 3.11+</span>
+                                        <span class="chip">JavaScript (Node 20)</span>
+                                        <span class="chip">Custom packages via pip/npm</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nordic-card-flat" style="padding: 0; overflow: hidden;">
+                                <div style="padding: 0.6rem 1rem; background: var(--gray-200); border-bottom: 1px solid var(--gray-300);">
+                                    <span class="mono-badge">code_node.py</span>
+                                </div>
+                                <pre class="code-block" style="border-radius: 0; margin: 0;"><code><span class="comment"># Runs in isolated sandbox — no host access</span>
+<span class="keyword">def</span> <span class="function">main</span>(inputs: dict) -> dict:
+    text = inputs[<span class="string">"content"</span>]
+    words = len(text.split())
+    <span class="comment"># Custom transform logic</span>
+    summary = text[:<span class="variable">200</span>] + <span class="string">"..."</span>
+    <span class="keyword">return</span> {
+        <span class="string">"summary"</span>: summary,
+        <span class="string">"word_count"</span>: words
+    }</code></pre>
+                            </div>
+                        </div>
+                        <div class="warn-banner" style="margin-top: 1rem;">
+                            <i class="ri-alert-line" style="color: var(--warning); flex-shrink: 0; margin-top: 0.1rem;"></i>
+                            <span>Self-hosted deployments: enable the <code>SANDBOX</code> service in docker-compose to activate isolation. Cloud edition is sandboxed by default.</span>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Key message: "You can now write arbitrary transformation code in your workflows without opening a security hole."
+                        Demo cue: add a Code node, paste a Python function, run — show the output in the trace.
+                    </aside>
+                </section>
+
+                <!-- Slide 16 · Collaborative Workflow Development -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Collaborative Workflow Development</h2>
+                        <p class="slide-desc">Multiple team members author, review, and ship workflows together — with roles and version history.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-team-line"></i></div>
+                                <h4>Role-Based Access</h4>
+                                <p class="card-body">Viewer, Editor, and Owner roles per workspace. Non-owners can draft but not publish.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-history-line"></i></div>
+                                <h4>Version History</h4>
+                                <p class="card-body">Every publish creates a named snapshot. Roll back in one click if a new version degrades performance.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-commit-line"></i></div>
+                                <h4>Draft → Review → Publish</h4>
+                                <p class="card-body">Git-like lifecycle: draft changes, request peer review, merge to live — all inside Dify.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-eye-line"></i></div>
+                                <h4>Live Presence</h4>
+                                <p class="card-body">See who else is editing in real time — no more silent overwrites or "who changed this?" moments.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-list-3-line"></i></div>
+                                <h4>Annotation &amp; Notes</h4>
+                                <p class="card-body">Attach intent notes to nodes — document "why this prompt" for future maintainers.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-send-plane-line"></i></div>
+                                <h4>One-Click Deploy</h4>
+                                <p class="card-body">Publish approved version directly to API, Webapp, or embedded integration.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        This matters most for teams larger than 2 people. Solo builders can ignore most of this.
+                        Ask: "Who here works on AI features with a team of 3+?" — then focus on the role &amp; version points.
+                    </aside>
+                </section>
+
+            </section><!-- /Part 4 -->
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 17 · Putting It Together
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2 class="tight">Putting It All Together</h2>
+                    <p class="slide-desc">A production agent system combining all three advances in a single workflow.</p>
+                    <div style="margin-top: 1.75rem;" class="arch-board">
+                        <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
+                            <div class="arch-tier-title" style="color: var(--dify-blue);">Input</div>
+                            <div class="chip-list">
+                                <span class="chip">user query</span>
+                                <span class="chip">document upload</span>
+                                <span class="chip">scheduled trigger</span>
+                            </div>
+                        </div>
+                        <div class="arch-tier">
+                            <div class="arch-tier-title">Agent (Reasoning)</div>
+                            <div class="chip-list">
+                                <span class="chip">goal decompose</span>
+                                <span class="chip">→ call Skills</span>
+                                <span class="chip">→ assemble result</span>
+                            </div>
+                        </div>
+                        <div class="arch-tier">
+                            <div class="arch-tier-title">Skill Execution (Sandboxed)</div>
+                            <div class="chip-list">
+                                <span class="chip">web_search</span>
+                                <span class="chip">code_transform (Python sandbox)</span>
+                                <span class="chip">format_output</span>
+                            </div>
+                        </div>
+                        <div class="arch-tier" style="border-color: var(--warning); background: rgba(245,158,11,0.05);">
+                            <div class="arch-tier-title" style="color: var(--warning);">HITL Gate (if configured)</div>
+                            <div class="chip-list">
+                                <span class="chip">pause → reviewer inbox</span>
+                                <span class="chip">approve / edit / reject</span>
+                                <span class="chip">audit trace written</span>
+                            </div>
+                        </div>
+                        <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
+                            <div class="arch-tier-title" style="color: var(--success);">Output + Observability</div>
+                            <div class="chip-list">
+                                <span class="chip">API response</span>
+                                <span class="chip">webapp render</span>
+                                <span class="chip">full trace log</span>
+                                <span class="chip">cost tracked</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-banner" style="margin-top: 1rem;">
+                        <i class="ri-lightbulb-line info-banner-icon"></i>
+                        <span>Each layer is independently testable, versioned, and observable — the hallmarks of production-grade engineering.</span>
+                    </div>
+                </div>
+                <aside class="notes">
+                    This is the architecture diagram you can share with engineering leads when proposing adoption.
+                    Emphasize: "You don't need all three on day one — HITL alone unlocks regulated deployments; Skills alone reduces maintenance debt."
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 18 · Summary & Next Steps
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div class="slide-content">
+                    <h2>Summary &amp; What's Next</h2>
+                    <div class="nordic-grid nordic-grid-2" style="margin-top: 1.75rem; gap: 1rem;">
+                        <div>
+                            <div class="card-heading" style="margin-bottom: 1rem;">Three Things You Learned Today</div>
+                            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                                <div class="agenda-item">
+                                    <span class="agenda-num">01</span>
+                                    <div class="agenda-body">
+                                        <div class="agenda-title">HITL Nodes</div>
+                                        <div class="agenda-desc">Pause → human decision → resume with full audit trail</div>
+                                    </div>
+                                </div>
+                                <div class="agenda-item">
+                                    <span class="agenda-num">02</span>
+                                    <div class="agenda-body">
+                                        <div class="agenda-title">Agent × Skills</div>
+                                        <div class="agenda-desc">Modular, versioned, reusable execution units</div>
+                                    </div>
+                                </div>
+                                <div class="agenda-item">
+                                    <span class="agenda-num">03</span>
+                                    <div class="agenda-body">
+                                        <div class="agenda-title">Sandbox + Collaboration</div>
+                                        <div class="agenda-desc">Safe code execution + team-scale authoring</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card-heading" style="margin-bottom: 1rem;">Your Next Steps</div>
+                            <ul class="checklist">
+                                <li style="font-size: var(--type-sm);">Try Dify Cloud or spin up a self-hosted instance</li>
+                                <li style="font-size: var(--type-sm);">Add one HITL node to an existing workflow this week</li>
+                                <li style="font-size: var(--type-sm);">Extract a repeated prompt into a Skill module</li>
+                                <li style="font-size: var(--type-sm);">Enable the Sandbox service in your docker-compose</li>
+                                <li style="font-size: var(--type-sm);">Join the Dify Discord &amp; GitHub Discussions</li>
+                            </ul>
+                            <div class="info-banner" style="margin-top: 1.25rem;">
+                                <i class="ri-github-line info-banner-icon"></i>
+                                <span><strong>github.com/langgenius/dify</strong> — Star the repo &amp; follow releases</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Close strong: "Production-grade AI isn't just about the model — it's about the system around it.
+                    HITL, Skills, and Sandboxing are the three pillars that make AI trustworthy enough to ship."
+                    Leave time for Q&amp;A — this audience usually has strong opinions on compliance and team workflow.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 19 · Thank You / Q&A
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div class="slide-hero text-center" style="max-width: 700px;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🙏</div>
+                    <h2>Thank You</h2>
+                    <p class="slide-subtitle" style="margin: 1rem auto 0; max-width: 480px;">
+                        Questions, feedback, or want to explore a specific feature deeper?
+                    </p>
+                    <div class="nordic-grid nordic-grid-3" style="margin-top: 2.5rem; gap: 0.75rem; text-align: left;">
+                        <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-github-line text-dify"></i></div>
+                            <div class="card-heading">GitHub</div>
+                            <div class="caption-text">langgenius/dify</div>
+                        </div>
+                        <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-discord-line text-dify"></i></div>
+                            <div class="card-heading">Discord</div>
+                            <div class="caption-text">discord.gg/dify</div>
+                        </div>
+                        <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-mail-line text-dify"></i></div>
+                            <div class="card-heading">Email</div>
+                            <div class="caption-text">banana@dify.ai</div>
+                        </div>
+                    </div>
+                    <div class="author-block" style="align-items: center; margin-top: 2.5rem;">
+                        <div class="author-name">crazywoola (Banana)</div>
+                        <div class="author-meta">Developer Relations @ Dify</div>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'fade',
+            transitionSpeed: 'fast',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1280,
+            height: 720,
+            margin: 0.06,
+            plugins: [ RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
