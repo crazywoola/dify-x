@@ -41,7 +41,7 @@
                         从自主 AI<br>到生产级 Agent 系统
                     </h1>
                     <p class="slide-subtitle" style="margin: 1.2rem auto 0; max-width: 560px;">
-                        有序编排、可审计、模块化 —— Dify 如何重新定义 LLM 工作流。
+                        用人工关卡、SOP 化上下文和沙箱执行，构建生产级 Agent 系统。
                     </p>
                     <div style="width:48px; height:3px; background:var(--dify-blue); border-radius:2px; margin: 2rem 0 1.5rem;"></div>
                     <div class="author-block" style="align-items: center; margin-top: 0;">
@@ -85,17 +85,17 @@
                             <span class="agenda-num">03</span>
                             <div class="agenda-body">
                                 <div class="agenda-title">Agent × Skills</div>
-                                <div class="agenda-desc">模块化可复用技能单元 + 动态变量组装</div>
+                                <div class="agenda-desc">现状问题、Skill、SOP 上下文与显式交付物</div>
                             </div>
-                            <span class="time-badge">8 分钟</span>
+                            <span class="time-badge">12 分钟</span>
                         </div>
                         <div class="agenda-item">
                             <span class="agenda-num">04</span>
                             <div class="agenda-body">
                                 <div class="agenda-title">沙箱运行时 & 协作开发</div>
-                                <div class="agenda-desc">安全代码执行 + 团队级工作流协同</div>
+                                <div class="agenda-desc">POSIX 风格运行时、Command 节点、安全执行与团队协作</div>
                             </div>
-                            <span class="time-badge">6 分钟</span>
+                            <span class="time-badge">10 分钟</span>
                         </div>
                         <div class="agenda-item" style="grid-column: span 2; background: rgba(0,51,255,0.04); border-color: rgba(0,51,255,0.18);">
                             <span class="agenda-num" style="color: #0033ff; opacity: 1;">Q&A</span>
@@ -108,7 +108,7 @@
                     </div>
                     <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem;">
                         <span class="text-muted" style="font-size: var(--type-sm);">合计</span>
-                        <span class="time-badge">约 30 分钟</span>
+                        <span class="time-badge">约 38 分钟</span>
                     </div>
                 </div>
                 <aside class="notes">
@@ -217,7 +217,7 @@
                             <div class="nordic-card-featured">
                                 <div class="card-heading" style="color: rgba(255,255,255,0.7);">第三代 · 当下</div>
                                 <h3 style="font-size: var(--type-xl); margin-bottom: 0.5rem; color: white;">Agent 系统</h3>
-                                <p class="card-body" style="color: rgba(255,255,255,0.85);">基于人工输入暂停、恢复、分支。可复用技能。沙箱执行。团队协作。</p>
+                                <p class="card-body" style="color: rgba(255,255,255,0.85);">在人类输入处暂停。复用 Skills 与 SOP。显式传递交付物。在沙箱里安全执行。</p>
                                 <div class="chip-list" style="margin-top: 1rem;">
                                     <span class="chip" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2);">HITL</span>
                                     <span class="chip" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2);">Skills</span>
@@ -237,7 +237,7 @@
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">三大架构演进</h2>
-                        <p class="slide-desc">定义 Dify 最新版本中生产级 Agent 系统的核心特性。</p>
+                        <p class="slide-desc">定义 Dify 生产级 Agent 方向的三项关键能力。</p>
                         <div class="nordic-grid" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-feature">
                                 <div class="nordic-feature-icon"><i class="ri-user-received-2-line"></i></div>
@@ -250,14 +250,14 @@
                                 <div class="nordic-feature-icon"><i class="ri-function-line"></i></div>
                                 <div class="nordic-feature-content">
                                     <div class="nordic-feature-title">Agent × Skills</div>
-                                    <div class="nordic-feature-desc">封装化、可复用的技能模块，将推理与执行解耦。Agent 动态组合技能，减少重复代码，实现可扩展的多步骤 Agent 设计。</div>
+                                    <div class="nordic-feature-desc">把 Agent 收敛为更薄的编排层，围绕可复用 Skills、SOP 化上下文和显式交付物来组织推理与执行。</div>
                                 </div>
                             </div>
                             <div class="nordic-feature">
                                 <div class="nordic-feature-icon"><i class="ri-shield-check-line"></i></div>
                                 <div class="nordic-feature-content">
                                     <div class="nordic-feature-title">沙箱运行时 &amp; 协作开发</div>
-                                    <div class="nordic-feature-desc">隔离的 Python/JS 代码执行环境，以及支持角色权限与版本历史的团队级工作流协同创作。</div>
+                                    <div class="nordic-feature-desc">用 POSIX 风格运行时承载隔离执行与 Command 工作流，再把共享知识和团队协作带回工作流本身。</div>
                                 </div>
                             </div>
                         </div>
@@ -284,59 +284,57 @@
                         <span class="section-tag">第二部分</span>
                         <h2>Human-in-the-Loop（HITL）</h2>
                         <p class="slide-subtitle">
-                            大多数系统把 AI 和人类当作接力跑手 —— 一方等待另一方工作。Dify 将人工介入点作为工作流图的一等公民，原生嵌入执行架构本身。
+                            把人的判断放进工作流图里，而不是放在工作流外面。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
-                            <i class="ri-information-line info-banner-icon"></i>
-                            <span>可在 <strong>Workflow</strong> 和 <strong>Chatflow</strong> 模式中使用</span>
+                            <div class="info-banner-slot"><i class="ri-information-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>可在 <strong>Workflow</strong> 和 <strong>Chatflow</strong> 模式中使用</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        核心信息："这不是外挂的审核流程，而是 Dify 执行图中的原生节点 —— 架构本身保证了暂停与恢复。"
+                        HITL 在 Dify 里是原生节点，不是外挂审批系统。
                     </aside>
                 </section>
 
-                <!-- Slide 7 · 三大挑战 -->
+                <!-- Slide 7 · 为什么团队需要 HITL -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">为什么半自动化会失败</h2>
-                        <p class="slide-desc">纯自动化牺牲质量管控；纯人工操作牺牲效率。三大挑战横亘其中。</p>
+                        <h2 class="tight">为什么团队需要 HITL</h2>
+                        <p class="slide-desc">最好的自动化，不是完全无人参与，而是只在人真正该介入的时刻介入。</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-route-line"></i></div>
-                                <h4>目标漂移</h4>
-                                <p class="card-body">复杂项目鲜少一路向前。目标演变、上下文变化 —— AI 工作流擅长预定步骤，却无法在没有人工介入节点的情况下适应中途转向。</p>
+                                <h4>目标会变化</h4>
+                                <p class="card-body">工作进行到一半时，优先级和上下文可能会变，没有暂停点，流程就会变得僵硬。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-cross-line"></i></div>
-                                <h4>信任缺口</h4>
-                                <p class="card-body">组织对全面自动化高风险流程依然心存顾虑。没有可见的检查点，AI 落地就会停滞 —— 不是因为技术失败，而是因为系统感觉失控。</p>
+                                <h4>信任仍然缺失</h4>
+                                <p class="card-body">高风险流程里，团队需要看得见的检查点，才敢让 AI 代表业务继续执行。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
-                                <h4>集成复杂度</h4>
-                                <p class="card-body">现有方案需要搭建独立的审批队列、编写 Webhook 回调并手动串联状态 —— 这些工程开销让"人工介入"变成一种负担，而非能力。</p>
+                                <h4>集成过于复杂</h4>
+                                <p class="card-body">外部审批队列和 Webhook 会把人工审核变成额外工程，而不是原生能力。</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
                                 <h4 style="color: var(--dify-blue);">Human Input 节点</h4>
-                                <p class="card-body">原生工作流节点，暂停执行、向人类呈现上下文，并根据决策路由后续流程 —— 无需外部系统。</p>
+                                <p class="card-body">在图里暂停、拿到人的判断，然后沿正确分支原生恢复执行。</p>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        以产品定位故事为框架：我们见过什么不奏效（笨重的外部系统），并构建了感觉原生的解决方案。
-                        提问："这三个挑战中，哪个与你当前情况最相关？"
+                        核心对比是原生暂停恢复和自建审批链路。
                     </aside>
                 </section>
 
-                <!-- Slide 8 · Human Input 节点 -->
+                <!-- Slide 8 · Human Input 节点如何工作 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">Human Input 节点</h2>
-                        <p class="slide-desc">执行模型：工作流在 HITL 关卡暂停，人工审核并操作，执行按三条路径之一恢复。</p>
+                        <h2 class="tight">Human Input 节点如何工作</h2>
+                        <p class="slide-desc">执行暂停，人拿到正确上下文，工作流按三种结果之一恢复。</p>
                         <div style="margin-top: 1rem;">
-                            <!-- HITL 执行流程图 -->
                             <div style="background:var(--gray-50,#f9fafb); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:0.9rem 1.25rem; margin-bottom:1rem;">
                                 <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.5rem;">
                                     <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">工作流运行中</div>
@@ -359,7 +357,7 @@
                                     <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
                                         <div style="background:rgba(0,51,255,0.06); border:1px solid var(--dify-blue-medium); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--dify-blue);">编辑并批准</div>
                                         <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
-                                        <span class="chip">修改后的变量</span>
+                                        <span class="chip">修改后的值</span>
                                     </div>
                                     <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
                                         <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--error);">拒绝</div>
@@ -368,96 +366,195 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="nordic-flow" style="gap: 0.5rem;">
-                                <div class="nordic-flow-step">
-                                    <div class="nordic-flow-number">1</div>
-                                    <div class="nordic-flow-title">送达配置</div>
-                                    <div class="nordic-flow-desc">自动生成审核页面，通过邮件、Slack 或 Dify Webapp 送达 —— 每个节点独立选择渠道。</div>
-                                </div>
-                                <div class="nordic-flow-step">
-                                    <div class="nordic-flow-number">2</div>
-                                    <div class="nordic-flow-title">变量引用</div>
-                                    <div class="nordic-flow-desc">使用斜杠快捷键在页面中嵌入任意工作流变量。人类可读取、编辑，修改后的值回传执行流。</div>
-                                </div>
-                                <div class="nordic-flow-step">
-                                    <div class="nordic-flow-number">3</div>
-                                    <div class="nordic-flow-title">动作定义</div>
-                                    <div class="nordic-flow-desc">配置带标签的按钮（如：批准、请求修改、升级）。每个按钮将执行路由到不同下游路径，支持设置超时规则。</div>
-                                </div>
-                            </div>
-
-                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.25rem;">
+                            <div class="nordic-grid nordic-grid-3" style="gap: 0.75rem; margin-top: 1rem;">
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">送达渠道</div>
-                                    <div class="chip-list" style="margin-top: 0.5rem;">
-                                        <span class="chip">Dify Webapp</span>
-                                        <span class="chip">邮件</span>
-                                        <span class="chip">Slack（通过插件）</span>
-                                        <span class="chip">自定义 Webhook</span>
-                                    </div>
+                                    <div class="card-heading">批准</div>
+                                    <p class="card-body">保留当前值，继续往下执行。</p>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">路由结果</div>
-                                    <div class="chip-list" style="margin-top: 0.5rem;">
-                                        <span class="chip">编辑后继续</span>
-                                        <span class="chip">按决策分支</span>
-                                        <span class="chip">超时回退</span>
-                                        <span class="chip">完整审计追踪</span>
-                                    </div>
+                                    <div class="card-heading">编辑并批准</div>
+                                    <p class="card-body">修正字段后，把新值送回执行流。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading">拒绝</div>
+                                    <p class="card-body">进入回退分支、升级路径或终止处理。</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        演示提示：在 Dify 画布中展示 Human Input 节点 —— 配置送达渠道（邮件），用斜杠命令添加变量引用，设置两个动作按钮（批准 / 请求修改）并各自连接不同下游路径。
-                        强调：超时规则意味着无人值守的工作流不会永远阻塞。
+                        这一页只讲暂停、审核、恢复三件事。
                     </aside>
                 </section>
 
-                <!-- Slide 9 · 真实案例 -->
+                <!-- Slide 9 · 三个组成部分 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">生产实践</h2>
-                        <p class="slide-desc">真实团队如何将人类专业判断贯穿于原本自动化的流程之中。</p>
+                        <h2 class="tight">三个组成部分</h2>
+                        <p class="slide-desc">每个 Human Input 节点都可以拆成三个简单部分：送达、绑定、路由。</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-send-plane-line"></i></div>
+                                <h4>送达</h4>
+                                <p class="card-body">生成审核页，并把它送到正确的人手里。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-braces-line"></i></div>
+                                <h4>变量</h4>
+                                <p class="card-body">插入工作流字段，让人可编辑，再安全地把新值传回去。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-branch-line"></i></div>
+                                <h4>动作</h4>
+                                <p class="card-body">定义按钮、分支和超时规则，让流程始终知道如何恢复。</p>
+                            </div>
+                        </div>
+                        <div class="nordic-card-flat" style="margin-top: 1rem;">
+                            <div class="card-heading">常见用法</div>
+                            <div class="chip-list" style="margin-top: 0.5rem;">
+                                <span class="chip">审批动作</span>
+                                <span class="chip">人工升级</span>
+                                <span class="chip">补填表单信息</span>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        配置心智模型要短而稳定。
+                    </aside>
+                </section>
+
+                <!-- Slide 10 · HITL 最适合放在哪里 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">HITL 最适合放在哪里</h2>
+                        <p class="slide-desc">好的 HITL 节点应该放在决策边界上，而不是铺满整条流程。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
+                            <div class="nordic-card-flat">
+                                <div class="card-heading">外部动作之前</div>
+                                <p class="card-body">在发送邮件、发布内容、提交工单或触达客户之前暂停一次。</p>
+                            </div>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading">置信度下降时</div>
+                                <p class="card-body">在异常、边界情况或低置信结果出现时再人工介入，而不是每次都审。</p>
+                            </div>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading">上下文缺失时</div>
+                                <p class="card-body">只补一个关键字段，然后让流程带着新值继续自动执行。</p>
+                            </div>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading">策略要求签核时</div>
+                                <p class="card-body">财务、合规和对客流程通常都需要一个看得见的审批点。</p>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>节点不一定要多，位置放对通常更重要。</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        重点讲放置策略，而不是数量。
+                    </aside>
+                </section>
+
+                <!-- Slide 11 · 如何设计审核体验 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">如何设计审核体验</h2>
+                        <p class="slide-desc">好的审核页应该做到：一个界面、正确上下文、明确动作。</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-layout-4-line"></i></div>
+                                <h4>一个界面</h4>
+                                <p class="card-body">在 Webapp、邮件或聊天工具里直接完成，不要让审核者再回去翻工作流。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-pencil-ruler-2-line"></i></div>
+                                <h4>可编辑的上下文</h4>
+                                <p class="card-body">只暴露人真正能修正的字段，不要把整份状态都扔给审核者。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cursor-line"></i></div>
+                                <h4>明确动作</h4>
+                                <p class="card-body">按钮要和真实分支一一对应，比如批准、请求修改、升级处理。</p>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-information-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>如果审核者还需要打开另一个系统才能完成任务，说明这个节点设计还没完成。</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        审核页应该是工作界面，而不只是通知入口。
+                    </aside>
+                </section>
+
+                <!-- Slide 12 · 梁的案例 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">梁 · 投资服务团队</h2>
+                        <p class="slide-desc">当自动化结果要直接面向客户时，HITL 可以把专家判断插在最关键的位置。</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                                <div>
-                                    <div class="card-heading" style="color: var(--dify-blue);">梁 · 投资服务团队</div>
-                                    <p class="card-body" style="margin-top: 0.4rem;">手工处理财务报告每位客户需 40 分钟。面对 100+ 客户、人力有限，只有最大客户才能得到完整服务。</p>
-                                </div>
-                                <div>
-                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">3 个 Human Input 节点战略性放置于</div>
-                                    <div class="chip-list">
-                                        <span class="chip">数据综合后</span>
-                                        <span class="chip">异常数据出现时</span>
-                                        <span class="chip">报告发送前</span>
+                            <div class="nordic-card">
+                                <div class="card-heading">扩张难题</div>
+                                <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 0.75rem;">
+                                    <div class="nordic-card-flat">
+                                        <div class="nordic-stat-number" style="font-size: 2rem;">40 分钟</div>
+                                        <div class="caption-text">每位客户的人工处理时间</div>
+                                    </div>
+                                    <div class="nordic-card-flat">
+                                        <div class="nordic-stat-number" style="font-size: 2rem;">100+</div>
+                                        <div class="caption-text">需要服务的客户数</div>
                                     </div>
                                 </div>
-                                <div class="info-banner" style="margin-top: auto;">
-                                    <i class="ri-double-quotes-l info-banner-icon"></i>
-                                    <span style="font-style: italic; font-size: var(--type-sm);">"系统处理计算，人类在最关键的地方施加判断。" —— 到六月，全部 100 位客户都收到了一致、高质量的报告。</span>
-                                </div>
+                                <p class="card-body" style="margin-top: 0.9rem;">报告生成已经自动化，但财务更新真正发给客户前，仍然需要合规团队做最后确认。</p>
                             </div>
-                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
-                                <div>
-                                    <div class="card-heading" style="color: var(--dify-blue);">闵 · 全球支持团队</div>
-                                    <p class="card-body" style="margin-top: 0.4rem;">员工需要在 HR、财务、IT 的独立门户间穿梭 —— 一个反映组织架构而非员工需求的割裂结构。</p>
+                            <div class="nordic-card">
+                                <div class="card-heading">HITL 放置位置</div>
+                                <div class="chip-list" style="margin-top: 0.6rem;">
+                                    <span class="chip">汇总之后</span>
+                                    <span class="chip">异常出现时</span>
+                                    <span class="chip">发送之前</span>
                                 </div>
-                                <div>
-                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Human Input 节点的实际运用</div>
-                                    <p class="card-body">当研发部 Jason 询问报销问题时，系统检测到缺少地点信息，通过 Human Input 节点向他补充收集，随后精准送达上海办公室的相关政策。</p>
-                                </div>
-                                <div class="info-banner" style="margin-top: auto;">
-                                    <i class="ri-double-quotes-l info-banner-icon"></i>
-                                    <span style="font-style: italic; font-size: var(--type-sm);">"我们在构建将 AI 的一致性与人类输入的适应性相结合的工作流。结果感觉像是协作智能。"</span>
+                                <p class="card-body" style="margin-top: 0.9rem;">审核者看到的就是客户最终会看到的内容，必要时编辑后再一键批准。到六月，100 位客户都收到了一致的高质量报告。</p>
+                                <div class="info-banner" style="margin-top: 1rem;">
+                                    <div class="info-banner-slot"><i class="ri-double-quotes-l info-banner-icon"></i></div>
+                                    <div class="info-banner-content"><span style="font-style: italic; font-size: var(--type-sm);">“系统负责计算，人类在最关键的地方施加判断。”</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        这些是真实的客户场景，并非假设。
-                        梁的故事展示了战略性节点放置；闵的故事展示了上下文 Human Input（不仅仅是审批，而是流程中途收集数据）。
-                        提问："哪种模式更接近你要构建的场景？"
+                        这是审批和合规场景。
+                    </aside>
+                </section>
+
+                <!-- Slide 13 · 闵的案例 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">闵 · 全球支持团队</h2>
+                        <p class="slide-desc">HITL 不只是审批，它也可以成为补齐缺失上下文的最干净方式。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="card-heading">支持难题</div>
+                                <p class="card-body">员工要在 HR、财务和 IT 的不同门户间来回切换。很多请求一开始就缺少路由所需的关键信息。</p>
+                                <div class="chip-list" style="margin-top: 0.75rem;">
+                                    <span class="chip">统一入口</span>
+                                    <span class="chip">问题分类</span>
+                                    <span class="chip">知识路由</span>
+                                </div>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="card-heading">HITL 如何帮忙</div>
+                                <p class="card-body">当研发部 Jason 询问报销时，工作流发现缺少地点信息，于是通过 Human Input 节点补采，随后返回了正确的上海办公室政策。</p>
+                                <div class="info-banner" style="margin-top: 1rem;">
+                                    <div class="info-banner-slot"><i class="ri-double-quotes-l info-banner-icon"></i></div>
+                                    <div class="info-banner-content"><span style="font-style: italic; font-size: var(--type-sm);">“结果像是一种协作智能。”</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        这个案例说明 HITL 也是补信息节点。
                     </aside>
                 </section>
 
@@ -468,190 +565,336 @@
             ══════════════════════════════════════════════ -->
             <section>
 
-                <!-- Slide 10 · 章节封面 -->
+                <!-- Slide 14 · 章节封面 -->
                 <section data-background-color="#fafafa">
                     <div class="slide-hero" style="position: relative;">
                         <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">03</div>
                         <span class="section-tag">第三部分</span>
                         <h2>Agent × Skills</h2>
                         <p class="slide-subtitle">
-                            你不会每次需要排序时都把算法内联进去。同样的原则适用于 LLM 推理 —— Skill 就是 Agent 设计中的函数。
+                            Agent 会变得更薄：选择正确的 SOP，调用正确的 Skill，并留下可复用的交付物。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
-                            <i class="ri-information-line info-banner-icon"></i>
-                            <span>适用于 <strong>Workflow</strong> 和 <strong>Agent</strong> 模式</span>
+                            <div class="info-banner-slot"><i class="ri-information-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>适用于 <strong>Workflow</strong> 和 <strong>Agent</strong> 模式</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        过渡语："好的 —— 人已经在环路中了。现在，怎样让 AI 侧更易维护、更可扩展？"
+                        这一段讲的是怎样让 AI 侧更容易维护，也更容易交接。
                     </aside>
                 </section>
 
-                <!-- Slide 11 · 单体 Agent 问题 -->
+                <!-- Slide 15 · 为什么今天的 Agent 仍然不够好 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">单体 Agent 问题</h2>
-                        <p class="slide-desc">随着 Agent 增长，每个新能力都被塞进同一个 Prompt —— 直到没有任何东西可测试、可版本化、可复用。</p>
-                        <div class="nordic-comparison" style="margin-top: 1.75rem;">
+                        <h2 class="tight">为什么今天的 Agent 仍然不够好</h2>
+                        <p class="slide-desc">今天的高级团队，依然常常在绕着运行时做事，而不是直接依赖它。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-repeat-2-line"></i></div>
+                                <h4>Agent 流程仍偏单次执行</h4>
+                                <p class="card-body">多轮行为和多 Agent 交接，在 Workflow 里仍然不够自然。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-list-check-3"></i></div>
+                                <h4>工具菜单制造噪音</h4>
+                                <p class="card-body">工具一多，Prompt 空间就被挤占，工具路由也会越来越脆弱。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-transfer-line"></i></div>
+                                <h4>文件交接很脆弱</h4>
+                                <p class="card-body">文件经常依赖隐藏标识符传递，而不是依赖直观的运行时工件。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bug-line"></i></div>
+                                <h4>调试链路太长</h4>
+                                <p class="card-body">策略、工具路由、文件流和记忆分散在多层，出错时很难定位。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        核心问题不只是模型不够强，而是运行方式不够自然。
+                    </aside>
+                </section>
+
+                <!-- Slide 16 · 从单体 Prompt 到薄编排层 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">从单体 Prompt 到薄编排层</h2>
+                        <p class="slide-desc">Agent 应该负责决策，而不是把所有执行细节都塞进 Prompt。</p>
+                        <div class="nordic-comparison" style="margin-top: 1.5rem;">
                             <div class="nordic-comparison-item">
-                                <div class="card-heading" style="color: var(--error);">之前 —— 单体 Agent</div>
-                                <div class="arch-board" style="margin-top: 0.75rem;">
-                                    <div class="arch-tier" style="border-color: rgba(239,68,68,0.3);">
-                                        <div class="arch-tier-title">Agent Prompt（500+ tokens）</div>
-                                        <div class="chip-list">
-                                            <span class="chip">搜索逻辑</span>
-                                            <span class="chip">格式规则</span>
-                                            <span class="chip">API 调用</span>
-                                            <span class="chip">错误处理</span>
-                                            <span class="chip">输出 Schema</span>
-                                            <span class="chip">重试逻辑</span>
-                                        </div>
+                                <div class="card-heading" style="color: var(--error);">之前 —— Prompt 什么都管</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem;">
+                                    <div class="card-heading">Prompt 里塞着</div>
+                                    <div class="chip-list" style="margin-top: 0.4rem;">
+                                        <span class="chip">工具路由</span>
+                                        <span class="chip">文件处理</span>
+                                        <span class="chip">重试逻辑</span>
+                                        <span class="chip">输出格式</span>
                                     </div>
-                                    <div class="arch-tier" style="border-color: rgba(239,68,68,0.3);">
-                                        <div class="arch-tier-title">问题</div>
-                                        <div class="chip-list">
-                                            <span class="chip">跨 Agent 重复</span>
-                                            <span class="chip">难以隔离测试</span>
-                                            <span class="chip">版本漂移</span>
-                                        </div>
+                                </div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem;">
+                                    <div class="card-heading">容易出的问题</div>
+                                    <div class="chip-list" style="margin-top: 0.4rem;">
+                                        <span class="chip">逻辑重复</span>
+                                        <span class="chip">难以测试</span>
+                                        <span class="chip">工具膨胀</span>
+                                        <span class="chip">状态隐藏</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="nordic-comparison-item active">
-                                <div class="card-heading" style="color: var(--dify-blue);">之后 —— 技能式 Agent</div>
-                                <div class="arch-board" style="margin-top: 0.75rem;">
-                                    <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
-                                        <div class="arch-tier-title" style="color: var(--dify-blue);">Agent（薄编排层）</div>
-                                        <div class="chip-list">
-                                            <span class="chip">目标</span>
-                                            <span class="chip">上下文</span>
-                                            <span class="chip">技能调用</span>
-                                        </div>
+                                <div class="card-heading" style="color: var(--dify-blue);">之后 —— Agent 只做编排</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem; background: rgba(255,255,255,0.82); border-color: var(--dify-blue-medium);">
+                                    <div class="card-heading">Agent 负责</div>
+                                    <div class="chip-list" style="margin-top: 0.4rem;">
+                                        <span class="chip">目标</span>
+                                        <span class="chip">选择 SOP</span>
+                                        <span class="chip">调用 Skills</span>
+                                        <span class="chip">挑选交付物</span>
                                     </div>
-                                    <div class="arch-tier">
-                                        <div class="arch-tier-title">技能库（共享）</div>
-                                        <div class="chip-list">
-                                            <span class="chip">search_web</span>
-                                            <span class="chip">format_report</span>
-                                            <span class="chip">call_api</span>
-                                            <span class="chip">retry_safe</span>
-                                        </div>
+                                </div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem; background: rgba(255,255,255,0.82); border-color: var(--dify-blue-medium);">
+                                    <div class="card-heading">Workflow 拿到</div>
+                                    <div class="chip-list" style="margin-top: 0.4rem;">
+                                        <span class="chip">文本</span>
+                                        <span class="chip">文件</span>
+                                        <span class="chip">结构化字段</span>
+                                        <span class="chip">记忆快照</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        类比：技能就像软件中的函数 —— 你不会每次都内联排序算法。
-                        同样的原则适用于 LLM 推理构建块。
+                        Skill 对 Agent 的意义，类似函数对软件的意义。
                     </aside>
                 </section>
 
-                <!-- Slide 12 · 什么是 Skill -->
+                <!-- Slide 17 · 交付物缺失会让 Workflow 失灵 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">交付物缺失会让 Workflow 失灵</h2>
+                        <p class="slide-desc">如果真正有价值的产物还停留在 Agent 内部记忆里，下游节点就只能从自然语言里猜。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem; align-items: stretch;">
+                            <div class="nordic-card-flat" style="padding: 0.85rem;">
+                                <img src="assets/workflow.png" alt="展示 Agent 接入 IF/ELSE 的工作流示例" style="width: 100%; border-radius: 10px; border: 1px solid var(--gray-200); object-fit: contain;">
+                                <p class="card-body" style="font-size: var(--type-xs); color: var(--text-muted); margin-top: 0.75rem;">示例：IF/ELSE 节点只能从文本里推断状态。</p>
+                            </div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">文本不是状态</div>
+                                    <p class="card-body">靠判断 Agent 有没有说出 <code>success</code>，既脆弱，也难维护。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">文件会消失</div>
+                                    <p class="card-body">原始表格、报告或中间文件可能埋在记忆里，下游只看得到总结。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">Agent 无法接力</div>
+                                    <p class="card-body">后一个 Agent 不能稳定知道前一个 Agent 究竟交付了什么。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        下游用不了的东西，就不算真正进入了 Workflow。
+                    </aside>
+                </section>
+
+                <!-- Slide 18 · 一个节点应该交付什么 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">一个节点应该交付什么</h2>
+                        <p class="slide-desc">生产级工作流需要的，不只是一个润色后的答案。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
+                            <div class="nordic-card">
+                                <div class="card-heading">文本回答</div>
+                                <p class="card-body">给人看的最终解释或回复。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="card-heading">文件</div>
+                                <p class="card-body">报告、表格、图片等，可继续被下游节点使用。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="card-heading">结构化字段</div>
+                                <p class="card-body">状态、决策、ID、参数等，供分支或工具直接读取。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="card-heading">记忆快照</div>
+                                <p class="card-body">让后续节点可以从中提取事实、参数甚至文件。</p>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>如果下游不能消费它，那它就不算真正的交付物。</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        这是目标中的交付面。
+                    </aside>
+                </section>
+
+                <!-- Slide 19 · 什么是 Skill -->
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">什么是 Skill？</h2>
-                        <p class="slide-desc">带有明确输入输出定义的、可版本化、可测试、可组合的执行单元。</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
+                        <p class="slide-desc">Skill 是一个可复用的执行单元，把 SOP 上下文、运行行为和稳定的交接契约打包在一起。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-box-3-line"></i></div>
-                                <h4>封装</h4>
-                                <p class="card-body">具有明确输入 Schema、输出 Schema 和内部 Prompt 的自包含逻辑。</p>
+                                <h4>由 SOP 驱动</h4>
+                                <p class="card-body">“这类事情怎么做”不再分散在各个节点，而是跟 Skill 一起沉淀。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-refresh-line"></i></div>
                                 <h4>可复用</h4>
-                                <p class="card-body">发布一次，可从工作区内任何 Agent 或 Workflow 调用。</p>
+                                <p class="card-body">发布一次，就可以被不同 Agent 和 Workflow 反复调用。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-test-tube-line"></i></div>
                                 <h4>可测试</h4>
-                                <p class="card-body">使用固定输入隔离运行技能 —— 无需触发完整的 Agent 流程。</p>
+                                <p class="card-body">用固定输入单独运行 Skill，而不必触发整条流程。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-branch-line"></i></div>
-                                <h4>可版本化</h4>
-                                <p class="card-body">发布主/次版本；Agent 锁定特定版本以避免更新后的破坏性变更。</p>
+                                <h4>可锁版本</h4>
+                                <p class="card-body">Agent 可以锁定稳定版本，而不是每次共享 Skill 更新都被动受影响。</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-input-cursor-move"></i></div>
-                                <h4>动态变量</h4>
-                                <p class="card-body">技能输入在运行时从对话上下文、前置节点输出或静态配置中组装。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-stack-line"></i></div>
-                                <h4>可组合</h4>
-                                <p class="card-body">在单个 Agent 步骤内顺序链接或并行扇出多个技能。</p>
+                        </div>
+                        <div class="nordic-card-flat" style="margin-top: 1rem;">
+                            <div class="card-heading">典型输入来源</div>
+                            <div class="chip-list" style="margin-top: 0.5rem;">
+                                <span class="chip">对话上下文</span>
+                                <span class="chip">前置节点输出</span>
+                                <span class="chip">文件</span>
+                                <span class="chip">记忆提取</span>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        演示提示：打开技能编辑器 —— 展示 Schema 定义 → 发布 → 添加到 Agent → 运行。
-                        重点演示将上下文映射到技能输入的变量组装面板。
+                        Skill 是可复用的上下文加可复用的执行。
                     </aside>
                 </section>
 
-                <!-- Slide 13 · 技能式架构 -->
+                <!-- Slide 20 · 一套 SOP，多种入口 -->
                 <section>
                     <div class="slide-content">
-                        <h2>技能式 Agent 架构</h2>
-                        <div style="margin-top: 1.75rem;">
-                            <div class="arch-board">
-                                <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
-                                    <div class="arch-tier-title" style="color: var(--dify-blue);">用户 / 触发器</div>
+                        <h2 class="tight">一套 SOP，多种入口</h2>
+                        <p class="slide-desc">Context Engineering 需要一个共享归宿，而不是重复粘贴 Prompt。</p>
+                        <div class="nordic-comparison" style="margin-top: 1.5rem;">
+                            <div class="nordic-comparison-item">
+                                <div class="card-heading" style="color: var(--error);">今天 —— SOP 埋在节点里</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem;">
                                     <div class="chip-list">
-                                        <span class="chip">聊天消息</span>
-                                        <span class="chip">API 调用</span>
-                                        <span class="chip">定时事件</span>
-                                        <span class="chip">Webhook</span>
-                                    </div>
-                                </div>
-                                <div class="arch-tier">
-                                    <div class="arch-tier-title">Agent（推理层）</div>
-                                    <div class="chip-list">
-                                        <span class="chip">目标分解</span>
-                                        <span class="chip">技能选择</span>
-                                        <span class="chip">变量组装</span>
-                                        <span class="chip">结果合成</span>
-                                    </div>
-                                </div>
-                                <div class="arch-tier">
-                                    <div class="arch-tier-title">技能库（执行层）</div>
-                                    <div class="chip-list">
-                                        <span class="chip">web_search v2</span>
-                                        <span class="chip">summarize_doc v1</span>
-                                        <span class="chip">send_email v3</span>
-                                        <span class="chip">query_db v1</span>
-                                        <span class="chip">validate_output v2</span>
-                                        <span class="chip">format_json v1</span>
-                                    </div>
-                                </div>
-                                <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
-                                    <div class="arch-tier-title" style="color: var(--success);">外部系统</div>
-                                    <div class="chip-list">
-                                        <span class="chip">API</span>
-                                        <span class="chip">数据库</span>
-                                        <span class="chip">知识库</span>
-                                        <span class="chip">插件</span>
-                                        <span class="chip">HITL 关卡</span>
+                                        <span class="chip">同一 SOP 重复写</span>
+                                        <span class="chip">难以评审</span>
+                                        <span class="chip">最佳实践漂移</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="info-banner" style="margin-top: 1rem;">
-                                <i class="ri-lightbulb-line info-banner-icon"></i>
-                                <span>技能位于<strong>执行层</strong>，Agent 位于<strong>推理层</strong>。分离这两个关注点，是让大型 Agent 系统可维护的关键。</span>
+                            <div class="nordic-comparison-item active">
+                                <div class="card-heading" style="color: var(--dify-blue);">更好的方式 —— 共享 <code>/sops</code> 工作区</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem; background: rgba(255,255,255,0.82); border-color: var(--dify-blue-medium);">
+                                    <div class="chip-list">
+                                        <span class="chip">写一次</span>
+                                        <span class="chip">按入口文件区分</span>
+                                        <span class="chip">随工作流版本化</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
-                                <div class="card-heading" style="margin-bottom: 0.4rem;">场景：研究与报告 Agent</div>
-                                <p class="card-body">单次 Agent 调用依次组合 <code>web_search v2</code> → <code>summarize_doc v1</code> → <code>format_report v3</code>。每个技能经过隔离测试、由 Agent 锁定版本，并在工作区内的另外三个 Agent 中共享复用。</p>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>很多 Agent 共享的是同一套 SOP，只是从不同文件进入、关注范围不同。</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        这是把 Context Engineering 变成团队基础设施。
+                    </aside>
+                </section>
+
+                <!-- Slide 21 · Skill + SOP Agent 架构 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Skill + SOP Agent 架构</h2>
+                        <p class="slide-desc">推理层保持轻量，执行层围绕文件、命令和可复用交付物展开。</p>
+                        <div class="arch-board" style="margin-top: 1.5rem;">
+                            <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
+                                <div class="arch-tier-title" style="color: var(--dify-blue);">输入</div>
+                                <div class="chip-list">
+                                    <span class="chip">用户请求</span>
+                                    <span class="chip">前置节点输出</span>
+                                    <span class="chip">上传文件</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">Agent 层</div>
+                                <div class="chip-list">
+                                    <span class="chip">选择 SOP</span>
+                                    <span class="chip">组装上下文</span>
+                                    <span class="chip">调用 Skills</span>
+                                    <span class="chip">决定下一步</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier">
+                                <div class="arch-tier-title">工作区</div>
+                                <div class="chip-list">
+                                    <span class="chip">/sops</span>
+                                    <span class="chip">命令</span>
+                                    <span class="chip">文件</span>
+                                    <span class="chip">版本化 Skills</span>
+                                </div>
+                            </div>
+                            <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
+                                <div class="arch-tier-title" style="color: var(--success);">交接物</div>
+                                <div class="chip-list">
+                                    <span class="chip">文本</span>
+                                    <span class="chip">文件</span>
+                                    <span class="chip">字段</span>
+                                    <span class="chip">记忆</span>
+                                    <span class="chip">HITL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>更好的心智模型是 SOP、文件和工件，而不是一个越来越大的工具下拉框。</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        关键是工作区心智模型，而不是工具菜单心智模型。
+                    </aside>
+                </section>
+
+                <!-- Slide 22 · 记忆提取让上下文可复用 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">记忆提取让上下文可复用</h2>
+                        <p class="slide-desc">Memory 不再只是实现细节，而是可以继续流转的工作流工件。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem; align-items: stretch;">
+                            <div class="nordic-card-flat" style="padding: 0.85rem;">
+                                <img src="assets/memory.png" alt="记忆提取机制示意图" style="width: 100%; border-radius: 10px; border: 1px solid var(--gray-200); object-fit: contain; background: white;">
+                            </div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">每个节点保留自己的记忆</div>
+                                    <p class="card-body">文本不再是唯一输出，节点的工作上下文也会被保留下来。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">后续节点按需提取</div>
+                                    <p class="card-body">事实、参数，甚至文件，都可以在后续步骤里从记忆中重新提取出来。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">上下文变成可复用状态</div>
+                                    <p class="card-body">关键产物不再消失在对话历史里，而是能够继续向下游流转。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        这个分层视图与软件架构师思考服务层的方式直接对应。
-                        推理："做什么？" —— 执行："怎么做？"
-                        Skills 模型使两层都可独立测试和扩展。
-                        场景卡让抽象变得具体 —— 技能不是理论，而是构建一次、处处复用的东西。
+                        这一页解释的是怎样把隐藏上下文变成可复用状态。
                     </aside>
                 </section>
 
@@ -662,170 +905,209 @@
             ══════════════════════════════════════════════ -->
             <section>
 
-                <!-- Slide 14 · 章节封面 -->
+                <!-- Slide 23 · 章节封面 -->
                 <section data-background-color="#fafafa">
                     <div class="slide-hero" style="position: relative;">
                         <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">04</div>
                         <span class="section-tag">第四部分</span>
                         <h2>沙箱运行时 &amp; 协作开发</h2>
                         <p class="slide-subtitle">
-                            运行任意代码的 AI 工作流需要硬性隔离边界。而随着团队扩大，"一个人编辑工作流"的模式也不再可行。
+                            当 Agent 围绕 SOP、文件和显式交付物工作时，运行时必须同时做到好用和安全。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
-                            <i class="ri-information-line info-banner-icon"></i>
-                            <span>适用于自托管和 <strong>Dify Cloud</strong></span>
+                            <div class="info-banner-slot"><i class="ri-information-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>适用于自托管和 <strong>Dify Cloud</strong></span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        过渡语："最后一块拼图：安全运行代码并让团队协同工作。"
+                        这一段讲的是可用的运行时和围绕它的协作产品面。
                     </aside>
                 </section>
 
-                <!-- Slide 14b · 无约束代码的风险 -->
+                <!-- Slide 24 · Command 节点 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">AI 工作流中无约束代码的风险</h2>
-                        <p class="slide-desc">代码节点解锁了强大的转换能力 —— 但没有隔离，每个节点都是潜在的攻击面。</p>
+                        <h2 class="tight">Command 节点：一个很小但很强的原语</h2>
+                        <p class="slide-desc">输入一行命令，输出 stdout，把文件留在运行时里交给下一步。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem; align-items: stretch;">
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading" style="color: var(--dify-blue);">示例</div>
+                                <pre class="code-block" style="margin-top: 0.75rem;"><code>report --input ./turnsheet.csv --format json</code></pre>
+                                <div class="chip-list" style="margin-top: 0.75rem;">
+                                    <span class="chip">命令行输入</span>
+                                    <span class="chip">stdout 输出</span>
+                                    <span class="chip">文件留在运行时</span>
+                                </div>
+                            </div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">对 LLM 更自然</div>
+                                    <p class="card-body">模型在预训练里已经见过大量命令、管道和文件路径。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">产品面更小</div>
+                                    <p class="card-body">不需要为每个小转换动作都单独设计一套工具 UI。</p>
+                                </div>
+                                <div class="nordic-card-flat">
+                                    <div class="card-heading" style="margin-bottom: 0.35rem;">交接更清晰</div>
+                                    <p class="card-body">大的工件保留成文件，显式地往下传，而不是硬塞回 Prompt。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Command 节点很小，但会打开一种更自然的运行时模型。
+                    </aside>
+                </section>
+
+                <!-- Slide 25 · 从工具列表到 POSIX 工作区 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">从工具列表到 POSIX 工作区</h2>
+                        <p class="slide-desc">不要把每种能力都做成一张 Tool 卡，而是让运行时直接暴露命令、文件和 stdout。</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="card-heading" style="color: var(--error);">之前 —— Tool-first 编排</div>
+                                <pre class="code-block" style="margin-top: 0.75rem;"><code>step1: A = google_search(query="Dify", max_size=30)
+step2: B = summary(query=A)</code></pre>
+                                <div class="chip-list" style="margin-top: 0.75rem;">
+                                    <span class="chip">类型转换隐藏</span>
+                                    <span class="chip">输出停在内存里</span>
+                                    <span class="chip">每个工具都要做 UI</span>
+                                </div>
+                            </div>
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading" style="color: var(--dify-blue);">之后 —— POSIX 风格执行</div>
+                                <pre class="code-block" style="margin-top: 0.75rem;"><code>summary --query "$(google_search --query dify --max_size 30)"</code></pre>
+                                <div class="chip-list" style="margin-top: 0.75rem;">
+                                    <span class="chip">统一字符串接口</span>
+                                    <span class="chip">shell 原生组合</span>
+                                    <span class="chip">先 ls /bin 认识环境</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        运行时对人更简单，对 LLM 也更可读。
+                    </aside>
+                </section>
+
+                <!-- Slide 26 · 无约束代码的风险 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">无约束代码的风险</h2>
+                        <p class="slide-desc">Agent 需要真实执行面，但不应该直接拿到宿主机。</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
                                 <h4>宿主系统访问</h4>
-                                <p class="card-body">没有隔离时，代码节点可以读取宿主机上的凭证、环境变量或任意文件 —— 敏感数据会在毫无提示的情况下悄然泄露。</p>
+                                <p class="card-body">没有隔离时，代码可以读取本地凭证、环境变量和文件。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
-                                <h4>无资源限制</h4>
-                                <p class="card-body">失控的循环或大内存操作会阻塞整个 Worker 进程 —— 一个错误的 Prompt 可能让所有用户的生产环境宕机。</p>
+                                <h4>没有资源边界</h4>
+                                <p class="card-body">失控循环或内存暴涨会拖垮共享运行时上的所有任务。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
                                 <h4>供应链风险</h4>
-                                <p class="card-body">代码节点可以导入第三方包。一个被入侵的包可以悄悄将工作流数据发送到外部服务器。没有网络限制，你永远不会知道。</p>
+                                <p class="card-body">导入的第三方包可能静默外传工作流数据，除非环境被严格控制。</p>
                             </div>
-                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-shield-check-line"></i></div>
-                                <h4 style="color: var(--dify-blue);">沙箱运行时解决这一问题</h4>
-                                <p class="card-body">Dify 在隔离容器中运行每个代码节点 —— 无宿主访问、强制 CPU/内存限制、网络白名单。Cloud 版本默认启用；自托管只需一个配置项。</p>
-                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-shield-check-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>沙箱的目标不是削弱能力，而是把能力安全地关进边界里。</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        这张幻灯片对观众中的 DevOps 和平台工程师最有价值。
-                        供应链风险这点往往让人出乎意料 —— 他们考虑的是自己写的代码，而不是它导入的包。
+                        关键不是减少能力，而是控制能力边界。
                     </aside>
                 </section>
 
-                <!-- Slide 15 · 沙箱代码执行 -->
+                <!-- Slide 27 · 沙箱代码执行 -->
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">沙箱代码执行</h2>
-                        <p class="slide-desc">Python 和 JavaScript 节点在隔离环境中运行 —— 无共享状态，无宿主访问。</p>
+                        <p class="slide-desc">给 Agent 一个像小型 Unix 工作站一样的环境，同时包在严格的安全边界内。</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                                <div class="nordic-card">
-                                    <div class="card-heading">隔离保证</div>
-                                    <ul class="checklist" style="margin-top: 0.5rem;">
-                                        <li class="checked" style="font-size: var(--type-sm);">无法访问宿主文件系统</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">网络调用受白名单限制</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">每次运行强制内存 &amp; CPU 限制</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">每个节点可配置执行超时</li>
-                                    </ul>
+                            <div class="nordic-card">
+                                <div class="card-heading">安全边界</div>
+                                <ul class="checklist" style="margin-top: 0.5rem;">
+                                    <li class="checked" style="font-size: var(--type-sm);">无法访问宿主文件系统</li>
+                                    <li class="checked" style="font-size: var(--type-sm);">网络受白名单限制</li>
+                                    <li class="checked" style="font-size: var(--type-sm);">每次运行都有 CPU / 内存上限</li>
+                                    <li class="checked" style="font-size: var(--type-sm);">每个节点可配置超时</li>
+                                </ul>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="card-heading">可用运行时表面</div>
+                                <div class="chip-list" style="margin-top: 0.5rem;">
+                                    <span class="chip">ls /bin</span>
+                                    <span class="chip">stdin/stdout I/O</span>
+                                    <span class="chip">文件作为交接</span>
+                                    <span class="chip">Python 3.11+</span>
+                                    <span class="chip">JavaScript (Node 20)</span>
+                                    <span class="chip">外置文件存储</span>
                                 </div>
-                                <div class="nordic-card">
-                                    <div class="card-heading">支持的运行时</div>
-                                    <div class="chip-list" style="margin-top: 0.5rem;">
-                                        <span class="chip">Python 3.11+</span>
-                                        <span class="chip">JavaScript (Node 20)</span>
-                                        <span class="chip">通过 pip/npm 自定义包</span>
-                                    </div>
+                                <div class="card-heading" style="margin-top: 1rem;">如何启用</div>
+                                <div class="chip-list" style="margin-top: 0.5rem;">
+                                    <span class="chip" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.35); color:var(--success);">Cloud 版默认开启</span>
+                                    <span class="chip">自托管设置 <code>SANDBOX=true</code></span>
                                 </div>
                             </div>
-                            <div class="nordic-card-flat" style="padding: 0; overflow: hidden;">
-                                <div style="padding: 0.6rem 1rem; background: var(--gray-200); border-bottom: 1px solid var(--gray-300);">
-                                    <span class="mono-badge">code_node.py</span>
-                                </div>
-                                <pre class="code-block" style="border-radius: 0; margin: 0;"><code><span class="comment"># 在隔离沙箱中运行 — 无宿主访问</span>
-<span class="keyword">def</span> <span class="function">main</span>(inputs: dict) -> dict:
-    text = inputs[<span class="string">"content"</span>]
-    words = len(text.split())
-    <span class="comment"># 自定义转换逻辑</span>
-    summary = text[:<span class="variable">200</span>] + <span class="string">"..."</span>
-    <span class="keyword">return</span> {
-        <span class="string">"summary"</span>: summary,
-        <span class="string">"word_count"</span>: words
-    }</code></pre>
-                            </div>
-                        </div>
-                        <div class="warn-banner" style="margin-top: 1rem;">
-                            <i class="ri-alert-line" style="color: var(--warning); flex-shrink: 0; margin-top: 0.1rem;"></i>
-                            <span>自托管部署：在 docker-compose 中启用 <code>SANDBOX</code> 服务以激活隔离。云端版本默认启用沙箱。</span>
                         </div>
                     </div>
                     <aside class="notes">
-                        核心信息："你现在可以在工作流中编写任意转换代码，而不会打开安全漏洞。"
-                        演示提示：添加 Code 节点，粘贴 Python 函数，运行 —— 在追踪中展示输出。
+                        这就是让命令执行安全进入生产环境的前提。
                     </aside>
                 </section>
 
-                <!-- Slide 16 · 协作工作流开发 -->
+                <!-- Slide 28 · 协作工作流开发 -->
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">协作工作流开发</h2>
-                        <p class="slide-desc">多名团队成员共同编写、审查和发布工作流 —— 有角色权限和版本历史。</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
+                        <p class="slide-desc">工作流本身会变成团队共同维护的产品表面。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-team-line"></i></div>
                                 <h4>角色访问控制</h4>
-                                <p class="card-body">工作区内的查看者、编辑者和所有者角色。非所有者可起草但无法发布。</p>
+                                <p class="card-body">不同成员可以分别起草、审查、发布，而不会互相覆盖。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-history-line"></i></div>
                                 <h4>版本历史</h4>
-                                <p class="card-body">每次发布创建命名快照。新版本性能下降时一键回滚。</p>
+                                <p class="card-body">每次发布都会形成快照，便于对比和快速回滚。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-commit-line"></i></div>
                                 <h4>草稿 → 审查 → 发布</h4>
-                                <p class="card-body">类 Git 生命周期：起草变更、发起同行审查、合并到线上 —— 全在 Dify 内完成。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-eye-line"></i></div>
-                                <h4>实时在线状态</h4>
-                                <p class="card-body">实时看到谁在编辑 —— 不再有无声覆盖或"谁改了这里？"的困扰。</p>
+                                <p class="card-body">流程生命周期变得清晰可重复，而不是散落在截图和聊天记录里。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-list-3-line"></i></div>
-                                <h4>注释 &amp; 备注</h4>
-                                <p class="card-body">在节点上附加意图备注 —— 为未来维护者记录"为什么这样写 Prompt"。</p>
+                                <h4>共享 SOP 资产</h4>
+                                <p class="card-body">最佳实践不再是个人 Prompt 片段，而会沉淀成团队资产。</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-send-plane-line"></i></div>
-                                <h4>一键部署</h4>
-                                <p class="card-body">将审批通过的版本直接发布到 API、Web 应用或嵌入式集成。</p>
-                            </div>
-                        </div>
                         </div>
                         <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
-                            <div class="card-heading" style="margin-bottom: 0.4rem;">场景：规模化平台团队</div>
-                            <p class="card-body">数据工程师起草一个新的 RAG 节点。Prompt 工程师审查并添加推理注释。平台负责人发布 v3 —— v2 仍在预发布环境运行。如果 v3 导致召回质量下降，一键回滚 —— 完整历史永久保留。</p>
+                            <div class="card-heading" style="margin-bottom: 0.4rem;">一个简单团队流</div>
+                            <p class="card-body">一个人起草工作流，另一个人审查 SOP，负责人发布通过版本，同时完整保留历史。</p>
                         </div>
                     </div>
                     <aside class="notes">
-                        这对超过 2 人的团队最有价值。独立开发者可以忽略大部分内容。
-                        提问："这里有谁和 3+ 人团队一起做 AI 功能？" —— 然后重点讲角色和版本部分。
-                        场景卡为工程负责人搭起了理论到实践的桥梁。
+                        当工作流变成团队资产后，协作就不再是附加功能。
                     </aside>
                 </section>
 
             </section><!-- /第四部分 -->
 
             <!-- ══════════════════════════════════════════════
-                 Slide 17 · 融合全景
+                 Slide 23 · 融合全景
             ══════════════════════════════════════════════ -->
             <section>
                 <div class="slide-content">
                     <h2 class="tight">融合全景</h2>
-                    <p class="slide-desc">将三大演进融合到单一工作流中的生产 Agent 系统。</p>
+                    <p class="slide-desc">一个生产级 Agent 系统：推理、运行时执行和人工审核都围绕显式交付物协同工作。</p>
                     <div style="margin-top: 1.75rem;" class="arch-board">
                         <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
                             <div class="arch-tier-title" style="color: var(--dify-blue);">输入</div>
@@ -838,17 +1120,19 @@
                         <div class="arch-tier">
                             <div class="arch-tier-title">Agent（推理层）</div>
                             <div class="chip-list">
-                                <span class="chip">目标分解</span>
-                                <span class="chip">→ 调用 Skills</span>
-                                <span class="chip">→ 组装结果</span>
+                                <span class="chip">选择 SOP</span>
+                                <span class="chip">组装上下文</span>
+                                <span class="chip">读取 /sops</span>
+                                <span class="chip">调用 Skills</span>
                             </div>
                         </div>
                         <div class="arch-tier">
-                            <div class="arch-tier-title">技能执行（沙箱隔离）</div>
+                            <div class="arch-tier-title">执行层（沙箱工作区）</div>
                             <div class="chip-list">
-                                <span class="chip">web_search</span>
-                                <span class="chip">code_transform（Python 沙箱）</span>
-                                <span class="chip">format_output</span>
+                                <span class="chip">command_node</span>
+                                <span class="chip">skills</span>
+                                <span class="chip">文件 + stdio</span>
+                                <span class="chip">代码沙箱</span>
                             </div>
                         </div>
                         <div class="arch-tier" style="border-color: var(--warning); background: rgba(245,158,11,0.05);">
@@ -860,18 +1144,20 @@
                             </div>
                         </div>
                         <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
-                            <div class="arch-tier-title" style="color: var(--success);">输出 + 可观测性</div>
+                            <div class="arch-tier-title" style="color: var(--success);">交付物 + 可观测性</div>
                             <div class="chip-list">
-                                <span class="chip">API 响应</span>
-                                <span class="chip">Web 应用渲染</span>
-                                <span class="chip">完整追踪日志</span>
+                                <span class="chip">文本响应</span>
+                                <span class="chip">生成文件</span>
+                                <span class="chip">结构化字段</span>
+                                <span class="chip">记忆快照</span>
+                                <span class="chip">追踪日志</span>
                                 <span class="chip">成本追踪</span>
                             </div>
                         </div>
                     </div>
                     <div class="info-banner" style="margin-top: 1rem;">
-                        <i class="ri-lightbulb-line info-banner-icon"></i>
-                        <span>每一层都可独立测试、版本化和观测 —— 这是生产级工程的标志。</span>
+                        <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                        <div class="info-banner-content"><span>生产级的关键，是每一步都要留下下一步真正能用的产物。</span></div>
                     </div>
                 </div>
                 <aside class="notes">
@@ -881,81 +1167,7 @@
             </section>
 
             <!-- ══════════════════════════════════════════════
-                 Slide 18 · 总结 & 下一步
-            ══════════════════════════════════════════════ -->
-            <section data-background-color="#fafafa">
-                <div class="slide-content">
-                    <h2>总结 &amp; 下一步</h2>
-                    <div class="nordic-grid nordic-grid-2" style="margin-top: 1.75rem; gap: 1rem;">
-                        <div>
-                            <div class="card-heading" style="margin-bottom: 1rem;">今天学到的三件事</div>
-                            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                                <div class="agenda-item">
-                                    <span class="agenda-num">01</span>
-                                    <div class="agenda-body">
-                                        <div class="agenda-title">HITL 节点</div>
-                                        <div class="agenda-desc">暂停 → 人工决策 → 恢复并留有完整审计追踪</div>
-                                    </div>
-                                </div>
-                                <div class="agenda-item">
-                                    <span class="agenda-num">02</span>
-                                    <div class="agenda-body">
-                                        <div class="agenda-title">Agent × Skills</div>
-                                        <div class="agenda-desc">模块化、可版本化、可复用的执行单元</div>
-                                    </div>
-                                </div>
-                                <div class="agenda-item">
-                                    <span class="agenda-num">03</span>
-                                    <div class="agenda-body">
-                                        <div class="agenda-title">沙箱 + 协作</div>
-                                        <div class="agenda-desc">安全代码执行 + 团队级协同创作</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="card-heading" style="margin-bottom: 0.6rem;">初次使用 Dify</div>
-                            <div style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom:0.9rem;">
-                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
-                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S1</span>
-                                    <div class="agenda-desc">注册 dify.ai 或通过 docker-compose 搭建自托管实例</div>
-                                </div>
-                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
-                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S2</span>
-                                    <div class="agenda-desc">在工作区中打开 HITL 入门模板</div>
-                                </div>
-                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
-                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S3</span>
-                                    <div class="agenda-desc">添加第一个 Human Input 节点并配置两个操作按钮</div>
-                                </div>
-                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
-                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S4</span>
-                                    <div class="agenda-desc">发布并与团队成员一起测试审核流程</div>
-                                </div>
-                            </div>
-                            <div class="card-heading" style="margin-bottom: 0.6rem;">已在使用 Dify</div>
-                            <ul class="checklist">
-                                <li style="font-size: var(--type-sm);">本周在现有工作流中添加一个 HITL 节点</li>
-                                <li style="font-size: var(--type-sm);">将一个重复 Prompt 提取为 Skill 模块</li>
-                                <li style="font-size: var(--type-sm);">在 docker-compose 中启用 Sandbox 服务</li>
-                                <li style="font-size: var(--type-sm);">加入 Dify Discord &amp; GitHub Discussions</li>
-                            </ul>
-                            <div class="info-banner" style="margin-top: 0.75rem;">
-                                <i class="ri-github-line info-banner-icon"></i>
-                                <span><strong>github.com/langgenius/dify</strong> —— Star 仓库 &amp; 关注版本发布</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">
-                    有力收尾："生产级 AI 不只是模型的事 —— 是围绕它的系统的事。
-                    HITL、Skills 和沙箱是让 AI 值得信赖、可以上线的三大支柱。"
-                    留出问答时间 —— 这类观众通常对合规和团队工作流有很强的观点。
-                </aside>
-            </section>
-
-            <!-- ══════════════════════════════════════════════
-                 Slide 19 · 感谢 / Q&A
+                 Slide 24 · 感谢 / Q&A
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 700px;">
