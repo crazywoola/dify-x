@@ -1,5 +1,5 @@
 # Dify X
-Reveal.js deck collection from the Dify team, covering risk control, RAG evolution, low-/pro-code collaboration, and integration demos.
+Reveal.js deck collection from the Dify team, covering production-grade agent systems, risk control, RAG evolution, low-/pro-code collaboration, and integration demos.
 
 Online:
 - CN home: https://crazywoola.github.io/dify-x/
@@ -22,7 +22,7 @@ Online:
 - `milvus/`: RAG evolution + vector DB collaboration deck, shared styles in `milvus/styles/` and notes (`AGENTS.md`, `context.md`, `target_audience.md`).
 - `aispeech/`: AI workflow solutions for AISPEECH (CN/EN) with 35-slide vertical stacks and shared `styles/nordic.css`.
 - `hongkong-oss/`: Dify 101 workshop deck (CN/EN) split into two 30-min sessions: Session 1 covers Dify platform overview (Visual Orchestration, Knowledge Base, Plugin Ecosystem, Observability, HITL, Skills, Triggers), Workflow core, Knowledge/RAG, and production essentials; Session 2 covers Code Node, low-code vs pro-code, plugin ecosystem deep dive, optional advanced topics (RAG eval, Agent architecture, guardrails), and hands-on projects (Apple Watch workflow, GDPR chatbot). Schedule: 15:10–15:40 S1 / break / 15:50–16:20 S2.
-- `agent-systems/`: Production-grade agent systems deck (CN/EN) covering three architectural advances in Dify's latest releases: Human-in-the-Loop auditable execution nodes, Agent × Skills modular reusable skill design with dynamic variable assembly, and sandboxed runtime with collaborative workflow development.
+- `agent-systems/`: Production-grade agent systems deck (CN/EN) covering HITL placement and reviewer UX, explicit node deliverables, SOP-backed Agent × Skills, command-node / POSIX-style sandbox execution, and collaborative workflow development.
 - `oceanbase/`: Dify × Oceanbase integration guide and sample `docker-compose.yaml`.
 - `legalai/`: legal workflow samples (YAML in `legalai/demo/`).
 
@@ -34,7 +34,7 @@ Online:
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
 - `aispeech/index.html`: cross-role AI workflows for AISPEECH (sync officer, auto analyst, legal QA, bug intake, meeting PMO, ROI).
 - `hongkong-oss/index.html`: Dify 101 workshop deck — Session 1 (30 min): platform overview, Workflow, Knowledge/RAG, production essentials; Session 2 (30 min): Code Node, low-code vs pro-code, Plugin Ecosystem, optional deep dives, hands-on projects.
-- `agent-systems/index.html`: production-grade agent systems — HITL nodes, Agent × Skills, sandboxed runtime, and collaborative workflow development.
+- `agent-systems/index.html`: production-grade agent systems — HITL review points, explicit deliverables, SOP-driven Skills, command-node / POSIX-style sandbox runtime, and collaborative workflow development.
 - English versions live in each folder’s `index_en.html`.
 
 ## Tech & design
