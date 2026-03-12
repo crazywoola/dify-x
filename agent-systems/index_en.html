@@ -59,6 +59,40 @@
             </section>
 
             <!-- ══════════════════════════════════════════════
+                 Slide 1b · Why Now Hook
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2 class="tight">Agents Can Act — But Production Is Not Ready</h2>
+                    <p class="slide-desc">Model capability has crossed the "usable" threshold, but teams pushing agents into production keep hitting the same three walls.</p>
+                    <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem;">
+                        <div class="nordic-card">
+                            <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-error-warning-line"></i></div>
+                            <h4>Hallucinations Reach Users</h4>
+                            <p class="card-body">Without human checkpoints, AI-generated errors can reach end users directly. One incident destroys trust.</p>
+                        </div>
+                        <div class="nordic-card">
+                            <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-keyhole-line"></i></div>
+                            <h4>Compliance Cannot Close</h4>
+                            <p class="card-body">Finance, healthcare, and government need approval records and traceable audit trails. Pure automation fails the audit.</p>
+                        </div>
+                        <div class="nordic-card">
+                            <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-links-line"></i></div>
+                            <h4>Fragile Toolchains</h4>
+                            <p class="card-body">Prompts grow endlessly, tool lists keep expanding, handoffs rely on hidden state — maintenance cost far exceeds expectations.</p>
+                        </div>
+                    </div>
+                    <div class="info-banner" style="margin-top: 1rem;">
+                        <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                        <div class="info-banner-content"><span>Today we will cover how Dify addresses these gaps with three architectural advances.</span></div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    30 seconds of urgency: the problem is not model quality — it is the engineering layer around it.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
                  Slide 2 · Agenda
             ══════════════════════════════════════════════ -->
             <section>
@@ -113,60 +147,6 @@
                 </div>
                 <aside class="notes">
                     Keep this slide on-screen for &lt;20 s — just map the journey, don't read each item.
-                </aside>
-            </section>
-
-            <!-- ══════════════════════════════════════════════
-                 Slide 2b · Community Stats
-            ══════════════════════════════════════════════ -->
-            <section>
-                <div class="slide-content">
-                    <h2>Global Community</h2>
-                    <p class="slide-desc">Open-source ecosystem · GitHub Top 100 project</p>
-                    <div style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
-                        <span class="tag tag-primary">GitHub Top 100 · Open Source LLMOps</span>
-                    </div>
-                    <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem; margin-top: 1.5rem;">
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">1M+</div>
-                            <div class="nordic-stat-label">Powered by Dify</div>
-                        </div>
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">130K+</div>
-                            <div class="nordic-stat-label">GitHub Stars</div>
-                        </div>
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">150+</div>
-                            <div class="nordic-stat-label">Countries</div>
-                        </div>
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">1,000+</div>
-                            <div class="nordic-stat-label">Contributors</div>
-                        </div>
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">60+</div>
-                            <div class="nordic-stat-label">Industries</div>
-                        </div>
-                        <div class="nordic-stat">
-                            <div class="nordic-stat-number">550M+</div>
-                            <div class="nordic-stat-label">Total Downloads</div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">
-                    Quick credibility slide — 20 s max. Let the numbers speak.
-                </aside>
-            </section>
-
-            <!-- ══════════════════════════════════════════════
-                 Slide 2c · Companies
-            ══════════════════════════════════════════════ -->
-            <section data-background-color="#fafafa">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
-                    <img src="assets/companies.png" alt="Companies using Dify" style="max-width: 96%; max-height: 640px; object-fit: contain; border-radius: 8px;">
-                </div>
-                <aside class="notes">
-                    Don't read the logos — just note the breadth (enterprise, startup, research, government).
                 </aside>
             </section>
 
@@ -368,58 +348,22 @@
                             </div>
                             <div class="nordic-grid nordic-grid-3" style="gap: 0.75rem; margin-top: 1rem;">
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">Approve</div>
-                                    <p class="card-body">Keep the current values and continue.</p>
+                                    <div class="card-heading"><i class="ri-send-plane-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> Delivery</div>
+                                    <p class="card-body">Generate a review page and route it to the right person.</p>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">Edit &amp; Approve</div>
-                                    <p class="card-body">Fix a field, then send the new value back into execution.</p>
+                                    <div class="card-heading"><i class="ri-braces-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> Variables</div>
+                                    <p class="card-body">Insert editable fields and return new values safely.</p>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">Reject</div>
-                                    <p class="card-body">Route to a fallback branch, escalation path, or stop condition.</p>
+                                    <div class="card-heading"><i class="ri-git-branch-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> Actions</div>
+                                    <p class="card-body">Buttons, branches, and timeout rules to ensure resumption.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        Show the pause, the reviewer page, and the three outcomes.
-                    </aside>
-                </section>
-
-                <!-- Slide 9 · Three Building Blocks -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">Three Building Blocks</h2>
-                        <p class="slide-desc">Every Human Input node is simple to configure: deliver it, bind it, route it.</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-send-plane-line"></i></div>
-                                <h4>Delivery</h4>
-                                <p class="card-body">Generate a review page and send it to the right person.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-braces-line"></i></div>
-                                <h4>Variables</h4>
-                                <p class="card-body">Insert workflow fields, let humans edit them, then return the new values safely.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-git-branch-line"></i></div>
-                                <h4>Actions</h4>
-                                <p class="card-body">Define labels, routes, and timeout rules so the workflow always knows how to resume.</p>
-                            </div>
-                        </div>
-                        <div class="nordic-card-flat" style="margin-top: 1rem;">
-                            <div class="card-heading">Common Uses</div>
-                            <div class="chip-list" style="margin-top: 0.5rem;">
-                                <span class="chip">approval action</span>
-                                <span class="chip">human escalation</span>
-                                <span class="chip">missing-form input</span>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        Keep the configuration mental model short and memorable.
+                        This slide covers pause/review/resume and the three configuration dimensions together.
                     </aside>
                 </section>
 
@@ -448,43 +392,11 @@
                         </div>
                         <div class="info-banner" style="margin-top: 1rem;">
                             <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>Fewer, better-placed nodes usually beat putting review after every step.</span></div>
+                            <div class="info-banner-content"><span>Fewer, better-placed nodes usually beat reviewing every step. If reviewers still need another system to finish the task, the node design is incomplete.</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        Placement matters more than quantity.
-                    </aside>
-                </section>
-
-                <!-- Slide 11 · Design the Reviewer Experience -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">Design the Reviewer Experience</h2>
-                        <p class="slide-desc">A good reviewer page gives one surface, the right context, and obvious next actions.</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-layout-4-line"></i></div>
-                                <h4>One Surface</h4>
-                                <p class="card-body">Deliver the task in webapp, email, or chat so reviewers do not have to reopen the workflow.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-pencil-ruler-2-line"></i></div>
-                                <h4>Editable Context</h4>
-                                <p class="card-body">Expose only the fields a person can actually fix, not the entire workflow state.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cursor-line"></i></div>
-                                <h4>Clear Actions</h4>
-                                <p class="card-body">Match buttons to real downstream routes such as approve, request changes, or escalate.</p>
-                            </div>
-                        </div>
-                        <div class="info-banner" style="margin-top: 1rem;">
-                            <div class="info-banner-slot"><i class="ri-information-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>If reviewers still need another system to finish the task, the node design is incomplete.</span></div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        The review page should be the job surface, not just a notification.
+                        Placement matters more than quantity. The review page should be the job surface, not just a notification.
                     </aside>
                 </section>
 
@@ -815,6 +727,50 @@
                     </aside>
                 </section>
 
+                <!-- Slide 20b · Practical Example -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">In Practice: From Scattered Prompts to a Shared Skill Library</h2>
+                        <p class="slide-desc">An e-commerce ops team consolidated duplicated customer-service SOPs from 5 separate workflows into one shared Skill — cutting maintenance by 4x.</p>
+                        <div class="nordic-comparison" style="margin-top: 1.5rem;">
+                            <div class="nordic-comparison-item">
+                                <div class="card-heading" style="color: var(--error);">Before — 5 workflows, each with its own copy</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem;">
+                                    <div class="chip-list">
+                                        <span class="chip">returns flow</span>
+                                        <span class="chip">shipping inquiry</span>
+                                        <span class="chip">complaint handling</span>
+                                        <span class="chip">order exception</span>
+                                        <span class="chip">VIP service</span>
+                                    </div>
+                                </div>
+                                <div class="nordic-card-flat" style="margin-top: 0.5rem;">
+                                    <p class="card-body">Each workflow contained a near-identical "customer-service script SOP" and "ticket classification logic." Updating one meant updating all five.</p>
+                                </div>
+                            </div>
+                            <div class="nordic-comparison-item active">
+                                <div class="card-heading" style="color: var(--dify-blue);">After — 1 Skill, 5 entrypoints</div>
+                                <div class="nordic-card-flat" style="margin-top: 0.75rem; background: rgba(255,255,255,0.82); border-color: var(--dify-blue-medium);">
+                                    <div class="chip-list">
+                                        <span class="chip">shared SOP: service script</span>
+                                        <span class="chip">shared SOP: ticket classification</span>
+                                    </div>
+                                </div>
+                                <div class="nordic-card-flat" style="margin-top: 0.5rem; background: rgba(255,255,255,0.82); border-color: var(--dify-blue-medium);">
+                                    <p class="card-body">Each workflow only defines its own entrypoint and unique logic. Shared knowledge is maintained and versioned in one Skill.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 1rem;">
+                            <div class="info-banner-slot"><i class="ri-double-quotes-l info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span style="font-style: italic;">"Before, updating one script meant opening five workflows. Now we change the Skill once and it takes effect everywhere."</span></div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        A concrete duplication-to-consolidation example that mirrors the user stories in Part 2.
+                    </aside>
+                </section>
+
                 <!-- Slide 21 · Skill + SOP Agent Architecture -->
                 <section>
                     <div class="slide-content">
@@ -873,28 +829,47 @@
                     <div class="slide-content">
                         <h2 class="tight">Memory Extraction Makes Context Reusable</h2>
                         <p class="slide-desc">Memory stops being an implementation detail and becomes a reusable workflow artifact.</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem; align-items: stretch;">
+
+                        <div style="background:var(--gray-50,#f9fafb); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:0.9rem 1.25rem; margin-top:1rem; margin-bottom:1rem;">
+                            <div style="display:flex; align-items:center; justify-content:center; gap:0.6rem; flex-wrap:wrap;">
+                                <div style="background:rgba(0,51,255,0.06); border:2px solid var(--dify-blue-medium); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:700; color:var(--dify-blue);">LLM Node A</div>
+                                <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--warning);">Memory Store</div>
+                                <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">Extraction LLM</div>
+                                <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                <div style="background:rgba(0,51,255,0.06); border:2px solid var(--dify-blue-medium); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:700; color:var(--dify-blue);">Downstream Node B</div>
+                            </div>
+                            <div style="display:flex; justify-content:center; gap:2rem; margin-top:0.5rem; font-size:var(--type-xs); color:var(--gray-500);">
+                                <span>Runs, produces context</span>
+                                <span>Full context preserved</span>
+                                <span>Reads &amp; extracts params/files</span>
+                                <span>Receives structured values</span>
+                            </div>
+                        </div>
+
+                        <div class="nordic-grid nordic-grid-2" style="gap: 1rem; align-items: stretch;">
                             <div class="nordic-card-flat" style="padding: 0.85rem;">
                                 <img src="assets/memory.png" alt="Memory extraction diagram" style="width: 100%; border-radius: 10px; border: 1px solid var(--gray-200); object-fit: contain; background: white;">
                             </div>
-                            <div style="display: grid; gap: 0.75rem;">
+                            <div style="display: grid; gap: 0.6rem;">
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading" style="margin-bottom: 0.35rem;">Each node keeps its own memory</div>
-                                    <p class="card-body">Text is no longer the only output. The node's working context is preserved.</p>
+                                    <div class="card-heading" style="margin-bottom: 0.25rem;"><i class="ri-money-dollar-circle-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> Cost &amp; Latency</div>
+                                    <p class="card-body">The extraction LLM call is lightweight: it reads a bounded context window and outputs structured fields. Typical overhead is &lt;1s and &lt;500 tokens.</p>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading" style="margin-bottom: 0.35rem;">Later steps extract what they need</div>
-                                    <p class="card-body">Facts, parameters, and even files can be pulled out of that memory when another node needs them.</p>
+                                    <div class="card-heading" style="margin-bottom: 0.25rem;"><i class="ri-shield-check-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> Fallback on Failure</div>
+                                    <p class="card-body">If extraction fails, the node falls back to the upstream agent's raw text output, so the workflow never silently breaks.</p>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading" style="margin-bottom: 0.35rem;">Context becomes reusable state</div>
-                                    <p class="card-body">Important work products stop disappearing into chat history and can move forward as real handoffs.</p>
+                                    <div class="card-heading" style="margin-bottom: 0.25rem;"><i class="ri-contrast-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i> How It Differs from RAG</div>
+                                    <p class="card-body">RAG retrieves from an external corpus; Memory Extraction pulls from the <em>same run's</em> working context. No vector DB needed — this is intra-workflow state, not cross-session retrieval.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        This is how the system turns hidden context into usable workflow state.
+                        This is one of the most novel ideas in the talk. Cover the full pipeline, cost control, fallback, and the fundamental difference from RAG.
                     </aside>
                 </section>
 
@@ -1062,6 +1037,39 @@ step2: B = summary(query=A)</code></pre>
                     </aside>
                 </section>
 
+                <!-- Slide 27b · Observability -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">Observability: Make Every Step Traceable</h2>
+                        <p class="slide-desc">A production system must not only run — it must be diagnosable when things go wrong and measurable day to day.</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-list-ordered"></i></div>
+                                <h4>Node-Level Tracing</h4>
+                                <p class="card-body">Every node's input, output, latency, and token usage is traced independently, so failures can be pinpointed to the exact step.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-money-dollar-circle-line"></i></div>
+                                <h4>Cost Tracking</h4>
+                                <p class="card-body">Token costs broken down by workflow, by node, and by model so teams know where money is going.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-timer-line"></i></div>
+                                <h4>Latency Analysis</h4>
+                                <p class="card-body">Is the bottleneck in inference, tool calls, or file I/O? Latency distribution charts make optimization evidence-based.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-replay-line"></i></div>
+                                <h4>Error Replay</h4>
+                                <p class="card-body">Failed runs can be replayed with full context — no guessing, no reproduction steps needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        "Production-grade" is not just feature completeness — it is diagnosability when things break.
+                    </aside>
+                </section>
+
                 <!-- Slide 28 · Collaborative Workflow Development -->
                 <section>
                     <div class="slide-content">
@@ -1110,45 +1118,28 @@ step2: B = summary(query=A)</code></pre>
                     <p class="slide-desc">A production agent system where reasoning, runtime execution, and human review all share explicit deliverables.</p>
                     <div style="margin-top: 1.75rem;" class="arch-board">
                         <div class="arch-tier" style="border-color: var(--dify-blue-medium); background: var(--dify-blue-light);">
-                            <div class="arch-tier-title" style="color: var(--dify-blue);">Input</div>
+                            <div class="arch-tier-title" style="color: var(--dify-blue);">Input → Agent Reasoning Layer</div>
                             <div class="chip-list">
-                                <span class="chip">user query</span>
-                                <span class="chip">file upload</span>
-                                <span class="chip">scheduled trigger</span>
-                            </div>
-                        </div>
-                        <div class="arch-tier">
-                            <div class="arch-tier-title">Agent (Reasoning Layer)</div>
-                            <div class="chip-list">
+                                <span class="chip">user query / files / scheduled trigger</span>
                                 <span class="chip">choose SOP</span>
-                                <span class="chip">assemble context</span>
-                                <span class="chip">read /sops</span>
                                 <span class="chip">call skills</span>
-                            </div>
-                        </div>
-                        <div class="arch-tier">
-                            <div class="arch-tier-title">Execution (Sandboxed Workspace)</div>
-                            <div class="chip-list">
-                                <span class="chip">command_node</span>
-                                <span class="chip">skills</span>
-                                <span class="chip">files + stdio</span>
-                                <span class="chip">code sandbox</span>
+                                <span class="chip">assemble context</span>
                             </div>
                         </div>
                         <div class="arch-tier" style="border-color: var(--warning); background: rgba(245,158,11,0.05);">
-                            <div class="arch-tier-title" style="color: var(--warning);">HITL Gate (if configured)</div>
+                            <div class="arch-tier-title">Execution (Sandbox) + HITL Gate</div>
                             <div class="chip-list">
-                                <span class="chip">pause → reviewer inbox</span>
-                                <span class="chip">approve / edit / reject</span>
-                                <span class="chip">audit trace written</span>
+                                <span class="chip">command node</span>
+                                <span class="chip">skills</span>
+                                <span class="chip">files + stdio</span>
+                                <span class="chip">code sandbox</span>
+                                <span class="chip" style="background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.35);">pause → review → resume</span>
                             </div>
                         </div>
                         <div class="arch-tier" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
                             <div class="arch-tier-title" style="color: var(--success);">Deliverables + Observability</div>
                             <div class="chip-list">
-                                <span class="chip">text response</span>
-                                <span class="chip">generated files</span>
-                                <span class="chip">structured fields</span>
+                                <span class="chip">text / files / structured fields</span>
                                 <span class="chip">memory snapshot</span>
                                 <span class="chip">trace log</span>
                                 <span class="chip">cost tracking</span>
@@ -1167,12 +1158,105 @@ step2: B = summary(query=A)</code></pre>
             </section>
 
             <!-- ══════════════════════════════════════════════
+                 Social Proof · Community Stats
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2>Global Community</h2>
+                    <p class="slide-desc">Open-source ecosystem · GitHub Top 100 project</p>
+                    <div style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                        <span class="tag tag-primary">GitHub Top 100 · Open Source LLMOps</span>
+                    </div>
+                    <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1M+</div>
+                            <div class="nordic-stat-label">Powered by Dify</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">130K+</div>
+                            <div class="nordic-stat-label">GitHub Stars</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">150+</div>
+                            <div class="nordic-stat-label">Countries</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1,000+</div>
+                            <div class="nordic-stat-label">Contributors</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">60+</div>
+                            <div class="nordic-stat-label">Industries</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">550M+</div>
+                            <div class="nordic-stat-label">Total Downloads</div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    After the architecture talk, let numbers provide credibility — 20 s max.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Social Proof · Companies
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <img src="assets/companies.png" alt="Companies using Dify" style="max-width: 96%; max-height: 640px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <aside class="notes">
+                    Don't read the logos — just note the breadth (enterprise, startup, research, government).
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide CTA · Next Steps
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2 class="tight">Next Steps</h2>
+                    <p class="slide-desc">You do not need all three on day one — pick the pain point that hurts most and start today.</p>
+                    <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 1rem;">
+                        <div class="nordic-card" style="text-align: center; padding: 1.5rem;">
+                            <div class="icon-badge" style="margin: 0 auto 0.75rem;"><i class="ri-user-received-2-line"></i></div>
+                            <h4>Try the HITL Node</h4>
+                            <p class="card-body">Drop a Human Input node into any workflow in the latest Dify release and add your first human checkpoint.</p>
+                            <div class="chip-list" style="margin-top: 0.75rem; justify-content: center;">
+                                <span class="chip" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.35); color:var(--success);">Available now</span>
+                            </div>
+                        </div>
+                        <div class="nordic-card" style="text-align: center; padding: 1.5rem;">
+                            <div class="icon-badge" style="margin: 0 auto 0.75rem;"><i class="ri-function-line"></i></div>
+                            <h4>Explore Agent Skills</h4>
+                            <p class="card-body">Extract your most-copied SOP into your first Skill and experience the efficiency of reuse and versioning.</p>
+                            <div class="chip-list" style="margin-top: 0.75rem; justify-content: center;">
+                                <span class="chip">Coming soon</span>
+                            </div>
+                        </div>
+                        <div class="nordic-card" style="text-align: center; padding: 1.5rem;">
+                            <div class="icon-badge" style="margin: 0 auto 0.75rem;"><i class="ri-github-line"></i></div>
+                            <h4>Join the Community</h4>
+                            <p class="card-body">Star the repo, join Discord, and help shape the future of agent systems with developers worldwide.</p>
+                            <div class="chip-list" style="margin-top: 0.75rem; justify-content: center;">
+                                <span class="chip">langgenius/dify</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Give the audience a concrete entry point. Do not let them leave with empty hands.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
                  Slide 24 · Thank You / Q&A
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 700px;">
-                    <div style="width:56px; height:56px; background:var(--dify-blue); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
-                        <img src="../assets/logo.svg" alt="Dify" style="width:32px; height:32px; filter:brightness(0) invert(1);">
+                    <div style="min-width: 176px; height:56px; padding: 0 1rem; background:var(--dify-blue); border-radius:var(--radius-lg); display:inline-flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                        <img src="../milvus/assets/dify-logo-white.svg" alt="Dify" style="width:124px; height:auto; display:block;">
                     </div>
                     <h2>Thank You</h2>
                     <p class="slide-subtitle" style="margin: 1rem auto 0; max-width: 480px;">
