@@ -273,12 +273,12 @@ body {
    ──────────────────────────────────────────────────────────── */
 .section-tag {
     display: inline-block;
-    font-size: var(--type-xs);
+    font-size: var(--type-sm);
     font-weight: var(--weight-bold);
     color: var(--dify-blue);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
 /* ── Slide Subtitle  (hero desc below h2) ──────────────────
@@ -532,7 +532,7 @@ body {
 .slide-hero h2 {
     margin: 0 0 var(--space-sm);
     font-size: 2.2rem;
-    line-height: 1.15;
+    line-height: 1.1;
 }
 
 .slide-hero p {
@@ -564,13 +564,13 @@ body {
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nordic-card:hover {
     border-color: var(--gray-300);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
 }
 
 .nordic-card-flat {
@@ -581,7 +581,7 @@ body {
 }
 
 .nordic-card-featured {
-    background: var(--dify-blue);
+    background: linear-gradient(135deg, var(--dify-blue) 0%, #0022cc 100%);
     color: var(--white);
     border: none;
     border-radius: var(--radius-lg);
@@ -598,15 +598,18 @@ body {
    ──────────────────────────────────────────────────────────── */
 .nordic-stat {
     text-align: left;
-    padding-left: var(--space-lg);
+    padding: var(--space-lg) var(--space-md) var(--space-lg) var(--space-lg);
     border-left: 4px solid var(--dify-blue);
+    border-radius: var(--radius-md);
+    background: var(--dify-blue-light);
 }
 
 .nordic-stat-number {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: var(--weight-bold);
-    color: var(--gray-900);
+    color: var(--dify-blue);
     line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
     margin-bottom: var(--space-sm);
 }
 
@@ -715,6 +718,7 @@ body {
     flex: 1;
     background: var(--white);
     border: 1px solid var(--gray-200);
+    border-top: 2px solid var(--dify-blue-medium);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
     text-align: center;
@@ -1040,9 +1044,10 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: var(--dify-blue-light);
+    border: 1px solid rgba(0, 51, 255, 0.15);
     border-radius: var(--radius-md);
     color: var(--dify-blue);
     font-size: 1.25rem;

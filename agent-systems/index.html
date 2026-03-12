@@ -37,17 +37,14 @@
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 860px;">
-                    <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
-                        <span class="tag tag-primary">Dify · 最新版本</span>
-                        <span class="tag">生产级 AI</span>
-                    </div>
                     <h1 style="font-size: 2.8rem; line-height: 1.1;">
                         从自主 AI<br>到生产级 Agent 系统
                     </h1>
                     <p class="slide-subtitle" style="margin: 1.2rem auto 0; max-width: 560px;">
                         有序编排、可审计、模块化 —— Dify 如何重新定义 LLM 工作流。
                     </p>
-                    <div class="author-block" style="align-items: center;">
+                    <div style="width:48px; height:3px; background:var(--dify-blue); border-radius:2px; margin: 2rem 0 1.5rem;"></div>
+                    <div class="author-block" style="align-items: center; margin-top: 0;">
                         <div class="author-name">crazywoola（Banana）</div>
                         <div class="author-meta">Developer Relations @ Dify</div>
                         <div class="author-email">banana@dify.ai</div>
@@ -120,13 +117,68 @@
             </section>
 
             <!-- ══════════════════════════════════════════════
+                 Slide 2b · 全球社区数据
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2>全球社区数据</h2>
+                    <p class="slide-desc">开源生态驱动，GitHub Top 100 项目</p>
+                    <div style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                        <span class="tag tag-primary">GitHub Top 100 · 开源 LLMOps</span>
+                    </div>
+                    <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1M+</div>
+                            <div class="nordic-stat-label">Powered by Dify</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">130K+</div>
+                            <div class="nordic-stat-label">GitHub Stars</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">150+</div>
+                            <div class="nordic-stat-label">覆盖国家</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1,000+</div>
+                            <div class="nordic-stat-label">开源贡献者</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">60+</div>
+                            <div class="nordic-stat-label">行业应用</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">550M+</div>
+                            <div class="nordic-stat-label">总下载量</div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    快速信任背书 —— 最多 20 秒。让数字说话。
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 2c · 合作企业
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <img src="assets/companies.png" alt="使用 Dify 的企业" style="max-width: 96%; max-height: 640px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <aside class="notes">
+                    不必逐一念 Logo —— 只需点出覆盖广度（企业、初创、科研、政府）。
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
                  PART 1 · 演进之路
             ══════════════════════════════════════════════ -->
             <section>
 
                 <!-- Slide 3 · 章节封面 -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">01</div>
                         <span class="section-tag">第一部分</span>
                         <h2>AI 系统的演进</h2>
                         <p class="slide-subtitle">
@@ -186,7 +238,7 @@
                     <div class="slide-content">
                         <h2 class="tight">三大架构演进</h2>
                         <p class="slide-desc">定义 Dify 最新版本中生产级 Agent 系统的核心特性。</p>
-                        <div style="margin-top: 1.5rem;" class="nordic-grid" style="gap: 1rem;">
+                        <div class="nordic-grid" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-feature">
                                 <div class="nordic-feature-icon"><i class="ri-user-received-2-line"></i></div>
                                 <div class="nordic-feature-content">
@@ -227,11 +279,12 @@
 
                 <!-- Slide 6 · 章节封面 -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">02</div>
                         <span class="section-tag">第二部分</span>
                         <h2>Human-in-the-Loop（HITL）</h2>
                         <p class="slide-subtitle">
-                            可控、可审计的 AI —— 工作流在人工决策时暂停，决策后恢复。
+                            大多数系统把 AI 和人类当作接力跑手 —— 一方等待另一方工作。Dify 将人工介入点作为工作流图的一等公民，原生嵌入执行架构本身。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -239,138 +292,140 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        核心信息："AI 会出错。HITL 是让它能在受监管环境中部署的安全网。"
+                        核心信息："这不是外挂的审核流程，而是 Dify 执行图中的原生节点 —— 架构本身保证了暂停与恢复。"
                     </aside>
                 </section>
 
-                <!-- Slide 7 · 问题所在 -->
+                <!-- Slide 7 · 三大挑战 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">完全自主 AI 的问题</h2>
-                        <p class="slide-desc">真实合规场景需要人工检查点 —— 而不是"相信 AI"。</p>
+                        <h2 class="tight">为什么半自动化会失败</h2>
+                        <p class="slide-desc">纯自动化牺牲质量管控；纯人工操作牺牲效率。三大挑战横亘其中。</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚠️</div>
-                                <h4>无审计追踪</h4>
-                                <p class="card-body">全自主管道产生的输出没有记录谁做了什么决定，使合规报告无从完成。</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-route-line"></i></div>
+                                <h4>目标漂移</h4>
+                                <p class="card-body">复杂项目鲜少一路向前。目标演变、上下文变化 —— AI 工作流擅长预定步骤，却无法在没有人工介入节点的情况下适应中途转向。</p>
                             </div>
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔁</div>
-                                <h4>错误无声级联</h4>
-                                <p class="card-body">中间步骤的错误输出在任何人注意到之前已向下游传播 —— 有时触发不可逆的副作用。</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-cross-line"></i></div>
+                                <h4>信任缺口</h4>
+                                <p class="card-body">组织对全面自动化高风险流程依然心存顾虑。没有可见的检查点，AI 落地就会停滞 —— 不是因为技术失败，而是因为系统感觉失控。</p>
                             </div>
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔒</div>
-                                <h4>监管障碍</h4>
-                                <p class="card-body">金融、医疗、法律类 AI 部署要求在关键决策节点留有人工确认的书面记录。</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
+                                <h4>集成复杂度</h4>
+                                <p class="card-body">现有方案（LangGraph interrupt、go-to-human）使用繁琐 —— 过度技术化、难以可视化，非技术团队成员维护成本高。</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">✅</div>
-                                <h4 style="color: var(--dify-blue);">HITL 节点解决这一问题</h4>
-                                <p class="card-body">在工作流任意位置插入暂停关卡。人工审查上下文后批准或修改，执行恢复并留有完整追踪。</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
+                                <h4 style="color: var(--dify-blue);">Human Input 节点</h4>
+                                <p class="card-body">原生工作流节点，暂停执行、向人类呈现上下文，并根据决策路由后续流程 —— 无需外部系统。</p>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        具体行业：医疗报告生成、合同起草、金融异常审核、内容审核队列。
+                        以产品定位故事为框架：我们见过什么不奏效（笨重的外部系统），并构建了感觉原生的解决方案。
+                        提问："这三个挑战中，哪个与你当前情况最相关？"
                     </aside>
                 </section>
 
-                <!-- Slide 8 · HITL 工作原理 -->
+                <!-- Slide 8 · Human Input 节点 -->
                 <section>
                     <div class="slide-content">
-                        <h2>HITL 节点如何工作</h2>
+                        <h2 class="tight">Human Input 节点</h2>
+                        <p class="slide-desc">一个带有三个可配置组件的暂停关卡 —— 内容如何送达、人类看到什么、他们可以做什么。</p>
                         <div style="margin-top: 1.75rem;">
                             <div class="nordic-flow" style="gap: 0.5rem;">
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">1</div>
-                                    <div class="nordic-flow-title">触发</div>
-                                    <div class="nordic-flow-desc">工作流运行到 HITL 节点边界</div>
+                                    <div class="nordic-flow-title">送达配置</div>
+                                    <div class="nordic-flow-desc">自动生成审核页面，通过邮件、Slack 或 Dify Webapp 送达 —— 每个节点独立选择渠道。</div>
                                 </div>
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">2</div>
-                                    <div class="nordic-flow-title">暂停</div>
-                                    <div class="nordic-flow-desc">执行挂起；上下文 + LLM 输出呈现给审核人</div>
+                                    <div class="nordic-flow-title">变量引用</div>
+                                    <div class="nordic-flow-desc">使用斜杠快捷键在页面中嵌入任意工作流变量。人类可读取、编辑，修改后的值回传执行流。</div>
                                 </div>
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">3</div>
-                                    <div class="nordic-flow-title">决策</div>
-                                    <div class="nordic-flow-desc">人工批准、编辑或拒绝，可附加备注</div>
-                                </div>
-                                <div class="nordic-flow-step">
-                                    <div class="nordic-flow-number">4</div>
-                                    <div class="nordic-flow-title">恢复</div>
-                                    <div class="nordic-flow-desc">工作流继续，人工决策记录入追踪日志</div>
+                                    <div class="nordic-flow-title">动作定义</div>
+                                    <div class="nordic-flow-desc">配置带标签的按钮（如：批准、请求修改、升级）。每个按钮将执行路由到不同下游路径，支持设置超时规则。</div>
                                 </div>
                             </div>
 
-                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.5rem;">
+                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.25rem;">
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">决策结果</div>
-                                    <ul class="checklist" style="margin-top: 0.5rem;">
-                                        <li class="checked" style="font-size: var(--type-sm);">批准 —— 沿用 AI 输出继续执行</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">编辑并批准 —— 修改内容后继续</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">拒绝 —— 跳转备用分支或终止</li>
-                                    </ul>
+                                    <div class="card-heading">送达渠道</div>
+                                    <div class="chip-list" style="margin-top: 0.5rem;">
+                                        <span class="chip">Dify Webapp</span>
+                                        <span class="chip">邮件</span>
+                                        <span class="chip">Slack（通过插件）</span>
+                                        <span class="chip">自定义 Webhook</span>
+                                    </div>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">审计记录</div>
-                                    <ul class="checklist" style="margin-top: 0.5rem;">
-                                        <li class="checked" style="font-size: var(--type-sm);">审核人身份 &amp; 时间戳</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">AI 原始输出 vs. 最终值</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">决策备注 / 理由</li>
-                                    </ul>
+                                    <div class="card-heading">路由结果</div>
+                                    <div class="chip-list" style="margin-top: 0.5rem;">
+                                        <span class="chip">编辑后继续</span>
+                                        <span class="chip">按决策分支</span>
+                                        <span class="chip">超时回退</span>
+                                        <span class="chip">完整审计追踪</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        演示提示：在 Dify 画布中展示 HITL 节点 → 触发运行 → 打开审批收件箱 → 批准 → 展示追踪。
-                        强调：工作流是真正暂停的 —— 默认不会超时（可配置）。
+                        演示提示：在 Dify 画布中展示 Human Input 节点 —— 配置送达渠道（邮件），用斜杠命令添加变量引用，设置两个动作按钮（批准 / 请求修改）并各自连接不同下游路径。
+                        强调：超时规则意味着无人值守的工作流不会永远阻塞。
                     </aside>
                 </section>
 
-                <!-- Slide 9 · HITL 落地场景 -->
+                <!-- Slide 9 · 真实案例 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">HITL 落地实践</h2>
-                        <p class="slide-desc">跨合规敏感行业的真实部署模式。</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-text-line"></i></div>
-                                <h4>合同审核</h4>
-                                <p class="card-body">LLM 起草条款摘要；法务团队在交付客户前批准。</p>
+                        <h2 class="tight">生产实践</h2>
+                        <p class="slide-desc">真实团队如何将人类专业判断贯穿于原本自动化的流程之中。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <div class="card-heading" style="color: var(--dify-blue);">梁 · 投资服务团队</div>
+                                    <p class="card-body" style="margin-top: 0.4rem;">手工处理财务报告每位客户需 40 分钟。面对 100+ 客户、人力有限，只有最大客户才能得到完整服务。</p>
+                                </div>
+                                <div>
+                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">3 个 Human Input 节点战略性放置于</div>
+                                    <div class="chip-list">
+                                        <span class="chip">数据综合后</span>
+                                        <span class="chip">异常数据出现时</span>
+                                        <span class="chip">报告发送前</span>
+                                    </div>
+                                </div>
+                                <div class="info-banner" style="margin-top: auto;">
+                                    <i class="ri-double-quotes-l info-banner-icon"></i>
+                                    <span style="font-style: italic; font-size: var(--type-sm);">"系统处理计算，人类在最关键的地方施加判断。" —— 到六月，全部 100 位客户都收到了一致、高质量的报告。</span>
+                                </div>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-heart-pulse-line"></i></div>
-                                <h4>医疗分诊</h4>
-                                <p class="card-body">AI 建议紧急程度评分；医生在转诊前确认。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bank-line"></i></div>
-                                <h4>金融风控</h4>
-                                <p class="card-body">异常检测标记交易；分析师批准升级或关闭告警。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-user-line"></i></div>
-                                <h4>内容审核</h4>
-                                <p class="card-body">低置信度分类输出在执行前等待人工判断。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-mail-send-line"></i></div>
-                                <h4>外发沟通</h4>
-                                <p class="card-body">AI 起草客户邮件；管理者批准后批量发送。</p>
-                            </div>
-                            <div class="nordic-card" style="background: var(--gray-50); border-style: dashed;">
-                                <div style="color: var(--gray-400); font-size: 2rem; text-align: center; margin-bottom: 0.5rem;">+</div>
-                                <h4 style="color: var(--gray-500);">你的场景</h4>
-                                <p class="card-body" style="color: var(--gray-400);">任何 AI 决策错误会带来实质影响的环节。</p>
+                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <div class="card-heading" style="color: var(--dify-blue);">闵 · 全球支持团队</div>
+                                    <p class="card-body" style="margin-top: 0.4rem;">员工需要在 HR、财务、IT 的独立门户间穿梭 —— 一个反映组织架构而非员工需求的割裂结构。</p>
+                                </div>
+                                <div>
+                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Human Input 节点的实际运用</div>
+                                    <p class="card-body">当研发部 Jason 询问报销问题时，系统检测到缺少地点信息，通过 Human Input 节点向他补充收集，随后精准送达上海办公室的相关政策。</p>
+                                </div>
+                                <div class="info-banner" style="margin-top: auto;">
+                                    <i class="ri-double-quotes-l info-banner-icon"></i>
+                                    <span style="font-style: italic; font-size: var(--type-sm);">"我们在构建将 AI 的一致性与人类输入的适应性相结合的工作流。结果感觉像是协作智能。"</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        向观众提问："这些场景中，哪个与你当前或规划中的 AI 部署最相关？"
-                        这里是引发问答或讨论的好时机。
+                        这些是真实的客户场景，并非假设。
+                        梁的故事展示了战略性节点放置；闵的故事展示了上下文 Human Input（不仅仅是审批，而是流程中途收集数据）。
+                        提问："哪种模式更接近你要构建的场景？"
                     </aside>
                 </section>
 
@@ -383,11 +438,12 @@
 
                 <!-- Slide 10 · 章节封面 -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">03</div>
                         <span class="section-tag">第三部分</span>
                         <h2>Agent × Skills</h2>
                         <p class="slide-subtitle">
-                            模块化、可复用的技能式 Agent 设计 —— 大规模解耦推理与执行。
+                            你不会每次需要排序时都把算法内联进去。同样的原则适用于 LLM 推理 —— Skill 就是 Agent 设计中的函数。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -403,7 +459,7 @@
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">单体 Agent 问题</h2>
-                        <p class="slide-desc">随着 Agent 增长，它们变得错综复杂、难以测试、无法复用。</p>
+                        <p class="slide-desc">随着 Agent 增长，每个新能力都被塞进同一个 Prompt —— 直到没有任何东西可测试、可版本化、可复用。</p>
                         <div class="nordic-comparison" style="margin-top: 1.75rem;">
                             <div class="nordic-comparison-item">
                                 <div class="card-heading" style="color: var(--error);">之前 —— 单体 Agent</div>
@@ -553,12 +609,17 @@
                                 <i class="ri-lightbulb-line info-banner-icon"></i>
                                 <span>技能位于<strong>执行层</strong>，Agent 位于<strong>推理层</strong>。分离这两个关注点，是让大型 Agent 系统可维护的关键。</span>
                             </div>
+                            <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
+                                <div class="card-heading" style="margin-bottom: 0.4rem;">场景：研究与报告 Agent</div>
+                                <p class="card-body">单次 Agent 调用依次组合 <code>web_search v2</code> → <code>summarize_doc v1</code> → <code>format_report v3</code>。每个技能经过隔离测试、由 Agent 锁定版本，并在工作区内的另外三个 Agent 中共享复用。</p>
+                            </div>
                         </div>
                     </div>
                     <aside class="notes">
                         这个分层视图与软件架构师思考服务层的方式直接对应。
                         推理："做什么？" —— 执行："怎么做？"
                         Skills 模型使两层都可独立测试和扩展。
+                        场景卡让抽象变得具体 —— 技能不是理论，而是构建一次、处处复用的东西。
                     </aside>
                 </section>
 
@@ -571,11 +632,12 @@
 
                 <!-- Slide 14 · 章节封面 -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">04</div>
                         <span class="section-tag">第四部分</span>
                         <h2>沙箱运行时 &amp; 协作开发</h2>
                         <p class="slide-subtitle">
-                            安全代码执行 + 团队级工作流协同创作 —— 生产基础设施层。
+                            运行任意代码的 AI 工作流需要硬性隔离边界。而随着团队扩大，"一个人编辑工作流"的模式也不再可行。
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -584,6 +646,40 @@
                     </div>
                     <aside class="notes">
                         过渡语："最后一块拼图：安全运行代码并让团队协同工作。"
+                    </aside>
+                </section>
+
+                <!-- Slide 14b · 无约束代码的风险 -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">AI 工作流中无约束代码的风险</h2>
+                        <p class="slide-desc">代码节点解锁了强大的转换能力 —— 但没有隔离，每个节点都是潜在的攻击面。</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
+                                <h4>任意文件系统访问</h4>
+                                <p class="card-body">没有隔离时，代码节点可以读取宿主机上的凭证、环境变量或任意文件 —— 成为静默的数据泄露通道。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
+                                <h4>无资源限制</h4>
+                                <p class="card-body">失控的循环或大内存操作会阻塞整个 Worker 进程 —— 一个错误的 Prompt 可能让所有用户的生产环境宕机。</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
+                                <h4>供应链风险</h4>
+                                <p class="card-body">运行时拉取的 pip 和 npm 依赖可能包含恶意代码。没有网络限制，被入侵的包会悄无声息地回传数据。</p>
+                            </div>
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-shield-check-line"></i></div>
+                                <h4 style="color: var(--dify-blue);">沙箱运行时解决这一问题</h4>
+                                <p class="card-body">Dify 在隔离容器中运行每个代码节点 —— 无宿主访问、强制 CPU/内存限制、网络白名单。Cloud 版本默认启用；自托管只需一个配置项。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        这张幻灯片对观众中的 DevOps 和平台工程师最有价值。
+                        供应链风险这点往往让人出乎意料 —— 他们考虑的是自己写的代码，而不是它导入的包。
                     </aside>
                 </section>
 
@@ -676,10 +772,16 @@
                                 <p class="card-body">将审批通过的版本直接发布到 API、Web 应用或嵌入式集成。</p>
                             </div>
                         </div>
+                        </div>
+                        <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
+                            <div class="card-heading" style="margin-bottom: 0.4rem;">场景：规模化平台团队</div>
+                            <p class="card-body">数据工程师起草一个新的 RAG 节点。Prompt 工程师审查并添加推理注释。平台负责人发布 v3 —— v2 仍在预发布环境运行。如果 v3 导致召回质量下降，一键回滚 —— 完整历史永久保留。</p>
+                        </div>
                     </div>
                     <aside class="notes">
                         这对超过 2 人的团队最有价值。独立开发者可以忽略大部分内容。
                         提问："这里有谁和 3+ 人团队一起做 AI 功能？" —— 然后重点讲角色和版本部分。
+                        场景卡为工程负责人搭起了理论到实践的桥梁。
                     </aside>
                 </section>
 
@@ -807,21 +909,18 @@
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 700px;">
-                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🙏</div>
+                    <div style="width:56px; height:56px; background:var(--dify-blue); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                        <img src="../assets/logo.svg" alt="Dify" style="width:32px; height:32px; filter:brightness(0) invert(1);">
+                    </div>
                     <h2>感谢聆听</h2>
                     <p class="slide-subtitle" style="margin: 1rem auto 0; max-width: 480px;">
                         有问题、反馈，或想深入了解某个特性？
                     </p>
-                    <div class="nordic-grid nordic-grid-3" style="margin-top: 2.5rem; gap: 0.75rem; text-align: left;">
+                    <div class="nordic-grid nordic-grid-2" style="margin-top: 2.5rem; gap: 0.75rem; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
                         <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
                             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-github-line text-dify"></i></div>
                             <div class="card-heading">GitHub</div>
                             <div class="caption-text">langgenius/dify</div>
-                        </div>
-                        <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
-                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-discord-line text-dify"></i></div>
-                            <div class="card-heading">Discord</div>
-                            <div class="caption-text">discord.gg/dify</div>
                         </div>
                         <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
                             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-mail-line text-dify"></i></div>

@@ -37,17 +37,14 @@
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 860px;">
-                    <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
-                        <span class="tag tag-primary">Dify · Latest</span>
-                        <span class="tag">Production AI</span>
-                    </div>
                     <h1 style="font-size: 2.8rem; line-height: 1.1;">
                         From Autonomous AI<br>to Production-Grade<br>Agent Systems
                     </h1>
                     <p class="slide-subtitle" style="margin: 1.2rem auto 0; max-width: 560px;">
                         Orchestrated, auditable, and modular — how Dify redefines LLM workflows.
                     </p>
-                    <div class="author-block" style="align-items: center;">
+                    <div style="width:48px; height:3px; background:var(--dify-blue); border-radius:2px; margin: 2rem 0 1.5rem;"></div>
+                    <div class="author-block" style="align-items: center; margin-top: 0;">
                         <div class="author-name">crazywoola (Banana)</div>
                         <div class="author-meta">Developer Relations @ Dify</div>
                         <div class="author-email">banana@dify.ai</div>
@@ -120,13 +117,68 @@
             </section>
 
             <!-- ══════════════════════════════════════════════
+                 Slide 2b · Community Stats
+            ══════════════════════════════════════════════ -->
+            <section>
+                <div class="slide-content">
+                    <h2>Global Community</h2>
+                    <p class="slide-desc">Open-source ecosystem · GitHub Top 100 project</p>
+                    <div style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                        <span class="tag tag-primary">GitHub Top 100 · Open Source LLMOps</span>
+                    </div>
+                    <div class="nordic-grid nordic-grid-3" style="gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1M+</div>
+                            <div class="nordic-stat-label">Powered by Dify</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">130K+</div>
+                            <div class="nordic-stat-label">GitHub Stars</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">150+</div>
+                            <div class="nordic-stat-label">Countries</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">1,000+</div>
+                            <div class="nordic-stat-label">Contributors</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">60+</div>
+                            <div class="nordic-stat-label">Industries</div>
+                        </div>
+                        <div class="nordic-stat">
+                            <div class="nordic-stat-number">550M+</div>
+                            <div class="nordic-stat-label">Total Downloads</div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Quick credibility slide — 20 s max. Let the numbers speak.
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 Slide 2c · Companies
+            ══════════════════════════════════════════════ -->
+            <section data-background-color="#fafafa">
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <img src="assets/companies.png" alt="Companies using Dify" style="max-width: 96%; max-height: 640px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <aside class="notes">
+                    Don't read the logos — just note the breadth (enterprise, startup, research, government).
+                </aside>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
                  PART 1 · The Evolution
             ══════════════════════════════════════════════ -->
             <section>
 
                 <!-- Slide 3 · Section Break -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">01</div>
                         <span class="section-tag">Part 1</span>
                         <h2>The Evolution of AI Systems</h2>
                         <p class="slide-subtitle">
@@ -186,7 +238,7 @@
                     <div class="slide-content">
                         <h2 class="tight">Three Architectural Advances</h2>
                         <p class="slide-desc">The features that define production-grade agent systems in Dify's latest releases.</p>
-                        <div style="margin-top: 1.5rem;" class="nordic-grid" style="gap: 1rem;">
+                        <div class="nordic-grid" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-feature">
                                 <div class="nordic-feature-icon"><i class="ri-user-received-2-line"></i></div>
                                 <div class="nordic-feature-content">
@@ -227,11 +279,12 @@
 
                 <!-- Slide 6 · Section Break -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">02</div>
                         <span class="section-tag">Part 2</span>
                         <h2>Human-in-the-Loop (HITL)</h2>
                         <p class="slide-subtitle">
-                            Controllable, auditable AI — workflows that pause for humans and resume on decision.
+                            Most systems treat AI and humans as relay runners — one waits while the other works. Dify embeds human touchpoints as first-class citizens in the workflow graph itself.
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -239,139 +292,140 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Key message: "AI can be wrong. HITL is the safety net that makes it deployable in regulated environments."
+                        Key message: "This isn't an external review process bolted on the side. It's a native node in Dify's execution graph — the architecture itself guarantees the pause and the resume."
                     </aside>
                 </section>
 
-                <!-- Slide 7 · The Problem -->
+                <!-- Slide 7 · Three Challenges -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">The Problem with Fully Autonomous AI</h2>
-                        <p class="slide-desc">Real compliance scenarios need human checkpoints — not trust-me-AI.</p>
+                        <h2 class="tight">Why Partial Automation Fails</h2>
+                        <p class="slide-desc">Pure automation sacrifices quality control; pure human operation sacrifices efficiency. Three challenges sit at the center.</p>
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚠️</div>
-                                <h4>No Audit Trail</h4>
-                                <p class="card-body">Fully autonomous pipelines produce outputs with no record of who decided what, making compliance reporting impossible.</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-route-line"></i></div>
+                                <h4>Shifting Objectives</h4>
+                                <p class="card-body">Complex projects rarely follow a straight line. Objectives evolve, contexts change — AI workflows excel at predefined steps but can't adapt to mid-course pivots without structured human touchpoints.</p>
                             </div>
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔁</div>
-                                <h4>Silent Errors Cascade</h4>
-                                <p class="card-body">A bad intermediate output propagates downstream before anyone notices — sometimes triggering irreversible side effects.</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-cross-line"></i></div>
+                                <h4>Trust Gap</h4>
+                                <p class="card-body">Organizations remain hesitant to fully automate high-stakes processes. Without visible checkpoints, AI adoption stalls — not because the technology fails, but because the system feels uncontrollable.</p>
                             </div>
                             <div class="nordic-card">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔒</div>
-                                <h4>Regulatory Blockers</h4>
-                                <p class="card-body">Finance, healthcare, and legal AI deployments require documented human sign-off at key decision points.</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
+                                <h4>Integration Complexity</h4>
+                                <p class="card-body">Existing solutions like LangGraph's interrupt and go-to-human feel clunky — unnecessarily technical, hard to visualize, and expensive to maintain by non-technical team members.</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
-                                <div style="font-size: 2rem; margin-bottom: 0.75rem;">✅</div>
-                                <h4 style="color: var(--dify-blue);">HITL Nodes solve this</h4>
-                                <p class="card-body">Insert a pause gate anywhere in the workflow. A human reviews context, approves or overrides, and execution resumes with full trace.</p>
+                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
+                                <h4 style="color: var(--dify-blue);">Human Input Node</h4>
+                                <p class="card-body">A native workflow node that pauses execution, surfaces context to a human, and routes onward based on their decision — no external system required.</p>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        Concrete industries: medical report generation, contract drafting, financial anomaly review, moderation queues.
+                        Frame it as a product positioning story: we've seen what doesn't work (clunky external systems) and built something that feels native.
+                        Ask: "Which of these three resonates most with your current situation?"
                     </aside>
                 </section>
 
-                <!-- Slide 8 · How HITL Works -->
+                <!-- Slide 8 · The Human Input Node -->
                 <section>
                     <div class="slide-content">
-                        <h2>How HITL Nodes Work</h2>
+                        <h2 class="tight">The Human Input Node</h2>
+                        <p class="slide-desc">A pause gate with three configurable components — how content is delivered, what humans see, and what they can do.</p>
                         <div style="margin-top: 1.75rem;">
-                            <!-- Flow diagram -->
                             <div class="nordic-flow" style="gap: 0.5rem;">
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">1</div>
-                                    <div class="nordic-flow-title">Trigger</div>
-                                    <div class="nordic-flow-desc">Workflow runs to the HITL node boundary</div>
+                                    <div class="nordic-flow-title">Delivery Configuration</div>
+                                    <div class="nordic-flow-desc">A review page is generated automatically. Deliver it via email, Slack, or directly in the Dify webapp — channel selected per node.</div>
                                 </div>
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">2</div>
-                                    <div class="nordic-flow-title">Pause</div>
-                                    <div class="nordic-flow-desc">Execution suspends; context + LLM output surfaced to reviewer</div>
+                                    <div class="nordic-flow-title">Variable Referencing</div>
+                                    <div class="nordic-flow-desc">Use the slash shortcut to embed any workflow variable on the page. Humans can read, edit, and return modified values back into the execution.</div>
                                 </div>
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">3</div>
-                                    <div class="nordic-flow-title">Decide</div>
-                                    <div class="nordic-flow-desc">Human approves, edits, or rejects with optional comment</div>
-                                </div>
-                                <div class="nordic-flow-step">
-                                    <div class="nordic-flow-number">4</div>
-                                    <div class="nordic-flow-title">Resume</div>
-                                    <div class="nordic-flow-desc">Workflow continues with the human decision recorded in trace</div>
+                                    <div class="nordic-flow-title">Action Definition</div>
+                                    <div class="nordic-flow-desc">Configure labeled buttons (e.g. Approve, Request Changes, Escalate). Each routes execution to a different downstream path. Set timeout rules for unattended runs.</div>
                                 </div>
                             </div>
 
-                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.5rem;">
+                            <div class="nordic-grid nordic-grid-2" style="gap: 0.75rem; margin-top: 1.25rem;">
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">Decision Outcomes</div>
-                                    <ul class="checklist" style="margin-top: 0.5rem;">
-                                        <li class="checked" style="font-size: var(--type-sm);">Approve — continue with AI output as-is</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">Edit &amp; Approve — override content, then continue</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">Reject — branch to fallback or terminate</li>
-                                    </ul>
+                                    <div class="card-heading">Delivery Channels</div>
+                                    <div class="chip-list" style="margin-top: 0.5rem;">
+                                        <span class="chip">Dify Webapp</span>
+                                        <span class="chip">Email</span>
+                                        <span class="chip">Slack (via plugin)</span>
+                                        <span class="chip">Custom webhook</span>
+                                    </div>
                                 </div>
                                 <div class="nordic-card-flat">
-                                    <div class="card-heading">Audit Capture</div>
-                                    <ul class="checklist" style="margin-top: 0.5rem;">
-                                        <li class="checked" style="font-size: var(--type-sm);">Reviewer identity &amp; timestamp</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">Original AI output vs. final value</li>
-                                        <li class="checked" style="font-size: var(--type-sm);">Decision comment / rationale</li>
-                                    </ul>
+                                    <div class="card-heading">Routing Outcomes</div>
+                                    <div class="chip-list" style="margin-top: 0.5rem;">
+                                        <span class="chip">Continue with edit</span>
+                                        <span class="chip">Branch on decision</span>
+                                        <span class="chip">Timeout fallback</span>
+                                        <span class="chip">Full audit trace</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        Demo cue: show the HITL node in Dify canvas → trigger a run → open the approval inbox → approve → show trace.
-                        Emphasize: the workflow is truly paused — it does not time-out by default (configurable).
+                        Demo cue: show the Human Input node in Dify canvas — configure delivery (email), add a variable reference via slash command, set two action buttons (Approve / Request Changes) with separate downstream paths.
+                        Emphasize: the timeout rule means unattended workflows don't block forever.
                     </aside>
                 </section>
 
-                <!-- Slide 9 · HITL Use Cases -->
+                <!-- Slide 9 · Customer Stories -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">HITL in Practice</h2>
-                        <p class="slide-desc">Real deployment patterns across compliance-sensitive industries.</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.75rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-text-line"></i></div>
-                                <h4>Contract Review</h4>
-                                <p class="card-body">LLM drafts clause summaries; legal team approves before client delivery.</p>
+                        <h2 class="tight">In Production</h2>
+                        <p class="slide-desc">How real teams thread human expertise through otherwise automated processes.</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <div class="card-heading" style="color: var(--dify-blue);">Liang · Investment Services</div>
+                                    <p class="card-body" style="margin-top: 0.4rem;">Manual financial reports took 40 min per client. With 100+ clients and limited staff, only the largest received proper service.</p>
+                                </div>
+                                <div>
+                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">3 Human Input nodes placed at</div>
+                                    <div class="chip-list">
+                                        <span class="chip">After data synthesis</span>
+                                        <span class="chip">On anomalous data</span>
+                                        <span class="chip">Before client send</span>
+                                    </div>
+                                </div>
+                                <div class="info-banner" style="margin-top: auto;">
+                                    <i class="ri-double-quotes-l info-banner-icon"></i>
+                                    <span style="font-style: italic; font-size: var(--type-sm);">"The system handles the calculations, but humans apply judgment exactly where it matters most." — By June, all 100 clients received consistent, high-quality reports.</span>
+                                </div>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-heart-pulse-line"></i></div>
-                                <h4>Medical Triage</h4>
-                                <p class="card-body">AI suggests urgency score; clinician confirms before routing patient.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bank-line"></i></div>
-                                <h4>Financial Alerts</h4>
-                                <p class="card-body">Anomaly detection flags a transaction; analyst approves escalation or dismisses.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-user-line"></i></div>
-                                <h4>Content Moderation</h4>
-                                <p class="card-body">Low-confidence classifier outputs wait for human judgment before enforcement action.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-mail-send-line"></i></div>
-                                <h4>Outbound Comms</h4>
-                                <p class="card-body">AI drafts customer emails; manager approves batch before send.</p>
-                            </div>
-                            <div class="nordic-card" style="background: var(--gray-50); border-style: dashed;">
-                                <div style="color: var(--gray-400); font-size: 2rem; text-align: center; margin-bottom: 0.5rem;">+</div>
-                                <h4 style="color: var(--gray-500);">Your Use Case</h4>
-                                <p class="card-body" style="color: var(--gray-400);">Any step where a wrong AI decision has meaningful real-world consequence.</p>
+                            <div class="nordic-card" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <div class="card-heading" style="color: var(--dify-blue);">Min · Global Support Team</div>
+                                    <p class="card-body" style="margin-top: 0.4rem;">Employees navigated separate portals for HR, finance, and IT — a structure reflecting org charts rather than employee needs.</p>
+                                </div>
+                                <div>
+                                    <div style="font-size: var(--type-xs); font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Human Input node in action</div>
+                                    <p class="card-body">When R&amp;D's Jason asked about reimbursement, the system detected missing location data, prompted him via a Human Input node, then delivered precise Shanghai-office procedures.</p>
+                                </div>
+                                <div class="info-banner" style="margin-top: auto;">
+                                    <i class="ri-double-quotes-l info-banner-icon"></i>
+                                    <span style="font-style: italic; font-size: var(--type-sm);">"We're building workflows that combine AI's consistency with human input's adaptability. The result feels like collaborative intelligence."</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
-                        Ask the audience: "Which of these resonates with your current or planned AI deployment?"
-                        This is a good point to surface Q&A or discussion before moving on.
+                        These are real customer scenarios — not hypotheticals.
+                        Liang's story illustrates strategic node placement; Min's shows contextual Human Input (not just approval, but data collection mid-flow).
+                        Ask: "Which pattern is closer to what you're trying to build?"
                     </aside>
                 </section>
 
@@ -384,11 +438,12 @@
 
                 <!-- Slide 10 · Section Break -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">03</div>
                         <span class="section-tag">Part 3</span>
                         <h2>Agent × Skills</h2>
                         <p class="slide-subtitle">
-                            Modular, reusable skill-based agent design — decouple reasoning from execution at scale.
+                            You wouldn't inline a sort algorithm every time you need one. The same principle applies to LLM reasoning — Skills are the functions of agent design.
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -404,7 +459,7 @@
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">The Monolithic Agent Problem</h2>
-                        <p class="slide-desc">As agents grow, they become tangled, hard to test, and impossible to reuse.</p>
+                        <p class="slide-desc">As agents grow, every new capability gets stuffed into the same prompt — until nothing is testable, versioned, or reusable.</p>
                         <div class="nordic-comparison" style="margin-top: 1.75rem;">
                             <div class="nordic-comparison-item">
                                 <div class="card-heading" style="color: var(--error);">Before — Monolithic Agent</div>
@@ -554,12 +609,17 @@
                                 <i class="ri-lightbulb-line info-banner-icon"></i>
                                 <span>Skills live in the <strong>Execution Layer</strong> — agents in the <strong>Reasoning Layer</strong>. Separating these concerns is what makes large agent systems maintainable.</span>
                             </div>
+                            <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
+                                <div class="card-heading" style="margin-bottom: 0.4rem;">Scenario: Research &amp; Report Agent</div>
+                                <p class="card-body">A single agent call composes <code>web_search v2</code> → <code>summarize_doc v1</code> → <code>format_report v3</code> in sequence. Each skill was tested in isolation, version-pinned by the agent, and shared across three other agents in the workspace.</p>
+                            </div>
                         </div>
                     </div>
                     <aside class="notes">
                         This layered view maps directly to how software architects think about service layers.
                         Reasoning: "what to do?" — Execution: "how to do it?"
                         The Skills model makes both layers independently testable and scalable.
+                        The scenario card makes it concrete — skills aren't theoretical, they're what you build once and reuse everywhere.
                     </aside>
                 </section>
 
@@ -572,11 +632,12 @@
 
                 <!-- Slide 14 · Section Break -->
                 <section data-background-color="#fafafa">
-                    <div class="slide-hero">
+                    <div class="slide-hero" style="position: relative;">
+                        <div style="position:absolute; right:-0.25em; top:-0.3em; font-size:14rem; font-weight:900; color:rgba(0,51,255,0.04); line-height:1; pointer-events:none; user-select:none;">04</div>
                         <span class="section-tag">Part 4</span>
                         <h2>Sandboxed Runtime &amp; Collaboration</h2>
                         <p class="slide-subtitle">
-                            Secure code execution + team-scale workflow authoring — the production infrastructure layer.
+                            AI workflows that run arbitrary code need hard isolation boundaries. And as teams grow, "one person edits the workflow" stops working.
                         </p>
                         <div class="info-banner" style="max-width: 600px; margin-top: 2rem;">
                             <i class="ri-information-line info-banner-icon"></i>
@@ -585,6 +646,40 @@
                     </div>
                     <aside class="notes">
                         Transition: "The last piece: running code safely and letting teams work together."
+                    </aside>
+                </section>
+
+                <!-- Slide 14b · The Problem with Unconstrained Code -->
+                <section>
+                    <div class="slide-content">
+                        <h2 class="tight">The Risk of Unconstrained Code in AI Workflows</h2>
+                        <p class="slide-desc">Code nodes unlock powerful transformations — but without isolation, every node is a potential attack surface.</p>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
+                                <h4>Arbitrary Filesystem Access</h4>
+                                <p class="card-body">Without isolation, a code node can read credentials, environment variables, or any file on the host — making it a quiet exfiltration vector.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
+                                <h4>No Resource Limits</h4>
+                                <p class="card-body">Runaway loops or memory-heavy operations block the entire worker process — one bad prompt can take down production for all users.</p>
+                            </div>
+                            <div class="nordic-card">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
+                                <h4>Supply Chain Risk</h4>
+                                <p class="card-body">pip and npm dependencies pulled at runtime can contain malicious code. Without network restrictions, a compromised package calls home silently.</p>
+                            </div>
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-shield-check-line"></i></div>
+                                <h4 style="color: var(--dify-blue);">Sandboxed Runtime solves this</h4>
+                                <p class="card-body">Dify runs every code node in an isolated container — no host access, enforced CPU/memory limits, and a network allowlist. Enabled by default on Cloud; one flag in self-hosted.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        This slide is most relevant to DevOps and platform engineers in the audience.
+                        The supply chain risk point often surprises people — they think about code they write, not the packages it imports.
                     </aside>
                 </section>
 
@@ -677,10 +772,15 @@
                                 <p class="card-body">Publish approved version directly to API, Webapp, or embedded integration.</p>
                             </div>
                         </div>
+                        <div class="nordic-card-flat" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
+                            <div class="card-heading" style="margin-bottom: 0.4rem;">Scenario: Platform Team at Scale</div>
+                            <p class="card-body">A data engineer drafts a new RAG node. A prompt engineer reviews and annotates the reasoning. The platform lead publishes v3 — with v2 still running in staging. If v3 degrades recall quality, one click rolls back — full history preserved.</p>
+                        </div>
                     </div>
                     <aside class="notes">
                         This matters most for teams larger than 2 people. Solo builders can ignore most of this.
                         Ask: "Who here works on AI features with a team of 3+?" — then focus on the role &amp; version points.
+                        The scenario card bridges theory to practice for engineering leads.
                     </aside>
                 </section>
 
@@ -808,21 +908,18 @@
             ══════════════════════════════════════════════ -->
             <section data-background-color="#fafafa">
                 <div class="slide-hero text-center" style="max-width: 700px;">
-                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🙏</div>
+                    <div style="width:56px; height:56px; background:var(--dify-blue); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                        <img src="../assets/logo.svg" alt="Dify" style="width:32px; height:32px; filter:brightness(0) invert(1);">
+                    </div>
                     <h2>Thank You</h2>
                     <p class="slide-subtitle" style="margin: 1rem auto 0; max-width: 480px;">
                         Questions, feedback, or want to explore a specific feature deeper?
                     </p>
-                    <div class="nordic-grid nordic-grid-3" style="margin-top: 2.5rem; gap: 0.75rem; text-align: left;">
+                    <div class="nordic-grid nordic-grid-2" style="margin-top: 2.5rem; gap: 0.75rem; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
                         <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
                             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-github-line text-dify"></i></div>
                             <div class="card-heading">GitHub</div>
                             <div class="caption-text">langgenius/dify</div>
-                        </div>
-                        <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
-                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-discord-line text-dify"></i></div>
-                            <div class="card-heading">Discord</div>
-                            <div class="caption-text">discord.gg/dify</div>
                         </div>
                         <div class="nordic-card-flat" style="text-align: center; padding: 1.25rem;">
                             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="ri-mail-line text-dify"></i></div>
