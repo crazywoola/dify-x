@@ -315,7 +315,7 @@
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
                                 <h4>集成复杂度</h4>
-                                <p class="card-body">现有方案（LangGraph interrupt、go-to-human）使用繁琐 —— 过度技术化、难以可视化，非技术团队成员维护成本高。</p>
+                                <p class="card-body">现有方案需要搭建独立的审批队列、编写 Webhook 回调并手动串联状态 —— 这些工程开销让"人工介入"变成一种负担，而非能力。</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
@@ -334,8 +334,40 @@
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">Human Input 节点</h2>
-                        <p class="slide-desc">一个带有三个可配置组件的暂停关卡 —— 内容如何送达、人类看到什么、他们可以做什么。</p>
-                        <div style="margin-top: 1.75rem;">
+                        <p class="slide-desc">执行模型：工作流在 HITL 关卡暂停，人工审核并操作，执行按三条路径之一恢复。</p>
+                        <div style="margin-top: 1rem;">
+                            <!-- HITL 执行流程图 -->
+                            <div style="background:var(--gray-50,#f9fafb); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:0.9rem 1.25rem; margin-bottom:1rem;">
+                                <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                                    <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">工作流运行中</div>
+                                    <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                    <div style="background:rgba(0,51,255,0.06); border:2px solid var(--dify-blue-medium); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:700; color:var(--dify-blue);">HITL 关卡</div>
+                                    <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                    <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--warning);">暂停 · 通知已发送</div>
+                                </div>
+                                <div style="text-align:center; color:var(--text-muted); font-size:1rem; margin-bottom:0.4rem;">↓</div>
+                                <div style="display:flex; justify-content:center; margin-bottom:0.4rem;">
+                                    <div style="background:white; border:1px solid var(--gray-300); border-radius:6px; padding:0.3rem 1.25rem; font-size:var(--type-sm); font-weight:600;">人工审核上下文</div>
+                                </div>
+                                <div style="text-align:center; color:var(--text-muted); font-size:1rem; margin-bottom:0.5rem;">↓</div>
+                                <div style="display:flex; align-items:flex-start; justify-content:center; gap:1.5rem;">
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">批准</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">继续执行</span>
+                                    </div>
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(0,51,255,0.06); border:1px solid var(--dify-blue-medium); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--dify-blue);">编辑并批准</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">修改后的变量</span>
+                                    </div>
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--error);">拒绝</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">备用分支</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="nordic-flow" style="gap: 0.5rem;">
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">1</div>
@@ -657,8 +689,8 @@
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
-                                <h4>任意文件系统访问</h4>
-                                <p class="card-body">没有隔离时，代码节点可以读取宿主机上的凭证、环境变量或任意文件 —— 成为静默的数据泄露通道。</p>
+                                <h4>宿主系统访问</h4>
+                                <p class="card-body">没有隔离时，代码节点可以读取宿主机上的凭证、环境变量或任意文件 —— 敏感数据会在毫无提示的情况下悄然泄露。</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
@@ -668,7 +700,7 @@
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
                                 <h4>供应链风险</h4>
-                                <p class="card-body">运行时拉取的 pip 和 npm 依赖可能包含恶意代码。没有网络限制，被入侵的包会悄无声息地回传数据。</p>
+                                <p class="card-body">代码节点可以导入第三方包。一个被入侵的包可以悄悄将工作流数据发送到外部服务器。没有网络限制，你永远不会知道。</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-shield-check-line"></i></div>
@@ -882,15 +914,33 @@
                             </div>
                         </div>
                         <div>
-                            <div class="card-heading" style="margin-bottom: 1rem;">你的下一步</div>
+                            <div class="card-heading" style="margin-bottom: 0.6rem;">初次使用 Dify</div>
+                            <div style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom:0.9rem;">
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S1</span>
+                                    <div class="agenda-desc">注册 dify.ai 或通过 docker-compose 搭建自托管实例</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S2</span>
+                                    <div class="agenda-desc">在工作区中打开 HITL 入门模板</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S3</span>
+                                    <div class="agenda-desc">添加第一个 Human Input 节点并配置两个操作按钮</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S4</span>
+                                    <div class="agenda-desc">发布并与团队成员一起测试审核流程</div>
+                                </div>
+                            </div>
+                            <div class="card-heading" style="margin-bottom: 0.6rem;">已在使用 Dify</div>
                             <ul class="checklist">
-                                <li style="font-size: var(--type-sm);">试用 Dify Cloud 或搭建自托管实例</li>
                                 <li style="font-size: var(--type-sm);">本周在现有工作流中添加一个 HITL 节点</li>
                                 <li style="font-size: var(--type-sm);">将一个重复 Prompt 提取为 Skill 模块</li>
                                 <li style="font-size: var(--type-sm);">在 docker-compose 中启用 Sandbox 服务</li>
                                 <li style="font-size: var(--type-sm);">加入 Dify Discord &amp; GitHub Discussions</li>
                             </ul>
-                            <div class="info-banner" style="margin-top: 1.25rem;">
+                            <div class="info-banner" style="margin-top: 0.75rem;">
                                 <i class="ri-github-line info-banner-icon"></i>
                                 <span><strong>github.com/langgenius/dify</strong> —— Star 仓库 &amp; 关注版本发布</span>
                             </div>

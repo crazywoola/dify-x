@@ -315,7 +315,7 @@
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
                                 <h4>Integration Complexity</h4>
-                                <p class="card-body">Existing solutions like LangGraph's interrupt and go-to-human feel clunky — unnecessarily technical, hard to visualize, and expensive to maintain by non-technical team members.</p>
+                                <p class="card-body">Existing workarounds require building separate approval queues, writing webhook callbacks, and manually threading state back — engineering overhead that makes human oversight feel like a punishment, not a feature.</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
@@ -334,8 +334,40 @@
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">The Human Input Node</h2>
-                        <p class="slide-desc">A pause gate with three configurable components — how content is delivered, what humans see, and what they can do.</p>
-                        <div style="margin-top: 1.75rem;">
+                        <p class="slide-desc">Execution model: workflow pauses at the HITL gate, a human reviews and acts, then execution resumes on one of three paths.</p>
+                        <div style="margin-top: 1rem;">
+                            <!-- HITL execution flow diagram -->
+                            <div style="background:var(--gray-50,#f9fafb); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:0.9rem 1.25rem; margin-bottom:1rem;">
+                                <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                                    <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">Workflow Running</div>
+                                    <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                    <div style="background:rgba(0,51,255,0.06); border:2px solid var(--dify-blue-medium); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:700; color:var(--dify-blue);">HITL Gate</div>
+                                    <span style="color:var(--text-muted); font-weight:700;">→</span>
+                                    <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.35); border-radius:6px; padding:0.3rem 0.8rem; font-size:var(--type-sm); font-weight:600; color:var(--warning);">Paused · Notification Sent</div>
+                                </div>
+                                <div style="text-align:center; color:var(--text-muted); font-size:1rem; margin-bottom:0.4rem;">↓</div>
+                                <div style="display:flex; justify-content:center; margin-bottom:0.4rem;">
+                                    <div style="background:white; border:1px solid var(--gray-300); border-radius:6px; padding:0.3rem 1.25rem; font-size:var(--type-sm); font-weight:600;">Human Reviews Context</div>
+                                </div>
+                                <div style="text-align:center; color:var(--text-muted); font-size:1rem; margin-bottom:0.5rem;">↓</div>
+                                <div style="display:flex; align-items:flex-start; justify-content:center; gap:1.5rem;">
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--success);">Approve</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">Continue</span>
+                                    </div>
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(0,51,255,0.06); border:1px solid var(--dify-blue-medium); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--dify-blue);">Edit &amp; Approve</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">Modified Values</span>
+                                    </div>
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:0.3rem;">
+                                        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.3); border-radius:6px; padding:0.28rem 0.9rem; font-size:var(--type-sm); font-weight:600; color:var(--error);">Reject</div>
+                                        <span style="color:var(--text-muted); font-size:0.85rem;">↓</span>
+                                        <span class="chip">Alt Branch</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="nordic-flow" style="gap: 0.5rem;">
                                 <div class="nordic-flow-step">
                                     <div class="nordic-flow-number">1</div>
@@ -657,8 +689,8 @@
                         <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
-                                <h4>Arbitrary Filesystem Access</h4>
-                                <p class="card-body">Without isolation, a code node can read credentials, environment variables, or any file on the host — making it a quiet exfiltration vector.</p>
+                                <h4>Host System Access</h4>
+                                <p class="card-body">Without isolation, a code node can read credentials, environment variables, or any file on the host — leaking sensitive data silently without any indication.</p>
                             </div>
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
@@ -668,7 +700,7 @@
                             <div class="nordic-card">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
                                 <h4>Supply Chain Risk</h4>
-                                <p class="card-body">pip and npm dependencies pulled at runtime can contain malicious code. Without network restrictions, a compromised package calls home silently.</p>
+                                <p class="card-body">Code nodes can import third-party packages. A compromised package can silently send your workflow data to an external server. Without network restrictions, you'd never know.</p>
                             </div>
                             <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-shield-check-line"></i></div>
@@ -881,15 +913,33 @@
                             </div>
                         </div>
                         <div>
-                            <div class="card-heading" style="margin-bottom: 1rem;">Your Next Steps</div>
+                            <div class="card-heading" style="margin-bottom: 0.6rem;">Starting Fresh</div>
+                            <div style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom:0.9rem;">
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S1</span>
+                                    <div class="agenda-desc">Sign up at dify.ai or spin up via docker-compose</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S2</span>
+                                    <div class="agenda-desc">Open the HITL starter template in your workspace</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S3</span>
+                                    <div class="agenda-desc">Add your first Human Input node and set two action buttons</div>
+                                </div>
+                                <div class="agenda-item" style="padding:0.4rem 0.6rem;">
+                                    <span class="agenda-num" style="min-width:1.5rem; width:1.5rem; height:1.5rem; font-size:0.6rem;">S4</span>
+                                    <div class="agenda-desc">Publish and test the review flow with a teammate</div>
+                                </div>
+                            </div>
+                            <div class="card-heading" style="margin-bottom: 0.6rem;">Already Using Dify</div>
                             <ul class="checklist">
-                                <li style="font-size: var(--type-sm);">Try Dify Cloud or spin up a self-hosted instance</li>
                                 <li style="font-size: var(--type-sm);">Add one HITL node to an existing workflow this week</li>
                                 <li style="font-size: var(--type-sm);">Extract a repeated prompt into a Skill module</li>
                                 <li style="font-size: var(--type-sm);">Enable the Sandbox service in your docker-compose</li>
                                 <li style="font-size: var(--type-sm);">Join the Dify Discord &amp; GitHub Discussions</li>
                             </ul>
-                            <div class="info-banner" style="margin-top: 1.25rem;">
+                            <div class="info-banner" style="margin-top: 0.75rem;">
                                 <i class="ri-github-line info-banner-icon"></i>
                                 <span><strong>github.com/langgenius/dify</strong> — Star the repo &amp; follow releases</span>
                             </div>
