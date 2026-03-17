@@ -587,6 +587,85 @@ body {
     margin-bottom: var(--space-sm);
 }
 
+.split-visual-slide {
+    max-width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.split-visual-frame {
+    min-height: 650px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at top right, rgba(0, 51, 255, 0.07) 0%, rgba(0, 51, 255, 0) 34%),
+        linear-gradient(180deg, rgba(248, 249, 255, 0.92) 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.split-visual-image {
+    width: 100%;
+    max-height: 610px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.split-visual-side {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+}
+
+.split-visual-hero {
+    padding: 1rem 1.1rem;
+    background: linear-gradient(180deg, rgba(0, 51, 255, 0.08) 0%, rgba(255, 255, 255, 0.96) 100%);
+    border: 1px solid var(--dify-blue-medium);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.split-visual-title {
+    font-size: 1.28rem;
+    line-height: 1.18;
+    margin: 0 0 0.45rem;
+}
+
+.split-visual-body {
+    margin: 0;
+    font-size: var(--type-sm);
+    color: var(--gray-700);
+    line-height: var(--leading-snug);
+}
+
+.split-visual-side .nordic-card-flat {
+    padding: 0.95rem 1rem;
+}
+
+.split-visual-side .card-heading {
+    margin-bottom: 0.35rem;
+}
+
+.split-visual-side .card-body {
+    font-size: var(--type-sm);
+    line-height: var(--leading-snug);
+}
+
+.split-visual-side .chip-list {
+    gap: 0.35rem;
+}
+
+.split-visual-side .chip {
+    padding: 0.18rem 0.5rem;
+}
+
 /* ────────────────────────────────────────────────────────────
    Cards
    ──────────────────────────────────────────────────────────── */
@@ -1213,8 +1292,13 @@ body {
     .nordic-grid-2,
     .nordic-grid-3,
     .nordic-grid-4,
-    .nordic-comparison {
+    .nordic-comparison,
+    .split-visual-slide {
         grid-template-columns: 1fr;
+    }
+
+    .split-visual-frame {
+        min-height: auto;
     }
 
     .nordic-flow {
