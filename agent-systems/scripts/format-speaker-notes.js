@@ -156,4 +156,39 @@
       document.querySelectorAll("aside.notes").forEach(enhanceNote);
     },
   };
+
+  // Hide the upcoming-slide panel in the speaker notes window.
+  // The notes plugin writes HTML into an about:blank popup (same-origin),
+  // so we can inject CSS after the document.write() completes.
+  const _open = window.open;
+  window.open = function () {
+    const win = _open.apply(this, arguments);
+    if (win && arguments[1] === "reveal.js - Notes") {
+      setTimeout(function () {
+        try {
+          const style = win.document.createElement("style");
+          style.textContent = [
+            /* Hide upcoming slide in every layout */
+            "#upcoming-slide { display: none !important; }",
+
+            /* Default: speaker controls expands to fill the freed right column */
+            "#speaker-controls { top: 0 !important; height: 100% !important; }",
+
+            /* Wide: current-slide was paired 50%/45% top; make it full-height left half.
+               Speaker controls was bottom-full-width; move it to right half, full height. */
+            "body[data-speaker-layout='wide'] #current-slide { height: 100% !important; }",
+            "body[data-speaker-layout='wide'] #speaker-controls { top: 0 !important; left: 50% !important; width: 50% !important; height: 100% !important; }",
+
+            /* Tall: current-slide was top-left 45%/50%; expand it to full height on the left.
+               Speaker controls already covers right column at full height — no change needed. */
+            "body[data-speaker-layout='tall'] #current-slide { height: 100% !important; }",
+          ].join("\n");
+          win.document.head.appendChild(style);
+        } catch (e) {
+          // cross-origin guard — no-op if somehow blocked
+        }
+      }, 0);
+    }
+    return win;
+  };
 })();
