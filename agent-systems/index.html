@@ -997,54 +997,10 @@
                             <div class="info-banner-content"><span>适用于自托管和 <strong>Dify Cloud</strong></span></div>
                         </div>
                     </div>
-                    <aside class="notes">
-                        从第三部分过渡："我们现在有了围绕 SOP 推理、调用 Skills 并留下结构化产物的 Agent。但这一切实际上在哪里执行？流程离开构建者之后，由谁来维护？"
-                        "第四部分讲的是：让运行时既好用又安全，同时把工作流本身变成团队共同维护的资产。"
-                        （第四部分合计约 10 分钟）
-                    </aside>
-                </section>
-
-                <!-- Slide 23b · 协作开发示意图 -->
-                <section data-background-color="#fafafa">
-                    <div class="split-visual-slide">
-                        <div class="split-visual-frame">
-                            <img class="split-visual-image" src="assets/collaboration.png" alt="协作工作流开发 — 共同编辑、版本历史与角色访问控制">
-                        </div>
-                        <div class="split-visual-side">
-                            <div class="split-visual-hero">
-                                <div class="card-heading" style="color: var(--dify-blue);">生产表面</div>
-                                <h3 class="split-visual-title">好用的运行时，共同维护的资产</h3>
-                                <p class="split-visual-body">命令、文件和 SOP 只有在运行时既安全、可追踪，又方便团队共审时，才会真正变成团队资产。</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">运行时原语</div>
-                                <div class="chip-list">
-                                    <span class="chip">命令</span>
-                                    <span class="chip">文件</span>
-                                    <span class="chip">stdout</span>
-                                    <span class="chip">POSIX 工作区</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">安全 + 可追踪</div>
-                                <div class="chip-list">
-                                    <span class="chip">无主机访问</span>
-                                    <span class="chip">资源限制</span>
-                                    <span class="chip">trace 日志</span>
-                                    <span class="chip">错误回放</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">团队生命周期</div>
-                                <p class="card-body">草稿、评审、发布和版本历史，把“个人实验”变成团队可共同运营的工作流。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "先指出图里的两件事：草稿 / 评审 / 发布的生命周期，以及共享 SOP 面板。"
-                        再连接右侧这一栏："第四部分不只是协作 UI，本质上是三层一起成立：命令和文件构成运行时表面，沙箱和 tracing 提供安全层，而这里的生命周期提供团队层。"
-                        "这三层叠在一起，个人实验才会变成生产资产。"
-                        （约 40 秒）
+                    <aside class=”notes”>
+                        从第三部分过渡：”我们现在有了围绕 SOP 推理、调用 Skills 并留下结构化产物的 Agent。但这一切实际上在哪里执行？流程离开构建者之后，由谁来维护？”
+                        “第四部分分三块：Command 节点和 POSIX 工作区打通运行时表面；沙箱把能力关在硬边界里，让 Agent 能真正运行代码，又不接触宿主机；协作生命周期让工作流从个人实验变成团队共同运营的资产。”
+                        （第四部分合计约 8 分钟）
                     </aside>
                 </section>
 
@@ -1080,10 +1036,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Command 节点是个小原语 —— 但它打开了一种更自然的运行时模型。"
-                        指向示例："一行命令进，stdout 出，其他文件产物留在运行时等着下一步。"
-                        "为什么和 LLM 配合得这么好？因为模型在预训练语料里见过大量命令、管道和文件路径。你不需要专门教 LLM 一套自定义工具 schema —— 它本来就知道 ls /bin 是干什么的。"
-                        "从产品视角：不需要为每个小转换动作设计一套 UI。命令本身就是界面。"
+                        "Command 节点是个小原语，但它打开了一种更自然的运行时模型。"
+                        指向示例："一行命令进，stdout 出，文件产物留在运行时等着下一步。三件事，全部清晰可见。"
+                        "为什么和 LLM 配合这么好？因为模型在预训练语料里已经见过大量命令、管道和文件路径。你不需要专门定义一套 tool schema —— 它本来就知道 ls /bin 是干什么的。"
+                        "从产品视角：不需要为每个小转换动作单独设计 UI。命令本身就是接口，简单、统一、可组合。"
                         （约 1 分钟）
                     </aside>
                 </section>
@@ -1116,53 +1072,37 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
-                        左侧："旧模式 —— 两次工具调用，各有自己的类型 schema。第一步输出得存进 LLM 记忆，再重新描述给第二步。类型转换隐藏，输出停在记忆里，每个新工具都得做 UI。"
-                        右侧："新模式 —— 一行命令，用 shell 组合。summary 通过 $() 直接拿到 google_search 的输出。统一字符串接口，原生 shell 组合，Agent 跑 ls /bin 就能发现可用工具。"
-                        "运行时对人更简单，对 LLM 也更可读。这种双赢很难得。"
+                        左侧："旧模式 —— 两次工具调用，各有自己的类型 schema。第一步的输出要存进 LLM 记忆，再重新描述给第二步。类型转换隐藏在框架里，产物停在上下文里，每个新工具都要做一套 UI。"
+                        右侧："新模式 —— 一行命令，shell 原生组合。summary 通过 $() 直接拿到 google_search 的输出。统一字符串接口，Agent 跑 ls /bin 就能自己发现可用工具，不需要任何文档。"
+                        "运行时对人更简单，对 LLM 也更可读。这种双赢很难得 —— 通常工程友好和模型友好会互相矛盾。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 
-                <!-- Slide 26 · 无约束代码的风险 -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">不受约束的代码有什么风险</h2>
-                        <p class="slide-desc">Agent 需要真实可用的执行环境，但不该直接碰到宿主机。</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
-                                <h4>宿主系统访问</h4>
-                                <p class="card-body">没有隔离时，代码可以读取本地凭证、环境变量和文件。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
-                                <h4>没有资源边界</h4>
-                                <p class="card-body">失控循环或内存暴涨会拖垮共享运行时上的所有任务。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
-                                <h4>供应链风险</h4>
-                                <p class="card-body">导入的第三方包可能静默外传工作流数据，除非环境被严格控制。</p>
-                            </div>
-                        </div>
-                        <div class="info-banner" style="margin-top: 1rem;">
-                            <div class="info-banner-slot"><i class="ri-shield-check-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>沙箱不是为了削弱能力，而是把能力稳稳地关在安全边界里。</span></div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "讲沙箱之前，先说清楚我们在防什么。"
-                        走三个风险："宿主系统访问 —— 没有隔离时，代码可以读取本地凭证和环境变量。没有资源边界 —— 一个失控循环会拖垮共享运行时上的所有任务。供应链风险 —— 导入的第三方包可能静默外传工作流数据。"
-                        念出 banner："沙箱不是为了削弱能力，而是把能力关在安全边界里。安全的能力 —— 硬边界里的真实运行时。"
-                    </aside>
-                </section>
-
-                <!-- Slide 27 · 沙箱代码执行 -->
+                <!-- Slide 26+27 · 沙箱代码执行 -->
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">沙箱代码执行</h2>
-                        <p class="slide-desc">给 Agent 一个像小型 Unix 工作站一样可用的环境，同时放在严格的安全边界里。</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
+                        <p class="slide-desc">Agent 需要真实可用的执行环境，但不该直接碰到宿主机。沙箱让两者同时成立。</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1rem; gap: 0.65rem;">
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-folder-open-line"></i></div>
+                                <h4>宿主系统访问</h4>
+                                <p class="card-body">没有隔离时，代码可以读取本地凭证、环境变量和文件。</p>
+                            </div>
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-cpu-line"></i></div>
+                                <h4>无资源边界</h4>
+                                <p class="card-body">失控循环或内存暴涨会拖垮共享运行时上的所有任务。</p>
+                            </div>
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-spy-line"></i></div>
+                                <h4>供应链风险</h4>
+                                <p class="card-body">导入的第三方包可能静默外传工作流数据。</p>
+                            </div>
+                        </div>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 0.75rem; gap: 0.75rem;">
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="card-heading">安全边界</div>
                                 <ul class="checklist" style="margin-top: 0.5rem;">
                                     <li class="checked" style="font-size: var(--type-sm);">无法访问宿主文件系统</li>
@@ -1181,20 +1121,25 @@ step2: B = summary(query=A)</code></pre>
                                     <span class="chip">JavaScript (Node 20)</span>
                                     <span class="chip">外置文件存储</span>
                                 </div>
-                                <div class="card-heading" style="margin-top: 1rem;">如何启用</div>
+                                <div class="card-heading" style="margin-top: 0.75rem;">如何启用</div>
                                 <div class="chip-list" style="margin-top: 0.5rem;">
                                     <span class="chip" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.35); color:var(--success);">Cloud 默认开启</span>
                                     <span class="chip">自托管设置 <code>SANDBOX=true</code></span>
                                 </div>
                             </div>
                         </div>
+                        <div class="info-banner" style="margin-top: 0.75rem;">
+                            <div class="info-banner-slot"><i class="ri-shield-check-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>沙箱不是为了削弱能力，而是把能力稳稳地关在安全边界里。</span></div>
+                        </div>
                     </div>
                     <aside class="notes">
-                        左侧 —— 安全边界，逐条念出："无法访问宿主文件系统。网络受白名单限制。每次运行都有 CPU / 内存上限。每个节点可配置超时。"
-                        右侧 —— 可用能力："你仍然有 ls /bin、stdin/stdout I/O、文件作为交接产物、Python 3.11+、Node 20 以及外置文件存储。"
-                        启用方式："Cloud 默认开启。自托管：在环境配置里设置 SANDBOX=true。"
+                        "先说清楚我们在防什么：三个真实风险。"
+                        走上面三张卡片："宿主系统访问 —— 没有隔离时，代码可以读取本地凭证和环境变量。无资源边界 —— 一个失控循环会拖垮共享运行时上的所有任务。供应链风险 —— 导入的第三方包可能静默外传工作流数据。"
+                        然后转向下面："沙箱把这三个问题一起解决。左侧是四个硬边界：无法访问宿主文件系统、网络受白名单限制、每次运行都有 CPU / 内存上限、每个节点可配置超时。右侧是你仍然拥有的能力：ls /bin、stdin/stdout I/O、文件作为交接产物、Python 3.11+、Node 20 和外置文件存储。"
+                        念出 banner："沙箱不是为了削弱能力，而是把能力关在安全边界里。"
                         "这就是让命令执行安全进入生产环境的前提 —— 不只是实验。"
-                        （约 1 分钟）
+                        （约 1.5 分钟）
                     </aside>
                 </section>
 
@@ -1227,9 +1172,9 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
-                        "'生产级'不只是功能完整 —— 更是出问题时的可诊断能力。"
-                        快速走四张卡片："节点级追踪：每个节点的输入、输出、耗时和 Token 消耗都有独立追踪，出问题时能精确定位到具体步骤。成本追踪：按工作流、节点、模型拆分。延迟分析：瓶颈在推理、工具调用还是文件 I/O？错误重放：失败运行连同完整上下文一起重放 —— 不用猜，不用复现。"
-                        "如果你解释不清楚一次运行为什么失败，你就没有办法改进它。可观测性就是用来补上这个环的。"
+                        "'生产级'不只是功能完整 —— 更是出问题时能快速诊断的能力。沙箱让代码能跑，可观测性让你知道发生了什么。"
+                        走四张卡片："节点级追踪：每个节点的输入、输出、耗时和 Token 消耗都有独立记录，失败时能精确定位到具体步骤，不用猜整条链路。成本追踪：按工作流、节点、模型拆分，团队知道钱花在哪里，优化有依据。延迟分析：瓶颈在推理、工具调用还是文件 I/O？分布图比拍脑袋可靠。错误重放：失败运行连同完整上下文一起重放 —— 不用猜，不用手工复现。"
+                        "如果你解释不清楚一次运行为什么失败，你就没有办法改进它。可观测性就是用来闭合这个环的。"
                         （约 1 分钟）
                     </aside>
                 </section>
@@ -1267,10 +1212,12 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
+                        "沙箱和可观测性解决了运行时的问题。这张幻灯片解决另一个问题：谁来维护工作流？"
                         "一旦工作流是团队运营资产而不是个人实验，协作就不再是附加功能 —— 它是必须的。"
-                        走四张卡片："角色访问控制：起草、评审、发布各归其人，不会互相覆盖。版本历史：每次发布都形成快照，回滚一键完成。草稿 → 评审 → 发布：生命周期变得清晰可重复，不再散落在截图和聊天记录里。共享 SOP 资产：最佳实践不再是个人 Prompt 片段，而会沉淀成团队财富。"
+                        走四张卡片："角色访问控制：起草、评审、发布各归其人，不会互相覆盖。版本历史：每次发布都形成快照，回滚一键完成，不用担心改坏。草稿 → 评审 → 发布：生命周期变得清晰可重复，不再散落在截图和聊天记录里。共享 SOP 资产：最佳实践不再是个人 Prompt 片段，而会沉淀成团队的共同财富。"
                         把底部场景大声念出来："有人起草工作流，有人评审 SOP，负责人发布通过的版本，整个过程都留有历史记录。"
                         "这就是从'搭工作流的团队'到'运营工作流的团队'的区别。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 

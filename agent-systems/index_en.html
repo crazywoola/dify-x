@@ -999,52 +999,8 @@
                     </div>
                     <aside class="notes">
                         Bridge from Part 3: "We now have agents that reason over SOPs, call skills, and leave structured artifacts. But where does all this actually execute? And who owns the workflow once it leaves the builder?"
-                        "Part 4 is about making the runtime feel useful and safe at the same time — and turning the workflow itself into a shared team asset."
-                        (~10 min total for Part 4)
-                    </aside>
-                </section>
-
-                <!-- Slide 23b · Collaboration Visual -->
-                <section data-background-color="#fafafa">
-                    <div class="split-visual-slide">
-                        <div class="split-visual-frame">
-                            <img class="split-visual-image" src="assets/collaboration.png" alt="Collaborative workflow development — shared authoring, version history, and role-based access">
-                        </div>
-                        <div class="split-visual-side">
-                            <div class="split-visual-hero">
-                                <div class="card-heading" style="color: var(--dify-blue);">Production Surface</div>
-                                <h3 class="split-visual-title">Useful runtime, shared ownership</h3>
-                                <p class="split-visual-body">Commands, files, and SOPs become team assets only when the runtime is safe, traceable, and easy to review together.</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Runtime Primitives</div>
-                                <div class="chip-list">
-                                    <span class="chip">commands</span>
-                                    <span class="chip">files</span>
-                                    <span class="chip">stdout</span>
-                                    <span class="chip">POSIX workspace</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Safety + Traceability</div>
-                                <div class="chip-list">
-                                    <span class="chip">no host access</span>
-                                    <span class="chip">resource limits</span>
-                                    <span class="chip">trace logs</span>
-                                    <span class="chip">error replay</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Team Lifecycle</div>
-                                <p class="card-body">Draft, review, publish, and version history turn workflow building into an operating model the team can own.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "Point out two things in the image: the draft / review / publish lifecycle — and the shared SOP panel."
-                        Then connect it to the right rail: "Part 4 is not only about collaboration UI. It is commands and files as the runtime surface, sandbox and tracing as the safety layer, and this lifecycle as the team layer."
-                        "That combination is what turns a personal experiment into a production asset."
-                        (~40 s)
+                        "Part 4 covers three things: the Command node and POSIX workspace open up the runtime surface; the sandbox keeps capability inside hard boundaries so agents can run real code without touching the host machine; and the collaboration lifecycle turns workflows from personal experiments into shared team assets."
+                        (~8 min total for Part 4)
                     </aside>
                 </section>
 
@@ -1081,9 +1037,9 @@
                     </div>
                     <aside class="notes">
                         "The Command node is a small primitive — but it opens a much more natural runtime model."
-                        Point to the example: "One command line in. stdout out. Files stay in the runtime for the next step."
-                        "Why does this work so well with LLMs? Because models already understand commands, pipes, and file paths from pretraining. You don't need to teach the LLM a custom tool schema — it already knows what ls /bin does."
-                        "And from a product perspective: you don't need a custom UI for every tiny transformation. The command is the interface."
+                        Point to the example: "One command line in. stdout out. Files stay in the runtime for the next step. Three things, all visible."
+                        "Why does this work so well with LLMs? Because models already understand commands, pipes, and file paths from pretraining. You don't need to define a custom tool schema — the model already knows what ls /bin does."
+                        "From a product perspective: no custom UI for every tiny transformation. The command is the interface — simple, uniform, composable."
                         (~1 min)
                     </aside>
                 </section>
@@ -1116,53 +1072,37 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
-                        Left side: "Old model — two tool calls, each with its own typed schema. The output of step 1 has to be stored in LLM memory and re-described for step 2. Hidden type conversion, outputs stay in memory, every new tool needs a new UI."
-                        Right side: "New model — one command line using shell composition. summary gets the output of google_search directly via $() substitution. String interface, shell composition, and the agent can discover available tools by running ls /bin."
-                        "The runtime becomes simpler for humans AND more legible to LLMs. That's a rare double win."
+                        Left side: "Old model — two tool calls, each with its own typed schema. The output of step 1 has to be stored in LLM memory and re-described for step 2. Type conversion is hidden in the framework, artifacts sit in context, every new tool needs its own UI."
+                        Right side: "New model — one command using shell composition. summary gets the output of google_search directly via $() substitution. Uniform string interface, native shell composition, and the agent can discover available tools by running ls /bin — no documentation needed."
+                        "The runtime becomes simpler for humans AND more legible to LLMs. That's a rare double win — engineering-friendly and model-friendly usually pull in opposite directions."
+                        (~1 min)
                     </aside>
                 </section>
 
-                <!-- Slide 26 · The Risk of Unconstrained Code -->
+                <!-- Slide 26+27 · Sandboxed Code Execution -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">The Risk of Unconstrained Code</h2>
-                        <p class="slide-desc">Agents need a real execution surface. They just should not get the host machine.</p>
-                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-folder-open-line"></i></div>
+                        <h2 class="tight">Sandboxed Code Execution</h2>
+                        <p class="slide-desc">Agents need a real execution surface — just not the host machine. A sandbox makes both possible at once.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1rem; gap: 0.65rem;">
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-folder-open-line"></i></div>
                                 <h4>Host System Access</h4>
                                 <p class="card-body">Without isolation, code can read local credentials, environment variables, and files.</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-cpu-line"></i></div>
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-cpu-line"></i></div>
                                 <h4>No Resource Limits</h4>
                                 <p class="card-body">A bad loop or memory spike can block workers and hurt everyone sharing the runtime.</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-spy-line"></i></div>
+                            <div class="nordic-card" style="border-color: rgba(239,68,68,0.25);">
+                                <div class="icon-badge" style="margin-bottom: 0.5rem;"><i class="ri-spy-line"></i></div>
                                 <h4>Supply Chain Risk</h4>
                                 <p class="card-body">Imported packages can quietly exfiltrate workflow data unless the environment is controlled.</p>
                             </div>
                         </div>
-                        <div class="info-banner" style="margin-top: 1rem;">
-                            <div class="info-banner-slot"><i class="ri-shield-check-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>The goal of a sandbox is safe capability: a real runtime inside hard boundaries.</span></div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "Before we talk about the sandbox, let's be clear about what we're protecting against."
-                        Walk the three risks: "Host system access — without isolation, code can read local credentials and environment variables. No resource limits — a bad loop can block other workers on the shared runtime. Supply chain risk — imported packages from an untrusted source can quietly exfiltrate workflow data."
-                        Read the banner: "The goal of a sandbox is not to reduce capability. It is to contain it. Safe capability — a real runtime inside hard boundaries."
-                    </aside>
-                </section>
-
-                <!-- Slide 27 · Sandboxed Code Execution -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">Sandboxed Code Execution</h2>
-                        <p class="slide-desc">A small Unix-like workstation for agents, wrapped in strict safety controls.</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 0.75rem; gap: 0.75rem;">
+                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
                                 <div class="card-heading">Safety Boundary</div>
                                 <ul class="checklist" style="margin-top: 0.5rem;">
                                     <li class="checked" style="font-size: var(--type-sm);">No host filesystem access</li>
@@ -1181,19 +1121,25 @@ step2: B = summary(query=A)</code></pre>
                                     <span class="chip">JavaScript (Node 20)</span>
                                     <span class="chip">external file storage</span>
                                 </div>
-                                <div class="card-heading" style="margin-top: 1rem;">How to Enable</div>
+                                <div class="card-heading" style="margin-top: 0.75rem;">How to Enable</div>
                                 <div class="chip-list" style="margin-top: 0.5rem;">
                                     <span class="chip" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.35); color:var(--success);">Cloud — on by default</span>
                                     <span class="chip">Self-hosted — set <code>SANDBOX=true</code></span>
                                 </div>
                             </div>
                         </div>
+                        <div class="info-banner" style="margin-top: 0.75rem;">
+                            <div class="info-banner-slot"><i class="ri-shield-check-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>The goal of a sandbox is safe capability: a real runtime inside hard boundaries.</span></div>
+                        </div>
                     </div>
                     <aside class="notes">
-                        Left — safety boundary, read the four checks: "No host filesystem access. Network restricted by allowlist. CPU and memory limits per run. Configurable timeout per node."
-                        Right — usable runtime: "You still get ls /bin, stdin/stdout I/O, files as handoff artifacts, Python 3.11+, Node 20, and external file storage."
-                        "This is what makes command execution safe enough for production — not just for experiments."
-                        (~1 min)
+                        "Let's put the 'why' and 'what' of the sandbox on one slide."
+                        Walk the three risks at the top: "Host system access — without isolation, code can read local credentials and environment variables. No resource limits — a bad loop can block every worker on the shared runtime. Supply chain risk — imported packages from an untrusted source can quietly exfiltrate workflow data."
+                        Then pivot to the solution below: "The sandbox addresses all three. Left side: four hard guarantees — no host filesystem access, network restricted by allowlist, CPU and memory limits per run, configurable timeout per node. Right side: everything you still get — ls /bin, stdin/stdout I/O, files as handoff artifacts, Python 3.11+, Node 20, and external file storage."
+                        Read the banner: "The goal is safe capability — a real runtime inside hard boundaries."
+                        "This is what makes command execution safe enough for production, not just experiments."
+                        (~1.5 min)
                     </aside>
                 </section>
 
@@ -1226,8 +1172,8 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
-                        "'Production-grade' is not just feature completeness — it is diagnosability when things break."
-                        Walk the four cards quickly: "Node-level tracing: every node's inputs, outputs, latency, and token usage are traced independently — failures can be pinpointed to the exact step. Cost tracking: broken down by workflow, node, and model. Latency analysis: is the bottleneck inference, tool calls, or file I/O? Error replay: failed runs replay with full context — no guessing, no reproduction steps."
+                        "'Production-grade' is not just feature completeness — it is diagnosability when things break. The sandbox lets code run; observability tells you what happened."
+                        Walk the four cards: "Node-level tracing: every node's inputs, outputs, latency, and token usage are traced independently — failures can be pinpointed to the exact step, no guessing across the whole chain. Cost tracking: broken down by workflow, node, and model — the team knows where money goes and optimization has a target. Latency analysis: is the bottleneck inference, tool calls, or file I/O? Distribution charts beat intuition. Error replay: failed runs replay with full context — no guessing, no manual reproduction."
                         "If you can't explain why a run failed, you can't improve it. Observability closes that loop."
                         (~1 min)
                     </aside>
@@ -1266,10 +1212,12 @@ step2: B = summary(query=A)</code></pre>
                         </div>
                     </div>
                     <aside class="notes">
-                        "Once a workflow is an operational asset — not a personal experiment — collaboration matters."
-                        Walk the four cards: "Role-based access: draft, review, publish — each person has the right surface without stepping on each other. Version history: every publish creates a snapshot, rollback is one click. Draft → Review → Publish: the lifecycle becomes visible instead of living in screenshots and chat messages. Shared SOP library: best practices stop being private prompt snippets and become team property."
+                        "The sandbox and observability solve the runtime side. This slide solves the other question: who owns the workflow?"
+                        "Once a workflow is an operational asset — not a personal experiment — collaboration isn't optional. It's required."
+                        Walk the four cards: "Role-based access: draft, review, publish — each person has the right surface without stepping on each other. Version history: every publish creates a snapshot, rollback is one click, no fear of breaking things. Draft → Review → Publish: the lifecycle becomes visible and repeatable instead of living in screenshots and chat messages. Shared SOP library: best practices stop being private prompt snippets and become shared team property."
                         Read the scenario at the bottom: "One person drafts the workflow, another reviews the SOPs, a lead publishes the approved version with history still intact."
                         "This is the difference between a team that builds workflows and a team that operates them."
+                        (~1 min)
                     </aside>
                 </section>
 
