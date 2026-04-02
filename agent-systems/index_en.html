@@ -282,43 +282,59 @@
                     </div>
                     <aside class="notes">
                         Bridge from Part 1: "We've established that production readiness needs human judgment baked in — not bolted on. HITL in Dify is not an external approval queue with webhooks. It is a first-class node you drop directly into the workflow graph."
-                        Say the subtitle out loud: "Put human judgment inside the workflow graph, not beside it."
-                        (~8 min total for Part 2 — roughly 2 min per slide)
+                        "Part 2 covers three things: why HITL is needed and where to place it, how the Human Input node actually works, then two real cases representing two different HITL patterns — compliance approval and context collection."
+                        (~8 min total for Part 2)
                     </aside>
                 </section>
 
-                <!-- Slide 7 · Why Teams Need HITL -->
+                <!-- Slide 7+10 · Why Teams Need HITL & Where It Fits -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">Why Teams Need HITL</h2>
-                        <p class="slide-desc">Automation is fastest when people only step in at the moments that matter.</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-route-line"></i></div>
-                                <h4>Shifting Objectives</h4>
+                        <h2 class="tight">Why Teams Need HITL & Where It Fits</h2>
+                        <p class="slide-desc">Oversight should not be a patch — it should be a native gate placed exactly where the workflow needs it.</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1rem; gap: 0.65rem;">
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-route-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>Shifting Objectives</div>
                                 <p class="card-body">Work changes mid-run. A pause point keeps workflows from becoming rigid.</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-cross-line"></i></div>
-                                <h4>Trust Gap</h4>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-shield-cross-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>Trust Gap</div>
                                 <p class="card-body">High-stakes teams need visible checkpoints before AI can act for the business.</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
-                                <h4>Integration Complexity</h4>
-                                <p class="card-body">External approval queues and webhooks turn oversight into extra engineering.</p>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-tools-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>Integration Complexity</div>
+                                <p class="card-body">External approval queues and webhooks turn oversight into extra engineering, not native capability.</p>
                             </div>
-                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
-                                <h4 style="color: var(--dify-blue);">Human Input Node</h4>
-                                <p class="card-body">Pause in the graph, collect judgment, and resume on the right path.</p>
+                        </div>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 0.65rem; gap: 0.65rem;">
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">Before External Actions</div>
+                                <p class="card-body">Pause before a workflow sends an email, publishes content, submits a ticket, or contacts a customer.</p>
                             </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">When Confidence Drops</div>
+                                <p class="card-body">Use HITL on anomalies and edge cases instead of reviewing every run.</p>
+                            </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">When Context Is Missing</div>
+                                <p class="card-body">Ask for one missing field, then continue automatically with the updated value.</p>
+                            </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">When Policy Requires Sign-Off</div>
+                                <p class="card-body">Finance, compliance, and customer-facing flows often need a visible approval checkpoint.</p>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 0.65rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>Fewer, better-placed nodes usually beat reviewing every step. If reviewers still need another system to finish the task, the node design is incomplete.</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        → AUDIENCE CHECK-IN: "Before I explain how it works — raise your hand if you've ever had to build a custom approval integration for an AI workflow. Webhooks, Slack bots, manual email chains..." (pause, scan the room)
-                        "Those are all symptoms of the same problem: human oversight was designed as an afterthought."
-                        Key point: "Good HITL means the reviewer's job surface is right there in the workflow. They shouldn't need another system to finish the task."
+                        → AUDIENCE CHECK-IN: "Before I explain how it works — raise your hand if you've ever had to build a custom approval integration for an AI workflow. Webhooks, Slack bots, manual email chains..." (pause) "Those are all symptoms of the same problem: human oversight was designed as an afterthought."
+                        Walk the three problems: "Shifting objectives — priorities change mid-run, no pause point means the workflow becomes rigid. Trust gap — high-stakes teams need visible checkpoints. Integration complexity — external approval queues turn oversight into extra engineering."
+                        Then walk the four placements: "HITL is not everywhere — it belongs at these four types of points: before external actions; when confidence drops on edge cases; when context is missing — ask for one field and continue; when policy requires sign-off — finance and compliance often have non-negotiable requirements."
+                        Read the banner: "Fewer, better-placed nodes usually beat reviewing every step. If reviewers still need another system, the node design is incomplete."
+                        (~2 min)
                     </aside>
                 </section>
 
@@ -376,46 +392,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Walk through the flow top to bottom: "The workflow is running. It hits the HITL gate and pauses. A notification goes to the right person — with exactly the context they need to make a decision."
-                        Point to each outcome: "Approve — continue as-is. Edit and approve — modify a value, then continue. Reject — route to an alternative branch."
-                        Point to the three cards below: "These map to setup: Delivery configures how the reviewer is notified and where they review. Variables defines what editable fields they see. Actions sets which buttons trigger which branch."
+                        Walk through the flow top to bottom: "The workflow is running. It hits the HITL gate and pauses. A notification goes to the right person — with exactly the context they need to make a decision, no other system needed."
+                        Point to each outcome: "Approve — continue as-is. Edit and approve — modify a value, then continue; the modified value flows into downstream steps. Reject — route to an alternative branch, ensuring the workflow always has an exit."
+                        Point to the three cards below: "These map to node setup: Delivery configures how the reviewer is notified and where they review. Variables defines what editable fields they see. Actions sets which buttons trigger which branch."
                         Key point to land: "The review page IS the job surface. If the reviewer needs to open another system to finish the task, the node design is incomplete."
                         (~2 min)
-                    </aside>
-                </section>
-
-                <!-- Slide 10 · Where HITL Fits Best -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">Where HITL Fits Best</h2>
-                        <p class="slide-desc">Good HITL nodes sit at decision boundaries, not everywhere.</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Before External Actions</div>
-                                <p class="card-body">Pause before a workflow sends an email, publishes content, submits a ticket, or contacts a customer.</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">When Confidence Drops</div>
-                                <p class="card-body">Use HITL on anomalies, edge cases, or low-confidence results instead of reviewing every run.</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">When Context Is Missing</div>
-                                <p class="card-body">Ask for one missing field, then continue automatically with the updated value.</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">When Policy Requires Sign-Off</div>
-                                <p class="card-body">Finance, compliance, and customer-facing flows often need a visible approval checkpoint.</p>
-                            </div>
-                        </div>
-                        <div class="info-banner" style="margin-top: 1rem;">
-                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>Fewer, better-placed nodes usually beat reviewing every step. If reviewers still need another system to finish the task, the node design is incomplete.</span></div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "Placement matters more than quantity. The goal is to review less often, not review everything."
-                        Walk the four quadrants: "Before external actions — obvious, you don't want AI emailing clients without a check. When confidence drops — use it selectively on edge cases, not every run. When context is missing — ask for one field, then continue automatically. When policy requires sign-off — finance and compliance often have non-negotiable audit requirements."
-                        Read the banner out loud: "Fewer, better-placed nodes usually beat reviewing every step. If reviewers still need another system to finish the task, the node design is incomplete."
                     </aside>
                 </section>
 
@@ -455,11 +436,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Open the story: "Let me make this concrete. Liang runs an investment services team. They need to send personalized financial updates to over 100 clients — every single day."
-                        Build the problem: "At 40 minutes of manual work per client, that's 67 hours of work daily. They automated the report generation — but compliance still needed a human eye before anything financial reached a client."
-                        The HITL placement: "They added three HITL nodes: after synthesis to catch hallucinated figures before formatting; on anomalies to only flag reports that deviate from the prior week's baseline; and before send for one final approval click."
+                        "Here's the first HITL pattern: compliance approval. Liang runs an investment services team — personalized financial updates to over 100 clients, every single day."
+                        Build the problem: "At 40 minutes of manual work per client, that's 67 hours daily. They automated report generation — but compliance still needed a human eye before anything financial reached a client."
+                        The HITL placement: "Three nodes: after synthesis — to catch hallucinated figures before formatting; on anomalies — to flag only reports that deviate from the prior week's baseline; before send — one final approval click."
                         The result: "By June, all 100 clients received consistent daily reports. Reviewers weren't doing the work anymore — they were applying judgment exactly where it matters most."
-                        Close with the quote naturally — read it as if Liang said it to you directly.
+                        Read the quote as if Liang said it directly to you.
                         (~2 min)
                     </aside>
                 </section>
@@ -490,12 +471,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Transition: "That was a compliance story. This one is different — it's about HITL as a way to collect missing context, not just approve output."
-                        Open: "Min's team built a single support entry point for a global company with HR, finance, and IT portals. Employees used to navigate three separate systems. Now they go to one place."
-                        The Jason scenario: "Jason from R&amp;D asks: 'What's the reimbursement policy?' Simple question — but the answer depends on which office he's in. The workflow doesn't have that information yet."
-                        "Instead of guessing, the HITL node pauses and asks Jason: 'Which office are you based in?' He says Shanghai. The workflow resumes and returns the correct Shanghai-office reimbursement policy."
+                        Transition: "That was compliance approval — HITL as a gate. This case is different — HITL as context collection. That's the second pattern."
+                        Open: "Min's team consolidated HR, finance, and IT portals into a single support entry point for a global company. Employees used to navigate three separate systems. Now they go to one place."
+                        The Jason scenario: "Jason from R&D asks: 'What's the reimbursement policy?' Simple question — but the answer depends on which office he's in. The workflow doesn't have that information. The HITL node pauses and asks Jason: 'Which office are you based in?' He says Shanghai. The workflow resumes and returns the correct Shanghai-office policy."
                         Key reframe: "That's not approval — that's collaborative intelligence. The AI does the heavy lifting; the human fills in the one gap the AI couldn't infer."
-                        Close: read the quote out loud.
+                        Read the quote out loud.
                         (~2 min)
                     </aside>
                 </section>
@@ -523,96 +503,23 @@
                     </div>
                     <aside class="notes">
                         Bridge from Part 2: "HITL handles the human judgment layer. Now let's look at the other side: making the AI side of the workflow easier to build, maintain, and hand off."
-                        "The agent becomes smaller — it chooses the right SOP, calls the right skill, and leaves usable artifacts behind. Less prompt engineering spaghetti, more structured work."
-                        (~12 min total for Part 3 — this is the densest section, watch your time carefully)
+                        "Part 3 covers: why current agent workflows break down and what the better operating model looks like, then how Skills, SOPs, and Memory Extraction make that model real."
+                        (~10 min total for Part 3 — moderately dense, watch your time)
                     </aside>
                 </section>
 
-                <!-- Slide 14b · Skills × Agents Visual -->
-                <section data-background-color="#fafafa">
-                    <div class="split-visual-slide">
-                        <div class="split-visual-frame">
-                            <img class="split-visual-image" src="assets/skills-x-agents.png" alt="Skills × Agents — how a reusable Skill is invoked from an agent">
-                        </div>
-                        <div class="split-visual-side">
-                            <div class="split-visual-hero">
-                                <div class="card-heading" style="color: var(--dify-blue);">Mental Model</div>
-                                <h3 class="split-visual-title">Smaller agent, stronger handoff</h3>
-                                <p class="split-visual-body">The agent chooses the SOP and the right Skill. Execution moves into reusable units, and the workflow gets artifacts it can route on.</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Agent Owns</div>
-                                <div class="chip-list">
-                                    <span class="chip">goal</span>
-                                    <span class="chip">choose SOP</span>
-                                    <span class="chip">call skills</span>
-                                    <span class="chip">decide next step</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Workflow Receives</div>
-                                <div class="chip-list">
-                                    <span class="chip">text</span>
-                                    <span class="chip">files</span>
-                                    <span class="chip">structured fields</span>
-                                    <span class="chip">memory snapshot</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Operational Payoff</div>
-                                <p class="card-body">Less tool-menu noise, clearer file flow, and one versioned Skill instead of duplicated prompt logic.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        Walk through the canvas diagram first: "This is what the new mental model looks like. The agent doesn't carry a giant list of tools — it selects a Skill, which bundles its SOP context, execution logic, and output contract."
-                        Then use the right rail to summarize the section: "The agent owns the goal and the next-step choice. The workflow gets explicit handoffs: text, files, fields, memory. That is what reduces tool noise, makes file flow debuggable, and lets one versioned Skill serve many workflows."
-                        Land the analogy: "Skills are to agents what functions are to software: reusable units with explicit inputs and outputs."
-                        (~40 s)
-                    </aside>
-                </section>
-
-                <!-- Slide 15 · Why Current Agents Still Fall Short -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">Why Current Agents Still Fall Short</h2>
-                        <p class="slide-desc">Today, advanced teams still end up working around the runtime instead of trusting it.</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-repeat-2-line"></i></div>
-                                <h4>Single-Run Agent Flow</h4>
-                                <p class="card-body">Multi-turn behavior and multi-agent handoff still feel awkward inside workflows.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-list-check-3"></i></div>
-                                <h4>Tool Menus Create Noise</h4>
-                                <p class="card-body">As the tool list grows, prompt space gets crowded and routing logic becomes fragile.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-transfer-line"></i></div>
-                                <h4>File Handoffs Are Fragile</h4>
-                                <p class="card-body">Files often move through hidden identifiers instead of obvious runtime artifacts.</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bug-line"></i></div>
-                                <h4>Debugging Takes Too Long</h4>
-                                <p class="card-body">Strategy, tool routing, file flow, and memory are split across too many layers.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "Before we talk about the fix, let's be honest about where current agent workflows break down."
-                        Walk the four cards: "Single-run flow — multi-turn and multi-agent handoffs are still awkward. Tool menus create noise — the more tools you add, the more fragile the routing logic becomes. File handoffs are fragile — files move through hidden IDs nobody can see or debug. Debugging takes too long — you're digging through four different layers to find one bug."
-                        Land the key insight: "The root problem is not that the models are wrong. It's an unnatural operating model — we're forcing LLMs to work like orchestration frameworks instead of letting them work the way they were trained to work."
-                    </aside>
-                </section>
-
-                <!-- Slide 16 · From Monolithic Prompt to Thin Orchestrator -->
+                <!-- Slide 15+16 · From Monolithic Prompt to Thin Orchestrator -->
                 <section>
                     <div class="slide-content">
                         <h2 class="tight">From Monolithic Prompt to Thin Orchestrator</h2>
-                        <p class="slide-desc">The agent should own decisions, not every execution detail.</p>
-                        <div class="nordic-comparison" style="margin-top: 1.5rem;">
+                        <p class="slide-desc">Four failure modes in today's agent workflows — and the better operating model.</p>
+                        <div class="chip-list" style="margin-top: 1rem; flex-wrap: wrap;">
+                            <span class="chip"><i class="ri-repeat-2-line" style="margin-right:0.3rem;"></i>Single-run flow</span>
+                            <span class="chip"><i class="ri-list-check-3" style="margin-right:0.3rem;"></i>Tool noise</span>
+                            <span class="chip"><i class="ri-file-transfer-line" style="margin-right:0.3rem;"></i>Fragile files</span>
+                            <span class="chip"><i class="ri-bug-line" style="margin-right:0.3rem;"></i>Long debug loops</span>
+                        </div>
+                        <div class="nordic-comparison" style="margin-top: 0.9rem;">
                             <div class="nordic-comparison-item">
                                 <div class="card-heading" style="color: var(--error);">Before — Prompt Does Everything</div>
                                 <div class="nordic-card-flat" style="margin-top: 0.75rem;">
@@ -658,9 +565,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Left side: "Today's pattern — the prompt handles tool routing, file handling, retry logic, AND output formatting. It works until it doesn't. Then you have no idea which part broke."
-                        Right side: "The better model: the agent owns the goal and the sequencing. Skills own the execution. The workflow gets structured outputs it can actually route on."
-                        Say this out loud — it's the analogy that makes it click: "Skills are to agents what functions are to software: reusable units with explicit inputs and outputs."
+                        "Before we talk about Skills and SOPs, let's be honest about where current agent workflows break down — and what the better operating model looks like."
+                        Walk the four failure chips quickly: "Single-run flow — multi-turn behavior and multi-agent handoffs are still awkward. Tool noise — the more tools you add, the more fragile routing becomes. Fragile files — files move through hidden IDs nobody can debug. Long debug loops — strategy, routing, file flow, and memory are split across four layers."
+                        Pivot to the comparison: "Left side: today's pattern — the prompt handles tool routing, file handling, retry logic, and output formatting. It works until it doesn't. Then you have no idea which part broke. Right side: the better model — the agent owns the goal and sequencing, skills own execution, the workflow gets structured outputs it can actually route on."
+                        Say this out loud: "Skills are to agents what functions are to software: reusable units with explicit inputs and outputs."
+                        (~1.5 min)
                     </aside>
                 </section>
 
@@ -691,10 +600,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Here's the most common failure mode I see in production agent workflows."
-                        Point to the workflow image: "An agent runs, calls tools, does real work. But the only thing the downstream IF/ELSE node can see is the agent's text output. So teams end up writing conditions like: 'if the output contains the word success, continue.' That is not state management — that is hoping."
-                        Walk the three failure modes: "Text is not state. Files disappear into memory. Agents cannot relay work to each other."
-                        Land hard: "If downstream cannot consume it, it is not really part of the workflow. It's a side effect you're praying works."
+                        "This is the most common failure mode in production agent workflows — I see it regardless of team skill level."
+                        Point to the workflow image: "An agent runs, calls tools, does real work. But the downstream IF/ELSE node can only see text output. So teams write conditions like: 'if the output contains the word success, continue.' That is not state management — that is hoping."
+                        Walk the three failure modes: "Text is not state — string matching is brittle and hard to maintain. Files disappear into memory — the next node only sees the summary. Agents cannot relay work — the next agent doesn't reliably know what the previous one actually delivered."
+                        Land hard: "If downstream cannot consume it, it is not a real deliverable. It's a side effect you're praying works."
+                        (~1 min)
                     </aside>
                 </section>
 
@@ -727,10 +637,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "So what should a well-designed node produce? Four things."
-                        Walk the cards: "Text — the human-facing answer. Files — actual artifacts the next step can keep using. Structured fields — status, IDs, decisions that branches can route on without parsing prose. Memory snapshot — reusable context that later nodes can pull facts from."
+                        "So what should a well-designed node produce? Four things — each with a clear receiver."
+                        Walk the cards: "Text — the human-facing answer. Files — actual artifacts the next step can keep using, not just buried in a summary. Structured fields — status, IDs, decisions that branches can route on without parsing prose. Memory snapshot — reusable context that later nodes can extract facts, parameters, and even files from."
                         Read the banner out loud: "If downstream cannot consume it, it is not a real deliverable."
-                        "This is the contract we're designing toward. Every node should say: here is what I produced, here is what the next step needs."
+                        "This is the contract every node should be able to answer: what did I produce, and how does the next step use it?"
                         (~1 min)
                     </aside>
                 </section>
@@ -773,9 +683,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "A Skill is the unit of reuse in this new model. Think of it as a function, but for agent behavior."
-                        Walk the four properties: "SOP-backed — the 'how to do this well' playbook lives with the skill, not copied into every prompt. Reusable — publish once, invoke from anywhere. Testable — run it with fixture inputs without triggering the whole workflow. Version-pinned — agents can pin a stable version instead of breaking when a shared skill changes."
-                        Point to the bottom row: "Skills take input from conversation context, prior node outputs, files, and memory extraction — all the sources we just covered."
+                        "A Skill is the unit of reuse in this model. Think of it as a function for agent behavior — explicit inputs, explicit outputs, testable in isolation."
+                        Walk the four properties: "SOP-backed — the 'how to do this well' playbook lives with the skill, not copied into every prompt; update once and it takes effect everywhere. Reusable — publish once, invoke from any agent or workflow. Testable — run it with fixture inputs without triggering the whole workflow; regression testing becomes simple. Version-pinned — agents can pin a stable version instead of breaking when a shared skill changes."
+                        Point to the bottom row: "Skills take input from all the sources we just covered: conversation context, prior node outputs, files, and memory extraction."
+                        (~1 min)
                     </aside>
                 </section>
 
@@ -812,9 +723,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "The SOP problem is real. I've talked to teams who have the same three-paragraph customer-service playbook copy-pasted into eleven different workflows. When policy changes, someone has to update eleven files. And they always miss one."
-                        "The /sops workspace solves this. Write once. Different agents enter through different files — their entrypoint changes, but they share the underlying knowledge base."
+                        "The SOP duplication problem is real. Teams copy-paste the same customer-service playbook into eleven different workflows. When policy changes, they update eleven files — and they always miss one. Standards drift."
+                        "The /sops workspace solves this. Write once. Different agents enter through different files — their entrypoint changes, but the underlying knowledge base is shared."
                         "This is context engineering as shared team infrastructure, not a personal prompt collection."
+                        (~1 min)
                     </aside>
                 </section>
 
@@ -858,11 +770,13 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Here's a real consolidation story. An e-commerce ops team had five separate customer service workflows: returns, shipping, complaints, order exceptions, VIP. Each one had a near-identical customer-service SOP and ticket classification logic."
-                        "Every time policy changed — maybe a new returns window, a new escalation threshold — someone opened five workflows. Usually they missed one. Inconsistency crept in."
-                        "After consolidation: one Skill with two shared SOPs. Each workflow only defines its own entrypoint and unique logic."
-                        Read the quote as if you heard it directly: "Before, updating one script meant opening five workflows. Now we change the Skill once and it takes effect everywhere."
+                        "That's the theory. Here's what it looks like in practice."
+                        "An e-commerce ops team had five customer service workflows: returns, shipping, complaints, order exceptions, VIP. Each had a near-identical customer-service SOP and ticket classification logic."
+                        "Every time policy changed — new returns window, new escalation threshold — someone opened five workflows. Usually missed one. Inconsistency crept in."
+                        "After: one Skill with two shared SOPs. Each workflow only defines its own entrypoint and unique logic."
+                        Read the quote as if you heard it directly.
                         "That's a 4× maintenance reduction — and it compounds as the team adds more workflows."
+                        (~1 min)
                     </aside>
                 </section>
 
@@ -915,9 +829,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        Walk top to bottom: "Inputs come in — user request, prior node outputs, uploaded files. The Agent layer selects the right SOP, assembles context, calls skills, and decides next steps. The Workspace is the file-and-command environment: /sops, commands, files, versioned skills. Handoffs go downstream as text, files, structured fields, memory snapshots — and HITL gates if needed."
-                        Read the banner: "Think in SOPs, files, and artifacts — not a giant dropdown of tools. The agent's job is to navigate that workspace, not manage a tool menu."
-                        (~1 min 30 s)
+                        "This diagram ties together everything in Part 3."
+                        Walk top to bottom: "Inputs come in — user request, prior node outputs, uploaded files. The Agent layer selects the right SOP, assembles context, calls skills, and decides next steps — note the agent is doing judgment and orchestration, not execution. The Workspace is the file-and-command environment: /sops, commands, files, versioned skills. Handoffs go downstream as text, files, structured fields, memory snapshots — and HITL gates when human judgment is needed."
+                        Read the banner: "Think in SOPs, files, and artifacts — not a giant dropdown of tools. The agent's job is to navigate that workspace."
+                        (~1.5 min)
                     </aside>
                 </section>
 
@@ -966,12 +881,12 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "This is one of the most novel ideas in today's talk — take a moment with it."
-                        The analogy: "Think of RAG as going to the library to look up a book. Memory Extraction is reading the notes you already wrote during this run — no library trip, no vector DB, no cross-session retrieval. This is intra-workflow state."
-                        Walk the pipeline: "Node A runs and produces context. That context goes into a Memory Store. An Extraction LLM — lightweight, typically under 1 second and 500 tokens — reads the bounded window and pulls out structured fields. Node B downstream gets typed values it can actually use."
+                        "This is one of the most novel ideas today — take a moment with it."
+                        Lead with the analogy: "Think of RAG as going to the library. Memory Extraction is reading the notes you already wrote during this run — no library trip, no vector DB, no cross-session retrieval. This is intra-workflow state."
+                        Walk the pipeline: "Node A runs and produces context. That context goes into a Memory Store. An Extraction LLM — lightweight, typically under 1 second and 500 tokens — reads the bounded window and pulls out structured fields. Node B gets typed values it can actually route on."
                         Address cost proactively: "Teams ask: doesn't that add latency? The extraction call is lightweight by design. And if it fails, the node falls back to the upstream agent's raw text output — the workflow never silently breaks."
-                        RAG difference: "RAG retrieves from an external corpus across sessions. Memory Extraction pulls from the same run's working context. Very different use cases."
-                        → AUDIENCE CHECK-IN: "Any questions on this before I move on? This is where most 'aha' moments happen — but also where most confusion lives." (brief pause)
+                        RAG difference: "RAG retrieves from an external corpus across sessions. Memory Extraction pulls from the same run's working context. Different problems entirely."
+                        → AUDIENCE CHECK-IN: "Any questions before I move on? This is where most 'aha' moments happen — and most confusion lives." (brief pause)
                         (~2 min — the densest slide in the deck)
                     </aside>
                 </section>

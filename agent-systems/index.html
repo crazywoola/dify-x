@@ -282,43 +282,59 @@
                     </div>
                     <aside class="notes">
                         从第一部分过渡："我们已经确认生产就绪需要把人的判断内嵌进来 —— 不是事后贴上去的。Dify 的 HITL 不是带 Webhook 的外部审批队列，而是你直接拖进工作流图里的原生节点。"
-                        念出副标题："把人的判断放进工作流图里，而不是放在工作流之外。"
-                        （第二部分合计约 8 分钟，每张幻灯片约 2 分钟）
+                        "第二部分三件事：为什么需要 HITL 以及放在哪里、Human Input 节点的机制、然后是两个真实案例分别代表不同的 HITL 模式：合规审批和上下文补齐。"
+                        （第二部分合计约 8 分钟）
                     </aside>
                 </section>
 
-                <!-- Slide 7 · 为什么团队需要 HITL -->
+                <!-- Slide 7+10 · 为什么需要 HITL & 该放在哪里 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">为什么团队需要 HITL</h2>
-                        <p class="slide-desc">最好的自动化，不是完全无人参与，而是只在人真正该介入的时刻介入。</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-route-line"></i></div>
-                                <h4>目标会变化</h4>
-                                <p class="card-body">工作进行到一半时，优先级和上下文可能会变，没有暂停点，流程就会变得僵硬。</p>
+                        <h2 class="tight">为什么需要 HITL & 该放在哪里</h2>
+                        <p class="slide-desc">审核不能是事后补丁 —— 它应该作为原生关卡放在工作流里最需要的地方。</p>
+                        <div class="nordic-grid nordic-grid-3" style="margin-top: 1rem; gap: 0.65rem;">
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-route-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>目标会变化</div>
+                                <p class="card-body">工作进行到一半，优先级变了，没有暂停点流程就会变得僵硬。</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-shield-cross-line"></i></div>
-                                <h4>信任仍然缺失</h4>
-                                <p class="card-body">高风险流程里，团队需要看得见的检查点，才敢让 AI 代表业务继续往下走。</p>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-shield-cross-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>信任仍然缺失</div>
+                                <p class="card-body">高风险流程里，团队需要看得见的检查点，才敢让 AI 代表业务行动。</p>
                             </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-tools-line"></i></div>
-                                <h4>集成过于复杂</h4>
-                                <p class="card-body">外部审批队列和 Webhook 会把人工审核变成额外工程，而不是原生能力。</p>
+                            <div class="nordic-card-flat">
+                                <div class="card-heading"><i class="ri-tools-line" style="margin-right:0.3rem; color:var(--dify-blue);"></i>集成过于复杂</div>
+                                <p class="card-body">外部审批队列和 Webhook 让人工审核变成额外工程，而不是原生能力。</p>
                             </div>
-                            <div class="nordic-card" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem; background: rgba(0,51,255,0.1); color: var(--dify-blue);"><i class="ri-node-tree"></i></div>
-                                <h4 style="color: var(--dify-blue);">Human Input 节点</h4>
-                                <p class="card-body">在图里暂停、拿到人的判断，然后沿正确分支原生恢复执行。</p>
+                        </div>
+                        <div class="nordic-grid nordic-grid-2" style="margin-top: 0.65rem; gap: 0.65rem;">
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">外部动作之前</div>
+                                <p class="card-body">发送邮件、发布内容、提交工单或触达客户之前暂停一次。</p>
                             </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">置信度下降时</div>
+                                <p class="card-body">只在异常和边界情况触发，不用每次都审。</p>
+                            </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">上下文缺失时</div>
+                                <p class="card-body">只补一个关键字段，然后让流程带着新值自动继续执行。</p>
+                            </div>
+                            <div class="nordic-card-flat" style="background: var(--dify-blue-light); border-color: var(--dify-blue-medium);">
+                                <div class="card-heading">策略要求签核时</div>
+                                <p class="card-body">财务、合规和对客流程通常都需要一个可见的审批点。</p>
+                            </div>
+                        </div>
+                        <div class="info-banner" style="margin-top: 0.65rem;">
+                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
+                            <div class="info-banner-content"><span>节点不在多，在准。如果审核者还需要打开另一个系统才能完成任务，说明设计还没完成。</span></div>
                         </div>
                     </div>
                     <aside class="notes">
-                        → 互动提问："在讲怎么用之前 —— 举个手，有没有人曾经为 AI 工作流自建过审批集成？Webhook、Slack 机器人、手工邮件链……" （停顿，扫视全场）
-                        "这些都是同一个问题的症状：人工审核是作为事后补丁加进去的。"
-                        核心观点："好的 HITL，意味着审核者的工作台就在工作流里。他们不应该需要打开另一个系统才能完成任务。"
+                        → 互动提问："在讲具体用法之前 —— 有没有人曾经为 AI 工作流自建过审批集成？Webhook、Slack 机器人、手工邮件链……" （停顿）"这些都是同一个问题的症状：人工审核是事后补丁加进去的。"
+                        走三个症结："目标会变化 —— 工作进行到一半优先级变了，没有暂停点流程就僵硬了。信任仍然缺失 —— 高风险流程里团队需要看得见的检查点。集成过于复杂 —— 外部审批队列让审核变成额外工程。"
+                        然后走四个放置点："HITL 不是到处都放，而是放在这四类地方：外部动作之前 —— AI 发邮件、触达客户前要过一遍。置信度下降时 —— 只在异常和边界情况触发。上下文缺失时 —— 只补一个关键字段然后自动继续。策略要求签核时 —— 财务和合规往往有明文要求。"
+                        念出 banner："节点不在多，在准。如果审核者还需要打开另一个系统，说明设计还没完成。"
+                        （约 2 分钟）
                     </aside>
                 </section>
 
@@ -376,46 +392,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        从上到下走一遍流程："工作流运行中，遇到 HITL 关卡，暂停。通知送到指定审核人 —— 带着他们做决策所需的完整上下文。"
-                        指向三种结果："批准 —— 原样继续。编辑并批准 —— 改掉一个值再继续。拒绝 —— 走备用分支。"
-                        指向下方三张小卡片："这三个维度对应节点的三项配置：送达方式（通知谁、在哪里审）、变量（审核者能改哪些字段）、动作（哪个按钮触发哪条分支）。"
-                        最关键的一句话要大声说："审核页面就是工作台本身。如果审核者还需要开另一个系统才能完成任务，说明节点设计还没做完。"
+                        从上到下走一遍流程："工作流运行中，遇到 HITL 关卡暂停。通知送到指定审核人 —— 带着他们做决策所需的完整上下文，不需要再开别的系统。"
+                        指向三种结果："批准 —— 原样继续。编辑并批准 —— 改掉一个值再继续，修改后的值会进入后续流程。拒绝 —— 走备用分支，确保流程始终有出口。"
+                        指向下方三张小卡片："这三个维度对应节点的三项配置：送达（通知谁、在哪里审）、变量（审核者能改哪些字段）、动作（哪个按钮触发哪条分支）。"
+                        重点落地："审核页面就是工作台本身。如果审核者还需要打开另一个系统才能完成任务，说明节点设计还没完成。"
                         （约 2 分钟）
-                    </aside>
-                </section>
-
-                <!-- Slide 10 · HITL 最适合放在哪里 -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">HITL 该放在哪些地方</h2>
-                        <p class="slide-desc">好的 HITL 节点应该落在关键决策点上，而不是铺满整条流程。</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 0.9rem;">
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">外部动作之前</div>
-                                <p class="card-body">在发送邮件、发布内容、提交工单或触达客户之前暂停一次。</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">置信度下降时</div>
-                                <p class="card-body">在异常、边界情况或低置信结果出现时再人工介入，而不是每次都审。</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">上下文缺失时</div>
-                                <p class="card-body">只补一个关键字段，然后让流程带着新值继续自动执行。</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">策略要求签核时</div>
-                                <p class="card-body">财务、合规和对客流程通常都需要一个看得见的审批点。</p>
-                            </div>
-                        </div>
-                        <div class="info-banner" style="margin-top: 1rem;">
-                            <div class="info-banner-slot"><i class="ri-lightbulb-line info-banner-icon"></i></div>
-                            <div class="info-banner-content"><span>节点不一定要多，位置放对通常更重要。如果审核者还需要打开另一个系统才能完成任务，说明设计还没完成。</span></div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        "重点不是节点多，而是节点放得准。目标是少审核，而不是什么都审。"
-                        快速走四个格子："外部动作之前 —— 显而易见，AI 给客户发邮件之前你得过一遍。置信度下降时 —— 只在异常和边界情况触发，不必每次都审。上下文缺失时 —— 只补一个关键字段，然后让流程带着新值继续自动跑。策略要求签核时 —— 财务、合规、对客流程往往有明文要求。"
-                        把 banner 大声念出来："节点不一定要多，位置放对通常更重要。如果审核者还需要打开另一个系统才能完成任务，说明设计还没完成。"
                     </aside>
                 </section>
 
@@ -455,11 +436,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        开头引入："让我来讲个具体案例。梁管理一个投资服务团队，每天需要给 100 多位客户发送个性化财务报告。"
-                        建立问题："每位客户 40 分钟手工处理，那就是每天 67 个小时。他们把报告生成自动化了 —— 但财务内容真正发到客户手里之前，合规还是得过一遍。"
-                        HITL 放置位置："他们加了三个 HITL 节点：汇总之后，抓住幻觉数字还没格式化的时机；异常出现时，只标记和上周基线偏差明显的报告；发送之前，最后一键批准。"
+                        "来看 HITL 的第一种模式：合规审批。梁管理一个投资服务团队，每天要给 100 多位客户发送个性化财务报告。"
+                        建立问题："每位客户 40 分钟手工处理，那就是每天 67 个小时。报告生成已经自动化了 —— 但财务内容真正发到客户手里之前，合规还是得过一遍。"
+                        HITL 放置位置："三个节点：汇总之后 —— 趁幻觉数字还没格式化时抓到；异常出现时 —— 只标记和上周基线偏差明显的报告；发送之前 —— 最后一键批准。"
                         结果："到六月，100 多位客户都收到了一致的日报。审核者不再是在做工作，而是在最关键的地方施加判断。"
-                        自然念出引语 —— 就当梁亲口跟你说这句话。
+                        自然念出引语，就当梁亲口说给你听。
                         （约 2 分钟）
                     </aside>
                 </section>
@@ -490,11 +471,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        过渡："刚才是合规审批场景。这个案例不一样 —— HITL 在这里是补齐缺失上下文，而不只是审批输出。"
-                        开头："闵的团队为一家跨国公司搭了一个统一支持入口，把 HR、财务和 IT 三个门户整合成一个入口。员工之前要在三个系统之间来回跳。"
-                        Jason 的场景："研发部的 Jason 问：'报销流程是什么？'很简单的问题 —— 但答案取决于他在哪个办公室。工作流拿不到这个信息。"
-                        "于是 HITL 节点暂停了一下，问 Jason：'你在哪个办公室？' 他说上海。流程继续，返回了正确的上海办公室报销政策。"
-                        核心重新定义："这不是审批 —— 这是协同智能。AI 完成繁重工作，人来填上 AI 无法推断的那一个空缺。"
+                        过渡："刚才是合规审批。这个案例不一样 —— HITL 在这里是补齐缺失上下文，而不是审批输出。这是 HITL 的第二种模式。"
+                        开头："闵的团队把 HR、财务和 IT 三个门户整合成一个统一支持入口。员工之前要在三个系统之间来回跳，现在只去一个地方。"
+                        Jason 的场景："研发部的 Jason 问：'报销流程是什么？'很简单的问题 —— 但答案取决于他在哪个办公室。工作流没有这个信息。HITL 节点暂停，问 Jason：'你在哪个办公室？'他说上海。流程继续，返回了上海办公室的正确报销政策。"
+                        核心重新定义："这不是审批 —— 这是协同智能。AI 完成繁重工作，人只需填上那一个关键空缺。"
                         自然念出引语。
                         （约 2 分钟）
                     </aside>
@@ -523,96 +503,23 @@
                     </div>
                     <aside class="notes">
                         从第二部分过渡："HITL 处理了人的判断层。现在来看另一面：让工作流的 AI 侧更容易构建、维护和交接。"
-                        "更好的 Agent 应该更轻 —— 它负责选 SOP、调 Skill，并把结果稳稳交给下游。少一些 Prompt 工程意大利面，多一些结构化分工。"
-                        （第三部分合计约 12 分钟 —— 内容最密集，注意控制时间）
+                        "第三部分核心：当前 Agent 为什么还不够好、更好的运行模式是什么，以及 Skill、SOP 和 Memory Extraction 如何把这个模式落地。"
+                        （第三部分合计约 10 分钟 —— 内容较密集，注意控制时间）
                     </aside>
                 </section>
 
-                <!-- Slide 14b · Skills × Agents 示意图 -->
-                <section data-background-color="#fafafa">
-                    <div class="split-visual-slide">
-                        <div class="split-visual-frame">
-                            <img class="split-visual-image" src="assets/skills-x-agents.png" alt="Skills × Agents — 可复用 Skill 在 Agent 中的调用方式">
-                        </div>
-                        <div class="split-visual-side">
-                            <div class="split-visual-hero">
-                                <div class="card-heading" style="color: var(--dify-blue);">心智模型</div>
-                                <h3 class="split-visual-title">更轻的 Agent，更强的交接</h3>
-                                <p class="split-visual-body">Agent 负责选 SOP 和 Skill，执行沉到可复用单元里，工作流拿到的是可以稳定路由的交付物。</p>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Agent 负责</div>
-                                <div class="chip-list">
-                                    <span class="chip">目标</span>
-                                    <span class="chip">选择 SOP</span>
-                                    <span class="chip">调用 Skills</span>
-                                    <span class="chip">决定下一步</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">Workflow 拿到</div>
-                                <div class="chip-list">
-                                    <span class="chip">文本</span>
-                                    <span class="chip">文件</span>
-                                    <span class="chip">结构化字段</span>
-                                    <span class="chip">记忆快照</span>
-                                </div>
-                            </div>
-                            <div class="nordic-card-flat">
-                                <div class="card-heading">运营上的收益</div>
-                                <p class="card-body">工具菜单更干净，文件流更清楚，也不用把同样的 Prompt 逻辑复制进多个工作流里。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="notes">
-                        先引导观众看画布："这就是新的心智模型。Agent 不再背着一张大工具菜单，而是选择一个 Skill；Skill 内置 SOP 上下文、执行逻辑和输出契约。"
-                        再用右侧小结收束这一节："Agent 负责目标和下一步选择，Workflow 拿到明确的文本、文件、字段、记忆交付物。这就是为什么工具噪音会下降、文件流更容易调试、一个版本化 Skill 可以服务多个工作流。"
-                        "把它想成软件里的函数：定义好的输入、定义好的输出，可以单独测试。"
-                        （约 40 秒）
-                    </aside>
-                </section>
-
-                <!-- Slide 15 · 为什么今天的 Agent 仍然不够好 -->
+                <!-- Slide 15+16 · 从大 Prompt 到轻量编排层 -->
                 <section>
                     <div class="slide-content">
-                        <h2 class="tight">为什么今天的 Agent 仍然不够好</h2>
-                        <p class="slide-desc">今天最成熟的团队，还是经常得绕开运行时，自己再补一层。</p>
-                        <div class="nordic-grid nordic-grid-2" style="margin-top: 1.5rem; gap: 1rem;">
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-repeat-2-line"></i></div>
-                                <h4>Agent 流程仍偏单次执行</h4>
-                                <p class="card-body">多轮行为和多 Agent 交接，在 Workflow 里仍然不够自然。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-list-check-3"></i></div>
-                                <h4>工具菜单制造噪音</h4>
-                                <p class="card-body">工具一多，Prompt 空间就被挤占，工具路由也会越来越脆弱。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-file-transfer-line"></i></div>
-                                <h4>文件交接很脆弱</h4>
-                                <p class="card-body">文件经常依赖隐藏标识符传递，而不是依赖直观的运行时工件。</p>
-                            </div>
-                            <div class="nordic-card">
-                                <div class="icon-badge" style="margin-bottom: 0.75rem;"><i class="ri-bug-line"></i></div>
-                                <h4>调试链路太长</h4>
-                                <p class="card-body">策略、工具路由、文件流和记忆分散在多层，出错时很难定位。</p>
-                            </div>
+                        <h2 class="tight">从"大 Prompt"到轻量编排层</h2>
+                        <p class="slide-desc">当前 Agent 工作流的四个症结，以及更好的运行模式。</p>
+                        <div class="chip-list" style="margin-top: 1rem; flex-wrap: wrap;">
+                            <span class="chip"><i class="ri-repeat-2-line" style="margin-right:0.3rem;"></i>单次执行</span>
+                            <span class="chip"><i class="ri-list-check-3" style="margin-right:0.3rem;"></i>工具噪音</span>
+                            <span class="chip"><i class="ri-file-transfer-line" style="margin-right:0.3rem;"></i>文件脆弱</span>
+                            <span class="chip"><i class="ri-bug-line" style="margin-right:0.3rem;"></i>调试太长</span>
                         </div>
-                    </div>
-                    <aside class="notes">
-                        "在讲解法之前，先诚实地看看当前 Agent 工作流在哪里掉链子。"
-                        走四个格子："Agent 流程偏单次执行 —— 多轮行为和多 Agent 交接在 Workflow 里还是很别扭。工具菜单制造噪音 —— 工具越加越多，路由逻辑就越脆弱。文件交接很脆弱 —— 文件靠没人看得见的隐藏标识符传递，出问题很难排查。调试链路太长 —— 策略、工具路由、文件流和记忆分散在四层，找一个 bug 要挖很久。"
-                        落地核心洞察："根本问题不是模型答错了，而是运行方式不够自然 —— 我们在强迫 LLM 像编排框架一样运作，而不是让它用它训练出来的方式工作。"
-                    </aside>
-                </section>
-
-                <!-- Slide 16 · 从单体 Prompt 到薄编排层 -->
-                <section>
-                    <div class="slide-content">
-                        <h2 class="tight">从一个大 Prompt 到轻量编排层</h2>
-                        <p class="slide-desc">Agent 应该负责做判断，而不是把所有执行细节都塞进 Prompt 里。</p>
-                        <div class="nordic-comparison" style="margin-top: 1.5rem;">
+                        <div class="nordic-comparison" style="margin-top: 0.9rem;">
                             <div class="nordic-comparison-item">
                                 <div class="card-heading" style="color: var(--error);">之前 —— 一个大 Prompt 包打天下</div>
                                 <div class="nordic-card-flat" style="margin-top: 0.75rem;">
@@ -658,9 +565,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        左侧："今天的模式 —— Prompt 里塞了工具路由、文件处理、重试逻辑，还有输出格式。能跑通 —— 直到跑不通。然后你完全不知道哪一块出了问题。"
-                        右侧："更好的模式：Agent 负责目标和排序，Skill 负责执行，Workflow 拿到可以路由的结构化输出。"
-                        大声说出这句话，让它落地："Skill 对 Agent 的意义，就像函数对软件的意义：有明确输入输出的可复用单元。"
+                        "在讲 Skill 和 SOP 之前，先诚实地看看当前 Agent 工作流在哪里掉链子 —— 以及更好的运行模式是什么样的。"
+                        快速走上面四个症结："单次执行 —— 多轮行为和多 Agent 交接在 Workflow 里还是很别扭。工具噪音 —— 工具越加越多，路由逻辑越来越脆弱。文件脆弱 —— 文件靠隐藏标识符传递，出问题很难排查。调试太长 —— 策略、工具路由、文件流和记忆分散在四层。"
+                        然后看比较："左侧是今天的模式 —— Prompt 里塞了工具路由、文件处理、重试逻辑、输出格式。能跑通 —— 直到跑不通，然后你完全不知道哪块出了问题。右侧是更好的模式：Agent 负责目标和排序，Skill 负责执行，Workflow 拿到可以路由的结构化输出。"
+                        大声说出这句类比让它落地："Skill 对 Agent 的意义，就像函数对软件的意义：定义好输入输出的可复用单元。"
+                        （约 1.5 分钟）
                     </aside>
                 </section>
 
@@ -691,10 +600,11 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "这是我在生产 Agent 工作流里见过最常见的失效模式。"
-                        指向工作流图："Agent 跑起来，调工具，做了真正的工作。但下游的 IF/ELSE 节点只能看到 Agent 的文本输出。于是团队写出这样的条件：'如果输出里包含 success 这个词，就继续。' 这不是状态管理 —— 这是在碰运气。"
-                        走三个失效点："文本不是状态。文件会消失在记忆里。Agent 之间无法接力。"
-                        重锤落下："下游节点接不住的东西，就不算真正交付出来了。它只是个你在祈祷能跑通的副作用。"
+                        "这是生产 Agent 工作流里最常见的失效模式，不管团队水平高低都会遇到。"
+                        指向工作流图："Agent 跑起来，调工具，做了真正的工作。但下游的 IF/ELSE 节点只能看到文本输出。于是团队写出这样的条件：'如果输出里包含 success 这个词，就继续。'这不是状态管理 —— 这是在碰运气。"
+                        走三个失效点："文本不是状态 —— 字符串匹配既脆弱又难维护。文件会消失在记忆里 —— 下游只看得到总结，原始产物不见了。Agent 之间无法接力 —— 后一个 Agent 不知道前一个究竟交付了什么。"
+                        重锤落下："下游节点接不住的东西，就不算真正交付出来了。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 
@@ -727,10 +637,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "那么一个设计良好的节点应该产出什么？四样东西。"
-                        走四张卡片："文本回答 —— 给人看的最终解释或回复。文件 —— 下一步真正能继续用的产物。结构化字段 —— 状态、ID、决策，供分支直接读取，不用解析文本。记忆快照 —— 可重用的上下文，让后续节点能从中提取事实。"
+                        "那么一个设计良好的节点应该产出什么？四样东西 —— 每一样都有明确的接收方。"
+                        走四张卡片："文本回答 —— 给人看的最终解释或回复。文件 —— 下一步真正能继续用的产物，不是只存在于总结里。结构化字段 —— 状态、ID、决策，供分支直接读取，不用解析文本。记忆快照 —— 可重用的上下文，让后续节点能从中提取事实、参数乃至文件。"
                         大声念出 banner："如果下游节点接不住，它就不算真正交付出来。"
-                        "这就是我们正在设计的契约。每个节点都应该能说：这是我产出的，这是下一步需要的。"
+                        "这是每个节点都要回答的契约问题：我产出了什么，下一步怎么用？"
                         （约 1 分钟）
                     </aside>
                 </section>
@@ -773,9 +683,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Skill 是这个新模型里的复用单元。把它想成一个函数，但作用于 Agent 行为。"
-                        走四个属性："自带 SOP —— '这类事该怎么做'不再散落在各节点里，而是跟着 Skill 一起沉淀。可复用 —— 发布一次，被不同 Agent 和 Workflow 反复调用。可测试 —— 用固定输入单独运行，不必触发整条流程。可锁定版本 —— Agent 可以锁住稳定版本，不必每次都被共享 Skill 的更新牵着走。"
+                        "Skill 是这个新模型里的复用单元。把它想成一个函数，但作用于 Agent 行为 —— 有明确的输入、明确的输出、可以单独测试。"
+                        走四个属性："自带 SOP —— '这类事该怎么做'不再散落在各节点里，而是跟着 Skill 一起沉淀，更新一次全部生效。可复用 —— 发布一次，被不同 Agent 和 Workflow 反复调用，不用复制粘贴。可测试 —— 用固定输入单独运行，不必触发整条流程，回归测试变得简单。可锁定版本 —— Agent 可以锁住稳定版本，不必每次都被共享 Skill 的更新牵着走。"
                         指向底部："Skill 的输入来源涵盖了我们刚讲过的所有来源：对话上下文、前置节点输出、文件和记忆提取。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 
@@ -812,9 +723,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "SOP 重复的问题是真实存在的。我跟很多团队聊过，他们把同一段三段话的客服话术复制粘贴进十一条不同的工作流里。策略一更新，得改十一个文件。而且总会漏掉一个。"
-                        "/sops 工作区就是解法：写一次，不同 Agent 进不同的入口文件 —— 入口变了，但底层知识库是共享的。"
+                        "SOP 重复的问题是真实存在的。很多团队把同一段客服话术复制粘贴进十一条不同的工作流里。策略一更新，得改十一个文件，而且总会漏掉一个，标准就开始漂移。"
+                        "/sops 工作区就是解法：写一次，不同 Agent 进不同的入口文件 —— 入口不同，但底层知识库是共享的。"
                         "这是把 Context Engineering 变成团队共用的基础设施，而不是每个人自己的 Prompt 收藏夹。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 
@@ -858,11 +770,13 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "来看一个真实的收敛案例。一个电商运营团队有五条客服工作流：退换货、物流查询、售后投诉、订单异常、VIP 服务。每条流程里都有一段几乎相同的客服话术 SOP 和工单分类逻辑。"
-                        "每次策略更新 —— 比如退换货窗口调整了，升级规则变了 —— 就得打开五个工作流。通常会漏掉一个，标准就开始漂移。"
-                        "收敛之后：一个 Skill，两份共享 SOP，五个工作流各自只定义自己的入口文件和特有逻辑。"
-                        如实念出引语："以前改一个话术要开五个 Workflow 逐个找，现在改一次 Skill 全部生效。"
+                        "这就是刚才那个理论的真实案例。"
+                        "电商运营团队有五条客服工作流：退换货、物流查询、售后投诉、订单异常、VIP 服务。每条流程里都有几乎相同的客服话术 SOP 和工单分类逻辑。"
+                        "每次策略更新 —— 退换货窗口调整、升级规则变化 —— 就得打开五个工作流。总会漏掉一个，标准就开始漂移。"
+                        "收敛之后：一个 Skill，两份共享 SOP，五个工作流只定义各自的入口文件和特有逻辑。"
+                        如实念出引语，当他亲口跟你说这句话。
                         "维护量降了四倍 —— 而且会随着工作流增加继续复利。"
+                        （约 1 分钟）
                     </aside>
                 </section>
 
@@ -915,9 +829,10 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        从上往下走："输入进来 —— 用户请求、前置节点输出、上传文件。Agent 层选择合适的 SOP、组装上下文、调用 Skill、决定下一步。Workspace 是文件和命令的运行环境：/sops、命令、文件、版本化 Skill。交付结果向下传：文本、文件、结构化字段、记忆快照 —— 以及需要人工判断时的 HITL 关卡。"
-                        念出 banner："用 SOP、文件和产物来思考，而不是想着工具下拉框。Agent 的工作是在这个工作区里导航，而不是管理工具菜单。"
-                        （约 1 分 30 秒）
+                        "这张图把第三部分讲过的所有东西串起来了。"
+                        从上往下走："输入进来 —— 用户请求、前置节点输出、上传文件。Agent 层选择合适的 SOP、组装上下文、调用 Skill、决定下一步 —— 注意 Agent 做的是判断和编排，不是执行。Workspace 是文件和命令的运行环境：/sops、命令、文件、版本化 Skill。交付结果向下传：文本、文件、结构化字段、记忆快照 —— 以及需要人工判断时的 HITL 关卡。"
+                        念出 banner："用 SOP、文件和产物来思考，而不是想着工具下拉框。Agent 的工作是在这个工作区里导航。"
+                        （约 1.5 分钟）
                     </aside>
                 </section>
 
@@ -967,11 +882,11 @@
                     </div>
                     <aside class="notes">
                         "这是今天分享里最关键的创新点之一，多花一点时间。"
-                        类比："把 RAG 想成去图书馆查书。Memory Extraction 是读你在这一次运行过程中已经记下来的笔记 —— 不用去图书馆，不需要向量库，不涉及跨会话检索。这是工作流内部的状态。"
-                        走链路："节点 A 运行并产出上下文，上下文进入 Memory Store，提取 LLM 读取有界上下文窗口并提取结构化字段 —— 轻量，通常不超过 1 秒、500 tokens。下游节点 B 拿到有类型的值，而不是自然语言。"
-                        主动回应成本顾虑（大家必问）："提取调用设计上就是轻量的。如果提取失败，节点会回退到上游 Agent 的原始文本输出 —— 工作流不会静默中断。"
-                        RAG 区别："RAG 从外部语料库跨会话检索，Memory Extraction 从同一次运行的上下文里提取。完全不同的使用场景。"
-                        → 互动提问："继续往下讲之前，有人对这里有疑问吗？这里'aha 时刻'和困惑点都集中。" （短暂停顿）
+                        类比先走："把 RAG 想成去图书馆查书。Memory Extraction 是读你在这一次运行过程中已经写下来的笔记 —— 不用去图书馆，不需要向量库，不涉及跨会话检索。这是工作流内部的状态。"
+                        走链路："节点 A 运行并产出上下文，上下文进入 Memory Store，提取 LLM 读取有界上下文窗口并输出结构化字段 —— 轻量，通常不超过 1 秒、500 tokens。下游节点 B 拿到有类型的值，而不是自然语言。"
+                        主动回应成本顾虑："提取调用设计上就是轻量的。如果提取失败，节点会回退到上游 Agent 的原始文本输出 —— 工作流不会静默中断。"
+                        RAG 区别点到为止："RAG 从外部语料库跨会话检索，Memory Extraction 从同一次运行的上下文里提取。两者解决完全不同的问题。"
+                        → 互动提问："继续之前，有人对这里有疑问吗？这里'aha 时刻'和困惑点都集中。" （短暂停顿）
                         （约 2 分钟 —— 全场内容最密集的一张）
                     </aside>
                 </section>
