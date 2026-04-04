@@ -7,740 +7,478 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css" id="theme">
 
   <style>
-    :root {
-      --deck-bg: #edf4ff;
-      --deck-bg-alt: #f9fbff;
-      --deck-text: #10213d;
-      --deck-muted: #5d6b85;
-      --deck-accent: #245dff;
-      --deck-accent-soft: rgba(36, 93, 255, 0.10);
-      --deck-line: rgba(16, 33, 61, 0.12);
-      --deck-shadow: 0 28px 80px rgba(23, 48, 94, 0.16);
-    }
-
     html,
     body {
-      background:
-        radial-gradient(circle at top left, rgba(94, 138, 255, 0.25), transparent 38%),
-        radial-gradient(circle at bottom right, rgba(36, 93, 255, 0.12), transparent 32%),
-        linear-gradient(180deg, var(--deck-bg-alt) 0%, var(--deck-bg) 100%);
-      color: var(--deck-text);
-      font-family: "IBM Plex Sans", sans-serif;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #000;
+      overflow: hidden;
     }
 
-    .reveal {
-      font-family: "IBM Plex Sans", sans-serif;
-      color: var(--deck-text);
-    }
-
-    .reveal .slides {
-      text-align: left;
+    .reveal,
+    .reveal .slides,
+    .reveal .slides section {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #000;
     }
 
     .reveal .slides section {
-      padding: 0;
-    }
-
-    .slide-shell {
-      width: min(95vw, 1560px);
-      margin: 0 auto;
-    }
-
-    .deck-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin: 0 0 14px;
-      font-size: 0.9rem;
-      color: var(--deck-muted);
-    }
-
-    .deck-pill-group {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .deck-pill,
-    .deck-count,
-    .deck-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.42rem 0.82rem;
-      border-radius: 999px;
-      border: 1px solid var(--deck-line);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(23, 48, 94, 0.06);
-    }
-
-    .deck-pill {
-      font-family: "Manrope", sans-serif;
-      font-weight: 800;
-      color: var(--deck-accent);
-      letter-spacing: 0.02em;
-    }
-
-    .deck-count {
-      font-weight: 600;
-    }
-
-    .deck-hint {
-      font-size: 0.82rem;
-    }
-
-    .slide-frame {
-      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 247, 255, 0.96) 100%);
-      box-shadow: var(--deck-shadow);
-      overflow: hidden;
-      position: relative;
     }
 
-    .slide-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 28px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(36, 93, 255, 0.18), rgba(255, 255, 255, 0.06));
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    .slide-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 18px;
+    .slide-image {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
       display: block;
+      margin: 0;
+      border: 0;
+      box-shadow: none;
+      background: #000;
     }
 
-    .slide-title {
+    .visually-hidden {
       position: absolute;
-      left: -9999px;
       width: 1px;
       height: 1px;
+      padding: 0;
+      margin: -1px;
       overflow: hidden;
-    }
-
-    .reveal .controls {
-      color: var(--deck-accent);
-    }
-
-    .reveal .progress {
-      color: var(--deck-accent);
-      height: 4px;
-    }
-
-    .reveal .slide-number {
-      right: 24px;
-      bottom: 20px;
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(16, 33, 61, 0.72);
-      color: #ffffff;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    @media (max-width: 960px) {
-      .slide-shell {
-        width: min(98vw, 1560px);
-      }
-
-      .deck-bar {
-        margin-bottom: 10px;
-        font-size: 0.78rem;
-      }
-
-      .deck-pill,
-      .deck-count,
-      .deck-hint {
-        padding: 0.34rem 0.68rem;
-      }
-
-      .slide-frame {
-        border-radius: 20px;
-        padding: 10px;
-      }
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
 <body>
   <div class="reveal">
-    <div class="slides">
-      <section>
-        <h1 class="slide-title">The Path to Production</h1>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Agent Systems SG</span>
-              <span class="deck-count">01 / 21</span>
-            </div>
-            <span class="deck-hint">Press <strong>S</strong> for speaker notes</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/1.png" alt="The path to production is about making workflows smart enough to know when to pause, when to ask, and how to continue with human judgment built in.">
-          </div>
-        </div>
-        <aside class="notes">
-          Opening:
-          - "This deck starts with the core idea in one sentence: production AI is not just about automation, it is about knowing when to pause, when to ask, and when to continue."
-          - "Human judgment is not a patch for bad workflows. It is a design choice for reliable workflows."
-          Focus:
-          - Use this slide to set the tone for the whole talk.
-          - Keep the introduction high level and calm.
-          Bridge:
-          - "Now let's make the production gap concrete."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Agent Can Act, But Production Is Not Ready</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Agent Systems SG</span>
-              <span class="deck-count">02 / 21</span>
-            </div>
-            <span class="deck-hint">Trust, governance, and operational complexity</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/2.png" alt="Agent can act, but production is not ready. Trust erosion, governance barrier, and operational complexity are the three main blockers.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "Most teams are no longer blocked by model capability. They are blocked by trust, governance, and operational complexity."
-          - "If a system can produce a wrong answer, a risky action, or an untraceable decision, it is not ready for production."
-          Focus:
-          - Point out the three failure modes from left to right.
-          - Keep this grounded in real teams, not abstract theory.
-          Bridge:
-          - "So the question becomes: what does a production-grade agent system need instead?"
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Three Themes of the Session</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Agent Systems SG</span>
-              <span class="deck-count">03 / 21</span>
-            </div>
-            <span class="deck-hint">HITL, collaboration, marketplace</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/3.png" alt="Overview slide showing Human-in-the-Loop, Collaboration, and Marketplace as the three main topics.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This image gives the structure for the talk: human checkpoints, team collaboration, and reusable templates."
-          - "Together, these turn an autonomous demo into an operable system."
-          Focus:
-          - Keep this brief.
-          - Treat it like a roadmap for the audience.
-          Bridge:
-          - "Let's start with the first piece: Human-in-the-Loop."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Human-in-the-Loop</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Part 1</span>
-              <span class="deck-count">04 / 21</span>
-            </div>
-            <span class="deck-hint">Section break</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/4.png" alt="Section slide titled Human-in-the-Loop.">
-          </div>
-        </div>
-        <aside class="notes">
-          Transition:
-          - "Human-in-the-Loop means human judgment is part of the workflow graph, not something that happens off to the side in chat or email."
-          - "This is where reliability starts to become visible and auditable."
-          Bridge:
-          - "Next, let's look at why this is needed in production."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">The Production Reality Check</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Human-in-the-Loop</span>
-              <span class="deck-count">05 / 21</span>
-            </div>
-            <span class="deck-hint">Review, accountability, escalation, fallback</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/5.png" alt="The production reality check shows review and approval, accountability, escalation paths, and fallback logic.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "A production system needs four things: review, accountability, escalation, and fallback."
-          - "The key shift is moving from 'can the AI do it?' to 'should the AI do it by itself?'"
-          Focus:
-          - Emphasize that sensitive decisions need explicit owners.
-          - Mention that no-response and fallback paths are part of good workflow design.
-          Bridge:
-          - "Once we accept that, the next step is to design for collaboration on purpose."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Designing for Collaboration</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Human-in-the-Loop</span>
-              <span class="deck-count">06 / 21</span>
-            </div>
-            <span class="deck-hint">Human input as a workflow primitive</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/6.png" alt="Designing for collaboration shows human input as a structured, resumable workflow primitive.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "Production-grade systems are not fully autonomous. They are designed for collaboration."
-          - "The important idea here is that human input becomes a native workflow primitive."
-          Focus:
-          - Call out the terms structured collaboration and resumable flow.
-          - Keep the explanation simple: pause, ask, decide, resume.
-          Bridge:
-          - "The next slide shows that handoff as a concrete mechanism."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Human Judgment as a Workflow Primitive</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Human-in-the-Loop</span>
-              <span class="deck-count">07 / 21</span>
-            </div>
-            <span class="deck-hint">Pause, request, decide, resume</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/7.png" alt="Human judgment as a workflow primitive shows execution pausing, requesting review, getting a decision, and resuming.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This is the basic Human Input loop: execution pauses, a request is sent, a person reviews the context, and the workflow resumes on the selected path."
-          - "That makes the human handoff explicit, trackable, and repeatable."
-          Focus:
-          - Walk through the flow from top to bottom.
-          - Stress that the workflow continues with context, not from scratch.
-          Bridge:
-          - "Once the handoff exists, we can make it much richer than a simple approve-or-reject."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">A Complete Interaction Model</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Human-in-the-Loop</span>
-              <span class="deck-count">08 / 21</span>
-            </div>
-            <span class="deck-hint">Rich interaction and uncertainty handling</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/8.png" alt="A complete interaction model includes editing, feedback, regeneration, rerouting, wait times, and fallback branches.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "Human-in-the-Loop is not just approve or reject. Real workflows need edits, feedback, rerouting, retries, and time-based fallback."
-          - "This is how you handle uncertainty without breaking the system."
-          Focus:
-          - Mention wait times and fallback branches because they matter in operations.
-          - Highlight that first response closes the request to avoid ambiguity.
-          Bridge:
-          - "With these pieces in place, we can define what mature agent design really looks like."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Future of Agent Design</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Human-in-the-Loop</span>
-              <span class="deck-count">09 / 21</span>
-            </div>
-            <span class="deck-hint">Five pillars of usability</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/9.png" alt="Future of agent design shows five pillars of usability, moving from autonomous agents to collaborative intelligent feedback agents.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "The maturity shift is from autonomous behavior to collaborative systems that pause at the right time, show the right context, ask the right person, and capture the right feedback."
-          - "Human input is not a workaround for automation. It is what mature automation looks like."
-          Focus:
-          - Land the five pillars as a practical checklist.
-          - Use the autonomous-to-collaborative contrast as the takeaway.
-          Bridge:
-          - "Now let's move from theory to concrete examples."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Financial Services Example</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Use Case</span>
-              <span class="deck-count">10 / 21</span>
-            </div>
-            <span class="deck-hint">Review before send</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/10.png" alt="Scaling problem example in financial services where report generation is automated but compliance requires final review before send.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This example shows where Human-in-the-Loop belongs in a financial workflow: after synthesis, before send."
-          - "The system does the calculations, but a human applies the final judgment when the output becomes client-facing."
-          Focus:
-          - Mention the scale problem: many clients, too much manual work.
-          - Emphasize that reviewers see exactly what the client will receive.
-          Bridge:
-          - "The same pattern applies outside compliance-heavy industries too."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Global Support Example</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Use Case</span>
-              <span class="deck-count">11 / 21</span>
-            </div>
-            <span class="deck-hint">Request missing context</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/11.png" alt="Global support example where missing location data is requested through Human Input before routing to the correct policy.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "Human-in-the-Loop is not only for approval. It is also a clean way to ask for missing context."
-          - "In this support case, the workflow pauses only when it lacks enough information to route the request correctly."
-          Focus:
-          - Use the reimbursement example to make this feel practical.
-          - Keep the phrase collaborative intelligence as the closing idea.
-          Bridge:
-          - "Once workflows can pause and collect context, the next question is how we evaluate them."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Evaluation</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Part 2</span>
-              <span class="deck-count">12 / 21</span>
-            </div>
-            <span class="deck-hint">Section break</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/12.png" alt="Section slide titled Evaluation coming soon.">
-          </div>
-        </div>
-        <aside class="notes">
-          Transition:
-          - "Evaluation is the measurement layer for agent systems."
-          - "If we cannot measure retrieval quality, grounding, and task correctness, we cannot improve the system with confidence."
-          Bridge:
-          - "So let me show why evaluation matters first."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Why Use Evaluation</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Evaluation</span>
-              <span class="deck-count">13 / 21</span>
-            </div>
-            <span class="deck-hint">From unstable retrieval to measurable trust</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/13.png" alt="Why use evaluation highlights unstable retrieval, uncontrollable LLMs, slow iteration, proactive defense, accelerated iteration, and measurable trust.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "Evaluation turns vague concerns into measurable signals."
-          - "It helps with unstable retrieval, prompt and model changes, slow iteration, and trust before deployment."
-          Focus:
-          - Group the left side as problems and the right side as outcomes.
-          - Use the phrase measurable trust because it is memorable.
-          Bridge:
-          - "Now let's make that concrete with an end-to-end framework."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">End-to-End Evaluation Framework</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Evaluation</span>
-              <span class="deck-count">14 / 21</span>
-            </div>
-            <span class="deck-hint">Answer relevance, retrieval, groundedness, correctness</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/14.png" alt="End-to-end evaluation framework for enterprise agents and workflows, including answer relevance, retrieval relevance, groundedness, and correctness.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "A useful evaluation framework covers four checks: does the answer address the question, are the documents relevant, is the answer grounded, and is it correct against a known truth."
-          - "This gives teams a shared language for improving the workflow instead of arguing from intuition."
-          Focus:
-          - Walk through the four metrics in order.
-          - Mention reusable snapshots and external tools only briefly.
-          Bridge:
-          - "Measurement is one half of operating an agent. Team collaboration is the other half."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Collaboration</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Part 3</span>
-              <span class="deck-count">15 / 21</span>
-            </div>
-            <span class="deck-hint">Section break</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/15.png" alt="Section slide titled Collaboration coming soon.">
-          </div>
-        </div>
-        <aside class="notes">
-          Transition:
-          - "Once the workflow is measurable, the next challenge is making it operable by a team."
-          - "Collaboration here means role clarity, version safety, and shared operational knowledge."
-          Bridge:
-          - "Let's look at what that means inside the product."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Collaborative Workflow</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Collaboration</span>
-              <span class="deck-count">16 / 21</span>
-            </div>
-            <span class="deck-hint">Roles, versions, and shared SOPs</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/16.png" alt="Collaborative workflow interface showing role-based access, version history, draft to review to publish lifecycle, and a shared SOP library.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This is the operations view of an agent system: different people can draft, review, and publish without stepping on each other."
-          - "Version history and shared SOPs turn private prompt habits into a repeatable team process."
-          Focus:
-          - Call out draft, review, publish as an explicit lifecycle.
-          - Mention rollback and monitoring as confidence features.
-          Bridge:
-          - "Once workflows are collaborative, the next step is making them reusable across teams."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Marketplace and Template</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Part 4</span>
-              <span class="deck-count">17 / 21</span>
-            </div>
-            <span class="deck-hint">Section break</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/17.png" alt="Section slide titled Marketplace and Template.">
-          </div>
-        </div>
-        <aside class="notes">
-          Transition:
-          - "The next layer is distribution."
-          - "Once teams can build and operate workflows well, they need a way to share what works."
-          Bridge:
-          - "That is where templates and the marketplace come in."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Creator Center and Template Marketplace</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Marketplace</span>
-              <span class="deck-count">18 / 21</span>
-            </div>
-            <span class="deck-hint">Publish, discover, adopt</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/18.png" alt="Dify creator center and template marketplace where creators publish workflow templates and users can discover and adopt them with one click.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "The creator center and marketplace make workflows reusable products, not just one-off internal builds."
-          - "Creators can publish templates, and users can discover and adopt them with much less setup work."
-          Focus:
-          - Mention English metadata and setup steps as quality controls for consistency.
-          - Stress one-click adoption as the user value.
-          Bridge:
-          - "That marketplace works because it sits on top of a strong community."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Community-Driven and Globally Recognized</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Community</span>
-              <span class="deck-count">19 / 21</span>
-            </div>
-            <span class="deck-hint">Open source momentum</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/19.png" alt="Community-driven and globally recognized slide highlighting contributors, popularity, local deployment, and global reach.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This ecosystem is powered by contributors and real deployment momentum."
-          - "Open source scale matters here because it creates faster feedback, stronger patterns, and broader trust."
-          Focus:
-          - Keep this slide energetic but short.
-          - Treat it as proof that the platform is active and credible.
-          Bridge:
-          - "That momentum also shows up in the customer base."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Trusted by Leaders Worldwide</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Adoption</span>
-              <span class="deck-count">20 / 21</span>
-            </div>
-            <span class="deck-hint">Enterprise credibility</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/20.png" alt="Trusted by leaders across industries worldwide, showing customer logos.">
-          </div>
-        </div>
-        <aside class="notes">
-          Say:
-          - "This is the proof point that these ideas are not theoretical. They are being adopted across industries and company sizes."
-          - "The pattern is the same everywhere: teams want agent capability, but they need production controls."
-          Focus:
-          - Do not read logos one by one.
-          - Use this as fast social proof.
-          Bridge:
-          - "I'll close with where to continue the conversation."
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="slide-title">Contact and Links</h2>
-        <div class="slide-shell">
-          <div class="deck-bar">
-            <div class="deck-pill-group">
-              <span class="deck-pill">Closing</span>
-              <span class="deck-count">21 / 21</span>
-            </div>
-            <span class="deck-hint">Discord, website, GitHub, social, email</span>
-          </div>
-          <div class="slide-frame">
-            <img src="./assets/assets/21.png" alt="Closing slide with Dify contact links including Discord, website, GitHub, X, LinkedIn, and email.">
-          </div>
-        </div>
-        <aside class="notes">
-          Closing:
-          - "If this resonates with your production roadmap, please keep the conversation going."
-          - "You can explore the product, join the community, read the code, or reach out directly."
-          Focus:
-          - Pause here for audience questions.
-          - End with a clear invitation instead of a hard stop.
-        </aside>
-      </section>
-    </div>
+    <div class="slides" id="slides"></div>
   </div>
+
+  <script>
+    const slideData = [
+      {
+        title: "The Path to Production",
+        image: "./assets/assets/1.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 15 seconds here.",
+          "- This deck is paced for roughly 27 minutes in total, so start measured and unhurried.",
+          "Say:",
+          '- "I want to open with the main idea of this session: production AI is not just about making a model answer correctly. It is about making the whole system smart enough to know when to pause, when to ask, and how to continue with human judgment built in."',
+          '- "That is a very different goal from building a demo. A demo wants a wow moment. A production system wants repeatability, traceability, and calm behavior under pressure."',
+          '- "So as you look at this opening image, treat it as the thesis for everything that follows. We are not talking about replacing people with automation. We are talking about designing workflows where automation and human judgment reinforce each other."',
+          "Focus:",
+          "- Keep the energy calm and confident instead of hype-driven.",
+          "- Let the audience settle in before moving forward.",
+          "Bridge:",
+          '- "With that framing in place, let us look at why capability alone still does not make a system production ready."'
+        ].join("\n")
+      },
+      {
+        title: "Agent Can Act, But Production Is Not Ready",
+        image: "./assets/assets/2.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This slide names the gap very directly. Agents can act, but production is still not ready."',
+          '- "In practice, teams usually hit three blockers. The first is trust erosion. If a model gives a bad answer or triggers the wrong action in front of a customer, the damage is immediate and memorable."',
+          '- "The second is governance. In finance, healthcare, government, and most enterprise settings, you cannot just say the model seemed right. You need records, ownership, approval history, and a trail that someone can inspect later."',
+          '- "The third is operational complexity. Prompts get longer, tool lists get bigger, handoffs become implicit, and soon nobody is fully sure why the system behaved the way it did."',
+          '- "That is why the problem is not just model quality. The real challenge is designing the operating system around the model."',
+          "Focus:",
+          "- Gesture left to right across the three failure modes.",
+          "- Make this feel familiar to builders who have already shipped LLM features.",
+          "Bridge:",
+          '- "Once we see the real blockers clearly, we can talk about the design patterns that close that gap."'
+        ].join("\n")
+      },
+      {
+        title: "Three Themes of the Session",
+        image: "./assets/assets/3.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute here.",
+          "Say:",
+          '- "This slide gives the structure for the rest of the talk."',
+          '- "First, we will talk about Human-in-the-Loop, because mature systems need explicit checkpoints. Second, we will talk about collaboration, because production agents are operated by teams, not isolated prompt authors. Third, we will talk about templates and distribution, because the best workflows need to be reusable, discoverable, and easy to adopt."',
+          '- "If you keep these three themes in mind, the deck becomes simple: how do we make agent behavior governable, operable, and repeatable?"',
+          "Focus:",
+          "- Keep this as a roadmap, not a deep explanation slide.",
+          "- Move with momentum into the first section.",
+          "Bridge:",
+          '- "Let us start with the most important foundation: Human-in-the-Loop."'
+        ].join("\n")
+      },
+      {
+        title: "Human-in-the-Loop",
+        image: "./assets/assets/4.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 45 seconds here.",
+          "Say:",
+          '- "When I say Human-in-the-Loop, I do not mean sending a Slack message after the workflow breaks. I mean making human judgment a first-class part of the workflow graph itself."',
+          '- "That sounds like a small wording change, but it is actually a big architectural shift. Once the handoff is explicit, it becomes visible, auditable, and designable."',
+          "Focus:",
+          "- Treat this as a section marker and reset the room.",
+          "- Slow down slightly before going into the mechanics.",
+          "Bridge:",
+          '- "So the next question is: why exactly do production systems need this built in?"'
+        ].join("\n")
+      },
+      {
+        title: "The Production Reality Check",
+        image: "./assets/assets/5.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This is where the mindset changes from capability to responsibility."',
+          '- "A production system usually needs four things. It needs review, because sensitive output should not always go out untouched. It needs accountability, because someone must own the final decision. It needs escalation, because some edge cases should move to the right expert instead of forcing the model to guess. And it needs fallback logic, because silence and failure are both possible states in real operations."',
+          '- "Notice how different that sounds from a benchmark discussion. The real question is not just can the AI complete the task. The real question is should the AI complete the task by itself, under these conditions, with this level of risk."',
+          '- "That is why Human-in-the-Loop is not a concession. It is the correct answer to risk-sensitive workflow design."',
+          "Focus:",
+          "- Emphasize accountability and fallback as especially important in enterprise settings.",
+          "- Let the phrase should it do it by itself land clearly.",
+          "Bridge:",
+          '- "Once we accept that principle, we can design collaboration into the workflow instead of bolting it on later."'
+        ].join("\n")
+      },
+      {
+        title: "Designing for Collaboration",
+        image: "./assets/assets/6.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 15 seconds here.",
+          "Say:",
+          '- "This slide makes a very practical point: production-grade systems are not fully autonomous. They are designed for collaboration."',
+          '- "The important phrase here is workflow primitive. Human input is not an exception path. It is not a weird patch around the real workflow. It is one of the native building blocks of the system."',
+          '- "That matters because once something is a native building block, you can reason about it clearly. You can version it, measure it, route it, and resume from it."',
+          '- "In other words, the handoff is no longer hidden in tribal knowledge. It becomes part of the system design."',
+          "Focus:",
+          "- Briefly call out structured collaboration and resumable flow.",
+          "- Keep the explanation simple and concrete.",
+          "Bridge:",
+          '- "The next slide shows exactly what that handoff looks like in motion."'
+        ].join("\n")
+      },
+      {
+        title: "Human Judgment as a Workflow Primitive",
+        image: "./assets/assets/7.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "Here is the basic life cycle. Execution reaches a Human Input node and pauses. A request is sent to the designated person. That person reviews the available context, provides input or a decision, and the workflow resumes on the appropriate branch."',
+          '- "That may sound simple, but it solves several hard problems at once. It clarifies who is responsible, it captures the exact moment of decision, and it lets the workflow continue with preserved context instead of forcing a restart."',
+          '- "This is also much better than an informal review process, because the workflow itself knows it is waiting and knows what data needs to come back."',
+          '- "So instead of human review being outside the system, human review becomes part of the runtime behavior."',
+          "Focus:",
+          "- Walk top to bottom so the audience can follow the sequence.",
+          "- Stress that resume happens with context still attached.",
+          "Bridge:",
+          '- "Once we have that primitive, we can build a richer interaction model on top of it."'
+        ].join("\n")
+      },
+      {
+        title: "A Complete Interaction Model",
+        image: "./assets/assets/8.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "One of the mistakes people make is assuming Human-in-the-Loop means a binary approve or reject button. Real operations are more nuanced than that."',
+          '- "Sometimes the reviewer wants to edit the draft directly. Sometimes they want to leave feedback and ask for revision. Sometimes they want regeneration from the model, or to forward the task to a different person. Sometimes the real issue is not the content but the lack of response, which means the workflow needs wait times, reminders, retries, or escalation."',
+          '- "That is why this slide matters. It shows that collaboration is not a single event. It is a designed interaction model that includes uncertainty handling."',
+          '- "If you support these richer states, the system feels far more natural to operators, because it behaves the way real teams behave."',
+          "Focus:",
+          "- Mention fallback branches and first-response resolution explicitly.",
+          "- Make this feel operational rather than theoretical.",
+          "Bridge:",
+          '- "With that complete interaction model in mind, we can describe what mature agent design looks like more generally."'
+        ].join("\n")
+      },
+      {
+        title: "Future of Agent Design",
+        image: "./assets/assets/9.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This slide is one of my favorites because it reframes maturity very clearly. The direction is from autonomous agents toward collaborative, feedback-rich systems."',
+          '- "The five pillars are a useful checklist. Pause at the right time. Surface the right context. Ask the right person. Capture the right feedback. Then use that feedback to improve future behavior."',
+          '- "That is a much more realistic target than total autonomy. In production, good systems are not the ones that never ask for help. Good systems are the ones that know when asking for help is the correct action."',
+          '- "So Human Input is not a workaround for automation. It is what mature automation looks like."',
+          "Focus:",
+          "- Let the autonomous versus collaborative contrast land.",
+          "- This is a strong conceptual slide, so pause briefly after the final sentence.",
+          "Bridge:",
+          '- "Now let us make this concrete with a couple of real workflow examples."'
+        ].join("\n")
+      },
+      {
+        title: "Financial Services Example",
+        image: "./assets/assets/10.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This example shows a very common enterprise pattern. Report generation is automated, but the final output still needs expert review before it reaches the client."',
+          '- "What is useful here is the placement. The system does not ask for review too early, when there is nothing meaningful to inspect. It asks after synthesis and before send, which is exactly where the output becomes sensitive."',
+          '- "That means automation still removes the bulk of the manual workload, while human judgment is reserved for the point of highest consequence."',
+          '- "This is a good way to think about Human-in-the-Loop in general. Put people where judgment matters most, not where the machine can already perform reliably."',
+          "Focus:",
+          "- Mention scale and consistency if the room is enterprise-heavy.",
+          "- Emphasize that reviewers see exactly what the client would receive.",
+          "Bridge:",
+          '- "The same design principle works outside finance as well, even when the issue is missing context rather than final approval."'
+        ].join("\n")
+      },
+      {
+        title: "Global Support Example",
+        image: "./assets/assets/11.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This support scenario is helpful because it shows a different use of Human-in-the-Loop. Here the workflow is not asking for approval. It is asking for the missing information required to make the next routing decision correctly."',
+          '- "That is a subtle but important distinction. Human input is not only about risk control. It is also about context completion."',
+          '- "If the system does not know the office location, policy region, or account type, pushing forward with a guess is often the wrong move. A short structured pause is better than a confident mistake."',
+          '- "This is why the outcome feels like collaborative intelligence. The machine handles speed and structure, and the human supplies the missing context that keeps the workflow accurate."',
+          "Focus:",
+          "- Use the reimbursement example as the concrete anchor.",
+          "- Keep the phrase context completion in mind.",
+          "Bridge:",
+          '- "Once workflows can pause, ask, and resume well, the next question is how we measure whether they are actually improving."'
+        ].join("\n")
+      },
+      {
+        title: "Evaluation",
+        image: "./assets/assets/12.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 45 seconds here.",
+          "Say:",
+          '- "The next section is about evaluation, because mature agent systems need more than orchestration. They also need measurement."',
+          '- "If Human-in-the-Loop gives us control, evaluation gives us feedback on quality."',
+          "Focus:",
+          "- Keep this short as a section break.",
+          "- Reset the audience from workflow behavior to system measurement.",
+          "Bridge:",
+          '- "So first, why does evaluation matter so much in this space?"'
+        ].join("\n")
+      },
+      {
+        title: "Why Use Evaluation",
+        image: "./assets/assets/13.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "Evaluation matters because without it, most agent iteration is guesswork."',
+          '- "Retrieval can be unstable. Prompt changes can have unclear effects. Model upgrades can help one scenario while hurting another. And manual testing is slow, subjective, and expensive."',
+          '- "A proper evaluation layer changes that. It lets teams test proactively before deployment, compare options more quickly, and replace vague confidence with measurable trust."',
+          '- "That phrase measurable trust is important. In enterprise environments, trust does not come from enthusiasm. It comes from evidence that the system behaves well across a meaningful set of scenarios."',
+          "Focus:",
+          "- Contrast the left side as pain and the right side as capability.",
+          "- Make the case that evaluation is what speeds teams up safely.",
+          "Bridge:",
+          '- "With that in mind, let us look at what an end-to-end evaluation framework actually needs to cover."'
+        ].join("\n")
+      },
+      {
+        title: "End-to-End Evaluation Framework",
+        image: "./assets/assets/14.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 45 seconds here.",
+          "Say:",
+          '- "This framework breaks the problem into four checks. First, answer relevance: does the response actually address the question asked? Second, retrieval relevance: did we bring back the right supporting context? Third, groundedness: is the answer supported by the documents rather than invented? Fourth, correctness: does the answer align with known truth or an accepted reference."',
+          '- "I like this framing because it helps teams debug with precision. If answer relevance is weak, the issue may be task understanding. If retrieval relevance is weak, the issue may be indexing or ranking. If groundedness is weak, you may have hallucination problems. If correctness is weak even with good retrieval, your synthesis logic may still be off."',
+          '- "That means evaluation is not just a scorecard. It is a diagnostic tool for deciding what to improve next."',
+          '- "And once teams save trusted configurations and snapshots, iteration becomes much more disciplined."',
+          "Focus:",
+          "- Walk through the four metrics slowly and clearly.",
+          "- This is one of the denser slides, so let it breathe.",
+          "Bridge:",
+          '- "So evaluation gives us a quality loop. The next section shows how collaboration gives us an operating loop."'
+        ].join("\n")
+      },
+      {
+        title: "Collaboration",
+        image: "./assets/assets/15.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 45 seconds here.",
+          "Say:",
+          '- "Now we move from workflow correctness to team operation."',
+          '- "Because even a well-designed agent is hard to scale if only one person understands how it works or if every change depends on private prompt fragments and screenshots."',
+          "Focus:",
+          "- Use this as a clean reset into the collaboration theme.",
+          "Bridge:",
+          '- "Let us look at what collaboration means when it is designed directly into the product."'
+        ].join("\n")
+      },
+      {
+        title: "Collaborative Workflow",
+        image: "./assets/assets/16.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This slide shows the operating reality of a shared agent system. Different people can draft, review, and publish without stepping on each other."',
+          '- "That matters because most production workflows are team artifacts. They are not static prompts. They evolve over time, they need review, and they need safe ways to compare versions and roll back when necessary."',
+          '- "I would call out three things here. First, role-based access, which creates clarity about who can change what. Second, version history, which turns workflow changes into inspectable events. Third, a draft-to-review-to-publish lifecycle, which gives the team a process instead of a pile of ad hoc edits."',
+          '- "The shared SOP library is also important because it turns private know-how into reusable operational knowledge."',
+          "Focus:",
+          "- Call out draft, review, publish explicitly.",
+          "- Mention rollback as a confidence feature, not just a technical feature.",
+          "Bridge:",
+          '- "Once workflows are collaborative inside a team, the next step is to make them reusable across teams."'
+        ].join("\n")
+      },
+      {
+        title: "Marketplace and Template",
+        image: "./assets/assets/17.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 45 seconds here.",
+          "Say:",
+          '- "The final section is about distribution and reuse."',
+          '- "If a workflow pattern works well, the value increases dramatically when others can discover it, adopt it quickly, and adapt it with less effort."',
+          "Focus:",
+          "- Keep this short and transitional.",
+          "Bridge:",
+          '- "That is exactly the role of templates and the marketplace."'
+        ].join("\n")
+      },
+      {
+        title: "Creator Center and Template Marketplace",
+        image: "./assets/assets/18.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here.",
+          "Say:",
+          '- "This slide shows how workflows move from internal assets to reusable products."',
+          '- "Creators can publish templates, and users can browse, evaluate, and adopt them much more quickly than rebuilding from zero."',
+          '- "What I like here is that there is also structure around quality. Metadata, setup steps, naming, and submission guidance help keep the marketplace searchable and understandable."',
+          '- "That is important because reuse only works when people can trust what they are adopting. A marketplace without quality signals turns into noise very quickly."',
+          '- "So the user value is speed, but the platform value is consistency."',
+          "Focus:",
+          "- Mention one-click adoption and creator submission flow.",
+          "- Frame this as operational reuse, not just content reuse.",
+          "Bridge:",
+          '- "And of course, a healthy marketplace depends on an active and credible community around it."'
+        ].join("\n")
+      },
+      {
+        title: "Community-Driven and Globally Recognized",
+        image: "./assets/assets/19.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 15 seconds here.",
+          "Say:",
+          '- "This slide is really the ecosystem proof point."',
+          '- "Strong open-source momentum matters because it creates more contributors, more real-world feedback, and faster evolution of best practices."',
+          '- "It also means the platform is not learning from a narrow set of internal use cases. It is being stressed and refined by a broader community with different industries, different deployment patterns, and different operational expectations."',
+          '- "That makes the patterns we discussed today more credible, because they are being validated in the open."',
+          "Focus:",
+          "- Keep this energetic but do not linger too long.",
+          "- Treat it as evidence of momentum and maturity.",
+          "Bridge:",
+          '- "That momentum is also reflected in the organizations using the platform."'
+        ].join("\n")
+      },
+      {
+        title: "Trusted by Leaders Worldwide",
+        image: "./assets/assets/20.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute here.",
+          "Say:",
+          '- "I would use this slide as fast social proof rather than reading logos one by one."',
+          '- "The key message is that the demand pattern is consistent across industries. Teams want the power of agents, but they also need governance, collaboration, and production controls."',
+          '- "So whether the use case is support, operations, internal knowledge, or regulated workflows, the system design questions we covered today keep repeating."',
+          "Focus:",
+          "- Keep it brief and confident.",
+          "- Do not turn this into a logo recital.",
+          "Bridge:",
+          '- "Let me close with where people can continue the conversation after this session."'
+        ].join("\n")
+      },
+      {
+        title: "Contact and Links",
+        image: "./assets/assets/21.png",
+        notes: [
+          "Timing:",
+          "- Aim for about 1 minute 30 seconds here, plus Q and A transition.",
+          "Say:",
+          '- "I want to close by returning to the original thesis. The future of agent systems is not just more autonomy. It is better judgment, better collaboration, and better control around autonomy."',
+          '- "If that is aligned with the kinds of systems you are building, there are several ways to continue: explore the website, join the Discord community, read the GitHub repository, or reach out directly."',
+          '- "And if you are actively building, the practical takeaway I would leave you with is this: do not ask only what your agent can do. Ask what your system can safely support, explain, measure, and improve over time."',
+          '- "That is what turns a capable model into a production-grade system."',
+          "Focus:",
+          "- Pause here and invite questions.",
+          "- End with a clear invitation rather than an abrupt stop.",
+          "Bridge:",
+          '- "Thank you, and I would love to hear what kinds of agent workflows your teams are trying to operationalize right now."'
+        ].join("\n")
+      }
+    ];
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
   <script src="./scripts/format-speaker-notes.js"></script>
   <script>
+    const slidesRoot = document.getElementById("slides");
+
+    for (const slide of slideData) {
+      const section = document.createElement("section");
+
+      const heading = document.createElement("h2");
+      heading.className = "visually-hidden";
+      heading.textContent = slide.title;
+      section.appendChild(heading);
+
+      const image = document.createElement("img");
+      image.className = "slide-image";
+      image.src = slide.image;
+      image.alt = slide.title;
+      section.appendChild(image);
+
+      const notes = document.createElement("aside");
+      notes.className = "notes";
+      notes.textContent = slide.notes;
+      section.appendChild(notes);
+
+      slidesRoot.appendChild(section);
+    }
+
     SpeakerNotesFormatter.enhance();
 
     Reveal.initialize({
-      width: 1600,
-      height: 900,
-      margin: 0.02,
+      width: 1920,
+      height: 1080,
+      margin: 0,
       hash: true,
-      controls: true,
-      progress: true,
-      slideNumber: "c/t",
-      transition: "fade",
-      backgroundTransition: "fade",
-      center: true,
+      controls: false,
+      progress: false,
+      slideNumber: false,
+      transition: "none",
+      backgroundTransition: "none",
+      center: false,
+      overview: false,
       plugins: [ RevealNotes ]
     });
 
