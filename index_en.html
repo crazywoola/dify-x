@@ -11,238 +11,245 @@
 
   <style>
     :root {
-      --blue:   #0033ff;
-      --bg:     #f8f7f4;
-      --text:   #111111;
-      --muted:  #6b6b6b;
-      --faint:  #aaaaaa;
-      --border: #e3e1dc;
-      --max-w:  880px;
+      --ink:   #0d0d0d;
+      --paper: #ffffff;
+      --rule:  #e2e0d9;
+      --dim:   #6e6d66;
+      --ghost: #b0afa7;
+      --blue:  #0033ff;
+      --lift:  #f7f6f1;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { font-size: 16px; }
+    html, body { height: 100%; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Söhne', 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-
-    /* ── Top bar ─────────────────────────────────────────── */
-    .top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      height: 56px;
-    }
-
-    .brand { display: flex; align-items: center; text-decoration: none; }
-    .brand img { height: 26px; display: block; }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--faint);
-    }
-    .lang-switch a {
-      color: var(--faint);
-      text-decoration: none;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: color 0.15s;
-    }
-    .lang-switch a.active {
-      color: var(--blue);
-      font-weight: 700;
-    }
-    .lang-switch a:hover { color: var(--text); }
-    .lang-switch span { color: var(--border); }
-
-    /* ── Page wrapper ────────────────────────────────────── */
-    .page {
-      flex: 1;
-      max-width: var(--max-w);
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    /* ── Hero ────────────────────────────────────────────── */
-    .hero {
-      padding: 80px 0 56px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 8vw, 80px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      line-height: 1.65;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 28px;
-    }
-
-    .hero-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--faint);
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-meta span { color: var(--border); }
-
-    /* ── Deck list ───────────────────────────────────────── */
-    .deck-list { padding-bottom: 80px; }
-
-    .deck-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr 36px;
-      gap: 0 20px;
-      align-items: center;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.15s ease;
+      border-top: 3px solid var(--blue);
       overflow: hidden;
     }
 
-    .deck-row::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: var(--blue);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    /* ── Top bar ──────────────────────────────────────────── */
+    .top-bar {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 10;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 52px;
     }
 
-    .deck-row:hover { background: rgba(0, 51, 255, 0.016); }
-    .deck-row:hover::before { transform: scaleY(1); }
+    .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .brand img { height: 22px; display: block; }
+    .brand-divider { width: 1px; height: 14px; background: var(--rule); }
+    .brand-tag {
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ghost);
+    }
+
+    .lang-switch {
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .lang-switch a { color: var(--ghost); text-decoration: none; padding: 4px 8px; transition: color 0.15s; }
+    .lang-switch a.active { color: var(--ink); }
+    .lang-switch a:hover:not(.active) { color: var(--dim); }
+    .lang-switch .sep { color: var(--rule); }
+
+    /* ── Two-pane layout ──────────────────────────────────── */
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 44% 1fr;
+      overflow: hidden;
+    }
+
+    /* ── Left panel — fixed hero ──────────────────────────── */
+    .panel-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 64px 48px 56px;
+      border-right: 1px solid var(--rule);
+      overflow: hidden;
+    }
+
+    .panel-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, var(--blue) 2px, transparent 2px);
+      background-size: 18px 18px;
+      mask-image: radial-gradient(
+        ellipse 60% 52% at 82% 18%,
+        black 0%, black 10%, transparent 60%
+      );
+      -webkit-mask-image: radial-gradient(
+        ellipse 60% 52% at 82% 18%,
+        black 0%, black 10%, transparent 60%
+      );
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .hero-display {
+      margin-top: auto;
+      font-family: 'Söhne', 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: clamp(52px, 7.5vw, 96px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      overflow-wrap: break-word;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      line-height: 1.78;
+      color: var(--dim);
+      margin-bottom: 32px;
+    }
+
+    .hero-meta {
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ghost);
+      line-height: 2;
+    }
+
+    /* ── Right panel — scrollable list ───────────────────── */
+    .panel-right {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .index-bar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .index-bar-label {
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ghost);
+    }
+
+    .deck-list { flex: 1; padding: 0 48px; }
+
+    .deck-row {
+      display: grid;
+      grid-template-columns: 32px 1fr 20px;
+      gap: 0 16px;
+      align-items: start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+    .deck-row:hover { background: var(--lift); margin: 0 -48px; padding: 28px 48px; }
 
     .row-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--faint);
-      letter-spacing: 0.04em;
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.06em;
+      color: var(--ghost); padding-top: 4px;
       transition: color 0.15s;
-      align-self: start;
-      padding-top: 2px;
     }
     .deck-row:hover .row-num { color: var(--blue); }
 
     .row-body { min-width: 0; }
 
     .row-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 6px;
-    }
-
-    .row-title {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--text);
-      margin-bottom: 8px;
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ghost); margin-bottom: 6px;
       transition: color 0.15s;
     }
-    .deck-row:hover .row-title { color: var(--blue); }
+    .deck-row:hover .row-label { color: var(--dim); }
 
-    .row-desc {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--muted);
+    .row-title {
+      font-size: 17px; font-weight: 600; line-height: 1.3;
+      color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em;
     }
+
+    .row-desc { font-size: 12.5px; line-height: 1.78; color: var(--dim); }
 
     .row-arrow {
-      font-size: 18px;
-      color: var(--blue);
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: opacity 0.2s, transform 0.2s;
-      align-self: center;
-      justify-self: end;
-      line-height: 1;
+      font-size: 13px; color: var(--ghost); padding-top: 4px;
+      transition: color 0.2s, transform 0.25s;
     }
-    .deck-row:hover .row-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .deck-row:hover .row-arrow { color: var(--ink); transform: translateX(3px); }
 
-    /* ── Footer ──────────────────────────────────────────── */
-    .footer-bar { border-top: 1px solid var(--border); margin-top: auto; }
-
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 20px 40px;
+    /* ── Panel footer ─────────────────────────────────────── */
+    .panel-footer {
+      padding: 20px 48px;
+      border-top: 1px solid var(--rule);
       display: flex;
       align-items: center;
       gap: 16px;
-      font-size: 12px;
-      color: var(--faint);
+      font-family: 'Söhne Mono', 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ghost);
       flex-wrap: wrap;
     }
+    .panel-footer a { color: var(--ghost); text-decoration: none; transition: color 0.15s; }
+    .panel-footer a:hover { color: var(--ink); }
+    .panel-footer .sep { color: var(--rule); }
 
-    .footer-inner a {
-      color: var(--faint);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .footer-inner a:hover { color: var(--text); }
-    .footer-inner .sep { color: var(--border); }
-
-    /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .top-bar { padding: 0 24px; }
-      .page { padding: 0 24px; }
-      .hero { padding: 56px 0 40px; }
-      .hero h1 { font-size: 44px; }
-      .deck-row { grid-template-columns: 36px 1fr 0; }
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      body { overflow: auto; }
+      .layout { grid-template-columns: 1fr; overflow: visible; }
+      .panel-left {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 56px 24px 48px;
+      }
+      .panel-left::after { display: none; }
+      .hero-display { margin-top: 24px; font-size: 52px; }
+      .panel-right { overflow: visible; }
+      .index-bar { position: relative; padding: 16px 24px; }
+      .deck-list { padding: 0 24px; }
+      .deck-row { grid-template-columns: 32px 1fr; }
+      .deck-row:hover { margin: 0 -24px; padding: 28px 24px; }
       .row-arrow { display: none; }
-      .footer-inner { padding: 20px 24px; gap: 12px; }
+      .panel-footer { padding: 20px 24px; }
     }
   </style>
 </head>
@@ -251,137 +258,146 @@
   <header class="top-bar">
     <a class="brand" href="index_en.html">
       <img src="assets/logo.svg" alt="Dify">
+      <span class="brand-divider"></span>
+      <span class="brand-tag">Field Notes</span>
     </a>
     <nav class="lang-switch">
       <a href="index.html">中文</a>
-      <span>/</span>
+      <span class="sep">/</span>
       <a class="active" href="index_en.html">EN</a>
     </nav>
   </header>
 
-  <div class="page">
+  <div class="layout">
 
-    <div class="hero">
-      <p class="hero-eyebrow">Dify · Field Notes</p>
-      <h1>Presentations</h1>
-      <p class="hero-sub">Production-grade Agent systems, Workflow architecture, and applied industry cases — drawn from real customer engagements and first-hand delivery experience.</p>
-      <div class="hero-meta">
-        <span>banana@dify.ai</span>
-        <span>·</span>
-        <span>Developer Relations @ Dify</span>
-        <span>·</span>
+    <aside class="panel-left">
+      <div class="hero-kicker">
+        <span>Dify · Presentations</span>
         <span>2025–2026</span>
       </div>
+      <h1 class="hero-display">Presentations</h1>
+      <p class="hero-sub">Production-grade Agent systems, Workflow architecture, and applied industry cases — drawn from real customer engagements and first-hand delivery experience.</p>
+      <div class="hero-meta">
+        banana@dify.ai<br>
+        Developer Relations @ Dify
+      </div>
+    </aside>
+
+    <div class="panel-right">
+
+      <div class="index-bar">
+        <span class="index-bar-label">Index</span>
+        <span class="index-bar-label">09 Presentations</span>
+      </div>
+
+      <section class="deck-list">
+
+        <a class="deck-row" href="aispeech/index_en.html">
+          <span class="row-num">01</span>
+          <div class="row-body">
+            <div class="row-label">Dify × AISPEECH</div>
+            <div class="row-title">Cross-role AI Workflow Playbook</div>
+            <div class="row-desc">35-slide vertical stacks covering sync, analytics, knowledge Q&amp;A, bug intake, and meeting PMO — with traceable KPIs and legal edge cases.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="ctrip/index_en.html">
+          <span class="row-num">02</span>
+          <div class="row-body">
+            <div class="row-label">Dify × Ctrip</div>
+            <div class="row-title">Automated Risk Control: Zero to Mastery</div>
+            <div class="row-desc">A hands-on "cat-and-mouse" playbook for layered defenses, attribution, and adversarial countermeasures built on Dify Workflow.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="paypal/index_en.html">
+          <span class="row-num">03</span>
+          <div class="row-body">
+            <div class="row-label">Dify × PayPal</div>
+            <div class="row-title">Payment Risk &amp; Auth Defense</div>
+            <div class="row-desc">A Dify workflow playbook for card testing, auth-rate protection, account takeover response, and dispute-abuse mitigation.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="pupu/index_en.html">
+          <span class="row-num">04</span>
+          <div class="row-body">
+            <div class="row-label">Dify × PUPU</div>
+            <div class="row-title">From Low-Code to Pro-Code</div>
+            <div class="row-desc">How developers wield Dify for LLM apps: paradigm shifts, code fusion, plugin ecosystem design, and automation triggers.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="dentsply/index_en.html">
+          <span class="row-num">05</span>
+          <div class="row-body">
+            <div class="row-label">Dify × Dentsply</div>
+            <div class="row-title">Digital Dentistry: From Image to Decision</div>
+            <div class="row-desc">Full-spectrum AI transformation covering smart triage, ortho monitoring, lab automation, voice perio charting, and smart claims.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="milvus/index_en.html">
+          <span class="row-num">06</span>
+          <div class="row-body">
+            <div class="row-label">Dify × Milvus</div>
+            <div class="row-title">Evolution of RAG</div>
+            <div class="row-desc">From Naive to Agentic RAG: knowledge pipelines, evaluation playbooks, and tight collaboration with vector databases.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="hongkong-oss/index_en.html">
+          <span class="row-num">07</span>
+          <div class="row-body">
+            <div class="row-label">Dify 101 Workshop</div>
+            <div class="row-title">Dify 101 Two-Session Workshop</div>
+            <div class="row-desc">Two 30-min sessions: platform overview, Workflow, RAG, and production essentials — then Code Node, plugins, and hands-on projects (Apple Watch workflow, GDPR chatbot).</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="agent-systems/index_en.html">
+          <span class="row-num">08</span>
+          <div class="row-body">
+            <div class="row-label">Dify · Agent Systems</div>
+            <div class="row-title">From Autonomous AI to Production-Grade Agent Systems</div>
+            <div class="row-desc">HITL placement and reviewer UX, explicit node deliverables, SOP-backed Agent × Skills, command-node / POSIX-style sandbox execution.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+        <a class="deck-row" href="agent-systems-sg/index.html">
+          <span class="row-num">09</span>
+          <div class="row-body">
+            <div class="row-label">Dify · Agent Systems SG</div>
+            <div class="row-title">Agent Systems SG — Full-Screen Image Deck</div>
+            <div class="row-desc">A rebuilt reveal.js deck based on 21 full-screen visual slides, using full-bleed backgrounds while preserving speaker notes for presenter mode.</div>
+          </div>
+          <span class="row-arrow">→</span>
+        </a>
+
+      </section>
+
+      <footer class="panel-footer">
+        <a href="mailto:banana@dify.ai">banana@dify.ai</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/crazywoola" target="_blank">@crazywoola</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/crazywoola/dify-x" target="_blank">dify-x</a>
+        <span class="sep">·</span>
+        <a href="https://crazywoola.github.io/dify-x/" target="_blank">Live Demo</a>
+        <span class="sep">·</span>
+        <span>&copy; 2026 LangGenius, Inc.</span>
+      </footer>
+
     </div>
-
-    <section class="deck-list">
-
-      <a class="deck-row" href="aispeech/index_en.html">
-        <span class="row-num">01</span>
-        <div class="row-body">
-          <div class="row-label">Dify × AISPEECH</div>
-          <div class="row-title">Cross-role AI Workflow Playbook</div>
-          <div class="row-desc">35-slide vertical stacks covering sync, analytics, knowledge Q&amp;A, bug intake, and meeting PMO — with traceable KPIs and legal edge cases.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="ctrip/index_en.html">
-        <span class="row-num">02</span>
-        <div class="row-body">
-          <div class="row-label">Dify × Ctrip</div>
-          <div class="row-title">Automated Risk Control: Zero to Mastery</div>
-          <div class="row-desc">A hands-on "cat-and-mouse" playbook for layered defenses, attribution, and adversarial countermeasures built on Dify Workflow.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="paypal/index_en.html">
-        <span class="row-num">03</span>
-        <div class="row-body">
-          <div class="row-label">Dify × PayPal</div>
-          <div class="row-title">Payment Risk &amp; Auth Defense</div>
-          <div class="row-desc">A Dify workflow playbook for card testing, auth-rate protection, account takeover response, and dispute-abuse mitigation.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="pupu/index_en.html">
-        <span class="row-num">04</span>
-        <div class="row-body">
-          <div class="row-label">Dify × PUPU</div>
-          <div class="row-title">From Low-Code to Pro-Code</div>
-          <div class="row-desc">How developers wield Dify for LLM apps: paradigm shifts, code fusion, plugin ecosystem design, and automation triggers.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="dentsply/index_en.html">
-        <span class="row-num">05</span>
-        <div class="row-body">
-          <div class="row-label">Dify × Dentsply</div>
-          <div class="row-title">Digital Dentistry: From Image to Decision</div>
-          <div class="row-desc">Full-spectrum AI transformation covering smart triage, ortho monitoring, lab automation, voice perio charting, and smart claims.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="milvus/index_en.html">
-        <span class="row-num">06</span>
-        <div class="row-body">
-          <div class="row-label">Dify × Milvus</div>
-          <div class="row-title">Evolution of RAG</div>
-          <div class="row-desc">From Naive to Agentic RAG: knowledge pipelines, evaluation playbooks, and tight collaboration with vector databases.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="hongkong-oss/index_en.html">
-        <span class="row-num">07</span>
-        <div class="row-body">
-          <div class="row-label">Dify 101 Workshop</div>
-          <div class="row-title">Dify 101 Two-Session Workshop</div>
-          <div class="row-desc">Two 30-min sessions: platform overview, Workflow, RAG, and production essentials — then Code Node, plugins, and hands-on projects (Apple Watch workflow, GDPR chatbot).</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="agent-systems/index_en.html">
-        <span class="row-num">08</span>
-        <div class="row-body">
-          <div class="row-label">Dify · Agent Systems</div>
-          <div class="row-title">From Autonomous AI to Production-Grade Agent Systems</div>
-          <div class="row-desc">HITL placement and reviewer UX, explicit node deliverables, SOP-backed Agent × Skills, command-node / POSIX-style sandbox execution, and collaborative workflow development.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-      <a class="deck-row" href="agent-systems-sg/index.html">
-        <span class="row-num">09</span>
-        <div class="row-body">
-          <div class="row-label">Dify · Agent Systems SG</div>
-          <div class="row-title">Agent Systems SG — Full-Screen Image Deck</div>
-          <div class="row-desc">A rebuilt reveal.js deck based on 21 full-screen visual slides, using full-bleed backgrounds while preserving speaker notes for presenter mode.</div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-
-    </section>
   </div>
-
-  <footer class="footer-bar">
-    <div class="footer-inner">
-      <a href="mailto:banana@dify.ai">banana@dify.ai</a>
-      <span class="sep">·</span>
-      <a href="https://github.com/crazywoola" target="_blank">@crazywoola</a>
-      <span class="sep">·</span>
-      <a href="https://github.com/crazywoola/dify-x" target="_blank">dify-x</a>
-      <span class="sep">·</span>
-      <a href="https://crazywoola.github.io/dify-x/" target="_blank">Live Demo</a>
-      <span class="sep">·</span>
-      <span>&copy; 2026 LangGenius, Inc.</span>
-    </div>
-  </footer>
 
 </body>
 </html>
