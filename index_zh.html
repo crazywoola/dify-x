@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dify X · Presentations</title>
+  <title>Dify X · 演讲资料</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -26,7 +26,7 @@
     body {
       background: var(--paper);
       color: var(--ink);
-      font-family: 'Söhne', 'Inter', sans-serif;
+      font-family: 'Söhne', 'Inter', 'Mi Sans', 'Noto Sans SC', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       display: flex;
@@ -85,6 +85,7 @@
       overflow: hidden;
     }
 
+    /* Dot-bloom decoration — top-right corner, like the flower in the reference */
     .panel-left::after {
       content: '';
       position: absolute;
@@ -114,9 +115,10 @@
       color: var(--ghost);
     }
 
+    /* title pushed to bottom via margin-top: auto, mirroring the slide composition */
     .hero-display {
       margin-top: auto;
-      font-family: 'Söhne', 'Inter', sans-serif;
+      font-family: 'Söhne', 'Inter', 'Noto Sans SC', sans-serif;
       font-weight: 800;
       font-size: clamp(52px, 7.5vw, 96px);
       line-height: 1.05;
@@ -240,6 +242,7 @@
         border-right: none;
         border-bottom: 1px solid var(--rule);
         padding: 56px 24px 48px;
+        min-height: auto;
       }
       .panel-left::after { display: none; }
       .hero-display { margin-top: 24px; font-size: 52px; }
@@ -256,33 +259,35 @@
 <body>
 
   <header class="top-bar">
-    <a class="brand" href="index_en.html">
+    <a class="brand" href="index_zh.html">
       <img src="assets/logo.svg" alt="Dify">
       <span class="brand-divider"></span>
       <span class="brand-tag">Field Notes</span>
     </a>
     <nav class="lang-switch">
-      <a href="index_zh.html">中文</a>
+      <a class="active" href="index_zh.html">中文</a>
       <span class="sep">/</span>
-      <a class="active" href="index_en.html">EN</a>
+      <a href="index_en.html">EN</a>
     </nav>
   </header>
 
   <div class="layout">
 
+    <!-- Left panel: hero, stays fixed while list scrolls -->
     <aside class="panel-left">
       <div class="hero-kicker">
         <span>Dify · Presentations</span>
         <span>2025–2026</span>
       </div>
-      <h1 class="hero-display">Presentations</h1>
-      <p class="hero-sub">Production-grade Agent systems, Workflow architecture, and applied industry cases — drawn from real customer engagements and first-hand delivery experience.</p>
+      <h1 class="hero-display">演讲资料</h1>
+      <p class="hero-sub">聚焦生产级 Agent 系统、Workflow 架构与行业场景实践。每一篇都源自真实客户合作与一线交付经验。</p>
       <div class="hero-meta">
         banana@dify.ai<br>
         Developer Relations @ Dify
       </div>
     </aside>
 
+    <!-- Right panel: scrollable presentation list -->
     <div class="panel-right">
 
       <div class="index-bar">
@@ -296,88 +301,88 @@
           <span class="row-num">01</span>
           <div class="row-body">
             <div class="row-label">Dify · Agent Systems SG</div>
-            <div class="row-title">Agent Systems SG — Full-Screen Image Deck</div>
-            <div class="row-desc">A rebuilt reveal.js deck based on 21 full-screen visual slides, using full-bleed backgrounds while preserving speaker notes for presenter mode.</div>
+            <div class="row-title">Agent Systems SG 全屏图像版</div>
+            <div class="row-desc">基于 21 张整屏视觉稿重建的 reveal.js 版本，支持全屏背景图浏览，并保留现有 speaker notes 作为演讲提词。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="agent-systems/index_en.html">
+        <a class="deck-row" href="agent-systems/index.html">
           <span class="row-num">02</span>
           <div class="row-body">
-            <div class="row-label">Dify · Agent Systems</div>
-            <div class="row-title">From Autonomous AI to Production-Grade Agent Systems</div>
-            <div class="row-desc">HITL placement and reviewer UX, explicit node deliverables, SOP-backed Agent × Skills, command-node / POSIX-style sandbox execution.</div>
+            <div class="row-label">Dify · Agent 系统</div>
+            <div class="row-title">从自主 AI 到生产级 Agent 系统</div>
+            <div class="row-desc">聚焦生产级 Agent 的完整链路：HITL 节点的放置与审核体验、节点显式交付物、SOP 驱动的 Agent × Skills，以及 Command 节点与 POSIX 风格沙箱运行时。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="hongkong-oss/index_en.html">
+        <a class="deck-row" href="hongkong-oss/index.html">
           <span class="row-num">03</span>
           <div class="row-body">
             <div class="row-label">Dify 101 Workshop</div>
-            <div class="row-title">Dify 101 Two-Session Workshop</div>
-            <div class="row-desc">Two 30-min sessions: platform overview, Workflow, RAG, and production essentials — then Code Node, plugins, and hands-on projects (Apple Watch workflow, GDPR chatbot).</div>
+            <div class="row-title">Dify GenAI 两节式实战训练营</div>
+            <div class="row-desc">两节各 30 分钟：Session 1 涵盖平台全貌、Workflow、RAG 与生产化要点；Session 2 深入 Code Node、插件生态，含 Apple Watch / GDPR 实战项目。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="dentsply/index_en.html">
+        <a class="deck-row" href="dentsply/index.html">
           <span class="row-num">04</span>
           <div class="row-body">
             <div class="row-label">Dify × Dentsply</div>
-            <div class="row-title">Digital Dentistry: From Image to Decision</div>
-            <div class="row-desc">Full-spectrum AI transformation covering smart triage, ortho monitoring, lab automation, voice perio charting, and smart claims.</div>
+            <div class="row-title">数字牙科：从影像到决策</div>
+            <div class="row-desc">涵盖智能阅片、隐形正畸监控、技工端自动化质检、语音牙周检查与保险理赔核验的全链路 AI 改造。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="aispeech/index_en.html">
+        <a class="deck-row" href="aispeech/index.html">
           <span class="row-num">05</span>
           <div class="row-body">
             <div class="row-label">Dify × AISPEECH</div>
-            <div class="row-title">Cross-role AI Workflow Playbook</div>
-            <div class="row-desc">35-slide vertical stacks covering sync, analytics, knowledge Q&amp;A, bug intake, and meeting PMO — with traceable KPIs and legal edge cases.</div>
+            <div class="row-title">跨岗位 AI Workflow 作战手册</div>
+            <div class="row-desc">把同步、分析、问答、Bug Intake、会议 PMO 统一到 35 页纵向堆叠的 Workflow 里，附可追溯 KPI 与法务案例。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="ctrip/index_en.html">
+        <a class="deck-row" href="ctrip/index.html">
           <span class="row-num">06</span>
           <div class="row-body">
             <div class="row-label">Dify × Ctrip</div>
-            <div class="row-title">Automated Risk Control: Zero to Mastery</div>
-            <div class="row-desc">A hands-on "cat-and-mouse" playbook for layered defenses, attribution, and adversarial countermeasures built on Dify Workflow.</div>
+            <div class="row-title">自动化风控：从入门到精通</div>
+            <div class="row-desc">基于 Dify Workflow 的"猫鼠游戏"实战指南，涵盖分层防御、归因与对抗演示。深入了解企业级风控策略。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="paypal/index_en.html">
+        <a class="deck-row" href="paypal/index.html">
           <span class="row-num">07</span>
           <div class="row-body">
             <div class="row-label">Dify × PayPal</div>
-            <div class="row-title">Payment Risk &amp; Auth Defense</div>
-            <div class="row-desc">A Dify workflow playbook for card testing, auth-rate protection, account takeover response, and dispute-abuse mitigation.</div>
+            <div class="row-title">跨境支付风控实战</div>
+            <div class="row-desc">支付授权率保卫战：卡测、账户接管、退款/纠纷滥用与黑五防刷，全部基于 Dify Workflow 的可视化调度。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="milvus/index_en.html">
+        <a class="deck-row" href="milvus/index.html">
           <span class="row-num">08</span>
           <div class="row-body">
             <div class="row-label">Dify × Milvus</div>
-            <div class="row-title">Evolution of RAG</div>
-            <div class="row-desc">From Naive to Agentic RAG: knowledge pipelines, evaluation playbooks, and tight collaboration with vector databases.</div>
+            <div class="row-title">RAG 的演进之路</div>
+            <div class="row-desc">从 Naive 到 Agentic RAG。探讨 Knowledge Pipeline 设计、RAG 评估方法论以及向量数据库的深度协同实践。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
 
-        <a class="deck-row" href="pupu/index_en.html">
+        <a class="deck-row" href="pupu/index.html">
           <span class="row-num">09</span>
           <div class="row-body">
             <div class="row-label">Dify × PUPU</div>
-            <div class="row-title">From Low-Code to Pro-Code</div>
-            <div class="row-desc">How developers wield Dify for LLM apps: paradigm shifts, code fusion, plugin ecosystem design, and automation triggers.</div>
+            <div class="row-title">从 Low-Code 到 Pro-Code</div>
+            <div class="row-desc">程序员如何驾驭 Dify 进行 LLM 应用开发：范式转换、代码融合、插件生态构建与自动化触发机制详解。</div>
           </div>
           <span class="row-arrow">→</span>
         </a>
@@ -391,7 +396,7 @@
         <span class="sep">·</span>
         <a href="https://github.com/crazywoola/dify-x" target="_blank">dify-x</a>
         <span class="sep">·</span>
-        <a href="https://crazywoola.github.io/dify-x/" target="_blank">Live Demo</a>
+        <a href="https://crazywoola.github.io/dify-x/" target="_blank">在线演示</a>
         <span class="sep">·</span>
         <span>&copy; 2026 LangGenius, Inc.</span>
       </footer>
