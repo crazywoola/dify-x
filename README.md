@@ -23,6 +23,7 @@ Online:
 - `aispeech/`: AI workflow solutions for AISPEECH (CN/EN) with 35-slide vertical stacks and shared `styles/nordic.css`.
 - `hongkong-oss/`: Dify 101 workshop deck (CN/EN) split into two 30-min sessions: Session 1 covers Dify platform overview (Visual Orchestration, Knowledge Base, Plugin Ecosystem, Observability, HITL, Skills, Triggers), Workflow core, Knowledge/RAG, and production essentials; Session 2 covers Code Node, low-code vs pro-code, plugin ecosystem deep dive, optional advanced topics (RAG eval, Agent architecture, guardrails), and hands-on projects (Apple Watch workflow, GDPR chatbot). Schedule: 15:10–15:40 S1 / break / 15:50–16:20 S2.
 - `agent-systems/`: Production-grade agent systems deck (CN/EN) covering HITL placement and reviewer UX, explicit node deliverables, SOP-backed Agent × Skills, command-node / POSIX-style sandbox execution, and collaborative workflow development.
+- `agent-systems-sg/`: Singapore variant of the agent systems deck, rebuilt as a full-screen reveal.js image deck using 21 slide images and preserved speaker notes.
 - `oceanbase/`: Dify × Oceanbase integration guide and sample `docker-compose.yaml`.
 - `legalai/`: legal workflow samples (YAML in `legalai/demo/`).
 
@@ -35,6 +36,7 @@ Online:
 - `aispeech/index.html`: cross-role AI workflows for AISPEECH (sync officer, auto analyst, legal QA, bug intake, meeting PMO, ROI).
 - `hongkong-oss/index.html`: Dify 101 workshop deck — Session 1 (30 min): platform overview, Workflow, Knowledge/RAG, production essentials; Session 2 (30 min): Code Node, low-code vs pro-code, Plugin Ecosystem, optional deep dives, hands-on projects.
 - `agent-systems/index.html`: production-grade agent systems — HITL review points, explicit deliverables, SOP-driven Skills, command-node / POSIX-style sandbox runtime, and collaborative workflow development.
+- `agent-systems-sg/index.html`: full-screen image-based agent systems deck variant for SG, with existing speaker notes retained for presenter mode.
 - English versions live in each folder’s `index_en.html`.
 
 ## Tech & design
