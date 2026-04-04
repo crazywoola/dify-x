@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Agent Systems SG</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --deck-bg: #edf4ff;
+      --deck-bg-alt: #f9fbff;
+      --deck-text: #10213d;
+      --deck-muted: #5d6b85;
+      --deck-accent: #245dff;
+      --deck-accent-soft: rgba(36, 93, 255, 0.10);
+      --deck-line: rgba(16, 33, 61, 0.12);
+      --deck-shadow: 0 28px 80px rgba(23, 48, 94, 0.16);
+    }
+
+    html,
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(94, 138, 255, 0.25), transparent 38%),
+        radial-gradient(circle at bottom right, rgba(36, 93, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, var(--deck-bg-alt) 0%, var(--deck-bg) 100%);
+      color: var(--deck-text);
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    .reveal {
+      font-family: "IBM Plex Sans", sans-serif;
+      color: var(--deck-text);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 0;
+    }
+
+    .slide-shell {
+      width: min(95vw, 1560px);
+      margin: 0 auto;
+    }
+
+    .deck-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 0 14px;
+      font-size: 0.9rem;
+      color: var(--deck-muted);
+    }
+
+    .deck-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .deck-pill,
+    .deck-count,
+    .deck-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 0.82rem;
+      border-radius: 999px;
+      border: 1px solid var(--deck-line);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(23, 48, 94, 0.06);
+    }
+
+    .deck-pill {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      color: var(--deck-accent);
+      letter-spacing: 0.02em;
+    }
+
+    .deck-count {
+      font-weight: 600;
+    }
+
+    .deck-hint {
+      font-size: 0.82rem;
+    }
+
+    .slide-frame {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 247, 255, 0.96) 100%);
+      box-shadow: var(--deck-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(36, 93, 255, 0.18), rgba(255, 255, 255, 0.06));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .slide-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .slide-title {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .reveal .controls {
+      color: var(--deck-accent);
+    }
+
+    .reveal .progress {
+      color: var(--deck-accent);
+      height: 4px;
+    }
+
+    .reveal .slide-number {
+      right: 24px;
+      bottom: 20px;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(16, 33, 61, 0.72);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      .slide-shell {
+        width: min(98vw, 1560px);
+      }
+
+      .deck-bar {
+        margin-bottom: 10px;
+        font-size: 0.78rem;
+      }
+
+      .deck-pill,
+      .deck-count,
+      .deck-hint {
+        padding: 0.34rem 0.68rem;
+      }
+
+      .slide-frame {
+        border-radius: 20px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1 class="slide-title">The Path to Production</h1>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Agent Systems SG</span>
+              <span class="deck-count">01 / 21</span>
+            </div>
+            <span class="deck-hint">Press <strong>S</strong> for speaker notes</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/1.png" alt="The path to production is about making workflows smart enough to know when to pause, when to ask, and how to continue with human judgment built in.">
+          </div>
+        </div>
+        <aside class="notes">
+          Opening:
+          - "This deck starts with the core idea in one sentence: production AI is not just about automation, it is about knowing when to pause, when to ask, and when to continue."
+          - "Human judgment is not a patch for bad workflows. It is a design choice for reliable workflows."
+          Focus:
+          - Use this slide to set the tone for the whole talk.
+          - Keep the introduction high level and calm.
+          Bridge:
+          - "Now let's make the production gap concrete."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Agent Can Act, But Production Is Not Ready</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Agent Systems SG</span>
+              <span class="deck-count">02 / 21</span>
+            </div>
+            <span class="deck-hint">Trust, governance, and operational complexity</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/2.png" alt="Agent can act, but production is not ready. Trust erosion, governance barrier, and operational complexity are the three main blockers.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "Most teams are no longer blocked by model capability. They are blocked by trust, governance, and operational complexity."
+          - "If a system can produce a wrong answer, a risky action, or an untraceable decision, it is not ready for production."
+          Focus:
+          - Point out the three failure modes from left to right.
+          - Keep this grounded in real teams, not abstract theory.
+          Bridge:
+          - "So the question becomes: what does a production-grade agent system need instead?"
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Three Themes of the Session</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Agent Systems SG</span>
+              <span class="deck-count">03 / 21</span>
+            </div>
+            <span class="deck-hint">HITL, collaboration, marketplace</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/3.png" alt="Overview slide showing Human-in-the-Loop, Collaboration, and Marketplace as the three main topics.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This image gives the structure for the talk: human checkpoints, team collaboration, and reusable templates."
+          - "Together, these turn an autonomous demo into an operable system."
+          Focus:
+          - Keep this brief.
+          - Treat it like a roadmap for the audience.
+          Bridge:
+          - "Let's start with the first piece: Human-in-the-Loop."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Human-in-the-Loop</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Part 1</span>
+              <span class="deck-count">04 / 21</span>
+            </div>
+            <span class="deck-hint">Section break</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/4.png" alt="Section slide titled Human-in-the-Loop.">
+          </div>
+        </div>
+        <aside class="notes">
+          Transition:
+          - "Human-in-the-Loop means human judgment is part of the workflow graph, not something that happens off to the side in chat or email."
+          - "This is where reliability starts to become visible and auditable."
+          Bridge:
+          - "Next, let's look at why this is needed in production."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">The Production Reality Check</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Human-in-the-Loop</span>
+              <span class="deck-count">05 / 21</span>
+            </div>
+            <span class="deck-hint">Review, accountability, escalation, fallback</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/5.png" alt="The production reality check shows review and approval, accountability, escalation paths, and fallback logic.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "A production system needs four things: review, accountability, escalation, and fallback."
+          - "The key shift is moving from 'can the AI do it?' to 'should the AI do it by itself?'"
+          Focus:
+          - Emphasize that sensitive decisions need explicit owners.
+          - Mention that no-response and fallback paths are part of good workflow design.
+          Bridge:
+          - "Once we accept that, the next step is to design for collaboration on purpose."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Designing for Collaboration</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Human-in-the-Loop</span>
+              <span class="deck-count">06 / 21</span>
+            </div>
+            <span class="deck-hint">Human input as a workflow primitive</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/6.png" alt="Designing for collaboration shows human input as a structured, resumable workflow primitive.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "Production-grade systems are not fully autonomous. They are designed for collaboration."
+          - "The important idea here is that human input becomes a native workflow primitive."
+          Focus:
+          - Call out the terms structured collaboration and resumable flow.
+          - Keep the explanation simple: pause, ask, decide, resume.
+          Bridge:
+          - "The next slide shows that handoff as a concrete mechanism."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Human Judgment as a Workflow Primitive</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Human-in-the-Loop</span>
+              <span class="deck-count">07 / 21</span>
+            </div>
+            <span class="deck-hint">Pause, request, decide, resume</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/7.png" alt="Human judgment as a workflow primitive shows execution pausing, requesting review, getting a decision, and resuming.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This is the basic Human Input loop: execution pauses, a request is sent, a person reviews the context, and the workflow resumes on the selected path."
+          - "That makes the human handoff explicit, trackable, and repeatable."
+          Focus:
+          - Walk through the flow from top to bottom.
+          - Stress that the workflow continues with context, not from scratch.
+          Bridge:
+          - "Once the handoff exists, we can make it much richer than a simple approve-or-reject."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">A Complete Interaction Model</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Human-in-the-Loop</span>
+              <span class="deck-count">08 / 21</span>
+            </div>
+            <span class="deck-hint">Rich interaction and uncertainty handling</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/8.png" alt="A complete interaction model includes editing, feedback, regeneration, rerouting, wait times, and fallback branches.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "Human-in-the-Loop is not just approve or reject. Real workflows need edits, feedback, rerouting, retries, and time-based fallback."
+          - "This is how you handle uncertainty without breaking the system."
+          Focus:
+          - Mention wait times and fallback branches because they matter in operations.
+          - Highlight that first response closes the request to avoid ambiguity.
+          Bridge:
+          - "With these pieces in place, we can define what mature agent design really looks like."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Future of Agent Design</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Human-in-the-Loop</span>
+              <span class="deck-count">09 / 21</span>
+            </div>
+            <span class="deck-hint">Five pillars of usability</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/9.png" alt="Future of agent design shows five pillars of usability, moving from autonomous agents to collaborative intelligent feedback agents.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "The maturity shift is from autonomous behavior to collaborative systems that pause at the right time, show the right context, ask the right person, and capture the right feedback."
+          - "Human input is not a workaround for automation. It is what mature automation looks like."
+          Focus:
+          - Land the five pillars as a practical checklist.
+          - Use the autonomous-to-collaborative contrast as the takeaway.
+          Bridge:
+          - "Now let's move from theory to concrete examples."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Financial Services Example</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Use Case</span>
+              <span class="deck-count">10 / 21</span>
+            </div>
+            <span class="deck-hint">Review before send</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/10.png" alt="Scaling problem example in financial services where report generation is automated but compliance requires final review before send.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This example shows where Human-in-the-Loop belongs in a financial workflow: after synthesis, before send."
+          - "The system does the calculations, but a human applies the final judgment when the output becomes client-facing."
+          Focus:
+          - Mention the scale problem: many clients, too much manual work.
+          - Emphasize that reviewers see exactly what the client will receive.
+          Bridge:
+          - "The same pattern applies outside compliance-heavy industries too."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Global Support Example</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Use Case</span>
+              <span class="deck-count">11 / 21</span>
+            </div>
+            <span class="deck-hint">Request missing context</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/11.png" alt="Global support example where missing location data is requested through Human Input before routing to the correct policy.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "Human-in-the-Loop is not only for approval. It is also a clean way to ask for missing context."
+          - "In this support case, the workflow pauses only when it lacks enough information to route the request correctly."
+          Focus:
+          - Use the reimbursement example to make this feel practical.
+          - Keep the phrase collaborative intelligence as the closing idea.
+          Bridge:
+          - "Once workflows can pause and collect context, the next question is how we evaluate them."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Evaluation</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Part 2</span>
+              <span class="deck-count">12 / 21</span>
+            </div>
+            <span class="deck-hint">Section break</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/12.png" alt="Section slide titled Evaluation coming soon.">
+          </div>
+        </div>
+        <aside class="notes">
+          Transition:
+          - "Evaluation is the measurement layer for agent systems."
+          - "If we cannot measure retrieval quality, grounding, and task correctness, we cannot improve the system with confidence."
+          Bridge:
+          - "So let me show why evaluation matters first."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Why Use Evaluation</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Evaluation</span>
+              <span class="deck-count">13 / 21</span>
+            </div>
+            <span class="deck-hint">From unstable retrieval to measurable trust</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/13.png" alt="Why use evaluation highlights unstable retrieval, uncontrollable LLMs, slow iteration, proactive defense, accelerated iteration, and measurable trust.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "Evaluation turns vague concerns into measurable signals."
+          - "It helps with unstable retrieval, prompt and model changes, slow iteration, and trust before deployment."
+          Focus:
+          - Group the left side as problems and the right side as outcomes.
+          - Use the phrase measurable trust because it is memorable.
+          Bridge:
+          - "Now let's make that concrete with an end-to-end framework."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">End-to-End Evaluation Framework</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Evaluation</span>
+              <span class="deck-count">14 / 21</span>
+            </div>
+            <span class="deck-hint">Answer relevance, retrieval, groundedness, correctness</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/14.png" alt="End-to-end evaluation framework for enterprise agents and workflows, including answer relevance, retrieval relevance, groundedness, and correctness.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "A useful evaluation framework covers four checks: does the answer address the question, are the documents relevant, is the answer grounded, and is it correct against a known truth."
+          - "This gives teams a shared language for improving the workflow instead of arguing from intuition."
+          Focus:
+          - Walk through the four metrics in order.
+          - Mention reusable snapshots and external tools only briefly.
+          Bridge:
+          - "Measurement is one half of operating an agent. Team collaboration is the other half."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Collaboration</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Part 3</span>
+              <span class="deck-count">15 / 21</span>
+            </div>
+            <span class="deck-hint">Section break</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/15.png" alt="Section slide titled Collaboration coming soon.">
+          </div>
+        </div>
+        <aside class="notes">
+          Transition:
+          - "Once the workflow is measurable, the next challenge is making it operable by a team."
+          - "Collaboration here means role clarity, version safety, and shared operational knowledge."
+          Bridge:
+          - "Let's look at what that means inside the product."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Collaborative Workflow</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Collaboration</span>
+              <span class="deck-count">16 / 21</span>
+            </div>
+            <span class="deck-hint">Roles, versions, and shared SOPs</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/16.png" alt="Collaborative workflow interface showing role-based access, version history, draft to review to publish lifecycle, and a shared SOP library.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This is the operations view of an agent system: different people can draft, review, and publish without stepping on each other."
+          - "Version history and shared SOPs turn private prompt habits into a repeatable team process."
+          Focus:
+          - Call out draft, review, publish as an explicit lifecycle.
+          - Mention rollback and monitoring as confidence features.
+          Bridge:
+          - "Once workflows are collaborative, the next step is making them reusable across teams."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Marketplace and Template</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Part 4</span>
+              <span class="deck-count">17 / 21</span>
+            </div>
+            <span class="deck-hint">Section break</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/17.png" alt="Section slide titled Marketplace and Template.">
+          </div>
+        </div>
+        <aside class="notes">
+          Transition:
+          - "The next layer is distribution."
+          - "Once teams can build and operate workflows well, they need a way to share what works."
+          Bridge:
+          - "That is where templates and the marketplace come in."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Creator Center and Template Marketplace</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Marketplace</span>
+              <span class="deck-count">18 / 21</span>
+            </div>
+            <span class="deck-hint">Publish, discover, adopt</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/18.png" alt="Dify creator center and template marketplace where creators publish workflow templates and users can discover and adopt them with one click.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "The creator center and marketplace make workflows reusable products, not just one-off internal builds."
+          - "Creators can publish templates, and users can discover and adopt them with much less setup work."
+          Focus:
+          - Mention English metadata and setup steps as quality controls for consistency.
+          - Stress one-click adoption as the user value.
+          Bridge:
+          - "That marketplace works because it sits on top of a strong community."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Community-Driven and Globally Recognized</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Community</span>
+              <span class="deck-count">19 / 21</span>
+            </div>
+            <span class="deck-hint">Open source momentum</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/19.png" alt="Community-driven and globally recognized slide highlighting contributors, popularity, local deployment, and global reach.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This ecosystem is powered by contributors and real deployment momentum."
+          - "Open source scale matters here because it creates faster feedback, stronger patterns, and broader trust."
+          Focus:
+          - Keep this slide energetic but short.
+          - Treat it as proof that the platform is active and credible.
+          Bridge:
+          - "That momentum also shows up in the customer base."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Trusted by Leaders Worldwide</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Adoption</span>
+              <span class="deck-count">20 / 21</span>
+            </div>
+            <span class="deck-hint">Enterprise credibility</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/20.png" alt="Trusted by leaders across industries worldwide, showing customer logos.">
+          </div>
+        </div>
+        <aside class="notes">
+          Say:
+          - "This is the proof point that these ideas are not theoretical. They are being adopted across industries and company sizes."
+          - "The pattern is the same everywhere: teams want agent capability, but they need production controls."
+          Focus:
+          - Do not read logos one by one.
+          - Use this as fast social proof.
+          Bridge:
+          - "I'll close with where to continue the conversation."
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="slide-title">Contact and Links</h2>
+        <div class="slide-shell">
+          <div class="deck-bar">
+            <div class="deck-pill-group">
+              <span class="deck-pill">Closing</span>
+              <span class="deck-count">21 / 21</span>
+            </div>
+            <span class="deck-hint">Discord, website, GitHub, social, email</span>
+          </div>
+          <div class="slide-frame">
+            <img src="./assets/assets/21.png" alt="Closing slide with Dify contact links including Discord, website, GitHub, X, LinkedIn, and email.">
+          </div>
+        </div>
+        <aside class="notes">
+          Closing:
+          - "If this resonates with your production roadmap, please keep the conversation going."
+          - "You can explore the product, join the community, read the code, or reach out directly."
+          Focus:
+          - Pause here for audience questions.
+          - End with a clear invitation instead of a hard stop.
+        </aside>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="./scripts/format-speaker-notes.js"></script>
+  <script>
+    SpeakerNotesFormatter.enhance();
+
+    Reveal.initialize({
+      width: 1600,
+      height: 900,
+      margin: 0.02,
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: "c/t",
+      transition: "fade",
+      backgroundTransition: "fade",
+      center: true,
+      plugins: [ RevealNotes ]
+    });
+
+    Reveal.on("ready", function () {
+      SpeakerNotesFormatter.enhance();
+    });
+
+    Reveal.on("slidechanged", function () {
+      SpeakerNotesFormatter.enhance();
+    });
+  </script>
+</body>
+</html>
