@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Osmo Banana：我做了一个 Mac 录屏小工具</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="icon" href="data:,">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0c0f17;
+      --muted: #657084;
+      --faint: #8e98aa;
+      --paper: #fbfcff;
+      --panel: #ffffff;
+      --line: #dde4ef;
+      --blue: #0033ff;
+      --green: #159947;
+      --orange: #f97316;
+      --cyan: #0891b2;
+      --shadow: 0 24px 70px rgba(26, 38, 64, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      background:
+        linear-gradient(90deg, rgba(0, 51, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 51, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, #fff 0%, var(--paper) 100%);
+      background-size: 48px 48px, 48px 48px, auto;
+      color: var(--ink);
+      font-family: Inter, "Noto Sans SC", sans-serif;
+    }
+
+    .reveal {
+      font-size: 25px;
+      color: var(--ink);
+    }
+    .reveal .slides { text-align: left; }
+    .reveal section { padding: 0; }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal p {
+      margin: 0;
+      letter-spacing: 0;
+      text-transform: none;
+      font-family: Inter, "Noto Sans SC", sans-serif;
+    }
+    .reveal h1 {
+      max-width: 880px;
+      font-size: 76px;
+      line-height: 0.98;
+      font-weight: 900;
+    }
+    .reveal h2 {
+      max-width: 900px;
+      font-size: 58px;
+      line-height: 1.04;
+      font-weight: 900;
+    }
+    .reveal h3 {
+      font-size: 24px;
+      line-height: 1.16;
+      font-weight: 850;
+    }
+    .reveal p {
+      color: var(--muted);
+      line-height: 1.56;
+    }
+    .reveal strong { color: var(--ink); font-weight: 850; }
+    .reveal img { max-height: none; }
+
+    .lang-switch,
+    .deck-logo {
+      position: fixed;
+      z-index: 20;
+      top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--faint);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .deck-logo { left: 28px; }
+    .deck-logo img { height: 24px; }
+    .lang-switch { right: 28px; }
+    .lang-switch a { color: var(--faint); text-decoration: none; }
+    .lang-switch a.active { color: var(--ink); }
+
+    .slide {
+      width: min(1240px, 90vw);
+      min-height: 660px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .wide { width: min(1320px, 93vw); }
+    .split {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 58px;
+      align-items: center;
+    }
+    .split-left-wide { grid-template-columns: 1.15fr 0.85fr; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--blue);
+      font: 900 13px/1 JetBrains Mono, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .kicker i { font-size: 18px; }
+    .lead {
+      max-width: 780px;
+      margin-top: 24px;
+      font-size: 25px;
+      color: #4e596b;
+    }
+    .one-line {
+      margin-top: 34px;
+      padding-left: 26px;
+      border-left: 5px solid var(--blue);
+      color: var(--ink);
+      font-size: 33px;
+      line-height: 1.34;
+      font-weight: 850;
+    }
+    .rework-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 36px rgba(26, 38, 64, .08);
+      color: var(--ink);
+      font: 900 18px/1 JetBrains Mono, monospace;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .rework-quote i { color: var(--blue); font-size: 20px; }
+    .rework-quote span {
+      color: var(--faint);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      text-transform: uppercase;
+    }
+    .meta {
+      margin-top: 34px;
+      color: var(--faint);
+      font: 800 14px/1.6 JetBrains Mono, monospace;
+      letter-spacing: 0;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 500px;
+      border-radius: 28px;
+      background: #121720;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(12, 15, 23, 0.12);
+    }
+    .window-bar {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 18px;
+      background: rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .dot { width: 11px; height: 11px; border-radius: 999px; background: #ff5f57; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28c840; }
+    .stage-canvas {
+      margin: 30px;
+      height: 296px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 28% 24%, rgba(0, 51, 255, .36), transparent 25%),
+        radial-gradient(circle at 72% 70%, rgba(8, 145, 178, .34), transparent 26%),
+        linear-gradient(135deg, #eaf0ff, #fbfdff);
+    }
+    .screen-frame {
+      width: 76%;
+      height: 178px;
+      display: grid;
+      grid-template-columns: 34% 1fr;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 28px 56px rgba(6, 15, 38, .24);
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .screen-side { background: #111827; }
+    .screen-body { padding: 27px; display: grid; align-content: center; gap: 12px; }
+    .screen-body span {
+      display: block;
+      height: 13px;
+      border-radius: 999px;
+      background: #d5deeb;
+    }
+    .screen-body span:nth-child(1) { width: 72%; background: var(--blue); }
+    .screen-body span:nth-child(2) { width: 48%; }
+    .screen-body span:nth-child(3) { width: 84%; }
+    .timeline {
+      margin: 0 30px 30px;
+      padding: 19px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+    }
+    .track {
+      height: 12px;
+      margin-bottom: 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      overflow: hidden;
+    }
+    .track:last-child { margin-bottom: 0; }
+    .track::before {
+      content: "";
+      display: block;
+      width: var(--w);
+      height: 100%;
+      background: var(--c);
+      border-radius: inherit;
+    }
+    .cursor {
+      position: absolute;
+      right: 86px;
+      top: 162px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 0 0 14px rgba(0, 51, 255, .18), 0 18px 40px rgba(0,0,0,.2);
+    }
+
+    .shot {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .pricing-grid .shot { height: 284px; }
+    .bill-shot { height: 506px; }
+    .number-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .number {
+      min-height: 146px;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 14px 44px rgba(26, 38, 64, .08);
+    }
+    .number b {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--blue);
+      font: 900 54px/0.95 Inter, sans-serif;
+      letter-spacing: 0;
+    }
+    .number span {
+      display: block;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .rail {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .rail-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 15px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 14px 44px rgba(26, 38, 64, .07);
+    }
+    .rail-row .time {
+      color: var(--blue);
+      font: 900 15px/1.15 JetBrains Mono, monospace;
+    }
+    .rail-row p {
+      margin-top: 4px;
+      font-size: 16px;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .tile {
+      min-height: 214px;
+      padding: 26px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 44px rgba(26, 38, 64, .08);
+    }
+    .tile i {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 14px;
+      font-size: 25px;
+    }
+    .tile:nth-child(2) i { background: var(--green); }
+    .tile:nth-child(3) i { background: var(--orange); }
+    .tile p { margin-top: 10px; font-size: 18px; }
+
+    .feature-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .feature {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(26, 38, 64, .07);
+    }
+    .feature i {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blue);
+      background: #eef3ff;
+      font-size: 22px;
+    }
+    .feature p { margin-top: 4px; font-size: 16px; }
+    .tag {
+      color: var(--blue);
+      white-space: nowrap;
+      border-radius: 999px;
+      background: #eef3ff;
+      padding: 9px 11px;
+      font: 900 12px/1 JetBrains Mono, monospace;
+      letter-spacing: 0;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .step {
+      min-height: 158px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      position: relative;
+    }
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #a6b0c0;
+      font-weight: 900;
+    }
+    .step:last-child::after { display: none; }
+    .step b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font: 900 16px/1 JetBrains Mono, monospace;
+    }
+    .step p { margin-top: 8px; font-size: 15px; line-height: 1.45; }
+
+    .code {
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #10131a;
+      color: #dbe7ff;
+      box-shadow: var(--shadow);
+      white-space: pre-wrap;
+      font: 700 16px/1.48 JetBrains Mono, monospace;
+    }
+    .cmd { color: #91b3ff; }
+    .ok { color: #82e8a5; }
+    .dim { color: #8792a8; }
+
+    @media (max-width: 900px) {
+      .reveal h1 { font-size: 48px; }
+      .reveal h2 { font-size: 38px; }
+      .slide { min-height: 620px; }
+      .split,
+      .split-left-wide,
+      .pricing-grid,
+      .number-row,
+      .tiles,
+      .flow { grid-template-columns: 1fr; }
+      .step::after { display: none; }
+      .stage { display: none; }
+      .feature { grid-template-columns: 48px 1fr; }
+      .tag { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>Osmo Banana</span>
+  </div>
+
+  <div class="lang-switch">
+    <a class="active" href="index.html">中文</a>
+    <span>/</span>
+    <a href="index_en.html">EN</a>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div class="slide wide split">
+          <div>
+            <div class="kicker"><i class="ri-macbook-line"></i> 12 min demo</div>
+            <h1>我做了一个 Mac 录屏小工具</h1>
+            <p class="lead">它叫 Osmo Banana。不是一个宏大的 SaaS，就是我给自己做的本地录屏工作台：录完、修漂亮、直接导出。</p>
+            <div class="rework-quote"><i class="ri-double-quotes-l"></i>从核心出发 <span>《重来》</span></div>
+            <div class="one-line">我的核心不是“视频创作”，而是把“每次发 demo 都要多折腾十分钟”这件事消掉。</div>
+            <div class="meta">crazywoola（Banana） · Developer Relations @ Dify</div>
+          </div>
+          <div class="stage" aria-hidden="true">
+            <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="stage-canvas">
+              <div class="screen-frame">
+                <div class="screen-side"></div>
+                <div class="screen-body"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="track" style="--w:82%;--c:var(--blue);"></div>
+              <div class="track" style="--w:52%;--c:var(--green);"></div>
+              <div class="track" style="--w:68%;--c:var(--orange);"></div>
+            </div>
+            <span class="cursor"></span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-bank-card-line"></i> why I started</div>
+          <h2>我不是想做录屏 SaaS，<br>我只是想少付一张月账单</h2>
+          <p class="lead">ScreenStudio、Canvid、Loom 都挺好。但我不需要追着他们做。我的场景很窄：全员 Mac、本地录制、本地导出，最后发微信、飞书、小红书或客户群。</p>
+          <div class="rework-quote"><i class="ri-subtract-line"></i>给竞争力做减法 <span>《重来》</span></div>
+          <div class="pricing-grid">
+            <div class="shot"><img src="assets/screenstudio-pricing.png" alt="Screen Studio pricing"></div>
+            <div class="shot"><img src="assets/canvid-pricing.png" alt="Canvid pricing"></div>
+            <div class="shot"><img src="assets/loom-pricing.png" alt="Loom pricing"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split">
+          <div>
+            <div class="kicker"><i class="ri-receipt-line"></i> the itch</div>
+            <h2>这个账单每个月都会提醒我一次</h2>
+            <p class="lead">它提醒我的不是“我要做一个更大的产品”，而是“我有一个足够具体的问题”。我不需要云存储、分享链接、团队后台，也不需要完整剪辑套件。</p>
+            <div class="rework-quote"><i class="ri-focus-2-line"></i>你的需求没有想象的那么多 <span>《重来》</span></div>
+            <div class="number-row">
+              <div class="number"><b>$15</b><span>单人每月订阅样本</span></div>
+              <div class="number"><b>11</b><span>截图里连续出现的月份</span></div>
+              <div class="number"><b>$165</b><span>一个 seat 一年已经很接近买断工具</span></div>
+            </div>
+          </div>
+          <div class="shot bill-shot"><img src="assets/ScreenShot_2026-05-27_161333_872.png" alt="Billing history"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-compass-3-line"></i> my boundary</div>
+          <h2>我给自己定了很窄的边界</h2>
+          <p class="lead">不跨平台，不做云，不做分享链接，不做专业剪辑。先把“不做什么”讲清楚，剩下的东西才会变得锋利。</p>
+          <div class="rework-quote"><i class="ri-close-circle-line"></i>条件受限是好事 <span>《重来》</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-apple-line"></i><h3>我只做 Mac</h3><p>我们全员 Mac，我先把一个平台做好。</p></div>
+            <div class="tile"><i class="ri-hard-drive-2-line"></i><h3>我只做本地</h3><p>项目文件就在 ~/Movies/Osmo Recordings。</p></div>
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>我只追求“能发”</h3><p>录完不再进二剪软件，导出就能发。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-record-circle-line"></i> live recording</div>
+          <h2>我会边录制，边把它讲清楚</h2>
+          <p class="lead">所以 slides 不负责替我报流程。接下来我只保留三个判断标准：画面要能发、操作要跟得上、导出要可信。</p>
+          <div class="rework-quote"><i class="ri-hammer-line"></i>立马就上线 <span>《重来》</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>能发</h3><p>录完不用再进二剪软件补救。</p></div>
+            <div class="tile"><i class="ri-cursor-line"></i><h3>跟得上</h3><p>观众的注意力跟着我的点击和鼠标走。</p></div>
+            <div class="tile"><i class="ri-upload-2-line"></i><h3>可信</h3><p>预览是什么，导出就是什么。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-magic-line"></i> visual polish</div>
+          <h2>我先让录屏看起来像一条成品</h2>
+          <p class="lead">我可以给捕获画面加 padding、圆角和阴影，再放到纯色、渐变、blurred-source、图片或动态背景上。关键是：预览和导出共用同一个 renderer。</p>
+          <div class="flow">
+            <div class="step"><b>01</b><h3>Capture</h3><p>录屏和 cursor log 一起保存。</p></div>
+            <div class="step"><b>02</b><h3>Style</h3><p>frame、shadow、background 一起调。</p></div>
+            <div class="step"><b>03</b><h3>Preview</h3><p>看到的就是最终 renderer。</p></div>
+            <div class="step"><b>04</b><h3>Bake</h3><p>标注、音乐、人像一起合成。</p></div>
+            <div class="step"><b>05</b><h3>Export</h3><p>导出时不再猜效果。</p></div>
+          </div>
+          <div class="one-line">少一点魔法，多一点确定性：预览是什么，导出就是什么。</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split-left-wide">
+          <div>
+            <div class="kicker"><i class="ri-focus-3-line"></i> auto zoom</div>
+            <h2>我把点击当成剪辑意图</h2>
+            <p class="lead">录屏时我已经拿到了 cursor log。点击聚在一起的地方，通常就是我希望观众看的地方，所以我不再手工猜镜头。</p>
+            <div class="rework-quote"><i class="ri-arrow-right-circle-line"></i>在问题上少投入点精力 <span>《重来》</span></div>
+            <div class="code"><span class="dim">raw cursor log</span>
+click  (612, 418)  00:12.4
+click  (628, 421)  00:13.1
+move   Catmull-Rom smoothing
+
+<span class="ok">generated</span>
+zoom(center: 620, 420, scale: 1.42)</div>
+          </div>
+          <div class="feature-stack">
+            <div class="feature"><i class="ri-cursor-line"></i><div><h3>我可以一键 regenerate</h3><p>Zoom tab 从 cursor log 重新生成关键帧。</p></div><span class="tag">auto</span></div>
+            <div class="feature"><i class="ri-edit-2-line"></i><div><h3>我还能手动改</h3><p>自动只是起点，最后判断还是交给人。</p></div><span class="tag">editable</span></div>
+            <div class="feature"><i class="ri-bubble-chart-line"></i><div><h3>cursor 本身也被重绘</h3><p>dot / ring / arrow / square、颜色、halo glow、click ripple。</p></div><span class="tag">smooth</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-user-voice-line"></i> presenter layer</div>
+          <h2>我把讲解者、标注和音乐都放在同一条时间线上</h2>
+          <p class="lead">有些 demo 不需要人出镜；但当我需要解释复杂操作时，webcam、标注、cursor 和音乐必须一起进入导出，而不是散落在几个工具里。</p>
+          <div class="tiles">
+            <div class="tile"><i class="ri-webcam-line"></i><h3>Webcam</h3><p>圆形或圆角 PiP，放在任意角落。</p></div>
+            <div class="tile"><i class="ri-scissors-cut-line"></i><h3>Person cutout</h3><p>Vision portrait segmentation，不需要绿幕。</p></div>
+            <div class="tile"><i class="ri-music-2-line"></i><h3>Music + annotations</h3><p>文字、箭头、高亮、MP3/M4A 都 bake 进导出。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split-left-wide">
+          <div>
+            <div class="kicker"><i class="ri-folder-video-line"></i> library</div>
+            <h2>我希望 Library 是启动面，不是文件夹列表</h2>
+            <p class="lead">所有 .osmoproj 都自动出现在 Library。我可以搜索、排序、⌘-click / ⇧-click 多选，然后 Delete N 或 Export N。</p>
+            <div class="one-line">一次录完多条教程时，我不想一条一条点开导出。</div>
+          </div>
+          <div class="feature-stack">
+            <div class="feature"><i class="ri-search-line"></i><div><h3>Search / sort grid</h3><p>从 ~/Movies/Osmo Recordings 自动扫描。</p></div><span class="tag">launch</span></div>
+            <div class="feature"><i class="ri-checkbox-multiple-line"></i><div><h3>Multi-select</h3><p>多选后顶部动作条直接出现。</p></div><span class="tag">bulk</span></div>
+            <div class="feature"><i class="ri-upload-cloud-2-line"></i><div><h3>Sequential Export N</h3><p>共享 preset，顺序队列导出。</p></div><span class="tag">queue</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-robot-2-line"></i> next</div>
+          <h2>如果下一步要接 AI，我不会先做聊天框</h2>
+          <p class="lead">我更想先做一个原子化 CLI：让 Claude Code、Codex 这类 agent 先知道 app 能做什么、不能做什么、需要什么权限。</p>
+          <div class="rework-quote"><i class="ri-list-check-3"></i>决策宜小不宜大 <span>《重来》</span></div>
+          <div class="code"><span class="cmd">$ osmo list</span>
+demo.osmoproj       duration=12:08   status=ready
+
+<span class="cmd">$ osmo edit demo.osmoproj --regen-zoom --cursor ring --bg waves</span>
+<span class="ok">ok</span> zoom keyframes regenerated
+
+<span class="cmd">$ osmo export demo.osmoproj --preset xiaohongshu</span>
+<span class="ok">ok</span> export queued</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-flag-line"></i> close</div>
+          <h2>我不是在替代剪辑软件，<br>我是在替代重复劳动</h2>
+          <p class="lead">我不需要它赢下整个市场；我需要它把自己的问题解决得足够干净。</p>
+          <div class="rework-quote"><i class="ri-seedling-line"></i>刚刚好就是真的好 <span>《重来》</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-money-dollar-circle-line"></i><h3>少付长期月费</h3><p>不为不需要的 SaaS 能力买单。</p></div>
+            <div class="tile"><i class="ri-mac-line"></i><h3>贴合我的工作流</h3><p>Mac、本地、demo、分享。</p></div>
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>录完就能发</h3><p>画面、zoom、cursor、人像、标注、音乐一次导出。</p></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      width: 1440,
+      height: 810,
+      margin: 0.055,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      slideNumber: 'c/t'
+    });
+  </script>
+</body>
+</html>

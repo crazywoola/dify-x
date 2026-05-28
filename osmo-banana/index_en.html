@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Osmo Banana: I Built a Small Mac Screen Recorder</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="icon" href="data:,">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0c0f17;
+      --muted: #657084;
+      --faint: #8e98aa;
+      --paper: #fbfcff;
+      --panel: #ffffff;
+      --line: #dde4ef;
+      --blue: #0033ff;
+      --green: #159947;
+      --orange: #f97316;
+      --shadow: 0 24px 70px rgba(26, 38, 64, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      background:
+        linear-gradient(90deg, rgba(0, 51, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 51, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, #fff 0%, var(--paper) 100%);
+      background-size: 48px 48px, 48px 48px, auto;
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+    }
+
+    .reveal { color: var(--ink); font-size: 25px; }
+    .reveal .slides { text-align: left; }
+    .reveal section { padding: 0; }
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal p {
+      margin: 0;
+      letter-spacing: 0;
+      text-transform: none;
+      font-family: Inter, sans-serif;
+    }
+    .reveal h1 { max-width: 900px; font-size: 72px; line-height: 0.98; font-weight: 900; }
+    .reveal h2 { max-width: 940px; font-size: 56px; line-height: 1.04; font-weight: 900; }
+    .reveal h3 { font-size: 24px; line-height: 1.16; font-weight: 850; }
+    .reveal p { color: var(--muted); line-height: 1.54; }
+    .reveal img { max-height: none; }
+
+    .deck-logo,
+    .lang-switch {
+      position: fixed;
+      top: 22px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--faint);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .deck-logo { left: 28px; }
+    .deck-logo img { height: 24px; }
+    .lang-switch { right: 28px; }
+    .lang-switch a { color: var(--faint); text-decoration: none; }
+    .lang-switch a.active { color: var(--ink); }
+
+    .slide {
+      width: min(1240px, 90vw);
+      min-height: 660px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .wide { width: min(1320px, 93vw); }
+    .split {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 58px;
+      align-items: center;
+    }
+    .split-left-wide { grid-template-columns: 1.15fr 0.85fr; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--blue);
+      font: 900 13px/1 JetBrains Mono, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .kicker i { font-size: 18px; }
+    .lead { max-width: 780px; margin-top: 24px; font-size: 25px; color: #4e596b; }
+    .one-line {
+      margin-top: 34px;
+      padding-left: 26px;
+      border-left: 5px solid var(--blue);
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.32;
+      font-weight: 850;
+    }
+    .rework-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 36px rgba(26, 38, 64, .08);
+      color: var(--ink);
+      font: 900 18px/1 JetBrains Mono, monospace;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    .rework-quote i { color: var(--blue); font-size: 20px; }
+    .rework-quote span {
+      color: var(--faint);
+      font: 800 12px/1 JetBrains Mono, monospace;
+      text-transform: uppercase;
+    }
+    .meta {
+      margin-top: 34px;
+      color: var(--faint);
+      font: 800 14px/1.6 JetBrains Mono, monospace;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 500px;
+      border-radius: 28px;
+      background: #121720;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(12, 15, 23, 0.12);
+    }
+    .window-bar {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 18px;
+      background: rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .dot { width: 11px; height: 11px; border-radius: 999px; background: #ff5f57; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28c840; }
+    .stage-canvas {
+      margin: 30px;
+      height: 296px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 28% 24%, rgba(0, 51, 255, .36), transparent 25%),
+        radial-gradient(circle at 72% 70%, rgba(8, 145, 178, .34), transparent 26%),
+        linear-gradient(135deg, #eaf0ff, #fbfdff);
+    }
+    .screen-frame {
+      width: 76%;
+      height: 178px;
+      display: grid;
+      grid-template-columns: 34% 1fr;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 28px 56px rgba(6, 15, 38, .24);
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .screen-side { background: #111827; }
+    .screen-body { padding: 27px; display: grid; align-content: center; gap: 12px; }
+    .screen-body span {
+      display: block;
+      height: 13px;
+      border-radius: 999px;
+      background: #d5deeb;
+    }
+    .screen-body span:nth-child(1) { width: 72%; background: var(--blue); }
+    .screen-body span:nth-child(2) { width: 48%; }
+    .screen-body span:nth-child(3) { width: 84%; }
+    .timeline {
+      margin: 0 30px 30px;
+      padding: 19px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+    }
+    .track {
+      height: 12px;
+      margin-bottom: 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      overflow: hidden;
+    }
+    .track:last-child { margin-bottom: 0; }
+    .track::before {
+      content: "";
+      display: block;
+      width: var(--w);
+      height: 100%;
+      background: var(--c);
+      border-radius: inherit;
+    }
+    .cursor {
+      position: absolute;
+      right: 86px;
+      top: 162px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 0 0 14px rgba(0, 51, 255, .18), 0 18px 40px rgba(0,0,0,.2);
+    }
+
+    .shot {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .pricing-grid .shot { height: 284px; }
+    .bill-shot { height: 506px; }
+
+    .number-row,
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .number,
+    .tile {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 14px 44px rgba(26, 38, 64, .08);
+    }
+    .number { min-height: 146px; }
+    .number b {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--blue);
+      font: 900 54px/0.95 Inter, sans-serif;
+    }
+    .number span { display: block; color: var(--muted); font-size: 16px; line-height: 1.45; }
+    .tile { min-height: 214px; padding: 26px; border-radius: 22px; }
+    .tile i {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 14px;
+      font-size: 25px;
+    }
+    .tile:nth-child(2) i { background: var(--green); }
+    .tile:nth-child(3) i { background: var(--orange); }
+    .tile p { margin-top: 10px; font-size: 18px; }
+
+    .rail {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .rail-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 15px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 14px 44px rgba(26, 38, 64, .07);
+    }
+    .rail-row .time { color: var(--blue); font: 900 15px/1.15 JetBrains Mono, monospace; }
+    .rail-row p { margin-top: 4px; font-size: 16px; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .step {
+      min-height: 158px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      position: relative;
+    }
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #a6b0c0;
+      font-weight: 900;
+    }
+    .step:last-child::after { display: none; }
+    .step b { display: block; margin-bottom: 12px; color: var(--blue); font: 900 16px/1 JetBrains Mono, monospace; }
+    .step p { margin-top: 8px; font-size: 15px; line-height: 1.45; }
+
+    .feature-stack { display: grid; gap: 12px; margin-top: 24px; }
+    .feature {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(26, 38, 64, .07);
+    }
+    .feature i {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blue);
+      background: #eef3ff;
+      font-size: 22px;
+    }
+    .feature p { margin-top: 4px; font-size: 16px; }
+    .tag {
+      color: var(--blue);
+      white-space: nowrap;
+      border-radius: 999px;
+      background: #eef3ff;
+      padding: 9px 11px;
+      font: 900 12px/1 JetBrains Mono, monospace;
+    }
+
+    .code {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #10131a;
+      color: #dbe7ff;
+      box-shadow: var(--shadow);
+      white-space: pre-wrap;
+      font: 700 15px/1.38 JetBrains Mono, monospace;
+    }
+    .cmd { color: #91b3ff; }
+    .ok { color: #82e8a5; }
+    .dim { color: #8792a8; }
+
+    @media (max-width: 900px) {
+      .reveal h1 { font-size: 48px; }
+      .reveal h2 { font-size: 38px; }
+      .slide { min-height: 620px; }
+      .split,
+      .split-left-wide,
+      .pricing-grid,
+      .number-row,
+      .tiles,
+      .flow { grid-template-columns: 1fr; }
+      .step::after { display: none; }
+      .stage { display: none; }
+      .feature { grid-template-columns: 48px 1fr; }
+      .tag { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>Osmo Banana</span>
+  </div>
+
+  <div class="lang-switch">
+    <a href="index.html">中文</a>
+    <span>/</span>
+    <a class="active" href="index_en.html">EN</a>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div class="slide wide split">
+          <div>
+            <div class="kicker"><i class="ri-macbook-line"></i> 12 min demo</div>
+            <h1>I built a small Mac screen recorder</h1>
+            <p class="lead">It is called Osmo Banana. It is not a grand SaaS product; it is a local recording workbench I made for myself: record, polish, export.</p>
+            <div class="rework-quote"><i class="ri-double-quotes-l"></i>Start from the core <span>REWORK</span></div>
+            <div class="one-line">The core is not “video creation.” It is removing the ten extra minutes before every demo can be shared.</div>
+            <div class="meta">crazywoola (Banana) · Developer Relations @ Dify</div>
+          </div>
+          <div class="stage" aria-hidden="true">
+            <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="stage-canvas">
+              <div class="screen-frame">
+                <div class="screen-side"></div>
+                <div class="screen-body"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="track" style="--w:82%;--c:var(--blue);"></div>
+              <div class="track" style="--w:52%;--c:var(--green);"></div>
+              <div class="track" style="--w:68%;--c:var(--orange);"></div>
+            </div>
+            <span class="cursor"></span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-bank-card-line"></i> why I started</div>
+          <h2>I did not want another screen-recording SaaS.<br>I wanted one less monthly bill.</h2>
+          <p class="lead">ScreenStudio, Canvid, and Loom are all good. I do not need to chase them. My use case is narrower: everyone is on Mac, recording is local, export is local, and the final video goes to chat, social, or a customer thread.</p>
+          <div class="rework-quote"><i class="ri-subtract-line"></i>Subtract from competition <span>REWORK</span></div>
+          <div class="pricing-grid">
+            <div class="shot"><img src="assets/screenstudio-pricing.png" alt="Screen Studio pricing"></div>
+            <div class="shot"><img src="assets/canvid-pricing.png" alt="Canvid pricing"></div>
+            <div class="shot"><img src="assets/loom-pricing.png" alt="Loom pricing"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split">
+          <div>
+            <div class="kicker"><i class="ri-receipt-line"></i> the itch</div>
+            <h2>This bill reminded me every month</h2>
+            <p class="lead">It did not tell me to build a bigger product. It told me I had a specific problem. I do not need cloud storage, share links, team admin, or a full editor.</p>
+            <div class="rework-quote"><i class="ri-focus-2-line"></i>You need less than you think <span>REWORK</span></div>
+            <div class="number-row">
+              <div class="number"><b>$15</b><span>monthly single-seat billing sample</span></div>
+              <div class="number"><b>11</b><span>consecutive months in the screenshot</span></div>
+              <div class="number"><b>$165</b><span>one seat per year is already close to buying a tool</span></div>
+            </div>
+          </div>
+          <div class="shot bill-shot"><img src="assets/ScreenShot_2026-05-27_161333_872.png" alt="Billing history"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-compass-3-line"></i> my boundary</div>
+          <h2>I made the boundary intentionally narrow</h2>
+          <p class="lead">No cross-platform promise, no cloud, no share links, no professional editing suite. Once I know what I am not building, the rest gets sharper.</p>
+          <div class="rework-quote"><i class="ri-close-circle-line"></i>Constraints are a good thing <span>REWORK</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-apple-line"></i><h3>I only target Mac</h3><p>Our team is Mac-first, so I can optimize for one platform.</p></div>
+            <div class="tile"><i class="ri-hard-drive-2-line"></i><h3>I keep it local</h3><p>Project files live under ~/Movies/Osmo Recordings.</p></div>
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>I optimize for “ready to share”</h3><p>After export, I should not need a second editor.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-record-circle-line"></i> live recording</div>
+          <h2>I will record and explain at the same time</h2>
+          <p class="lead">So the slides do not need to narrate the route for me. From here, I only keep three standards on screen: shareable output, followable action, trustworthy export.</p>
+          <div class="rework-quote"><i class="ri-hammer-line"></i>Launch now <span>REWORK</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>Shareable</h3><p>No second editor just to rescue the recording.</p></div>
+            <div class="tile"><i class="ri-cursor-line"></i><h3>Followable</h3><p>Viewer attention follows my clicks and cursor.</p></div>
+            <div class="tile"><i class="ri-upload-2-line"></i><h3>Trustworthy</h3><p>What I preview is what I export.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-magic-line"></i> visual polish</div>
+          <h2>I first make the recording look like a finished asset</h2>
+          <p class="lead">The captured frame can be padded, rounded, shadowed, and placed on a solid, gradient, blurred-source, image, or animated procedural background. The key: preview and export share the same renderer.</p>
+          <div class="flow">
+            <div class="step"><b>01</b><h3>Capture</h3><p>Screen and cursor log are saved together.</p></div>
+            <div class="step"><b>02</b><h3>Style</h3><p>Frame, shadow, and background are adjusted together.</p></div>
+            <div class="step"><b>03</b><h3>Preview</h3><p>The preview uses the final renderer.</p></div>
+            <div class="step"><b>04</b><h3>Bake</h3><p>Annotations, music, and presenter layer are composited.</p></div>
+            <div class="step"><b>05</b><h3>Export</h3><p>No guessing at export time.</p></div>
+          </div>
+          <div class="one-line">Less magic, more certainty: what I preview is what I export.</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split-left-wide">
+          <div>
+            <div class="kicker"><i class="ri-focus-3-line"></i> auto zoom</div>
+            <h2>I treat clicks as editing intent</h2>
+            <p class="lead">During recording I already have a cursor log. Where clicks cluster is usually where I want the viewer to look, so I stop manually guessing the camera move.</p>
+            <div class="rework-quote"><i class="ri-arrow-right-circle-line"></i>Throw less at the problem <span>REWORK</span></div>
+            <div class="code"><span class="dim">raw cursor log</span>
+click  (612, 418)  00:12.4
+click  (628, 421)  00:13.1
+move   Catmull-Rom smoothing
+
+<span class="ok">generated</span>
+zoom(center: 620, 420, scale: 1.42)</div>
+          </div>
+          <div class="feature-stack">
+            <div class="feature"><i class="ri-cursor-line"></i><div><h3>I can regenerate with one button</h3><p>The Zoom tab rebuilds keyframes from the cursor log.</p></div><span class="tag">auto</span></div>
+            <div class="feature"><i class="ri-edit-2-line"></i><div><h3>I can still hand-edit</h3><p>Automation gives the first pass; judgment stays with me.</p></div><span class="tag">editable</span></div>
+            <div class="feature"><i class="ri-bubble-chart-line"></i><div><h3>The cursor is synthetic too</h3><p>dot / ring / arrow / square, color, halo glow, click ripple.</p></div><span class="tag">smooth</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide">
+          <div class="kicker"><i class="ri-user-voice-line"></i> presenter layer</div>
+          <h2>I keep presenter, annotations, and music on one timeline</h2>
+          <p class="lead">Some demos do not need a face. But when I explain a complex interaction, webcam, annotations, cursor, and music need to export together instead of living across multiple tools.</p>
+          <div class="tiles">
+            <div class="tile"><i class="ri-webcam-line"></i><h3>Webcam</h3><p>Round or rounded PiP in any corner.</p></div>
+            <div class="tile"><i class="ri-scissors-cut-line"></i><h3>Person cutout</h3><p>Vision portrait segmentation, no green screen.</p></div>
+            <div class="tile"><i class="ri-music-2-line"></i><h3>Music + annotations</h3><p>Text, arrows, highlights, MP3/M4A all bake into export.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide wide split-left-wide">
+          <div>
+            <div class="kicker"><i class="ri-folder-video-line"></i> library</div>
+            <h2>I want Library to be the launch surface, not a file list</h2>
+            <p class="lead">Every .osmoproj appears automatically. I can search, sort, multi-select with Command or Shift, then Delete N or Export N.</p>
+            <div class="one-line">When I record several tutorials at once, I do not want to open and export them one by one.</div>
+          </div>
+          <div class="feature-stack">
+            <div class="feature"><i class="ri-search-line"></i><div><h3>Search / sort grid</h3><p>Automatically scans ~/Movies/Osmo Recordings.</p></div><span class="tag">launch</span></div>
+            <div class="feature"><i class="ri-checkbox-multiple-line"></i><div><h3>Multi-select</h3><p>The bulk action bar appears when multiple items are selected.</p></div><span class="tag">bulk</span></div>
+            <div class="feature"><i class="ri-upload-cloud-2-line"></i><div><h3>Sequential Export N</h3><p>Shared preset, sequential export queue.</p></div><span class="tag">queue</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-robot-2-line"></i> next</div>
+          <h2>If I connect AI next, I would not start with a chat box</h2>
+          <p class="lead">I would start with an atomic CLI so agents like Claude Code or Codex can discover what the app can do, what it cannot do, and what permissions it needs.</p>
+          <div class="rework-quote"><i class="ri-list-check-3"></i>Make smaller decisions <span>REWORK</span></div>
+          <div class="code"><span class="cmd">$ osmo list</span>
+demo.osmoproj       duration=12:08   status=ready
+
+<span class="cmd">$ osmo edit demo.osmoproj --regen-zoom --cursor ring --bg waves</span>
+<span class="ok">ok</span> zoom keyframes regenerated
+
+<span class="cmd">$ osmo export demo.osmoproj --preset xiaohongshu</span>
+<span class="ok">ok</span> export queued</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="slide">
+          <div class="kicker"><i class="ri-flag-line"></i> close</div>
+          <h2>I am not replacing editing software.<br>I am replacing repeated work.</h2>
+          <p class="lead">I do not need it to win the whole market. I need it to solve my own problem cleanly.</p>
+          <div class="rework-quote"><i class="ri-seedling-line"></i>Just enough is good enough <span>REWORK</span></div>
+          <div class="tiles">
+            <div class="tile"><i class="ri-money-dollar-circle-line"></i><h3>Pay less recurring rent</h3><p>No monthly bill for SaaS features I do not need.</p></div>
+            <div class="tile"><i class="ri-mac-line"></i><h3>Fit my workflow</h3><p>Mac, local, demos, sharing.</p></div>
+            <div class="tile"><i class="ri-sparkling-line"></i><h3>Record, polish, share</h3><p>Frame, zoom, cursor, presenter, annotations, and music in one export.</p></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      width: 1440,
+      height: 810,
+      margin: 0.055,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      slideNumber: 'c/t'
+    });
+  </script>
+</body>
+</html>
