@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Agent 落地的最后一层 — Dify</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="icon" href="data:,">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>Agent Last Mile</span>
+  </div>
+
+  <div class="lang-switch">
+    <a class="active" href="index.html">中文</a>
+    <span>/</span>
+    <a href="index_en.html">EN</a>
+  </div>
+
+  <div class="reveal">
+    <div class="slides" id="slides"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="deck.js"></script>
+  <script>
+    renderDeck([
+      {
+        layout: "split",
+        icon: "start",
+        kicker: "Agentic AI · 来自一线的判断",
+        h1: "Agent 落地的最后一层",
+        lead: "开源编排 + 生产级治理。很多项目 demo 一晚上，上线半年；卡住的不是模型，而是中间这一层。",
+        oneLine: "今天不聊模型变强，而是聊 Agent 怎么变成一个敢上线、敢审计、敢负责的系统。",
+        meta: "郑立 · Head of Open Source Community @ Dify",
+        nodes: [
+          [{ title: "Demo", body: "一晚上跑通，效果惊艳" }, { title: "Production", body: "半年评审，处处卡住" }],
+          [{ title: "模型能力", body: "最容易调，也最容易陷进去" }, { title: "编排治理", body: "真正决定能不能上线" }]
+        ],
+        notes: "开场定调：今天不聊模型，而聊一线踩过、做过、还在做的事。"
+      },
+      {
+        blue: true,
+        icon: "orchestration",
+        kicker: "01 · 编排 Orchestration",
+        h2: "把 Agent 搭出来",
+        quote: "复杂性意味着被迫选择；被迫选择意味着偶联；而偶联意味着风险。",
+        source: "Niklas Luhmann · Social Systems (1995), p.25"
+      },
+      {
+        icon: "warning",
+        kicker: "判断一",
+        h2: "调 Prompt、换模型，解决不了上不了线的问题。",
+        lead: "这两件事最容易做，改一下马上有反馈，所以团队会一直在这里打转。但很多项目不是死在模型不够强，而是死在编排和治理。",
+        oneLine: "越接近生产，问题越不像“模型题”，越像“系统题”。"
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "About Dify",
+        h2: "先说清楚 Dify 是什么",
+        lead: "一个开源平台，覆盖 Agent 从搭建到上线、监控的全过程。今天的讨论都建立在这套编排、生态和治理之上。",
+        numbers: [
+          { value: "100K+", label: "GitHub Stars" },
+          { value: "数百种", label: "模型接入" },
+          { value: "5 类", label: "插件类型" },
+          { value: "1900 万+", label: "镜像下载" }
+        ],
+        tiles: [
+          { icon: "orchestration", title: "Workflow 画布", body: "可视化编排 LLM、工具、知识检索和分支逻辑。" },
+          { icon: "graph", title: "RAG 与知识库", body: "把检索、上下文和应用流程放进同一条链路。" },
+          { icon: "observability", title: "日志与 Tracing", body: "上线后能看见每一步，而不是靠猜。" }
+        ]
+      },
+      {
+        icon: "warning",
+        kicker: "判断二",
+        h2: "Demo 越顺，离生产可能越远。",
+        lead: "一个晚上跑通的 demo 惊艳，是因为脏活全跳过了：鉴权、隔离、审计、回放、权限、版本和失败兜底。",
+        oneLine: "Demo 的顺滑不等于生产的可信，很多债只是暂时没被看见。"
+      },
+      {
+        wide: true,
+        icon: "route",
+        kicker: "The Gap",
+        h2: "从 demo 到生产，差三块",
+        risks: [
+          { icon: "plugin", title: "能力扩展碎片化", body: "每接一个模型、一个工具都写胶水代码，能力散在脚本里，没法复用沉淀。" },
+          { icon: "graph", title: "编排是黑盒", body: "Agent 为什么这么走、哪一步出错，看不见。调试和回归基本靠猜。" },
+          { icon: "governance", title: "治理缺位", body: "插件来源不清、版本失控、权限粗放，安全合规没法审。" }
+        ],
+        oneLine: "前两块，开源编排来补；第三块，治理来补。"
+      },
+      {
+        layout: "split",
+        icon: "orchestration",
+        kicker: "Orchestration",
+        h2: "开源编排：把 Agent 搬上画布",
+        lead: "Agent 是画布上的节点。调度的模型、工具、知识检索和策略都可插拔，每一步的输入输出都能看、能调、能回放。",
+        nodes: [
+          [{ title: "用户输入", body: "触发工作流，携带上下文与变量" }, { title: "Agent 节点", body: "选择模型、工具、知识和策略" }],
+          [{ title: "插件能力", body: "模型、工具、推理策略全部模块化" }, { title: "结果输出", body: "每一步都能追踪、调试和回放" }]
+        ],
+        notes: "铺垫：既然底层结构化，它就能被生成、被改造。"
+      },
+      {
+        wide: true,
+        icon: "code",
+        kicker: "Under the hood",
+        h2: "画布底下，是一份 DSL",
+        lead: "画布上拖的每个节点、连的每条线，底层都序列化成 YAML。工作流因此可移植、可导入导出，也能被程序生成和改造。",
+        code: "workflow.dify.yml\napp:\n  mode: workflow\nworkflow:\n  nodes:\n    - id: start\n    - id: llm_1\n      type: llm\n    - id: if_else_1\n    - id: end\n  edges:\n    - start -> llm_1\n    - llm_1 -> if_else_1\n  layout:\n    start: { x: 80, y: 120 }"
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "Experiment",
+        h2: "我们在社区版试了一件事：一句话生成工作流",
+        lead: "在画布里按 Cmd / Ctrl + K，用 /create 和 /refine 生成、改写工作流。本质上，是把自然语言编译成合法的 Workflow DSL。",
+        flow: [
+          { title: "读需求", body: "判断 Chatflow / Workflow，识别节点和数据流。" },
+          { title: "先规划", body: "Planner 决定需要哪些节点、怎么连接。" },
+          { title: "拼结构", body: "Builder 按 schema 拼 nodes / edges 和唯一 ID。" },
+          { title: "校验回写", body: "检查变量、边和图合法性，落到画布上。" }
+        ]
+      },
+      {
+        wide: true,
+        icon: "lock",
+        kicker: "Feature Preview",
+        h2: "实验性能力，先交给部署者决定开不开",
+        lead: "生成工作流不是默认强加给所有人，而是通过 Feature Preview 开关进入社区版，让愿意尝鲜的人先试，也让风险可控、可回收。",
+        tiles: [
+          { icon: "lock", title: "环境变量开关", body: "部署时显式开启，默认不强加给所有工作区。" },
+          { icon: "people", title: "社区版先试", body: "新颖、还在打磨的能力，先给愿意反馈的人。" },
+          { icon: "route", title: "可控可回收", body: "谁开了、为谁开，是一个清楚的决定；出问题能收。" }
+        ],
+        code: "# .env\n# 实验性功能，默认不开\nENABLE_FEATURE_PREVIEW=false\n\n# 想试，再显式打开\nENABLE_FEATURE_PREVIEW=true"
+      },
+      {
+        wide: true,
+        icon: "warning",
+        kicker: "Why hardening",
+        h2: "把它放给更多人之前，要先扛住这些坑",
+        lead: "让模型生成工作流听着很美。真放出去，会撞上一堆图结构、交互和稳定性问题。",
+        risks: [
+          { icon: "code", title: "节点 ID 撞了", body: "图靠 ID 连边、引用变量。ID 重复，整张图可能加载失败。" },
+          { icon: "graph", title: "图不合法", body: "IF/ELSE 出口接错、生成环或悬空边，运行时直接报错。" },
+          { icon: "route", title: "节点堆在原点", body: "模型只给节点和连接，不给坐标；没有自动布局就没法看。" },
+          { icon: "warning", title: "输入太长 / 太慢", body: "超长指令撑爆上下文、拖慢响应，需要上限和超时。" },
+          { icon: "observability", title: "失败没反馈", body: "生成或 refine 失败，要能让用户看见、回退，而不是空图崩掉。" },
+          { icon: "lock", title: "版本要兜住", body: "改写历史要能回滚、有上限，不能越改越乱。" }
+        ]
+      },
+      {
+        layout: "split",
+        icon: "skill",
+        kicker: "What we're building",
+        h2: "我们在重做节点：LLM 节点的 Skills 化",
+        lead: "现在工具是插件，挂在流程上。我们在做的是把工具协同再下沉一层，让一个 LLM 节点像能自己调度多个 Skill 的 agent。",
+        nodes: [
+          [{ title: "LLM 节点", body: "模型自己决定调哪个 Skill" }, { title: "多个 Skill", body: "tender-analyzer、Playwright、Figma..." }],
+          [{ title: "SKILL.md", body: "一份 SOP，写清任务、触发条件和步骤" }, { title: "渐进加载", body: "平时只读名称描述，用到才读完整内容" }]
+        ],
+        tiles: [
+          { icon: "skill", title: "Skill 是 SOP", body: "不是一句 prompt，而是一套可复用的做事方法。" },
+          { icon: "start", title: "自带工具编排", body: "Skill 里声明要调哪些工具、引哪些脚本。" },
+          { icon: "code", title: "节省上下文", body: "渐进式加载，让 token 花在真正需要的地方。" }
+        ]
+      },
+      {
+        blue: true,
+        icon: "governance",
+        kicker: "02 · 治理 Governance",
+        h2: "让它敢上线",
+        quote: "信任，以风险情境为前提。",
+        source: "Niklas Luhmann · Trust and Power (1979), p.97"
+      },
+      {
+        wide: true,
+        icon: "plugin",
+        kicker: "Plugin System",
+        h2: "插件：把能力做成标准模块",
+        lead: "即插即用，通过 Marketplace、GitHub、本地文件分发。其中 Agent Strategy 把“Agent 怎么想”也做成了插件。",
+        tiles: [
+          { icon: "plugin", title: "Model", body: "LLM / Embedding / TTS 等数百种模型接入。" },
+          { icon: "start", title: "Tool", body: "搜索、绘图、数据处理等能力。" },
+          { icon: "orchestration", title: "Agent Strategy", body: "Function Calling、ReAct 等推理策略。" },
+          { icon: "code", title: "Extension", body: "自定义 API 和业务逻辑扩展。" },
+          { icon: "route", title: "Bundle", body: "成组分发，一次安装一套能力。" }
+        ]
+      },
+      {
+        icon: "warning",
+        kicker: "判断三",
+        h2: "插件生态最怕的，不是没人贡献，是没人负责。",
+        lead: "开放要能持续，前提是每个上架的东西都有人对它负责。一个来源不清、出了事没人认账的插件，可能在生产环境里跑任意代码。",
+        oneLine: "开放不是放任；生产里的开放，要有责任链。"
+      },
+      {
+        wide: true,
+        icon: "lock",
+        kicker: "Governance · 真实案例（已脱敏）",
+        h2: "一次未授权渗透，被我们发现并及时处置",
+        flow: [
+          { title: "第三方 PR", body: "看起来完全正常的贡献。" },
+          { title: "改了 CI 脚本", body: "在 Python 里偷偷捕获环境变量。" },
+          { title: "触到整库密钥", body: "经由特权 CI 触发器，够到了 secrets。" },
+          { title: "及时处置", body: "第一时间封堵、轮换密钥、复盘根因。" }
+        ],
+        oneLine: "重点不是制造恐慌，而是生产生态必须具备检测与响应能力。"
+      },
+      {
+        wide: true,
+        icon: "governance",
+        kicker: "Governance",
+        h2: "那次之后，我们系统性地修",
+        lead: "诚实讲：当时的 CI 只做解包和 manifest 校验，没有足够的安全扫描。抽样发现，插件包里混进过 .env、.git、平台二进制这些不该有的东西。",
+        phases: [
+          { label: "P0 · 4 周", title: "先止血", body: "用最小代价堵住最显眼的安全和合规漏洞。" },
+          { label: "P1 · 3 月", title: "自动化 + 作者治理", body: "人工抽查升级成自动扫描，给作者建立画像和责任。" },
+          { label: "P2 · 半年到一年", title: "签名 + 上架后监测", body: "对齐 npm / Sigstore 级签名，上架后持续盯。" }
+        ],
+        oneLine: "承认差距本身，就是动手治理的开始。"
+      },
+      {
+        icon: "observability",
+        kicker: "判断四",
+        h2: "没接可观测，你其实没真见过你的 Agent。",
+        lead: "没有回放和 tracing，你看到的只是它在你面前的表演。真实流量下它怎么决策、哪儿出错，你根本不知道。",
+        tiles: [
+          { icon: "observability", title: "应用级监控", body: "调用量、Token、延迟、用户反馈。" },
+          { icon: "route", title: "全量日志 + 会话回放", body: "每次决策路径都能还原。" },
+          { icon: "graph", title: "Tracing", body: "对接 Langfuse / LangSmith / OpenTelemetry。" }
+        ],
+        oneLine: "入口治理只能管上架；线上事故要靠回放和 tracing 定位。"
+      },
+      {
+        blue: true,
+        icon: "trust",
+        kicker: "03 · 更深的问题 The deeper question",
+        h2: "凭什么信它",
+        quote: "通过程序获得合法性：正当性来自程序本身，而非来自与外部真理的符合。",
+        source: "Niklas Luhmann · Legitimation durch Verfahren (1969)"
+      },
+      {
+        wide: true,
+        icon: "trust",
+        kicker: "The harder problem",
+        h2: "现行合规，有个前提正在失效",
+        lead: "现在的安全审计、合规检查，背后都默认系统可重复、可预测、可验证。但 Agent 不是这样：同样输入未必同样输出，它会自己挑工具、选路径，还会随模型和插件升级漂移。",
+        tiles: [
+          { icon: "code", title: "旧前提：可重复", body: "同样输入，同样行为，于是能测评、审计、检查。" },
+          { icon: "route", title: "Agent：非确定", body: "同样输入，未必同样输出；路径由系统自己选择。" },
+          { icon: "warning", title: "地基松动", body: "可重复一旦不成立，建在它上面的可验证也跟着松。" }
+        ],
+        oneLine: "这是地基的问题，不是换个工具能解决的。"
+      },
+      {
+        icon: "warning",
+        kicker: "判断五",
+        h2: "让 Agent 自己反复 loop、自我反思，这件事被高估了。",
+        lead: "一个模型自己跟自己较劲，本质上是独白。它再怎么反思，也跳不出自己的盲区；错的东西，往往越想越觉得对。",
+        oneLine: "真正能纠偏的，不是让一个脑子想更久，而是让不同立场把理由摆出来互相挑。"
+      },
+      {
+        wide: true,
+        icon: "people",
+        kicker: "A design idea",
+        h2: "让多方吵，而不是一个人想",
+        lead: "一种更有意思的设计：不要把 generator 包进自我反思循环，而是让多个立场对立的 agent，在共享论证图上互相挑战。",
+        tiles: [
+          { icon: "people", title: "多方在场，身份对等", body: "找全谁会被决定影响，包括没在场的弱势方。" },
+          { icon: "trust", title: "挑战必须带理由", body: "裁判只管形式，不碰对错；理由挂到共享图上。" },
+          { icon: "code", title: "产出是 reason ledger", body: "保留活下来的主张、被驳掉的方案和未解决分歧。" }
+        ],
+        oneLine: "合法性来自理由的碰撞，不来自一个系统的自省。"
+      },
+      {
+        wide: true,
+        icon: "people",
+        kicker: "Back to people",
+        h2: "所以我们在做 HITL 节点：把人放回关键决策点",
+        lead: "不管是合规的“可验证”松了，还是系统定不了的规范性岔路口，落点都一样：在 Agent 自动跑的链路里，留下人能介入的点。",
+        flow: [
+          { title: "Agent 自动跑", body: "推进到一个需要判断的点。" },
+          { title: "HITL 节点暂停", body: "在这里停下，等待人处理。" },
+          { title: "人来处理", body: "审批、编辑、改路由、升级给谁。" },
+          { title: "恢复执行", body: "拿着人的决定继续往下走。" }
+        ],
+        oneLine: "验证的支点，从“能不能复现”换成“关键决定有没有人签字、留没留痕”。"
+      },
+      {
+        icon: "warning",
+        kicker: "判断六",
+        h2: "生产化，不是把 workflow 转成一个能跑的 FastAPI。",
+        lead: "一键生成、Convert to code，可以让 YAML 到服务几乎零成本。但那只解决“能跑”。真正难的是：一个你没法预测的系统，怎么让它可治理、可审计、可验证。",
+        oneLine: "难的从来不是把工作流变成代码，而是把它变成一个你敢签字负责的系统。"
+      },
+      {
+        layout: "split",
+        icon: "aws",
+        kicker: "On AWS",
+        h2: "在 AWS 上的生产参考架构",
+        lead: "Dify 集群跑在 EKS，api / web、worker、plugin-daemon、sandbox 各司其职；托管数据层降低运维；模型层通过 Bedrock / SageMaker / Knowledge Bases 以插件接入。",
+        nodes: [
+          [{ title: "用户 / 业务系统", body: "经由 ALB 进入应用入口" }, { title: "Amazon EKS", body: "api / web、worker、plugin-daemon、sandbox" }],
+          [{ title: "托管数据层", body: "Aurora PostgreSQL、OpenSearch、S3" }, { title: "模型层", body: "Bedrock、SageMaker、Knowledge Bases" }]
+        ],
+        oneLine: "插件隔离和治理策略，要在架构层就成立。"
+      },
+      {
+        wide: true,
+        icon: "aws",
+        kicker: "AWS × Dify",
+        h2: "和 AWS 的生态协作",
+        tiles: [
+          { icon: "plugin", title: "Bedrock / SageMaker 插件", body: "官方维护，Claude 等模型即配即用，走 IAM 鉴权。" },
+          { icon: "start", title: "AWS Tools 插件集", body: "内容审核、OCR 等能力直接进入工作流。" },
+          { icon: "code", title: "一键部署", body: "CloudFormation / CDK / EKS 多套样例，覆盖测试到生产。" },
+          { icon: "aws", title: "AWS Marketplace", body: "Dify 上架 Marketplace，一键部署进自有 VPC。" }
+        ],
+        oneLine: "AWS 的能力以插件进 Dify，Dify 以开源方案跑在 AWS 上。"
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "Get started",
+        h2: "一条可以照抄的路径",
+        flow: [
+          { title: "Day 1 · 跑起来", body: "CloudFormation / CDK 部署，接通 Bedrock 模型插件。" },
+          { title: "Week 1 · 第一个 Agent", body: "画布搭工作流，接知识库和工具，小流量验证。" },
+          { title: "Month 1 · 治理基线", body: "私有插件签名、版本策略，接上 tracing 和监控。" },
+          { title: "规模化 · 多团队复用", body: "沉淀插件和模板，过审计合规，跨业务推广。" }
+        ],
+        meta: "github.com/langgenius/dify · marketplace.dify.ai · 郑立 · Dify"
+      },
+      {
+        blue: true,
+        icon: "close",
+        kicker: "Close",
+        h2: "Agent 落地的最后一层，不是模型能力，是责任能力。",
+        lead: "编排让它跑起来，治理让它敢上线，可观测让它出了问题能被看见，HITL 让关键决定重新有人负责。",
+        oneLine: "从 demo 到生产，中间差的不是一层胶水，而是一整套可被信任的程序。",
+        meta: "Q&A · banana@dify.ai"
+      }
+    ]);
+
+    Reveal.initialize({
+      hash: true,
+      width: 1440,
+      height: 810,
+      margin: 0.055,
+      transition: "fade",
+      backgroundTransition: "fade",
+      slideNumber: "c/t",
+      plugins: [RevealNotes]
+    });
+  </script>
+</body>
+</html>

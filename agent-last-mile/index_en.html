@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Last Mile of Agent Deployment — Dify</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="icon" href="data:,">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>Agent Last Mile</span>
+  </div>
+
+  <div class="lang-switch">
+    <a href="index.html">中文</a>
+    <span>/</span>
+    <a class="active" href="index_en.html">EN</a>
+  </div>
+
+  <div class="reveal">
+    <div class="slides" id="slides"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="deck.js"></script>
+  <script>
+    renderDeck([
+      {
+        layout: "split",
+        icon: "start",
+        kicker: "Agentic AI · field notes",
+        h1: "The Last Mile of Agent Deployment",
+        lead: "Open orchestration plus production-grade governance. Many teams can build a demo overnight, then spend months trying to ship it.",
+        oneLine: "The blocker is rarely just the model. It is the layer between a working demo and a system someone can sign off on.",
+        meta: "Zheng Li · Head of Open Source Community @ Dify",
+        nodes: [
+          [{ title: "Demo", body: "Working overnight, impressive on stage" }, { title: "Production", body: "Months of review, missing guarantees" }],
+          [{ title: "Model tuning", body: "Fast feedback, easy to over-focus on" }, { title: "Orchestration + governance", body: "What determines whether it can ship" }]
+        ],
+        notes: "Opening: the talk is not about stronger models, but about first-hand engineering lessons from getting agents into production."
+      },
+      {
+        blue: true,
+        icon: "orchestration",
+        kicker: "01 · Orchestration",
+        h2: "Build the agent",
+        quote: "Complexity means being forced to select; being forced to select means contingency; and contingency means risk.",
+        source: "Niklas Luhmann · Social Systems (1995), p.25"
+      },
+      {
+        icon: "warning",
+        kicker: "Judgment one",
+        h2: "Prompt tuning and model swapping do not solve deployment.",
+        lead: "They are easy to change and give instant feedback, so teams keep circling there. But many projects fail because orchestration and governance were postponed.",
+        oneLine: "The closer you get to production, the less it looks like a model problem and the more it looks like a system problem."
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "About Dify",
+        h2: "What Dify is",
+        lead: "An open-source platform covering the full path from building agents to shipping, monitoring, and operating them. This talk stands on that orchestration, ecosystem, and governance layer.",
+        numbers: [
+          { value: "100K+", label: "GitHub stars" },
+          { value: "Hundreds", label: "Model integrations" },
+          { value: "5 types", label: "Plugin categories" },
+          { value: "19M+", label: "Image downloads" }
+        ],
+        tiles: [
+          { icon: "orchestration", title: "Workflow canvas", body: "Visual orchestration for LLMs, tools, retrieval, and branching logic." },
+          { icon: "graph", title: "RAG and knowledge", body: "Retrieval, context, and app flow inside one operational chain." },
+          { icon: "observability", title: "Logs and tracing", body: "See each step after launch instead of guessing." }
+        ]
+      },
+      {
+        icon: "warning",
+        kicker: "Judgment two",
+        h2: "The smoother the demo, the farther it may be from production.",
+        lead: "An overnight demo feels magical because it skipped the dirty work: auth, isolation, audit, replay, permissions, versions, and failure recovery.",
+        oneLine: "Demo smoothness is not production trust. Often the debt is simply hidden."
+      },
+      {
+        wide: true,
+        icon: "route",
+        kicker: "The Gap",
+        h2: "Three gaps between demo and production",
+        risks: [
+          { icon: "plugin", title: "Fragmented capability expansion", body: "Every model or tool becomes more glue code, scattered scripts, and little reuse." },
+          { icon: "graph", title: "Orchestration as a black box", body: "You cannot see why the agent took a path or where it failed, so regression becomes guesswork." },
+          { icon: "governance", title: "Missing governance", body: "Unclear plugin provenance, drifting versions, and broad permissions block security review." }
+        ],
+        oneLine: "Open orchestration closes the first two gaps. Governance closes the third."
+      },
+      {
+        layout: "split",
+        icon: "orchestration",
+        kicker: "Orchestration",
+        h2: "Open orchestration moves agents onto a canvas",
+        lead: "The agent is a node on the canvas. Models, tools, retrieval, and reasoning strategies are pluggable, while every input and output can be inspected, tuned, and replayed.",
+        nodes: [
+          [{ title: "User input", body: "Triggers the workflow with context and variables" }, { title: "Agent node", body: "Chooses model, tool, knowledge, and strategy" }],
+          [{ title: "Plugin capability", body: "Models, tools, and strategies become modules" }, { title: "Result output", body: "Every step is traceable, debuggable, and replayable" }]
+        ],
+        notes: "Bridge: if the layer is structured, it can also be generated and transformed."
+      },
+      {
+        wide: true,
+        icon: "code",
+        kicker: "Under the hood",
+        h2: "Under the canvas is a DSL",
+        lead: "Every node and edge on the canvas is serialized into YAML. That makes workflows portable across workspaces, exportable, importable, and programmatically transformable.",
+        code: "workflow.dify.yml\napp:\n  mode: workflow\nworkflow:\n  nodes:\n    - id: start\n    - id: llm_1\n      type: llm\n    - id: if_else_1\n    - id: end\n  edges:\n    - start -> llm_1\n    - llm_1 -> if_else_1\n  layout:\n    start: { x: 80, y: 120 }"
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "Experiment",
+        h2: "In Community Edition, we tried natural-language workflow generation",
+        lead: "Inside the canvas, Cmd / Ctrl + K plus /create or /refine can generate or revise a workflow. Essentially, natural language is compiled into valid Workflow DSL.",
+        flow: [
+          { title: "Read intent", body: "Determine Chatflow vs Workflow, identify nodes and data flow." },
+          { title: "Plan first", body: "The planner decides which nodes are needed and how they connect." },
+          { title: "Build structure", body: "The builder emits nodes, edges, and unique IDs against schema." },
+          { title: "Validate and write back", body: "Check references, edges, and graph validity before landing on the canvas." }
+        ]
+      },
+      {
+        wide: true,
+        icon: "lock",
+        kicker: "Feature Preview",
+        h2: "Experimental capabilities should be opt-in",
+        lead: "Workflow generation is not forced on every deployment. It starts behind a Feature Preview switch in Community Edition, so early adopters can try it while operators keep control.",
+        tiles: [
+          { icon: "lock", title: "Environment switch", body: "Explicitly enabled during deployment, not silently added to every workspace." },
+          { icon: "people", title: "Community-first testing", body: "New capabilities go first to users who are willing to give feedback." },
+          { icon: "route", title: "Controllable and reversible", body: "Who enabled it, and for whom, remains a clear operational decision." }
+        ],
+        code: "# .env\n# Experimental feature, disabled by default\nENABLE_FEATURE_PREVIEW=false\n\n# Open it explicitly when you want to try\nENABLE_FEATURE_PREVIEW=true"
+      },
+      {
+        wide: true,
+        icon: "warning",
+        kicker: "Why hardening",
+        h2: "Before broader release, it has to survive these traps",
+        lead: "Model-generated workflows sound elegant. In practice, they collide with hard graph, UX, and reliability problems.",
+        risks: [
+          { icon: "code", title: "Node ID collision", body: "Edges and variables depend on IDs. Duplicate IDs can break the whole graph." },
+          { icon: "graph", title: "Invalid graph", body: "IF/ELSE branches can be miswired, cyclic, or dangling." },
+          { icon: "route", title: "Nodes stacked at origin", body: "The model may output structure without coordinates; without auto-layout, the canvas is unreadable." },
+          { icon: "warning", title: "Too long / too slow", body: "Long instructions can overflow context or slow responses, so limits and timeouts matter." },
+          { icon: "observability", title: "No failure feedback", body: "Generation failure must be visible and recoverable, not a blank canvas crash." },
+          { icon: "lock", title: "Version safety", body: "Refinement history needs rollback and bounds, or each edit can make the graph worse." }
+        ]
+      },
+      {
+        layout: "split",
+        icon: "skill",
+        kicker: "What we're building",
+        h2: "We are reworking nodes: Skills inside the LLM node",
+        lead: "Today tools are plugins attached to a flow. The next step is pushing collaboration down into Skills, so one LLM node behaves like an agent that can schedule multiple Skills.",
+        nodes: [
+          [{ title: "LLM node", body: "The model decides which Skill to call" }, { title: "Multiple Skills", body: "tender-analyzer, Playwright, Figma..." }],
+          [{ title: "SKILL.md", body: "An SOP that describes task, trigger, and steps" }, { title: "Progressive loading", body: "Load the full instructions only when the Skill is actually used" }]
+        ],
+        tiles: [
+          { icon: "skill", title: "Skill as SOP", body: "Not just a prompt, but a reusable way of doing work." },
+          { icon: "start", title: "Tool orchestration included", body: "The Skill declares which tools and scripts it needs." },
+          { icon: "code", title: "Context efficient", body: "Progressive loading spends tokens only where they matter." }
+        ]
+      },
+      {
+        blue: true,
+        icon: "governance",
+        kicker: "02 · Governance",
+        h2: "Make it shippable",
+        quote: "Trust presupposes a situation of risk.",
+        source: "Niklas Luhmann · Trust and Power (1979), p.97"
+      },
+      {
+        wide: true,
+        icon: "plugin",
+        kicker: "Plugin System",
+        h2: "Plugins turn capabilities into standard modules",
+        lead: "Capabilities can be distributed through Marketplace, GitHub, or local files. Agent Strategy is important because it makes “how the agent reasons” pluggable too.",
+        tiles: [
+          { icon: "plugin", title: "Model", body: "LLM, embedding, TTS, and many model providers." },
+          { icon: "start", title: "Tool", body: "Search, image generation, data processing, and more." },
+          { icon: "orchestration", title: "Agent Strategy", body: "Function Calling, ReAct, and other reasoning strategies." },
+          { icon: "code", title: "Extension", body: "Custom APIs and business logic." },
+          { icon: "route", title: "Bundle", body: "Grouped distribution: install a capability set at once." }
+        ]
+      },
+      {
+        icon: "warning",
+        kicker: "Judgment three",
+        h2: "The biggest risk in a plugin ecosystem is not lack of contribution. It is lack of responsibility.",
+        lead: "Openness only scales when every listed component has someone accountable for it. A plugin with unclear provenance can run arbitrary code in production.",
+        oneLine: "Open does not mean unmanaged. Production openness needs a responsibility chain."
+      },
+      {
+        wide: true,
+        icon: "lock",
+        kicker: "Governance · anonymized case",
+        h2: "An unauthorized penetration attempt was detected and contained",
+        flow: [
+          { title: "A third-party PR", body: "It looked like an ordinary contribution." },
+          { title: "CI script changed", body: "Python code quietly captured environment variables." },
+          { title: "Repo secrets reached", body: "A privileged CI trigger exposed secrets." },
+          { title: "Contained quickly", body: "We blocked it, rotated secrets, and reviewed the root cause." }
+        ],
+        oneLine: "The point is not fear. It is that a production ecosystem needs detection and response."
+      },
+      {
+        wide: true,
+        icon: "governance",
+        kicker: "Governance",
+        h2: "After that, we repaired the system",
+        lead: "Honestly, the CI at the time mostly unpacked packages and checked manifests. Sampling found things that should not appear in plugin packages: .env, .git, platform binaries.",
+        phases: [
+          { label: "P0 · 4 weeks", title: "Stop the bleeding", body: "Close the most visible security and compliance gaps quickly." },
+          { label: "P1 · 3 months", title: "Automation + author governance", body: "Upgrade manual sampling into automated scanning and author accountability." },
+          { label: "P2 · 6-12 months", title: "Signing + post-listing monitoring", body: "Move toward npm / Sigstore-grade signing and continuous monitoring." }
+        ],
+        oneLine: "Admitting the gap is the beginning of governance work."
+      },
+      {
+        icon: "observability",
+        kicker: "Judgment four",
+        h2: "Without observability, you have not really seen your agent.",
+        lead: "Without replay and tracing, you only see the agent performing in front of you. You do not know how it behaves under real traffic or where it fails.",
+        tiles: [
+          { icon: "observability", title: "App-level monitoring", body: "Calls, tokens, latency, and user feedback." },
+          { icon: "route", title: "Full logs + session replay", body: "Reconstruct every decision path." },
+          { icon: "graph", title: "Tracing", body: "Integrate with Langfuse, LangSmith, and OpenTelemetry." }
+        ],
+        oneLine: "Entry governance controls listing. Online incidents require replay and tracing."
+      },
+      {
+        blue: true,
+        icon: "trust",
+        kicker: "03 · The deeper question",
+        h2: "Why should anyone trust it?",
+        quote: "Legitimation through procedure — legitimacy comes from the process itself, not from matching an external truth.",
+        source: "Niklas Luhmann · Legitimation durch Verfahren (1969)"
+      },
+      {
+        wide: true,
+        icon: "trust",
+        kicker: "The harder problem",
+        h2: "Modern compliance assumes something agents are weakening",
+        lead: "Security reviews and compliance checks often assume systems are repeatable, predictable, and therefore verifiable. Agents are different: the same input may not produce the same output, and models or plugins can drift.",
+        tiles: [
+          { icon: "code", title: "Old premise: repeatable", body: "Same input, same behavior, so tests and audits can verify it." },
+          { icon: "route", title: "Agent reality: nondeterministic", body: "Same input may take different paths selected by the system itself." },
+          { icon: "warning", title: "Foundation shift", body: "When repeatability weakens, the verification built on top of it weakens too." }
+        ],
+        oneLine: "This is a foundation problem, not something a new wrapper magically solves."
+      },
+      {
+        icon: "warning",
+        kicker: "Judgment five",
+        h2: "Agent self-reflection loops are overrated.",
+        lead: "A model arguing with itself is still a monologue. It can think longer and still stay trapped inside its own blind spots.",
+        oneLine: "Correction comes less from one mind thinking harder and more from different positions challenging each other's reasons."
+      },
+      {
+        wide: true,
+        icon: "people",
+        kicker: "A design idea",
+        h2: "Let multiple parties argue, instead of one agent introspecting",
+        lead: "A more interesting design is not a generator wrapped in a reflexive loop, but multiple agents with opposing positions challenging each other on a shared argument graph.",
+        tiles: [
+          { icon: "people", title: "Multiple equal parties", body: "Represent everyone affected, including vulnerable parties not in the room." },
+          { icon: "trust", title: "Challenges need reasons", body: "A judge checks form, not truth; reasons are attached to the shared graph." },
+          { icon: "code", title: "Output is a reason ledger", body: "Surviving claims, rejected options, and unresolved disagreements are preserved." }
+        ],
+        oneLine: "Legitimacy comes from collision of reasons, not from a system admiring its own reflection."
+      },
+      {
+        wide: true,
+        icon: "people",
+        kicker: "Back to people",
+        h2: "That is why we are building HITL nodes",
+        lead: "Whether compliance verification is weakening or the system reaches a normative fork it cannot settle, the answer converges: leave a place for humans to intervene inside the agent chain.",
+        flow: [
+          { title: "Agent proceeds", body: "It reaches a point that requires judgment." },
+          { title: "HITL node pauses", body: "Execution stops and waits for a human." },
+          { title: "Human decides", body: "Approve, edit, reroute, or escalate." },
+          { title: "Execution resumes", body: "The agent continues with the human decision recorded." }
+        ],
+        oneLine: "The verification anchor shifts from “can it be reproduced?” to “was the key decision signed and recorded?”"
+      },
+      {
+        icon: "warning",
+        kicker: "Judgment six",
+        h2: "Productionization is not converting a workflow into a runnable FastAPI service.",
+        lead: "One-click generation or “convert to code” can make YAML-to-service nearly free. That only solves “it can run.” The harder question is how to govern, audit, and verify a system you cannot fully predict.",
+        oneLine: "The hard part is not turning workflows into code. It is turning them into systems someone can responsibly sign off on."
+      },
+      {
+        layout: "split",
+        icon: "aws",
+        kicker: "On AWS",
+        h2: "A production reference architecture on AWS",
+        lead: "Dify runs on EKS with api / web, worker, plugin-daemon, and sandbox separated. Managed data services reduce operational load. Models connect through Bedrock, SageMaker, and Knowledge Bases plugins.",
+        nodes: [
+          [{ title: "Users / business systems", body: "Enter through ALB into the app layer" }, { title: "Amazon EKS", body: "api / web, worker, plugin-daemon, sandbox" }],
+          [{ title: "Managed data layer", body: "Aurora PostgreSQL, OpenSearch, S3" }, { title: "Model layer", body: "Bedrock, SageMaker, Knowledge Bases" }]
+        ],
+        oneLine: "Plugin isolation and governance need to exist at the architecture layer."
+      },
+      {
+        wide: true,
+        icon: "aws",
+        kicker: "AWS × Dify",
+        h2: "Ecosystem collaboration with AWS",
+        tiles: [
+          { icon: "plugin", title: "Bedrock / SageMaker plugins", body: "Officially maintained, IAM-backed, and ready for Claude and other models." },
+          { icon: "start", title: "AWS Tools plugin set", body: "Moderation, OCR, and related capabilities enter workflows directly." },
+          { icon: "code", title: "One-click deployment", body: "CloudFormation, CDK, and EKS examples from testing to production." },
+          { icon: "aws", title: "AWS Marketplace", body: "Deploy Dify into your own VPC through Marketplace." }
+        ],
+        oneLine: "AWS capabilities enter Dify as plugins; Dify runs on AWS as an open-source deployment path."
+      },
+      {
+        wide: true,
+        icon: "start",
+        kicker: "Get started",
+        h2: "A path you can copy",
+        flow: [
+          { title: "Day 1 · Run it", body: "Deploy with CloudFormation / CDK and connect Bedrock model plugins." },
+          { title: "Week 1 · First agent", body: "Build a workflow on the canvas, connect knowledge and tools, test with small traffic." },
+          { title: "Month 1 · Governance baseline", body: "Private plugin signing, version policy, tracing, and monitoring." },
+          { title: "Scale · Multi-team reuse", body: "Build shared plugins and templates, pass audits, and expand across teams." }
+        ],
+        meta: "github.com/langgenius/dify · marketplace.dify.ai · Zheng Li · Dify"
+      },
+      {
+        blue: true,
+        icon: "close",
+        kicker: "Close",
+        h2: "The last mile of agent deployment is not model capability. It is responsibility capability.",
+        lead: "Orchestration makes it run. Governance makes it shippable. Observability makes failures visible. HITL puts responsibility back at key decision points.",
+        oneLine: "Between demo and production is not a layer of glue. It is a procedure that can be trusted.",
+        meta: "Q&A · banana@dify.ai"
+      }
+    ]);
+
+    Reveal.initialize({
+      hash: true,
+      width: 1440,
+      height: 810,
+      margin: 0.055,
+      transition: "fade",
+      backgroundTransition: "fade",
+      slideNumber: "c/t",
+      plugins: [RevealNotes]
+    });
+  </script>
+</body>
+</html>
