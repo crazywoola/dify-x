@@ -45,12 +45,13 @@
   --type-body-sm: 15px;
   --type-label: 12px;
   --type-note: 10px;
-  --leading-tight: 1.04;
-  --leading-title: 1.10;
-  --leading-body: 1.50;
-  --tracking-display: -0.052em;
-  --tracking-title: -0.038em;
-  --tracking-body: -0.012em;
+  --leading-tight: 1.06;
+  --leading-title: 1.12;
+  --leading-subtitle: 1.42;
+  --leading-body: 1.54;
+  --tracking-display: -0.042em;
+  --tracking-title: -0.026em;
+  --tracking-body: 0;
   --tracking-label: 0.10em;
   --weight-regular: 400;
   --weight-medium: 500;
@@ -97,6 +98,29 @@
   --soft-line: var(--border-subtle);
   --sans: var(--font-body);
   --mono: var(--font-mono);
+}
+
+/* Chinese glyphs need more air than Latin display type. Keeping these values
+   language-specific prevents the bilingual deck from feeling either cramped
+   in Chinese or overly loose in English. */
+html[lang="zh-CN"] {
+  --leading-tight: 1.09;
+  --leading-title: 1.16;
+  --leading-subtitle: 1.46;
+  --leading-body: 1.60;
+  --tracking-display: -0.010em;
+  --tracking-title: -0.004em;
+  --tracking-body: 0.008em;
+}
+
+html[lang="en"] {
+  --leading-tight: 1.06;
+  --leading-title: 1.12;
+  --leading-subtitle: 1.42;
+  --leading-body: 1.54;
+  --tracking-display: -0.040em;
+  --tracking-title: -0.024em;
+  --tracking-body: 0;
 }
 
 * { box-sizing: border-box; }
@@ -1242,8 +1266,8 @@ body {
 
 .reveal h3 {
   font-size: var(--type-heading);
-  line-height: 1.24;
-  letter-spacing: -0.025em;
+  line-height: 1.30;
+  letter-spacing: -0.012em;
   font-weight: var(--weight-semibold);
 }
 
@@ -1266,10 +1290,10 @@ body {
 
 .has-slide-thesis .slide-thesis {
   max-width: 1500px;
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
   color: var(--text-secondary);
   font-size: var(--type-subtitle);
-  line-height: 1.36;
+  line-height: var(--leading-subtitle);
   letter-spacing: var(--tracking-body);
   font-weight: var(--weight-regular);
 }
@@ -1277,22 +1301,22 @@ body {
 .cover.has-slide-thesis .slide-title {
   max-width: 850px;
   font-size: var(--type-display-lg) !important;
-  line-height: .99;
+  line-height: var(--leading-tight);
   font-weight: var(--weight-heavy);
 }
 
 .cover.has-slide-thesis .slide-thesis {
   max-width: 820px;
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
   font-size: 29px;
-  line-height: 1.28;
+  line-height: var(--leading-subtitle);
   font-weight: var(--weight-medium);
 }
 
 .bg-photo.has-slide-thesis .slide-title {
   max-width: 1060px;
   font-size: var(--type-display-lg) !important;
-  line-height: 1.01;
+  line-height: var(--leading-tight);
 }
 
 .bg-photo.has-slide-thesis .slide-thesis,
@@ -1303,20 +1327,20 @@ body {
 .closing.has-slide-thesis .slide-title {
   max-width: 900px;
   font-size: 72px !important;
-  line-height: 1;
+  line-height: var(--leading-tight);
 }
 
 .closing.has-slide-thesis .slide-thesis {
   max-width: 860px;
-  margin-top: var(--space-5);
+  margin-top: var(--space-6);
   font-size: 28px;
-  line-height: 1.28;
+  line-height: var(--leading-subtitle);
   font-weight: var(--weight-semibold);
 }
 
 .eyebrow {
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
   color: var(--accent-deep);
   font-family: var(--font-mono);
   font-size: var(--type-label);
@@ -1333,17 +1357,17 @@ body {
 }
 
 .lead {
-  margin-top: var(--space-4) !important;
+  margin-top: var(--space-5) !important;
   color: var(--text-secondary);
   font-size: var(--type-body-lg) !important;
-  line-height: 1.48 !important;
+  line-height: var(--leading-body) !important;
   font-weight: var(--weight-regular);
 }
 
 .big-statement {
   font-size: 60px;
-  line-height: 1.12;
-  letter-spacing: -0.045em;
+  line-height: 1.16;
+  letter-spacing: var(--tracking-display);
   font-weight: var(--weight-bold);
   text-wrap: balance;
 }
@@ -1554,8 +1578,8 @@ body {
 .source-note {
   color: var(--text-tertiary);
   font-size: var(--type-note);
-  line-height: 1.45;
-  letter-spacing: .015em;
+  line-height: 1.55;
+  letter-spacing: .025em;
 }
 
 .cover,
@@ -1589,6 +1613,10 @@ body {
 .dark-slide .lead { color: rgba(255, 255, 255, .74); }
 .dark-slide .source-note,
 .bg-photo .source-note { color: rgba(255, 255, 255, .50); }
+
+html[lang="zh-CN"] .reveal h3 { letter-spacing: 0; }
+html[lang="zh-CN"] .eyebrow { letter-spacing: .11em; }
+html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
 
 @media (max-width: 1100px) {
   .reveal h1 { font-size: 68px; }

@@ -24,6 +24,7 @@
 - 语义色：成功、提醒、风险分别使用 `--status-positive`、`--status-caution`、`--status-danger`
 - Design tokens：颜色、字体、字号、行高、间距、圆角、边框和阴影统一定义在 `styles.css` 的 `:root`
 - 排版：每页使用短主标题，并将原始完整标题保留为二级标题
+- 双语字距：`html[lang="zh-CN"]` 使用更自然的中文字面与较宽行距；`html[lang="en"]` 保留适度紧凑的英文 display tracking
 
 ## 主要来源
 
