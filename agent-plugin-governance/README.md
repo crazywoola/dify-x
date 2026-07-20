@@ -17,6 +17,14 @@
 5. 从 Dify 1.15/1.16 推演四种新协作模式
 6. Human / Agent / Workflow / Governance 四层目标模型
 
+## 视觉系统
+
+- 字体：标题与正文使用 `Inter + Noto Sans SC`，标签与证据字段使用 `JetBrains Mono`
+- Accent：品牌强调统一使用钴蓝 `--accent: #3157ff`；深色背景使用 `--accent-bright`
+- 语义色：成功、提醒、风险分别使用 `--status-positive`、`--status-caution`、`--status-danger`
+- Design tokens：颜色、字体、字号、行高、间距、圆角、边框和阴影统一定义在 `styles.css` 的 `:root`
+- 排版：每页使用短主标题，并将原始完整标题保留为二级标题
+
 ## 主要来源
 
 - 飞书 Wiki：`https://langgenius.feishu.cn/wiki/Eh4lw1YQKiSzMokiEP0coR7XnHc`
