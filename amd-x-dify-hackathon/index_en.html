@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>From Prompt to Multimodal Product — Dify × AMD</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../agent-systems/styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="lang-switch">
+    <a href="index.html">中文</a>
+    <span>/</span>
+    <a class="active" href="index_en.html">EN</a>
+  </div>
+  <div class="nordic-logo">
+    <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
+    <span class="nordic-logo-text">Dify × AMD · Track 1</span>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 01 · Cover -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell">
+          <div class="cover-mark" aria-hidden="true"></div>
+          <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
+          <h1 class="deck-title">From Prompt to<br>Multimodal Product</h1>
+          <p class="deck-subtitle">Build with Dify. Accelerate with AMD Radeon.</p>
+          <div class="dual-rule"></div>
+          <div class="speaker">
+            <strong>crazywoola (Banana)</strong><br>
+            Developer Relations @ Dify · banana@dify.ai
+          </div>
+        </div>
+        <aside class="notes">
+          Today is about one outcome: turn a prompt into a complete, demonstrable multimodal product. Dify gives us a visual control plane; AMD Radeon gives us the compute path we can measure and prove. In the next twelve minutes, I will show the build pattern, the local Dify setup, and what evidence the judges need to see.
+        </aside>
+      </section>
+
+      <!-- 02 · Track 1 -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-focus-3-line"></i> The brief</div>
+              <h2>Track 1 rewards a product,<br>not a disconnected model demo.</h2>
+              <p class="section-lead">Combine modalities into a useful creation experience, then show it operating on AMD Radeon.</p>
+            </div>
+            <span class="time-chip"><i class="ri-time-line"></i> 01:00</span>
+          </div>
+          <div class="score-grid">
+            <div class="score-card primary">
+              <div class="score-number">80</div>
+              <div>
+                <div class="score-label">Functional completeness · practical value · innovation</div>
+                <p class="score-copy">Can a real user finish a meaningful job, end to end?</p>
+                <div class="modality-row">
+                  <div class="modality"><i class="ri-text"></i> Text</div>
+                  <div class="modality"><i class="ri-image-line"></i> Image</div>
+                  <div class="modality"><i class="ri-movie-line"></i> Video</div>
+                  <div class="modality"><i class="ri-volume-up-line"></i> Audio</div>
+                </div>
+              </div>
+            </div>
+            <div class="score-card accel">
+              <div class="score-number">20</div>
+              <div>
+                <div class="score-label">Operational performance</div>
+                <p class="score-copy">Show actual execution on an AMD Radeon GPU—clearly, stably, and repeatably.</p>
+              </div>
+            </div>
+          </div>
+          <div class="source">Source: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon event page</a></div>
+        </div>
+        <aside class="notes">
+          The scoring split tells us how to spend our time. Eighty percent is the product: completeness, practical value, and innovation. Twenty percent is operational performance on Radeon. So begin with a user outcome, not a benchmark. Then make the AMD execution visible as evidence inside the product story.
+        </aside>
+      </section>
+
+      <!-- 03 · Division of labor -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-layout-masonry-line"></i> One system, two jobs</div>
+              <h2>Orchestrate with Dify.<br>Generate and accelerate with Radeon.</h2>
+            </div>
+            <span class="track-chip">Dify × AMD</span>
+          </div>
+          <div class="split-roles">
+            <div class="role-card">
+              <span class="role-tag">CONTROL PLANE</span>
+              <h3 class="role-title">Dify Workflow</h3>
+              <ul class="role-list">
+                <li><i class="ri-check-line"></i><span>Collect text, images, audio, video, and parameters</span></li>
+                <li><i class="ri-check-line"></i><span>Branch, iterate, validate, and recover from failures</span></li>
+                <li><i class="ri-check-line"></i><span>Connect models and services through model, tool, or HTTP nodes</span></li>
+                <li><i class="ri-check-line"></i><span>Expose a UI and API without rebuilding orchestration code</span></li>
+              </ul>
+            </div>
+            <div class="role-card amd">
+              <span class="role-tag">COMPUTE PLANE</span>
+              <h3 class="role-title">AMD Radeon + ROCm</h3>
+              <ul class="role-list">
+                <li><i class="ri-check-line"></i><span>Run the generation or transformation workload</span></li>
+                <li><i class="ri-check-line"></i><span>Keep the execution path visible in the demo</span></li>
+                <li><i class="ri-check-line"></i><span>Measure latency, memory use, stability, and throughput</span></li>
+                <li><i class="ri-check-line"></i><span>Return media assets and metadata to the workflow</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="handoff">The product boundary is the handoff: Dify sends a well-defined generation job; Radeon returns a measurable asset.</div>
+        </div>
+        <aside class="notes">
+          Keep the responsibilities simple. Dify is the control plane: inputs, branching, loops, tools, UI, and API. Radeon is the compute plane: it runs the expensive generation or transformation and returns an asset plus evidence. This separation makes the workflow easier to debug and the AMD contribution easier to demonstrate.
+        </aside>
+      </section>
+
+      <!-- 04 · Architecture -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow red"><i class="ri-node-tree"></i> Reference architecture</div>
+              <h2>Make every handoff explicit.</h2>
+              <p class="section-lead">The workflow owns state and decisions. The Radeon service owns the GPU workload.</p>
+            </div>
+            <span class="time-chip"><i class="ri-git-branch-line"></i> End to end</span>
+          </div>
+          <div class="arch-flow">
+            <div class="arch-node">
+              <div class="arch-icon"><i class="ri-upload-cloud-2-line"></i></div>
+              <div><h3>Multimodal input</h3><p>Prompt, references, style, format, and constraints</p></div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node control">
+              <div class="arch-icon"><i class="ri-flow-chart"></i></div>
+              <div><h3>Dify Workflow</h3><p>Prepare inputs · route · call tools · inspect · retry</p></div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node compute">
+              <div class="arch-icon"><i class="ri-cpu-line"></i></div>
+              <div><h3>Radeon generation service</h3><p>Model inference or media processing accelerated with ROCm</p></div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node output">
+              <div class="arch-icon"><i class="ri-gallery-line"></i></div>
+              <div><h3>Product output</h3><p>Asset, metadata, preview, download, and run evidence</p></div>
+            </div>
+          </div>
+          <div class="transport-note">Transport: Tool node · HTTP Request · OpenAI-compatible API when supported</div>
+        </div>
+        <aside class="notes">
+          Here is the reusable architecture. Inputs enter Dify, where we normalize them and decide what should happen. A tool or HTTP request sends a bounded job to the Radeon-backed service. The result comes back as a file or URL plus metadata. Do not hide that boundary—the request, execution, and returned asset are the proof that the system works end to end.
+        </aside>
+      </section>
+
+      <!-- 05 · Docker quick start -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-docker-line"></i> Dify Community Edition</div>
+              <h2>Start the control plane<br>with Docker Compose.</h2>
+            </div>
+            <span class="time-chip"><i class="ri-terminal-box-line"></i> Quick start</span>
+          </div>
+          <div class="quick-grid">
+            <div class="requirements">
+              <h3>Before you start</h3>
+              <ul class="req-list">
+                <li><i class="ri-cpu-line"></i><span>CPU ≥ 2 cores</span></li>
+                <li><i class="ri-ram-line"></i><span>RAM ≥ 4 GiB</span></li>
+                <li><i class="ri-checkbox-circle-line"></i><span>Docker installed</span></li>
+                <li><i class="ri-checkbox-circle-line"></i><span>Docker Compose installed</span></li>
+              </ul>
+              <p style="margin-top:28px;font-size:.5rem;color:rgba(255,255,255,.5);">Optional first step:<br><code style="color:#fff;background:rgba(255,255,255,.1);">git clone https://github.com/langgenius/dify.git</code></p>
+            </div>
+            <div>
+              <div class="code-panel">
+                <div class="code-bar"><span class="code-dots">● ● ●</span><span>Dify README · Quick start</span></div>
+                <pre><code class="language-bash">cd dify
+cd docker
+cp .env.example .env
+docker compose up -d</code></pre>
+              </div>
+              <div class="local-url"><i class="ri-global-line"></i>&nbsp; Open http://localhost/install</div>
+            </div>
+          </div>
+          <div class="source">Source: <a href="https://github.com/langgenius/dify/blob/main/README.md#quick-start" target="_blank">langgenius/dify README · Quick start</a></div>
+        </div>
+        <aside class="notes">
+          Dify Community Edition needs only two CPU cores, four GiB of memory, Docker, and Docker Compose for this quick start. The commands shown are copied from the current repository README. After the containers start, open localhost slash install and complete the first-run setup. This runs Dify; the Radeon generation service remains a separate endpoint that the workflow calls.
+        </aside>
+      </section>
+
+      <!-- 06 · Official workflow overview -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-flow-chart"></i> Visual orchestration</div>
+              <h2>A workflow turns multimodal inputs<br>into a repeatable product path.</h2>
+            </div>
+            <span class="track-chip">Official Dify example</span>
+          </div>
+          <div class="shot-frame overview-shot">
+            <img src="assets/dify-workflow-overview.png" alt="Official Dify Quick Start workflow overview">
+          </div>
+          <div class="callout-row">
+            <div class="callout-card"><span>01 · COLLECT</span><p>Text, documents, images, tone, and output settings</p></div>
+            <div class="callout-card"><span>02 · NORMALIZE</span><p>Extract parameters and separate file types</p></div>
+            <div class="callout-card"><span>03 · ITERATE</span><p>Run controlled generation for every requested target</p></div>
+            <div class="callout-card"><span>04 · DELIVER</span><p>Format and return a stable, user-ready result</p></div>
+          </div>
+          <div class="source">Reference image: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+        </div>
+        <aside class="notes">
+          This official Dify example is a multi-platform content workflow. The exact use case is not our final Track 1 demo, but the mechanics transfer directly: collect mixed inputs, normalize them, iterate over targets, and return stable outputs. When we replace this with the project workflow, preserve that readable left-to-right product story.
+        </aside>
+      </section>
+
+      <!-- 07 · Winning workflow pattern -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow red"><i class="ri-repeat-2-line"></i> Track 1 build pattern</div>
+              <h2>Design the loop, not just the first generation.</h2>
+              <p class="section-lead">The winning experience makes quality control and iteration part of the workflow.</p>
+            </div>
+            <span class="time-chip"><i class="ri-loop-right-line"></i> Build loop</span>
+          </div>
+          <div class="workflow-pattern">
+            <div class="pattern-step">
+              <div class="pattern-num">01</div>
+              <h3>Collect intent</h3>
+              <p>Prompt, references, target format, style, and constraints</p>
+            </div>
+            <div class="pattern-step">
+              <div class="pattern-num">02</div>
+              <h3>Prepare assets</h3>
+              <p>Validate files, normalize metadata, and build the generation request</p>
+            </div>
+            <div class="pattern-step compute">
+              <div class="pattern-num">03</div>
+              <h3>Generate on Radeon</h3>
+              <p>Invoke the ROCm-backed workload and capture execution evidence</p>
+            </div>
+            <div class="pattern-step">
+              <div class="pattern-num">04</div>
+              <h3>Inspect quality</h3>
+              <p>Check success, dimensions, safety, consistency, and user criteria</p>
+            </div>
+            <div class="pattern-step">
+              <div class="pattern-num">05</div>
+              <h3>Deliver or retry</h3>
+              <p>Return the asset—or revise parameters and enter the loop again</p>
+            </div>
+          </div>
+          <div class="loop-note">A strong demo shows one successful path and one controlled iteration.</div>
+        </div>
+        <aside class="notes">
+          A generation call is a feature; the loop is the product. Collect enough intent, prepare the request, execute on Radeon, inspect the result, and either deliver or retry. In the demo, show both a happy path and one purposeful revision. That single iteration proves the workflow adds value beyond a model playground.
+        </aside>
+      </section>
+
+      <!-- 08 · Demo storyboard -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-slideshow-3-line"></i> Demo storyboard</div>
+              <h2>Three screenshots tell the whole story.</h2>
+              <p class="section-lead">Overview → critical configuration → visible result. Replace these references with the project captures before submission.</p>
+            </div>
+            <span class="track-chip">3–5 min video ready</span>
+          </div>
+          <div class="storyboard">
+            <div class="story-card">
+              <div class="shot-frame"><img src="assets/dify-workflow-overview.png" alt="Dify workflow overview reference"></div>
+              <div class="story-meta"><strong>1 · Workflow overview</strong><span>WHY IT WORKS</span></div>
+            </div>
+            <div class="story-card">
+              <div class="shot-frame"><img src="assets/dify-user-input.png" alt="Dify User Input node reference"></div>
+              <div class="story-meta"><strong>2 · Critical node</strong><span>HOW IT RUNS</span></div>
+            </div>
+            <div class="story-card">
+              <div class="shot-frame tall"><img src="assets/dify-test-output.png" alt="Dify test output reference"></div>
+              <div class="story-meta"><strong>3 · Final result</strong><span>WHAT USERS GET</span></div>
+            </div>
+          </div>
+          <p class="replace-note">Current images: official Dify Quick Start references · Final images: your Workflow overview, Radeon generation node, and multimodal output</p>
+          <div class="source">Reference images: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+        </div>
+        <aside class="notes">
+          These three frames also become the backbone of the submission video. First show the entire workflow so the architecture is legible. Then zoom into the node that sends work to Radeon and expose its inputs. Finally show the returned media and the run evidence. The official images here are temporary; your screenshots will replace them without changing the narrative.
+        </aside>
+      </section>
+
+      <!-- 09 · Evidence -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow red"><i class="ri-speed-up-line"></i> Judge-ready evidence</div>
+              <h2>Measure what users feel<br>and what the GPU proves.</h2>
+            </div>
+            <span class="time-chip"><i class="ri-bar-chart-box-line"></i> No vanity metrics</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>Latency</h3><p>Time from workflow request to usable first and final output</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU memory</h3><p>Peak VRAM under the exact model, resolution, and batch settings</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-shield-check-line"></i></div><h3>Stability</h3><p>Success rate across repeated runs and clean failure handling</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-gallery-upload-line"></i></div><h3>Output quality</h3><p>Resolution, fidelity, consistency, and scenario-specific criteria</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>Diversity</h3><p>Multiple useful outputs without losing prompt or style alignment</p></div>
+          </div>
+          <div class="evidence-line"><span><strong>Record together:</strong> environment + settings + measurement + output</span><span>Never present a number without its context.</span></div>
+        </div>
+        <aside class="notes">
+          We will not invent benchmark numbers. Instead, capture a small, credible evidence set: latency, peak GPU memory, stability over repeated runs, output quality, and useful diversity. Always record the environment and settings next to the number. This turns operational performance into something the judges can trust and reproduce.
+        </aside>
+      </section>
+
+      <!-- 10 · Submission -->
+      <section data-background-color="#fbfcff">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-file-list-3-line"></i> Official submission checklist</div>
+              <h2>Package the project<br>so judges can reproduce it.</h2>
+            </div>
+            <span class="track-chip">English materials required</span>
+          </div>
+          <div class="submission-grid">
+            <div class="checklist">
+              <div class="check-item"><div class="check-icon"><i class="ri-file-pdf-2-line"></i></div><div><strong>Project profile PDF</strong><small>Background · users · scenarios · architecture · model · Radeon/ROCm adaptation</small></div><span>REQUIRED</span></div>
+              <div class="check-item"><div class="check-icon"><i class="ri-github-line"></i></div><div><strong>Complete source repository</strong><small>README with environment, startup guide, and dependencies</small></div><span>REQUIRED</span></div>
+              <div class="check-item"><div class="check-icon"><i class="ri-video-line"></i></div><div><strong>Demo video</strong><small>3–5 minutes · operation flow · Radeon execution · final result</small></div><span>REQUIRED</span></div>
+              <div class="check-item"><div class="check-icon"><i class="ri-slideshow-line"></i></div><div><strong>Supplementary material</strong><small>Choose one: PPT or poster highlighting scenario and practical value</small></div><span>CHOOSE 1</span></div>
+            </div>
+            <div class="deadline-card">
+              <div>
+                <h3>Final deadline</h3>
+                <div class="deadline-day">AUG 06<br>2026</div>
+                <p class="deadline-zone">23:59 · UTC+8<br>Beijing / Singapore</p>
+              </div>
+              <div class="pr-format">PR title:<br>Track 1, Team name,<br>Application name</div>
+            </div>
+          </div>
+          <div class="source">Sources: <a href="https://github.com/AMD-DEV-CONTEST/Radeon-hackathon-2026-07/blob/main/README.md" target="_blank">AMD Track 1 submission README</a> · <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">event schedule</a></div>
+        </div>
+        <aside class="notes">
+          The final package must be in English. Track 1 asks for a project profile PDF, complete source with a reproducible README, and a three-to-five-minute demo video that shows actual Radeon execution. Add either this deck or a poster as the supplementary item. The current event deadline is August sixth at 11:59 PM in UTC plus eight.
+        </aside>
+      </section>
+
+      <!-- 11 · Closing -->
+      <section data-background-color="#0033ff" data-state="dark-slide">
+        <div class="closing-shell">
+          <div class="eyebrow" style="color:rgba(255,255,255,.72);"><i class="ri-rocket-2-line"></i> Track 1 · Multimodal AI Creation</div>
+          <h2>Build the workflow.<br>Prove it on <span style="color:#ff7a7f;">Radeon.</span><br>Ship the demo.</h2>
+          <p>From prompt to multimodal product—in one visible, measurable loop.</p>
+          <div class="closing-actions"><span>dify.ai</span><span>github.com/langgenius/dify</span><span>banana@dify.ai</span></div>
+        </div>
+        <aside class="notes">
+          Build the workflow, prove the GPU path, and ship the demo. When your project screenshots are ready, we will replace the three reference images and add the measured results. Thank you—and I cannot wait to see what you build.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      center: true,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      plugins: [RevealNotes, RevealHighlight]
+    });
+  </script>
+</body>
+</html>
