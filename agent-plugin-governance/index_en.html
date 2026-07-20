@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Enterprise Agent Plugin Governance &amp; the Next Collaboration Model — Dify</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/reveal/reset.css">
+  <link rel="stylesheet" href="assets/reveal/reveal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="deck-logo"><img src="../assets/logo.svg" alt="Dify"><span>Agent Plugin Governance</span></div>
+  <div class="lang-switch"><a href="index.html">中文</a><span>/</span><a class="active" href="index_en.html">EN</a></div>
+
+  <div class="reveal"><div class="slides">
+
+    <section class="cover layout-cover">
+      <div class="cover-frame">
+        <div class="cover-copy">
+          <div><div class="eyebrow">Enterprise Agent · Governance × Collaboration</div><h1>Enterprise Agent<br>Plugin Governance<br><span class="blue">&amp; the Next Collaboration Model</span></h1><p class="lead">A practical way to make open plugins assessable, accountable, and operable in enterprise environments.</p></div>
+          <div class="cover-meta"><p>Zheng Li (Banana)<br>Head of Open Source Community @ Dify<br>banana@dify.ai</p><p>2026 · Field Notes<br>Governance before scale</p></div>
+        </div>
+        <div class="cover-image"><img src="assets/gradient-orb.jpg" alt="Soft orange and blue gradient orb"><div class="photo-caption"><span>TRUST / COMPOSABILITY</span></div></div>
+      </div>
+      <aside class="notes">This talk focuses on two practical questions: what governance is missing before open plugins enter enterprise environments, and how the new capabilities in 1.15 and 1.16 change the division of work between people and agents.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">01 · Define the problem</div><h2>Installing a plugin grants three kinds of access.</h2>
+      <div class="grid-12 rights">
+        <div class="card col-4"><div class="symbol">{ }</div><div><h3>Code execution</h3><p>Run dependencies, commands, binaries, and model-call logic at runtime.</p></div></div>
+        <div class="card col-4"><div class="symbol">↕</div><div><h3>Data processing</h3><p>Read files, conversations, knowledge, credentials, and workspace context.</p></div></div>
+        <div class="card col-4"><div class="symbol">◎</div><div><h3>External connectivity</h3><p>Reach third-party APIs, arbitrary URLs, remote services, and downstream processors.</p></div></div>
+      </div>
+      <p class="big-statement" style="margin-top:42px;">Governance therefore has to cover rights, evidence, and accountability—<span class="blue">not just whether a package installs.</span></p>
+      <aside class="notes">From an enterprise perspective, a plugin is more than a feature. It receives execution, data-processing, and connectivity access. The rest of the governance design follows from those three rights.</aside>
+    </section>
+
+    <section class="grid-overlay hero-evidence-slide">
+      <div class="grid-12" style="height:100%;align-items:stretch;">
+        <div class="col-5 between" style="padding-top:8px;"><div><div class="eyebrow">Observed exposure</div><h2>The first problems were ordinary: development folders shipped with the package.</h2><p class="lead">Sampled packages already contained residue and sensitive material that the daemon would unpack.</p></div><div class="pill-row"><span class="pill"><code>.env</code> / secrets</span><span class="pill"><code>.git/</code> / history</span><span class="pill"><code>.venv/</code> / artifacts</span><span class="pill"><code>*.exe / *.so</code></span><span class="pill">logs / cache / IDE</span></div></div>
+        <div class="col-7 photo-panel"><img src="assets/server-network.jpg" alt="Network servers and cables"><div class="photo-caption"><span>PACKAGE → DAEMON → TENANT</span></div></div>
+      </div>
+      <div class="source-note">Source: “Dify Plugin Ecosystem Governance Proposal,” executive summary and risk exposure sections.</div>
+      <aside class="notes">Sampled packages included .env files, Git metadata, virtual environments, logs, and platform binaries. The daemon would unpack them on user machines. This points to a process gap, not only author carelessness.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Root cause · default-rule gap</div>
+      <h2>The problem is not only author behavior. The default <code>.difyignore</code> misses key paths.</h2>
+      <div class="evidence-split">
+        <div class="code-panel"><div class="panel-label">CURRENT TEMPLATE · 7 LINES</div><pre><code>.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+*.difypkg</code></pre></div>
+        <div class="gap-panel"><div class="panel-label">STILL NOT COVERED</div><div class="gap-list">
+          <div><code>.git/</code><span>history and remote credentials</span></div>
+          <div><code>.DS_Store / .idea/</code><span>system and IDE metadata</span></div>
+          <div><code>*.log / *.sqlite</code><span>runtime records and local data</span></div>
+          <div><code>*.pem / *.key</code><span>private keys and certificates</span></div>
+          <div><code>*.so / *.exe</code><span>platform-specific binaries</span></div>
+        </div></div>
+      </div>
+      <p class="big-statement compact-statement">An author can follow the template and <span class="blue">still ship material that never belonged in a release.</span></p>
+      <div class="source-note">Source: proposal Appendix B, observed package samples. Template condensed exactly from the research document.</div>
+      <aside class="notes">This is why the issue should not be blamed on individual authors. The seven-line template does not exclude Git metadata, IDE files, logs, private keys, or platform binaries. Fixing the template and local preflight is usually more effective than adding reviewer effort first.</aside>
+    </section>
+
+    <section class="grid-overlay risk-slide">
+      <div class="eyebrow">Ecosystem benchmark</div>
+      <h2>Post-listing compromise keeps recurring elsewhere, and plugin privileges increase the impact.</h2>
+      <div class="risk-layout">
+        <figure class="media-frame"><img src="assets/risk-heat.jpg" alt="Orange abstract light field"><div class="media-caption"><span>RISK CHANGES AFTER LISTING</span></div></figure>
+        <div class="incident-stack">
+          <article class="incident-card"><div class="incident-meta">2025-10 · VS CODE / OPENVSX</div><h3>GlassWorm</h3><p>Seven extensions and roughly 35,800 downloads show that listing approval does not make later versions permanently trustworthy.</p></article>
+          <article class="incident-card"><div class="incident-meta">2024-10 · NPM</div><h3>LottieFiles phishing</h3><p>A stolen publisher token put a malicious version online within about an hour; one user reported losing roughly 10 BTC.</p></article>
+          <article class="incident-card"><div class="incident-meta">2025-08 · PYPI</div><h3>SilentSync RAT</h3><p><code>sisaws</code> and <code>secmeasure</code> delivered remote-access malware through an ordinary update path.</p></article>
+        </div>
+      </div>
+      <div class="capability-strip"><span>PLUGIN REACH</span><strong>Model calls</strong><strong>Endpoints</strong><strong>File I/O</strong><strong>Storage</strong><strong>App API</strong></div>
+      <div class="source-note">Source: proposal §2.3. These are external ecosystem incidents, not Dify incidents; figures follow the supplied research.</div>
+      <aside class="notes">These examples are not Dify incidents and are not included for drama. They show that publisher credential theft, dependency updates, and post-listing compromise are established attack paths. Dify plugins can reach models, files, storage, and App APIs, so monitoring belongs inside the governance scope.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Six lenses</div><h2>Six teams will ask six different questions about the same plugin.</h2>
+      <div class="grid-12 lens-grid">
+        <div class="card col-4"><div class="index-no">01 / SECURITY</div><h3>Supply chain</h3><p>Secrets, binaries, vulnerable dependencies, runtime behavior, and post-listing compromise.</p></div>
+        <div class="card col-4"><div class="index-no">02 / LEGAL</div><h3>Legal &amp; compliance</h3><p>Platform role, subprocessors, IP, takedown, notice, and appeal.</p></div>
+        <div class="card col-4"><div class="index-no">03 / PRODUCT</div><h3>Visible trust</h3><p>Badges, capabilities, data flow, signatures, SBOM, and risk warnings.</p></div>
+        <div class="card col-4"><div class="index-no">04 / ENGINEERING</div><h3>Delivery efficiency</h3><p>Local preflight, tiered CI, actionable reports, artifact reuse, and auto-labeling.</p></div>
+        <div class="card col-4"><div class="index-no">05 / COMMUNITY</div><h3>Sustainable contribution</h3><p>Zero-friction low risk, previewable rules, transparent exceptions, and due process.</p></div>
+        <div class="card col-4"><div class="index-no">06 / BUSINESS</div><h3>Enterprise approval</h3><p>Evidence security and procurement teams can assess, sign off, and revisit.</p></div>
+      </div>
+      <aside class="notes">Security supplies the technical baseline. Legal defines responsibility. Product makes trust legible. Engineering and community determine whether rules can endure. Business value shows up when enterprise security teams can approve adoption.</aside>
+    </section>
+
+    <section class="grid-overlay trust-gap-slide">
+      <div class="eyebrow">Trust gap</div><h2>If the promise is “safer, more reliable,” the operating evidence has to support it.</h2>
+      <div class="trust-gap-layout">
+        <figure class="media-frame"><img src="assets/gradient-field.jpg" alt="Orange gradient field"><div class="media-overlay-copy">A promise is front-stage language.<br>Evidence is the operating capability.</div><div class="media-caption"><span>CLAIM → EVIDENCE</span></div></figure>
+        <div class="rail-content"><div class="spectrum"><div><div class="label">Marketing language</div><div class="quote">“Safer, more reliable”</div><p class="lead">Users hear a publisher-style trust promise.</p></div><div><div class="label">Operational substance</div><div class="quote">Unpack + manifest validation</div><p class="lead">Today resembles hosting without scanning or continuous monitoring.</p></div></div><p class="rail-statement">The core platform carries SOC 2, ISO 27001, and GDPR controls; <span class="blue">the marketplace cannot remain a diligence gap.</span></p></div>
+      </div>
+      <div class="source-note">Source: proposal §§2.4 and 3.1. Final legal classification depends on jurisdiction and counsel.</div>
+      <aside class="notes">The platform's compliance posture raises customer expectations for the marketplace. Whether the marketplace looks like hosting or publishing depends on review depth, recommendations, badges, and claims as well as contract language. Legal needs to decide how transition messaging is handled.</aside>
+    </section>
+
+    <section class="grid-overlay responsibility-slide">
+      <div class="eyebrow">Responsibility chain</div><h2>Enterprise reviewers will ask where data goes and who owns the consequence.</h2>
+      <div class="responsibility-layout"><div class="rail-content"><div class="chain chain-grid"><div class="node"><div class="role">01 · CUSTOMER</div><h3>Business user / Controller</h3><p>Defines purpose, grants authority, and owns outcomes.</p></div><div class="node"><div class="role">02 · PLATFORM</div><h3>Dify / Processor?</h3><p>Hosts execution, credentials, distribution, and audit; role varies by deployment.</p></div><div class="node"><div class="role">03 · AUTHOR</div><h3>Author / Sub-processor?</h3><p>Controls implementation and downstream calls; agreements need reinforcement.</p></div><div class="node"><div class="role">04 · DOWNSTREAM</div><h3>External API / Processor</h3><p>Destination, region, retention, and onward delegation must be visible.</p></div></div><div class="responsibility-tags"><div class="card soft"><h3>Privacy</h3><p>Types, purpose, third parties.</p></div><div class="card soft"><h3>IP &amp; License</h3><p>Ownership and redistribution.</p></div><div class="card soft"><h3>Due process</h3><p>Notice, response, appeal.</p></div><div class="card soft"><h3>Evidence</h3><p>Signature, SBOM, timestamp.</p></div></div></div><figure class="media-frame"><img src="assets/glass-building.jpg" alt="Layered glass architecture"><div class="media-caption"><span>VISIBLE RESPONSIBILITY</span></div></figure></div>
+      <div class="source-note">Source: proposal §§3.2–3.5. Question marks denote roles that require case-specific legal analysis.</div>
+      <aside class="notes">Do not hard-code GDPR roles. Governance should provide enough information for counsel to determine purpose, processing, onward transfer, notification, appeal, and proof.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Risk proportionality</div><h2>Keep low-risk contribution smooth; add review cost where the blast radius grows.</h2>
+      <table class="matrix"><thead><tr><th style="width:9%">Tier</th><th style="width:26%">Typical behavior</th><th style="width:22%">Machine checks</th><th style="width:22%">Human review</th><th>User experience</th></tr></thead><tbody>
+        <tr class="tier-1"><td>L1</td><td>Fixed HTTPS API; no local side effects</td><td>Hard rejects + Semgrep warnings</td><td>20% sampling</td><td>Verified Basic · no interruption</td></tr>
+        <tr class="tier-2"><td>L2</td><td>User files/URLs; rich parsing; upload/download</td><td>Block Medium+ deps; warnings explained</td><td>Full light review</td><td>Standard · visible data flow</td></tr>
+        <tr class="tier-3"><td>L3</td><td>Commands, SQL, SSH, browser, local files, arbitrary HTTP</td><td>Warnings become errors; Low+ dep threshold</td><td>Deep review + dynamic test</td><td>High-trust · install confirmation</td></tr>
+      </tbody></table>
+      <p class="big-statement" style="font-size:46px;margin-top:34px;">Low risk should stay low-friction. <span class="blue">High risk should never depend on luck.</span></p>
+      <div class="source-note">Source: proposal Appendix C and embedded risk-tier tables.</div>
+      <aside class="notes">Tiering is the core lever that protects both safety and ecosystem velocity. The higher of author self-assessment and machine classification applies; reviewers may raise the tier.</aside>
+    </section>
+
+    <section class="grid-overlay lifecycle-slide">
+      <div class="eyebrow">Lifecycle governance</div><h2>A passing CI result only describes that moment. Installation and later updates still matter.</h2>
+      <div class="lifecycle-layout"><figure class="media-frame"><img src="assets/server-hall.jpg" alt="Blue infrastructure corridor"><div class="media-caption"><span>TRUST IS CONTINUOUS</span></div></figure><div class="lifecycle">
+        <div class="stage"><div class="stage-no">01</div><h3>Author</h3><p>Strict template, <code>.difyignore</code>, tier, capability and privacy declarations.</p></div>
+        <div class="stage"><div class="stage-no">02</div><h3>Build</h3><p>Source URL, commit SHA, locked dependencies, and package fingerprint.</p></div>
+        <div class="stage"><div class="stage-no">03</div><h3>CI gate</h3><p>Secrets, binaries, dependencies, SAST, manifest, and tier.</p></div>
+        <div class="stage"><div class="stage-no">04</div><h3>Listing</h3><p>Official / Partner / Community tiers and visible trust evidence.</p></div>
+        <div class="stage"><div class="stage-no">05</div><h3>Runtime</h3><p>L3 confirmation, least capability, sandbox, and egress checks.</p></div>
+        <div class="stage"><div class="stage-no">06</div><h3>Monitoring</h3><p>New CVEs, anomalies, downgrade, SLA, notice, and appeal.</p></div>
+      </div>
+      </div>
+      <aside class="notes">CI passing is not permanent trust. Versions can change, credentials can be stolen, and new vulnerabilities appear. Monitoring and due process matter as much as admission.</aside>
+    </section>
+
+    <section class="dark-slide grid-overlay">
+      <div class="eyebrow">Policy as code · 9-stage gate</div><h2>Turn reviewer experience into a reproducible, actionable check.</h2>
+      <div class="pipeline">
+        <div class="pipe"><div class="pipe-no">01</div><h3>unpack</h3><p>artifact</p></div><div class="pipe"><div class="pipe-no">02</div><h3>junk</h3><p>residue</p></div><div class="pipe"><div class="pipe-no">03</div><h3>secrets</h3><p>gitleaks / trufflehog</p></div><div class="pipe"><div class="pipe-no">04</div><h3>binary</h3><p>ELF / PE / Mach-O</p></div><div class="pipe"><div class="pipe-no">05</div><h3>manifest</h3><p>fields + tier</p></div><div class="pipe"><div class="pipe-no">06</div><h3>deps</h3><p>pip-audit</p></div><div class="pipe"><div class="pipe-no">07</div><h3>SAST</h3><p>Semgrep + Bandit</p></div><div class="pipe"><div class="pipe-no">08</div><h3>legacy</h3><p>version + install</p></div><div class="pipe"><div class="pipe-no">09</div><h3>report</h3><p>label + comment</p></div>
+      </div>
+      <div class="grid-12" style="margin-top:30px;"><div class="card dark-card col-3"><h3>12 hard rejects</h3><p>Secrets, residue, binaries, missing fields, size, and other non-negotiables.</p></div><div class="card dark-card col-3"><h3>Tier-driven thresholds</h3><p>Stage 5 controls dependency and SAST strictness.</p></div><div class="card dark-card col-3"><h3>Local preview</h3><p>The same review-plugin runs on author machines and CI.</p></div><div class="card dark-card col-3"><h3>Verifiable evidence</h3><p>SHA-256, tool versions, timestamp, and exact findings.</p></div></div>
+      <div class="source-note">Source: proposal Appendix D, Admission Gate Technical Design.</div>
+      <aside class="notes">The point is not the tool list. It is tier-driven strictness, one rule set locally and in CI, and evidence that tells reviewers exactly why a result is trustworthy.</aside>
+    </section>
+
+    <section class="grid-overlay visible-trust-slide">
+      <div class="eyebrow">Visible trust</div><h2>Check results cannot stop at the CI log.</h2>
+      <div class="visible-trust-layout"><figure class="media-frame"><img src="assets/workflow-light-trails.jpg" alt="Blue and orange light trails"><div class="media-caption"><span>EVIDENCE SHOULD TRAVEL</span></div></figure><div class="mock-market"><div class="plugin-card"><div class="plugin-icon"></div><div class="mono muted" style="font-size:11px;">VERIFIED COMMUNITY</div><h3 style="font-size:30px;margin-top:10px;">Enterprise Connector</h3><p style="font-size:16px;color:var(--muted);margin-top:12px;">Source-linked · signed · monitored</p><div class="badge">● L2 · STANDARD</div></div><div class="trust-panel"><h3 style="font-size:28px;margin-bottom:14px;">Plugin Trust Center</h3><div class="trust-row"><span>Source</span><strong>Repository + commit SHA</strong></div><div class="trust-row"><span>Capabilities</span><strong>Files · HTTPS · Storage</strong></div><div class="trust-row"><span>Data flow</span><strong>Types · purpose · third parties</strong></div><div class="trust-row"><span>Supply chain</span><strong>SBOM · CVE · signature</strong></div><div class="trust-row"><span>Monitoring</span><strong>Last scan · SLA · status</strong></div></div></div></div>
+      <div class="source-note">Product concept based on proposal Appendix I: tier badges, L3 confirmation, trust panel, provenance labels, filters, and degraded status.</div>
+      <aside class="notes">Governance must reduce decision cost. Users should answer: who built it, what it can do, where data goes, where the package came from, and whether it is currently healthy.</aside>
+    </section>
+
+    <section class="grid-overlay governance-stack-slide">
+      <div class="eyebrow">Governance stack</div><h2>Machines hold the floor, people judge context, and process handles disputes.</h2>
+      <div class="grid-12" style="margin-top:48px;">
+        <div class="card blue-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 01</div><h3 style="font-size:34px;">Machine gates</h3><p>Hard rejects, tier thresholds, signatures, SBOM, dependency and static scanning.</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>Goal:</strong> make the minimum quality bar deterministic.</p></div>
+        <div class="card col-4" style="min-height:430px;"><div class="index-no">LAYER 02</div><h3 style="font-size:34px;">Human judgment</h3><p>L3 deep review, dynamic testing, security exceptions, and dual sign-off.</p><div class="rule" style="margin:48px 0 20px;"></div><p><strong>Goal:</strong> handle context and intent machines cannot.</p></div>
+        <div class="card orange-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 03</div><h3 style="font-size:34px;">Legal process</h3><p>Author CoC, agreement alignment, notice, response, decision, appeal.</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>Goal:</strong> make enforcement explainable and reviewable.</p></div>
+      </div>
+      <aside class="notes">Automation alone creates rigidity and false positives; manual review alone creates inconsistency and queues. Machines hold the floor, humans handle context, and procedure protects long-term legitimacy.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Roadmap · one year</div><h2>This can be staged; the team does not need to wait for a complete platform.</h2>
+      <div class="timeline">
+        <div class="phase"><div class="time">P0 · 4 WEEKS</div><h3>Close the smallest loop</h3><ul><li>Local review-plugin</li><li>PR risk and capability declarations</li><li>Reviewer checklist</li><li>Author Code of Conduct</li></ul><div class="metric">Engineering ≈ 3 weeks · DevRel ≈ 1 week · Legal ≈ 1 week<br>About one person-month total</div></div>
+        <div class="phase"><div class="time">P1 · 3 MONTHS</div><h3>Connect rules to CI</h3><ul><li>9-stage pre-check v2</li><li>Secrets / deps / SAST</li><li>Strict template and tier labels</li><li>Official repo adds lint / pytest</li></ul><div class="metric">One engineer full time for 3 months<br>Part-time DevRel and Legal</div></div>
+        <div class="phase"><div class="time">P2 · 6–12 MONTHS</div><h3>Add supply-chain evidence</h3><ul><li>Structured privacy data flow</li><li>SBOM + continuous CVE</li><li>Signing and transparency</li><li>Runtime behavior and response SLA</li></ul><div class="metric">Engineering ≈ 2 shared months<br>Optional external security budget</div></div>
+      </div>
+      <div class="source-note">Source: proposal §§4 and 6 and embedded P0/P1 delivery tables.</div>
+      <aside class="notes">P0 is mostly templates, tools, and process and can begin with about one person-month. P1 needs one engineer for three months, with DevRel and Legal maintaining author communication and agreements. P2 adds SBOM, signing, continuous monitoring, and a decision on an external security partner.</aside>
+    </section>
+
+    <section class="grid-overlay tradeoff-slide">
+      <div class="eyebrow">Trade-offs · govern governance</div><h2>Stricter rules have a cost, so the buffers need to be designed with them.</h2>
+      <div class="grid-12" style="margin-top:40px;"><div class="card col-6"><div class="index-no">FRICTION</div><h3>Over-strict gates suppress contribution</h3><p>Keep L1 frictionless; pilot two weeks in the official repo; use warning-only community rollout for 30 days.</p></div><div class="card col-6"><div class="index-no">FALSE POSITIVE</div><h3>False positives and exceptions</h3><p>Explain findings, link docs, support inline waivers, and require ≥2 maintainers for security exceptions.</p></div><div class="card col-6"><div class="index-no">MIGRATION</div><h3>Existing author cost</h3><p>Apply new rules first to new submissions; visualize legacy scan results and allow 90 days for Critical fixes.</p></div><div class="card col-6"><div class="index-no">DUE PROCESS</div><h3>Takedown disputes</h3><p>Notice → response → decision → appeal; security emergencies may remove first but must explain later.</p></div></div>
+      <p class="big-statement" style="font-size:42px;margin-top:28px;">CI may grow from roughly 3 minutes to 6–8; parallel stages and artifact reuse keep the cost bounded.</p>
+      <div class="source-note">Source: proposal §5 embedded risk-and-mitigation table.</div>
+      <aside class="notes">The research proposes a two-week official-repo pilot, thirty warning-only days for the community repo, documented waivers, two-maintainer security exceptions, and a ninety-day window for legacy Critical findings. Stricter rules need clearer paths to comply and appeal.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Decision points</div>
+      <h2>The tools can keep moving, but three choices need management ownership.</h2>
+      <div class="decision-grid">
+        <div class="decision-card"><div class="decision-no">01</div><h3>What is the L3 default?</h3><p>User warning only, or human review before listing?</p><div class="decision-call">Proposal: pre-review</div></div>
+        <div class="decision-card"><div class="decision-no">02</div><h3>Does the Marketplace show tiers?</h3><p>Should Official, Partner, and Verified Community be visibly distinct?</p><div class="decision-call">Proposal: make it explicit</div></div>
+        <div class="decision-card"><div class="decision-no">03</div><h3>How should transition copy read?</h3><p>Should “safer, more reliable” be softened until P1 is complete?</p><div class="decision-call">Legal × Product decision</div></div>
+      </div>
+      <div class="owner-strip"><span>SHARED OWNERS</span><strong>Engineering</strong><strong>Security</strong><strong>Legal</strong><strong>Product / Design</strong><strong>DevRel</strong></div>
+      <div class="source-note">Source: proposal §6, decision items. Recommendations and open decisions follow the supplied research.</div>
+      <aside class="notes">The team can continue building scanners and templates, but these three choices change the risk promise, product presentation, and operating cost. L3 default review and transition marketing language should not be left to individual reviewers.</aside>
+    </section>
+
+    <section class="bg-photo" style="background-image:url('assets/collaboration-tunnel.jpg');background-position:center 45%!important;">
+      <div class="vcenter" style="height:100%;max-width:1100px;"><div class="eyebrow">02 · New collaboration</div><h1 style="font-size:88px;">Clear boundaries make room<br><span style="color:var(--cyan);">for broader collaboration.</span></h1><p class="lead">Across Dify 1.15 and 1.16, terminals, human nodes, reusable Agents, and Workflows begin to take distinct roles.</p></div>
+      <div class="photo-caption" style="left:auto;right:104px;width:410px;"><span>FROM BOUNDARY TO POSSIBILITY</span></div>
+      <aside class="notes">Governance does not make agents smaller. It makes more participants safe to connect. The next collaboration patterns are grounded in official 1.15 and 1.16 release features.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Official releases · 1.15 → 1.16</div><h2>1.15 adds execution surfaces; 1.16 starts managing reusable Agents.</h2>
+      <div class="release-map">
+        <div class="release"><div class="version">DIFY 1.15.0 · 2026-06-25</div><div class="feature"><div class="dot"></div><div><h3>difyctl</h3><p>Run apps and workflows from terminals; scripts and CI become first-class callers.</p></div></div><div class="feature"><div class="dot"></div><div><h3>Richer HITL</h3><p>Human input adds selects, files, and multi-file uploads.</p></div></div><div class="feature"><div class="dot"></div><div><h3>Visible reasoning</h3><p>Thinking is visible and retained across Workflow, Chatflow, and CLI.</p></div></div><div class="feature"><div class="dot"></div><div><h3>Operations</h3><p>Long-run polling, deeper tracing, and category-scoped plugin auto-upgrade.</p></div></div></div>
+        <div class="release"><div class="version">DIFY 1.16.0 · 2026-07-17</div><div class="feature"><div class="dot"></div><div><h3>Dify Agent (Beta)</h3><p>Linux sandbox, Skills, Agent roster, and reusable agents.</p></div></div><div class="feature"><div class="dot"></div><div><h3>AI app generation</h3><p>Generate Workflow / Chatflow apps through <code>/create</code> and <code>/refine</code>.</p></div></div><div class="feature"><div class="dot"></div><div><h3>Builder &amp; Workflow</h3><p>Create Skills conversationally; reference or create Agents inside Workflow.</p></div></div><div class="feature"><div class="dot"></div><div><h3>MCP &amp; archives</h3><p>Structured tool output, dynamic headers, run archives, and cost attribution.</p></div></div></div>
+      </div>
+      <div class="source-note">Source: official Dify GitHub releases 1.15.0 and 1.16.0; feature descriptions are compressed from release notes.</div>
+      <aside class="notes">1.15 makes CLI, CI, human nodes, and observability first-class participants. 1.16 adds sandboxed agents, AI app generation, Skills, roster, workflow references, and MCP upgrades. The next slide examines app generation before the four organizational inferences.</aside>
+    </section>
+
+    <section class="grid-overlay app-gen-slide">
+      <div class="eyebrow">Feature spotlight · AI app generation</div>
+      <h2>One instruction becomes an inspectable plan, then an editable Workflow or Chatflow.</h2>
+      <div class="app-gen-layout">
+        <figure class="media-frame app-gen-visual"><img src="assets/app-generation-layers.jpg" alt="Blue and orange layered light bars"><div class="app-gen-prompt"><div class="prompt-bar"><span>⌘K</span><span>/create</span><span class="preview-tag">FEATURE PREVIEW</span></div><div class="prompt-copy">“Read feedback, route high-risk items to human review, and publish a weekly brief.”</div><div class="prompt-suggestions"><span>Workspace knowledge</span><span>Installed tools</span><span>↻ Refresh</span></div><div class="prompt-action"><span>Auto · Workflow / Chatflow</span><strong>Generate →</strong></div></div><div class="media-caption"><span>INTENT BECOMES STRUCTURE</span></div></figure>
+        <div class="app-gen-content">
+          <div class="app-gen-flow">
+            <div class="gen-stage"><div class="stage-no">01 · UNDERSTAND</div><h3>Understand</h3><p>Use workspace context for buildable suggestions and resolve the app mode.</p></div>
+            <div class="gen-stage active"><div class="stage-no">02 · PLAN FIRST</div><h3>Show the node plan</h3><p>Expose the real outline before drawing the graph, so scope can be corrected early.</p></div>
+            <div class="gen-stage"><div class="stage-no">03 · BUILD + CHECK</div><h3>Build and validate</h3><p>Generate node configs, validate tools and edges, and identify failed nodes.</p></div>
+            <div class="gen-stage"><div class="stage-no">04 · APPLY / REFINE</div><h3>Apply and refine</h3><p><code>/refine</code> summarizes additions, removals, and changes; the graph stays editable.</p></div>
+          </div>
+          <div class="app-gen-outcome"><span>From drawing every node</span><strong>to defining intent, reviewing plans, and handling exceptions</strong><span>The result still enters governance</span></div>
+        </div>
+      </div>
+      <div class="source-note">Source: Dify 1.16.0 “Smarter AI Workflow Generation” and PR #38175. Current entry: ⌘K → /create or /refine; the Create-App dialog entry is not yet GA.</div>
+      <aside class="notes">“App generation” here means Workflow and Chatflow. In Command K, /create turns a natural-language instruction into a plan-first, validated, editable graph. /refine adds a graph-diff summary. The machine produces the first draft; people retain responsibility for intent, plan review, tool authorization, and exceptions. The feature is still preview, and the explicit Create-App dialog entry is not yet GA.</aside>
+    </section>
+
+    <section class="grid-overlay"><div class="grid-12" style="height:100%;align-items:center;"><div class="col-3"><div class="mode-number">01</div></div><div class="col-9"><div class="eyebrow">Mode one · execution surfaces</div><h2>The same workflow now runs across UI, terminal, and CI.</h2><p class="lead">difyctl lets development scripts, personal agents, and pipelines invoke the same workflows; scoped environments and consistent errors clarify automation boundaries.</p><div class="grid-12 mode-grid"><div class="card col-4"><h3>Builder</h3><p>Design and debug visually with full workflow context.</p></div><div class="card col-4"><h3>Operator</h3><p>Run, observe, compose, and batch through CLI.</p></div><div class="card blue-card col-4"><h3>Pipeline</h3><p>Trigger, regress, audit, and gate releases in CI.</p></div></div></div></div><div class="source-note">Inference based on Dify 1.15.0 difyctl, scoped environment variables, consistent CLI/HTTP errors, and visible reasoning.</div><aside class="notes">This is not UI versus CLI. Designers use the visual surface, operators use the terminal, and CI applies organizational controls to the same workflow asset.</aside></section>
+
+    <section class="grid-overlay"><div class="grid-12" style="height:100%;align-items:center;"><div class="col-3"><div class="mode-number">02</div></div><div class="col-9"><div class="eyebrow">Mode two · structured human-agent work</div><h2>Human-in-the-Loop can become a formal handoff, not only a fallback.</h2><div class="protocol"><div class="actor"><div class="role">AGENT</div><h3>Prepare evidence</h3><p>Gather context, reason, draft options, and surface risk.</p></div><div class="arrow">→</div><div class="actor"><div class="role">HITL FORM</div><h3>Structured handoff</h3><p>Selections, files, multiple files, and explicit approval fields.</p></div><div class="arrow">→</div><div class="actor"><div class="role">EXPERT</div><h3>Decide / enrich</h3><p>Review at the right moment instead of rebuilding from scratch.</p></div><div class="arrow">→</div><div class="actor"><div class="role">WORKFLOW</div><h3>Resume</h3><p>Retain context, record the decision, and continue execution.</p></div></div></div></div><div class="source-note">Inference based on Dify 1.15.0 richer HITL forms and reasoning persistence.</div><aside class="notes">A useful HITL handoff arrives with a decision-ready package. The expert applies judgment, and the workflow resumes with the decision and evidence intact.</aside></section>
+
+    <section class="grid-overlay"><div class="grid-12" style="height:100%;align-items:center;"><div class="col-3"><div class="mode-number">03</div></div><div class="col-9"><div class="eyebrow">Mode three · reusable digital colleagues</div><h2>Agents begin to carry a stable runtime, method, and roster entry.</h2><div class="grid-12 mode-grid"><div class="card col-3"><div class="index-no">ENV</div><h3>Linux Sandbox</h3><p>Run code and shell in an isolated, governable environment.</p></div><div class="card col-3"><div class="index-no">METHOD</div><h3>Skills</h3><p>Package SOPs, tools, scripts, and knowledge as distributable capabilities.</p></div><div class="card col-3"><div class="index-no">IDENTITY</div><h3>Agent Roster</h3><p>Manage, reuse, and reference agents across a workspace.</p></div><div class="card blue-card col-3"><div class="index-no" style="color:rgba(255,255,255,.68);">COACH</div><h3>Builder Agent</h3><p>Configure environments, install packages, and create Skills conversationally.</p></div></div><p class="big-statement" style="font-size:42px;margin-top:30px;">The managed asset now includes <span class="blue">the runtime and capability package, not only a prompt.</span></p></div></div><div class="source-note">Inference based on Dify 1.16.0 Dify Agent (Beta): sandbox, Skills, Agent roster, and builder agent.</div><aside class="notes">A reusable Agent includes instructions, Skills, files, tools, knowledge, and runtime. The organization can manage the whole role definition rather than only its prompt.</aside></section>
+
+    <section class="grid-overlay mode-four-slide"><div class="mode-photo-layout"><figure class="media-frame"><img src="assets/collaboration.jpg" alt="Team collaborating in a glass meeting room"><div class="mode-number">04</div><div class="media-caption"><span>ROLES BECOME A PROTOCOL</span></div></figure><div class="rail-content vcenter"><div class="eyebrow">Mode four · organizational protocol</div><h2>Workflow begins to own cross-role handoffs and evidence.</h2><div class="protocol-grid-2"><div class="actor"><div class="role">HUMAN</div><h3>Goal &amp; authority</h3><p>Define outcomes, boundaries, budgets, and human decisions.</p></div><div class="actor"><div class="role">AGENT</div><h3>Autonomous work</h3><p>Use Skills, files, tools, and knowledge inside a sandbox.</p></div><div class="actor"><div class="role">WORKFLOW</div><h3>Control plane</h3><p>Sequence, state, retries, HITL, archives, and observability.</p></div><div class="actor"><div class="role">MCP</div><h3>Org interface</h3><p>Structured output, version negotiation, and dynamic identity.</p></div></div></div></div><div class="source-note">Inference based on Dify 1.16.0 Agent Workflow integration, workflow-as-MCP structured output, dynamic headers, and run archives.</div><aside class="notes">Workflow can record who acts when, with what identity, what result, and what evidence. MCP makes the workflow callable from outside; Agent nodes add bounded autonomous execution.</aside></section>
+
+    <section class="dark-slide grid-overlay">
+      <div class="eyebrow">Target operating model</div><h2>A production system has at least four distinct responsibilities.</h2>
+      <div class="operating-model"><div class="layer"><div class="layer-no">01 / HUMAN</div><h3>Intent &amp; accountability</h3><p>Set goals, approve high-risk actions, handle exceptions, own outcomes.</p></div><div class="layer"><div class="layer-no">02 / AGENT</div><h3>Exploration &amp; execution</h3><p>Decompose tasks, call Skills, and deliver structured artifacts in a controlled runtime.</p></div><div class="layer"><div class="layer-no">03 / WORKFLOW</div><h3>Orchestration &amp; evidence</h3><p>Manage state, sequence, HITL, retries, archives, cost, and observability.</p></div><div class="layer"><div class="layer-no">04 / GOVERNANCE</div><h3>Rights &amp; boundaries</h3><p>Plugin tiers, policy as code, identity, data flow, signing, monitoring, and due process.</p></div></div>
+      <p class="big-statement" style="font-size:42px;margin-top:28px;color:#fff;">Collaboration becomes operable when rights, state, and accountability each have an owner.</p>
+      <aside class="notes">Humans own intent and accountability. Agents explore and execute. Workflows own state and evidence. Governance owns rights and boundaries. Every production system must answer all four.</aside>
+    </section>
+
+    <section class="grid-overlay">
+      <div class="eyebrow">Action plan · 30 / 90 / 365</div><h2>Build the governance base first, then connect the collaboration capabilities.</h2>
+      <div class="timeline"><div class="phase"><div class="time">NEXT 30 DAYS</div><h3>Minimum governance loop</h3><ul><li>Inventory plugins and rights</li><li>Define L1/L2/L3</li><li>Local preflight + reviewer checklist</li><li>Mark mandatory HITL actions</li></ul><div class="metric">Deliver: inventory, tier, owner, exception process</div></div><div class="phase"><div class="time">NEXT 90 DAYS</div><h3>Connect rules to work</h3><ul><li>Tiered CI and evidence reports</li><li>Agent roster + Skills catalog</li><li>One workflow across UI / CLI / CI</li><li>HITL forms and run archives</li></ul><div class="metric">Deliver: reusable agents, traceable flows, verifiable plugins</div></div><div class="phase"><div class="time">NEXT 365 DAYS</div><h3>Productize trust</h3><ul><li>Signing, SBOM, continuous CVE</li><li>Marketplace Trust Center</li><li>MCP interfaces and dynamic identity</li><li>Transparency metrics and response SLA</li></ul><div class="metric">Outcome: collaboration scales while accountability stays clear</div></div></div>
+      <aside class="notes">Thirty days for inventory and tiers. Ninety days to connect rules to pipelines, roster, Skills, and HITL. One year to make signing, SBOM, MCP identity, and the Trust Center shared infrastructure.</aside>
+    </section>
+
+    <section class="closing layout-closing">
+      <div class="closing-frame"><div class="closing-copy"><div><div class="eyebrow">Closing · Q&amp;A</div><h1 style="font-size:76px;">Clearer boundaries<br>invite broader participation.<br><span class="blue">Better evidence<br>makes scale easier to own.</span></h1></div><div class="cover-meta"><p>banana@dify.ai<br>github.com/langgenius/dify</p><p>Slides · Dify X<br>2026</p></div></div><div class="closing-image"><img src="assets/glass-grid.jpg" alt="Grid-like glass buildings"><div class="photo-caption"><span>BOUNDARIES ENABLE SCALE</span></div></div></div>
+      <aside class="notes">Close on two practical ideas: boundaries tell people and agents what they may do; evidence lets an enterprise review and own the result.</aside>
+    </section>
+
+    <section class="thanks-slide">
+      <div class="thanks-layout" aria-label="Image contributors">
+        <span class="credit-word credit-01">mymind</span><span class="credit-word credit-02">Taylor Vick</span><span class="credit-word credit-03">Sincerely Media</span><span class="credit-word credit-04">Mariola Grobelska</span><span class="credit-word credit-05">Christian Ladewig</span><span class="credit-word credit-06">Paul Hanaoka</span><span class="credit-word credit-07">Marek Piwnicki</span><span class="credit-word credit-08">Milad Fakurian</span><span class="credit-word credit-09">Alek Kalinowski</span><span class="credit-word credit-10">Mario Gogh</span><span class="credit-word credit-11">Alex Wong</span>
+        <div class="thanks-message"><div class="thanks-kicker">ENTERPRISE AGENT · GOVERNANCE × COLLABORATION</div><h1>Thank You</h1><p>Questions &amp; continued conversation</p><div class="thanks-contact">banana@dify.ai</div></div>
+      </div>
+      <aside class="notes">Thank the audience. Image contributors are acknowledged together as a low-contrast word cloud; invite questions about governance decisions or new collaboration patterns.</aside>
+    </section>
+
+  </div></div>
+
+  <script type="module">
+    import Reveal from './assets/reveal/reveal.esm.js';
+    import RevealNotes from './assets/reveal/plugin/notes/notes.esm.js';
+
+    window.Reveal = Reveal;
+    Reveal.initialize({hash:true,width:1920,height:1080,margin:0,minScale:.2,maxScale:1.5,controls:true,progress:true,slideNumber:'c/t',transition:'fade',backgroundTransition:'fade',plugins:[RevealNotes]});
+    const syncChrome = (event) => {
+      const slide = event.currentSlide || Reveal.getCurrentSlide();
+      document.body.classList.toggle('chrome-light', Boolean(slide?.matches('.dark-slide, .bg-photo')));
+      document.body.classList.toggle('chrome-thanks', Boolean(slide?.matches('.thanks-slide')));
+    };
+    Reveal.on('ready', syncChrome);
+    Reveal.on('slidechanged', syncChrome);
+  </script>
+</body>
+</html>
