@@ -24,3 +24,14 @@
 - Dify 1.16.0：`https://github.com/langgenius/dify/releases/tag/1.16.0`
 
 图片作者统一在 Thank You 结尾页以低对比度词云形式集中呈现。
+
+## 背景图片
+
+- [Ruido 98 — blue and orange abstract light](https://unsplash.com/photos/SytlpdDJ1lk)
+- [Asif Aether — blue, white, and orange gradient](https://unsplash.com/photos/4KRfJsZIra0)
+- [Sean Sinclair — blue and orange defocused light](https://unsplash.com/photos/2jYK_Bloby4)
+- [Darkhan Basshybayev — iridescent abstract texture](https://unsplash.com/photos/o6uvtosEZeo)
+- [Pawel Czerwinski — teal abstract layers](https://unsplash.com/photos/ERcQ81KaX9g)
+- [Sean Sinclair — rainbow light leak](https://unsplash.com/photos/1xZ0SqLPE4E)
+- [Richard Horvath — indigo flowing shapes](https://unsplash.com/photos/_nWaeTF6qo0)
+- [Codioful — soft pastel gradient](https://unsplash.com/photos/LeG68PrXA6Y)
