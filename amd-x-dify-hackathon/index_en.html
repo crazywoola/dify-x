@@ -33,14 +33,21 @@
       <!-- 01 · Cover -->
       <section data-background-color="#fbfcff">
         <div class="slide-shell">
-          <div class="cover-mark" aria-hidden="true"></div>
-          <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
-          <h1 class="deck-title">From Prompt to<br>Multimodal Product</h1>
-          <p class="deck-subtitle">Build with Dify. Accelerate with AMD Radeon.</p>
-          <div class="dual-rule"></div>
-          <div class="speaker">
-            <strong>crazywoola (Banana)</strong><br>
-            Developer Relations @ Dify · banana@dify.ai
+          <div class="cover-layout">
+            <div class="cover-copy">
+              <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
+              <h1 class="deck-title">From Prompt to<br>Multimodal Product</h1>
+              <p class="deck-subtitle">Build with Dify. Accelerate with AMD Radeon.</p>
+              <div class="dual-rule"></div>
+              <div class="speaker">
+                <strong>crazywoola (Banana)</strong><br>
+                Developer Relations @ Dify · banana@dify.ai
+              </div>
+            </div>
+            <figure class="atmos-photo cover-photo">
+              <img src="../agent-plugin-governance/assets/atmos-silk-ruido98.jpg" alt="Blue and orange abstract light folds by Ruido 98 on Unsplash">
+              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></figcaption>
+            </figure>
           </div>
         </div>
         <aside class="notes">
@@ -98,29 +105,32 @@
             </div>
             <span class="track-chip">Dify × AMD</span>
           </div>
-          <div class="split-roles">
-            <div class="role-card">
-              <span class="role-tag">CONTROL PLANE</span>
-              <h3 class="role-title">Dify Workflow</h3>
-              <ul class="role-list">
-                <li><i class="ri-check-line"></i><span>Collect text, images, audio, video, and parameters</span></li>
-                <li><i class="ri-check-line"></i><span>Branch, iterate, validate, and recover from failures</span></li>
-                <li><i class="ri-check-line"></i><span>Connect models and services through model, tool, or HTTP nodes</span></li>
-                <li><i class="ri-check-line"></i><span>Expose a UI and API without rebuilding orchestration code</span></li>
-              </ul>
+          <div class="role-editorial">
+            <div class="role-stack">
+              <div class="role-card">
+                <span class="role-tag">CONTROL PLANE</span>
+                <h3 class="role-title">Dify Workflow</h3>
+                <ul class="role-list">
+                  <li><i class="ri-check-line"></i><span>Collect multimodal inputs and parameters</span></li>
+                  <li><i class="ri-check-line"></i><span>Branch, iterate, validate, and recover</span></li>
+                  <li><i class="ri-check-line"></i><span>Connect models through tools or HTTP</span></li>
+                </ul>
+              </div>
+              <div class="role-card amd">
+                <span class="role-tag">COMPUTE PLANE</span>
+                <h3 class="role-title">AMD Radeon + ROCm</h3>
+                <ul class="role-list">
+                  <li><i class="ri-check-line"></i><span>Run generation and media workloads</span></li>
+                  <li><i class="ri-check-line"></i><span>Expose the execution path in the demo</span></li>
+                  <li><i class="ri-check-line"></i><span>Return assets and measurable evidence</span></li>
+                </ul>
+              </div>
             </div>
-            <div class="role-card amd">
-              <span class="role-tag">COMPUTE PLANE</span>
-              <h3 class="role-title">AMD Radeon + ROCm</h3>
-              <ul class="role-list">
-                <li><i class="ri-check-line"></i><span>Run the generation or transformation workload</span></li>
-                <li><i class="ri-check-line"></i><span>Keep the execution path visible in the demo</span></li>
-                <li><i class="ri-check-line"></i><span>Measure latency, memory use, stability, and throughput</span></li>
-                <li><i class="ri-check-line"></i><span>Return media assets and metadata to the workflow</span></li>
-              </ul>
-            </div>
+            <figure class="atmos-photo role-photo">
+              <img src="../agent-plugin-governance/assets/atmos-teal-pawel-czerwinski.jpg" alt="Teal abstract flowing layers by Pawel Czerwinski on Unsplash">
+              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></figcaption>
+            </figure>
           </div>
-          <div class="handoff">The product boundary is the handoff: Dify sends a well-defined generation job; Radeon returns a measurable asset.</div>
         </div>
         <aside class="notes">
           Keep the responsibilities simple. Dify is the control plane: inputs, branching, loops, tools, UI, and API. Radeon is the compute plane: it runs the expensive generation or transformation and returns an asset plus evidence. This separation makes the workflow easier to debug and the AMD contribution easier to demonstrate.
@@ -333,49 +343,34 @@ docker compose up -d</code></pre>
         </aside>
       </section>
 
-      <!-- 10 · Submission -->
+      <!-- 10 · Registration -->
       <section data-background-color="#fbfcff">
         <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-file-list-3-line"></i> Official submission checklist</div>
-              <h2>Package the project<br>so judges can reproduce it.</h2>
-            </div>
-            <span class="track-chip">English materials required</span>
-          </div>
-          <div class="submission-grid">
-            <div class="checklist">
-              <div class="check-item"><div class="check-icon"><i class="ri-file-pdf-2-line"></i></div><div><strong>Project profile PDF</strong><small>Background · users · scenarios · architecture · model · Radeon/ROCm adaptation</small></div><span>REQUIRED</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-github-line"></i></div><div><strong>Complete source repository</strong><small>README with environment, startup guide, and dependencies</small></div><span>REQUIRED</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-video-line"></i></div><div><strong>Demo video</strong><small>3–5 minutes · operation flow · Radeon execution · final result</small></div><span>REQUIRED</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-slideshow-line"></i></div><div><strong>Supplementary material</strong><small>Choose one: PPT or poster highlighting scenario and practical value</small></div><span>CHOOSE 1</span></div>
-            </div>
-            <div class="deadline-card">
-              <div>
-                <h3>Final deadline</h3>
-                <div class="deadline-day">AUG 06<br>2026</div>
-                <p class="deadline-zone">23:59 · UTC+8<br>Beijing / Singapore</p>
+          <div class="registration-grid">
+            <div class="registration-copy">
+              <div class="eyebrow red"><i class="ri-rocket-2-line"></i> Your turn to build</div>
+              <h2>Ready to turn your prompt into a product?</h2>
+              <p class="section-lead">Scan to register for the AMD AI DevMaster Hackathon, choose Track 1, and build a multimodal experience with Dify.</p>
+              <div class="registration-meta">
+                <div><strong>TRACK 1</strong>Multimodal AI Creation</div>
+                <div><strong>FORMAT</strong>Online · Individual or team</div>
               </div>
-              <div class="pr-format">PR title:<br>Track 1, Team name,<br>Application name</div>
+            </div>
+            <div class="registration-visual">
+              <figure class="atmos-photo">
+                <img src="../agent-plugin-governance/assets/atmos-rainbow-sean-sinclair.jpg" alt="Soft rainbow light leak by Sean Sinclair on Unsplash">
+                <figcaption class="photo-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></figcaption>
+              </figure>
+              <div class="qr-card">
+                <img src="assets/registration-qr.png" alt="Registration QR code for AMD AI DevMaster Hackathon">
+                <div class="qr-label"><span>SCAN TO REGISTER</span><i class="ri-arrow-right-up-line"></i></div>
+              </div>
             </div>
           </div>
-          <div class="source">Sources: <a href="https://github.com/AMD-DEV-CONTEST/Radeon-hackathon-2026-07/blob/main/README.md" target="_blank">AMD Track 1 submission README</a> · <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">event schedule</a></div>
+          <div class="source">Registration: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon · Luma</a></div>
         </div>
         <aside class="notes">
-          The final package must be in English. Track 1 asks for a project profile PDF, complete source with a reproducible README, and a three-to-five-minute demo video that shows actual Radeon execution. Add either this deck or a poster as the supplementary item. The current event deadline is August sixth at 11:59 PM in UTC plus eight.
-        </aside>
-      </section>
-
-      <!-- 11 · Closing -->
-      <section data-background-color="#0033ff" data-state="dark-slide">
-        <div class="closing-shell">
-          <div class="eyebrow" style="color:rgba(255,255,255,.72);"><i class="ri-rocket-2-line"></i> Track 1 · Multimodal AI Creation</div>
-          <h2>Build the workflow.<br>Prove it on <span style="color:#ff7a7f;">Radeon.</span><br>Ship the demo.</h2>
-          <p>From prompt to multimodal product—in one visible, measurable loop.</p>
-          <div class="closing-actions"><span>dify.ai</span><span>github.com/langgenius/dify</span><span>banana@dify.ai</span></div>
-        </div>
-        <aside class="notes">
-          Build the workflow, prove the GPU path, and ship the demo. When your project screenshots are ready, we will replace the three reference images and add the measured results. Thank you—and I cannot wait to see what you build.
+          Now it is your turn. Scan the QR code, register for the AMD AI DevMaster Hackathon, and choose Track 1. Start with a real creation problem, make the workflow legible, and make the Radeon execution measurable. I cannot wait to see what you build.
         </aside>
       </section>
 
