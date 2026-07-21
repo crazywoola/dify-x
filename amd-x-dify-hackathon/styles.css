@@ -78,6 +78,12 @@ body {
   font-weight: 750;
 }
 
+.nordic-logo-img {
+  width: auto;
+  height: 32px !important;
+  filter: drop-shadow(0 0 12px rgba(85, 112, 255, 0.56));
+}
+
 .slide-shell {
   width: 1150px;
   height: 620px;
@@ -983,7 +989,23 @@ body.dark-slide .lang-switch a.active { color: #fff; }
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
-.nordic-logo-text { color: #fff !important; }
+.nordic-logo {
+  gap: 12px !important;
+  padding: 10px 18px !important;
+  border-color: rgba(143, 160, 255, 0.48) !important;
+  background: rgba(5, 9, 20, 0.78) !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.nordic-logo-text {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.76) !important;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.015em;
+}
 .lang-switch a { color: rgba(255, 255, 255, 0.68) !important; }
 .lang-switch a.active { color: #fff !important; background: var(--dify-blue) !important; }
 .reveal .slide-number { color: rgba(255, 255, 255, 0.64); }
