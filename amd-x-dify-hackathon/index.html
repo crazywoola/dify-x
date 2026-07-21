@@ -33,18 +33,25 @@
       <!-- 01 · 封面 -->
       <section data-background-color="#fbfcff">
         <div class="slide-shell">
-          <div class="cover-mark" aria-hidden="true"></div>
-          <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
-          <h1 class="deck-title">从 Prompt 到<br>多模态产品</h1>
-          <p class="deck-subtitle">用 Dify 构建，用 AMD Radeon 加速。</p>
-          <div class="dual-rule"></div>
-          <div class="speaker">
-            <strong>crazywoola（Banana）</strong><br>
-            Developer Relations @ Dify · banana@dify.ai
+          <div class="cover-layout">
+            <div class="cover-copy">
+              <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
+              <h1 class="deck-title">从 Prompt 到<br>多模态产品</h1>
+              <p class="deck-subtitle">用 Dify 把创意编排成产品，用 AMD Radeon 把生成跑起来。</p>
+              <div class="dual-rule"></div>
+              <div class="speaker">
+                <strong>crazywoola（Banana）</strong><br>
+                Developer Relations @ Dify · banana@dify.ai
+              </div>
+            </div>
+            <figure class="atmos-photo cover-photo">
+              <img src="assets/atmos-silk-ruido98.jpg" alt="Ruido 98 拍摄的蓝橙抽象光影，来自 Unsplash">
+              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></figcaption>
+            </figure>
           </div>
         </div>
         <aside class="notes">
-          今天只聚焦一个结果：把一个 Prompt 变成完整、可演示的多模态产品。Dify 提供可视化控制平面，AMD Radeon 提供可以测量和证明的算力路径。接下来十二分钟，我会讲清构建模式、Dify 本地启动，以及评委真正需要看到的证据。
+          今天只讲一件事：怎么把一个 Prompt 变成完整、能现场演示的多模态产品。Dify 用来串流程，AMD Radeon 用来跑生成。接下来十来分钟，我们会看清整体架构、Dify 的本地启动方式，以及 Demo 里哪些证据最有说服力。
         </aside>
       </section>
 
@@ -53,9 +60,9 @@
         <div class="slide-shell">
           <div class="section-head">
             <div>
-              <div class="eyebrow"><i class="ri-focus-3-line"></i> 赛题重点</div>
-              <h2>Track 1 要的是产品，<br>不是彼此割裂的模型演示。</h2>
-              <p class="section-lead">把多种模态组合成真正有用的创作体验，并展示它在 AMD Radeon 上实际运行。</p>
+              <div class="eyebrow"><i class="ri-focus-3-line"></i> 先看评分</div>
+              <h2>Track 1 看的是完整体验，<br>不是一次模型调用。</h2>
+              <p class="section-lead">把文本、图像、音频和视频串成一条真能用的创作流程，再让评委看见它如何在 Radeon 上跑起来。</p>
             </div>
             <span class="time-chip"><i class="ri-time-line"></i> 01:00</span>
           </div>
@@ -64,7 +71,7 @@
               <div class="score-number">80</div>
               <div>
                 <div class="score-label">功能完整性 · 实用价值 · 创新性</div>
-                <p class="score-copy">真实用户能否端到端完成一件有意义的工作？</p>
+                <p class="score-copy">用户能不能从输入一路走到可用结果？</p>
                 <div class="modality-row">
                   <div class="modality"><i class="ri-text"></i> 文本</div>
                   <div class="modality"><i class="ri-image-line"></i> 图像</div>
@@ -77,14 +84,14 @@
               <div class="score-number">20</div>
               <div>
                 <div class="score-label">实际运行表现</div>
-                <p class="score-copy">清晰、稳定、可重复地展示 AMD Radeon GPU 上的真实执行过程。</p>
+                <p class="score-copy">把 Radeon 上的实际运行过程讲清楚、跑稳定、可复现。</p>
               </div>
             </div>
           </div>
           <div class="source">来源：<a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon 活动页</a></div>
         </div>
         <aside class="notes">
-          评分比例决定了我们的时间怎么花。八十分看产品：完整性、实用价值和创新；二十分看 Radeon 上的运行表现。所以先从用户结果出发，而不是从 Benchmark 出发。然后把 AMD 的执行过程变成产品故事中可见的证据。
+          这个评分比例很直接：八十分看产品本身，二十分看 Radeon 上跑得怎么样。所以别一上来就讲 Benchmark，先回答用户到底能完成什么，再把 AMD 的执行过程放进 Demo，让评委看得到、也能判断。
         </aside>
       </section>
 
@@ -93,37 +100,40 @@
         <div class="slide-shell">
           <div class="section-head">
             <div>
-              <div class="eyebrow"><i class="ri-layout-masonry-line"></i> 一个系统，两类职责</div>
-              <h2>用 Dify 编排，<br>用 Radeon 生成和加速。</h2>
+              <div class="eyebrow"><i class="ri-layout-masonry-line"></i> 怎么分工</div>
+              <h2>Dify 管流程，<br>Radeon 管计算。</h2>
             </div>
             <span class="track-chip">Dify × AMD</span>
           </div>
-          <div class="split-roles">
-            <div class="role-card">
-              <span class="role-tag">控制平面</span>
-              <h3 class="role-title">Dify Workflow</h3>
-              <ul class="role-list">
-                <li><i class="ri-check-line"></i><span>接收文本、图像、音频、视频和参数</span></li>
-                <li><i class="ri-check-line"></i><span>完成分支、迭代、校验和失败恢复</span></li>
-                <li><i class="ri-check-line"></i><span>通过模型、工具或 HTTP 节点连接外部服务</span></li>
-                <li><i class="ri-check-line"></i><span>直接提供 UI 与 API，无需重写编排代码</span></li>
-              </ul>
+          <div class="role-editorial">
+            <div class="role-stack">
+              <div class="role-card">
+                <span class="role-tag">流程控制</span>
+                <h3 class="role-title">Dify Workflow</h3>
+                <ul class="role-list">
+                  <li><i class="ri-check-line"></i><span>接住不同类型的输入和参数</span></li>
+                  <li><i class="ri-check-line"></i><span>负责分流、循环、检查和重试</span></li>
+                  <li><i class="ri-check-line"></i><span>通过 Tool 或 HTTP 接上模型服务</span></li>
+                </ul>
+              </div>
+              <div class="role-card amd">
+                <span class="role-tag">GPU 计算</span>
+                <h3 class="role-title">AMD Radeon + ROCm</h3>
+                <ul class="role-list">
+                  <li><i class="ri-check-line"></i><span>真正执行生成和媒体处理任务</span></li>
+                  <li><i class="ri-check-line"></i><span>让运行过程在 Demo 里看得见</span></li>
+                  <li><i class="ri-check-line"></i><span>返回结果，也返回可测量的数据</span></li>
+                </ul>
+              </div>
             </div>
-            <div class="role-card amd">
-              <span class="role-tag">计算平面</span>
-              <h3 class="role-title">AMD Radeon + ROCm</h3>
-              <ul class="role-list">
-                <li><i class="ri-check-line"></i><span>执行生成或媒体转换工作负载</span></li>
-                <li><i class="ri-check-line"></i><span>让执行路径在 Demo 中清晰可见</span></li>
-                <li><i class="ri-check-line"></i><span>测量延迟、显存、稳定性与吞吐</span></li>
-                <li><i class="ri-check-line"></i><span>把媒体资产和元数据返回 Workflow</span></li>
-              </ul>
-            </div>
+            <figure class="atmos-photo role-photo">
+              <img src="assets/atmos-teal-pawel-czerwinski.jpg" alt="Pawel Czerwinski 拍摄的青色抽象层叠，来自 Unsplash">
+              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></figcaption>
+            </figure>
           </div>
-          <div class="handoff">产品边界就在交接点：Dify 发送定义清晰的生成任务，Radeon 返回可测量的媒体资产。</div>
         </div>
         <aside class="notes">
-          把职责保持简单。Dify 是控制平面：输入、分支、循环、工具、UI 和 API。Radeon 是计算平面：运行成本高的生成或转换任务，并返回资产和证据。这样分层既便于调试，也能让 AMD 的贡献在演示中一眼可见。
+          分工越清楚，Demo 越好讲。Dify 负责输入、分支、循环和工具调用；Radeon 负责真正吃算力的生成任务。这样一来，哪里出了问题更容易查，AMD 在项目里做了什么也能一眼看明白。
         </aside>
       </section>
 
@@ -133,36 +143,36 @@
           <div class="section-head">
             <div>
               <div class="eyebrow red"><i class="ri-node-tree"></i> 参考架构</div>
-              <h2>让每一次交接都清晰可见。</h2>
-              <p class="section-lead">Workflow 负责状态与决策，Radeon 服务负责 GPU 工作负载。</p>
+              <h2>把输入、执行和结果<br>串成一条看得懂的链路。</h2>
+              <p class="section-lead">Dify 负责记住状态、做判断；Radeon 后端专心完成 GPU 任务。</p>
             </div>
             <span class="time-chip"><i class="ri-git-branch-line"></i> End to end</span>
           </div>
           <div class="arch-flow">
             <div class="arch-node">
               <div class="arch-icon"><i class="ri-upload-cloud-2-line"></i></div>
-              <div><h3>多模态输入</h3><p>Prompt、参考素材、风格、格式与约束</p></div>
+              <div><h3>用户输入</h3><p>Prompt、参考素材、风格、格式和限制条件</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node control">
               <div class="arch-icon"><i class="ri-flow-chart"></i></div>
-              <div><h3>Dify Workflow</h3><p>预处理 · 路由 · 调用工具 · 检查 · 重试</p></div>
+              <div><h3>Dify Workflow</h3><p>整理输入 · 分流 · 调用 · 检查 · 重试</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node compute">
               <div class="arch-icon"><i class="ri-cpu-line"></i></div>
-              <div><h3>Radeon 生成服务</h3><p>由 ROCm 加速的模型推理或媒体处理</p></div>
+              <div><h3>Radeon 生成服务</h3><p>在 ROCm 上完成模型推理或媒体处理</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node output">
               <div class="arch-icon"><i class="ri-gallery-line"></i></div>
-              <div><h3>产品输出</h3><p>媒体资产、元数据、预览、下载与执行证据</p></div>
+              <div><h3>用户拿到的结果</h3><p>文件、预览、下载地址和运行数据</p></div>
             </div>
           </div>
-          <div class="transport-note">连接方式：Tool 节点 · HTTP Request · 支持时使用 OpenAI-compatible API</div>
+          <div class="transport-note">常见接法：Tool 节点 · HTTP Request · OpenAI-compatible API</div>
         </div>
         <aside class="notes">
-          这是一套可以复用的架构。输入进入 Dify，由 Workflow 标准化并决定下一步。工具或 HTTP 请求把边界清晰的任务发送给 Radeon 后端。结果以文件或 URL 加元数据的形式返回。不要隐藏这条边界，请把请求、执行和返回资产都展示出来。
+          这条链路可以反复复用。输入先进入 Dify，Workflow 整理好参数并决定下一步；Tool 或 HTTP 节点把任务交给 Radeon 后端；结果再以文件、URL 和运行数据的形式回来。Demo 时把这三段都露出来，评委就能看懂系统到底怎么跑。
         </aside>
       </section>
 
@@ -172,7 +182,7 @@
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-docker-line"></i> Dify 社区版</div>
-              <h2>使用 Docker Compose<br>启动控制平面。</h2>
+              <h2>四条命令，<br>启动 Dify 社区版。</h2>
             </div>
             <span class="time-chip"><i class="ri-terminal-box-line"></i> Quick start</span>
           </div>
@@ -201,7 +211,7 @@ docker compose up -d</code></pre>
           <div class="source">来源：<a href="https://github.com/langgenius/dify/blob/main/README.md#quick-start" target="_blank">langgenius/dify README · Quick start</a></div>
         </div>
         <aside class="notes">
-          这套 Quick Start 对 Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并安装 Docker 与 Docker Compose。屏幕上的命令直接来自当前仓库 README。容器启动后，打开 localhost slash install 完成初始化。这里启动的是 Dify，Radeon 生成服务仍然作为独立端点被 Workflow 调用。
+          Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并提前装好 Docker 和 Docker Compose。屏幕上的四条命令直接来自仓库 README。容器启动后，打开 localhost/install 完成初始化。这里启动的是 Dify；Radeon 生成服务仍然是一个独立端点，由 Workflow 去调用。
         </aside>
       </section>
 
@@ -211,9 +221,9 @@ docker compose up -d</code></pre>
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-flow-chart"></i> 可视化编排</div>
-              <h2>Workflow 把多模态输入<br>变成可重复的产品路径。</h2>
+              <h2>把混合输入整理成<br>一条能反复运行的创作流程。</h2>
             </div>
-            <span class="track-chip">Dify 官方示例</span>
+            <span class="track-chip">Dify 文档示例</span>
           </div>
           <div class="shot-frame overview-shot">
             <img src="assets/dify-workflow-overview.png" alt="Dify 官方 Quick Start Workflow 全景">
@@ -227,7 +237,7 @@ docker compose up -d</code></pre>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
         </div>
         <aside class="notes">
-          这是 Dify 官方的多平台内容生成示例。具体用例不是我们最终的 Track 1 Demo，但机制完全可以复用：收集混合输入、做标准化、针对多个目标迭代、返回稳定输出。之后替换成项目截图时，也要保留这条从左到右、容易理解的产品故事。
+          这是 Dify 文档里的多平台内容生成示例。它和最终的 Track 1 项目不一定一样，但思路完全通用：先收集混合输入，再整理和分流，然后按目标循环生成，最后把结果稳定地交给用户。之后换成项目截图时，也尽量保留这条从左到右的阅读顺序。
         </aside>
       </section>
 
@@ -237,42 +247,42 @@ docker compose up -d</code></pre>
           <div class="section-head">
             <div>
               <div class="eyebrow red"><i class="ri-repeat-2-line"></i> Track 1 构建模式</div>
-              <h2>设计的是循环，<br>不只是第一次生成。</h2>
-              <p class="section-lead">优秀的创作体验会把质量检查与重新生成放进 Workflow。</p>
+              <h2>好用的多模态产品，<br>关键在于还能继续改。</h2>
+              <p class="section-lead">别把第一次生成当成终点，把检查、调整和再次生成都放进 Workflow。</p>
             </div>
             <span class="time-chip"><i class="ri-loop-right-line"></i> Build loop</span>
           </div>
           <div class="workflow-pattern">
             <div class="pattern-step">
               <div class="pattern-num">01</div>
-              <h3>收集意图</h3>
-              <p>Prompt、参考素材、目标格式、风格与约束</p>
+              <h3>先问清楚</h3>
+              <p>Prompt、参考素材、目标格式、风格和限制条件</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">02</div>
-              <h3>准备素材</h3>
-              <p>校验文件、标准化元数据并构造生成请求</p>
+              <h3>整理素材</h3>
+              <p>检查文件、统一参数，再组装生成请求</p>
             </div>
             <div class="pattern-step compute">
               <div class="pattern-num">03</div>
               <h3>在 Radeon 上生成</h3>
-              <p>调用 ROCm 工作负载并记录执行证据</p>
+              <p>调用 ROCm 后端，同时记录运行数据</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">04</div>
               <h3>检查质量</h3>
-              <p>检查成功状态、尺寸、安全、一致性和用户标准</p>
+              <p>看结果是否成功、清晰、一致，也符合用户预期</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">05</div>
               <h3>交付或重试</h3>
-              <p>返回资产，或修改参数后再次进入循环</p>
+              <p>结果满意就交付；不满意就改参数再跑一次</p>
             </div>
           </div>
-          <div class="loop-note">好的 Demo 会同时展示一次成功路径和一次受控迭代。</div>
+          <div class="loop-note">Demo 最好既跑一遍成功流程，也现场改一次。</div>
         </div>
         <aside class="notes">
-          一次生成调用只是功能，循环才是产品。收集足够的意图、准备请求、在 Radeon 上执行、检查结果，然后交付或重试。演示时最好同时展示成功路径和一次有目的的修改。这能证明 Workflow 提供的不只是一个模型 Playground。
+          调一次模型只是功能，能持续调整才像产品。先问清用户要什么，整理好素材，在 Radeon 上生成，再检查结果；满意就交付，不满意就回到流程里继续改。现场演示一次修改，比单纯展示成品更能说明 Workflow 的价值。
         </aside>
       </section>
 
@@ -282,10 +292,10 @@ docker compose up -d</code></pre>
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-slideshow-3-line"></i> Demo Storyboard</div>
-              <h2>三张截图讲完整个故事。</h2>
-              <p class="section-lead">全景 → 关键配置 → 可见结果。提交前用项目实际截图替换当前参考图。</p>
+              <h2>三张截图，<br>就能把 Demo 讲明白。</h2>
+              <p class="section-lead">先给全景，再看关键节点，最后落到用户拿到的结果。后续换成项目实拍图即可。</p>
             </div>
-            <span class="track-chip">适配 3–5 分钟视频</span>
+            <span class="track-chip">适合 3–5 分钟 Demo</span>
           </div>
           <div class="storyboard">
             <div class="story-card">
@@ -301,11 +311,11 @@ docker compose up -d</code></pre>
               <div class="story-meta"><strong>3 · 最终结果</strong><span>WHAT USERS GET</span></div>
             </div>
           </div>
-          <p class="replace-note">当前图片：Dify 官方 Quick Start · 最终图片：你的 Workflow 全景、Radeon 生成节点和多模态输出</p>
+          <p class="replace-note">当前使用 Dify 文档示例图；后续替换为你的 Workflow 全景、Radeon 生成节点和最终输出。</p>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
         </div>
         <aside class="notes">
-          这三个画面也可以直接构成提交视频的骨架。首先展示完整 Workflow，让整体架构可读；然后放大把工作发送给 Radeon 的节点，展示输入；最后展示返回的媒体结果和运行证据。当前是官方参考图，后面只替换图片，不需要重写叙事。
+          这三张图也可以直接当作 Demo 的讲述顺序。先让大家看到完整 Workflow，再放大负责调用 Radeon 的关键节点，最后展示用户真正拿到的结果和运行数据。之后只需要替换图片，整段讲法不用重写。
         </aside>
       </section>
 
@@ -314,68 +324,53 @@ docker compose up -d</code></pre>
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
-              <div class="eyebrow red"><i class="ri-speed-up-line"></i> 面向评委的证据</div>
-              <h2>既测量用户感受到的，<br>也证明 GPU 实际完成的。</h2>
+              <div class="eyebrow red"><i class="ri-speed-up-line"></i> 评委想看的证据</div>
+              <h2>别只报一个速度数字，<br>让数据和结果互相印证。</h2>
             </div>
-            <span class="time-chip"><i class="ri-bar-chart-box-line"></i> 拒绝虚荣指标</span>
+            <span class="time-chip"><i class="ri-bar-chart-box-line"></i> 数字要有上下文</span>
           </div>
           <div class="metric-grid">
-            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>延迟</h3><p>从 Workflow 发出请求到首个与最终可用结果的时间</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU 显存</h3><p>明确模型、分辨率和 Batch 设置下的峰值 VRAM</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-shield-check-line"></i></div><h3>稳定性</h3><p>多次运行成功率，以及失败时是否能干净恢复</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-gallery-upload-line"></i></div><h3>输出质量</h3><p>分辨率、保真度、一致性与场景特定标准</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>多样性</h3><p>在保持 Prompt 与风格一致的同时产生多种可用结果</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>延迟</h3><p>从发出请求，到看到首个结果和完整结果，各用了多久</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU 显存</h3><p>在明确的模型、分辨率和 Batch 设置下记录峰值 VRAM</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-shield-check-line"></i></div><h3>稳定性</h3><p>连续跑几次成功了多少次，失败后能不能顺利恢复</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-gallery-upload-line"></i></div><h3>输出质量</h3><p>结果是否清晰、稳定，和输入素材、用户要求是否一致</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>多样性</h3><p>能不能生成不同但都可用的结果，又不跑偏主题和风格</p></div>
           </div>
-          <div class="evidence-line"><span><strong>一起记录：</strong>环境 + 参数 + 测量值 + 输出结果</span><span>永远不要脱离上下文展示一个数字。</span></div>
+          <div class="evidence-line"><span><strong>放在一起：</strong>运行环境 + 参数 + 测量值 + 输出结果</span><span>数字离开上下文，就没有说服力。</span></div>
         </div>
         <aside class="notes">
-          我们不会虚构 Benchmark 数字，而是记录一组规模小但可信的证据：延迟、峰值显存、重复运行稳定性、输出质量和有效多样性。每个数字旁边都要标注环境和参数。这样，运行表现才是评委能够信任和复现的证据。
+          不需要堆很多 Benchmark，挑一组小而可信的数据就够了：延迟、峰值显存、连续运行是否稳定、结果质量和多样性。每个数字旁边都写清环境和参数，评委才知道这个结果是怎么来的，也更容易复现。
         </aside>
       </section>
 
-      <!-- 10 · 提交 -->
+      <!-- 10 · 报名 -->
       <section data-background-color="#fbfcff">
         <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-file-list-3-line"></i> 官方提交清单</div>
-              <h2>把项目打包成<br>评委可以复现的形式。</h2>
-            </div>
-            <span class="track-chip">提交材料必须使用英文</span>
-          </div>
-          <div class="submission-grid">
-            <div class="checklist">
-              <div class="check-item"><div class="check-icon"><i class="ri-file-pdf-2-line"></i></div><div><strong>项目介绍 PDF</strong><small>背景 · 用户 · 场景 · 架构 · 模型 · Radeon/ROCm 适配</small></div><span>必需</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-github-line"></i></div><div><strong>完整源码仓库</strong><small>README 包含环境配置、启动说明和依赖列表</small></div><span>必需</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-video-line"></i></div><div><strong>Demo 视频</strong><small>3–5 分钟 · 操作流程 · Radeon 执行 · 最终结果</small></div><span>必需</span></div>
-              <div class="check-item"><div class="check-icon"><i class="ri-slideshow-line"></i></div><div><strong>补充材料</strong><small>PPT 或海报二选一，突出场景创意与工具实用价值</small></div><span>二选一</span></div>
-            </div>
-            <div class="deadline-card">
-              <div>
-                <h3>最终截止时间</h3>
-                <div class="deadline-day">AUG 06<br>2026</div>
-                <p class="deadline-zone">23:59 · UTC+8<br>北京 / 新加坡</p>
+          <div class="registration-grid">
+            <div class="registration-copy">
+              <div class="eyebrow red"><i class="ri-rocket-2-line"></i> 接下来，轮到你来做</div>
+              <h2>准备好把一个 Prompt 做成产品了吗？</h2>
+              <p class="section-lead">扫码报名 AMD AI DevMaster Hackathon，选择 Track 1，用 Dify 开始搭建你的多模态创作体验。</p>
+              <div class="registration-meta">
+                <div><strong>TRACK 1</strong>Multimodal AI Creation</div>
+                <div><strong>参与方式</strong>线上 · 个人或组队</div>
               </div>
-              <div class="pr-format">PR 标题：<br>Track 1, Team name,<br>Application name</div>
+            </div>
+            <div class="registration-visual">
+              <figure class="atmos-photo">
+                <img src="assets/atmos-rainbow-sean-sinclair.jpg" alt="Sean Sinclair 拍摄的柔和彩色光影，来自 Unsplash">
+                <figcaption class="photo-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></figcaption>
+              </figure>
+              <a class="qr-card" href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank" rel="noopener" aria-label="打开 AMD AI DevMaster Hackathon 报名页面">
+                <img src="assets/registration-qr.png" alt="AMD AI DevMaster Hackathon 报名二维码">
+                <div class="qr-label"><span>扫码报名</span><i class="ri-arrow-right-up-line"></i></div>
+              </a>
             </div>
           </div>
-          <div class="source">来源：<a href="https://github.com/AMD-DEV-CONTEST/Radeon-hackathon-2026-07/blob/main/README.md" target="_blank">AMD Track 1 提交 README</a> · <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">活动日程</a></div>
+          <div class="source">报名入口：<a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon · Luma</a></div>
         </div>
         <aside class="notes">
-          最终材料必须使用英文。Track 1 需要项目介绍 PDF、包含可复现 README 的完整源码，以及三到五分钟的 Demo 视频，展示 Radeon 上的实际执行。补充材料可以提交这套 Slides 或海报。当前活动截止时间是八月六日晚上十一点五十九分，时区为 UTC 加八。
-        </aside>
-      </section>
-
-      <!-- 11 · 结尾 -->
-      <section data-background-color="#0033ff" data-state="dark-slide">
-        <div class="closing-shell">
-          <div class="eyebrow" style="color:rgba(255,255,255,.72);"><i class="ri-rocket-2-line"></i> Track 1 · Multimodal AI Creation</div>
-          <h2>构建 Workflow。<br>在 <span style="color:#ff7a7f;">Radeon</span> 上证明它。<br>交付 Demo。</h2>
-          <p>从 Prompt 到多模态产品——形成一条可见、可测量的完整循环。</p>
-          <div class="closing-actions"><span>dify.ai</span><span>github.com/langgenius/dify</span><span>banana@dify.ai</span></div>
-        </div>
-        <aside class="notes">
-          构建 Workflow，证明 GPU 路径，然后交付 Demo。等你的项目截图准备好以后，我们会替换三张参考图，并加入真实测量结果。谢谢，也期待看到大家构建的多模态产品。
+          接下来就轮到大家动手了。扫码报名 AMD AI DevMaster Hackathon，选择 Track 1。先找一个真实的创作问题，把 Workflow 画清楚，再把 Radeon 的运行过程和结果展示出来。期待看到你们做出来的多模态产品。
         </aside>
       </section>
 
