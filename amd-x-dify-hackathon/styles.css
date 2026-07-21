@@ -19,11 +19,13 @@ body {
     radial-gradient(circle at 6% 92%, rgba(0, 51, 255, 0.06), transparent 22%),
     var(--paper);
   background-size: 48px 48px, 48px 48px, auto, auto, auto;
+  font-family: var(--font-sans);
 }
 
 .reveal {
   color: var(--ink);
   font-size: 28px;
+  font-family: var(--font-sans);
 }
 
 .reveal .slides {
@@ -106,7 +108,7 @@ body {
   gap: 9px;
   margin-bottom: 16px;
   color: var(--dify-blue);
-  font: 700 13px/1 "JetBrains Mono", monospace;
+  font: 700 13px/1 var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -203,7 +205,7 @@ html[lang="zh-CN"] .eyebrow {
   bottom: 10px;
   z-index: 2;
   color: rgba(255, 255, 255, 0.82);
-  font: 600 9px/1.25 "JetBrains Mono", monospace;
+  font: 600 9px/1.25 var(--font-mono);
   letter-spacing: 0.03em;
 }
 
@@ -232,7 +234,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.84);
   color: var(--muted);
-  font: 700 12px/1 "JetBrains Mono", monospace;
+  font: 700 12px/1 var(--font-mono);
   white-space: nowrap;
 }
 
@@ -379,7 +381,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 999px;
   background: var(--dify-blue-soft);
   color: var(--dify-blue);
-  font: 700 12px/1 "JetBrains Mono", monospace;
+  font: 700 12px/1 var(--font-mono);
 }
 
 .role-card.amd .role-tag {
@@ -484,7 +486,7 @@ html[lang="zh-CN"] .eyebrow {
   justify-content: center;
   margin-top: 22px;
   color: var(--muted);
-  font: 600 12px/1.4 "JetBrains Mono", monospace;
+  font: 600 12px/1.4 var(--font-mono);
 }
 
 .quick-grid {
@@ -534,7 +536,7 @@ html[lang="zh-CN"] .eyebrow {
   padding: 13px 18px;
   border-bottom: 1px solid #2a303d;
   color: #9aa4b5;
-  font: 600 12px/1 "JetBrains Mono", monospace;
+  font: 600 12px/1 var(--font-mono);
 }
 
 .code-dots { color: #ff6b6b; letter-spacing: 4px; }
@@ -562,7 +564,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 12px;
   background: var(--dify-blue-soft);
   color: var(--dify-blue);
-  font: 700 13px/1.35 "JetBrains Mono", monospace;
+  font: 700 13px/1.35 var(--font-mono);
 }
 
 .shot-frame {
@@ -602,7 +604,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .callout-card span {
   color: var(--dify-blue);
-  font: 700 11px/1 "JetBrains Mono", monospace;
+  font: 700 11px/1 var(--font-mono);
 }
 
 .callout-card p {
@@ -642,7 +644,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .pattern-num {
   color: var(--dify-blue);
-  font: 800 12px/1 "JetBrains Mono", monospace;
+  font: 800 12px/1 var(--font-mono);
 }
 
 .pattern-step.compute .pattern-num { color: var(--amd-red); }
@@ -709,7 +711,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .story-meta span {
   color: var(--muted);
-  font: 600 10px/1.3 "JetBrains Mono", monospace;
+  font: 600 10px/1.3 var(--font-mono);
 }
 
 .replace-note {
@@ -820,7 +822,7 @@ html[lang="zh-CN"] .eyebrow {
   display: block;
   margin-bottom: 5px;
   color: var(--ink);
-  font: 700 11px/1.2 "JetBrains Mono", monospace;
+  font: 700 11px/1.2 var(--font-mono);
 }
 
 .registration-visual {
@@ -834,7 +836,8 @@ html[lang="zh-CN"] .eyebrow {
   height: 100%;
 }
 
-.qr-card {
+.registration-visual > .qr-card {
+  display: block;
   position: absolute;
   left: 26px;
   bottom: 24px;
@@ -845,6 +848,8 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+  color: var(--ink);
+  text-decoration: none;
 }
 
 .qr-card img {
@@ -861,7 +866,7 @@ html[lang="zh-CN"] .eyebrow {
   gap: 8px;
   margin-top: 8px;
   color: var(--ink);
-  font: 700 10px/1.3 "JetBrains Mono", monospace;
+  font: 700 10px/1.3 var(--font-mono);
 }
 
 .qr-label i { color: var(--amd-red); }
@@ -871,7 +876,7 @@ html[lang="zh-CN"] .eyebrow {
   left: 0;
   bottom: 0;
   color: #8b95a7;
-  font: 500 9px/1.35 "JetBrains Mono", monospace;
+  font: 500 9px/1.35 var(--font-mono);
 }
 
 .source a {
