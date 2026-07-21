@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>从 Prompt 到多模态产品 — Dify × AMD</title>
+  <title>From Prompt to Private Agent — Dify × AMD</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
   </div>
   <div class="nordic-logo">
     <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
-    <span class="nordic-logo-text">Dify × AMD · Track 1</span>
+    <span class="nordic-logo-text">Dify × AMD · Track 2</span>
   </div>
 
   <div class="reveal">
@@ -35,9 +35,9 @@
         <div class="slide-shell">
           <div class="cover-layout">
             <div class="cover-copy">
-              <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 1</div>
-              <h1 class="deck-title">从 Prompt 到<br>多模态产品</h1>
-              <p class="deck-subtitle">用 Dify 把创意编排成产品，用 AMD Radeon 把生成跑起来。</p>
+              <div class="eyebrow red"><i class="ri-flashlight-line"></i> AMD AI DevMaster Hackathon · Track 2</div>
+              <h1 class="deck-title">From Prompt to<br>Private Agent</h1>
+              <p class="deck-subtitle">用 Dify 编排智能体，用 AMD Radeon 在本地完成推理。</p>
               <div class="dual-rule"></div>
               <div class="speaker">
                 <strong>crazywoola（Banana）</strong><br>
@@ -48,40 +48,40 @@
           <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
-          今天只讲一件事：怎么把一个 Prompt 变成完整、能现场演示的多模态产品。Dify 用来串流程，AMD Radeon 用来跑生成。接下来十来分钟，我们会看清整体架构、Dify 的本地启动方式，以及 Demo 里哪些证据最有说服力。
+          今天只讲一件事：怎么把一个 Prompt 变成完整、能现场演示的私有 Agent。Dify 用来编排推理、规划、工具与记忆，AMD Radeon 用来跑本地模型。接下来十来分钟，我们会看清整体架构、Dify 的本地启动方式，以及 Demo 里哪些证据最有说服力。
         </aside>
       </section>
 
-      <!-- 02 · Track 1 -->
+      <!-- 02 · Track 2 -->
       <section class="photo-slide grid-overlay score-slide photo-prism" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-focus-3-line"></i> 先看评分</div>
-              <h2>Track 1 看的是完整体验，<br>不是一次模型调用。</h2>
-              <p class="section-lead">把文本、图像、音频和视频串成一条真能用的创作流程，再让评委看见它如何在 Radeon 上跑起来。</p>
+              <h2>Track 2 看的是完整 Agent，<br>不是一段聊天回答。</h2>
+              <p class="section-lead">让 Agent 能推理、规划、调用工具、管理记忆并完成真实任务，再证明它在 Radeon 上本地运行。</p>
             </div>
             <span class="time-chip"><i class="ri-time-line"></i> 01:00</span>
           </div>
           <div class="score-grid">
             <div class="score-card primary">
-              <div class="score-number">80</div>
+              <div class="score-number">60</div>
               <div>
-                <div class="score-label">功能完整性 · 实用价值 · 创新性</div>
-                <p class="score-copy">用户能不能从输入一路走到可用结果？</p>
+                <div class="score-label">功能完整性 · 应用价值</div>
+                <p class="score-copy">Agent 能不能从目标出发，把一件真实任务做完？</p>
                 <div class="modality-row">
-                  <div class="modality"><i class="ri-text"></i> 文本</div>
-                  <div class="modality"><i class="ri-image-line"></i> 图像</div>
-                  <div class="modality"><i class="ri-movie-line"></i> 视频</div>
-                  <div class="modality"><i class="ri-volume-up-line"></i> 音频</div>
+                  <div class="modality"><i class="ri-lightbulb-flash-line"></i> 推理</div>
+                  <div class="modality"><i class="ri-route-line"></i> 规划</div>
+                  <div class="modality"><i class="ri-hammer-line"></i> 工具</div>
+                  <div class="modality"><i class="ri-database-2-line"></i> 记忆</div>
                 </div>
               </div>
             </div>
             <div class="score-card accel">
-              <div class="score-number">20</div>
+              <div class="score-number">40</div>
               <div>
-                <div class="score-label">实际运行表现</div>
-                <p class="score-copy">把 Radeon 上的实际运行过程讲清楚、跑稳定、可复现。</p>
+                <div class="score-label">AMD Radeon 与 ROCm 优化</div>
+                <p class="score-copy">本地推理不仅要跑得动，也要说明速度如何被优化。</p>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
           <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
-          这个评分比例很直接：八十分看产品本身，二十分看 Radeon 上跑得怎么样。所以别一上来就讲 Benchmark，先回答用户到底能完成什么，再把 AMD 的执行过程放进 Demo，让评委看得到、也能判断。
+          Track 2 的评分重心很明确：六十分看 Agent 的完整性与应用价值，四十分看 Radeon 和 ROCm 上的本地推理与速度优化。先回答 Agent 能替用户完成什么，再把本地执行路径、优化方式和测量结果放进 Demo。
         </aside>
       </section>
 
@@ -99,7 +99,7 @@
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-layout-masonry-line"></i> 怎么分工</div>
-              <h2>Dify 管流程，<br>Radeon 管计算。</h2>
+              <h2>Dify 管 Agent，<br>Radeon 管本地推理。</h2>
             </div>
             <span class="track-chip">Dify × AMD</span>
           </div>
@@ -109,18 +109,18 @@
                 <span class="role-tag">流程控制</span>
                 <h3 class="role-title">Dify Workflow</h3>
                 <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>接住不同类型的输入和参数</span></li>
-                  <li><i class="ri-check-line"></i><span>负责分流、循环、检查和重试</span></li>
-                  <li><i class="ri-check-line"></i><span>通过 Tool 或 HTTP 接上模型服务</span></li>
+                  <li><i class="ri-check-line"></i><span>接住用户目标、私有上下文与权限</span></li>
+                  <li><i class="ri-check-line"></i><span>负责任务规划、分流、验证和恢复</span></li>
+                  <li><i class="ri-check-line"></i><span>连接知识库、工具与本地模型服务</span></li>
                 </ul>
               </div>
               <div class="role-card amd">
                 <span class="role-tag">GPU 计算</span>
                 <h3 class="role-title">AMD Radeon + ROCm</h3>
                 <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>真正执行生成和媒体处理任务</span></li>
-                  <li><i class="ri-check-line"></i><span>让运行过程在 Demo 里看得见</span></li>
-                  <li><i class="ri-check-line"></i><span>返回结果，也返回可测量的数据</span></li>
+                  <li><i class="ri-check-line"></i><span>真正执行本地大模型推理</span></li>
+                  <li><i class="ri-check-line"></i><span>让敏感上下文留在受控环境</span></li>
+                  <li><i class="ri-check-line"></i><span>返回模型结果与可测量的运行数据</span></li>
                 </ul>
               </div>
             </div>
@@ -128,7 +128,7 @@
           <div class="bg-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></div>
         </div>
         <aside class="notes">
-          分工越清楚，Demo 越好讲。Dify 负责输入、分支、循环和工具调用；Radeon 负责真正吃算力的生成任务。这样一来，哪里出了问题更容易查，AMD 在项目里做了什么也能一眼看明白。
+          分工越清楚，Demo 越好讲。Dify 负责目标、上下文、规划、知识检索和工具调用；Radeon 负责真正吃算力的本地推理。这样既能追踪 Agent 的决策过程，也能让 AMD 在项目中的作用一眼看明白。
         </aside>
       </section>
 
@@ -139,36 +139,36 @@
             <div>
               <div class="eyebrow red"><i class="ri-node-tree"></i> 参考架构</div>
               <h2>把输入、执行和结果<br>串成一条看得懂的链路。</h2>
-              <p class="section-lead">Dify 负责记住状态、做判断；Radeon 后端专心完成 GPU 任务。</p>
+              <p class="section-lead">Dify 负责上下文、记忆和决策；Radeon 后端专心完成本地模型推理。</p>
             </div>
             <span class="time-chip"><i class="ri-git-branch-line"></i> End to end</span>
           </div>
           <div class="arch-flow">
             <div class="arch-node">
               <div class="arch-icon"><i class="ri-upload-cloud-2-line"></i></div>
-              <div><h3>用户输入</h3><p>Prompt、参考素材、风格、格式和限制条件</p></div>
+              <div><h3>用户任务</h3><p>目标、私有数据、权限和完成条件</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node control">
               <div class="arch-icon"><i class="ri-flow-chart"></i></div>
-              <div><h3>Dify Workflow</h3><p>整理输入 · 分流 · 调用 · 检查 · 重试</p></div>
+              <div><h3>Dify Agent / Workflow</h3><p>理解 · 规划 · 检索 · 调工具 · 验证</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node compute">
               <div class="arch-icon"><i class="ri-cpu-line"></i></div>
-              <div><h3>Radeon 生成服务</h3><p>在 ROCm 上完成模型推理或媒体处理</p></div>
+              <div><h3>Radeon 本地推理</h3><p>在 ROCm 上执行模型，并保留运行证据</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node output">
               <div class="arch-icon"><i class="ri-gallery-line"></i></div>
-              <div><h3>用户拿到的结果</h3><p>文件、预览、下载地址和运行数据</p></div>
+              <div><h3>任务结果</h3><p>答案、动作、来源、执行轨迹和性能数据</p></div>
             </div>
           </div>
-          <div class="transport-note">常见接法：Tool 节点 · HTTP Request · OpenAI-compatible API</div>
+          <div class="transport-note">常见接法：本地 OpenAI-compatible API · Tool 节点 · HTTP Request</div>
           <div class="bg-credit"><a href="https://unsplash.com/photos/_nWaeTF6qo0" target="_blank">Richard Horvath · Unsplash</a></div>
         </div>
         <aside class="notes">
-          这条链路可以反复复用。输入先进入 Dify，Workflow 整理好参数并决定下一步；Tool 或 HTTP 节点把任务交给 Radeon 后端；结果再以文件、URL 和运行数据的形式回来。Demo 时把这三段都露出来，评委就能看懂系统到底怎么跑。
+          这条链路可以反复复用。任务先进入 Dify，Agent 结合私有知识与记忆做规划；本地模型端点在 Radeon 上完成推理；Workflow 再调用工具、检查结果并决定交付还是恢复。Demo 时把任务、推理、动作和证据都露出来，评委就能看懂系统如何闭环。
         </aside>
       </section>
 
@@ -208,7 +208,7 @@ docker compose up -d</code></pre>
           <div class="bg-credit"><a href="https://unsplash.com/photos/4KRfJsZIra0" target="_blank">Asif Aether · Unsplash</a></div>
         </div>
         <aside class="notes">
-          Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并提前装好 Docker 和 Docker Compose。屏幕上的四条命令直接来自仓库 README。容器启动后，打开 localhost/install 完成初始化。这里启动的是 Dify；Radeon 生成服务仍然是一个独立端点，由 Workflow 去调用。
+          Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并提前装好 Docker 和 Docker Compose。屏幕上的四条命令直接来自仓库 README。容器启动后，打开 localhost/install 完成初始化。这里启动的是 Agent 的编排层；Radeon 本地推理服务仍是独立端点，由 Dify 去调用。
         </aside>
       </section>
 
@@ -218,7 +218,7 @@ docker compose up -d</code></pre>
           <div class="section-head">
             <div>
               <div class="eyebrow"><i class="ri-flow-chart"></i> 可视化编排</div>
-              <h2>把混合输入整理成<br>一条能反复运行的创作流程。</h2>
+              <h2>把任务、知识和工具编排成<br>一条可追踪的 Agent 路径。</h2>
             </div>
             <span class="track-chip">Dify 文档示例</span>
           </div>
@@ -226,16 +226,16 @@ docker compose up -d</code></pre>
             <img src="assets/dify-workflow-overview.png" alt="Dify 官方 Quick Start Workflow 全景">
           </div>
           <div class="callout-row">
-            <div class="callout-card"><span>01 · 收集</span><p>文本、文档、图像、语气和输出设置</p></div>
-            <div class="callout-card"><span>02 · 标准化</span><p>提取参数并拆分不同文件类型</p></div>
-            <div class="callout-card"><span>03 · 迭代</span><p>针对每个目标执行可控生成</p></div>
-            <div class="callout-card"><span>04 · 交付</span><p>格式化并返回稳定、可用的结果</p></div>
+            <div class="callout-card"><span>01 · 定义</span><p>任务、私有上下文、权限和完成条件</p></div>
+            <div class="callout-card"><span>02 · 检索</span><p>查询本地知识库，并读写必要记忆</p></div>
+            <div class="callout-card"><span>03 · 行动</span><p>调用工具或子流程，逐步完成任务</p></div>
+            <div class="callout-card"><span>04 · 验证</span><p>检查结果、保留来源，失败时安全恢复</p></div>
           </div>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
           <div class="bg-credit"><a href="https://unsplash.com/photos/LeG68PrXA6Y" target="_blank">Codioful · Unsplash</a></div>
         </div>
         <aside class="notes">
-          这是 Dify 文档里的多平台内容生成示例。它和最终的 Track 1 项目不一定一样，但思路完全通用：先收集混合输入，再整理和分流，然后按目标循环生成，最后把结果稳定地交给用户。之后换成项目截图时，也尽量保留这条从左到右的阅读顺序。
+          这是 Dify 文档里的 Workflow 示例，不是最终的 Track 2 Agent，但编排机制完全通用：收集任务与上下文，检索知识，调用模型和工具，再验证结果。之后换成项目截图时，保留这条从左到右的 Agent 执行路径。
         </aside>
       </section>
 
@@ -244,44 +244,44 @@ docker compose up -d</code></pre>
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
-              <div class="eyebrow red"><i class="ri-repeat-2-line"></i> Track 1 构建模式</div>
-              <h2>好用的多模态产品，<br>关键在于还能继续改。</h2>
-              <p class="section-lead">别把第一次生成当成终点，把检查、调整和再次生成都放进 Workflow。</p>
+              <div class="eyebrow red"><i class="ri-repeat-2-line"></i> Track 2 Agent 闭环</div>
+              <h2>可靠的 Agent，<br>关键是闭环完成任务。</h2>
+              <p class="section-lead">不要把一次回答当终点，把规划、工具、记忆与验证都放进 Workflow。</p>
             </div>
             <span class="time-chip"><i class="ri-loop-right-line"></i> Build loop</span>
           </div>
           <div class="workflow-pattern">
             <div class="pattern-step">
               <div class="pattern-num">01</div>
-              <h3>先问清楚</h3>
-              <p>Prompt、参考素材、目标格式、风格和限制条件</p>
+              <h3>定义任务</h3>
+              <p>用户目标、私有上下文、权限和完成条件</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">02</div>
-              <h3>整理素材</h3>
-              <p>检查文件、统一参数，再组装生成请求</p>
+              <h3>检索与规划</h3>
+              <p>读取本地知识与记忆，决定下一步行动</p>
             </div>
             <div class="pattern-step compute">
               <div class="pattern-num">03</div>
-              <h3>在 Radeon 上生成</h3>
-              <p>调用 ROCm 后端，同时记录运行数据</p>
+              <h3>在 Radeon 上推理</h3>
+              <p>调用 ROCm 本地模型，同时记录速度与显存</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">04</div>
-              <h3>检查质量</h3>
-              <p>看结果是否成功、清晰、一致，也符合用户预期</p>
+              <h3>行动并验证</h3>
+              <p>调用工具，检查结果、来源与约束是否满足</p>
             </div>
             <div class="pattern-step">
               <div class="pattern-num">05</div>
-              <h3>交付或重试</h3>
-              <p>结果满意就交付；不满意就改参数再跑一次</p>
+              <h3>交付或恢复</h3>
+              <p>完成就交付；否则询问用户、修正计划或安全退出</p>
             </div>
           </div>
-          <div class="loop-note">Demo 最好既跑一遍成功流程，也现场改一次。</div>
+          <div class="loop-note">Demo 最好跑完一项真实任务，也展示一次可控恢复。</div>
           <div class="bg-credit"><a href="https://unsplash.com/photos/2jYK_Bloby4" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
-          调一次模型只是功能，能持续调整才像产品。先问清用户要什么，整理好素材，在 Radeon 上生成，再检查结果；满意就交付，不满意就回到流程里继续改。现场演示一次修改，比单纯展示成品更能说明 Workflow 的价值。
+          调一次模型只是功能，能把任务做完才像 Agent。先定义目标和权限，检索知识并规划，在 Radeon 上本地推理，再调用工具和验证结果；完成就交付，遇到问题就请求澄清、重新规划或安全退出。现场展示一次恢复，比只演示顺利路径更可信。
         </aside>
       </section>
 
@@ -292,30 +292,30 @@ docker compose up -d</code></pre>
             <div>
               <div class="eyebrow"><i class="ri-slideshow-3-line"></i> Demo Storyboard</div>
               <h2>三张截图，<br>就能把 Demo 讲明白。</h2>
-              <p class="section-lead">先给全景，再看关键节点，最后落到用户拿到的结果。后续换成项目实拍图即可。</p>
+              <p class="section-lead">先给全景，再看本地推理与工具节点，最后落到完成结果和执行轨迹。后续换成项目实拍图即可。</p>
             </div>
             <span class="track-chip">适合 3–5 分钟 Demo</span>
           </div>
           <div class="storyboard">
             <div class="story-card">
               <div class="shot-frame"><img src="assets/dify-workflow-overview.png" alt="Dify Workflow 全景参考图"></div>
-              <div class="story-meta"><strong>1 · Workflow 全景</strong><span>WHY IT WORKS</span></div>
+              <div class="story-meta"><strong>1 · Agent 全景</strong><span>WHY IT WORKS</span></div>
             </div>
             <div class="story-card">
               <div class="shot-frame"><img src="assets/dify-user-input.png" alt="Dify User Input 节点参考图"></div>
-              <div class="story-meta"><strong>2 · 关键节点</strong><span>HOW IT RUNS</span></div>
+              <div class="story-meta"><strong>2 · 推理与工具节点</strong><span>HOW IT RUNS</span></div>
             </div>
             <div class="story-card">
               <div class="shot-frame tall"><img src="assets/dify-test-output.png" alt="Dify 测试输出参考图"></div>
-              <div class="story-meta"><strong>3 · 最终结果</strong><span>WHAT USERS GET</span></div>
+              <div class="story-meta"><strong>3 · 任务结果与轨迹</strong><span>WHAT USERS GET</span></div>
             </div>
           </div>
-          <p class="replace-note">当前使用 Dify 文档示例图；后续替换为你的 Workflow 全景、Radeon 生成节点和最终输出。</p>
+          <p class="replace-note">当前使用 Dify 文档示例图；后续替换为你的 Agent 全景、Radeon 本地推理/工具节点和任务结果。</p>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
           <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
-          这三张图也可以直接当作 Demo 的讲述顺序。先让大家看到完整 Workflow，再放大负责调用 Radeon 的关键节点，最后展示用户真正拿到的结果和运行数据。之后只需要替换图片，整段讲法不用重写。
+          这三张图也可以直接当作 Demo 的讲述顺序。先让大家看到完整 Agent Workflow，再放大本地推理与工具节点，最后展示任务结果、执行轨迹和运行数据。之后只需要替换图片，整段讲法不用重写。
         </aside>
       </section>
 
@@ -325,22 +325,23 @@ docker compose up -d</code></pre>
           <div class="section-head">
             <div>
               <div class="eyebrow red"><i class="ri-speed-up-line"></i> 评委想看的证据</div>
-              <h2>别只报一个速度数字，<br>让数据和结果互相印证。</h2>
+              <h2>把“本地”与“更快”<br>都做成可核验的证据。</h2>
             </div>
             <span class="time-chip"><i class="ri-bar-chart-box-line"></i> 数字要有上下文</span>
           </div>
           <div class="metric-grid">
-            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>延迟</h3><p>从发出请求，到看到首个结果和完整结果，各用了多久</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU 显存</h3><p>在明确的模型、分辨率和 Batch 设置下记录峰值 VRAM</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-shield-check-line"></i></div><h3>稳定性</h3><p>连续跑几次成功了多少次，失败后能不能顺利恢复</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-gallery-upload-line"></i></div><h3>输出质量</h3><p>结果是否清晰、稳定，和输入素材、用户要求是否一致</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>多样性</h3><p>能不能生成不同但都可用的结果，又不跑偏主题和风格</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>响应速度</h3><p>首 Token 延迟与任务端到端完成时间</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-speed-up-line"></i></div><h3>推理吞吐</h3><p>在明确模型、量化与上下文设置下记录 Tokens/s</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU 显存</h3><p>相同模型和上下文长度下的峰值 VRAM</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-checkbox-circle-line"></i></div><h3>任务完成率</h3><p>连续运行的成功率、工具错误与恢复路径</p></div>
+            <div class="metric-card"><div class="metric-icon"><i class="ri-lock-2-line"></i></div><h3>本地执行证据</h3><p>展示模型、数据与推理端点处于受控本地环境</p></div>
           </div>
-          <div class="evidence-line"><span><strong>放在一起：</strong>运行环境 + 参数 + 测量值 + 输出结果</span><span>数字离开上下文，就没有说服力。</span></div>
+          <div class="evidence-line"><span><strong>放在一起：</strong>环境 + 模型/量化 + 上下文 + 测量值 + 任务结果</span><span>优化前后必须使用同一工作负载。</span></div>
+          <div class="source">提交要求：<a href="https://github.com/AMD-DEV-CONTEST/Radeon-hackathon-2026-07/blob/main/README.md#track-2-development--local-deployment-of-private-ai-agents" target="_blank">AMD 官方 README · Track 2</a></div>
           <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
-          不需要堆很多 Benchmark，挑一组小而可信的数据就够了：延迟、峰值显存、连续运行是否稳定、结果质量和多样性。每个数字旁边都写清环境和参数，评委才知道这个结果是怎么来的，也更容易复现。
+          Track 2 有四十分来自 Radeon 和 ROCm 优化，所以证据要更具体：首 Token 延迟、Tokens/s、峰值显存、任务完成率，以及模型和数据确实在本地运行。优化前后使用同一个任务、模型和上下文，数字才有可比性。
         </aside>
       </section>
 
@@ -350,10 +351,10 @@ docker compose up -d</code></pre>
           <div class="registration-grid">
             <div class="registration-copy">
               <div class="eyebrow red"><i class="ri-rocket-2-line"></i> 接下来，轮到你来做</div>
-              <h2>准备好把一个 Prompt 做成产品了吗？</h2>
-              <p class="section-lead">扫码报名 AMD AI DevMaster Hackathon，选择 Track 1，用 Dify 开始搭建你的多模态创作体验。</p>
+              <h2>准备好把一个 Prompt 变成私有 Agent 了吗？</h2>
+              <p class="section-lead">扫码报名 AMD AI DevMaster Hackathon，选择 Track 2，用 Dify 搭建 Agent，并在 Radeon 上完成本地部署。</p>
               <div class="registration-meta">
-                <div><strong>TRACK 1</strong>Multimodal AI Creation</div>
+                <div><strong>TRACK 2</strong>Agentic AI · Local Deployment</div>
                 <div><strong>参与方式</strong>线上 · 个人或组队</div>
               </div>
             </div>
@@ -368,7 +369,7 @@ docker compose up -d</code></pre>
           <div class="bg-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
-          接下来就轮到大家动手了。扫码报名 AMD AI DevMaster Hackathon，选择 Track 1。先找一个真实的创作问题，把 Workflow 画清楚，再把 Radeon 的运行过程和结果展示出来。期待看到你们做出来的多模态产品。
+          接下来就轮到大家动手了。扫码报名 AMD AI DevMaster Hackathon，选择 Track 2。先找一个值得本地化解决的真实任务，把 Agent 的规划、知识、工具与恢复路径画清楚，再把 Radeon 上的本地推理和优化结果展示出来。期待看到你们做出的私有 Agent。
         </aside>
       </section>
 
