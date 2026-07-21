@@ -31,7 +31,7 @@
     <div class="slides">
 
       <!-- 01 · Cover -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay cover-slide photo-silk" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="cover-layout">
             <div class="cover-copy">
@@ -44,11 +44,8 @@
                 Developer Relations @ Dify · banana@dify.ai
               </div>
             </div>
-            <figure class="atmos-photo cover-photo">
-              <img src="assets/atmos-silk-ruido98.jpg" alt="Blue and orange abstract light folds by Ruido 98 on Unsplash">
-              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></figcaption>
-            </figure>
           </div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           Today is about one outcome: turn a prompt into a complete, demonstrable multimodal product. Dify gives us a visual control plane; AMD Radeon gives us the compute path we can measure and prove. In the next twelve minutes, I will show the build pattern, the local Dify setup, and what evidence the judges need to see.
@@ -56,7 +53,7 @@
       </section>
 
       <!-- 02 · Track 1 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay score-slide photo-prism" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -89,6 +86,7 @@
             </div>
           </div>
           <div class="source">Source: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon event page</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           The scoring split tells us how to spend our time. Eighty percent is the product: completeness, practical value, and innovation. Twenty percent is operational performance on Radeon. So begin with a user outcome, not a benchmark. Then make the AMD execution visible as evidence inside the product story.
@@ -96,7 +94,7 @@
       </section>
 
       <!-- 03 · Division of labor -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay roles-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -126,11 +124,8 @@
                 </ul>
               </div>
             </div>
-            <figure class="atmos-photo role-photo">
-              <img src="assets/atmos-teal-pawel-czerwinski.jpg" alt="Teal abstract flowing layers by Pawel Czerwinski on Unsplash">
-              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></figcaption>
-            </figure>
           </div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></div>
         </div>
         <aside class="notes">
           Keep the responsibilities simple. Dify is the control plane: inputs, branching, loops, tools, UI, and API. Radeon is the compute plane: it runs the expensive generation or transformation and returns an asset plus evidence. This separation makes the workflow easier to debug and the AMD contribution easier to demonstrate.
@@ -138,7 +133,7 @@
       </section>
 
       <!-- 04 · Architecture -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay architecture-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -170,6 +165,7 @@
             </div>
           </div>
           <div class="transport-note">Transport: Tool node · HTTP Request · OpenAI-compatible API when supported</div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/_nWaeTF6qo0" target="_blank">Richard Horvath · Unsplash</a></div>
         </div>
         <aside class="notes">
           Here is the reusable architecture. Inputs enter Dify, where we normalize them and decide what should happen. A tool or HTTP request sends a bounded job to the Radeon-backed service. The result comes back as a file or URL plus metadata. Do not hide that boundary—the request, execution, and returned asset are the proof that the system works end to end.
@@ -177,7 +173,7 @@
       </section>
 
       <!-- 05 · Docker quick start -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay docker-slide photo-ember" data-background-image="assets/atmos-ember-asif-aether.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -209,6 +205,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="source">Source: <a href="https://github.com/langgenius/dify/blob/main/README.md#quick-start" target="_blank">langgenius/dify README · Quick start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/4KRfJsZIra0" target="_blank">Asif Aether · Unsplash</a></div>
         </div>
         <aside class="notes">
           Dify Community Edition needs only two CPU cores, four GiB of memory, Docker, and Docker Compose for this quick start. The commands shown are copied from the current repository README. After the containers start, open localhost slash install and complete the first-run setup. This runs Dify; the Radeon generation service remains a separate endpoint that the workflow calls.
@@ -216,7 +213,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 06 · Official workflow overview -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -235,6 +232,7 @@ docker compose up -d</code></pre>
             <div class="callout-card"><span>04 · DELIVER</span><p>Format and return a stable, user-ready result</p></div>
           </div>
           <div class="source">Reference image: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/LeG68PrXA6Y" target="_blank">Codioful · Unsplash</a></div>
         </div>
         <aside class="notes">
           This official Dify example is a multi-platform content workflow. The exact use case is not our final Track 1 demo, but the mechanics transfer directly: collect mixed inputs, normalize them, iterate over targets, and return stable outputs. When we replace this with the project workflow, preserve that readable left-to-right product story.
@@ -242,7 +240,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 07 · Winning workflow pattern -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -280,6 +278,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="loop-note">A strong demo shows one successful path and one controlled iteration.</div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/2jYK_Bloby4" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           A generation call is a feature; the loop is the product. Collect enough intent, prepare the request, execute on Radeon, inspect the result, and either deliver or retry. In the demo, show both a happy path and one purposeful revision. That single iteration proves the workflow adds value beyond a model playground.
@@ -287,7 +286,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 08 · Demo storyboard -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -313,6 +312,7 @@ docker compose up -d</code></pre>
           </div>
           <p class="replace-note">Current images: official Dify Quick Start references · Final images: your Workflow overview, Radeon generation node, and multimodal output</p>
           <div class="source">Reference images: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           These three frames also become the backbone of the submission video. First show the entire workflow so the architecture is legible. Then zoom into the node that sends work to Radeon and expose its inputs. Finally show the returned media and the run evidence. The official images here are temporary; your screenshots will replace them without changing the narrative.
@@ -320,7 +320,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 09 · Evidence -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -337,6 +337,7 @@ docker compose up -d</code></pre>
             <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>Diversity</h3><p>Multiple useful outputs without losing prompt or style alignment</p></div>
           </div>
           <div class="evidence-line"><span><strong>Record together:</strong> environment + settings + measurement + output</span><span>Never present a number without its context.</span></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           We will not invent benchmark numbers. Instead, capture a small, credible evidence set: latency, peak GPU memory, stability over repeated runs, output quality, and useful diversity. Always record the environment and settings next to the number. This turns operational performance into something the judges can trust and reproduce.
@@ -344,7 +345,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 10 · Registration -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">
             <div class="registration-copy">
@@ -357,10 +358,6 @@ docker compose up -d</code></pre>
               </div>
             </div>
             <div class="registration-visual">
-              <figure class="atmos-photo">
-                <img src="assets/atmos-rainbow-sean-sinclair.jpg" alt="Soft rainbow light leak by Sean Sinclair on Unsplash">
-                <figcaption class="photo-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></figcaption>
-              </figure>
               <a class="qr-card" href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank" rel="noopener" aria-label="Open the AMD AI DevMaster Hackathon registration page">
                 <img src="assets/registration-qr.png" alt="Registration QR code for AMD AI DevMaster Hackathon">
                 <div class="qr-label"><span>SCAN TO REGISTER</span><i class="ri-arrow-right-up-line"></i></div>
@@ -368,6 +365,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="source">Registration: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon · Luma</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           Now it is your turn. Scan the QR code, register for the AMD AI DevMaster Hackathon, and choose Track 1. Start with a real creation problem, make the workflow legible, and make the Radeon execution measurable. I cannot wait to see what you build.

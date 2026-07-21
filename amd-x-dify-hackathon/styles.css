@@ -893,6 +893,341 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .accent-red { color: var(--amd-red); }
 .accent-blue { color: var(--dify-blue); }
 
+/* ── Full-bleed atmospheric editorial system ─────────────── */
+.reveal .slides section.photo-slide {
+  --photo-image: url("assets/atmos-silk-ruido98.jpg");
+  --photo-position: center;
+  --overlay-left: rgba(5, 9, 20, 0.88);
+  --overlay-mid: rgba(5, 9, 20, 0.64);
+  --overlay-right: rgba(5, 9, 20, 0.46);
+  isolation: isolate;
+  overflow: hidden;
+  color: #f8faff;
+  background-color: #0a0e19 !important;
+  background-image:
+    linear-gradient(90deg, var(--overlay-left) 0%, var(--overlay-mid) 56%, var(--overlay-right) 100%),
+    linear-gradient(180deg, rgba(4, 7, 15, 0.24) 0%, rgba(4, 7, 15, 0.1) 48%, rgba(4, 7, 15, 0.68) 100%),
+    var(--photo-image) !important;
+  background-position: center, center, var(--photo-position) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.reveal .slides section.photo-silk { --photo-image: url("assets/atmos-silk-ruido98.jpg"); --photo-position: center 52%; }
+.reveal .slides section.photo-prism { --photo-image: url("assets/atmos-prism-darkhan-basshybayev.jpg"); --photo-position: center 50%; }
+.reveal .slides section.photo-teal { --photo-image: url("assets/atmos-teal-pawel-czerwinski.jpg"); --photo-position: center 50%; }
+.reveal .slides section.photo-indigo { --photo-image: url("assets/atmos-indigo-richard-horvath.jpg"); --photo-position: center 46%; }
+.reveal .slides section.photo-ember { --photo-image: url("assets/atmos-ember-asif-aether.jpg"); --photo-position: center 48%; }
+.reveal .slides section.photo-pastel { --photo-image: url("assets/atmos-pastel-codioful.jpg"); --photo-position: center 50%; }
+.reveal .slides section.photo-flare { --photo-image: url("assets/atmos-flare-sean-sinclair.jpg"); --photo-position: center 46%; }
+.reveal .slides section.photo-rainbow { --photo-image: url("assets/atmos-rainbow-sean-sinclair.jpg"); --photo-position: center 52%; }
+.reveal .slides section.photo-silk-alt { --photo-position: 28% 50%; }
+.reveal .slides section.photo-prism-dark {
+  --photo-position: 68% 50%;
+  --overlay-left: rgba(5, 9, 20, 0.93);
+  --overlay-mid: rgba(5, 9, 20, 0.76);
+  --overlay-right: rgba(5, 9, 20, 0.58);
+}
+
+.photo-slide.grid-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%, 100% 80px;
+}
+
+.photo-slide .slide-shell { z-index: 1; }
+.photo-slide .slide-shell::before {
+  background: linear-gradient(90deg, #6f8cff 0 64px, #ff3941 64px 96px, rgba(255, 255, 255, 0.24) 96px 100%);
+}
+
+.photo-slide h1,
+.photo-slide h2,
+.photo-slide h3,
+.photo-slide .deck-title,
+.photo-slide .score-label,
+.photo-slide .role-title { color: #fff; }
+
+.photo-slide p,
+.photo-slide .section-lead,
+.photo-slide .deck-subtitle,
+.photo-slide .speaker,
+.photo-slide .score-copy,
+.photo-slide .role-list li,
+.photo-slide .arch-node p,
+.photo-slide .pattern-step p,
+.photo-slide .metric-card p,
+.photo-slide .replace-note { color: rgba(242, 246, 255, 0.76); }
+
+.photo-slide .speaker strong { color: #fff; }
+.photo-slide .eyebrow { color: #9bb0ff; }
+.photo-slide .eyebrow.red { color: #ff757a; }
+.photo-slide .track-chip,
+.photo-slide .time-chip {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(6, 10, 22, 0.34);
+  color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+}
+
+.nordic-logo,
+.lang-switch {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(5, 9, 20, 0.44) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.nordic-logo-text { color: #fff !important; }
+.lang-switch a { color: rgba(255, 255, 255, 0.68) !important; }
+.lang-switch a.active { color: #fff !important; background: var(--dify-blue) !important; }
+.reveal .slide-number { color: rgba(255, 255, 255, 0.64); }
+
+.bg-credit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.58);
+  font: 600 9px/1.35 var(--font-mono);
+  letter-spacing: 0.03em;
+}
+.bg-credit a { color: inherit; text-decoration: none; }
+.source { color: rgba(255, 255, 255, 0.58); }
+
+/* Cover: a single editorial rail over the full image. */
+.reveal .slides section.cover-slide {
+  --overlay-left: rgba(5, 9, 20, 0.9);
+  --overlay-mid: rgba(5, 9, 20, 0.58);
+  --overlay-right: rgba(5, 9, 20, 0.18);
+}
+.cover-slide .cover-layout { min-height: 520px; }
+.cover-slide .cover-copy {
+  grid-column: 1 / 8;
+  padding: 54px 46px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(90deg, rgba(4, 8, 18, 0.38), rgba(4, 8, 18, 0.08));
+  backdrop-filter: blur(4px);
+}
+.cover-slide .dual-rule { box-shadow: 0 0 28px rgba(77, 108, 255, 0.44); }
+
+/* Scores: numbers live in one continuous band, not cards. */
+.score-slide .score-grid {
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(90deg, rgba(6, 10, 22, 0.5), rgba(6, 10, 22, 0.22));
+  backdrop-filter: blur(10px);
+}
+.score-slide .score-card {
+  min-height: 290px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.score-slide .score-card + .score-card { border-left: 1px solid rgba(255, 255, 255, 0.22); }
+.score-slide .modality-row { gap: 0; }
+.score-slide .modality {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* Role split: two disciplined columns over ambient teal. */
+.roles-slide .role-stack { grid-column: 1 / 13; gap: 0; }
+.roles-slide .role-card {
+  min-height: 330px;
+  padding: 30px 34px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  background: rgba(4, 10, 18, 0.34);
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+}
+.roles-slide .role-card + .role-card { border-left: 1px solid rgba(255, 255, 255, 0.22); }
+.roles-slide .role-card::after { display: none; }
+.roles-slide .role-tag {
+  border: 1px solid rgba(132, 159, 255, 0.32);
+  border-radius: 3px;
+  background: rgba(0, 51, 255, 0.18);
+}
+.roles-slide .role-card.amd .role-tag {
+  border-color: rgba(255, 98, 105, 0.34);
+  background: rgba(237, 28, 36, 0.16);
+}
+
+/* Architecture: one continuous execution spine. */
+.architecture-slide .arch-flow { gap: 0; }
+.architecture-slide .arch-node {
+  min-height: 225px;
+  padding: 24px 20px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  background: rgba(5, 10, 22, 0.34);
+  box-shadow: none;
+  backdrop-filter: blur(9px);
+}
+.architecture-slide .arch-node.control { border-top: 3px solid #6684ff; }
+.architecture-slide .arch-node.compute { border-top: 3px solid #ff4b52; }
+.architecture-slide .arch-node.output { border-top: 3px solid rgba(255, 255, 255, 0.74); }
+.architecture-slide .arch-icon { border-radius: 3px; background: rgba(255, 255, 255, 0.1); }
+.architecture-slide .arch-arrow { color: rgba(255, 255, 255, 0.6); }
+.architecture-slide .transport-note { color: rgba(255, 255, 255, 0.66); }
+
+/* Docker: one code surface plus a marginal prerequisite rail. */
+.docker-slide .quick-grid {
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(5, 9, 20, 0.3);
+  backdrop-filter: blur(9px);
+}
+.docker-slide .requirements {
+  padding: 28px;
+  border-radius: 0;
+  background: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.docker-slide .code-panel {
+  border: 0;
+  border-radius: 0;
+  background: rgba(7, 11, 21, 0.76);
+  box-shadow: none;
+}
+.docker-slide .local-url {
+  border-radius: 0;
+  border-color: rgba(124, 150, 255, 0.34);
+  background: rgba(0, 51, 255, 0.2);
+  color: #b8c5ff;
+}
+
+/* Screens stay readable; labels become a transparent editorial strip. */
+.reveal .slides section.workflow-overview-slide {
+  --overlay-left: rgba(5, 9, 20, 0.82);
+  --overlay-mid: rgba(5, 9, 20, 0.58);
+  --overlay-right: rgba(5, 9, 20, 0.52);
+}
+.workflow-overview-slide .shot-frame,
+.storyboard-slide .shot-frame {
+  border: 0;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.91);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.28);
+}
+.workflow-overview-slide .callout-row { gap: 0; }
+.workflow-overview-slide .callout-card {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: rgba(5, 10, 22, 0.34);
+}
+.workflow-overview-slide .callout-card + .callout-card { border-left: 1px solid rgba(255, 255, 255, 0.18); }
+.workflow-overview-slide .callout-card p { color: rgba(255, 255, 255, 0.7); }
+
+/* Loop: five columns separated by hairlines. */
+.loop-slide .workflow-pattern { gap: 0; }
+.loop-slide .pattern-step {
+  min-height: 225px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: rgba(5, 10, 22, 0.34);
+  backdrop-filter: blur(9px);
+}
+.loop-slide .pattern-step:last-child { border-right: 1px solid rgba(255, 255, 255, 0.2); }
+.loop-slide .pattern-step::after { color: rgba(255, 255, 255, 0.72); }
+.loop-slide .loop-note {
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(0, 51, 255, 0.34), rgba(237, 28, 36, 0.28));
+  color: #fff;
+}
+
+/* Storyboard: screenshots are film frames, not cards. */
+.storyboard-slide .storyboard { gap: 0; }
+.storyboard-slide .story-card {
+  padding: 12px 14px 10px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.26);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: rgba(5, 9, 20, 0.3);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+.storyboard-slide .story-card + .story-card { border-left: 1px solid rgba(255, 255, 255, 0.2); }
+.storyboard-slide .story-meta strong { color: #fff; }
+.storyboard-slide .story-meta span { color: rgba(255, 255, 255, 0.62); }
+
+/* Evidence: metrics read as one ruled field. */
+.evidence-slide .metric-grid { gap: 0; }
+.evidence-slide .metric-card {
+  min-height: 230px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: rgba(5, 9, 20, 0.34);
+  backdrop-filter: blur(9px);
+}
+.evidence-slide .metric-card:last-child { border-right: 1px solid rgba(255, 255, 255, 0.2); }
+.evidence-slide .metric-card:nth-child(1),
+.evidence-slide .metric-card:nth-child(2) { border-top: 3px solid #ff4d55; }
+.evidence-slide .metric-card:nth-child(n+3) { border-top: 3px solid #7892ff; }
+.evidence-slide .evidence-line {
+  border-radius: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(4, 8, 18, 0.6);
+}
+
+/* Registration: the QR is the only solid white object. */
+.reveal .slides section.registration-slide {
+  --overlay-left: rgba(5, 9, 20, 0.9);
+  --overlay-mid: rgba(5, 9, 20, 0.56);
+  --overlay-right: rgba(5, 9, 20, 0.24);
+}
+.registration-slide .registration-copy {
+  grid-column: 1 / 8;
+  padding: 42px 38px 42px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.registration-slide .registration-visual {
+  grid-column: 8 / 13;
+  display: grid;
+  place-items: center;
+}
+.registration-slide .registration-visual > .qr-card {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: 244px;
+  border-radius: 3px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.36);
+}
+.registration-slide .registration-meta div {
+  border-top-color: rgba(255, 255, 255, 0.46);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.68);
+}
+.registration-slide .registration-meta strong { color: #fff; }
+
 @media (max-width: 900px) {
   .lang-switch,
   .nordic-logo { display: none; }

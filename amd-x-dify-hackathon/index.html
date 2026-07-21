@@ -31,7 +31,7 @@
     <div class="slides">
 
       <!-- 01 · 封面 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay cover-slide photo-silk" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="cover-layout">
             <div class="cover-copy">
@@ -44,11 +44,8 @@
                 Developer Relations @ Dify · banana@dify.ai
               </div>
             </div>
-            <figure class="atmos-photo cover-photo">
-              <img src="assets/atmos-silk-ruido98.jpg" alt="Ruido 98 拍摄的蓝橙抽象光影，来自 Unsplash">
-              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></figcaption>
-            </figure>
           </div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           今天只讲一件事：怎么把一个 Prompt 变成完整、能现场演示的多模态产品。Dify 用来串流程，AMD Radeon 用来跑生成。接下来十来分钟，我们会看清整体架构、Dify 的本地启动方式，以及 Demo 里哪些证据最有说服力。
@@ -56,7 +53,7 @@
       </section>
 
       <!-- 02 · Track 1 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay score-slide photo-prism" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -89,6 +86,7 @@
             </div>
           </div>
           <div class="source">来源：<a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon 活动页</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           这个评分比例很直接：八十分看产品本身，二十分看 Radeon 上跑得怎么样。所以别一上来就讲 Benchmark，先回答用户到底能完成什么，再把 AMD 的执行过程放进 Demo，让评委看得到、也能判断。
@@ -96,7 +94,7 @@
       </section>
 
       <!-- 03 · 分工 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay roles-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -126,11 +124,8 @@
                 </ul>
               </div>
             </div>
-            <figure class="atmos-photo role-photo">
-              <img src="assets/atmos-teal-pawel-czerwinski.jpg" alt="Pawel Czerwinski 拍摄的青色抽象层叠，来自 Unsplash">
-              <figcaption class="photo-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></figcaption>
-            </figure>
           </div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></div>
         </div>
         <aside class="notes">
           分工越清楚，Demo 越好讲。Dify 负责输入、分支、循环和工具调用；Radeon 负责真正吃算力的生成任务。这样一来，哪里出了问题更容易查，AMD 在项目里做了什么也能一眼看明白。
@@ -138,7 +133,7 @@
       </section>
 
       <!-- 04 · 架构 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay architecture-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -170,6 +165,7 @@
             </div>
           </div>
           <div class="transport-note">常见接法：Tool 节点 · HTTP Request · OpenAI-compatible API</div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/_nWaeTF6qo0" target="_blank">Richard Horvath · Unsplash</a></div>
         </div>
         <aside class="notes">
           这条链路可以反复复用。输入先进入 Dify，Workflow 整理好参数并决定下一步；Tool 或 HTTP 节点把任务交给 Radeon 后端；结果再以文件、URL 和运行数据的形式回来。Demo 时把这三段都露出来，评委就能看懂系统到底怎么跑。
@@ -177,7 +173,7 @@
       </section>
 
       <!-- 05 · Docker Quick Start -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay docker-slide photo-ember" data-background-image="assets/atmos-ember-asif-aether.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
             <div>
@@ -209,6 +205,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="source">来源：<a href="https://github.com/langgenius/dify/blob/main/README.md#quick-start" target="_blank">langgenius/dify README · Quick start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/4KRfJsZIra0" target="_blank">Asif Aether · Unsplash</a></div>
         </div>
         <aside class="notes">
           Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并提前装好 Docker 和 Docker Compose。屏幕上的四条命令直接来自仓库 README。容器启动后，打开 localhost/install 完成初始化。这里启动的是 Dify；Radeon 生成服务仍然是一个独立端点，由 Workflow 去调用。
@@ -216,7 +213,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 06 · 官方 Workflow -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -235,6 +232,7 @@ docker compose up -d</code></pre>
             <div class="callout-card"><span>04 · 交付</span><p>格式化并返回稳定、可用的结果</p></div>
           </div>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/LeG68PrXA6Y" target="_blank">Codioful · Unsplash</a></div>
         </div>
         <aside class="notes">
           这是 Dify 文档里的多平台内容生成示例。它和最终的 Track 1 项目不一定一样，但思路完全通用：先收集混合输入，再整理和分流，然后按目标循环生成，最后把结果稳定地交给用户。之后换成项目截图时，也尽量保留这条从左到右的阅读顺序。
@@ -242,7 +240,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 07 · Workflow 模式 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -280,6 +278,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="loop-note">Demo 最好既跑一遍成功流程，也现场改一次。</div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/2jYK_Bloby4" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           调一次模型只是功能，能持续调整才像产品。先问清用户要什么，整理好素材，在 Radeon 上生成，再检查结果；满意就交付，不满意就回到流程里继续改。现场演示一次修改，比单纯展示成品更能说明 Workflow 的价值。
@@ -287,7 +286,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 08 · Demo Storyboard -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -313,6 +312,7 @@ docker compose up -d</code></pre>
           </div>
           <p class="replace-note">当前使用 Dify 文档示例图；后续替换为你的 Workflow 全景、Radeon 生成节点和最终输出。</p>
           <div class="source">参考图片：<a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           这三张图也可以直接当作 Demo 的讲述顺序。先让大家看到完整 Workflow，再放大负责调用 Radeon 的关键节点，最后展示用户真正拿到的结果和运行数据。之后只需要替换图片，整段讲法不用重写。
@@ -320,7 +320,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 09 · 证据 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
@@ -337,6 +337,7 @@ docker compose up -d</code></pre>
             <div class="metric-card"><div class="metric-icon"><i class="ri-shuffle-line"></i></div><h3>多样性</h3><p>能不能生成不同但都可用的结果，又不跑偏主题和风格</p></div>
           </div>
           <div class="evidence-line"><span><strong>放在一起：</strong>运行环境 + 参数 + 测量值 + 输出结果</span><span>数字离开上下文，就没有说服力。</span></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           不需要堆很多 Benchmark，挑一组小而可信的数据就够了：延迟、峰值显存、连续运行是否稳定、结果质量和多样性。每个数字旁边都写清环境和参数，评委才知道这个结果是怎么来的，也更容易复现。
@@ -344,7 +345,7 @@ docker compose up -d</code></pre>
       </section>
 
       <!-- 10 · 报名 -->
-      <section data-background-color="#fbfcff">
+      <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">
             <div class="registration-copy">
@@ -357,10 +358,6 @@ docker compose up -d</code></pre>
               </div>
             </div>
             <div class="registration-visual">
-              <figure class="atmos-photo">
-                <img src="assets/atmos-rainbow-sean-sinclair.jpg" alt="Sean Sinclair 拍摄的柔和彩色光影，来自 Unsplash">
-                <figcaption class="photo-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></figcaption>
-              </figure>
               <a class="qr-card" href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank" rel="noopener" aria-label="打开 AMD AI DevMaster Hackathon 报名页面">
                 <img src="assets/registration-qr.png" alt="AMD AI DevMaster Hackathon 报名二维码">
                 <div class="qr-label"><span>扫码报名</span><i class="ri-arrow-right-up-line"></i></div>
@@ -368,6 +365,7 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="source">报名入口：<a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon · Luma</a></div>
+          <div class="bg-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           接下来就轮到大家动手了。扫码报名 AMD AI DevMaster Hackathon，选择 Track 1。先找一个真实的创作问题，把 Workflow 画清楚，再把 Radeon 的运行过程和结果展示出来。期待看到你们做出来的多模态产品。
