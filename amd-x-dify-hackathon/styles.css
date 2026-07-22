@@ -207,16 +207,6 @@ html[lang="zh-CN"] .eyebrow {
   filter: saturate(0.9) contrast(1.02);
 }
 
-.photo-credit {
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.82);
-  font: 600 14px/1.4 var(--font-mono);
-  letter-spacing: 0.03em;
-}
-
 .section-head {
   display: flex;
   align-items: flex-start;
@@ -936,24 +926,6 @@ html[lang="zh-CN"] .eyebrow {
 
 .qr-label i { color: var(--amd-red); }
 
-.source {
-  position: absolute;
-  left: 0;
-  bottom: 32px;
-  max-width: 72%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #8b95a7;
-  font: 500 14px/1.45 var(--font-mono);
-}
-
-.source a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
 body.dark-slide .nordic-logo-text { color: var(--ink); }
 body.dark-slide .lang-switch { color: #a3a3a3; }
 body.dark-slide .lang-switch a { color: #737373; }
@@ -1072,23 +1044,6 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .lang-switch a { color: rgba(255, 255, 255, 0.68) !important; }
 .lang-switch a.active { color: #fff !important; background: var(--dify-blue) !important; }
 .reveal .slide-number { color: rgba(255, 255, 255, 0.64); }
-
-.bg-credit {
-  position: absolute;
-  right: 0;
-  bottom: 32px;
-  z-index: 5;
-  max-width: 24%;
-  overflow: hidden;
-  text-align: right;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.72);
-  font: 600 12px/1.4 var(--font-mono);
-  letter-spacing: 0.03em;
-}
-.bg-credit a { color: inherit; text-decoration: none; }
-.source { color: rgba(255, 255, 255, 0.76); }
 
 /* Cover: a single editorial rail over the full image. */
 .reveal .slides section.cover-slide {

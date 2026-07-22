@@ -45,7 +45,6 @@
               </div>
             </div>
           </div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           Today is about one outcome: turn a prompt into a complete, demonstrable private agent. Dify orchestrates reasoning, planning, tools, and memory. AMD Radeon runs the local model path we can measure and prove. In the next twelve minutes, I will show the architecture, the local Dify setup, and the evidence judges need to see.
@@ -85,8 +84,6 @@
               </div>
             </div>
           </div>
-          <div class="source">Source: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon event page</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           Track 2 changes the emphasis: sixty points reward agent completeness and application value; forty points reward local inference and speed optimization on Radeon and ROCm. Start with the task the agent completes, then make the local execution path, optimization, and measurements visible in the demo.
@@ -125,7 +122,6 @@
               </div>
             </div>
           </div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/ERcQ81KaX9g" target="_blank">Pawel Czerwinski · Unsplash</a></div>
         </div>
         <aside class="notes">
           Keep the responsibilities simple. Dify is the control plane for goals, context, planning, retrieval, tools, UI, and API. Radeon is the compute plane for local inference. This separation makes agent decisions traceable and the AMD contribution easy to demonstrate.
@@ -165,7 +161,6 @@
             </div>
           </div>
           <div class="transport-note">Transport: local OpenAI-compatible API · Tool node · HTTP Request</div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/_nWaeTF6qo0" target="_blank">Richard Horvath · Unsplash</a></div>
         </div>
         <aside class="notes">
           Here is the reusable architecture. A task enters Dify; the agent plans with private knowledge and memory. A local model endpoint runs inference on Radeon. The workflow then uses tools, checks the outcome, and decides whether to deliver or recover. Expose the task, inference, action, and evidence so judges can follow the complete loop.
@@ -204,8 +199,6 @@ docker compose up -d</code></pre>
               <div class="local-url"><i class="ri-global-line"></i>&nbsp; Open http://localhost/install</div>
             </div>
           </div>
-          <div class="source">Source: <a href="https://github.com/langgenius/dify/blob/main/README.md#quick-start" target="_blank">langgenius/dify README · Quick start</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/4KRfJsZIra0" target="_blank">Asif Aether · Unsplash</a></div>
         </div>
         <aside class="notes">
           Dify Community Edition needs only two CPU cores, four GiB of memory, Docker, and Docker Compose for this quick start. The commands shown are copied from the current repository README. After the containers start, open localhost slash install and complete the first-run setup. This runs the agent orchestration layer; the Radeon local inference service remains a separate endpoint that Dify calls.
@@ -231,8 +224,6 @@ docker compose up -d</code></pre>
             <div class="callout-card"><span>03 · ACT</span><p>Call tools or subflows to complete the task step by step</p></div>
             <div class="callout-card"><span>04 · VERIFY</span><p>Check results, retain sources, and recover safely</p></div>
           </div>
-          <div class="source">Reference image: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/LeG68PrXA6Y" target="_blank">Codioful · Unsplash</a></div>
         </div>
         <aside class="notes">
           This official Dify workflow example is not the final Track 2 agent, but the orchestration mechanics transfer directly: collect the task and context, retrieve knowledge, invoke the model and tools, then verify the result. When the project screenshots arrive, preserve this readable left-to-right agent path.
@@ -278,7 +269,6 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <div class="loop-note">A strong demo completes one real task and shows one controlled recovery.</div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/2jYK_Bloby4" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           One model call is a feature; task completion is the agent. Define the goal and permissions, retrieve knowledge and plan, infer locally on Radeon, use tools, and verify the result. Then deliver, ask for clarification, re-plan, or exit safely. One controlled recovery makes the demo far more credible.
@@ -311,8 +301,6 @@ docker compose up -d</code></pre>
             </div>
           </div>
           <p class="replace-note">Current images: official Dify Quick Start references · Final images: your agent overview, Radeon inference/tool node, and completed task</p>
-          <div class="source">Reference images: <a href="https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application" target="_blank">Dify Docs · 30-Minute Quick Start</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/SytlpdDJ1lk" target="_blank">Ruido 98 · Unsplash</a></div>
         </div>
         <aside class="notes">
           These three frames become the backbone of the submission video. First show the complete agent workflow. Then zoom into local inference and tool use. Finally show the completed task, execution trace, and performance evidence. The official images are temporary; your screenshots can replace them without changing the narrative.
@@ -337,8 +325,6 @@ docker compose up -d</code></pre>
             <div class="metric-card"><div class="metric-icon"><i class="ri-lock-2-line"></i></div><h3>Local proof</h3><p>Show the model, data, and inference endpoint in the controlled environment</p></div>
           </div>
           <div class="evidence-line"><span><strong>Record together:</strong> environment + model/quant + context + measurement + task result</span><span>Compare optimization on the same workload.</span></div>
-          <div class="source">Submission requirements: <a href="https://github.com/AMD-DEV-CONTEST/Radeon-hackathon-2026-07/blob/main/README.md#track-2-development--local-deployment-of-private-ai-agents" target="_blank">AMD official README · Track 2</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/o6uvtosEZeo" target="_blank">Darkhan Basshybayev · Unsplash</a></div>
         </div>
         <aside class="notes">
           Forty Track 2 points come from Radeon and ROCm optimization, so make the evidence specific: time to first token, tokens per second, peak VRAM, task success, and proof that model and data stay local. Use the same task, model, and context before and after optimization so the comparison is credible.
@@ -365,8 +351,6 @@ docker compose up -d</code></pre>
               </a>
             </div>
           </div>
-          <div class="source">Registration: <a href="https://luma.com/amd-4dhi?utm_source=dify" target="_blank">AMD AI DevMaster Hackathon · Luma</a></div>
-          <div class="bg-credit"><a href="https://unsplash.com/photos/1xZ0SqLPE4E" target="_blank">Sean Sinclair · Unsplash</a></div>
         </div>
         <aside class="notes">
           Now it is your turn. Scan the QR code, register for the AMD AI DevMaster Hackathon, and choose Track 2. Start with a real task worth keeping local, make the agent's planning, knowledge, tools, and recovery legible, and make Radeon inference and optimization measurable. I cannot wait to see what you build.
