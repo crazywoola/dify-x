@@ -114,7 +114,7 @@ body {
   gap: 9px;
   margin-bottom: 16px;
   color: var(--dify-blue);
-  font: 700 13px/1 var(--font-mono);
+  font: 700 16px/1.15 var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -137,7 +137,7 @@ html[lang="zh-CN"] .eyebrow {
   max-width: 750px;
   margin-top: 22px !important;
   color: #515b6d;
-  font-size: 1.02rem;
+  font-size: 1.2rem;
 }
 
 .dual-rule {
@@ -150,7 +150,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .speaker {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.9rem;
   line-height: 1.55;
 }
 
@@ -211,7 +211,7 @@ html[lang="zh-CN"] .eyebrow {
   bottom: 10px;
   z-index: 2;
   color: rgba(255, 255, 255, 0.82);
-  font: 600 9px/1.25 var(--font-mono);
+  font: 600 12px/1.35 var(--font-mono);
   letter-spacing: 0.03em;
 }
 
@@ -227,7 +227,7 @@ html[lang="zh-CN"] .eyebrow {
   max-width: 700px;
   margin-top: 12px !important;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 1rem;
 }
 
 .time-chip,
@@ -240,7 +240,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.84);
   color: var(--muted);
-  font: 700 12px/1 var(--font-mono);
+  font: 700 14px/1.1 var(--font-mono);
   white-space: nowrap;
 }
 
@@ -284,13 +284,13 @@ html[lang="zh-CN"] .eyebrow {
 .score-card.accel .score-number { color: var(--amd-red); }
 
 .score-label {
-  font-size: 0.92rem;
+  font-size: 1.08rem;
   font-weight: 750;
 }
 
 .score-copy {
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.92rem;
 }
 
 .modality-row {
@@ -309,13 +309,13 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 12px;
   background: #fff;
   color: #3d4656;
-  font-size: 0.56rem;
+  font-size: 0.8rem;
   font-weight: 650;
 }
 
 .modality i {
   color: var(--dify-blue);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
 }
 
 .split-roles {
@@ -387,7 +387,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 999px;
   background: var(--dify-blue-soft);
   color: var(--dify-blue);
-  font: 700 12px/1 var(--font-mono);
+  font: 700 14px/1.1 var(--font-mono);
 }
 
 .role-card.amd .role-tag {
@@ -410,8 +410,8 @@ html[lang="zh-CN"] .eyebrow {
   display: flex;
   gap: 10px;
   color: #4d5768;
-  font-size: 0.67rem;
-  line-height: 1.35;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .role-list i {
@@ -426,7 +426,7 @@ html[lang="zh-CN"] .eyebrow {
   border-left: 4px solid var(--dify-blue);
   background: linear-gradient(90deg, var(--dify-blue-soft), var(--amd-red-soft));
   color: var(--ink);
-  font-size: 0.68rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -477,7 +477,8 @@ html[lang="zh-CN"] .eyebrow {
 .arch-node p {
   margin: 0 !important;
   color: var(--muted);
-  font-size: 0.57rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .arch-arrow {
@@ -492,7 +493,7 @@ html[lang="zh-CN"] .eyebrow {
   justify-content: center;
   margin-top: 22px;
   color: var(--muted);
-  font: 600 12px/1.4 var(--font-mono);
+  font: 600 14px/1.45 var(--font-mono);
 }
 
 .quick-grid {
@@ -522,7 +523,7 @@ html[lang="zh-CN"] .eyebrow {
   align-items: center;
   gap: 10px;
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.63rem;
+  font-size: 0.9rem;
 }
 
 .req-list i { color: #7f9aff; }
@@ -542,7 +543,7 @@ html[lang="zh-CN"] .eyebrow {
   padding: 13px 18px;
   border-bottom: 1px solid #2a303d;
   color: #9aa4b5;
-  font: 600 12px/1 var(--font-mono);
+  font: 600 14px/1.1 var(--font-mono);
 }
 
 .code-dots { color: #ff6b6b; letter-spacing: 4px; }
@@ -559,7 +560,7 @@ html[lang="zh-CN"] .eyebrow {
   padding: 0;
   background: transparent;
   color: #eef2ff;
-  font-size: 0.67rem;
+  font-size: 0.9rem;
   line-height: 1.75;
 }
 
@@ -570,7 +571,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 12px;
   background: var(--dify-blue-soft);
   color: var(--dify-blue);
-  font: 700 13px/1.35 var(--font-mono);
+  font: 700 15px/1.4 var(--font-mono);
 }
 
 .shot-frame {
@@ -610,14 +611,14 @@ html[lang="zh-CN"] .eyebrow {
 
 .callout-card span {
   color: var(--dify-blue);
-  font: 700 11px/1 var(--font-mono);
+  font: 700 13px/1.1 var(--font-mono);
 }
 
 .callout-card p {
   margin: 8px 0 0 !important;
   color: var(--muted);
-  font-size: 0.53rem;
-  line-height: 1.35;
+  font-size: 0.78rem;
+  line-height: 1.45;
 }
 
 .workflow-pattern {
@@ -650,21 +651,21 @@ html[lang="zh-CN"] .eyebrow {
 
 .pattern-num {
   color: var(--dify-blue);
-  font: 800 12px/1 var(--font-mono);
+  font: 800 14px/1 var(--font-mono);
 }
 
 .pattern-step.compute .pattern-num { color: var(--amd-red); }
 
 .pattern-step h3 {
-  margin-top: 34px !important;
-  font-size: 0.78rem;
+  margin-top: 26px !important;
+  font-size: 0.94rem;
 }
 
 .pattern-step p {
   margin: 12px 0 0 !important;
   color: var(--muted);
-  font-size: 0.52rem;
-  line-height: 1.42;
+  font-size: 0.78rem;
+  line-height: 1.48;
 }
 
 .loop-note {
@@ -674,7 +675,7 @@ html[lang="zh-CN"] .eyebrow {
   background: linear-gradient(90deg, var(--dify-blue-soft), var(--amd-red-soft));
   color: #323a49;
   text-align: center;
-  font-size: 0.64rem;
+  font-size: 0.88rem;
   font-weight: 700;
 }
 
@@ -712,18 +713,18 @@ html[lang="zh-CN"] .eyebrow {
 }
 
 .story-meta strong {
-  font-size: 0.59rem;
+  font-size: 0.82rem;
 }
 
 .story-meta span {
   color: var(--muted);
-  font: 600 10px/1.3 var(--font-mono);
+  font: 600 12px/1.35 var(--font-mono);
 }
 
 .replace-note {
   margin-top: 18px;
   color: var(--muted);
-  font-size: 0.54rem;
+  font-size: 0.75rem;
   text-align: center;
 }
 
@@ -755,15 +756,15 @@ html[lang="zh-CN"] .eyebrow {
 .metric-card:nth-child(2) .metric-icon { color: var(--amd-red); }
 
 .metric-card h3 {
-  margin-top: 30px !important;
-  font-size: 0.75rem;
+  margin-top: 24px !important;
+  font-size: 0.92rem;
 }
 
 .metric-card p {
   margin: 10px 0 0 !important;
   color: var(--muted);
-  font-size: 0.51rem;
-  line-height: 1.42;
+  font-size: 0.76rem;
+  line-height: 1.48;
 }
 
 .evidence-line {
@@ -775,7 +776,7 @@ html[lang="zh-CN"] .eyebrow {
   border-radius: 12px;
   background: #10131a;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.58rem;
+  font-size: 0.78rem;
 }
 
 .evidence-line strong { color: #fff; }
@@ -805,7 +806,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .registration-copy .section-lead {
   max-width: 540px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .registration-meta {
@@ -820,7 +821,7 @@ html[lang="zh-CN"] .eyebrow {
   border-top: 2px solid var(--dify-blue);
   border-bottom: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.52rem;
+  font-size: 0.78rem;
   line-height: 1.45;
 }
 
@@ -828,7 +829,7 @@ html[lang="zh-CN"] .eyebrow {
   display: block;
   margin-bottom: 5px;
   color: var(--ink);
-  font: 700 11px/1.2 var(--font-mono);
+  font: 700 13px/1.25 var(--font-mono);
 }
 
 .registration-visual {
@@ -872,7 +873,7 @@ html[lang="zh-CN"] .eyebrow {
   gap: 8px;
   margin-top: 8px;
   color: var(--ink);
-  font: 700 10px/1.3 var(--font-mono);
+  font: 700 12px/1.35 var(--font-mono);
 }
 
 .qr-label i { color: var(--amd-red); }
@@ -882,7 +883,7 @@ html[lang="zh-CN"] .eyebrow {
   left: 0;
   bottom: 0;
   color: #8b95a7;
-  font: 500 9px/1.35 var(--font-mono);
+  font: 500 12px/1.4 var(--font-mono);
 }
 
 .source a {
@@ -968,7 +969,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .photo-slide .arch-node p,
 .photo-slide .pattern-step p,
 .photo-slide .metric-card p,
-.photo-slide .replace-note { color: rgba(242, 246, 255, 0.76); }
+.photo-slide .replace-note { color: rgba(248, 250, 255, 0.9); }
 
 .photo-slide .speaker strong { color: #fff; }
 .photo-slide .eyebrow { color: #9bb0ff; }
@@ -977,7 +978,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .photo-slide .time-chip {
   border-color: rgba(255, 255, 255, 0.24);
   background: rgba(6, 10, 22, 0.34);
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
 }
 
@@ -1002,7 +1003,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
   padding-left: 12px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.76) !important;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 650;
   letter-spacing: 0.015em;
 }
@@ -1015,12 +1016,12 @@ body.dark-slide .lang-switch a.active { color: #fff; }
   right: 0;
   bottom: 0;
   z-index: 5;
-  color: rgba(255, 255, 255, 0.58);
-  font: 600 9px/1.35 var(--font-mono);
+  color: rgba(255, 255, 255, 0.72);
+  font: 600 11px/1.4 var(--font-mono);
   letter-spacing: 0.03em;
 }
 .bg-credit a { color: inherit; text-decoration: none; }
-.source { color: rgba(255, 255, 255, 0.58); }
+.source { color: rgba(255, 255, 255, 0.76); }
 
 /* Cover: a single editorial rail over the full image. */
 .reveal .slides section.cover-slide {
@@ -1194,7 +1195,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 }
 .storyboard-slide .story-card + .story-card { border-left: 1px solid rgba(255, 255, 255, 0.2); }
 .storyboard-slide .story-meta strong { color: #fff; }
-.storyboard-slide .story-meta span { color: rgba(255, 255, 255, 0.62); }
+.storyboard-slide .story-meta span { color: rgba(255, 255, 255, 0.8); }
 
 /* Evidence: metrics read as one ruled field. */
 .evidence-slide .metric-grid { gap: 0; }
