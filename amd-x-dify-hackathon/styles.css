@@ -86,18 +86,20 @@ body {
 
 .slide-shell {
   width: 1150px;
-  height: 620px;
+  height: 720px;
   margin: 0 auto;
+  padding: 104px 0 54px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
 }
 
 .slide-shell::before {
   content: "";
   position: absolute;
-  top: 8px;
+  top: 82px;
   left: 0;
   width: 100%;
   height: 1px;
@@ -217,10 +219,20 @@ html[lang="zh-CN"] .eyebrow {
 
 .section-head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 36px;
-  margin-bottom: 22px;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.section-head > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.section-head h2,
+.section-head p {
+  overflow-wrap: break-word;
 }
 
 .section-lead {
@@ -241,6 +253,8 @@ html[lang="zh-CN"] .eyebrow {
   background: rgba(255, 255, 255, 0.84);
   color: var(--muted);
   font: 700 16px/1.15 var(--font-mono);
+  flex: 0 0 auto;
+  margin-top: 2px;
   white-space: nowrap;
 }
 
@@ -291,13 +305,15 @@ html[lang="zh-CN"] .eyebrow {
 .score-copy {
   color: var(--muted);
   font-size: 1.08rem;
+  margin: 12px 0 0 !important;
+  line-height: 1.45;
 }
 
 .modality-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .modality {
@@ -311,6 +327,7 @@ html[lang="zh-CN"] .eyebrow {
   color: #3d4656;
   font-size: 0.95rem;
   font-weight: 650;
+  min-width: 0;
 }
 
 .modality i {
@@ -408,6 +425,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .role-list li {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
   color: #4d5768;
   font-size: 1.05rem;
@@ -416,7 +434,10 @@ html[lang="zh-CN"] .eyebrow {
 
 .role-list i {
   color: var(--dify-blue);
+  flex: 0 0 auto;
 }
+
+.role-list span { min-width: 0; }
 
 .amd .role-list i { color: var(--amd-red); }
 
@@ -439,6 +460,7 @@ html[lang="zh-CN"] .eyebrow {
 
 .arch-node {
   min-height: 230px;
+  min-width: 0;
   padding: 24px 20px;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -446,6 +468,7 @@ html[lang="zh-CN"] .eyebrow {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
   box-shadow: 0 14px 32px rgba(25, 34, 54, 0.06);
 }
 
@@ -479,6 +502,12 @@ html[lang="zh-CN"] .eyebrow {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.arch-node h3 {
+  margin-bottom: 10px !important;
+  overflow-wrap: anywhere;
 }
 
 .arch-arrow {
@@ -491,9 +520,10 @@ html[lang="zh-CN"] .eyebrow {
 .transport-note {
   display: flex;
   justify-content: center;
-  margin-top: 22px;
+  margin-top: 18px;
   color: var(--muted);
   font: 600 16px/1.45 var(--font-mono);
+  overflow-wrap: anywhere;
 }
 
 .quick-grid {
@@ -502,6 +532,8 @@ html[lang="zh-CN"] .eyebrow {
   gap: 24px;
   align-items: stretch;
 }
+
+.quick-grid > * { min-width: 0; }
 
 .requirements {
   padding: 26px;
@@ -527,6 +559,11 @@ html[lang="zh-CN"] .eyebrow {
 }
 
 .req-list i { color: #7f9aff; }
+
+.requirements code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
 .code-panel {
   border: 1px solid #252a35;
@@ -591,19 +628,20 @@ html[lang="zh-CN"] .eyebrow {
 }
 
 .overview-shot {
-  height: 270px;
-  padding: 18px;
+  height: 220px;
+  padding: 14px;
 }
 
 .callout-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .callout-card {
-  padding: 16px;
+  min-width: 0;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.9);
@@ -619,6 +657,7 @@ html[lang="zh-CN"] .eyebrow {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .workflow-pattern {
@@ -630,11 +669,14 @@ html[lang="zh-CN"] .eyebrow {
 
 .pattern-step {
   min-height: 225px;
-  padding: 20px 17px;
+  min-width: 0;
+  padding: 18px 16px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: #fff;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .pattern-step::after {
@@ -657,26 +699,30 @@ html[lang="zh-CN"] .eyebrow {
 .pattern-step.compute .pattern-num { color: var(--amd-red); }
 
 .pattern-step h3 {
-  margin-top: 22px !important;
+  margin-top: 18px !important;
+  margin-bottom: 0 !important;
   font-size: 1.08rem;
+  overflow-wrap: anywhere;
 }
 
 .pattern-step p {
-  margin: 12px 0 0 !important;
+  margin: 10px 0 0 !important;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.48;
+  overflow-wrap: break-word;
 }
 
 .loop-note {
-  margin-top: 23px;
-  padding: 14px 18px;
+  margin-top: 16px;
+  padding: 12px 16px;
   border-radius: 12px;
   background: linear-gradient(90deg, var(--dify-blue-soft), var(--amd-red-soft));
   color: #323a49;
   text-align: center;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.45;
 }
 
 .storyboard {
@@ -695,7 +741,7 @@ html[lang="zh-CN"] .eyebrow {
 }
 
 .story-card .shot-frame {
-  height: 260px;
+  height: 200px;
   border-radius: 11px;
   box-shadow: none;
 }
@@ -707,9 +753,11 @@ html[lang="zh-CN"] .eyebrow {
 
 .story-meta {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 10px;
+  line-height: 1.35;
 }
 
 .story-meta strong {
@@ -722,9 +770,10 @@ html[lang="zh-CN"] .eyebrow {
 }
 
 .replace-note {
-  margin-top: 18px;
+  margin-top: 12px;
   color: var(--muted);
   font-size: 0.95rem;
+  line-height: 1.4;
   text-align: center;
 }
 
@@ -736,10 +785,13 @@ html[lang="zh-CN"] .eyebrow {
 
 .metric-card {
   min-height: 230px;
+  min-width: 0;
   padding: 22px 18px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .metric-card:nth-child(1),
@@ -756,30 +808,36 @@ html[lang="zh-CN"] .eyebrow {
 .metric-card:nth-child(2) .metric-icon { color: var(--amd-red); }
 
 .metric-card h3 {
-  margin-top: 20px !important;
+  margin: 18px 0 0 !important;
   font-size: 1.05rem;
+  overflow-wrap: anywhere;
 }
 
 .metric-card p {
-  margin: 10px 0 0 !important;
+  margin: 8px 0 0 !important;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.48;
+  overflow-wrap: break-word;
 }
 
 .evidence-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 22px;
-  padding: 15px 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  align-items: start;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 12px 16px;
   border-radius: 12px;
   background: #10131a;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1rem;
+  line-height: 1.45;
 }
 
 .evidence-line strong { color: #fff; }
+.evidence-line span { min-width: 0; }
+.evidence-line span:last-child { text-align: right; }
 
 .registration-grid {
   width: 100%;
@@ -813,7 +871,7 @@ html[lang="zh-CN"] .eyebrow {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .registration-meta div {
@@ -881,7 +939,11 @@ html[lang="zh-CN"] .eyebrow {
 .source {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 32px;
+  max-width: 72%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #8b95a7;
   font: 500 14px/1.45 var(--font-mono);
 }
@@ -1014,8 +1076,13 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .bg-credit {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 32px;
   z-index: 5;
+  max-width: 24%;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.72);
   font: 600 12px/1.4 var(--font-mono);
   letter-spacing: 0.03em;
@@ -1030,6 +1097,8 @@ body.dark-slide .lang-switch a.active { color: #fff; }
   --overlay-right: rgba(5, 9, 20, 0.18);
 }
 .cover-slide .cover-layout { min-height: 520px; }
+.cover-slide .slide-shell,
+.registration-slide .slide-shell { justify-content: center; }
 .cover-slide .cover-copy {
   grid-column: 1 / 8;
   padding: 54px 46px;
@@ -1050,6 +1119,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 }
 .score-slide .score-card {
   min-height: 290px;
+  padding: 26px 30px;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -1069,7 +1139,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .roles-slide .role-stack { grid-column: 1 / 13; gap: 0; }
 .roles-slide .role-card {
   min-height: 330px;
-  padding: 30px 34px;
+  padding: 26px 30px;
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.28);
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
@@ -1151,6 +1221,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.28);
 }
 .workflow-overview-slide .callout-row { gap: 0; }
+.workflow-overview-slide .section-head { margin-bottom: 18px; }
 .workflow-overview-slide .callout-card {
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.24);
@@ -1163,6 +1234,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 
 /* Loop: five columns separated by hairlines. */
 .loop-slide .workflow-pattern { gap: 0; }
+.loop-slide .section-head { margin-bottom: 20px; }
 .loop-slide .pattern-step {
   min-height: 225px;
   border: 0;
@@ -1183,6 +1255,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 
 /* Storyboard: screenshots are film frames, not cards. */
 .storyboard-slide .storyboard { gap: 0; }
+.storyboard-slide .section-head { margin-bottom: 16px; }
 .storyboard-slide .story-card {
   padding: 12px 14px 10px;
   border: 0;
@@ -1199,6 +1272,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 
 /* Evidence: metrics read as one ruled field. */
 .evidence-slide .metric-grid { gap: 0; }
+.evidence-slide .section-head { margin-bottom: 20px; }
 .evidence-slide .metric-card {
   min-height: 230px;
   border: 0;
@@ -1227,7 +1301,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 }
 .registration-slide .registration-copy {
   grid-column: 1 / 8;
-  padding: 42px 38px 42px 0;
+  padding: 32px 38px 32px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
