@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>企业 Agent 插件治理实践与新的协作模式展望 — Dify</title>
+  <title>企业 Agent 插件治理实践与协作新模式 — Dify</title>
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/reveal/reset.css">
   <link rel="stylesheet" href="assets/reveal/reveal.css">
@@ -24,8 +24,8 @@
           <div class="cover-copy">
             <div>
               <div class="eyebrow">Enterprise Agent · Governance × Collaboration</div>
-              <h1>企业 Agent<br>插件治理实践<br><span class="blue">与新的协作模式展望</span></h1>
-              <p class="lead">讨论一套让开放插件进入企业环境时可评估、可追责、可持续运营的做法。</p>
+              <h1>企业 Agent<br>插件治理实践<br><span class="blue">与协作新模式</span></h1>
+              <p class="lead">开放式 Agent（智能体）插件怎样进入企业，又怎样长期管好：这里给出一套可评估、可追责的做法。</p>
             </div>
             <div class="cover-meta">
               <p>郑立（Banana）<br>Head of Open Source Community @ Dify<br>banana@dify.ai</p>
@@ -37,35 +37,36 @@
             <div class="photo-caption"><span>TRUST / COMPOSABILITY</span></div>
           </div>
         </div>
-        <aside class="notes">今天不按安全工具逐个介绍。我更想回答两个实际问题：开放插件进入企业环境前，需要补上哪些治理环节；1.15 和 1.16 出现的新能力，会怎样改变人与 Agent 的分工。</aside>
+        <aside class="notes">今天不逐个罗列安全工具，只回答两个实际问题。第一，开放插件进入企业之前，哪些规矩必须先立起来；第二，Dify 1.15 和 1.16 带来的新能力，会怎样重新安排人与 Agent 的分工。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">01 · 先定义问题</div>
-        <h2>企业安装一个插件，实际上开放了三类权限。</h2>
+        <h2>企业装上一个插件，等于交出了三把钥匙。</h2>
         <div class="grid-12 rights">
-          <div class="card col-4"><div class="symbol">{ }</div><div><h3>代码运行权</h3><p>在运行时执行依赖、命令、二进制与模型调用逻辑。</p></div></div>
-          <div class="card col-4"><div class="symbol">↕</div><div><h3>数据处理权</h3><p>读取文件、对话、知识库、凭证与工作区上下文。</p></div></div>
-          <div class="card col-4"><div class="symbol">◎</div><div><h3>外部连接权</h3><p>访问第三方 API、任意 URL、远端服务与下游处理者。</p></div></div>
+          <div class="card col-4"><div class="symbol">{ }</div><div><h3>代码运行权</h3><p>允许它在运行时执行依赖、命令、二进制和模型调用。</p></div></div>
+          <div class="card col-4"><div class="symbol">↕</div><div><h3>数据处理权</h3><p>允许它读取文件、对话、知识库、凭证和工作区信息。</p></div></div>
+          <div class="card col-4"><div class="symbol">◎</div><div><h3>外部连接权</h3><p>允许它访问第三方 API、任意 URL、远端服务和下游处理者。</p></div></div>
         </div>
-        <p class="big-statement" style="margin-top:42px;">治理要围绕权限、证据和责任链展开，<span class="blue">不能只看上架时有没有报错。</span></p>
-        <aside class="notes">从企业视角看，插件不只是一个功能入口。它拿到的是代码执行、数据处理和外部连接权限。后面的治理设计都从这三类权限出发。</aside>
+        <p class="big-statement" style="margin-top:42px;">“不以规矩，不能成方圆。”<span class="blue">开放生态也要先把权限、证据和责任说清。</span></p>
+        <div class="source-note">典故：《孟子·离娄上》。</div>
+        <aside class="notes">插件看起来只是一个功能入口，装进企业后却拿到了三把钥匙：可以运行代码，可以处理数据，也可以连到外部服务。《孟子》说“不以规矩，不能成方圆”，开放生态也是这个道理。后面的治理办法，都从这三类权限出发。</aside>
       </section>
 
       <section class="grid-overlay hero-evidence-slide atmos-slide atmos-ember">
         <div class="grid-12" style="height:100%;align-items:stretch;">
           <div class="col-5 between" style="padding-top:8px;">
             <div>
-              <div class="eyebrow">Observed exposure · 已观察敞口</div>
-              <h2>我们先看到的，并不是复杂攻击，而是开发目录被原样打进包。</h2>
-              <p class="lead">抽样包中已经出现会被 daemon 解开的开发残留与敏感材料。</p>
+              <div class="eyebrow">Observed risk · 已发现的风险</div>
+              <h2>最先暴露的不是高明攻击，而是整个开发目录被塞进安装包。</h2>
+              <p class="lead">抽样中已发现开发残留和敏感材料；daemon（守护进程）解包后，它们就会落到用户机器上。</p>
             </div>
             <div class="pill-row">
-              <span class="pill"><code>.env</code> / secrets</span>
-              <span class="pill"><code>.git/</code> / history</span>
-              <span class="pill"><code>.venv/</code> / compiled artifacts</span>
+              <span class="pill"><code>.env</code> / 密钥</span>
+              <span class="pill"><code>.git/</code> / 历史</span>
+              <span class="pill"><code>.venv/</code> / 编译产物</span>
               <span class="pill"><code>*.exe / *.so</code></span>
-              <span class="pill">logs / cache / IDE</span>
+              <span class="pill">日志 / 缓存 / IDE</span>
             </div>
           </div>
           <div class="col-7 photo-panel">
@@ -73,16 +74,16 @@
             <div class="photo-caption"><span>PACKAGE → DAEMON → TENANT</span></div>
           </div>
         </div>
-        <div class="source-note">来源：飞书《Dify 插件生态治理提案》执行摘要与风险敞口章节；此页列举文档中已观察到的包污染类型。</div>
-        <aside class="notes">抽样包里出现了 .env、.git、虚拟环境、日志和平台二进制。它们会随包被 daemon 解开到用户机器。这里更像流程缺口，而不只是作者是否细心。</aside>
+        <div class="source-note">来源：飞书《Dify 插件生态治理提案》执行摘要与“风险敞口”章节；此页列举文档中已经发现的包污染类型。</div>
+        <aside class="notes">抽样包里已经出现 .env、.git、虚拟环境、日志和平台二进制。这些文件会跟着安装包一起进入用户机器。问题首先出在发布流程没有把好关，不能只归咎于作者粗心。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Root cause · 默认规则的缺口</div>
-        <h2>问题不只在作者：默认 <code>.difyignore</code> 也漏了关键目录。</h2>
+        <h2>别急着怪作者：默认 <code>.difyignore</code> 自己就有漏网之鱼。</h2>
         <div class="evidence-split">
           <div class="code-panel">
-            <div class="panel-label">CURRENT TEMPLATE · 7 LINES</div>
+            <div class="panel-label">CURRENT TEMPLATE · 现有模板（7 行）</div>
             <pre><code>.venv/
 __pycache__/
 *.py[cod]
@@ -92,9 +93,9 @@ __pycache__/
 *.difypkg</code></pre>
           </div>
           <div class="gap-panel">
-            <div class="panel-label">STILL NOT COVERED</div>
+            <div class="panel-label">STILL NOT COVERED · 尚未排除</div>
             <div class="gap-list">
-              <div><code>.git/</code><span>历史与 remote credentials</span></div>
+              <div><code>.git/</code><span>历史与远程仓库凭证（remote credentials）</span></div>
               <div><code>.DS_Store / .idea/</code><span>系统与 IDE 元数据</span></div>
               <div><code>*.log / *.sqlite</code><span>运行记录与本地数据</span></div>
               <div><code>*.pem / *.key</code><span>私钥与证书材料</span></div>
@@ -102,14 +103,14 @@ __pycache__/
             </div>
           </div>
         </div>
-        <p class="big-statement compact-statement">作者照着模板做，<span class="blue">也可能把不该发布的东西带进去。</span></p>
-        <div class="source-note">来源：飞书提案 Appendix B《现有问题真实样本》；模板内容按文档原样压缩展示。</div>
-        <aside class="notes">这页解释为什么不能把问题归咎于个别作者。官方模板只有七行，没有排除 Git、IDE、日志、私钥和平台二进制。先修模板和本地预检，通常比先增加 reviewer 人力更有效。</aside>
+        <p class="big-statement compact-statement">作者即使照着模板做，<span class="blue">也可能把不该发布的东西一并装进包里。</span></p>
+        <div class="source-note">来源：飞书提案附录 B《现有问题真实样本》；模板内容按文档原样压缩展示。</div>
+        <aside class="notes">官方模板只有七行，没有排除 Git、IDE、日志、私钥和平台二进制。作者照章办事，也可能留下隐患。所以第一步不是多招几位审核人（reviewer），而是先修模板，再把同一套检查放到作者本地。</aside>
       </section>
 
       <section class="grid-overlay risk-slide atmos-slide atmos-flare">
         <div class="eyebrow">Ecosystem benchmark · 外部事件</div>
-        <h2>上架后变质在其他生态反复发生，插件权限会把后果放大。</h2>
+        <h2>别的生态一再证明：插件上架，不等于从此安全。</h2>
         <div class="risk-layout">
           <figure class="media-frame">
             <img src="assets/atmos-flare-sean-sinclair.jpg" alt="Blue and orange defocused light flare by Sean Sinclair on Unsplash">
@@ -121,224 +122,225 @@ __pycache__/
             <article class="incident-card"><div class="incident-meta">2025-08 · PYPI</div><h3>SilentSync RAT</h3><p><code>sisaws</code> / <code>secmeasure</code> 经常规包分发远控载荷，风险来自正常更新链路。</p></article>
           </div>
         </div>
-        <div class="capability-strip"><span>插件可触达</span><strong>模型调用</strong><strong>Endpoint</strong><strong>文件读写</strong><strong>存储</strong><strong>App API</strong></div>
+        <div class="capability-strip"><span>插件能够接触</span><strong>模型调用</strong><strong>Endpoint</strong><strong>文件读写</strong><strong>存储</strong><strong>App API</strong></div>
         <div class="source-note">来源：飞书提案 §2.3 行业对标。以上均为外部生态事件，不是 Dify 已发生事件；数字按研究稿口径展示。</div>
-        <aside class="notes">这三起事件不是用来制造恐慌，也不是 Dify 的事故。它们只是说明：发布凭证被盗、依赖更新和上架后变质都已是成熟攻击路径。Dify 插件能调用模型、文件、存储和 App API，因此需要把持续监测算进治理范围。</aside>
+        <aside class="notes">这三起事件都发生在其他生态，不是 Dify 的事故。它们告诉我们，发布凭证可能被盗，依赖更新可能夹带恶意代码，已经上架的插件也会变质。Dify 插件又能调用模型、文件、存储和 App API，所以不能审核一次就撒手不管。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Six lenses · 六种视角</div>
-        <h2>同一个插件，六个团队会问六类不同的问题。</h2>
+        <h2>一个插件摆到桌上，六个团队各有一本账。</h2>
         <div class="grid-12 lens-grid">
           <div class="card col-4"><div class="index-no">01 / SECURITY</div><h3>供应链安全</h3><p>密钥、二进制、依赖漏洞、运行时行为与上架后变质。</p></div>
           <div class="card col-4"><div class="index-no">02 / LEGAL</div><h3>法务与合规</h3><p>平台责任、子处理者、知识产权、下架与申诉程序。</p></div>
           <div class="card col-4"><div class="index-no">03 / PRODUCT</div><h3>产品信任</h3><p>徽章、能力清单、数据流、签名、SBOM 与风险提示。</p></div>
-          <div class="card col-4"><div class="index-no">04 / ENGINEERING</div><h3>工程效率</h3><p>本地预检、分级 CI、可定位报告、artifact 复用与自动标签。</p></div>
-          <div class="card col-4"><div class="index-no">05 / COMMUNITY</div><h3>社区可持续</h3><p>低风险零摩擦、规则可预演、例外透明、处置有程序。</p></div>
-          <div class="card col-4"><div class="index-no">06 / BUSINESS</div><h3>商业准入</h3><p>让 Enterprise 安全团队能够评估、签字、持续复核。</p></div>
+          <div class="card col-4"><div class="index-no">04 / ENGINEERING</div><h3>工程效率</h3><p>本地预检、分级 CI、可定位报告、构建产物（artifact）复用与自动标签。</p></div>
+          <div class="card col-4"><div class="index-no">05 / COMMUNITY</div><h3>社区可持续</h3><p>低风险尽量少打断、规则可提前试跑、例外有章可循。</p></div>
+          <div class="card col-4"><div class="index-no">06 / BUSINESS</div><h3>商业准入</h3><p>让企业安全团队能够评估、签字，并且定期复核。</p></div>
         </div>
-        <aside class="notes">安全团队看供应链，法务看责任链，产品要把信任信息做给用户看，工程和社区关心规则能否长期执行，商业团队最终要回答企业客户能不能通过安全评估。</aside>
+        <aside class="notes">安全团队查供应链，法务团队理清责任，产品团队要把证据摆给用户看。工程和社区关心规则能不能长期执行，商业团队则要回答客户最直接的问题：这个插件能不能通过安全评估。六本账要合在一起算，不能各管一摊。</aside>
       </section>
 
       <section class="grid-overlay trust-gap-slide atmos-slide atmos-prism">
         <div class="eyebrow">Trust gap · 信任落差</div>
-        <h2>如果对外说“更安全、更可靠”，运营证据必须跟得上。</h2>
+        <h2>话说得多满，证据就要做得多实。</h2>
         <div class="trust-gap-layout">
           <figure class="media-frame">
             <img src="assets/atmos-prism-darkhan-basshybayev.jpg" alt="Iridescent abstract prism texture by Darkhan Basshybayev on Unsplash">
-            <div class="media-overlay-copy">承诺是前台语言，<br>证据才是后台能力。</div>
+            <div class="media-overlay-copy">前台许下承诺，<br>后台拿出证据。</div>
             <div class="media-caption"><span>CLAIM → EVIDENCE</span></div>
           </figure>
           <div class="rail-content">
             <div class="spectrum">
-              <div><div class="label">Marketing language</div><div class="quote">“Safer, more reliable”</div><p class="lead">用户听到的是 publisher 风格的信赖承诺。</p></div>
-              <div><div class="label">Operational substance</div><div class="quote">解包 + manifest 校验</div><p class="lead">当前运营更像 hosting service，仍缺安全扫描与持续监测。</p></div>
+              <div><div class="label">对外承诺（Marketing）</div><div class="quote">“Safer, more reliable”</div><p class="lead">用户听到的是发布者（publisher）作出的安全承诺。</p></div>
+              <div><div class="label">实际工作（Operations）</div><div class="quote">解包 + 清单校验</div><p class="lead">眼下更像托管服务商（hosting service），还缺安全扫描和持续监测。</p></div>
             </div>
             <p class="rail-statement">主站已有 SOC 2、ISO 27001 与 GDPR 体系，<span class="blue">插件市场不能成为尽调空白区。</span></p>
           </div>
         </div>
         <div class="source-note">来源：飞书提案 §2.4 与 §3.1。法律定位需由适用法域下的专业法务最终判断。</div>
-        <aside class="notes">主站的合规体系会提高客户对插件市场的预期。平台到底更像 hosting 还是 publisher，也不只由条款决定；审核深度、推荐方式、徽章和营销措辞都会成为判断材料。过渡期文案是否调整，需要法务明确拍板。</aside>
+        <aside class="notes">主站已经有 SOC 2、ISO 27001 和 GDPR 体系，客户自然会用同样的标准来看插件市场。平台究竟更像托管服务商还是发布者，不只看条款，也看审核有多深、怎么推荐、挂什么徽章、对外怎样承诺。过渡期文案要不要收一收，应当由法务和产品一起拍板。</aside>
       </section>
 
       <section class="grid-overlay responsibility-slide atmos-slide atmos-teal">
         <div class="eyebrow">Responsibility chain · 责任链</div>
-        <h2>企业评估时会追问：数据去了哪里，出了问题谁负责。</h2>
+        <h2>“名不正，则言不顺”：谁决定、谁处理、谁转交，必须写清。</h2>
         <div class="responsibility-layout">
           <div class="rail-content">
             <div class="chain chain-grid">
-              <div class="node"><div class="role">01 · CUSTOMER</div><h3>业务用户 / Controller</h3><p>决定处理目的，承担内部授权与业务结果责任。</p></div>
-              <div class="node"><div class="role">02 · PLATFORM</div><h3>Dify / Processor?</h3><p>承载执行、凭证、分发与审计；角色随部署形态变化。</p></div>
-              <div class="node"><div class="role">03 · AUTHOR</div><h3>插件作者 / Sub-processor?</h3><p>决定实现与下游调用；协议与告知链仍需补强。</p></div>
+              <div class="node"><div class="role">01 · CUSTOMER</div><h3>业务用户 / 控制者（Controller）</h3><p>决定处理目的，承担内部授权与业务结果责任。</p></div>
+              <div class="node"><div class="role">02 · PLATFORM</div><h3>Dify / 处理者（Processor）?</h3><p>负责执行、凭证、分发与审计；角色随部署方式变化。</p></div>
+              <div class="node"><div class="role">03 · AUTHOR</div><h3>插件作者 / 子处理者（Sub-processor）?</h3><p>决定具体实现与下游调用；协议和告知仍需补强。</p></div>
               <div class="node"><div class="role">04 · DOWNSTREAM</div><h3>第三方 API / 再处理者</h3><p>数据流向、区域、保留策略与再委托需要透明。</p></div>
             </div>
             <div class="responsibility-tags">
-              <div class="card soft"><h3>Privacy</h3><p>类型、目的、第三方。</p></div><div class="card soft"><h3>IP &amp; License</h3><p>权属、许可、分发权。</p></div><div class="card soft"><h3>Due process</h3><p>通知、申辩、复议。</p></div><div class="card soft"><h3>Evidence</h3><p>签名、SBOM、时间戳。</p></div>
+              <div class="card soft"><h3>隐私（Privacy）</h3><p>类型、目的、第三方。</p></div><div class="card soft"><h3>知识产权与许可</h3><p>权属、许可、分发权。</p></div><div class="card soft"><h3>正当程序</h3><p>通知、申辩、复议。</p></div><div class="card soft"><h3>证据（Evidence）</h3><p>签名、SBOM、时间戳。</p></div>
             </div>
           </div>
           <figure class="media-frame"><img src="assets/atmos-teal-pawel-czerwinski.jpg" alt="Teal abstract flowing layers by Pawel Czerwinski on Unsplash"><div class="media-caption"><span>VISIBLE RESPONSIBILITY</span></div></figure>
         </div>
-        <div class="source-note">来源：飞书提案 §3.2–§3.5。图中问号表示角色需按具体处理场景与合同关系认定。</div>
-        <aside class="notes">不要把 GDPR 的角色关系说死，因此保留问号。治理要提供足够信息，让法务能判断：谁决定目的、谁实际处理、谁把数据交给谁，以及出了问题怎样通知、申诉和举证。</aside>
+        <div class="source-note">来源：飞书提案 §3.2–§3.5；典故：《论语·子路》。图中问号表示角色需按具体处理场景与合同关系认定。</div>
+        <aside class="notes">孔子说“名不正，则言不顺”。放到数据治理里，就是先把角色叫对、责任分清。图中的问号不能轻易去掉，因为 GDPR 角色要结合部署方式和合同关系判断。法务至少要看清四件事：谁定目的，谁真正处理，数据又交给了谁，出了问题如何通知、申诉和举证。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Risk proportionality · 风险分级</div>
-        <h2>低风险保持顺滑，高风险再增加审核成本。</h2>
+        <h2>“权，然后知轻重；度，然后知长短。”插件审核也该先分风险。</h2>
         <table class="matrix">
           <thead><tr><th style="width:9%">档位</th><th style="width:26%">典型行为</th><th style="width:22%">机器检查</th><th style="width:22%">人工审核</th><th>用户感知</th></tr></thead>
           <tbody>
-            <tr class="tier-1"><td>L1</td><td>固定 HTTPS API；无本地副作用</td><td>硬拒绝 + Semgrep 警告</td><td>抽样 20%</td><td>Verified Basic · 零额外打断</td></tr>
-            <tr class="tier-2"><td>L2</td><td>用户文件 / URL；上传下载与富文本解析</td><td>依赖 Medium+ 阻断；警告需说明</td><td>全量轻量 review</td><td>Standard · 数据流可见</td></tr>
-            <tr class="tier-3"><td>L3</td><td>命令、SQL、SSH、浏览器、本地文件、任意 HTTP</td><td>warning → error；Low+ 依赖阈值</td><td>深度 review + 动态测试</td><td>High Risk · 增强审查 + 安装二次确认</td></tr>
+            <tr class="tier-1"><td>L1</td><td>固定 HTTPS API；无本地副作用</td><td>硬拒绝 + Semgrep 警告</td><td>抽样 20%</td><td>基础验证 · 不额外打断</td></tr>
+            <tr class="tier-2"><td>L2</td><td>用户文件 / URL；上传下载与富文本解析</td><td>依赖 Medium+ 阻断；警告需说明</td><td>全量简审</td><td>标准风险 · 数据去向可见</td></tr>
+            <tr class="tier-3"><td>L3</td><td>命令、SQL、SSH、浏览器、本地文件、任意 HTTP</td><td>警告升级为阻断；Low+ 依赖阈值</td><td>深度审核 + 动态测试</td><td>高风险 · 加强审查 + 安装二次确认</td></tr>
           </tbody>
         </table>
         <p class="big-statement" style="font-size:46px;margin-top:34px;">原则：<span class="blue">低风险不增摩擦，高风险不靠运气。</span></p>
-        <div class="source-note">来源：飞书提案附录 C《风险分级标准》及其嵌入表格。</div>
-        <aside class="notes">这页是整个治理体系的核心杠杆。只有分级，才能同时保护安全和社区活力。自评与机器结果取更高档，reviewer 可以调档；鼓励作者诚实披露，而不是让所有贡献者都承受 L3 成本。</aside>
+        <div class="source-note">来源：飞书提案附录 C《风险分级标准》及其嵌入表格；典故：《孟子·梁惠王上》。</div>
+        <aside class="notes">《孟子》说，称过才知道轻重，量过才知道长短。插件治理也一样，不能不分青红皂白地一律从严。作者自评和机器检查取较高档，审核人还可以调档。这样既守住安全，也不让普通贡献者平白承担 L3 的成本。</aside>
       </section>
 
       <section class="grid-overlay lifecycle-slide atmos-slide atmos-ember">
         <div class="eyebrow">Lifecycle governance · 全生命周期</div>
-        <h2>一次 CI 通过只能说明当时；治理还要覆盖安装与后续更新。</h2>
+        <h2>“慎终如始，则无败事。”一次 CI 通过，不能换来永久可信。</h2>
         <div class="lifecycle-layout">
           <figure class="media-frame"><img src="assets/atmos-ember-asif-aether.jpg" alt="Deep blue and orange atmospheric gradient by Asif Aether on Unsplash"><div class="media-caption"><span>TRUST IS CONTINUOUS</span></div></figure>
           <div class="lifecycle">
             <div class="stage"><div class="stage-no">01</div><h3>作者</h3><p>严格模板、<code>.difyignore</code>、风险自评、能力与隐私声明。</p></div>
-            <div class="stage"><div class="stage-no">02</div><h3>构建</h3><p>源码 URL、commit SHA、锁依赖与可追溯包指纹。</p></div>
-            <div class="stage"><div class="stage-no">03</div><h3>入库 CI</h3><p>密钥、二进制、依赖、SAST、manifest 与风险档位。</p></div>
-            <div class="stage"><div class="stage-no">04</div><h3>上架</h3><p>官方 / Partner / 社区分层，展示徽章与可信信息。</p></div>
+            <div class="stage"><div class="stage-no">02</div><h3>构建</h3><p>源码 URL、提交 SHA（commit SHA）、锁定依赖与包指纹。</p></div>
+            <div class="stage"><div class="stage-no">03</div><h3>入库 CI</h3><p>密钥、二进制、依赖、SAST、插件清单（manifest）与风险档位。</p></div>
+            <div class="stage"><div class="stage-no">04</div><h3>上架</h3><p>官方 / 合作伙伴（Partner）/ 社区分层，展示徽章与可信信息。</p></div>
             <div class="stage"><div class="stage-no">05</div><h3>安装运行</h3><p>L3 二次确认；最小能力；核对沙箱与出站行为。</p></div>
             <div class="stage"><div class="stage-no">06</div><h3>持续监测</h3><p>新 CVE、异常调用、降级、SLA、通知与复议。</p></div>
           </div>
         </div>
-        <aside class="notes">把治理画成生命周期，才能避免“CI 通过就永远可信”的错觉。版本可以变质、依赖会出现新漏洞、作者凭证会被盗，因此上架后监测和处置程序与入库扫描同等重要。</aside>
+        <div class="source-note">典故：《道德经》第六十四章。</div>
+        <aside class="notes">《道德经》说“慎终如始，则无败事”。CI 通过，只能证明检查当时没有发现问题。版本会变，依赖会冒出新漏洞，作者凭证也可能被盗。治理必须从作者提交一直管到安装、运行和后续更新，上架后的监测与处置，和入库扫描同样重要。</aside>
       </section>
 
       <section class="dark-slide grid-overlay">
-        <div class="eyebrow">Policy as code · 9-stage gate</div>
-        <h2>把 reviewer 的经验写进一套可复现、可定位的检查流程。</h2>
+        <div class="eyebrow">Policy as code · 规则写进代码</div>
+        <h2>“工欲善其事，必先利其器。”把审核经验写进可复现的检查流程。</h2>
         <div class="pipeline">
-          <div class="pipe"><div class="pipe-no">01</div><h3>unpack</h3><p>artifact 解包</p></div>
+          <div class="pipe"><div class="pipe-no">01</div><h3>unpack</h3><p>解开构建产物</p></div>
           <div class="pipe"><div class="pipe-no">02</div><h3>junk</h3><p>敏感残留</p></div>
           <div class="pipe"><div class="pipe-no">03</div><h3>secrets</h3><p>gitleaks / trufflehog</p></div>
           <div class="pipe"><div class="pipe-no">04</div><h3>binary</h3><p>ELF / PE / Mach-O</p></div>
-          <div class="pipe"><div class="pipe-no">05</div><h3>manifest</h3><p>字段 + tier</p></div>
+          <div class="pipe"><div class="pipe-no">05</div><h3>manifest</h3><p>字段 + 风险档位</p></div>
           <div class="pipe"><div class="pipe-no">06</div><h3>deps</h3><p>pip-audit</p></div>
           <div class="pipe"><div class="pipe-no">07</div><h3>SAST</h3><p>Semgrep + Bandit</p></div>
           <div class="pipe"><div class="pipe-no">08</div><h3>legacy</h3><p>版本 + 安装</p></div>
-          <div class="pipe"><div class="pipe-no">09</div><h3>report</h3><p>label + comment</p></div>
+          <div class="pipe"><div class="pipe-no">09</div><h3>report</h3><p>标签 + 评论</p></div>
         </div>
         <div class="grid-12" style="margin-top:30px;">
           <div class="card dark-card col-3"><h3>12 条硬拒绝</h3><p>密钥、开发残留、平台二进制、缺字段、超体积等任档不放。</p></div>
-          <div class="card dark-card col-3"><h3>风险驱动阈值</h3><p>Stage 5 的 tier 输出驱动依赖与 SAST 严格度。</p></div>
-          <div class="card dark-card col-3"><h3>本地可预演</h3><p>同一 review-plugin 在作者机器与 CI 运行，减少来回。</p></div>
+          <div class="card dark-card col-3"><h3>按风险定阈值</h3><p>第 5 阶段给出风险档位，再决定依赖与 SAST 的严格程度。</p></div>
+          <div class="card dark-card col-3"><h3>作者本地先跑</h3><p>同一套审核工具（review-plugin）在作者机器与 CI 运行，少走弯路。</p></div>
           <div class="card dark-card col-3"><h3>证据可验证</h3><p>报告包含 SHA-256、工具版本、时间戳与命中位置。</p></div>
         </div>
-        <div class="source-note">来源：飞书提案附录 D《入库门禁技术设计》。</div>
-        <aside class="notes">不要把这 9 阶段讲成工具清单。重点是三件事：风险档位驱动严格度；作者本地和 CI 使用同一规则；每次结论都带指纹、版本和定位，让 reviewer 知道为什么信。</aside>
+        <div class="source-note">来源：飞书提案附录 D《入库门禁技术设计》；典故：《论语·卫灵公》。</div>
+        <aside class="notes">“工欲善其事，必先利其器。”这九个阶段不是为了罗列工具，而是要办成三件事：先按风险档位决定检查力度；作者本地和 CI 使用同一套规则；每次结论都带上指纹、版本和命中位置。审核人看到证据，才知道这份结论为什么可信。</aside>
       </section>
 
       <section class="grid-overlay visible-trust-slide atmos-slide atmos-rainbow">
         <div class="eyebrow">Visible trust · 让信任可见</div>
-        <h2>检查结果不能只留在 CI 日志里。</h2>
+        <h2>检查有了结论，还要让用户看得见、看得懂。</h2>
         <div class="visible-trust-layout">
           <figure class="media-frame"><img src="assets/atmos-rainbow-sean-sinclair.jpg" alt="Soft rainbow light leak by Sean Sinclair on Unsplash"><div class="media-caption"><span>EVIDENCE SHOULD TRAVEL</span></div></figure>
           <div class="mock-market">
             <div class="plugin-card"><div class="plugin-icon"></div><div class="mono muted" style="font-size:11px;">VERIFIED COMMUNITY</div><h3 style="font-size:30px;margin-top:10px;">Enterprise Connector</h3><p style="font-size:16px;color:var(--muted);margin-top:12px;">Source-linked · signed · monitored</p><div class="badge">● L2 · STANDARD</div></div>
-            <div class="trust-panel"><h3 style="font-size:28px;margin-bottom:14px;">可信信息 / Trust Center</h3><div class="trust-row"><span>Source</span><strong>Repository + commit SHA</strong></div><div class="trust-row"><span>Capabilities</span><strong>Files · HTTPS · Storage</strong></div><div class="trust-row"><span>Data flow</span><strong>Types · purpose · third parties</strong></div><div class="trust-row"><span>Supply chain</span><strong>SBOM · CVE · signature</strong></div><div class="trust-row"><span>Monitoring</span><strong>Last scan · SLA · status</strong></div></div>
+            <div class="trust-panel"><h3 style="font-size:28px;margin-bottom:14px;">可信信息中心（Trust Center）</h3><div class="trust-row"><span>来源</span><strong>代码仓库 + commit SHA</strong></div><div class="trust-row"><span>能力</span><strong>文件 · HTTPS · 存储</strong></div><div class="trust-row"><span>数据去向</span><strong>类型 · 目的 · 第三方</strong></div><div class="trust-row"><span>供应链</span><strong>SBOM · CVE · 签名</strong></div><div class="trust-row"><span>监测</span><strong>最近扫描 · SLA · 状态</strong></div></div>
           </div>
         </div>
         <div class="source-note">产品概念来自飞书提案附录 I：风险徽章、L3 二次确认、可信信息面板、来源分层、筛选与带病标记。</div>
-        <aside class="notes">治理不仅要能阻断，还要降低用户决策成本。用户在浏览阶段就能回答五个问题：谁写的、能做什么、数据去哪、包从哪里来、现在是否健康。</aside>
+        <aside class="notes">检查不能只为拦住坏包，也要帮助用户作判断。用户浏览插件时，应当一眼看清五件事：谁写的，能做什么，数据去了哪里，安装包从哪里来，现在是否仍然安全。证据走出 CI 日志，治理才真正落到用户手里。</aside>
       </section>
 
       <section class="grid-overlay governance-stack-slide">
         <div class="eyebrow">Governance stack · 三层治理</div>
-        <h2>机器守底线，人判断语境，程序处理争议。</h2>
+        <h2>机器守底线，人看具体情况，程序给争议一个说法。</h2>
         <div class="grid-12" style="margin-top:48px;">
-          <div class="card blue-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 01</div><h3 style="font-size:34px;">机器门禁</h3><p>硬拒绝、分级阈值、签名、SBOM、依赖与静态扫描。</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>目标：</strong>把最低质量线变成确定性。</p></div>
-          <div class="card col-4" style="min-height:430px;"><div class="index-no">LAYER 02</div><h3 style="font-size:34px;">人工判断</h3><p>L3 深度 review、动态测试、安全例外与双人 sign-off。</p><div class="rule" style="margin:48px 0 20px;"></div><p><strong>目标：</strong>处理机器看不懂的语境与意图。</p></div>
-          <div class="card orange-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 03</div><h3 style="font-size:34px;">法律程序</h3><p>Author CoC、协议衔接、通知、申辩、决定、复议与安全例外。</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>目标：</strong>让处置可解释、可执行、可复核。</p></div>
+          <div class="card blue-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 01</div><h3 style="font-size:34px;">机器门禁</h3><p>硬拒绝、分级阈值、签名、SBOM、依赖与静态扫描。</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>目标：</strong>任何插件都不能越过底线。</p></div>
+          <div class="card col-4" style="min-height:430px;"><div class="index-no">LAYER 02</div><h3 style="font-size:34px;">人工判断</h3><p>L3 深度审核、动态测试、安全例外与双人签字确认（sign-off）。</p><div class="rule" style="margin:48px 0 20px;"></div><p><strong>目标：</strong>处理机器看不懂的具体情况和真实意图。</p></div>
+          <div class="card orange-card col-4" style="min-height:430px;"><div class="index-no" style="color:rgba(255,255,255,.7);">LAYER 03</div><h3 style="font-size:34px;">法律程序</h3><p>作者行为准则（Author CoC）、协议、通知、申辩、决定、复议与安全例外。</p><div class="rule" style="background:rgba(255,255,255,.25);margin:48px 0 20px;"></div><p><strong>目标：</strong>让每次处置都有依据、能够执行、经得起复核。</p></div>
         </div>
-        <aside class="notes">纯自动化会制造误报与僵化，纯人工会制造不一致和积压。三层治理把不同类型的判断放到最合适的位置：机器守底线，人处理语境，程序保护长期关系。</aside>
+        <aside class="notes">只靠机器，容易误报，也容易把规则做死；只靠人工，标准会忽高忽低，任务还会越积越多。更稳妥的办法是各司其职：机器守住硬底线，人判断具体情况，正式程序负责通知、申辩和复议。这样既能处置问题，也能维持与作者的长期关系。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Roadmap · 一年路线</div>
-        <h2>这件事可以分阶段做，不必等完整平台。</h2>
+        <h2>不用等万事俱备，分三步就能把事情做起来。</h2>
         <div class="timeline">
-          <div class="phase"><div class="time">P0 · 4 WEEKS</div><h3>先补最小闭环</h3><ul><li>本地 review-plugin</li><li>PR 风险与能力声明</li><li>Reviewer Checklist</li><li>Author Code of Conduct</li></ul><div class="metric">工程约 3 周 · DevRel 约 1 周 · Legal 约 1 周<br>合计约 1 人月</div></div>
-          <div class="phase"><div class="time">P1 · 3 MONTHS</div><h3>把规则接进 CI</h3><ul><li>9 阶段 pre-check v2</li><li>secrets / deps / SAST</li><li>严格模板与 tier 标签</li><li>官方仓叠加 lint / pytest</li></ul><div class="metric">1 名工程师全职 3 个月<br>DevRel / Legal 兼职参与</div></div>
+          <div class="phase"><div class="time">P0 · 4 WEEKS</div><h3>先跑通最小流程</h3><ul><li>本地审核工具（review-plugin）</li><li>PR 风险与能力声明</li><li>审核清单（Reviewer Checklist）</li><li>作者行为准则</li></ul><div class="metric">工程约 3 周 · 开发者关系（DevRel）约 1 周 · 法务约 1 周<br>合计约 1 人月</div></div>
+          <div class="phase"><div class="time">P1 · 3 MONTHS</div><h3>把规则接进 CI</h3><ul><li>9 阶段预检 v2</li><li>密钥 / 依赖 / SAST</li><li>严格模板与风险档位标签</li><li>官方仓叠加 lint / pytest</li></ul><div class="metric">1 名工程师全职 3 个月<br>开发者关系 / 法务兼职参与</div></div>
           <div class="phase"><div class="time">P2 · 6–12 MONTHS</div><h3>补齐供应链证据</h3><ul><li>结构化隐私数据流</li><li>SBOM + 持续 CVE</li><li>签名与透明日志</li><li>动态行为与响应 SLA</li></ul><div class="metric">工程约 2 个月共享投入<br>可选外部安全合作预算</div></div>
         </div>
         <div class="source-note">来源：飞书提案 §4、§6 与嵌入的 P0/P1 交付表。</div>
-        <aside class="notes">P0 主要是模板、工具和流程，约一人月即可启动。P1 需要一名工程师连续三个月，DevRel 和法务同步维护作者沟通与协议。P2 再补 SBOM、签名、持续监测，并决定是否引入外部安全伙伴。</aside>
+        <aside class="notes">这件事不必等完整平台建好再开始。P0 先改模板、做工具、立流程，大约一个人月就能启动。P1 由一名工程师连续投入三个月，开发者关系和法务同步处理作者沟通与协议。P2 再补 SBOM、签名和持续监测，并决定是否请外部安全伙伴参与。</aside>
       </section>
 
       <section class="grid-overlay tradeoff-slide">
         <div class="eyebrow">Trade-offs · 治理也要被治理</div>
-        <h2>更严格的规则会带来成本，缓冲机制要一起设计。</h2>
+        <h2>“一张一弛，文武之道也。”规则有力度，也要给迁移留余地。</h2>
         <div class="grid-12" style="margin-top:40px;">
-          <div class="card col-6"><div class="index-no">FRICTION</div><h3>门禁过严抑制贡献</h3><p>L1 零摩擦；官方仓试运行 2 周再下沉；社区仓前 30 天 warning 不阻断。</p></div>
-          <div class="card col-6"><div class="index-no">FALSE POSITIVE</div><h3>误报与例外</h3><p>命中说明 + docs；支持内联豁免；安全例外需 ≥2 maintainer 与业务理由。</p></div>
-          <div class="card col-6"><div class="index-no">MIGRATION</div><h3>现有作者迁移成本</h3><p>新规则优先作用于新提交；存量先做可视化扫描，Critical 项给 90 天修复窗口。</p></div>
+          <div class="card col-6"><div class="index-no">FRICTION</div><h3>门禁过严抑制贡献</h3><p>L1 尽量少打断；官方仓试运行 2 周再推广；社区仓前 30 天只警告、不阻断。</p></div>
+          <div class="card col-6"><div class="index-no">FALSE POSITIVE</div><h3>误报与例外</h3><p>每次命中都给说明和文档；支持内联豁免；安全例外需至少 2 名维护者（maintainer）说明业务理由。</p></div>
+          <div class="card col-6"><div class="index-no">MIGRATION</div><h3>现有作者迁移成本</h3><p>新规则先管新提交；存量先扫描并展示结果；严重（Critical）问题给 90 天修复期。</p></div>
           <div class="card col-6"><div class="index-no">DUE PROCESS</div><h3>封禁与下架争议</h3><p>通知 → 申辩 → 决定 → 复议；安全例外可先下后告，但须事后说明。</p></div>
         </div>
-        <p class="big-statement" style="font-size:42px;margin-top:28px;">CI 可能从约 3 分钟增至 6–8 分钟；用并行阶段和 artifact 复用控制成本。</p>
-        <div class="source-note">来源：飞书提案 §5《实施风险与权衡》嵌入表格。</div>
-        <aside class="notes">权衡表给出的做法很具体：官方仓先试两周，社区仓前三十天只告警；误报要有文档和豁免；安全例外至少两名 maintainer 批准；存量 Critical 给九十天窗口。规则越严格，越要让作者提前知道怎样通过和怎样申诉。</aside>
+        <p class="big-statement" style="font-size:42px;margin-top:28px;">CI 可能从约 3 分钟增至 6–8 分钟；通过并行检查和复用构建产物控制成本。</p>
+        <div class="source-note">来源：飞书提案 §5《实施风险与权衡》嵌入表格；典故：《礼记·杂记下》。</div>
+        <aside class="notes">《礼记》讲“一张一弛”，规则也是如此。官方仓先试两周，社区仓前三十天只告警；误报要有说明、有文档、能申请豁免；安全例外至少两名维护者批准；存量严重问题给九十天整改。要求越严，越要提前告诉作者怎样通过、怎样申诉。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Decision points · 需要拍板</div>
-        <h2>工具可以继续做，但有三件事必须由管理层决定。</h2>
+        <h2>工具可以继续往前做，但三件大事必须由管理层拍板。</h2>
         <div class="decision-grid">
           <div class="decision-card"><div class="decision-no">01</div><h3>L3 默认怎么处理？</h3><p>仅提示用户，还是上架前人工深审？</p><div class="decision-call">提案建议：人工预审</div></div>
-          <div class="decision-card"><div class="decision-no">02</div><h3>Marketplace 是否分层？</h3><p>Official、Partner、Verified Community 是否明确区分？</p><div class="decision-call">提案建议：明确区分</div></div>
-          <div class="decision-card"><div class="decision-no">03</div><h3>过渡期文案怎么写？</h3><p>在 P1 完成前，首页“更安全、更可靠”是否降调？</p><div class="decision-call">需要 Legal × Product 决策</div></div>
+          <div class="decision-card"><div class="decision-no">02</div><h3>插件市场（Marketplace）是否分层？</h3><p>官方、合作伙伴、已验证社区是否明确区分？</p><div class="decision-call">提案建议：明确区分</div></div>
+          <div class="decision-card"><div class="decision-no">03</div><h3>过渡期文案怎么写？</h3><p>在 P1 完成前，首页“更安全、更可靠”是否收敛措辞？</p><div class="decision-call">需要法务 × 产品共同决定</div></div>
         </div>
-        <div class="owner-strip"><span>共同 Owner</span><strong>Engineering</strong><strong>Security</strong><strong>Legal</strong><strong>Product / Design</strong><strong>DevRel</strong></div>
+        <div class="owner-strip"><span>共同负责人</span><strong>工程</strong><strong>安全</strong><strong>法务</strong><strong>产品 / 设计</strong><strong>开发者关系</strong></div>
         <div class="source-note">来源：飞书提案 §6《需要决策事项》；建议项与待决项按研究稿口径呈现。</div>
-        <aside class="notes">扫描器和模板可以由项目组推进，但这三件事会改变风险承诺、产品展示和运营成本，需要管理层明确授权。尤其是 L3 是否默认人工预审，以及过渡期营销文案是否调整，不能留给 reviewer 临场判断。</aside>
+        <aside class="notes">扫描器和模板，项目组可以继续做。但这三项选择会改变风险承诺、产品展示和运营成本，必须得到管理层明确授权。尤其是 L3 是否默认人工预审、过渡期营销文案是否调整，不能让审核人到现场临时决定。</aside>
       </section>
 
       <section class="bg-photo integrated-full" style="background-image:url('assets/atmos-flare-sean-sinclair.jpg');background-position:center 45%!important;">
         <div class="vcenter" style="height:100%;max-width:1040px;">
           <div class="eyebrow">02 · New collaboration</div>
-          <h1 style="font-size:88px;">边界清楚之后，<br><span style="color:var(--cyan);">协作范围才有条件扩大。</span></h1>
-          <p class="lead">从 Dify 1.15 到 1.16，终端、人工节点、可复用 Agent 与 Workflow 开始承担不同的协作角色。</p>
+          <h1 style="font-size:88px;">边界划清了，<br><span style="color:var(--cyan);">协作才敢放开手脚。</span></h1>
+          <p class="lead">从 Dify 1.15 到 1.16，终端、人工节点、可复用 Agent 与 Workflow（工作流）开始各司其职。</p>
         </div>
         <div class="photo-caption" style="left:auto;right:104px;width:410px;"><span>FROM BOUNDARY TO POSSIBILITY</span></div>
-        <aside class="notes">第二部分转场。治理不是为了把 Agent 关小，而是为了让更多角色、更多执行面安全地接进来。下面所有协作判断都从 1.15 和 1.16 的官方 release feature 出发。</aside>
+        <aside class="notes">前面讲规矩，接下来讲协作。治理不是为了捆住 Agent 的手脚，而是先划清边界，让更多角色和更多运行入口可以放心参与。下面的判断，都以 Dify 1.15 和 1.16 已经发布的功能为依据。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Official releases · 1.15 → 1.16</div>
-        <h2>1.15 带来更多执行入口，1.16 开始管理可复用 Agent。</h2>
+        <h2>1.15 把工作流带到更多入口，1.16 开始把 Agent 当作可管理角色。</h2>
         <div class="release-map">
           <div class="release">
             <div class="version">DIFY 1.15.0 · 2026-06-25</div>
-            <div class="feature"><div class="dot"></div><div><h3>difyctl</h3><p>终端直接运行 apps / workflows；脚本与 CI 成为正式调用方。</p></div></div>
-            <div class="feature"><div class="dot"></div><div><h3>Richer HITL</h3><p>人工输入支持 select、文件与多文件上传。</p></div></div>
-            <div class="feature"><div class="dot"></div><div><h3>Visible reasoning</h3><p>Workflow、Chatflow、CLI 均可查看并保留 thinking。</p></div></div>
-            <div class="feature"><div class="dot"></div><div><h3>Operations</h3><p>长任务 polling、深度 tracing、按插件类别的自动升级策略。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>difyctl</h3><p>终端直接运行应用和工作流；脚本与 CI 成为正式调用方。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>Richer HITL</h3><p>人工输入支持下拉选择、文件和多文件上传。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>Visible reasoning</h3><p>Workflow、Chatflow、CLI 都能查看并保留思考过程。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>Operations</h3><p>长任务轮询（polling）、深度追踪（tracing）和插件分类升级。</p></div></div>
           </div>
           <div class="release">
             <div class="version">DIFY 1.16.0 · 2026-07-17</div>
-            <div class="feature"><div class="dot"></div><div><h3>Dify Agent (Beta)</h3><p>Linux sandbox、Skills、Agent roster、可复用 Agent。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>Dify Agent (Beta)</h3><p>Linux 沙箱（sandbox）、Skills、Agent 名册（roster）和可复用 Agent。</p></div></div>
             <div class="feature"><div class="dot"></div><div><h3>AI app generation</h3><p>通过 <code>/create</code> 与 <code>/refine</code> 生成 Workflow / Chatflow。</p></div></div>
             <div class="feature"><div class="dot"></div><div><h3>Builder &amp; Workflow</h3><p>对话创建 Skills；在 Workflow 中引用或临时创建 Agent。</p></div></div>
-            <div class="feature"><div class="dot"></div><div><h3>MCP & archives</h3><p>结构化工具输出、动态 headers、运行归档与成本归因。</p></div></div>
+            <div class="feature"><div class="dot"></div><div><h3>MCP & archives</h3><p>结构化工具输出、动态请求头（headers）、运行归档与成本归因。</p></div></div>
           </div>
         </div>
-        <div class="source-note">来源：Dify 官方 GitHub Release 1.15.0 与 1.16.0；功能描述为对 release notes 的压缩归纳。</div>
-        <aside class="notes">先把事实摆出来。1.15 让终端、CI、人工节点和可观测性成为一等参与者；1.16 引入沙箱 Agent、AI 应用生成、Skills、Roster、Workflow 引用和 MCP 升级。下一页先看自动生成应用的完整交互，再推演四种协作模式。</aside>
+        <div class="source-note">来源：Dify 官方 GitHub Release 1.15.0 与 1.16.0；功能描述由发布说明（release notes）压缩归纳。</div>
+        <aside class="notes">先看已经发生了什么。1.15 让终端、CI、人工节点和运行观测都能正式参与工作流；1.16 又带来沙箱 Agent、AI 应用生成、Skills、Agent 名册、工作流引用和 MCP 升级。下一页先看 AI 怎样生成应用，再由这些事实归纳四种协作方式。</aside>
       </section>
 
       <section class="grid-overlay app-gen-slide atmos-slide atmos-rainbow">
         <div class="eyebrow">Feature spotlight · AI 自动生成应用</div>
-        <h2>一句需求，先变成可检查的计划，再生成可编辑的 Workflow / Chatflow。</h2>
+        <h2>一句话先变成计划，再变成能够继续修改的 Workflow / Chatflow。</h2>
         <div class="app-gen-layout">
           <figure class="media-frame app-gen-visual">
             <img src="assets/atmos-rainbow-sean-sinclair.jpg" alt="Soft rainbow light leak by Sean Sinclair on Unsplash">
@@ -347,16 +349,16 @@ __pycache__/
           </figure>
           <div class="app-gen-content">
             <div class="app-gen-flow">
-              <div class="gen-stage"><div class="stage-no">01 · UNDERSTAND</div><h3>理解需求</h3><p>结合工作区上下文给出可构建建议，并判断应用模式。</p></div>
-              <div class="gen-stage active"><div class="stage-no">02 · PLAN FIRST</div><h3>先展示节点计划</h3><p>画布生成前先看真实节点大纲，范围不对可以及时停下。</p></div>
-              <div class="gen-stage"><div class="stage-no">03 · BUILD + CHECK</div><h3>并行生成并验证</h3><p>配置节点，验证工具和连接；失败时指出受影响节点。</p></div>
-              <div class="gen-stage"><div class="stage-no">04 · APPLY / REFINE</div><h3>应用后继续修改</h3><p><code>/refine</code> 汇总新增、删除与变更，结果仍可编辑。</p></div>
+              <div class="gen-stage"><div class="stage-no">01 · UNDERSTAND</div><h3>理解需求</h3><p>结合工作区信息提出可做的方案，并判断应用模式。</p></div>
+              <div class="gen-stage active"><div class="stage-no">02 · PLAN FIRST</div><h3>先展示节点计划</h3><p>生成画布前先看真正要建的节点；方向不对，可以马上叫停。</p></div>
+              <div class="gen-stage"><div class="stage-no">03 · BUILD + CHECK</div><h3>边生成，边检查</h3><p>配置节点并验证工具和连接；出错时点明受影响的节点。</p></div>
+              <div class="gen-stage"><div class="stage-no">04 · APPLY / REFINE</div><h3>应用后继续修改</h3><p><code>/refine</code> 列出增删改，生成结果仍然可以编辑。</p></div>
             </div>
-            <div class="app-gen-outcome"><span>从“画每个节点”</span><strong>转向定义目标、审阅计划、处理例外</strong><span>生成物仍进入原有治理流程</span></div>
+            <div class="app-gen-outcome"><span>从“逐个画节点”</span><strong>转向定目标、审计划、批权限、管例外</strong><span>生成结果照常接受治理</span></div>
           </div>
         </div>
         <div class="source-note">来源：Dify 1.16.0 Release「Smarter AI Workflow Generation」与 PR #38175；当前入口为 ⌘K → /create、/refine，Create-App 对话框入口尚未 GA。</div>
-        <aside class="notes">这里的“自动生成应用”具体指 Workflow 和 Chatflow。用户在 Command K 中输入 /create，可以直接描述需求；系统先判断模式并给出真实节点计划，再生成和验证画布。/refine 会给出图差异摘要。它改变的不是谁拥有应用，而是谁负责第一稿：机器负责把自然语言编译成可编辑流程，人负责目标、计划审阅、工具授权和例外。当前功能仍属于 preview，Create-App 对话框里的显式入口尚未 GA。</aside>
+        <aside class="notes">这里的“自动生成应用”指 Workflow 和 Chatflow。用户在 Command K 中输入 /create，用一句话说清需求；系统先判断模式，列出真正会生成的节点，再去搭建和验证画布。/refine 会说明改了什么。变化不在应用归谁，而在第一稿由谁来写：机器搭流程，人定目标、审计划、批工具、管例外。目前这项功能仍在预览阶段，Create-App 对话框里的明确入口还没有正式开放。</aside>
       </section>
 
       <section class="grid-overlay">
@@ -364,17 +366,17 @@ __pycache__/
           <div class="col-3"><div class="mode-number">01</div></div>
           <div class="col-9">
             <div class="eyebrow">Mode one · 运行面协作</div>
-            <h2>同一个工作流，开始跨 UI、终端和 CI 使用。</h2>
-            <p class="lead">difyctl 让工作流可以被开发脚本、个人 Agent 与流水线直接调用；scoped env 与统一错误让自动化边界更清晰。</p>
+            <h2>同一个工作流，可以在界面、终端和流水线上各展所长。</h2>
+            <p class="lead">difyctl 让开发脚本、个人 Agent 和流水线都能直接调用工作流；作用域环境变量（scoped environment variables）和统一错误让自动化边界更清楚。</p>
             <div class="grid-12 mode-grid">
-              <div class="card col-4"><h3>Builder</h3><p>在 UI 中设计与调试，保留可视化上下文。</p></div>
-              <div class="card col-4"><h3>Operator</h3><p>在 CLI 中运行、观察、组合和批处理。</p></div>
-              <div class="card blue-card col-4"><h3>Pipeline</h3><p>在 CI 中触发、回归、审计并形成发布门禁。</p></div>
+              <div class="card col-4"><h3>设计者（Builder）</h3><p>在 UI 中设计和调试，保留可视化信息。</p></div>
+              <div class="card col-4"><h3>操作者（Operator）</h3><p>在 CLI 中运行、观察、组合和批量处理。</p></div>
+              <div class="card blue-card col-4"><h3>流水线（Pipeline）</h3><p>在 CI 中触发、回归、审计，并把住发布关口。</p></div>
             </div>
           </div>
         </div>
-        <div class="source-note">推演依据：Dify 1.15.0 的 difyctl、scoped environment variables、CLI/HTTP 统一错误与可见 reasoning。</div>
-        <aside class="notes">新的协作不是把 UI 换成 CLI，而是让不同角色在不同执行面使用同一个工作流。设计者用 UI，运营与开发用 CLI，组织用 CI；工作流成为跨界面的共同资产。</aside>
+        <div class="source-note">判断依据：Dify 1.15.0 的 difyctl、作用域环境变量、CLI/HTTP 统一错误与可见推理过程。</div>
+        <aside class="notes">新的协作不是用 CLI 取代 UI，而是同一个工作流可以在不同地方发挥作用。设计者在 UI 里搭建，运营和开发在 CLI 里运行，组织再用 CI 做回归和审计。大家使用的是同一份工作流，不必各自重做一套。</aside>
       </section>
 
       <section class="grid-overlay">
@@ -382,20 +384,20 @@ __pycache__/
           <div class="col-3"><div class="mode-number">02</div></div>
           <div class="col-9">
             <div class="eyebrow">Mode two · 结构化人机协作</div>
-            <h2>Human-in-the-Loop 可以成为正式交接点，不只是失败兜底。</h2>
+            <h2>人工参与（Human-in-the-Loop）应当是正式交接，不只是失败后的补救。</h2>
             <div class="protocol">
-              <div class="actor"><div class="role">AGENT</div><h3>准备材料</h3><p>聚合上下文、推理、草拟候选与风险说明。</p></div>
+              <div class="actor"><div class="role">AGENT</div><h3>准备材料</h3><p>收拢上下文，给出候选答案和风险说明。</p></div>
               <div class="arrow">→</div>
-              <div class="actor"><div class="role">HITL FORM</div><h3>结构化交付</h3><p>选项、文件、多文件与明确的审批字段。</p></div>
+              <div class="actor"><div class="role">HITL FORM</div><h3>表单交件</h3><p>用选项、文件和明确字段把材料交到人手中。</p></div>
               <div class="arrow">→</div>
-              <div class="actor"><div class="role">EXPERT</div><h3>判断 / 补充</h3><p>在正确时点审核，而不是从头重做。</p></div>
+              <div class="actor"><div class="role">EXPERT</div><h3>定夺 / 补充</h3><p>在关键时点作判断，不必从头重做。</p></div>
               <div class="arrow">→</div>
-              <div class="actor"><div class="role">WORKFLOW</div><h3>恢复执行</h3><p>保留上下文、记录决定、继续后续节点。</p></div>
+              <div class="actor"><div class="role">WORKFLOW</div><h3>继续执行</h3><p>带着人的决定往下走，并把过程记下来。</p></div>
             </div>
           </div>
         </div>
-        <div class="source-note">推演依据：Dify 1.15.0 的 richer Human-in-the-Loop forms 与 reasoning persistence。</div>
-        <aside class="notes">HITL 的价值不是“Agent 不行就叫人”。真正成熟的设计是 Agent 先把材料准备到可判断状态，表单承载结构化交付，人做高价值判断，Workflow 带着决定恢复执行，并把证据留下。</aside>
+        <div class="source-note">判断依据：Dify 1.15.0 更丰富的 Human-in-the-Loop 表单与推理过程留存能力。</div>
+        <aside class="notes">HITL 不是“Agent 干不动了，再叫人来救火”。更好的分工是：Agent 先把材料备齐，表单把选项和文件送到专家面前，人只在关键处定夺，工作流带着决定继续运行，同时把过程留档。人该拍板时拍板，机器该干活时干活。</aside>
       </section>
 
       <section class="grid-overlay">
@@ -403,18 +405,18 @@ __pycache__/
           <div class="col-3"><div class="mode-number">03</div></div>
           <div class="col-9">
             <div class="eyebrow">Mode three · 可复用数字同事</div>
-            <h2>Agent 开始有稳定的运行环境、方法和名册。</h2>
+            <h2>Agent 有了固定环境、做事方法和名册，才真正可以复用。</h2>
             <div class="grid-12 mode-grid">
-              <div class="card col-3"><div class="index-no">ENV</div><h3>Linux Sandbox</h3><p>代码与 shell 在隔离环境执行，能力边界可管理。</p></div>
+              <div class="card col-3"><div class="index-no">ENV</div><h3>Linux Sandbox</h3><p>代码与 shell 在隔离环境中执行，能做什么可以管住。</p></div>
               <div class="card col-3"><div class="index-no">METHOD</div><h3>Skills</h3><p>把 SOP、工具、脚本与知识打包为可分发能力。</p></div>
-              <div class="card col-3"><div class="index-no">IDENTITY</div><h3>Agent Roster</h3><p>跨工作区管理、复用与引用 Agent。</p></div>
+              <div class="card col-3"><div class="index-no">IDENTITY</div><h3>Agent Roster</h3><p>跨工作区登记、管理、复用和引用 Agent。</p></div>
               <div class="card blue-card col-3"><div class="index-no" style="color:rgba(255,255,255,.68);">COACH</div><h3>Builder Agent</h3><p>通过对话配置环境、安装包、创建 Skills 与文件。</p></div>
             </div>
-            <p class="big-statement" style="font-size:42px;margin-top:30px;">组织可以管理的不再只有 Prompt，<span class="blue">还包括运行环境与能力包。</span></p>
+            <p class="big-statement" style="font-size:42px;margin-top:30px;">组织要管的不再只有提示词（Prompt），<span class="blue">还要管运行环境和能力包。</span></p>
           </div>
         </div>
-        <div class="source-note">推演依据：Dify 1.16.0 Dify Agent (Beta) 的 sandbox、Skills、Agent roster 与 builder agent。</div>
-        <aside class="notes">角色定义不再只是一个 prompt。一个可复用 Agent 同时包含基础提示、Skills、文件、工具、知识和运行环境。这让“谁来做”第一次成为可以被组织管理、复用和审计的数字资产。</aside>
+        <div class="source-note">判断依据：Dify 1.16.0 Dify Agent (Beta) 的 sandbox、Skills、Agent roster 与 builder agent。</div>
+        <aside class="notes">一个角色不再只靠一段提示词来定义。可复用 Agent 还包括 Skills、文件、工具、知识和运行环境。这样一来，“谁来做”不再是口头安排，而是组织可以登记、复用和审计的一套明确配置。</aside>
       </section>
 
       <section class="grid-overlay mode-four-slide atmos-slide atmos-indigo">
@@ -422,41 +424,41 @@ __pycache__/
           <figure class="media-frame"><img src="assets/atmos-indigo-richard-horvath.jpg" alt="Indigo abstract organic forms by Richard Horvath on Unsplash"><div class="mode-number">04</div><div class="media-caption"><span>ROLES BECOME A PROTOCOL</span></div></figure>
           <div class="rail-content vcenter">
             <div class="eyebrow">Mode four · 组织协议</div>
-            <h2>Workflow 开始承担跨角色交接与留痕。</h2>
+            <h2>工作流开始把跨角色的交接、状态和证据串起来。</h2>
             <div class="protocol-grid-2">
               <div class="actor"><div class="role">HUMAN</div><h3>目标与授权</h3><p>定义结果、边界、预算与需要人工判断的节点。</p></div>
               <div class="actor"><div class="role">AGENT</div><h3>自主执行</h3><p>在沙箱里调用 Skills、文件、工具与知识。</p></div>
-              <div class="actor"><div class="role">WORKFLOW</div><h3>控制面</h3><p>编排顺序、变量、重试、HITL、归档与可观测。</p></div>
+              <div class="actor"><div class="role">WORKFLOW</div><h3>流程控制</h3><p>安排顺序、变量、重试、HITL、归档和运行观测。</p></div>
               <div class="actor"><div class="role">MCP</div><h3>组织接口</h3><p>结构化输出、版本协商与动态身份传递。</p></div>
             </div>
           </div>
         </div>
-        <div class="source-note">推演依据：Dify 1.16.0 的 Agent Workflow integration、workflow-as-MCP structured output、dynamic headers 与 run archives。</div>
-        <aside class="notes">Workflow 的价值正在从“自动化一条流程”上升为“定义谁在何时、带什么身份、交付什么结构、留下什么证据”。MCP 让这份协议可被外部系统调用，Agent 节点让自主执行成为协议的一部分。</aside>
+        <div class="source-note">判断依据：Dify 1.16.0 的 Agent Workflow integration、workflow-as-MCP structured output、dynamic headers 与 run archives。</div>
+        <aside class="notes">工作流不只是把步骤自动跑一遍。它还要说明：谁在什么时候出手，用什么身份，交付什么格式，留下哪些证据。MCP 让外部系统可以照着这套约定调用，Agent 节点则把自主执行纳入同一套流程。</aside>
       </section>
 
       <section class="dark-slide grid-overlay">
         <div class="eyebrow">Target operating model · 目标协作模型</div>
-        <h2>把生产系统拆开看，至少有四类责任。</h2>
+        <h2>系统要跑得稳，四类责任缺一不可。</h2>
         <div class="operating-model">
           <div class="layer"><div class="layer-no">01 / HUMAN</div><h3>意图与问责</h3><p>设定目标、批准高风险动作、处理例外，并对业务结果负责。</p></div>
-          <div class="layer"><div class="layer-no">02 / AGENT</div><h3>探索与执行</h3><p>在受控环境中分解任务、调用 Skills、产出结构化交付物。</p></div>
-          <div class="layer"><div class="layer-no">03 / WORKFLOW</div><h3>编排与证据</h3><p>管理状态、顺序、HITL、重试、归档、成本与可观测性。</p></div>
+          <div class="layer"><div class="layer-no">02 / AGENT</div><h3>探索与执行</h3><p>在受控环境中拆解任务、调用 Skills，交出结构化结果。</p></div>
+          <div class="layer"><div class="layer-no">03 / WORKFLOW</div><h3>编排与证据</h3><p>管理状态、顺序、HITL、重试、归档、成本和运行观测。</p></div>
           <div class="layer"><div class="layer-no">04 / GOVERNANCE</div><h3>权限与边界</h3><p>插件分级、策略即代码、身份、数据流、签名、监测与处置程序。</p></div>
         </div>
-        <p class="big-statement" style="font-size:42px;margin-top:28px;color:#fff;">权限、状态和责任分别落到位，协作系统才容易运营。</p>
-        <aside class="notes">这页把两部分合起来。人的职责是意图与问责；Agent 负责探索执行；Workflow 负责状态和证据；治理负责权限与边界。四层不是组织架构，而是每个生产系统必须清楚回答的责任问题。</aside>
+        <p class="big-statement" style="font-size:42px;margin-top:28px;color:#fff;">谁给权限、谁管状态、谁负责任，都有明确去处，系统才管得住。</p>
+        <aside class="notes">把前后两部分合起来看，人的职责是定目标、作决定、负责任；Agent 负责探索和执行；工作流负责状态和证据；治理负责权限和边界。这四层不是组织架构图，而是每个生产系统都必须答清楚的四类问题。</aside>
       </section>
 
       <section class="grid-overlay">
         <div class="eyebrow">Action plan · 30 / 90 / 365</div>
-        <h2>接下来一年，先补治理底座，再把协作能力接进来。</h2>
+        <h2>未来一年：先把规矩立住，再逐步扩大协作。</h2>
         <div class="timeline">
-          <div class="phase"><div class="time">NEXT 30 DAYS</div><h3>建立最小治理闭环</h3><ul><li>清点插件与权限面</li><li>定义 L1/L2/L3</li><li>本地预检 + reviewer checklist</li><li>标出必须 HITL 的动作</li></ul><div class="metric">交付：插件清单、风险档位、Owner、例外流程</div></div>
-          <div class="phase"><div class="time">NEXT 90 DAYS</div><h3>把规则接入协作流</h3><ul><li>分级 CI 与证据报告</li><li>Agent roster + Skills 目录</li><li>UI / CLI / CI 同一工作流</li><li>HITL 表单与运行归档</li></ul><div class="metric">交付：可复用 Agent、可追溯流程、可验证插件</div></div>
-          <div class="phase"><div class="time">NEXT 365 DAYS</div><h3>把信任产品化</h3><ul><li>签名、SBOM、持续 CVE</li><li>Marketplace Trust Center</li><li>MCP 组织接口与动态身份</li><li>透明指标与响应 SLA</li></ul><div class="metric">结果：协作规模扩大，责任边界仍清晰</div></div>
+          <div class="phase"><div class="time">NEXT 30 DAYS</div><h3>跑通最小治理流程</h3><ul><li>清点插件与权限范围</li><li>定义 L1/L2/L3</li><li>本地预检 + 审核清单</li><li>标出必须 HITL 的动作</li></ul><div class="metric">交付：插件清单、风险档位、负责人、例外流程</div></div>
+          <div class="phase"><div class="time">NEXT 90 DAYS</div><h3>把规则写进协作流程</h3><ul><li>分级 CI 与证据报告</li><li>Agent 名册 + Skills 目录</li><li>UI / CLI / CI 共用一套工作流</li><li>HITL 表单与运行归档</li></ul><div class="metric">交付：可复用 Agent、可追溯流程、可验证插件</div></div>
+          <div class="phase"><div class="time">NEXT 365 DAYS</div><h3>把信任做成用户可用的功能</h3><ul><li>签名、SBOM、持续 CVE</li><li>插件市场可信信息中心</li><li>MCP 组织接口与动态身份</li><li>透明指标与响应 SLA</li></ul><div class="metric">结果：参与者更多，责任边界依然清楚</div></div>
         </div>
-        <aside class="notes">最后给管理者一条可执行路径。30 天先清点与分级；90 天让规则进入流水线、Roster、Skills 与 HITL；一年把签名、SBOM、MCP 身份和 Trust Center 变成组织基础设施。</aside>
+        <aside class="notes">最后给管理者一条可以按月推进的路径。三十天先做清点和分级，九十天内把规则写进 CI、Agent 名册、Skills 和 HITL；一年之内再补签名、SBOM、MCP 身份和可信信息中心。顺序很重要：先立规矩，再逐步放开协作。</aside>
       </section>
 
       <section class="closing layout-closing atmos-slide atmos-pastel">
@@ -464,13 +466,13 @@ __pycache__/
           <div class="closing-copy">
             <div>
               <div class="eyebrow">Closing · Q&A</div>
-              <h1 style="font-size:76px;">边界越清楚，<br>参与者越敢协作。<br><span class="blue">证据越完整，<br>系统越容易规模化。</span></h1>
+              <h1 style="font-size:76px;">边界越清楚，<br>大家越敢一起做事。<br><span class="blue">证据越完整，<br>越能放心把事情做大。</span></h1>
             </div>
             <div class="cover-meta"><p>banana@dify.ai<br>github.com/langgenius/dify</p><p>Slides · Dify X<br>2026</p></div>
           </div>
           <div class="closing-image"><img src="assets/atmos-pastel-codioful.jpg" alt="Soft pastel gradient by Codioful on Unsplash"><div class="photo-caption"><span>BOUNDARIES ENABLE SCALE</span></div></div>
         </div>
-        <aside class="notes">最后回到两个关键词：边界和证据。边界让人和 Agent 知道什么可以做，证据让企业敢于复核和承担结果。Q&A 可以从治理决策或协作模式任何一侧展开。</aside>
+        <aside class="notes">最后仍然落在两个词上：边界和证据。边界让人和 Agent 都知道什么能做、什么不能做；证据让企业能够复核，也敢于对结果负责。后面的讨论，可以从治理决策谈起，也可以从人与 Agent 怎样分工谈起。</aside>
       </section>
 
       <section class="thanks-slide">
@@ -484,7 +486,7 @@ __pycache__/
           <span class="credit-word credit-07">Codioful</span>
           <div class="thanks-message"><div class="thanks-kicker">ENTERPRISE AGENT · GOVERNANCE × COLLABORATION</div><h1>Thank You</h1><p>谢谢 · Q&amp;A</p><div class="thanks-contact">banana@dify.ai</div></div>
         </div>
-        <aside class="notes">感谢聆听。图片作者以低对比度词云集中致谢；最后邀请现场继续讨论插件治理决策与新的协作模式。</aside>
+        <aside class="notes">感谢大家。图片作者统一列在这一页。接下来欢迎提问，也欢迎继续讨论插件治理该怎样定规则、人与 Agent 又该怎样分工。</aside>
       </section>
 
     </div>
@@ -495,11 +497,11 @@ __pycache__/
     import RevealNotes from './assets/reveal/plugin/notes/notes.esm.js';
 
     const slideTitles = [
-      '先把规则说清', '三种开放', '风险已显影', '默认并不安全', '风险会复发',
-      '治理不止一面', '承诺需要证据', '责任必须可追', '分级，而非加码', '治理贯穿全程',
-      '把判断变成系统', '证据必须可见', '人机各守一层', '先从三步开始', '代价也要治理',
-      '三个必须回答', '边界清楚，协作放大', '能力正在汇流', '先理解，再生成', '一个系统，多种入口',
-      '把人放在关键处', 'Agent 成为角色', '工作流承载协作', '四层协作系统', '先治理，再扩展', '清楚，才敢协作'
+      '先把规则说清', '交出三把钥匙', '风险已经出现', '模板也有漏洞', '上架不是终点',
+      '六个团队，六本账', '承诺要有证据', '先把责任分清', '先称轻重，再定规矩', '从头管到尾',
+      '把经验写进工具', '让用户看见证据', '机器、人、程序各司其职', '分三步做起来', '宽严要有分寸',
+      '三件事必须拍板', '边界清楚，协作才放得开', '新能力已经到位', '先定计划，再生成', '一套工作流，多种入口',
+      '让人只在关键处拍板', 'Agent 成为正式角色', '把交接和证据串起来', '四类责任缺一不可', '先立规矩，再扩协作', '清楚，才敢把事做大', null
     ];
     document.querySelectorAll('.reveal .slides > section').forEach((section, index) => {
       if (!slideTitles[index]) return;

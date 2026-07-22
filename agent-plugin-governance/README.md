@@ -1,6 +1,6 @@
-# 企业 Agent 插件治理实践与新的协作模式展望
+# 企业 Agent 插件治理实践与协作新模式
 
-基于 Dify 插件生态治理提案，以及 Dify `1.15.0` / `1.16.0` 官方 Release 的双语 reveal.js 演示文稿。
+这是一套双语 reveal.js 演示文稿。内容以 Dify 插件生态治理提案为基础，并结合 Dify `1.15.0` / `1.16.0` 官方发布说明，讨论开放插件怎样进入企业、怎样长期治理，以及人与 Agent 如何重新分工。
 
 - 中文：`index.html`
 - English: `index_en.html`
@@ -10,21 +10,27 @@
 
 ## 内容结构
 
-1. 插件作为代码运行权、数据处理权和外部连接权
-2. 安全、法务、产品、工程、社区、商业六个治理视角
-3. L1/L2/L3 风险分级、全生命周期治理与 9 阶段门禁
-4. Marketplace 可见信任、三层治理与 P0/P1/P2 路线
-5. 从 Dify 1.15/1.16 推演四种新协作模式
-6. Human / Agent / Workflow / Governance 四层目标模型
+1. 装上一个插件，等于交出代码运行、数据处理和外部连接三把钥匙
+2. 安全、法务、产品、工程、社区、商业六个团队各自关心什么
+3. 怎样按 L1/L2/L3 分风险，并把治理贯穿开发、上架、安装和更新
+4. 怎样让检查证据走出 CI 日志，成为用户看得懂的可信信息
+5. 从 Dify 1.15/1.16 已有能力归纳出的四种协作方式
+6. Human / Agent / Workflow / Governance 四类责任如何各归其位
 
 ## 视觉系统
 
 - 字体：标题与正文使用 `Inter + Noto Sans SC`，标签与证据字段使用 `JetBrains Mono`
 - Accent：品牌强调统一使用钴蓝 `--accent: #3157ff`；深色背景使用 `--accent-bright`
 - 语义色：成功、提醒、风险分别使用 `--status-positive`、`--status-caution`、`--status-danger`
-- Design tokens：颜色、字体、字号、行高、间距、圆角、边框和阴影统一定义在 `styles.css` 的 `:root`
-- 排版：每页使用短主标题，并将原始完整标题保留为二级标题
+- 设计变量（Design tokens）：颜色、字体、字号、行高、间距、圆角、边框和阴影统一定义在 `styles.css` 的 `:root`
+- 排版：每页先给一句短标题，再用副标题说清完整判断
 - 双语字距：`html[lang="zh-CN"]` 使用更自然的中文字面与较宽行距；`html[lang="en"]` 保留适度紧凑的英文 display tracking
+
+## 中文表达
+
+- 中文版采用适合现场讲述的短句，普通技术词先给中文，再在首次出现时附上英文
+- 六处典故分别引自《孟子》《论语》《道德经》和《礼记》，原文之后都紧跟白话解释
+- 页面文案与讲者备注使用同一套术语，避免生硬的翻译腔、咨询腔和 AI 套话
 
 ## 主要来源
 
@@ -32,7 +38,7 @@
 - Dify 1.15.0：`https://github.com/langgenius/dify/releases/tag/1.15.0`
 - Dify 1.16.0：`https://github.com/langgenius/dify/releases/tag/1.16.0`
 
-图片作者统一在 Thank You 结尾页以低对比度词云形式集中呈现。
+图片作者统一列在 Thank You 结尾页，并以低对比度词云呈现。
 
 ## 背景图片
 
