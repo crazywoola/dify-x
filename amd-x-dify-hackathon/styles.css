@@ -232,7 +232,7 @@ html[lang="zh-CN"] .eyebrow {
   font-size: 1.15rem;
 }
 
-.time-chip,
+.context-chip,
 .track-chip {
   display: inline-flex;
   align-items: center;
@@ -1009,7 +1009,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .photo-slide .eyebrow { color: #9bb0ff; }
 .photo-slide .eyebrow.red { color: #ff757a; }
 .photo-slide .track-chip,
-.photo-slide .time-chip {
+.photo-slide .context-chip {
   border-color: rgba(255, 255, 255, 0.24);
   background: rgba(6, 10, 22, 0.34);
   color: rgba(255, 255, 255, 0.92);
