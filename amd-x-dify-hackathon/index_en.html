@@ -46,9 +46,6 @@
             </div>
           </div>
         </div>
-        <aside class="notes">
-          Today is about one outcome: turn a prompt into a complete, demonstrable private agent. Dify orchestrates reasoning, planning, tools, and memory. AMD Radeon runs the local model path we can measure and prove. Next, I will show the architecture, the local Dify setup, and the evidence judges need to see.
-        </aside>
       </section>
 
       <!-- 02 · Dify open-source community -->
@@ -75,9 +72,6 @@
             </div>
           </div>
         </div>
-        <aside class="notes">
-          At the time this deck was prepared, the Dify repository had about one hundred and fifty thousand GitHub stars. That number reflects a global developer community building an open-source platform for agentic AI applications. Teams can create workflows and RAG applications, connect models and tools, and deploy to cloud, VPC, or self-hosted environments. With that context, let us return to the hackathon and see exactly what Track 2 rewards.
-        </aside>
       </section>
 
       <!-- 03 · Track 2 -->
@@ -113,9 +107,6 @@
             </div>
           </div>
         </div>
-        <aside class="notes">
-          Track 2 changes the emphasis: sixty points reward agent completeness and application value; forty points reward local inference and speed optimization on Radeon and ROCm. Start with the task the agent completes, then make the local execution path, optimization, and measurements visible in the demo.
-        </aside>
       </section>
 
       <!-- 04 · Division of labor -->
@@ -151,9 +142,6 @@
             </div>
           </div>
         </div>
-        <aside class="notes">
-          Keep the responsibilities simple. Dify is the control plane for goals, context, planning, retrieval, tools, UI, and API. Radeon is the compute plane for local inference. This separation makes agent decisions traceable and the AMD contribution easy to demonstrate.
-        </aside>
       </section>
 
       <!-- 05 · Architecture -->
@@ -190,9 +178,6 @@
           </div>
           <div class="transport-note">Transport: local OpenAI-compatible API · Tool node · HTTP Request</div>
         </div>
-        <aside class="notes">
-          Here is the reusable architecture. A task enters Dify; the agent plans with private knowledge and memory. A local model endpoint runs inference on Radeon. The workflow then uses tools, checks the outcome, and decides whether to deliver or recover. Expose the task, inference, action, and evidence so judges can follow the complete loop.
-        </aside>
       </section>
 
       <!-- 06 · Docker quick start -->
@@ -228,9 +213,6 @@ docker compose up -d</code></pre>
             </div>
           </div>
         </div>
-        <aside class="notes">
-          Dify Community Edition needs only two CPU cores, four GiB of memory, Docker, and Docker Compose for this quick start. The commands shown are copied from the current repository README. After the containers start, open localhost slash install and complete the first-run setup. This runs the agent orchestration layer; the Radeon local inference service remains a separate endpoint that Dify calls.
-        </aside>
       </section>
 
       <!-- 07 · Official workflow overview -->
@@ -253,9 +235,6 @@ docker compose up -d</code></pre>
             <div class="callout-card"><span>04 · VERIFY</span><p>Check results, retain sources, and recover safely</p></div>
           </div>
         </div>
-        <aside class="notes">
-          This official Dify workflow example is not the final Track 2 agent, but the orchestration mechanics transfer directly: collect the task and context, retrieve knowledge, invoke the model and tools, then verify the result. When the project screenshots arrive, preserve this readable left-to-right agent path.
-        </aside>
       </section>
 
       <!-- 08 · Winning workflow pattern -->
@@ -298,9 +277,6 @@ docker compose up -d</code></pre>
           </div>
           <div class="loop-note">A strong demo completes one real task and shows one controlled recovery.</div>
         </div>
-        <aside class="notes">
-          One model call is a feature; task completion is the agent. Define the goal and permissions, retrieve knowledge and plan, infer locally on Radeon, use tools, and verify the result. Then deliver, ask for clarification, re-plan, or exit safely. One controlled recovery makes the demo far more credible.
-        </aside>
       </section>
 
       <!-- 09 · Demo storyboard -->
@@ -330,9 +306,6 @@ docker compose up -d</code></pre>
           </div>
           <p class="replace-note">Current images: official Dify Quick Start references · Final images: your agent overview, Radeon inference/tool node, and completed task</p>
         </div>
-        <aside class="notes">
-          These three frames become the backbone of the submission video. First show the complete agent workflow. Then zoom into local inference and tool use. Finally show the completed task, execution trace, and performance evidence. The official images are temporary; your screenshots can replace them without changing the narrative.
-        </aside>
       </section>
 
       <!-- 10 · Evidence -->
@@ -355,9 +328,6 @@ docker compose up -d</code></pre>
           <div class="evidence-line"><span><strong>Record together:</strong> environment + model/quant + context + measurement + task result</span><span>Compare optimization on the same workload.</span></div>
           <div class="dify-prize-note"><i class="ri-gift-line"></i><span><strong>Dify bonus:</strong> Winning projects built with Dify will also receive a 12-month Dify SaaS Pro subscription.</span></div>
         </div>
-        <aside class="notes">
-          Forty Track 2 points come from Radeon and ROCm optimization, so make the evidence specific: time to first token, tokens per second, peak VRAM, task success, and proof that model and data stay local. Use the same task, model, and context before and after optimization so the comparison is credible. Winning projects built with Dify will also receive a twelve-month Dify SaaS Pro subscription.
-        </aside>
       </section>
 
       <!-- 11 · Registration -->
@@ -381,16 +351,12 @@ docker compose up -d</code></pre>
             </div>
           </div>
         </div>
-        <aside class="notes">
-          Now it is your turn. Scan the QR code, register for the AMD AI DevMaster Hackathon, and choose Track 2. Start with a real task worth keeping local, make the agent's planning, knowledge, tools, and recovery legible, and make Radeon inference and optimization measurable. I cannot wait to see what you build.
-        </aside>
       </section>
 
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
@@ -404,7 +370,7 @@ docker compose up -d</code></pre>
       center: true,
       transition: 'fade',
       backgroundTransition: 'fade',
-      plugins: [RevealNotes, RevealHighlight]
+      plugins: [RevealHighlight]
     });
   </script>
 </body>
