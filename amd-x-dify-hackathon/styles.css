@@ -931,7 +931,10 @@ html[lang="zh-CN"] .eyebrow {
 .qr-card img {
   display: block;
   width: 100%;
+  max-width: none;
+  max-height: none;
   aspect-ratio: 1 / 1;
+  margin: 0 auto;
   object-fit: contain;
 }
 
