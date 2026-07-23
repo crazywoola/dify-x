@@ -113,49 +113,14 @@
         </div>
       </section>
 
-      <!-- 04 · Division of labor -->
-      <section class="photo-slide grid-overlay roles-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-layout-masonry-line"></i> One system, two jobs</div>
-              <h2>Orchestrate the agent with Dify.<br>Run inference locally on Radeon.</h2>
-            </div>
-            <span class="track-chip">Dify × AMD</span>
-          </div>
-          <div class="role-editorial">
-            <div class="role-stack">
-              <div class="role-card">
-                <span class="role-tag">CONTROL PLANE</span>
-                <h3 class="role-title">Dify Workflow</h3>
-                <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>Collect the goal, private context, and permissions</span></li>
-                  <li><i class="ri-check-line"></i><span>Plan, route, validate, and recover</span></li>
-                  <li><i class="ri-check-line"></i><span>Connect knowledge, tools, and the local model endpoint</span></li>
-                </ul>
-              </div>
-              <div class="role-card amd">
-                <span class="role-tag">COMPUTE PLANE</span>
-                <h3 class="role-title">AMD Radeon + ROCm</h3>
-                <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>Run local language-model inference</span></li>
-                  <li><i class="ri-check-line"></i><span>Keep sensitive context inside a controlled environment</span></li>
-                  <li><i class="ri-check-line"></i><span>Return model output and measurable run evidence</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 · Architecture -->
+      <!-- 04 · Roles and architecture -->
       <section class="photo-slide grid-overlay architecture-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
-              <div class="eyebrow red"><i class="ri-node-tree"></i> Reference architecture</div>
-              <h2>Make every handoff explicit.</h2>
-              <p class="section-lead">The workflow owns context, memory, and decisions. The Radeon service owns local model inference.</p>
+              <div class="eyebrow red"><i class="ri-node-tree"></i> Roles and architecture</div>
+              <h2>Dify orchestrates the agent.<br>Radeon runs local inference.</h2>
+              <p class="section-lead">A task enters Dify, calls the local model on Radeon when needed, then returns to the workflow for verification and delivery.</p>
             </div>
             <span class="context-chip"><i class="ri-git-branch-line"></i> End to end</span>
           </div>
@@ -172,19 +137,19 @@
             <div class="arch-arrow">→</div>
             <div class="arch-node compute">
               <div class="arch-icon"><i class="ri-cpu-line"></i></div>
-              <div><h3>Radeon local inference</h3><p>Execute the model with ROCm and preserve run evidence</p></div>
+              <div><h3>Radeon local inference</h3><p>Run the model with ROCm while data stays in the controlled environment</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node output">
               <div class="arch-icon"><i class="ri-gallery-line"></i></div>
-              <div><h3>Task result</h3><p>Answer, action, sources, execution trace, and performance data</p></div>
+              <div><h3>Task result</h3><p>Answer, action, sources, and execution trace</p></div>
             </div>
           </div>
           <div class="transport-note">Transport: local OpenAI-compatible API · Tool node · HTTP Request</div>
         </div>
       </section>
 
-      <!-- 06 · Docker quick start -->
+      <!-- 05 · Docker quick start -->
       <section class="photo-slide grid-overlay docker-slide photo-ember" data-background-image="assets/atmos-ember-asif-aether.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
@@ -219,7 +184,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 07 · Lemonade quick start -->
+      <!-- 06 · Lemonade quick start -->
       <section class="photo-slide grid-overlay lemonade-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -253,7 +218,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
         </div>
       </section>
 
-      <!-- 08 · Dify Lemonade plugin -->
+      <!-- 07 · Dify Lemonade plugin -->
       <section class="photo-slide grid-overlay lemonade-plugin-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -284,29 +249,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
         </div>
       </section>
 
-      <!-- 09 · Official workflow overview -->
-      <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-flow-chart"></i> Visual orchestration</div>
-              <h2>Orchestrate tasks, knowledge, and tools<br>into a traceable agent path.</h2>
-            </div>
-            <span class="track-chip">Official Dify example</span>
-          </div>
-          <div class="shot-frame overview-shot">
-            <img src="assets/dify-workflow-overview.png" alt="Official Dify Quick Start workflow overview">
-          </div>
-          <div class="callout-row">
-            <div class="callout-card"><span>01 · DEFINE</span><p>Task, private context, permissions, and done criteria</p></div>
-            <div class="callout-card"><span>02 · RETRIEVE</span><p>Query local knowledge and read or write useful memory</p></div>
-            <div class="callout-card"><span>03 · ACT</span><p>Call tools or subflows to complete the task step by step</p></div>
-            <div class="callout-card"><span>04 · VERIFY</span><p>Check results, retain sources, and recover safely</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 10 · Winning workflow pattern -->
+      <!-- 08 · Winning workflow pattern -->
       <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -348,58 +291,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
         </div>
       </section>
 
-      <!-- 11 · Demo storyboard -->
-      <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-slideshow-3-line"></i> Demo storyboard</div>
-              <h2>Three screenshots tell the whole story.</h2>
-              <p class="section-lead">Overview → local inference and tool node → completed task and trace. Replace these references with project captures before submission.</p>
-            </div>
-            <span class="track-chip">Three-part demo</span>
-          </div>
-          <div class="storyboard">
-            <div class="story-card">
-              <div class="shot-frame"><img src="assets/dify-workflow-overview.png" alt="Dify workflow overview reference"></div>
-              <div class="story-meta"><strong>1 · Agent overview</strong><span>WHY IT WORKS</span></div>
-            </div>
-            <div class="story-card">
-              <div class="shot-frame"><img src="assets/dify-user-input.png" alt="Dify User Input node reference"></div>
-              <div class="story-meta"><strong>2 · Inference + tool node</strong><span>HOW IT RUNS</span></div>
-            </div>
-            <div class="story-card">
-              <div class="shot-frame tall"><img src="assets/dify-test-output.png" alt="Dify test output reference"></div>
-              <div class="story-meta"><strong>3 · Task result + trace</strong><span>WHAT USERS GET</span></div>
-            </div>
-          </div>
-          <p class="replace-note">Current images: official Dify Quick Start references · Final images: your agent overview, Radeon inference/tool node, and completed task</p>
-        </div>
-      </section>
-
-      <!-- 12 · Evidence -->
-      <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow red"><i class="ri-speed-up-line"></i> Judge-ready evidence</div>
-              <h2>Make “local” and “faster”<br>verifiable claims.</h2>
-            </div>
-            <span class="context-chip"><i class="ri-bar-chart-box-line"></i> No vanity metrics</span>
-          </div>
-          <div class="metric-grid">
-            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>Responsiveness</h3><p>Time to first token and end-to-end task completion</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-speed-up-line"></i></div><h3>Inference throughput</h3><p>Tokens/s under the exact model, quantization, and context</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU memory</h3><p>Peak VRAM at the same model and context length</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-checkbox-circle-line"></i></div><h3>Task success</h3><p>Repeated completion rate, tool errors, and recovery paths</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-lock-2-line"></i></div><h3>Local proof</h3><p>Show the model, data, and inference endpoint in the controlled environment</p></div>
-          </div>
-          <div class="evidence-line"><span><strong>Record together:</strong> environment + model/quant + context + measurement + task result</span><span>Compare optimization on the same workload.</span></div>
-          <div class="dify-prize-note"><i class="ri-gift-line"></i><span><strong>Dify bonus:</strong> Winning projects built with Dify will also receive a 12-month Dify SaaS Pro subscription.</span></div>
-        </div>
-      </section>
-
-      <!-- 13 · Registration -->
+      <!-- 09 · Registration -->
       <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">
@@ -411,6 +303,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
                 <div><strong>TRACK 2</strong>Agentic AI · Local Deployment</div>
                 <div><strong>FORMAT</strong>Online · Individual or team</div>
               </div>
+              <div class="registration-prize"><i class="ri-gift-line"></i><span><strong>Dify bonus:</strong> Winning projects built with Dify receive a 12-month SaaS Pro subscription.</span></div>
             </div>
             <div class="registration-visual">
               <a class="qr-card" href="https://luma.com/amd-4dhi?utm_source=Dify" target="_blank" rel="noopener" aria-label="Open the AMD AI DevMaster Hackathon registration page">

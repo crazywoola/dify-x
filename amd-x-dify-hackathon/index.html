@@ -113,49 +113,14 @@
         </div>
       </section>
 
-      <!-- 04 · 分工 -->
-      <section class="photo-slide grid-overlay roles-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-layout-masonry-line"></i> 各有所长</div>
-              <h2>术业有专攻：<br>Dify 负责编排，Radeon 负责推理。</h2>
-            </div>
-            <span class="track-chip">Dify × AMD</span>
-          </div>
-          <div class="role-editorial">
-            <div class="role-stack">
-              <div class="role-card">
-                <span class="role-tag">流程控制</span>
-                <h3 class="role-title">Dify Workflow</h3>
-                <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>读取用户目标、私有资料和权限设置</span></li>
-                  <li><i class="ri-check-line"></i><span>安排任务步骤，处理分支、验证和异常</span></li>
-                  <li><i class="ri-check-line"></i><span>连接知识库、工具与本地模型服务</span></li>
-                </ul>
-              </div>
-              <div class="role-card amd">
-                <span class="role-tag">GPU 计算</span>
-                <h3 class="role-title">AMD Radeon + ROCm</h3>
-                <ul class="role-list">
-                  <li><i class="ri-check-line"></i><span>在本机运行大模型推理</span></li>
-                  <li><i class="ri-check-line"></i><span>让敏感资料始终留在受控环境</span></li>
-                  <li><i class="ri-check-line"></i><span>返回模型结果和可核验的运行数据</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 · 架构 -->
+      <!-- 04 · 分工与架构 -->
       <section class="photo-slide grid-overlay architecture-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
             <div>
-              <div class="eyebrow red"><i class="ri-node-tree"></i> 参考架构</div>
-              <h2>把输入、处理和结果<br>连成一条清楚的流程。</h2>
-              <p class="section-lead">Dify 管理资料、记忆和任务判断；Radeon 后端专门运行本地模型。</p>
+              <div class="eyebrow red"><i class="ri-node-tree"></i> 分工与架构</div>
+              <h2>Dify 负责编排，<br>Radeon 负责本地推理。</h2>
+              <p class="section-lead">用户任务进入 Dify，按需调用 Radeon 上的本地模型，再由 Workflow 核对并交付结果。</p>
             </div>
             <span class="context-chip"><i class="ri-git-branch-line"></i> End to end</span>
           </div>
@@ -172,19 +137,19 @@
             <div class="arch-arrow">→</div>
             <div class="arch-node compute">
               <div class="arch-icon"><i class="ri-cpu-line"></i></div>
-              <div><h3>Radeon 本地推理</h3><p>通过 ROCm 运行模型，并记录运行数据</p></div>
+              <div><h3>Radeon 本地推理</h3><p>通过 ROCm 运行模型，让数据留在受控环境</p></div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-node output">
               <div class="arch-icon"><i class="ri-gallery-line"></i></div>
-              <div><h3>任务结果</h3><p>答案、操作结果、来源、执行记录和性能数据</p></div>
+              <div><h3>任务结果</h3><p>答案、操作结果、来源和执行记录</p></div>
             </div>
           </div>
           <div class="transport-note">常见连接方式：本地 OpenAI-compatible API · Tool 节点 · HTTP Request</div>
         </div>
       </section>
 
-      <!-- 06 · Docker Quick Start -->
+      <!-- 05 · Docker Quick Start -->
       <section class="photo-slide grid-overlay docker-slide photo-ember" data-background-image="assets/atmos-ember-asif-aether.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell">
           <div class="section-head">
@@ -219,7 +184,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 07 · Lemonade Quick Start -->
+      <!-- 06 · Lemonade Quick Start -->
       <section class="photo-slide grid-overlay lemonade-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -253,7 +218,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
         </div>
       </section>
 
-      <!-- 08 · Dify Lemonade Plugin -->
+      <!-- 07 · Dify Lemonade Plugin -->
       <section class="photo-slide grid-overlay lemonade-plugin-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -284,29 +249,7 @@ lemonade run Gemma-4-E2B-it-GGUF \
         </div>
       </section>
 
-      <!-- 09 · 官方 Workflow -->
-      <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-flow-chart"></i> 可视化编排</div>
-              <h2>把任务、知识库和工具<br>编排成一条可追踪的执行流程。</h2>
-            </div>
-            <span class="track-chip">Dify 文档示例</span>
-          </div>
-          <div class="shot-frame overview-shot">
-            <img src="assets/dify-workflow-overview.png" alt="Dify 官方 Quick Start Workflow 全景">
-          </div>
-          <div class="callout-row">
-            <div class="callout-card"><span>01 · 定义</span><p>任务目标、私有资料、权限和验收标准</p></div>
-            <div class="callout-card"><span>02 · 检索</span><p>查询本地知识库，并读取或保存必要信息</p></div>
-            <div class="callout-card"><span>03 · 执行</span><p>调用工具或子流程，一步一步完成任务</p></div>
-            <div class="callout-card"><span>04 · 核对</span><p>核对结果与来源，出错时按预案处理</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 10 · Workflow 模式 -->
+      <!-- 08 · Workflow 模式 -->
       <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -344,73 +287,23 @@ lemonade run Gemma-4-E2B-it-GGUF \
               <p>达标就交付；否则补充信息、调整计划或安全结束</p>
             </div>
           </div>
-          <div class="loop-note">《战国策》说“行百里者半九十”：回答得好只是开始，把任务做完才算完成。</div>
+          <div class="loop-note">回答得好只是开始；把任务做完，并在出错时妥善处理，才算完整。</div>
         </div>
       </section>
 
-      <!-- 11 · Demo Storyboard -->
-      <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow"><i class="ri-slideshow-3-line"></i> 演示顺序</div>
-              <h2>三张截图，<br>把整个过程讲清楚。</h2>
-              <p class="section-lead">先看全貌，再看本地推理和工具节点，最后展示任务结果与执行记录；项目截图准备好后直接替换即可。</p>
-            </div>
-            <span class="track-chip">三步演示</span>
-          </div>
-          <div class="storyboard">
-            <div class="story-card">
-              <div class="shot-frame"><img src="assets/dify-workflow-overview.png" alt="Dify Workflow 全景参考图"></div>
-              <div class="story-meta"><strong>1 · 智能体全景</strong><span>整体思路</span></div>
-            </div>
-            <div class="story-card">
-              <div class="shot-frame"><img src="assets/dify-user-input.png" alt="Dify User Input 节点参考图"></div>
-              <div class="story-meta"><strong>2 · 推理与工具节点</strong><span>运行方式</span></div>
-            </div>
-            <div class="story-card">
-              <div class="shot-frame tall"><img src="assets/dify-test-output.png" alt="Dify 测试输出参考图"></div>
-              <div class="story-meta"><strong>3 · 任务结果与记录</strong><span>用户所得</span></div>
-            </div>
-          </div>
-          <p class="replace-note">当前为 Dify 文档示例图；参赛时请替换为智能体全景、Radeon 本地推理与工具节点，以及最终任务结果。</p>
-        </div>
-      </section>
-
-      <!-- 12 · 证据 -->
-      <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
-        <div class="slide-shell wide">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow red"><i class="ri-speed-up-line"></i> 评委要看的证据</div>
-              <h2>“本地运行”和“性能更快”，<br>都要拿出可以核验的数据。</h2>
-            </div>
-            <span class="context-chip"><i class="ri-bar-chart-box-line"></i> 数字必须说明条件</span>
-          </div>
-          <div class="metric-grid">
-            <div class="metric-card"><div class="metric-icon"><i class="ri-timer-flash-line"></i></div><h3>响应速度</h3><p>首个 Token 返回时间，以及任务总耗时</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-speed-up-line"></i></div><h3>推理吞吐</h3><p>注明模型、量化和上下文，再记录每秒生成 Token 数</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-ram-2-line"></i></div><h3>GPU 显存</h3><p>相同模型和上下文长度下的显存峰值</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-checkbox-circle-line"></i></div><h3>任务完成率</h3><p>多次运行的成功率、工具错误和处理方式</p></div>
-            <div class="metric-card"><div class="metric-icon"><i class="ri-lock-2-line"></i></div><h3>本地运行证据</h3><p>证明模型、数据和推理服务都位于受控的本地环境</p></div>
-          </div>
-          <div class="evidence-line"><span><strong>“无征不信。”</strong> 环境、模型、量化、上下文、测量值和任务结果要一并记录。</span><span>优化前后使用同一任务、模型与上下文。</span></div>
-          <div class="dify-prize-note"><i class="ri-gift-line"></i><span><strong>Dify 加码奖励：</strong>参赛项目使用 Dify 并获奖，将额外获得 Dify SaaS Pro 12 个月订阅。</span></div>
-        </div>
-      </section>
-
-      <!-- 13 · 报名 -->
+      <!-- 09 · 报名 -->
       <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">
             <div class="registration-copy">
-              <div class="eyebrow red"><i class="ri-rocket-2-line"></i> 纸上得来终觉浅，绝知此事要躬行</div>
+              <div class="eyebrow red"><i class="ri-rocket-2-line"></i> 现在动手，把想法做成作品</div>
               <h2>现在就把提示词，<br>做成真正可用的私有智能体。</h2>
               <p class="section-lead">扫码报名 AMD AI DevMaster Hackathon，选择 Track 2；用 Dify 搭建智能体，并在 Radeon 上完成本地部署。</p>
               <div class="registration-meta">
                 <div><strong>TRACK 2</strong>Agentic AI · Local Deployment</div>
                 <div><strong>参与方式</strong>线上 · 个人或组队</div>
               </div>
+              <div class="registration-prize"><i class="ri-gift-line"></i><span><strong>Dify 加码奖励：</strong>使用 Dify 的获奖项目，将额外获得 SaaS Pro 12 个月订阅。</span></div>
             </div>
             <div class="registration-visual">
               <a class="qr-card" href="https://luma.com/amd-4dhi?utm_source=Dify" target="_blank" rel="noopener" aria-label="打开 AMD AI DevMaster Hackathon 报名页面">
