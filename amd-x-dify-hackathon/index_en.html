@@ -215,7 +215,72 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 07 · Official workflow overview -->
+      <!-- 07 · Lemonade quick start -->
+      <section class="photo-slide grid-overlay lemonade-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow red"><i class="ri-cpu-line"></i> AMD LOCAL AI SERVER</div>
+              <h2>One command turns a local model<br>into an application-ready API.</h2>
+              <p class="section-lead">Lemonade runs models on AMD GPUs and NPUs behind an OpenAI-compatible endpoint.</p>
+            </div>
+            <span class="context-chip"><i class="ri-flashlight-line"></i> Local first</span>
+          </div>
+          <div class="lemonade-launch-grid">
+            <div class="lemonade-terminal">
+              <div class="code-panel">
+                <div class="code-bar"><span class="code-dots">● ● ●</span><span>Lemonade CLI</span></div>
+                <pre><code class="language-bash">lemonade status
+lemonade run Gemma-4-E2B-it-GGUF \
+  --llamacpp rocm</code></pre>
+              </div>
+              <div class="local-url"><i class="ri-links-line"></i>&nbsp; http://localhost:13305/api/v1</div>
+            </div>
+            <div class="lemonade-feature-grid">
+              <div class="lemonade-feature"><i class="ri-code-box-line"></i><div><strong>Standard API</strong><span>Works with OpenAI clients and apps</span></div></div>
+              <div class="lemonade-feature amd"><i class="ri-cpu-line"></i><div><strong>AMD acceleration</strong><span>GPU, NPU, and hybrid execution</span></div></div>
+              <div class="lemonade-feature"><i class="ri-line-chart-line"></i><div><strong>Visible performance</strong><span>Capture TTFT, TPS, and token counts</span></div></div>
+              <div class="lemonade-feature"><i class="ri-shield-keyhole-line"></i><div><strong>Data stays local</strong><span>Keep models and context on your machine</span></div></div>
+            </div>
+          </div>
+          <a class="source-link" href="https://developer.amd.com/playbooks/lemonade-getting-started/" target="_blank" rel="noopener" aria-label="Open the AMD Getting Started with Lemonade playbook">
+            <i class="ri-book-open-line"></i><span>AMD Getting Started with Lemonade</span><i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 08 · Dify Lemonade plugin -->
+      <section class="photo-slide grid-overlay lemonade-plugin-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-plug-line"></i> Dify × Lemonade</div>
+              <h2>Install the plugin.<br>Start building local AI apps.</h2>
+            </div>
+            <span class="track-chip">Marketplace</span>
+          </div>
+          <div class="integration-steps">
+            <div class="integration-step"><span>01</span><i class="ri-store-2-line"></i><div><strong>Install</strong><p>Find Lemonade in the Dify Marketplace</p></div></div>
+            <div class="integration-step"><span>02</span><i class="ri-settings-3-line"></i><div><strong>Configure</strong><p>Set the model name, type, and server endpoint</p></div></div>
+            <div class="integration-step"><span>03</span><i class="ri-flow-chart"></i><div><strong>Orchestrate</strong><p>Select it directly in an Agent or Workflow</p></div></div>
+          </div>
+          <div class="capability-strip" aria-label="Model capabilities supported by the Lemonade plugin">
+            <span>LLM</span><span>Vision</span><span>JSON</span><span>Embedding</span><span>Rerank</span><span>STT</span><span>TTS</span>
+          </div>
+          <div class="advanced-config">
+            <div class="advanced-copy"><strong>Plugin capability flags</strong><span>Model Context Size · Agent Thought · Vision · Structured Output</span></div>
+            <div class="advanced-code"><code>lemonade config set ctx_size=8192</code><code>lemonade config set llamacpp.backend=rocm</code></div>
+          </div>
+          <div class="docker-endpoint-note"><i class="ri-information-line"></i> When Dify runs in Docker, use a host address reachable from the container—not localhost inside the container.</div>
+          <div class="resource-links">
+            <a href="https://marketplace.dify.ai/plugin/langgenius/lemonade" target="_blank" rel="noopener">Dify plugin<i class="ri-arrow-right-up-line"></i></a>
+            <a href="https://lemonade-server.ai/docs/" target="_blank" rel="noopener">Server docs<i class="ri-arrow-right-up-line"></i></a>
+            <a href="https://github.com/lemonade-sdk/lemonade" target="_blank" rel="noopener">GitHub<i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 · Official workflow overview -->
       <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -237,7 +302,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 08 · Winning workflow pattern -->
+      <!-- 10 · Winning workflow pattern -->
       <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -279,7 +344,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 09 · Demo storyboard -->
+      <!-- 11 · Demo storyboard -->
       <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -308,7 +373,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 10 · Evidence -->
+      <!-- 12 · Evidence -->
       <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -330,7 +395,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 11 · Registration -->
+      <!-- 13 · Registration -->
       <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">

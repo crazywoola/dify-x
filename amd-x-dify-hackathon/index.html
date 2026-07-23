@@ -215,7 +215,72 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 07 · 官方 Workflow -->
+      <!-- 07 · Lemonade Quick Start -->
+      <section class="photo-slide grid-overlay lemonade-slide photo-teal" data-background-image="assets/atmos-teal-pawel-czerwinski.jpg" data-background-color="#080c16" data-background-opacity="0.25">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow red"><i class="ri-cpu-line"></i> AMD 本地 AI 服务</div>
+              <h2>一条命令，<br>让本地模型成为应用的 API。</h2>
+              <p class="section-lead">Lemonade 在 AMD GPU / NPU 上运行模型，并提供 OpenAI-compatible 接口。</p>
+            </div>
+            <span class="context-chip"><i class="ri-flashlight-line"></i> Local first</span>
+          </div>
+          <div class="lemonade-launch-grid">
+            <div class="lemonade-terminal">
+              <div class="code-panel">
+                <div class="code-bar"><span class="code-dots">● ● ●</span><span>Lemonade CLI</span></div>
+                <pre><code class="language-bash">lemonade status
+lemonade run Gemma-4-E2B-it-GGUF \
+  --llamacpp rocm</code></pre>
+              </div>
+              <div class="local-url"><i class="ri-links-line"></i>&nbsp; http://localhost:13305/api/v1</div>
+            </div>
+            <div class="lemonade-feature-grid">
+              <div class="lemonade-feature"><i class="ri-code-box-line"></i><div><strong>标准接口</strong><span>兼容 OpenAI 客户端和应用</span></div></div>
+              <div class="lemonade-feature amd"><i class="ri-cpu-line"></i><div><strong>AMD 加速</strong><span>GPU、NPU 与混合执行模式</span></div></div>
+              <div class="lemonade-feature"><i class="ri-line-chart-line"></i><div><strong>可观测性能</strong><span>记录 TTFT、TPS 与 Token 数</span></div></div>
+              <div class="lemonade-feature"><i class="ri-shield-keyhole-line"></i><div><strong>数据留在本地</strong><span>模型与上下文运行在自己的机器</span></div></div>
+            </div>
+          </div>
+          <a class="source-link" href="https://developer.amd.com/playbooks/lemonade-getting-started/" target="_blank" rel="noopener" aria-label="打开 AMD Lemonade Getting Started Playbook">
+            <i class="ri-book-open-line"></i><span>AMD Getting Started with Lemonade</span><i class="ri-arrow-right-up-line"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 08 · Dify Lemonade Plugin -->
+      <section class="photo-slide grid-overlay lemonade-plugin-slide photo-indigo" data-background-image="assets/atmos-indigo-richard-horvath.jpg" data-background-color="#080c16" data-background-opacity="0.25">
+        <div class="slide-shell wide">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i class="ri-plug-line"></i> Dify × Lemonade</div>
+              <h2>安装插件，<br>立即开始构建本地 AI 应用。</h2>
+            </div>
+            <span class="track-chip">Marketplace</span>
+          </div>
+          <div class="integration-steps">
+            <div class="integration-step"><span>01</span><i class="ri-store-2-line"></i><div><strong>安装插件</strong><p>在 Dify Marketplace 搜索 Lemonade</p></div></div>
+            <div class="integration-step"><span>02</span><i class="ri-settings-3-line"></i><div><strong>配置模型</strong><p>填写模型名称、类型与 Server Endpoint</p></div></div>
+            <div class="integration-step"><span>03</span><i class="ri-flow-chart"></i><div><strong>开始编排</strong><p>在 Agent 或 Workflow 中直接选择模型</p></div></div>
+          </div>
+          <div class="capability-strip" aria-label="Lemonade 插件支持的模型能力">
+            <span>LLM</span><span>Vision</span><span>JSON</span><span>Embedding</span><span>Rerank</span><span>STT</span><span>TTS</span>
+          </div>
+          <div class="advanced-config">
+            <div class="advanced-copy"><strong>插件能力开关</strong><span>Model Context Size · Agent Thought · Vision · Structured Output</span></div>
+            <div class="advanced-code"><code>lemonade config set ctx_size=8192</code><code>lemonade config set llamacpp.backend=rocm</code></div>
+          </div>
+          <div class="docker-endpoint-note"><i class="ri-information-line"></i> Dify 运行在 Docker 中时，请填写容器可访问的宿主机地址，而不是容器内的 localhost。</div>
+          <div class="resource-links">
+            <a href="https://marketplace.dify.ai/plugin/langgenius/lemonade" target="_blank" rel="noopener">Dify 插件<i class="ri-arrow-right-up-line"></i></a>
+            <a href="https://lemonade-server.ai/docs/" target="_blank" rel="noopener">Server 文档<i class="ri-arrow-right-up-line"></i></a>
+            <a href="https://github.com/lemonade-sdk/lemonade" target="_blank" rel="noopener">GitHub<i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 · 官方 Workflow -->
       <section class="photo-slide grid-overlay workflow-overview-slide photo-pastel" data-background-image="assets/atmos-pastel-codioful.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -237,7 +302,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 08 · Workflow 模式 -->
+      <!-- 10 · Workflow 模式 -->
       <section class="photo-slide grid-overlay loop-slide photo-flare" data-background-image="assets/atmos-flare-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -279,7 +344,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 09 · Demo Storyboard -->
+      <!-- 11 · Demo Storyboard -->
       <section class="photo-slide grid-overlay storyboard-slide photo-silk photo-silk-alt" data-background-image="assets/atmos-silk-ruido98.jpg" data-background-position="28% 50%" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -308,7 +373,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 10 · 证据 -->
+      <!-- 12 · 证据 -->
       <section class="photo-slide grid-overlay evidence-slide photo-prism photo-prism-dark" data-background-image="assets/atmos-prism-darkhan-basshybayev.jpg" data-background-position="68% 50%" data-background-color="#080c16" data-background-opacity="0.20">
         <div class="slide-shell wide">
           <div class="section-head">
@@ -330,7 +395,7 @@ docker compose up -d</code></pre>
         </div>
       </section>
 
-      <!-- 11 · 报名 -->
+      <!-- 13 · 报名 -->
       <section class="photo-slide grid-overlay registration-slide photo-rainbow" data-background-image="assets/atmos-rainbow-sean-sinclair.jpg" data-background-color="#080c16" data-background-opacity="0.25">
         <div class="slide-shell wide">
           <div class="registration-grid">
