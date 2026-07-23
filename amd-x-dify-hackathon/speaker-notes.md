@@ -8,7 +8,7 @@
 
 ### 02 · Dify 开源社区
 
-截至准备这次演示时，Dify 的 GitHub 仓库约有十五万 Stars。这个数字背后，是全球开发者对开源智能体平台的持续关注和共同建设。大家可以在一个协作空间里搭建工作流和 RAG 应用，连接模型与工具，再根据需要选择云端、VPC 或私有化部署。认识 Dify 之后，我们回到比赛本身，看看 Track 2 到底看重什么。
+截至准备这次演示时，Dify 的 GitHub 仓库约有十五万 Stars；LFX Insights 的智能体与编排框架榜单记录了 13,929 名 Dify Contributors。这两个数字背后，是全球开发者对开源智能体平台的持续关注和共同建设。大家可以在一个协作空间里搭建工作流和 RAG 应用，连接模型与工具，再根据需要选择云端、VPC 或私有化部署。认识 Dify 之后，我们回到比赛本身，看看 Track 2 到底看重什么。
 
 ### 03 · Track 2
 
@@ -62,7 +62,7 @@ Today is about one outcome: turn a prompt into a complete, demonstrable private 
 
 ### 02 · Dify open-source community
 
-At the time this deck was prepared, the Dify repository had about one hundred and fifty thousand GitHub stars. That number reflects a global developer community building an open-source platform for agentic AI applications. Teams can create workflows and RAG applications, connect models and tools, and deploy to cloud, VPC, or self-hosted environments. With that context, let us return to the hackathon and see exactly what Track 2 rewards.
+At the time this deck was prepared, the Dify repository had about one hundred and fifty thousand GitHub stars, while the LFX Insights agent and orchestration framework collection recorded 13,929 Dify contributors. Together, those numbers reflect a global developer community building an open-source platform for agentic AI applications. Teams can create workflows and RAG applications, connect models and tools, and deploy to cloud, VPC, or self-hosted environments. With that context, let us return to the hackathon and see exactly what Track 2 rewards.
 
 ### 03 · Track 2
 

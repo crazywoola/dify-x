@@ -1426,9 +1426,43 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 
 .dify-star-label i { color: #ffd166; }
 
+.dify-contributor-stat {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px 0 14px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dify-contributor-stat > i {
+  color: #9fb1ff;
+  font-size: 1.35rem;
+}
+
+.dify-contributor-stat strong,
+.dify-contributor-stat span {
+  display: block;
+}
+
+.dify-contributor-stat strong {
+  color: #fff;
+  font: 800 1.35rem/1 var(--font-mono);
+  letter-spacing: -0.035em;
+}
+
+.dify-contributor-stat span {
+  margin-top: 6px;
+  color: rgba(248, 250, 255, 0.68);
+  font: 600 0.65rem/1.25 var(--font-mono);
+}
+
 .dify-repo-link {
   width: 100%;
-  margin-top: 34px;
+  margin-top: 18px;
   padding: 13px 0 11px;
   display: flex;
   align-items: center;
