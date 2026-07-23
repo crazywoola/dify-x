@@ -716,6 +716,237 @@ html[lang="zh-CN"] .eyebrow {
   margin-bottom: 14px;
 }
 
+.demo-slide .section-head {
+  margin-bottom: 16px;
+}
+
+.demo-slide .section-head h2 {
+  font-size: 1.82rem;
+}
+
+.demo-slide .section-lead {
+  margin-top: 10px !important;
+  font-size: 0.92rem;
+}
+
+.demo-stage {
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.32fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 10, 22, 0.38);
+  backdrop-filter: blur(10px);
+}
+
+.demo-input-panel,
+.demo-output-panel {
+  min-width: 0;
+  padding: 20px 22px;
+  box-sizing: border-box;
+}
+
+.demo-input-panel {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.demo-panel-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font: 750 0.78rem/1.2 var(--font-mono);
+}
+
+.demo-panel-label i {
+  color: #9fb1ff;
+  font-size: 0.92rem;
+}
+
+.demo-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 11px 13px;
+  border-left: 3px solid #7892ff;
+  background: rgba(0, 51, 255, 0.2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.demo-file:hover,
+.demo-file:focus-visible {
+  background: rgba(0, 51, 255, 0.32);
+}
+
+.demo-file > i {
+  flex: 0 0 auto;
+  color: #c2cdff;
+  font-size: 1.25rem;
+}
+
+.demo-file span,
+.demo-file strong {
+  display: block;
+}
+
+.demo-file strong {
+  color: #fff;
+  font-size: 0.78rem;
+}
+
+.demo-file span {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.demo-prompt-label {
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.62);
+  font: 700 0.66rem/1.2 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+html[lang="zh-CN"] .demo-prompt-label {
+  text-transform: none;
+  letter-spacing: 0.03em;
+}
+
+.demo-input-panel blockquote {
+  width: auto;
+  margin: 7px 0 0;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-size: 0.78rem;
+  font-style: normal;
+  line-height: 1.5;
+  box-shadow: none;
+}
+
+.demo-route {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  font: 700 0.65rem/1.2 var(--font-mono);
+}
+
+.demo-route span {
+  min-width: 0;
+}
+
+.demo-route i {
+  flex: 0 0 auto;
+  color: #ff777c;
+}
+
+.demo-output-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-output-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.demo-output-head > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #b8efcc;
+  font: 700 0.66rem/1.2 var(--font-mono);
+  white-space: nowrap;
+}
+
+.demo-output-head > span i {
+  color: #58d68d;
+}
+
+.demo-table {
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.demo-table-row {
+  min-height: 47px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.78fr) minmax(0, 0.78fr) minmax(0, 0.9fr);
+  gap: 10px;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+.demo-table-row > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.demo-table-row strong {
+  color: #fff;
+  font-size: 0.73rem;
+}
+
+.demo-table-head {
+  min-height: 36px;
+  color: rgba(255, 255, 255, 0.52);
+  font: 700 0.65rem/1.2 var(--font-mono);
+}
+
+.demo-status {
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 99px;
+  font: 700 0.62rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.demo-status.ready {
+  background: rgba(42, 168, 91, 0.2);
+  color: #a9ebc0;
+}
+
+.demo-status.pending {
+  background: rgba(255, 183, 77, 0.2);
+  color: #ffd28f;
+}
+
+.demo-status.missing {
+  background: rgba(237, 28, 36, 0.2);
+  color: #ffadb0;
+}
+
+.demo-acceptance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.demo-acceptance i {
+  flex: 0 0 auto;
+  color: #9fb1ff;
+  font-size: 1rem;
+}
+
+.demo-acceptance strong {
+  color: #fff;
+}
+
 .workflow-pattern {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
