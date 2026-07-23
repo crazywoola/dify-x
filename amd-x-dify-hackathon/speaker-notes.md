@@ -1,109 +1,160 @@
-# AMD × Dify Hackathon 演讲备注
+# AMD × Dify Hackathon｜15 分钟中文演讲稿
 
-## 中文
+> 总时长：15:00
+> 建议语速：每分钟约 220–240 字。方括号内是现场动作提示，不需要念出来。
 
-### 01 · 封面
+## 01 · 封面（00:00–00:45）
 
-今天只讲一件事：怎样把一句提示词，做成一个完整、能现场演示的私有智能体。Dify 负责任务规划、知识检索、工具调用和记忆，AMD Radeon 负责运行本地模型。接下来，我们一起看整体架构、Dify 的本地部署方法，以及评委最看重哪些证据。
+大家好，我是 Banana，来自 Dify Developer Relations。
 
-### 02 · Dify 开源社区
+今天想和大家聊一个很具体的问题：怎样把一句提示词，做成一个能规划、能调用工具、能完成真实任务的私有智能体。整个方案分成两部分：Dify 负责工作流、知识库、工具和应用界面，AMD Radeon 负责在本地运行模型。
 
-截至准备这次演示时，Dify 的 GitHub 仓库约有十五万 Stars；LFX Insights 的智能体与编排框架榜单记录了 13,929 名 Dify Contributors。这两个数字背后，是全球开发者对开源智能体平台的持续关注和共同建设。大家可以在一个协作空间里搭建工作流和 RAG 应用，连接模型与工具，再根据需要选择云端、VPC 或私有化部署。认识 Dify 之后，我们回到比赛本身，看看 Track 2 到底看重什么。
+接下来的十五分钟，我会从比赛评分讲起，再带大家看部署、模型接入、演示方式，以及评委真正需要看到的证据。
 
-### 03 · Track 2
+**转场：** 先用一分钟认识一下 Dify。
 
-Track 2 的评分重点很明确：六十分看智能体是否完整、是否有实际价值，四十分看 Radeon 和 ROCm 上的本地推理与性能优化。先讲清楚它能替用户完成什么，再展示本地运行方式、优化方法和测量结果。
+## 02 · Dify 开源社区（00:45–01:55）
 
-### 04 · 分工
+Dify 是一个开源的智能体应用开发平台。工作流、RAG 知识库、模型和工具接入，都可以放在同一个协作空间里完成。做完以后，既可以使用云服务，也可以部署在自己的服务器或私有网络中。
 
-韩愈在《师说》中说：“术业有专攻。”这套方案也是如此。Dify 负责任务目标、资料、规划、知识检索和工具调用；Radeon 负责运行本地模型。分工清楚，既便于追踪智能体的判断过程，也能让评委一眼看懂 AMD 在项目中发挥了什么作用。
+页面右侧有两个数字。准备这份演示稿时，Dify 在 GitHub 上已经获得大约十五万 Stars；LFX Insights 记录的贡献者数量是 13,929。数字本身不是重点，真正有价值的是背后的开源生态：遇到问题可以查代码、看讨论，也能找到插件、示例和其他开发者的实践。
 
-### 05 · 架构
+对参赛团队来说，这意味着大家不必从空白项目开始搭建所有基础设施，可以把时间花在任务设计、用户体验和性能优化上。
 
-这套流程可以反复使用。任务先进入 Dify，智能体结合私有知识和历史记录制定计划；本地模型服务在 Radeon 上完成推理；Workflow 再调用工具、核对结果，并决定交付、调整还是安全结束。演示时把任务、推理过程、工具操作和运行数据完整展示出来，评委就能一眼看懂系统如何工作。
+**转场：** 有了平台，下一步要先看清比赛怎样评分。
 
-### 06 · Docker Quick Start
+## 03 · Track 2 评分（01:55–03:10）
 
-Dify 社区版的最低要求是两核 CPU、四 GiB 内存，并提前安装 Docker 和 Docker Compose。屏幕上的四条命令来自项目 README。容器启动后，打开 localhost/install 完成初始化。这里启动的是智能体的编排服务；Radeon 本地推理仍由独立服务提供，再交给 Dify 调用。
+Track 2 的评分分成两部分。
 
-### 07 · Lemonade Quick Start
+六十分看功能完整性和应用价值。评委关心的不是模型能不能说出一段流畅的话，而是智能体能不能理解目标、制定计划、查询资料、调用工具、管理必要的记忆，并把一项真实任务做完。
 
-Lemonade 把 AMD 硬件上的本地模型封装成标准 API，让我们不必直接处理底层推理代码。安装后先运行 lemonade status 检查服务，再用一条 run 命令下载并启动模型；支持的 AMD 显卡可以指定 llama.cpp 的 ROCm 后端。服务默认通过 13305 端口提供 OpenAI-compatible API，现有应用通常只需更换 Base URL。Lemonade 的日志还会显示 TTFT、TPS 和 Token 数，正好可以成为参赛演示中的性能证据。
+另外四十分看 AMD Radeon 和 ROCm。这里不能只说“模型在本地运行”，还要说明使用了什么模型、什么量化方式、怎样调用硬件，以及优化以后到底快了多少。
 
-### 08 · Dify Lemonade 插件
+所以准备项目时，顺序很重要：先选一个值得解决的任务，再把本地推理放进完整流程，最后用数据证明它确实有效。不要先堆技术名词，再临时寻找使用场景。
 
-接入 Dify 只需要三步：从 Marketplace 安装 Lemonade 插件，配置模型类型、名称和 Server Endpoint，然后在 Agent 或 Workflow 中选择它。插件不只支持文本生成，也覆盖视觉、结构化输出、Embedding、Rerank、语音转文字和文字转语音。Dify 如果运行在 Docker 里，localhost 指向容器自身，因此要填写容器能够访问的宿主机地址。上下文大小既可以在插件中声明，也可以用 Lemonade 的 ctx_size 统一配置；llama.cpp 后端则可以切换为 ROCm。更多参数以屏幕下方的官方文档和 GitHub 为准。
+**转场：** 为了把这两部分讲清楚，系统里的分工要非常明确。
 
-### 09 · 官方 Workflow
+## 04 · Dify 与 Radeon 的分工（03:10–04:05）
 
-这是 Dify 文档中的 Workflow 示例，并不是最终参赛项目，但方法完全适用：先明确任务和所需资料，再检索知识、调用模型与工具，最后核对结果。换成项目截图时，仍然保留这条从左到右的执行顺序，观众就能跟得上。
+这页想表达的很简单：Dify 和 Radeon 各自做好最擅长的事情。
 
-### 10 · Workflow 模式
+Dify 是流程总控。它读取用户目标和权限，安排执行步骤，连接知识库、工具和本地模型，并处理分支、验证和异常。
 
-《战国策》说：“行百里者半九十。”调用一次模型只是一项功能，把任务做完才是真本事。先明确目标和权限，查询知识并制定计划，在 Radeon 上完成本地推理，再调用工具、核对结果；达标就交付，遇到问题就补充信息、调整计划或安全结束。现场演示一次异常处理，会比只展示顺利过程更有说服力。
+Radeon 是本地计算部分。它负责运行模型，让敏感数据留在受控环境中，同时返回推理结果和运行数据。
 
-### 11 · Demo Storyboard
+这样的分工便于开发，也便于演示。评委能清楚看到：哪些判断发生在工作流里，哪些计算发生在 AMD 硬件上，出了问题应该去哪里排查。
 
-这三张图可以直接作为演示顺序。先让观众看到完整的智能体 Workflow，再放大本地推理和工具节点，最后展示任务结果、执行记录与运行数据。项目截图准备好后，只需替换图片，讲述顺序不用改变。
+**转场：** 把这两部分连起来，就是下一页的完整架构。
 
-### 12 · 证据
+## 05 · 参考架构（04:05–05:20）
 
-《礼记·中庸》说：“无征不信。”没有证据，就难以让人信服。Track 2 有四十分来自 Radeon 和 ROCm 优化，因此要记录首个 Token 返回时间、每秒生成 Token 数、显存峰值和任务完成率，还要证明模型与数据确实在本地运行。优化前后使用同一任务、模型和上下文，数字才有可比性。参赛项目如果使用 Dify 并获奖，还将额外获得 Dify SaaS Pro 12 个月订阅。
+[沿着图从左向右讲]
 
-### 13 · 报名
+流程从用户任务开始。除了问题本身，最好同时明确私有资料、权限范围和验收标准。信息越清楚，后面的智能体越容易做出稳定判断。
 
-陆游在《冬夜读书示子聿》中写道：“纸上得来终觉浅，绝知此事要躬行。”现在就轮到大家动手了。扫码报名 AMD AI DevMaster Hackathon，选择 Track 2。先找一项适合在本地完成的真实任务，理清智能体如何规划、查询知识、调用工具和处理异常，再展示 Radeon 上的本地推理与优化结果。期待看到大家做出的私有智能体。
+任务进入 Dify 后，Workflow 负责理解、规划、检索、调用工具和核对结果。需要模型推理时，它通过 OpenAI-compatible API、Tool 节点或 HTTP Request，把请求交给本地服务。
 
-## English
+模型在 Radeon 上完成推理，并记录速度、显存等数据。结果回到 Workflow 后，不是立刻显示给用户，而是先检查工具执行情况、来源和验收条件。符合要求再交付，不符合就补充信息、调整步骤或安全结束。
 
-### 01 · Cover
+这条链路以后可以反复使用。更换模型或工具时，不需要把整个应用重新做一遍。
 
-Today is about one outcome: turn a prompt into a complete, demonstrable private agent. Dify orchestrates reasoning, planning, tools, and memory. AMD Radeon runs the local model path we can measure and prove. Next, I will show the architecture, the local Dify setup, and the evidence judges need to see.
+**转场：** 下面分别把编排端和本地模型端启动起来。
 
-### 02 · Dify open-source community
+## 06 · Dify Docker Quick Start（05:20–06:25）
 
-At the time this deck was prepared, the Dify repository had about one hundred and fifty thousand GitHub stars, while the LFX Insights agent and orchestration framework collection recorded 13,929 Dify contributors. Together, those numbers reflect a global developer community building an open-source platform for agentic AI applications. Teams can create workflows and RAG applications, connect models and tools, and deploy to cloud, VPC, or self-hosted environments. With that context, let us return to the hackathon and see exactly what Track 2 rewards.
+先看 Dify 社区版。准备好 Docker 和 Docker Compose 后，最低建议是两核 CPU、四 GiB 内存。
 
-### 03 · Track 2
+如果还没有源码，先克隆 Dify 仓库。进入 `dify/docker` 目录，复制环境变量文件，然后执行 `docker compose up -d`。容器启动后，打开 `localhost/install`，完成管理员账号和基础配置。
 
-Track 2 changes the emphasis: sixty points reward agent completeness and application value; forty points reward local inference and speed optimization on Radeon and ROCm. Start with the task the agent completes, then make the local execution path, optimization, and measurements visible in the demo.
+这里启动的是应用和工作流服务，不是在容器里直接运行 Radeon 模型。模型推理会由后面的 Lemonade 服务提供，再通过插件或接口交给 Dify 调用。
 
-### 04 · Division of labor
+现场演示不必逐条解释所有 Docker 配置。让观众看到命令、容器正常启动，以及安装页面可以打开，就足够说明编排端已经就绪。
 
-Keep the responsibilities simple. Dify is the control plane for goals, context, planning, retrieval, tools, UI, and API. Radeon is the compute plane for local inference. This separation makes agent decisions traceable and the AMD contribution easy to demonstrate.
+**转场：** 接下来启动真正运行在 AMD 硬件上的本地模型服务。
 
-### 05 · Architecture
+## 07 · Lemonade Quick Start（06:25–08:05）
 
-Here is the reusable architecture. A task enters Dify; the agent plans with private knowledge and memory. A local model endpoint runs inference on Radeon. The workflow then uses tools, checks the outcome, and decides whether to deliver or recover. Expose the task, inference, action, and evidence so judges can follow the complete loop.
+Lemonade 的作用，是把 AMD 硬件上的本地模型封装成标准 API。这样我们可以专注应用逻辑，不需要在项目里自己维护底层推理代码。
 
-### 06 · Docker quick start
+第一步运行 `lemonade status`，确认服务和硬件状态。然后用 `lemonade run` 下载并启动模型。页面示例使用 Gemma，并通过 `--llamacpp rocm` 指定 ROCm 后端。
 
-Dify Community Edition needs only two CPU cores, four GiB of memory, Docker, and Docker Compose for this quick start. The commands shown are copied from the current repository README. After the containers start, open localhost slash install and complete the first-run setup. This runs the agent orchestration layer; the Radeon local inference service remains a separate endpoint that Dify calls.
+服务启动后，会在 `localhost:13305/api/v1` 提供 OpenAI-compatible 接口。对于已经支持 OpenAI 接口的应用，通常只要换掉 Base URL 和模型名称，就能改为本地推理。
 
-### 07 · Lemonade quick start
+右侧四点可以快速带过：接口是标准的；可以使用 AMD GPU、NPU 或混合模式；模型和上下文留在本机；日志能够记录 TTFT、TPS 和 Token 数。
 
-Lemonade packages local inference on AMD hardware behind a standard API, so application builders do not need to manage low-level runtime code. Start by checking the service with lemonade status, then use one run command to download and launch a model. On supported AMD GPUs, select the llama.cpp ROCm backend. The server exposes an OpenAI-compatible endpoint on port 13305, so most existing applications only need a new base URL. Lemonade also reports TTFT, TPS, and token counts—useful evidence for the hackathon demo.
+最后一点对比赛很重要。TTFT 代表用户多久看到第一个 Token，TPS 代表持续生成速度。把这些日志保存下来，后面就可以直接作为性能证据。
 
-### 08 · Dify Lemonade plugin
+**转场：** 本地服务已经有了，下一步把它接进 Dify。
 
-The Dify connection takes three steps: install the Lemonade plugin from the Marketplace, configure the model type, model name, and server endpoint, then select it inside an Agent or Workflow. The integration covers more than text generation: vision, structured output, embeddings, reranking, speech-to-text, and text-to-speech are also available for supported models. If Dify runs in Docker, localhost points back to the container, so use a host address the container can reach. Declare the model context in Dify, configure the shared server context with ctx_size, and select the ROCm llama.cpp backend when appropriate. The official documentation and GitHub repository contain the complete option set.
+## 08 · Dify Lemonade 插件（08:05–09:45）
 
-### 09 · Official workflow overview
+接入过程分三步。
 
-This official Dify workflow example is not the final Track 2 agent, but the orchestration mechanics transfer directly: collect the task and context, retrieve knowledge, invoke the model and tools, then verify the result. When the project screenshots arrive, preserve this readable left-to-right agent path.
+第一，在 Dify Marketplace 搜索并安装 Lemonade 插件。第二，填写模型类型、模型名称和 Server Endpoint。第三，在 Agent 或 Workflow 的模型节点中选择它。
 
-### 10 · Winning workflow pattern
+插件不只支持普通文本生成。根据模型能力，还可以接入视觉、结构化输出、Embedding、Rerank、语音转文字和文字转语音。参赛时不必把每项能力都用上，选择真正服务于任务的两三项就可以。
 
-One model call is a feature; task completion is the agent. Define the goal and permissions, retrieve knowledge and plan, infer locally on Radeon, use tools, and verify the result. Then deliver, ask for clarification, re-plan, or exit safely. One controlled recovery makes the demo far more credible.
+这里有一个常见问题：如果 Dify 运行在 Docker 里，容器中的 `localhost` 指向容器自己，不是宿主机。因此 Server Endpoint 要填写容器能够访问的宿主机地址。
 
-### 11 · Demo storyboard
+下面两条配置分别控制上下文大小和 ROCm 后端。上下文不要一味开大，因为它会影响显存占用和响应速度。建议先按实际任务设置，再用相同条件做优化前后的对比。
 
-These three frames become the backbone of the submission video. First show the complete agent workflow. Then zoom into local inference and tool use. Finally show the completed task, execution trace, and performance evidence. The official images are temporary; your screenshots can replace them without changing the narrative.
+**转场：** 模型接通以后，就可以回到 Dify 里设计完整流程。
 
-### 12 · Evidence
+## 09 · 可视化 Workflow（09:45–10:45）
 
-Forty Track 2 points come from Radeon and ROCm optimization, so make the evidence specific: time to first token, tokens per second, peak VRAM, task success, and proof that model and data stay local. Use the same task, model, and context before and after optimization so the comparison is credible. Winning projects built with Dify will also receive a twelve-month Dify SaaS Pro subscription.
+这张图是 Dify 官方 Workflow 示例，重点不是照着节点原样复制，而是看它怎样把过程展示清楚。
 
-### 13 · Registration
+从左到右可以分成四段：先定义任务、资料、权限和验收标准；再查询本地知识库；然后调用模型、工具或子流程执行任务；最后核对结果和来源，并处理异常。
 
-Now it is your turn. Scan the QR code, register for the AMD AI DevMaster Hackathon, and choose Track 2. Start with a real task worth keeping local, make the agent's planning, knowledge, tools, and recovery legible, and make Radeon inference and optimization measurable. I cannot wait to see what you build.
+做参赛项目时，也建议保留这种清楚的阅读顺序。评委不一定了解你的全部业务背景，但只要能沿着节点看懂输入是什么、经过了哪些步骤、最后输出什么，就能更快理解项目价值。
+
+**转场：** 不过，节点连起来还不够，智能体还要真正完成任务。
+
+## 10 · 完整任务闭环（10:45–12:00）
+
+可靠的智能体，不能停在“模型已经回答”这一步。页面下方那句话换成大白话，就是：回答得不错，只是开始；把事情做完，才算完成。
+
+完整流程有五步。先明确任务和权限，再查资料、制定计划；第三步调用 Radeon 上的本地模型；第四步执行工具并核对结果；最后根据验收标准决定交付还是调整。
+
+这里建议大家特意设计一个异常场景。例如工具超时、资料不足、权限不够，或者结果没有通过校验。系统应该能够说明原因，补充信息、重新规划，或者安全停止。
+
+现场展示一次可控的异常处理，比连续展示几次顺利回答更能说明这是真正的智能体，而不是套了一层界面的聊天模型。
+
+**转场：** 接下来把这套能力压缩成评委容易看懂的演示。
+
+## 11 · 三步演示（12:00–12:55）
+
+演示可以只用三组画面。
+
+第一张展示完整 Workflow，让观众先理解整体思路。第二张放大本地推理和工具节点，说明模型运行在哪里、怎样调用外部能力。第三张展示最终任务结果、执行记录和性能数据。
+
+现在页面上还是 Dify 文档示例图，正式参赛时请换成自己的项目截图。三张图要形成连续故事，不要只是三张互不相关的产品界面。
+
+如果准备现场操作，也建议先用这三张截图讲清主线，再进入实时演示。这样即使网络或环境临时出问题，评委仍然知道项目原本要展示什么。
+
+**转场：** 最后还差一件事：把结论变成可以核验的证据。
+
+## 12 · 性能证据与 Dify 奖励（12:55–14:15）
+
+这一页的原则很直接：每个结论都要带上测试条件。
+
+建议至少记录五类数据：首个 Token 返回时间和任务总耗时；每秒生成 Token 数；GPU 显存峰值；多次运行的任务完成率；以及模型、数据和推理服务确实位于本地环境的证明。
+
+做优化前后对比时，必须使用同一个任务、同一个模型、同一种量化和相同上下文长度。否则数字看起来更快，也很难说明提升来自哪里。
+
+除了平均值，也可以保留失败记录和处理方式。对智能体来说，稳定完成任务往往比单次跑出最高速度更有说服力。
+
+这里还有一项 Dify 加码奖励：参赛项目如果使用 Dify 并获奖，将额外获得 Dify SaaS Pro 12 个月订阅。
+
+**转场：** 技术路线已经讲完，最后邀请大家真正把项目做出来。
+
+## 13 · 报名与结束（14:15–15:00）
+
+如果大家准备参加，可以扫描右侧二维码报名 AMD AI DevMaster Hackathon，并选择 Track 2。比赛支持线上参加，可以个人报名，也可以组队。
+
+建议从一个适合本地完成的真实任务开始：先确定用户为什么需要它，再搭出最短的完整流程，然后逐步增加知识库、工具、异常处理和性能优化。
+
+Dify 负责把应用和工作流组织起来，Lemonade 与 Radeon 负责本地模型服务。最后用清楚的演示和可复现的数据，把项目价值讲明白。
+
+谢谢大家，期待看到你们做出的私有智能体。
