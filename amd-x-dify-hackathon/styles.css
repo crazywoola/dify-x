@@ -1259,7 +1259,7 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 }
 .cover-slide .dual-rule { box-shadow: 0 0 28px rgba(77, 108, 255, 0.44); }
 
-/* Dify intro: community scale and repository access share one clear frame. */
+/* The Chinese deck keeps its original community data-card layout. */
 .dify-intro-grid {
   min-height: 500px;
   display: grid;
@@ -1420,6 +1420,431 @@ body.dark-slide .lang-switch a.active { color: #fff; }
 .dify-repo-link span {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+/* Contributors: the supplied portrait poster is the hero, with concise context beside it. */
+.contributors-layout {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.8fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.contributors-copy {
+  min-width: 0;
+  padding-right: 10px;
+}
+
+.contributors-copy h2 {
+  font-size: 2.2rem;
+  line-height: 1.02;
+}
+
+.contributors-copy .section-lead {
+  max-width: 650px;
+  margin-top: 18px !important;
+  font-size: 1rem;
+  line-height: 1.48;
+}
+
+.contributor-principles {
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contributor-principles > div {
+  min-height: 54px;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.contributor-principles > div + div {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.contributor-principles i {
+  color: #9fb1ff;
+  font-size: 1.12rem;
+}
+
+.contributor-principles strong,
+.contributor-principles span {
+  display: block;
+}
+
+.contributor-principles strong {
+  margin-bottom: 3px;
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.contributor-principles span {
+  color: rgba(248, 250, 255, 0.7);
+  font-size: 0.66rem;
+  line-height: 1.35;
+}
+
+.contributors-poster-frame {
+  width: 390px;
+  height: 520px;
+  margin: 0;
+  justify-self: end;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #d1d3da;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+}
+
+.contributors-poster-frame img {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  display: block;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+}
+
+/* Dify product slides: official screenshots stay uncropped on calm white canvases. */
+.product-section-head {
+  margin-bottom: 16px;
+}
+
+.product-section-head h2 {
+  font-size: 1.76rem;
+  line-height: 1.08;
+}
+
+.product-section-head .section-lead {
+  max-width: 820px;
+  margin-top: 9px !important;
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.product-section-head .context-chip {
+  flex: 0 0 auto;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.66rem;
+  text-decoration: none;
+}
+
+.product-section-head .context-chip:hover,
+.product-section-head .context-chip:focus-visible {
+  border-color: rgba(155, 176, 255, 0.72);
+  color: #fff !important;
+}
+
+.product-pair-grid {
+  min-height: 348px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-shot-card {
+  min-width: 0;
+  height: 348px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(5, 9, 20, 0.58);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+}
+
+.product-shot-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.product-shot-stage img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  display: block;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+}
+
+.product-shot-card figcaption {
+  min-height: 66px;
+  padding: 12px 15px;
+  box-sizing: border-box;
+}
+
+.product-shot-card figcaption strong,
+.product-shot-card figcaption span {
+  display: block;
+}
+
+.product-shot-card figcaption strong {
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.product-shot-card figcaption span {
+  margin-top: 5px;
+  color: rgba(248, 250, 255, 0.68);
+  font-size: 0.61rem;
+  line-height: 1.32;
+}
+
+.knowledge-product-grid {
+  min-height: 382px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+  gap: 20px;
+}
+
+.knowledge-shot-card {
+  height: 382px;
+}
+
+.knowledge-product-copy {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.26);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(5, 10, 22, 0.34);
+  backdrop-filter: blur(9px);
+}
+
+.product-point {
+  min-width: 0;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.product-point + .product-point {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.product-point > span {
+  color: #9fb1ff;
+  font: 800 0.68rem/1.3 var(--font-mono);
+}
+
+.product-point strong {
+  display: block;
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.product-point p {
+  margin: 7px 0 0 !important;
+  color: rgba(248, 250, 255, 0.68) !important;
+  font-size: 0.62rem;
+  line-height: 1.38;
+}
+
+/* Lemonade Marketplace: one install story followed by a readable three-step gallery. */
+.lemonade-marketplace-grid {
+  min-height: 356px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
+  gap: 18px;
+}
+
+.lemonade-banner-card,
+.lemonade-install-card,
+.lemonade-config-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(5, 9, 20, 0.58);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+}
+
+.lemonade-banner-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
+  background: #eef0f8;
+}
+
+.lemonade-banner-card img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  display: block;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+}
+
+.lemonade-install-rail {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lemonade-install-card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.lemonade-install-stage,
+.lemonade-config-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 9px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.lemonade-install-stage img,
+.lemonade-config-stage img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  display: block;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+}
+
+.lemonade-install-card figcaption,
+.lemonade-config-card figcaption {
+  min-height: 68px;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.step-badge {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(143, 164, 255, 0.42);
+  border-radius: 50%;
+  background: rgba(0, 51, 255, 0.2);
+  color: #c6d0ff;
+  font: 800 0.58rem/1 var(--font-mono);
+}
+
+.lemonade-install-card figcaption strong,
+.lemonade-install-card figcaption span,
+.lemonade-config-card figcaption strong,
+.lemonade-config-card figcaption span {
+  display: block;
+}
+
+.lemonade-install-card figcaption strong,
+.lemonade-config-card figcaption strong {
+  color: #fff;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.lemonade-install-card figcaption span,
+.lemonade-config-card figcaption span {
+  margin-top: 4px;
+  color: rgba(248, 250, 255, 0.66);
+  font-size: 0.58rem;
+  line-height: 1.3;
+}
+
+.lemonade-install-rail .capability-strip {
+  margin-top: 0;
+  gap: 5px;
+}
+
+.lemonade-install-rail .capability-strip span {
+  flex: 1 1 auto;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.lemonade-config-gallery {
+  min-height: 332px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.lemonade-config-card {
+  min-width: 0;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lemonade-config-card figcaption {
+  min-height: 72px;
+}
+
+.lemonade-config-footer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.6rem;
+  line-height: 1.35;
+}
+
+.lemonade-config-footer > span {
+  min-width: 0;
+}
+
+.lemonade-config-footer > span i {
+  color: #9db0ff;
+}
+
+.lemonade-config-footer code {
+  padding: 2px 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.58rem;
+}
+
+.lemonade-config-footer .resource-links {
+  flex: 0 0 auto;
+  margin-top: 0;
 }
 
 /* Scores: numbers live in one continuous band, not cards. */
