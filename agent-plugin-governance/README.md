@@ -1,6 +1,6 @@
-# 企业 Agent 插件治理：从准入规则到协作模式
+# 企业 Agent：从插件治理到生产协作
 
-这是一套双语 reveal.js 演示文稿。内容以 Dify 插件生态治理提案为基础，并结合 Dify `1.15.0` / `1.16.0` 官方发布说明，讨论开放插件怎样进入企业、怎样长期治理，以及人与 Agent 如何重新分工。
+这是一套 29 页双语 reveal.js 演示文稿。内容以 Dify 插件生态治理提案为基础，并结合 Dify `1.15.0` / `1.16.0` / `1.16.1` 官方发布说明，讨论开放插件怎样进入企业、Agent 怎样从可构建角色走向生产系统，以及 Human / Agent / Workflow / Governance 如何重新分工。
 
 - 中文：`index.html`
 - English: `index_en.html`
@@ -10,12 +10,11 @@
 
 ## 内容结构
 
-1. 装上一个插件，等于交出代码运行、数据处理和外部连接三把钥匙
-2. 安全、法务、产品、工程、社区、商业六个团队各自关心什么
-3. 怎样按 L1/L2/L3 分风险，并把治理贯穿开发、上架、安装和更新
-4. 怎样让检查证据走出 CI 日志，成为用户看得懂的可信信息
-5. 从 Dify 1.15/1.16 已有能力归纳出的四种协作方式
-6. Human / Agent / Workflow / Governance 四类责任如何各归其位
+1. 1–12 页：插件的三类权限、包污染与 `.difyignore` 根因、六类企业评估、Trust Center、风险分级、全生命周期、Policy as Code、治理路线与管理决策
+2. 13–14 页：从边界转入生产协作，并用 1.15 → 1.16.0 → 1.16.1 建立版本演进主线
+3. 15–20 页：Agent 系统全景、Agent 运行包、构建到发布、AI Workflow Generation、Workflow 控制面与 MCP 企业接口
+4. 21–25 页：Sandbox 网络隔离、协作可靠性、可观测链路、Agent 资产治理与生产升级清单
+5. 26–29 页：Human / Agent / Workflow / Governance 目标运行模型、30/90/365 天计划、结论与图片致谢
 
 ## 视觉系统
 
@@ -25,6 +24,8 @@
 - 设计变量（Design tokens）：颜色、字体、字号、行高、间距、圆角、边框和阴影统一定义在 `styles.css` 的 `:root`
 - 排版：每页先给一句短标题，再用副标题说清完整判断
 - 双语字距：`html[lang="zh-CN"]` 使用更自然的中文字面与较宽行距；`html[lang="en"]` 保留适度紧凑的英文 display tracking
+- 节奏：氛围图页与高密度系统图页交替；图片约占 35–45%，信息区域约占 55–65%
+- 新增版式：三版本时间线、Agent 系统图、安全网络边界、可靠性修复矩阵、可观测链与生产升级看板
 
 ## 中文表达
 
@@ -37,6 +38,9 @@
 - 飞书 Wiki：`https://langgenius.feishu.cn/wiki/Eh4lw1YQKiSzMokiEP0coR7XnHc`
 - Dify 1.15.0：`https://github.com/langgenius/dify/releases/tag/1.15.0`
 - Dify 1.16.0：`https://github.com/langgenius/dify/releases/tag/1.16.0`
+- Dify 1.16.1：`https://github.com/langgenius/dify/releases/tag/1.16.1`
+
+1.16.0 官方发布说明的数据库迁移总数在正文与升级指南中表述不一致，因此演示只保留“需要执行迁移”的升级动作，不写精确总数；1.16.1 明确列出的 4 个 additive migrations 则在升级页展示。
 
 图片作者统一列在 Thank You 结尾页，并以低对比度词云呈现。
 
