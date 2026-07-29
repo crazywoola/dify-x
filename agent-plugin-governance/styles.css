@@ -263,12 +263,29 @@ body { font-family: var(--sans); color: var(--ink); }
   left: var(--viewport-page-x);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
   z-index: 110;
   pointer-events: auto;
 }
 
-.deck-logo img { width: 54px; height: auto; display: block; }
+.deck-brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 28px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  border-radius: 8px;
+}
+
+.deck-brand-logos img {
+  width: auto;
+  height: 20px;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
 .deck-logo span { color: rgba(17, 18, 20, 0.52); }
 
 .lang-switch {
@@ -293,6 +310,11 @@ body { font-family: var(--sans); color: var(--ink); }
 .lang-switch a.active { color: var(--ink); }
 
 body.chrome-light .deck-logo img { filter: brightness(0) invert(1); }
+body.chrome-light .deck-brand-logos {
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 4px 18px rgba(0,0,0,.12);
+}
+body.chrome-light .deck-brand-logos img { filter: none; }
 body.chrome-light .deck-logo span,
 body.chrome-light .lang-switch a,
 body.chrome-light .lang-switch a.active,
