@@ -1645,3 +1645,1243 @@ html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
   .reveal h2,
   .has-slide-thesis .slide-title { font-size: 46px !important; }
 }
+
+/* 29-slide enterprise Agent narrative
+   Alternates atmospheric 4/8 image rails with dense system diagrams. */
+
+.source-note a {
+  color: inherit;
+  text-decoration-color: rgba(49,87,255,.36);
+  text-underline-offset: 2px;
+}
+
+.dense-summary {
+  margin-top: 28px !important;
+}
+
+.dense-summary .card {
+  min-height: 214px !important;
+  padding: 22px !important;
+  justify-content: flex-start !important;
+}
+
+.dense-summary .index-no {
+  margin-bottom: 18px;
+}
+
+.dense-summary .card h3 {
+  margin-bottom: 10px;
+}
+
+/* Slide 03 · observed package risk + ignore-template gap */
+.evidence-combo {
+  display: grid;
+  grid-template-columns: minmax(0, 4.5fr) minmax(0, 7.5fr);
+  gap: var(--gutter);
+  margin-top: 34px;
+  height: 610px;
+}
+
+.evidence-combo .media-frame {
+  min-height: 0;
+}
+
+.evidence-combo .media-frame img {
+  object-position: 54% 50%;
+}
+
+.evidence-float {
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  right: 28px;
+  top: 32px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius-md);
+  background: rgba(7,13,27,.70);
+  box-shadow: var(--shadow-md);
+  color: #fff;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.evidence-float span,
+.evidence-float small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .09em;
+  color: rgba(255,255,255,.60);
+}
+
+.evidence-float strong {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.evidence-float code {
+  color: var(--accent-bright);
+  background: rgba(255,255,255,.08);
+}
+
+.evidence-float small {
+  margin-top: 22px;
+  color: var(--accent-bright);
+}
+
+.evidence-stack {
+  display: grid;
+  grid-template-rows: 1.02fr 1fr auto;
+  gap: 12px;
+}
+
+.compact-code,
+.compact-gap {
+  min-height: 0;
+  padding: 22px 24px;
+  border-radius: var(--radius-md);
+}
+
+.compact-code .panel-label,
+.compact-gap .panel-label {
+  margin-bottom: 15px;
+}
+
+.compact-code pre code {
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.gap-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 9px;
+}
+
+.gap-chip-grid > div {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.58);
+}
+
+.gap-chip-grid code,
+.gap-chip-grid span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.gap-chip-grid code {
+  justify-self: auto;
+  font-size: 14px;
+}
+
+.gap-chip-grid span {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.evidence-verdict,
+.trust-verdict {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 56px;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.evidence-verdict strong,
+.trust-verdict strong {
+  font-family: var(--sans);
+  font-size: 18px;
+}
+
+/* Slide 04 · six-lens assessment + responsibility chain */
+.assessment-layout,
+.trust-center-layout,
+.journey-layout,
+.mcp-layout,
+.reliability-layout,
+.asset-governance {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--gutter);
+  margin-top: 34px;
+  height: 610px;
+}
+
+.assessment-layout .media-frame,
+.trust-center-layout .media-frame,
+.journey-layout .media-frame,
+.mcp-layout .media-frame,
+.reliability-layout .media-frame,
+.asset-governance .media-frame {
+  min-height: 0;
+}
+
+.media-overlay-copy {
+  position: absolute;
+  z-index: 3;
+  left: 30px;
+  right: 30px;
+  top: 38px;
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  font-weight: 760;
+  color: #fff;
+  text-shadow: 0 8px 34px rgba(0,0,0,.28);
+}
+
+.assessment-content {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+}
+
+.lens-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-rows: repeat(2, minmax(0,1fr));
+  gap: 10px;
+}
+
+.mini-card,
+.trust-column,
+.governance-layer,
+.roadmap-phase,
+.tradeoff-card,
+.version-card,
+.journey-step,
+.mcp-card,
+.asset-control,
+.upgrade-column {
+  min-width: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.62);
+  box-shadow: var(--shadow-sm);
+}
+
+.mini-card {
+  padding: 17px;
+}
+
+.mini-card span,
+.data-chain span,
+.trust-column > span,
+.governance-layer > span,
+.roadmap-phase > span,
+.tradeoff-card > span,
+.version-card .version-meta,
+.system-node > span,
+.system-outputs span,
+.anatomy-core > span,
+.anatomy-item > span,
+.journey-step > span,
+.control-rail > span,
+.run-header span,
+.run-body span,
+.control-services span,
+.mcp-card > span,
+.mcp-protocol-mark,
+.security-node > span,
+.security-foot span,
+.fix-row.header,
+.obs-stage > span,
+.obs-outcome span,
+.asset-control > span,
+.dsl-card > span,
+.upgrade-column > span,
+.upgrade-gate > span {
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.mini-card h3 {
+  margin-top: 20px;
+  font-size: 19px;
+}
+
+.mini-card p {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.data-chain {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--border-default);
+}
+
+.data-chain > div {
+  position: relative;
+  padding: 14px;
+  background: rgba(255,255,255,.74);
+}
+
+.data-chain > div:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  z-index: 2;
+  top: 42%;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+}
+
+.data-chain strong,
+.data-chain small {
+  display: block;
+}
+
+.data-chain strong {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.data-chain small {
+  margin-top: 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Slide 05 · visible trust */
+.trust-center-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+}
+
+.trust-column {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-column.active,
+.governance-layer.active,
+.roadmap-phase.active,
+.version-card.active,
+.journey-step.active,
+.mcp-card.active,
+.asset-control.active {
+  border-color: var(--accent-border);
+  background: rgba(49,87,255,.09);
+}
+
+.trust-column h3 {
+  margin-top: 36px;
+  font-size: 24px;
+}
+
+.trust-column p {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.trust-column strong {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--accent-deep);
+}
+
+.trust-verdict {
+  grid-column: 1 / -1;
+}
+
+/* Slides 09–11 · governance layers, roadmap, adoption tradeoffs */
+.governance-layers,
+.roadmap-compact {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 16px;
+  margin-top: 42px;
+}
+
+.governance-layer,
+.roadmap-phase {
+  min-height: 560px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.governance-layer h3,
+.roadmap-phase h3 {
+  margin-top: 36px;
+  font-size: 30px;
+}
+
+.governance-layer ul,
+.roadmap-phase .roadmap-list {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.governance-layer strong,
+.roadmap-phase strong {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-default);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--accent-deep);
+}
+
+.roadmap-list p {
+  padding: 10px 0;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 16px;
+}
+
+.tradeoff-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.tradeoff-card {
+  min-height: 540px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tradeoff-card:nth-child(2),
+.tradeoff-card:nth-child(4) {
+  background: rgba(49,87,255,.06);
+}
+
+.tradeoff-card h3 {
+  margin-top: 64px;
+  font-size: 25px;
+}
+
+.tradeoff-card p {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.tradeoff-card strong {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-default);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-deep);
+}
+
+/* Slide 14 · three-version release arc */
+.version-track {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.version-card {
+  position: relative;
+  min-height: 560px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.version-card::after {
+  content: "";
+  position: absolute;
+  top: 51px;
+  left: calc(100% + 1px);
+  width: 16px;
+  height: 2px;
+  background: var(--accent-border);
+}
+
+.version-card:last-child::after {
+  display: none;
+}
+
+.version-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.version-meta span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.version-meta small {
+  color: var(--muted);
+}
+
+.version-card h3 {
+  margin-top: 42px;
+  font-size: 31px;
+}
+
+.version-card ul {
+  margin: 28px 0 0;
+  padding-left: 1.1em;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.version-outcome {
+  margin-top: auto;
+  padding-top: 19px;
+  border-top: 1px solid var(--border-default);
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+/* Slide 15 · Agent system map */
+.system-map {
+  display: grid;
+  grid-template-columns: minmax(0,4fr) minmax(0,8fr);
+  gap: var(--gutter);
+  margin-top: 34px;
+  height: 610px;
+}
+
+.system-map .media-frame {
+  min-height: 0;
+}
+
+.system-diagram {
+  display: grid;
+  grid-template-rows: 118px 146px 1fr;
+  gap: 12px;
+}
+
+.system-node {
+  padding: 19px 22px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.66);
+}
+
+.system-node.builder {
+  width: 68%;
+  justify-self: center;
+}
+
+.system-node.core {
+  position: relative;
+  border-color: var(--accent-border);
+  background: var(--accent);
+  color: #fff;
+}
+
+.system-node.core > span,
+.system-node.core p {
+  color: rgba(255,255,255,.70);
+}
+
+.system-node h3 {
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.system-node p {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.system-node.builder::after,
+.system-node.core::after {
+  content: "↓";
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: -23px;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-inverse);
+  color: #fff;
+  font-family: var(--mono);
+}
+
+.system-node.builder {
+  position: relative;
+}
+
+.system-outputs {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+}
+
+.system-outputs > div {
+  padding: 17px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.58);
+}
+
+.system-outputs h3 {
+  margin-top: 14px;
+  font-size: 20px;
+}
+
+.system-outputs p {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+/* Slide 16 · Agent anatomy */
+.agent-anatomy {
+  display: grid;
+  grid-template-columns: minmax(0,3fr) minmax(0,9fr);
+  gap: 18px;
+  margin-top: 46px;
+}
+
+.anatomy-core {
+  min-height: 560px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-inverse);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.anatomy-core > span {
+  color: var(--accent-bright);
+}
+
+.anatomy-core h3 {
+  margin-top: 38px;
+  font-size: 38px;
+}
+
+.anatomy-core p {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.66);
+}
+
+.anatomy-ring {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-rows: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+
+.anatomy-item {
+  padding: 22px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.62);
+}
+
+.anatomy-item:last-child {
+  grid-column: span 2;
+  background: rgba(49,87,255,.08);
+}
+
+.anatomy-item h3 {
+  margin-top: 54px;
+  font-size: 24px;
+}
+
+.anatomy-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Slide 17 · build-to-run journey */
+.journey-flow {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-rows: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+
+.journey-step {
+  position: relative;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-step h3 {
+  margin-top: 34px;
+  font-size: 24px;
+}
+
+.journey-step p {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.48;
+  color: var(--muted);
+}
+
+.journey-step strong {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent-deep);
+}
+
+/* Slide 19 · Workflow control plane */
+.control-plane {
+  display: grid;
+  grid-template-columns: minmax(0,2.15fr) minmax(0,7.7fr) minmax(0,2.15fr);
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 44px;
+}
+
+.control-rail,
+.agent-run-zone {
+  min-height: 410px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.control-rail {
+  padding: 24px;
+  background: rgba(255,255,255,.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.control-rail h3 {
+  margin-top: 38px;
+  font-size: 26px;
+}
+
+.control-rail p {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.agent-run-zone {
+  padding: 18px;
+  background: var(--surface-inverse);
+  color: #fff;
+}
+
+.run-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 4px 18px;
+}
+
+.run-header span {
+  color: var(--accent-bright);
+}
+
+.run-header strong {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,.68);
+}
+
+.run-body {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 10px;
+  height: calc(100% - 44px);
+}
+
+.run-body > div {
+  position: relative;
+  padding: 20px 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.055);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.run-body > div:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -15px;
+  bottom: 44px;
+  color: var(--accent-bright);
+  font-family: var(--mono);
+}
+
+.run-body span {
+  color: var(--accent-bright);
+}
+
+.run-body p {
+  margin-top: 14px;
+  font-size: 15px;
+  color: rgba(255,255,255,.74);
+}
+
+.control-services {
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.control-services > div {
+  padding: 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.55);
+}
+
+.control-services span,
+.control-services strong {
+  display: block;
+}
+
+.control-services strong {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* Slide 20 · MCP enterprise interface */
+.mcp-layout .media-frame img {
+  object-position: 62% 50%;
+}
+
+.mcp-protocol-mark {
+  position: absolute;
+  z-index: 3;
+  left: 30px;
+  top: 34px;
+  color: rgba(255,255,255,.72);
+  font-size: 34px;
+  line-height: .9;
+}
+
+.mcp-protocol-mark strong {
+  color: #fff;
+  font-size: 72px;
+  letter-spacing: -.06em;
+}
+
+.mcp-capabilities,
+.asset-controls {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-rows: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+
+.mcp-card,
+.asset-control {
+  padding: 23px;
+}
+
+.mcp-card h3,
+.asset-control h3 {
+  margin-top: 42px;
+  font-size: 25px;
+}
+
+.mcp-card p,
+.asset-control p {
+  margin-top: 13px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Slide 21 · security network boundary */
+.security-boundary {
+  display: grid;
+  grid-template-columns: 1fr .72fr 1fr .58fr 1fr .58fr 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.security-node {
+  min-height: 350px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.055);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.security-node.backend {
+  border-color: rgba(145,183,255,.42);
+  background: rgba(49,87,255,.18);
+}
+
+.security-node.sandbox {
+  border-color: rgba(182,101,0,.55);
+  background: rgba(182,101,0,.12);
+}
+
+.security-node.allow {
+  border-color: rgba(8,122,91,.55);
+  background: rgba(8,122,91,.12);
+}
+
+.security-node > span,
+.security-foot span {
+  color: var(--accent-bright);
+}
+
+.security-node h3 {
+  margin-top: 46px;
+  font-size: 23px;
+}
+
+.security-node p {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.64);
+}
+
+.security-link {
+  position: relative;
+  text-align: center;
+  color: rgba(255,255,255,.72);
+}
+
+.security-link::after {
+  content: "→";
+  display: block;
+  margin-top: 18px;
+  color: var(--accent-bright);
+  font-size: 28px;
+}
+
+.security-link code {
+  display: block;
+  font-size: 10px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  color: var(--accent-bright);
+  background: rgba(255,255,255,.06);
+}
+
+.security-link small {
+  display: block;
+  margin-top: 9px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(255,255,255,.46);
+}
+
+.security-link.proxy code {
+  color: #ffc56b;
+}
+
+.security-foot {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.security-foot > div {
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.04);
+}
+
+.security-foot span,
+.security-foot strong {
+  display: block;
+}
+
+.security-foot strong {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Slide 22 · collaboration reliability matrix */
+.fix-matrix {
+  display: grid;
+  grid-template-rows: 42px repeat(5,minmax(0,1fr));
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.54);
+}
+
+.fix-row {
+  display: grid;
+  grid-template-columns: 1.08fr 1.42fr .9fr;
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+  padding: 10px 18px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.fix-row.header {
+  border-top: 0;
+  background: rgba(49,87,255,.08);
+}
+
+.fix-row strong {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.fix-row p,
+.fix-row small {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Slide 23 · observability chain */
+.observability-chain {
+  display: grid;
+  grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr 38px 1fr;
+  align-items: stretch;
+  margin-top: 48px;
+}
+
+.obs-stage {
+  min-height: 430px;
+  padding: 22px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.58);
+  display: flex;
+  flex-direction: column;
+}
+
+.obs-stage.active {
+  border-color: var(--accent-border);
+  background: rgba(49,87,255,.09);
+}
+
+.obs-stage h3 {
+  margin-top: 54px;
+  font-size: 22px;
+}
+
+.obs-stage p {
+  margin-top: 17px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.obs-stage strong {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent-deep);
+}
+
+.obs-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+.obs-outcome {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inverse);
+  color: #fff;
+}
+
+.obs-outcome span {
+  color: var(--accent-bright);
+}
+
+.obs-outcome strong {
+  font-size: 14px;
+}
+
+/* Slide 24 · Agent asset governance */
+.dsl-card {
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  right: 28px;
+  top: 44px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius-md);
+  background: rgba(8,13,28,.72);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(18px);
+}
+
+.dsl-card > span {
+  color: var(--accent-bright);
+}
+
+.dsl-card code {
+  display: block;
+  margin-top: 22px;
+  padding: 0;
+  background: transparent;
+  color: rgba(255,255,255,.80);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Slide 25 · production upgrade board */
+.upgrade-board {
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 11px;
+  margin-top: 40px;
+}
+
+.upgrade-column {
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upgrade-column.critical {
+  border-color: rgba(196,61,69,.38);
+  background: var(--status-danger-soft);
+}
+
+.upgrade-column h3 {
+  margin-top: 32px;
+  font-size: 23px;
+}
+
+.upgrade-column ul {
+  margin: 25px 0 0;
+  padding-left: 1.05em;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.upgrade-column li {
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.upgrade-column code {
+  font-size: 11px;
+}
+
+.upgrade-column strong {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-default);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--accent-deep);
+}
+
+.upgrade-gate {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  margin-top: 13px;
+  padding: 13px 17px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-inverse);
+  color: #fff;
+}
+
+.upgrade-gate > span {
+  color: var(--accent-bright);
+}
+
+.upgrade-gate strong {
+  font-size: 14px;
+  text-align: right;
+}
+
+/* Keep the image-to-information ratio and typography stable in both languages. */
+html[lang="en"] .mini-card h3,
+html[lang="en"] .data-chain strong,
+html[lang="en"] .fix-row strong {
+  letter-spacing: -.015em;
+}
+
+html[lang="en"] .upgrade-column h3 {
+  font-size: 21px;
+}
