@@ -2665,7 +2665,7 @@ html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
   font-size: 14px;
 }
 
-/* Slide 22 · collaboration reliability matrix */
+/* Collaboration reliability matrix */
 .fix-matrix {
   display: grid;
   grid-template-rows: 42px repeat(5,minmax(0,1fr));
@@ -2702,7 +2702,7 @@ html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
   color: var(--muted);
 }
 
-/* Slide 23 · observability chain */
+/* Observability chain */
 .observability-chain {
   display: grid;
   grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr 38px 1fr;
@@ -2773,7 +2773,7 @@ html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
   font-size: 14px;
 }
 
-/* Slide 24 · Agent asset governance */
+/* Agent asset governance */
 .dsl-card {
   position: absolute;
   z-index: 3;
@@ -2803,7 +2803,7 @@ html[lang="zh-CN"] .source-note { letter-spacing: .035em; }
   line-height: 1.65;
 }
 
-/* Slide 25 · production upgrade board */
+/* Production upgrade board */
 .upgrade-board {
   display: grid;
   grid-template-columns: repeat(5,minmax(0,1fr));
@@ -2884,4 +2884,116 @@ html[lang="en"] .fix-row strong {
 
 html[lang="en"] .upgrade-column h3 {
   font-size: 21px;
+}
+
+/* Slide 02 · four-question table of contents */
+.toc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--gutter);
+  height: 610px;
+  margin-top: 34px;
+}
+
+.toc-layout .media-frame {
+  min-height: 0;
+}
+
+.toc-layout .media-frame img {
+  object-position: 52% 50%;
+}
+
+.toc-photo-copy {
+  position: absolute;
+  z-index: 3;
+  top: 38px;
+  left: 32px;
+  right: 32px;
+  display: grid;
+  gap: 8px;
+  color: #fff;
+  text-shadow: 0 8px 34px rgba(0,0,0,.30);
+}
+
+.toc-photo-copy span {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.70);
+}
+
+.toc-photo-copy strong {
+  max-width: 340px;
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.toc-list {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.toc-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  min-width: 0;
+  padding: 18px 22px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.58);
+  box-shadow: 0 12px 36px rgba(13,19,34,.035);
+  backdrop-filter: blur(14px);
+}
+
+.toc-item.active {
+  border-color: var(--accent-border);
+  background: rgba(49,87,255,.09);
+}
+
+.toc-no,
+.toc-pages {
+  font-family: var(--mono);
+  color: var(--accent-deep);
+}
+
+.toc-no {
+  font-size: 27px;
+  font-weight: 650;
+  letter-spacing: -.04em;
+}
+
+.toc-pages {
+  align-self: start;
+  padding-top: 4px;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.toc-copy {
+  min-width: 0;
+}
+
+.toc-copy h3 {
+  font-size: 24px;
+  line-height: 1.16;
+}
+
+.toc-copy p {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.42;
+  color: var(--muted);
+}
+
+html[lang="en"] .toc-copy h3 {
+  font-size: 22px;
+}
+
+html[lang="en"] .toc-copy p {
+  font-size: 15px;
 }
