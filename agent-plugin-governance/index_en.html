@@ -208,13 +208,6 @@
       <aside class="notes">This is more than an image refresh. 1.16.0 adds Agent services, 1.16.1 adds the proxy and network split, and production also needs secret rotation, additive migrations, and review of older OpenAI custom configurations.</aside>
     </section>
 
-    <section class="dark-slide grid-overlay">
-      <div class="eyebrow">Target operating model · Four kinds of responsibility</div><h2>Goals, execution, state, and boundaries each need a clear owner.</h2>
-      <div class="operating-model"><div class="layer"><div class="layer-no">01 / HUMAN</div><h3>Goals and outcomes</h3><p>Set objectives, approve high-risk actions, handle exceptions, and own business results.</p></div><div class="layer"><div class="layer-no">02 / AGENT</div><h3>Exploration and execution</h3><p>Decompose work and invoke Skills in a controlled environment, returning structured results.</p></div><div class="layer"><div class="layer-no">03 / WORKFLOW</div><h3>State and evidence</h3><p>Manage order, HITL, retries, archives, cost, and runtime observability.</p></div><div class="layer"><div class="layer-no">04 / GOVERNANCE</div><h3>Authority and boundaries</h3><p>Manage plugin tiers, identity, data flow, policy, monitoring, and action procedure.</p></div></div>
-      <p class="big-statement" style="font-size:42px;margin-top:28px;color:#fff;">Authorization, state ownership, and outcome accountability must be explicit.</p>
-      <aside class="notes">Human owns goals and results, Agent owns bounded execution, Workflow owns state and evidence, and Governance owns authority and boundaries. Every production use case should map these four responsibilities to named owners.</aside>
-    </section>
-
     <section class="grid-overlay">
       <div class="eyebrow">Action plan · 30 / 90 / 365</div><h2>Secure the upgrade, govern Agent assets, then scale operations.</h2>
       <div class="timeline"><div class="phase"><div class="time">NEXT 30 DAYS</div><h3>Secure upgrade and minimum loop</h3><ul><li>Upgrade to 1.16.1 and verify network isolation</li><li>Replace default tokens and secrets</li><li>Inventory plugins, Agents, and external calls</li><li>Define L1/L2/L3 and high-risk confirmation</li></ul><div class="metric">Deliver: upgrade evidence, risk inventory, owners, exception flow</div></div><div class="phase"><div class="time">NEXT 90 DAYS</div><h3>Agent asset governance</h3><ul><li>Put DSL under version control and review</li><li>Build Agent roster + Skills catalog</li><li>Gate publication state and Workflow references</li><li>Adopt node location, archives, and cost attribution</li></ul><div class="metric">Deliver: versioned Agents, traceable flows, attributable cost</div></div><div class="phase"><div class="time">NEXT 365 DAYS</div><h3>Scale operations</h3><ul><li>Signing, SBOM, continuous CVE monitoring</li><li>Trust Center and transparent metrics</li><li>MCP identity passthrough and policy</li><li>Reliability SLO, response SLA, quarterly review</li></ul><div class="metric">Outcome: more participants without blurred responsibility or data boundaries</div></div></div>
@@ -242,7 +235,7 @@
       'Hard rules need a migration path', 'Three executive decisions', 'Clear boundaries unlock collaboration', 'Three releases, one production path', 'Agent enters one delivery system',
       'Govern the complete role runtime', 'From conversation to controlled release', 'Plan first, then generate', 'Workflow governs autonomous execution', 'MCP becomes an organizational interface',
       'Constrain the blast radius', 'Collaboration state must be trustworthy', 'From error location to cost ownership', 'Agent becomes a governable asset', 'Treat the upgrade as architecture change',
-      'Four responsibilities, four owners', 'Secure first, then scale operations', 'Boundary and evidence make autonomy scalable', null
+      'Secure first, then scale operations', 'Boundary and evidence make autonomy scalable', null
     ];
     document.querySelectorAll('.reveal .slides > section').forEach((section, index) => {
       if (!slideTitles[index]) return;

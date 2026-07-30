@@ -464,19 +464,6 @@
         <aside class="notes">这不是普通补丁升级。1.16.0 引入两项 Agent 服务，1.16.1 再加代理和网络隔离；同时要替换默认 token、执行 additive migrations，并检查旧 OpenAI 自定义配置是否仍使用 Chat Completions。</aside>
       </section>
 
-      <section class="dark-slide grid-overlay">
-        <div class="eyebrow">Target operating model · 四类责任</div>
-        <h2>系统要稳定运行，目标、执行、状态和边界必须各有主人。</h2>
-        <div class="operating-model">
-          <div class="layer"><div class="layer-no">01 / HUMAN</div><h3>目标与结果责任</h3><p>设定目标、批准高风险动作、处理例外，并对业务结果负责。</p></div>
-          <div class="layer"><div class="layer-no">02 / AGENT</div><h3>探索与执行</h3><p>在受控环境中拆解任务、调用 Skills，交出结构化结果。</p></div>
-          <div class="layer"><div class="layer-no">03 / WORKFLOW</div><h3>状态与证据</h3><p>管理顺序、HITL、重试、归档、成本和运行观测。</p></div>
-          <div class="layer"><div class="layer-no">04 / GOVERNANCE</div><h3>权限与边界</h3><p>管理插件分级、身份、数据流、策略、监测与处置程序。</p></div>
-        </div>
-        <p class="big-statement" style="font-size:42px;margin-top:28px;color:#fff;">谁授权、谁管状态、谁对结果负责，都要说得清。</p>
-        <aside class="notes">人负责目标与结果，Agent 负责探索执行，Workflow 管状态和证据，Governance 管权限和边界。任何生产场景都应把四类责任映射到具体 owner。</aside>
-      </section>
-
       <section class="grid-overlay">
         <div class="eyebrow">Action plan · 30 / 90 / 365</div>
         <h2>先安全升级，再治理 Agent 资产，最后规模化运营。</h2>
@@ -523,7 +510,7 @@
       '规则要硬，迁移要有台阶', '三件事需要管理层拍板', '边界清楚，协作才放得开', '三次更新，一条生产路径', 'Agent 进入同一套系统',
       '管理一套完整角色运行包', '从对话搭建到受控发布', '先看计划，再生成流程', 'Workflow 管住自主执行', 'MCP 成为组织接口',
       '把爆炸半径限制在最小路径', '协作状态必须可信', '从错误定位到成本归因', 'Agent 成为可治理资产', '把升级当成架构变更',
-      '四类责任，各有主人', '先安全升级，再规模运营', '边界与证据，让自主规模化', null
+      '先安全升级，再规模运营', '边界与证据，让自主规模化', null
     ];
     document.querySelectorAll('.reveal .slides > section').forEach((section, index) => {
       if (!slideTitles[index]) return;
