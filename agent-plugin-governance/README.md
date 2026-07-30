@@ -1,6 +1,6 @@
 # 企业 Agent：从插件治理到生产协作
 
-这是一套 29 页双语 reveal.js 演示文稿。内容以 Dify 插件生态治理提案为基础，并结合 Dify `1.15.0` / `1.16.0` / `1.16.1` 官方发布说明，讨论开放插件怎样进入企业、Agent 怎样从可构建角色走向生产系统，以及 Human / Agent / Workflow / Governance 如何重新分工。
+这是一套 28 页双语 reveal.js 演示文稿。内容以 Dify 插件生态治理提案为基础，并结合 Dify `1.15.0` / `1.16.0` / `1.16.1` 官方发布说明，讨论开放插件怎样进入企业、Agent 怎样从可构建角色走向生产系统，以及 Human / Agent / Workflow / Governance 如何重新分工。
 
 - 中文：`index.html`
 - English: `index_en.html`
@@ -14,7 +14,7 @@
 2. 13–14 页：从边界转入生产协作，并用 1.15 → 1.16.0 → 1.16.1 建立版本演进主线
 3. 15–20 页：Agent 系统全景、Agent 运行包、构建到发布、AI Workflow Generation、Workflow 控制面与 MCP 企业接口
 4. 21–25 页：Sandbox 网络隔离、协作可靠性、可观测链路、Agent 资产治理与生产升级清单
-5. 26–29 页：Human / Agent / Workflow / Governance 目标运行模型、30/90/365 天计划、结论与图片致谢
+5. 26–28 页：30/90/365 天行动计划、结论与图片致谢
 
 ## 视觉系统
 
