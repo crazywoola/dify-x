@@ -40,7 +40,7 @@
           </div>
           <div class="cover-image"><img src="assets/atmos-silk-ruido98.jpg" alt="Blue and orange abstract light folds by Ruido 98 on Unsplash"><div class="photo-caption"><span>TRUST / COMPOSABILITY</span></div></div>
         </div>
-        <aside class="notes">这次不从功能清单讲起，而是沿四个问题展开：风险在哪里、治理怎样形成证据、Dify 如何把 Agent 变成系统，以及管理层怎样把系统带进生产。下一页先把 30 到 40 分钟的路线摊开。</aside>
+        <aside class="notes">这次不从功能清单讲起，而是沿四个问题展开：风险在哪里、治理怎样形成证据、Dify 如何把 Agent 变成系统，以及这些能力怎样进入生产。下一页先把 30 到 40 分钟的路线摊开。</aside>
       </section>
 
       <section class="grid-overlay toc-slide atmos-slide atmos-teal">
@@ -241,14 +241,14 @@
       </section>
 
       <section class="grid-overlay">
-        <div class="eyebrow">Executive decisions · 三件事需要拍板</div>
-        <h2>没有明确的风险偏好、责任边界和投入顺序，治理会停在提案里。</h2>
+        <div class="eyebrow">Operating decisions · 从提案到持续运营</div>
+        <h2>风险偏好、责任边界和长期投入没有共识，治理就只能停在提案里。</h2>
         <div class="decision-grid">
           <div class="decision-card"><div class="decision-no">01 / RISK</div><h3>哪些能力必须按 L3 管？</h3><p>命令、SQL、SSH、浏览器、本地文件和任意 HTTP 是否全部进入深度审核与二次确认。</p><div class="decision-call">决定风险偏好与默认阻断线</div></div>
-          <div class="decision-card"><div class="decision-no">02 / LIABILITY</div><h3>平台对外承诺到哪里？</h3><p>审核深度、推荐机制、徽章文案、下架程序和作者协议必须给出一致答案。</p><div class="decision-call">法务、产品、市场共同签字</div></div>
+          <div class="decision-card"><div class="decision-no">02 / LIABILITY</div><h3>平台对外承诺到哪里？</h3><p>审核深度、推荐机制、徽章文案、下架程序和作者协议必须给出一致答案。</p><div class="decision-call">法务、产品、市场保持一致口径</div></div>
           <div class="decision-card"><div class="decision-no">03 / OPERATIONS</div><h3>谁长期运营这套系统？</h3><p>扫描规则、人工复核、CVE 响应、申诉和透明指标都需要固定 owner 与预算。</p><div class="decision-call">治理是持续运营，不是一次项目</div></div>
         </div>
-        <aside class="notes">升级清单说明了技术上要做什么，但只有管理层能确定风险偏好、对外承诺和长期 owner。只批准工具采购而不明确这三项，治理最终仍会靠临时协调。三项决定明确后，才能把能力顺序落进 30、90、365 天行动计划。</aside>
+        <aside class="notes">升级清单回答技术上要改什么，这三项决定回答按什么边界长期运营。风险偏好、对外承诺和固定 owner 达成共识后，才能把能力顺序落进 30、90、365 天行动计划；否则治理仍会依赖临时协调。</aside>
       </section>
 
       <section class="bg-photo integrated-full" style="background-image:url('assets/atmos-flare-sean-sinclair.jpg');background-position:center 45%!important;">
@@ -480,7 +480,7 @@
         </div>
         <div class="upgrade-gate"><span>GO-LIVE GATE</span><strong>网络可达性测试 · 密钥轮换 · 数据备份 · Agent 回归 · 监控告警</strong></div>
         <div class="source-note">来源：<a href="https://github.com/langgenius/dify/releases/tag/1.16.0">Dify 1.16.0</a> 与 <a href="https://github.com/langgenius/dify/releases/tag/1.16.1">1.16.1</a> Upgrade Guide；1.16.0 迁移数量表述不一致，故不在此页写精确总数。</div>
-        <aside class="notes">这不是普通补丁升级。1.16.0 引入两项 Agent 服务，1.16.1 再加代理和网络隔离；同时要替换默认 token、执行 additive migrations，并检查旧 OpenAI 自定义配置是否仍使用 Chat Completions。技术清单已经明确，接下来需要管理层确定允许多大风险、对外承诺什么、由谁长期运营。</aside>
+        <aside class="notes">这不是普通补丁升级。1.16.0 引入两项 Agent 服务，1.16.1 再加代理和网络隔离；同时要替换默认 token、执行 additive migrations，并检查旧 OpenAI 自定义配置是否仍使用 Chat Completions。技术清单已经明确，接下来需要对风险边界、对外承诺和长期运营责任形成共识。</aside>
       </section>
 
       <section class="grid-overlay">
@@ -491,7 +491,7 @@
           <div class="phase"><div class="time">NEXT 90 DAYS</div><h3>Agent 资产治理</h3><ul><li>DSL 纳入版本控制和评审</li><li>Agent 名册 + Skills 目录</li><li>发布状态与 Workflow 引用门禁</li><li>节点定位、运行归档与成本归因</li></ul><div class="metric">交付：可版本化 Agent、可追溯流程、可核算成本</div></div>
           <div class="phase"><div class="time">NEXT 365 DAYS</div><h3>规模化运营</h3><ul><li>签名、SBOM、持续 CVE</li><li>Trust Center 与透明指标</li><li>MCP 身份透传与策略联动</li><li>可靠性 SLO、响应 SLA、季度复核</li></ul><div class="metric">结果：参与者更多，但责任和数据边界仍清楚</div></div>
         </div>
-        <aside class="notes">三项管理决定确定以后，三十天先完成安全升级和治理盘点；九十天把 Agent 变成可版本化资产；一年内再建立持续信任、接口策略和可靠性运营。这是实际执行排期，与前面的能力成熟度模型分工明确。</aside>
+        <aside class="notes">三项关键决定达成共识后，三十天先完成安全升级和治理盘点；九十天把 Agent 变成可版本化资产；一年内再建立持续信任、接口策略和可靠性运营。这是实际执行排期，与前面的能力成熟度模型分工明确。</aside>
       </section>
 
       <section class="closing layout-closing atmos-slide atmos-pastel">
@@ -534,7 +534,7 @@
       '规则要硬，迁移要有台阶', '治理成熟度逐级推进', '边界清楚，协作才放得开', '三次更新，一条生产路径', 'Agent 进入同一套系统',
       '管理一套完整角色运行包', '从对话搭建到受控发布', '先看计划，再生成流程', 'Workflow 管住自主执行', 'MCP 成为组织接口',
       'Agent 成为可治理资产', '把爆炸半径限制在最小路径', '协作状态必须可信', '从错误定位到成本归因', '把升级当成架构变更',
-      '三件事需要管理层拍板', '先安全升级，再规模运营', '边界与证据，让自主规模化', null
+      '三项关键决定，让治理真正运转', '先安全升级，再规模运营', '边界与证据，让自主规模化', null
     ];
     document.querySelectorAll('.reveal .slides > section').forEach((section, index) => {
       if (!slideTitles[index]) return;
