@@ -319,7 +319,7 @@ body.chrome-light .deck-logo span,
 body.chrome-light .lang-switch a,
 body.chrome-light .lang-switch a.active,
 body.chrome-light .lang-switch span { color: rgba(255,255,255,.78); }
-body.chrome-thanks .deck-logo,
+body.chrome-thanks .deck-logo { opacity: 0; }
 body.chrome-thanks .lang-switch,
 body.chrome-thanks .reveal .slide-number { opacity: .28; }
 
@@ -1197,8 +1197,24 @@ body.chrome-light .reveal .slide-number { color: rgba(255,255,255,.62); }
   font-size: 24px;
   color: var(--muted);
 }
+.thanks-brand-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 28px;
+  margin-top: 38px;
+  padding: 4px 8px;
+}
+.thanks-brand-logos img {
+  display: block;
+  width: auto;
+  height: 20px;
+  max-width: none;
+  object-fit: contain;
+}
 .thanks-contact {
-  margin-top: 54px;
+  margin-top: 24px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
   font-family: var(--mono);
