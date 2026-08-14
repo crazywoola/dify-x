@@ -3,364 +3,375 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>From One Sentence to a Stripe Agent — Dify × Stripe Workshop</title>
+  <title>Workflow Generator: From One Sentence to a Running Graph — Dify × Stripe</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/github.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../agent-systems/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="lang-switch">
-    <a href="index.html">中文</a><span>/</span><a class="active" href="index_en.html">EN</a>
+  <div class="deck-logo">
+    <img src="../assets/logo.svg" alt="Dify">
+    <span>Dify × Stripe · Workflow Generator</span>
   </div>
-  <div class="nordic-logo">
-    <img src="../assets/logo.svg" alt="Dify" class="nordic-logo-img">
-    <span class="nordic-logo-text">Dify × Stripe · Workshop</span>
-  </div>
+  <div class="lang-switch"><a href="index.html">中文</a><span>/</span><a class="active" href="index_en.html">EN</a></div>
 
   <div class="reveal">
     <div class="slides">
 
-      <section data-background-color="#fafbff">
-        <div class="workshop-kicker"><i class="ri-flashlight-line"></i> Dify 1.16.x · 20 MIN</div>
-        <h1 class="hero-title">From one sentence to<br><span class="stripe-accent">a Stripe Agent that acts</span></h1>
-        <p class="slide-subtitle">Generate a Workflow in natural language, then package Stripe operations as a reusable Dify Agent.</p>
-        <div class="hero-line"></div>
-        <div class="author-block" style="margin-top:0;border-top:0;padding-top:0;">
-          <div class="author-name">crazywoola (Banana)</div>
-          <div class="author-meta">Developer Relations @ Dify</div>
-          <div class="author-email">banana@dify.ai</div>
+      <!-- 01 · Cover -->
+      <section class="cover-slide" data-background-image="../agent-plugin-governance/assets/atmos-silk-ruido98.jpg" data-background-size="cover">
+        <div class="cover-head">
+          <span class="mono-tag">DIFY × STRIPE · AGENT WORKSHOP</span>
+          <span class="mono-tag">20 MIN · 2026</span>
         </div>
-        <aside class="notes">0:00–0:30. Set the promise: in 20 minutes the room will have a runnable Stripe Sandbox payment-link copilot, not just a feature tour.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">What you will leave with</span>
-        <h2>We will not learn all of Dify. We will close one intent-to-action loop.</h2>
-        <div class="promise-grid">
-          <div class="promise-card primary">
-            <span class="mini-label" style="color:#aeb4cc;">Outcome</span>
-            <h3>Stripe Payment Link Copilot</h3>
-            <p>Customer, plan, and amount → validation → human approval → Agent creates a Stripe Sandbox Payment Link → evidence comes back.</p>
+        <div>
+          <h1>Workflow Generator<br><span class="blue">From One Sentence to a Running Graph</span></h1>
+          <p class="cover-sub">How Dify auto-generates workflow DSL: the Planner, Builder, and Validator — and the three problems that took it from prototype to production.</p>
+        </div>
+        <div class="cover-foot">
+          <div class="cover-author">
+            <div class="name">Zheng Li</div>
+            <div class="role">Head of DevRel @ Dify</div>
+            <div class="mail">banana@dify.ai</div>
           </div>
-          <div class="promise-card">
-            <span class="mini-label">Success test</span>
-            <h3>Explain three choices</h3>
-            <p>Why Workflow, why Agent, and why a write boundary must be enforced by systems rather than polite prompting.</p>
+          <div class="cover-meta">github.com/langgenius/dify<br>Engineering Notes · For Developers</div>
+        </div>
+        <aside class="notes">0:00–1:00. One-sentence opening: today is one concrete engineering problem — turning a sentence of natural language into a graph that loads and runs correctly on the canvas. Two minutes of demo first, then the implementation.</aside>
+      </section>
+
+      <!-- 02 · Demo video (placeholder) -->
+      <section class="video-slide" data-background-image="../agent-plugin-governance/assets/bg-tunnel-reinhart-julian.jpg" data-background-size="cover">
+        <div class="video-head">
+          <div>
+            <div class="eyebrow">Demo · Workflow Generator</div>
+            <h2 class="slide-title" style="font-size:44px;margin-top:14px;">⌘K → /create: watch a sentence become a graph</h2>
           </div>
+          <span class="runtime">RUNTIME ≈ 02:00</span>
         </div>
-        <div class="minute-track">
-          <div><strong>0–3</strong><span>Goal &amp; boundaries</span></div>
-          <div><strong>3–8</strong><span>Build Agent by chat</span></div>
-          <div><strong>8–13</strong><span>/create + /refine</span></div>
-          <div><strong>13–17</strong><span>Run in Sandbox</span></div>
-          <div><strong>17–20</strong><span>Guardrails &amp; recipe</span></div>
+        <!-- When the final video is ready: remove the three placeholder elements inside
+             .video-frame and use <video controls preload="metadata" src="assets/workflow-generator-demo.mp4"></video> -->
+        <div class="video-frame">
+          <div class="play-badge"></div>
+          <div class="video-placeholder-label">VIDEO PLACEHOLDER · FINAL CUT TO FOLLOW</div>
+          <div class="video-placeholder-sub">workflow-generator-demo.mp4 · 16:9 · ≈ 2 MIN</div>
         </div>
-        <aside class="notes">0:30–1:15. Participants do not need to mirror every click. Ask them to capture four inputs: Builder prompt, /create prompt, /refine prompt, and test task.</aside>
+        <aside class="notes">1:00–3:00. Play the video (placeholder for now, final cut to follow). Content: ⌘K opens /create on the canvas, one sentence in, the plan appears first, then the full graph, then one /refine edit. Afterwards stress one thing only: the output lands directly on the canvas — wired, runnable, editable.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Version &amp; status</span>
-        <h2>Separate what the product can do from how we should use it.</h2>
-        <div class="version-stamp">
-          <div><small>Baseline</small><strong>Dify 1.16.1</strong></div>
-          <div><small>Core capability</small><strong>Agent App Open Beta</strong></div>
-          <div><small>Workflow entry</small><strong>⌘K → /create · /refine</strong></div>
-          <div><small>Payments</small><strong>Stripe Sandbox only</strong></div>
-        </div>
-        <div class="info-banner"><div class="info-banner-slot"><i class="ri-alert-line info-banner-icon"></i></div><div class="info-banner-content"><strong>This is not “letting AI manage money.”</strong>&nbsp;It is one explicit action inside limited tools, limited credentials, human approval, and traceable outputs.</div></div>
-        <p class="source-line">Sources: <a href="https://github.com/langgenius/dify/releases/tag/1.16.0">Dify 1.16.0 Release</a>, <a href="https://github.com/langgenius/dify/releases/tag/1.16.1">1.16.1 Release</a>, <a href="https://docs.dify.ai/en/self-host/use-dify/build/new-agent/overview">New Agent docs</a>, and <a href="https://docs.stripe.com/testing">Stripe Testing</a>.</p>
-        <aside class="notes">1:15–2:10. Agent is beta. Self-hosted users should prefer 1.16.1 and replace development secrets. Never bring live keys or real card details into the workshop.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">One-line mental model</span>
-        <h2>Workflow owns order. Agent owns judgment. Skill owns method. Stripe owns facts.</h2>
-        <div class="mental-model">
-          <div class="mental-card"><div class="icon"><i class="ri-route-line"></i></div><h3>Workflow = SOP</h3><p>Inputs, branches, approval, and outputs stay deterministic.</p></div>
-          <div class="mental-card"><div class="icon"><i class="ri-robot-2-line"></i></div><h3>Agent = colleague</h3><p>For open-ended work, decide when and how to use capabilities.</p></div>
-          <div class="mental-card"><div class="icon"><i class="ri-book-open-line"></i></div><h3>Skill = job aid</h3><p>Package Stripe procedures, scripts, and boundaries once.</p></div>
-          <div class="mental-card"><div class="icon"><i class="ri-bank-card-line"></i></div><h3>Stripe = system of record</h3><p>The real state of customers, prices, subscriptions, and links.</p></div>
-        </div>
-        <aside class="notes">2:10–3:00. The Agent is not a replacement for Workflow. In high-risk systems, these roles complement each other.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Case · SaaS billing support</span>
-        <h2>Turn one real ticket into a minimal, testable application.</h2>
-        <div class="case-layout">
-          <div class="ticket"><div class="avatar">AR</div><blockquote>“Create a $99 monthly Growth plan for alice@example.com. Ask me first, then send the payment link.”</blockquote></div>
-          <div class="acceptance-list">
-            <div class="acceptance-item"><span class="num">01</span><strong>Validate email / amount / currency</strong><small>DETERMINISTIC</small></div>
-            <div class="acceptance-item"><span class="num">02</span><strong>Preview the proposed action</strong><small>PREVIEW</small></div>
-            <div class="acceptance-item"><span class="num">03</span><strong>Call Stripe Agent after approval</strong><small>HITL</small></div>
-            <div class="acceptance-item"><span class="num">04</span><strong>Return payment link + object IDs</strong><small>EVIDENCE</small></div>
+      <!-- 03 · The problem -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-teal-pawel-czerwinski.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">01</span>The Shape of the Problem</div>
+        <h2 class="slide-title">The output isn't text. It's a graph that has to survive the canvas.</h2>
+        <p class="slide-lead">Workflow DSL describes nodes, edges, variable references, and layout. It gets rendered by ReactFlow and executed by the runtime — one wrong field from the model and the canvas fails to load, or execution silently emits raw placeholder text.</p>
+        <div class="grid-3 card-row">
+          <div class="glass">
+            <div class="num">SCHEMA</div>
+            <h3>Every node type has its own shape</h3>
+            <p>LLM, code, tool, branch, iteration… each node's <code>data</code> structure is different. Get it wrong and the draft won't load.</p>
+          </div>
+          <div class="glass">
+            <div class="num">EDGES</div>
+            <h3>Edges carry handles</h3>
+            <p>Branch nodes emit per-case handles (<code>true</code> / <code>false</code>). Wire the wrong handle and the edge dangles off the canvas.</p>
+          </div>
+          <div class="glass">
+            <div class="num">VARIABLES</div>
+            <h3>References address the whole graph</h3>
+            <p><code>{{#node_id.var#}}</code> points at another node's output. One broken reference silently degrades into literal text.</p>
           </div>
         </div>
-        <aside class="notes">3:00–3:50. We intentionally exclude refunds, cancellation, and deletion. Those need a stronger policy and authorization model.</aside>
+        <div class="foot-line"><span>This sets the baseline for every design choice: anything deterministic code can own, the model doesn't.</span></div>
+        <aside class="notes">3:00–5:00. Build the intuition: this is not "have the model write some YAML". All three failure modes are quiet — bad schema won't load, bad handle leaves a dangling edge, bad reference silently fails at runtime. The hard part isn't generating; it's what guarantees correctness afterwards.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Demo A · Build Agent</span>
-        <h2>First natural-language input: “hire” a Stripe Billing Operator.</h2>
-        <div class="prompt-window">
-          <div class="prompt-toolbar"><span class="dots">● ● ●</span><span>AGENTS → CREATE → BUILD MODE</span></div>
-          <div class="prompt-body"><span class="cmd">Build a Stripe Billing Operator:</span>
-1. Stripe Sandbox only. Read the key from Secret environment variable <span class="key">STRIPE_SECRET_KEY</span>.
-2. Create a <span class="key">stripe-billing</span> Skill to look up customer/subscription by email and create Payment Links.
-3. Read-only by default. Return <span class="key">proposed_action</span> first; write only when the task contains <span class="safe">APPROVED=true</span>.
-4. Never refund, cancel, or delete. Never accept or expose card numbers.
-5. Return strict JSON: status, action, customer_id, payment_link, object_ids, evidence, error.
-6. Use the Stripe Python SDK and create a readable build note.</div>
-        </div>
-        <p class="source-line">Dify 1.16.x Build mode can configure prompts, Skills, files, and environment variables through conversation; environment values can be marked Secret. See <a href="https://docs.dify.ai/en/self-host/use-dify/build/new-agent/build">Build an Agent</a>.</p>
-        <aside class="notes">3:50–5:50. Paste the prompt. While Builder works, explain that the rules should become configuration, a Skill, and a build note—not model memory.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Build Draft · review before use</span>
-        <h2>Before Apply, review only four things.</h2>
-        <div class="builder-layout">
-          <div class="build-draft">
-            <div class="draft-item"><i class="ri-user-settings-line"></i><div><strong>Prompt</strong><span>Role, read-only default, forbidden actions, output contract.</span></div></div>
-            <div class="draft-item"><i class="ri-book-2-line"></i><div><strong>Skill</strong><span>stripe-billing/SKILL.md plus an executable helper.</span></div></div>
-            <div class="draft-item"><i class="ri-key-2-line"></i><div><strong>Environment</strong><span>STRIPE_SECRET_KEY marked Secret, never written to files.</span></div></div>
-            <div class="draft-item"><i class="ri-file-list-3-line"></i><div><strong>Build note</strong><span>Dependencies, capability boundary, and test procedure.</span></div></div>
+      <!-- 04 · Pipeline overview -->
+      <section data-background-image="../agent-plugin-governance/assets/bg-workflow-jakub-zerdzicki.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">02</span>Overall Design</div>
+        <h2 class="slide-title">A four-stage pipeline: the model only answers semantic questions.</h2>
+        <p class="slide-lead">Streamed over SSE: a <code>plan</code> event fires as soon as the Planner finishes, and <code>result</code> follows once assembly completes. Users review the plan while waiting instead of watching a spinner.</p>
+        <div class="pipeline">
+          <div class="flow-step">
+            <div class="stage">STAGE 0 · OPTIONAL</div>
+            <h3>Tool Router<span>tool_router_prompts.py</span></h3>
+            <p>When too many tools are installed, one small call picks the subset that actually matters for this request.</p>
           </div>
-          <div class="promise-card">
-            <span class="mini-label">Do not trust “generated successfully”</span>
-            <h3>Apply ≠ Publish</h3>
-            <p>Apply saves the build. Publish makes that version available to Web Apps and Workflows. Run a read test, then one controlled write.</p>
-            <div style="margin-top:0.9rem;"><span class="mono-badge">Test → Apply → Publish</span></div>
+          <div class="flow-step">
+            <div class="stage">STAGE 1</div>
+            <h3>Planner<span>planner_prompts.py</span></h3>
+            <p>Decides which nodes exist, how they connect, what the inputs are, and which app mode to use.</p>
+          </div>
+          <div class="flow-step">
+            <div class="stage">STAGE 2 · PARALLEL</div>
+            <h3>Node Builders<span>node_builder_prompts.py</span></h3>
+            <p>One focused call per node, producing only that node's semantic config.</p>
+          </div>
+          <div class="flow-step">
+            <div class="stage">STAGE 3 · DETERMINISTIC</div>
+            <h3>Assembler + Validator<span>runner.py</span></h3>
+            <p>Code owns assembly, layout, repair, and validation — structural correctness never depends on the model.</p>
           </div>
         </div>
-        <aside class="notes">5:50–6:40. Open Build draft and inspect the four surfaces. After Apply, read build_note.md.</aside>
+        <div class="foot-line"><span>api/core/workflow/generator/ · one package, four responsibilities</span><span>LLM owns semantics / code owns structure</span></div>
+        <aside class="notes">5:00–7:00. The whole architecture on one page; each following slide expands one stage. Stress the split: the model answers "what prompt, which tool, how to bind parameters"; IDs, positions, wiring, and wrapper fields are all deterministic. This split is the through-line of the talk.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Stripe permission boundary</span>
-        <h2>The real guardrail belongs in tool permissions, not “please be careful.”</h2>
-        <div class="security-stack">
-          <div class="security-row"><div><strong>Environment</strong><span>Stripe Sandbox; no real money or production data.</span></div><code>test mode</code></div>
-          <div class="security-row"><div><strong>Credential</strong><span>Prefer a Restricted Key with only required object permissions.</span></div><code>rk_test_…</code></div>
-          <div class="security-row"><div><strong>Actions</strong><span>Customers/Subscriptions read; Products/Prices/Payment Links write.</span></div><code>allowlist</code></div>
-          <div class="security-row"><div><strong>Approval</strong><span>Workflow Human Input authorizes each write.</span></div><code>APPROVED=true</code></div>
-          <div class="security-row"><div><strong>Idempotency</strong><span>Carry request_id through every write.</span></div><code>Idempotency-Key</code></div>
-        </div>
-        <p class="source-line">Stripe recommends Sandbox execution and restricted API keys for agents. See <a href="https://docs.stripe.com/agents">Stripe agentic workflows</a> and <a href="https://docs.stripe.com/testing">Testing</a>.</p>
-        <aside class="notes">6:40–7:50. Even if a prompt is bypassed, the key should not have refund or delete permissions. Keep live keys and real card data out of the demo.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Demo B · Generate Workflow</span>
-        <h2>Second natural-language input: let /create turn acceptance tests into a canvas.</h2>
-        <div class="prompt-window">
-          <div class="prompt-toolbar"><span class="dots">● ● ●</span><span>⌘K → /create</span></div>
-          <div class="prompt-body"><span class="cmd">Create a Workflow called Stripe Payment Link Copilot.</span>
-Inputs: customer_email, plan_name, unit_amount, currency, request_id.
-Validate non-empty email, unit_amount &gt; 0, and currency ∈ usd/eur/gbp. Generate a <span class="key">proposed_action</span> summary.
-Use Human Input for operator approval. Only after approval call the published <span class="key">Stripe Billing Operator</span> Agent with <span class="safe">APPROVED=true</span> in the task.
-Require JSON output. On success return payment_link and object_ids; on failure use a readable error branch.
-Do not create refund, cancellation, or deletion paths.</div>
-        </div>
-        <aside class="notes">7:50–9:30. Review the generated node plan before building. Dify 1.16 generates context-aware suggestions and parallelizes node configuration.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Generated Plan</span>
-        <h2>The machine drafts structure. People approve the authority boundary.</h2>
-        <div class="workflow-canvas">
-          <div class="wf-node"><strong>Start</strong><span>5 inputs</span></div>
-          <div class="wf-node"><strong>Validate</strong><span>email / amount / currency</span></div>
-          <div class="wf-node"><strong>Template</strong><span>proposed_action</span></div>
-          <div class="wf-node human"><strong>Human Input</strong><span>Approve / Reject</span></div>
-          <div class="wf-node agent"><strong>Agent</strong><span>Stripe Billing Operator</span></div>
-          <div class="wf-node"><strong>Parse JSON</strong><span>contract check</span></div>
-          <div class="wf-node"><strong>End</strong><span>link + evidence</span></div>
-        </div>
-        <div class="review-grid">
-          <div class="review-card"><span class="mini-label">Structure</span><h3>Right nodes?</h3><ul><li>Approval precedes write</li><li>Failure is visible</li></ul></div>
-          <div class="review-card"><span class="mini-label">Variables</span><h3>Right references?</h3><ul><li>Amount stays integer</li><li>request_id persists</li></ul></div>
-          <div class="review-card"><span class="mini-label">Authority</span><h3>Right Agent?</h3><ul><li>Published version</li><li>Minimum context</li></ul></div>
-        </div>
-        <p class="source-line">Dify 1.16.0 AI Workflow Generation supports <code>/create</code> and <code>/refine</code>, with parallel node configuration. Source: <a href="https://github.com/langgenius/dify/releases/tag/1.16.0">Dify 1.16.0 Release</a>.</p>
-        <aside class="notes">9:30–10:35. Review structure, variables, and authority. If generation cannot find the Agent, build a placeholder node and select the published Agent manually.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">/refine · iterate the DSL</span>
-        <h2>Third natural-language input: add production semantics without redrawing.</h2>
-        <div class="generator-layout">
-          <div class="prompt-window">
-            <div class="prompt-toolbar"><span class="dots">● ● ●</span><span>⌘K → /refine</span></div>
-            <div class="prompt-body"><span class="cmd">Refine this workflow:</span>
-1. The Reject branch must end without calling the Agent.
-2. Add request_id and APPROVED=true to the Agent task.
-3. Require status and evidence; parse failures go to an error branch.
-4. Never expose a Secret or full card number in final output.
-5. Preserve current inputs and keep unit_amount in integer minor units.</div>
+      <!-- 05 · Early implementation PR #31944 -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-indigo-richard-horvath.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">03</span>Origin · Early Implementation</div>
+        <h2 class="slide-title">Version one was blunt: one call, the whole graph.</h2>
+        <p class="slide-lead">Internal codename <code>vibe-wf</code>. Type a sentence after ⌘K and a single LLM call emitted the complete graph JSON. It proved the idea — and put three costs on the table at once.</p>
+        <div class="grid-3 card-row">
+          <div class="glass">
+            <div class="num">01 · LEGACY</div>
+            <h3>It fixed the module boundaries</h3>
+            <p>The generator package, the service layer, and the SSE plan → result contract all date back to this version.</p>
           </div>
-          <div class="check-card">
-            <span class="mini-label">Review the change explanation</span>
-            <h3>Ask three questions</h3>
-            <p>Which nodes changed? Did tool authority expand? Where does failure stop?</p>
-            <div style="margin-top:0.9rem;display:grid;gap:0.4rem;"><span class="mono-badge">Diff before Apply</span><span class="mono-badge">No silent fallback</span><span class="mono-badge">No new write path</span></div>
+          <div class="glass">
+            <div class="num">02 · COST</div>
+            <h3>A full-inventory cheatsheet</h3>
+            <p>Roughly 550 lines of node schema documentation, injected into every prompt no matter how few node types the request needed.</p>
+          </div>
+          <div class="glass">
+            <div class="num">03 · CEILING</div>
+            <h3>One call carries every mistake</h3>
+            <p>Asking a model to emit a dozen valid node configs in one breath: the bigger the graph, the more it gets wrong. And it was slow.</p>
           </div>
         </div>
-        <aside class="notes">10:35–12:00. Natural-language DSL generation shortens drafting; it does not remove review.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Agent Node · contract</span>
-        <h2>Open-ended execution still needs a testable boundary.</h2>
-        <div class="contract">
-          <div class="contract-box"><h3>Task in</h3><pre>{
-  "customer_email": "alice@example.com",
-  "plan_name": "Growth Monthly",
-  "unit_amount": 9900,
-  "currency": "usd",
-  "request_id": "ws-001",
-  "APPROVED": true
-}</pre></div>
-          <div class="contract-arrow">→</div>
-          <div class="contract-box output"><h3>Result out</h3><pre>{
-  "status": "created",
-  "action": "payment_link.create",
-  "customer_id": null,
-  "payment_link": "https://buy.stripe.com/test_…",
-  "object_ids": ["prod_…", "price_…", "plink_…"],
-  "evidence": {"request_id": "ws-001"},
-  "error": null
-}</pre></div>
+        <div class="foot-line">
+          <span>The next three PRs each pay off one of these debts.</span>
+          <a class="pr-chip" href="https://github.com/langgenius/dify/pull/31944"><small>langgenius/dify</small>PR #31944</a>
         </div>
-        <aside class="notes">12:00–12:50. Use a published reusable Agent rather than an inline one so capability can be tested, reused, and monitored independently.</aside>
+        <aside class="notes">7:00–8:30. Don't frame v1 as a failure — it was the prototype that validated the UX and the pipeline shape. But single-shot full-graph generation has three structural problems: a permanently huge prompt, error rate growing with graph size, and unacceptable latency. Those three map exactly onto the next three slides.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Demo C · Run in Sandbox</span>
-        <h2>Preview, approve, then verify the result.</h2>
-        <div class="run-layout">
-          <div class="run-terminal">$ run Stripe Payment Link Copilot
-
-<span class="ok">✓ VALIDATED</span> alice@example.com · Growth Monthly · USD 99.00
-<span class="wait">⏸ HUMAN INPUT</span> Create product, price, and payment link?
-  [Reject]   [Approve]
-
-&gt; Approve
-<span class="ok">✓ AGENT</span> Stripe Billing Operator
-<span class="ok">✓ CREATED</span> prod_… · price_… · plink_…
-<span class="url">https://buy.stripe.com/test_…</span></div>
-          <div class="evidence-list">
-            <div class="evidence-item"><strong>CHECK 01</strong><span>Test objects exist in Stripe Dashboard.</span></div>
-            <div class="evidence-item"><strong>CHECK 02</strong><span>Same request_id does not duplicate writes.</span></div>
-            <div class="evidence-item"><strong>CHECK 03</strong><span>Reject never calls the Agent.</span></div>
-            <div class="evidence-item"><strong>CHECK 04</strong><span>Optional: complete Checkout with card 4242.</span></div>
+      <!-- 06 · Planner -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-prism-darkhan-basshybayev.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">04</span>Planner</div>
+        <h2 class="slide-title">Plan first, build later: the Planner only decides "what exists and how it connects".</h2>
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="num">P-1</span>
+            <strong>Produces a node plan</strong>
+            <span>Type, id, purpose, and tool binding per node — plus edge topology, <code>start_inputs</code>, and the app mode.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">P-2</span>
+            <strong>The plan event ships early</strong>
+            <span>Pushed to the frontend the moment it exists, so users review the node list without waiting for the full graph.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">P-3</span>
+            <strong>Schema check + one retry</strong>
+            <span>An invalid plan (edges pointing at unknown nodes, etc.) triggers one retry that carries the concrete error; a second failure is a hard, explicit error.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">P-4</span>
+            <strong>Mode detection folded in</strong>
+            <span>Chatflow vs. workflow no longer costs a separate classification call — the Planner emits it, with the terminal node type as the fallback.</span>
           </div>
         </div>
-        <p class="source-line">Stripe test environments move no real money. Interactive tests can use <code>4242 4242 4242 4242</code> and a future date. Source: <a href="https://docs.stripe.com/testing">Stripe Testing</a>.</p>
-        <aside class="notes">12:50–15:20. Run ws-001, show proposed_action, approve, open the link, and search object IDs in Stripe Dashboard.</aside>
+        <div class="foot-line"><span>planner_prompts.py · max_tokens 4096</span><span>The plan is the single source of truth for topology</span></div>
+        <aside class="notes">8:30–10:00. The Planner's key role: its plan is the topology source of truth for everything downstream — Builders divide work by it, the Assembler wires edges by it. Retries are targeted re-asks carrying the error, not blind repeats. JSON-parse corrections are appended as user messages rather than system messages, because some providers drop trailing system messages.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Evidence chain</span>
-        <h2>“Success” means four systems agree.</h2>
-        <div class="review-grid" style="grid-template-columns:repeat(4,1fr);">
-          <div class="review-card"><span class="mini-label">Workflow</span><h3>Run trace</h3><ul><li>Node inputs/outputs</li><li>Branches and latency</li></ul></div>
-          <div class="review-card"><span class="mini-label">Agent</span><h3>Session log</h3><ul><li>Task source</li><li>Skill / command</li></ul></div>
-          <div class="review-card"><span class="mini-label">Stripe</span><h3>Object IDs</h3><ul><li>Product / Price</li><li>Payment Link</li></ul></div>
-          <div class="review-card"><span class="mini-label">Business</span><h3>request_id</h3><ul><li>Idempotency</li><li>Ticket correlation</li></ul></div>
+      <!-- 07 · Builder -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-flare-sean-sinclair.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">05</span>Builder</div>
+        <h2 class="slide-title">One node, one focused call.</h2>
+        <p class="slide-lead">A Builder writes semantic config only — prompts, code, variables, parameters, tool bindings — and returns <code>{"config": {...}}</code>. IDs, positions, edges, and wrapper fields are off limits: those never belong to the model.</p>
+        <div class="grid-3 card-row">
+          <div class="glass">
+            <div class="num">PROMPT</div>
+            <h3>Trimmed per node type</h3>
+            <p>The system prompt carries only that type's schema snippet; the user prompt carries node identity, the instruction, and the full plan for cross-references.</p>
+          </div>
+          <div class="glass">
+            <div class="num">SCOPE</div>
+            <h3>A tight output boundary</h3>
+            <p>Explicitly forbidden from emitting <code>id</code>, <code>position</code>, edges, or viewport — structural fields are filled by the assembly layer.</p>
+          </div>
+          <div class="glass">
+            <div class="num">REFINE</div>
+            <h3>"keep" nodes skip the model</h3>
+            <p>During incremental edits, nodes the plan marks as keep are deep-copied as-is; update nodes carry their existing config into the prompt and change only what the instruction touches.</p>
+          </div>
         </div>
-        <div class="info-banner"><div class="info-banner-slot"><i class="ri-search-eye-line info-banner-icon"></i></div><div class="info-banner-content">If you cannot trace <strong>request_id → Agent run → Stripe object</strong>, the automation is not operational yet.</div></div>
-        <aside class="notes">15:20–16:10. Show Workflow logs and Agent Logs. Agent sessions can be attributed to their Web App or Workflow source.</aside>
+        <div class="foot-line"><span>node_builder_prompts.py · get_node_builder_system_prompt(node_type)</span></div>
+        <aside class="notes">10:00–11:30. The developer takeaway: swap "one big call that must get everything right" for "N small calls that each get one small thing right". Narrower tasks improve quality and latency at the same time. The keep/update semantics are what make refine safe for existing graphs.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Five guardrails</span>
-        <h2>Grant authority in this order.</h2>
-        <div class="guardrail-grid">
-          <div class="guardrail-card"><span class="guard-no">01</span><h3>Sandbox</h3><p>Prove the process before touching real money.</p></div>
-          <div class="guardrail-card"><span class="guard-no">02</span><h3>Restricted Key</h3><p>Credential permits only necessary objects and actions.</p></div>
-          <div class="guardrail-card"><span class="guard-no">03</span><h3>Action Allowlist</h3><p>Skill implements only approved capabilities.</p></div>
-          <div class="guardrail-card"><span class="guard-no">04</span><h3>Human Input</h3><p>Irreversible or money-moving actions require approval.</p></div>
-          <div class="guardrail-card"><span class="guard-no">05</span><h3>Evidence</h3><p>Return IDs, status, errors, and request_id.</p></div>
+      <!-- 08 · Problem 1: too many tools → PR #40611 -->
+      <section data-background-image="../agent-plugin-governance/assets/bg-server-kevin-ache.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">06</span>Problem 1 · Hundreds of Installed Tools</div>
+        <h2 class="slide-title">Everything doesn't fit, and "first 80" cuts the wrong ones — so inject dynamically.</h2>
+        <p class="slide-lead">The old approach injected a fixed slice: the first 80 installed tools. The more a workspace installs, the more likely the relevant tool falls outside the slice — and the model starts inventing tool names.</p>
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="num">≤ 24</span>
+            <strong>Direct injection</strong>
+            <span>Few tools, no ceremony: the full catalogue goes into the prompt, zero extra calls.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">&gt; 24</span>
+            <strong>Tool Router</strong>
+            <span>One 256-token call turns the instruction into capability queries; local deterministic ranking (phrase hits, token overlap, fuzzy match) takes the top 3 per query, at most 16 candidates overall.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">PIN</span>
+            <strong>Named tools never drop</strong>
+            <span>Tools spelled out as <code>provider/tool</code> in the instruction, and tools already used in the refine graph, bypass every cap.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">TRUST</span>
+            <strong>Identity is overwritten last</strong>
+            <span>Whatever the model emits, tool identity fields and parameter schemas are rewritten from the server-side catalogue at assembly time — hallucinated parameters are simply filtered out.</span>
+          </div>
         </div>
-        <p class="source-line">Dify notes that the Community Edition Agent runtime is not a hardened security boundary between mutually untrusted workloads. Strict environments need additional hardening. See the <a href="https://docs.dify.ai/en/self-host/use-dify/build/new-agent/overview">New Agent security notice</a>.</p>
-        <aside class="notes">16:10–17:25. Production also needs egress controls, secret rotation, evaluations, and alerting. These five are the minimum starting point.</aside>
+        <div class="foot-line">
+          <span>tool_catalogue.py · router failure falls back to the legacy 80 slice</span>
+          <a class="pr-chip" href="https://github.com/langgenius/dify/pull/40611"><small>langgenius/dify</small>PR #40611</a>
+        </div>
+        <aside class="notes">11:30–13:30. Two layers worth unpacking: first, the routing call is trivially cheap (256 tokens, temperature 0) and the real ranking runs locally on the server — deterministic and reproducible. Second, hydration is the trust boundary — the LLM only contributes parameter bindings; identity and schema always come from the catalogue. That's the guarantee behind "it uses what you actually installed".</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">When to use it</span>
-        <h2>Agents are good at judgment. They should not invent financial policy.</h2>
-        <div class="tradeoff-table">
-          <div class="tradeoff-col good"><h3>Good Agent work</h3><ul><li>Cross-object lookup and synthesis</li><li>Choose among read-only tools</li><li>Draft proposed actions and explanations</li><li>Turn unstructured tickets into structured tasks</li></ul></div>
-          <div class="tradeoff-col bad"><h3>Keep deterministic or human</h3><ul><li>Amount math and currency validation</li><li>Discount, refund, and cancellation policy</li><li>High-value or irreversible authorization</li><li>Compliance judgment and exception handling</li></ul></div>
+      <!-- 09 · Problem 2: graph must render → PR #32130 -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-ember-asif-aether.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">07</span>Problem 2 · The Graph Must Render Correctly</div>
+        <h2 class="slide-title">The model generates; the Validator keeps the graph alive on the canvas.</h2>
+        <p class="slide-lead">Every generated graph passes through a deterministic repair pipeline first: errors that can be inferred safely get fixed in place, everything else fails with an error code — a broken graph never reaches the canvas.</p>
+        <div class="spec-list">
+          <div class="spec-row">
+            <span class="num">R-1</span>
+            <strong>ID sanitization</strong>
+            <span>A hyphenated id like <code>node-1</code> makes <code>{{#node-1.var#}}</code> silently fail at runtime; ids are rewritten and every reference is recursively updated.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">R-2</span>
+            <strong>Variable reference reconciliation</strong>
+            <span>Each reference is checked against the source node's declared outputs; unambiguous mismatches are rewritten, missing start variables are auto-declared.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">R-3</span>
+            <strong>Layout and defaults</strong>
+            <span>Topological sort sets X positions (320px steps) with stacked branch lanes; ReactFlow wrappers, edge handles, dedup, and edge ids are all filled by code.</span>
+          </div>
+          <div class="spec-row">
+            <span class="num">R-4</span>
+            <strong>Fail-closed structural validation</strong>
+            <span>The last gate: machine-readable codes like <code>MISSING_START</code>, <code>GRAPH_CYCLE</code>, <code>DANGLING_EDGE</code>, <code>UNKNOWN_TOOL</code> — each locatable to a specific node.</span>
+          </div>
         </div>
-        <aside class="notes">17:25–18:10. The closer work gets to money and policy, the more deterministic logic and explicit ownership it needs.</aside>
+        <div class="foot-line">
+          <span>runner.py · _postprocess_graph / _validate_structure</span>
+          <a class="pr-chip" href="https://github.com/langgenius/dify/pull/32130"><small>langgenius/dify</small>PR #32130</a>
+        </div>
+        <aside class="notes">13:30–15:30. The repair/validate boundary is a deliberate design decision: only fix what can be inferred safely and uniquely (e.g. a wrong reference where the source node exposes exactly one output); anything ambiguous fails rather than guessing. The ID sanitization example lands best — the runtime variable regex only accepts word characters, so a single hyphen silently kills the whole chain, and no prompt instruction reliably prevents that class of error.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="section-tag">Repeatable recipe</span>
-        <h2>Swap out Stripe and this is still a reusable Agent workshop.</h2>
-        <div class="recipe-strip">
-          <div class="recipe-step"><span class="mini-label">01</span><strong>Define acceptance</strong><p>Start from one ticket, not a feature catalog.</p></div>
-          <div class="recipe-step"><span class="mini-label">02</span><strong>Build Agent</strong><p>Role + Skill + Secret + output contract.</p></div>
-          <div class="recipe-step"><span class="mini-label">03</span><strong>/create</strong><p>Draw input, approval, action, and output.</p></div>
-          <div class="recipe-step"><span class="mini-label">04</span><strong>/refine</strong><p>Add failure, authority, evidence, idempotency.</p></div>
-          <div class="recipe-step"><span class="mini-label">05</span><strong>Verify in Sandbox</strong><p>Test Reject, Approve, and duplicate request.</p></div>
+      <!-- 10 · Problem 3: too slow → PR #38975 -->
+      <section data-background-image="../agent-plugin-governance/assets/atmos-rainbow-sean-sinclair.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">08</span>Problem 3 · Single-Shot Generation Was Slow</div>
+        <h2 class="slide-title">Split into parallel node builds — one concurrent wave.</h2>
+        <div class="stat-band">
+          <div class="stat">
+            <div class="value">76.6<small>%</small></div>
+            <div class="label">system prompt reduction · 10,913 → ≤2,559 chars</div>
+          </div>
+          <div class="stat">
+            <div class="value">6</div>
+            <div class="label">default workers · a 3–6 node plan builds in one wave</div>
+          </div>
+          <div class="stat">
+            <div class="value">-1</div>
+            <div class="label">one serial call removed · mode classification folded into the Planner</div>
+          </div>
         </div>
-        <p class="source-line">Instructor guide, copy-ready prompts, and a fallback Skill are in this deck's <code>README.md</code> and <code>starter/</code>.</p>
-        <aside class="notes">18:10–19:15. This recipe transfers to CRM, tickets, cloud resources, and internal approvals.</aside>
+        <div class="grid-2 card-row">
+          <div class="glass">
+            <div class="num">CONCURRENCY</div>
+            <h3>Thread pool + fail-fast</h3>
+            <p><code>ThreadPoolExecutor</code>, workers capped by node count; one failed build cancels everything still queued, wasting no calls. Concurrency is tunable at runtime via an env var.</p>
+          </div>
+          <div class="glass">
+            <div class="num">FIELD NOTE</div>
+            <h3>A bug worth sharing</h3>
+            <p>Under gevent without monkey-patching, a blocking LLM call pins the only OS thread and freezes the whole API process. The fix: patch first thing in the <code>__main__</code> entry point.</p>
+          </div>
+        </div>
+        <div class="foot-line">
+          <span>WORKFLOW_GENERATOR_NODE_BUILDER_MAX_WORKERS=6</span>
+          <a class="pr-chip" href="https://github.com/langgenius/dify/pull/38975"><small>langgenius/dify</small>PR #38975</a>
+        </div>
+        <aside class="notes">15:30–17:00. The performance win comes from two places: smaller prompts (faster TTFT and completion) and a critical path that goes from N serial calls to one parallel wave. Mention fail-fast saves tokens, not just time. The gevent pitfall is practical information for anyone self-hosting Dify.</aside>
       </section>
 
-      <section data-background-color="#111320">
-        <div class="closing-panel">
-          <span class="workshop-kicker" style="background:rgba(255,255,255,.08);color:#c9c5ff;border-color:rgba(255,255,255,.16);">Dify × Stripe</span>
-          <h2 style="color:#fff;margin-top:1.2rem;">Let natural language draft.<br>Let system boundaries create trust.</h2>
-          <div class="closing-formula">Intent → Workflow → Human Gate → Agent → Stripe → Evidence</div>
-          <p style="color:rgba(255,255,255,.72);">banana@dify.ai · github.com/crazywoola/dify-x</p>
+      <!-- 11 · Differentiation -->
+      <section data-background-image="../agent-plugin-governance/assets/bg-glass-joshua-gandara.jpg" data-background-size="cover">
+        <div class="eyebrow"><span class="idx">09</span>Versus Other DSL Generators</div>
+        <h2 class="slide-title">The difference isn't whether it generates — it's what happens after.</h2>
+        <div class="grid-2 card-row" style="gap:22px;">
+          <div class="glass">
+            <div class="num">A</div>
+            <h3>A loadable draft, not a blob of text</h3>
+            <p>Most approaches stop at "here's some YAML/JSON". Here, structural correctness is guaranteed by the deterministic assembly layer — the output lands on the canvas wired, runnable, and editable.</p>
+          </div>
+          <div class="glass">
+            <div class="num">B</div>
+            <h3>Workspace-aware</h3>
+            <p>Only references tools that are actually installed; identity and parameter schemas come from the server-side catalogue, so it can't hallucinate tools or misspell their names.</p>
+          </div>
+          <div class="glass">
+            <div class="num">C</div>
+            <h3>Refine is incremental</h3>
+            <p>Clear keep/update semantics preserve existing wiring, container relationships, and branch handles. One change doesn't mean regenerating from scratch — the line between "generate again" and "keep editing".</p>
+          </div>
+          <div class="glass">
+            <div class="num">D</div>
+            <h3>Failures are explainable</h3>
+            <p>Machine-readable error codes point at specific nodes so the frontend can highlight exactly what's wrong — instead of "generation failed, please retry".</p>
+          </div>
         </div>
-        <aside class="notes">19:15–20:00. Natural language lowers the build barrier. Workflow and permissions determine whether the result is ready for real operations.</aside>
+        <aside class="notes">17:00–19:00. Converge on differentiation. All four points trace back to the architecture: the deterministic assembly layer makes output loadable; routing plus hydration makes it workspace-aware; the plan as topology source of truth makes refine incremental; fail-closed validation makes failures explainable.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="appendix-tag">Appendix A · FAQ</span>
-        <h2 style="margin-top:0.8rem;">Three common questions</h2>
-        <div class="review-grid">
-          <div class="review-card"><h3>Must I use Agent Toolkit?</h3><ul><li>No</li><li>Skill + Stripe SDK works</li><li>MCP or custom tools also work</li></ul></div>
-          <div class="review-card"><h3>Why build Agent first?</h3><ul><li>/create can reference it</li><li>Test capability independently</li><li>Reuse across Workflows</li></ul></div>
-          <div class="review-card"><h3>Can I switch straight to live?</h3><ul><li>Not from this workshop</li><li>Review permissions, evals, alerts</li><li>Grant write scope gradually</li></ul></div>
-        </div>
-        <aside class="notes">Appendix; outside the 20-minute run.</aside>
+      <!-- 12 · Closing statement -->
+      <section class="closing-slide" data-background-image="../agent-plugin-governance/assets/atmos-pastel-codioful.jpg" data-background-size="cover">
+        <div class="eyebrow">Closing</div>
+        <h2>Let the model answer only semantic questions.<br><span class="blue">Structure, context, and failure belong to engineering.</span></h2>
+        <p class="slide-lead">Inject context on demand, backstop results deterministically, make errors machine-readable. None of this is specific to workflow generation — it applies to any system where an LLM produces structured artifacts.</p>
+        <div class="foot-line"><span>github.com/langgenius/dify · come argue in the PRs</span><span>Q&amp;A</span></div>
+        <aside class="notes">19:00–19:40. One-sentence summary of the method, widen it to all structured-generation systems, and hand over to Q&A.</aside>
       </section>
 
-      <section data-background-color="#fafbff">
-        <span class="appendix-tag">Appendix B · Instructor fallback</span>
-        <h2 style="margin-top:0.8rem;">If live generation fails, take this fallback path.</h2>
-        <div class="recipe-strip" style="grid-template-columns:repeat(4,1fr);">
-          <div class="recipe-step"><span class="mini-label">01</span><strong>Import fallback Skill</strong><p>Package starter/stripe-billing as .skill or .zip.</p></div>
-          <div class="recipe-step"><span class="mini-label">02</span><strong>Set Secrets</strong><p>STRIPE_SECRET_KEY + ALLOW_STRIPE_WRITES.</p></div>
-          <div class="recipe-step"><span class="mini-label">03</span><strong>Select Agent</strong><p>Choose the published Agent in the generated node.</p></div>
-          <div class="recipe-step"><span class="mini-label">04</span><strong>Show recorded result</strong><p>Prove input, approval, output, and object IDs.</p></div>
+      <!-- 13 · Thanks (style shared with the two latest decks) -->
+      <section class="thanks-slide">
+        <div class="thanks-layout" aria-label="Photo credits">
+          <span class="credit-word credit-01">Ruido 98</span>
+          <span class="credit-word credit-02">Reinhart Julian</span>
+          <span class="credit-word credit-03">Pawel Czerwinski</span>
+          <span class="credit-word credit-04">Jakub Żerdzicki</span>
+          <span class="credit-word credit-05">Richard Horvath</span>
+          <span class="credit-word credit-06">Darkhan Basshybayev</span>
+          <span class="credit-word credit-07">Sean Sinclair</span>
+          <span class="credit-word credit-08">Kevin Ache</span>
+          <span class="credit-word credit-09">Asif Aether</span>
+          <span class="credit-word credit-10">Joshua Gandara</span>
+          <span class="credit-word credit-11">Codioful</span>
+          <div class="thanks-message">
+            <div class="thanks-kicker">DIFY × STRIPE · WORKFLOW GENERATOR</div>
+            <h1>Thank You</h1>
+            <p>Questions welcome</p>
+            <div class="thanks-brand-logos" aria-label="Dify">
+              <img src="../assets/logo.svg" alt="Dify">
+            </div>
+            <div class="thanks-contact">Zheng Li · banana@dify.ai · github.com/langgenius/dify</div>
+          </div>
         </div>
-        <aside class="notes">Appendix; outside the 20-minute run.</aside>
-      </section>
-
-      <section data-background-color="#fafbff">
-        <span class="appendix-tag">Appendix C · Production checklist</span>
-        <h2 style="margin-top:0.8rem;">Extra gates from Sandbox to Production</h2>
-        <div class="version-stamp">
-          <div><small>Platform</small><strong>Upgrade to 1.16.1+<br>Replace Agent defaults</strong></div>
-          <div><small>Network</small><strong>Restrict sandbox egress<br>Isolate internal services</strong></div>
-          <div><small>Payments</small><strong>Restricted live key<br>Webhook signing &amp; replay defense</strong></div>
-          <div><small>Operations</small><strong>Evals · SLO · alerts<br>Access review &amp; rollback</strong></div>
-        </div>
-        <aside class="notes">Appendix; production launch requires security, payments, and business owners together.</aside>
+        <aside class="notes">19:40–20:00. Thanks everyone. Backgrounds are Unsplash photos; all photographers are credited on this page. Happy to keep talking pipeline internals after the session.</aside>
       </section>
 
     </div>
@@ -368,20 +379,28 @@ Do not create refund, cancellation, or deletion paths.</div>
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
-      width: 1280,
-      height: 720,
-      margin: 0.035,
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      minScale: 0.2,
+      maxScale: 1.5,
+      center: false,
       controls: true,
       progress: true,
       slideNumber: 'c/t',
       transition: 'fade',
       backgroundTransition: 'fade',
-      plugins: [RevealNotes, RevealHighlight]
+      plugins: [RevealNotes],
     });
+    const syncChrome = (event) => {
+      const slide = (event && event.currentSlide) || Reveal.getCurrentSlide();
+      document.body.classList.toggle('chrome-thanks', Boolean(slide && slide.matches('.thanks-slide')));
+    };
+    Reveal.on('ready', syncChrome);
+    Reveal.on('slidechanged', syncChrome);
   </script>
 </body>
 </html>
