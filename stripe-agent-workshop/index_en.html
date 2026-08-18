@@ -65,13 +65,13 @@
       <!-- 03 · The problem -->
       <section data-background-image="../agent-plugin-governance/assets/atmos-teal-pawel-czerwinski.jpg" data-background-size="cover">
         <div class="eyebrow"><span class="idx">01</span>The Shape of the Problem</div>
-        <h2 class="slide-title">The output isn't text. It's a graph that has to survive the canvas.</h2>
+        <h2 class="slide-title">The output isn’t text. It’s a graph that has to survive the canvas.</h2>
         <p class="slide-lead">Workflow DSL describes nodes, edges, variable references, and layout. It gets rendered by ReactFlow and executed by the runtime — one wrong field from the model and the canvas fails to load, or execution silently emits raw placeholder text.</p>
         <div class="grid-3 card-row">
           <div class="glass">
             <div class="num">SCHEMA</div>
             <h3>Every node type has its own shape</h3>
-            <p>LLM, code, tool, branch, iteration… each node's <code>data</code> structure is different. Get it wrong and the draft won't load.</p>
+            <p>LLM, code, tool, branch, iteration… each node’s <code>data</code> structure is different. Get it wrong and the draft won’t load.</p>
           </div>
           <div class="glass">
             <div class="num">EDGES</div>
@@ -81,11 +81,11 @@
           <div class="glass">
             <div class="num">VARIABLES</div>
             <h3>References address the whole graph</h3>
-            <p><code>{{#node_id.var#}}</code> points at another node's output. One broken reference silently degrades into literal text.</p>
+            <p><code>{{#node_id.var#}}</code> points at another node’s output. One broken reference silently degrades into literal text.</p>
           </div>
         </div>
-        <div class="foot-line"><span>This sets the baseline for every design choice: anything deterministic code can own, the model doesn't.</span></div>
-        <aside class="notes">3:00–5:00. Build the intuition: this is not "have the model write some YAML". All three failure modes are quiet — bad schema won't load, bad handle leaves a dangling edge, bad reference silently fails at runtime. The hard part isn't generating; it's what guarantees correctness afterwards.</aside>
+        <div class="foot-line"><span>This sets the baseline for every design choice: anything deterministic code can own, the model doesn’t.</span></div>
+        <aside class="notes">3:00–5:00. Build the intuition: this is not “have the model write some YAML”. All three failure modes are quiet — bad schema won’t load, bad handle leaves a dangling edge, bad reference silently fails at runtime. The hard part isn’t generating; it’s what guarantees correctness afterwards.</aside>
       </section>
 
       <!-- 04 · Pipeline overview -->
@@ -107,7 +107,7 @@
           <div class="flow-step">
             <div class="stage">STAGE 2 · PARALLEL</div>
             <h3>Node Builders<span>node_builder_prompts.py</span></h3>
-            <p>One focused call per node, producing only that node's semantic config.</p>
+            <p>One focused call per node, producing only that node’s semantic config.</p>
           </div>
           <div class="flow-step">
             <div class="stage">STAGE 3 · DETERMINISTIC</div>
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="foot-line"><span>api/core/workflow/generator/ · one package, four responsibilities</span><span>LLM owns semantics / code owns structure</span></div>
-        <aside class="notes">5:00–7:00. The whole architecture on one page; each following slide expands one stage. Stress the split: the model answers "what prompt, which tool, how to bind parameters"; IDs, positions, wiring, and wrapper fields are all deterministic. This split is the through-line of the talk.</aside>
+        <aside class="notes">5:00–7:00. The whole architecture on one page; each following slide expands one stage. Stress the split: the model answers “what prompt, which tool, how to bind parameters”; IDs, positions, wiring, and wrapper fields are all deterministic. This split is the through-line of the talk.</aside>
       </section>
 
       <!-- 05 · Early implementation PR #31944 -->
@@ -145,13 +145,13 @@
           <span>The next three PRs each pay off one of these debts.</span>
           <a class="pr-chip" href="https://github.com/langgenius/dify/pull/31944"><small>langgenius/dify</small>PR #31944</a>
         </div>
-        <aside class="notes">7:00–8:30. Don't frame v1 as a failure — it was the prototype that validated the UX and the pipeline shape. But single-shot full-graph generation has three structural problems: a permanently huge prompt, error rate growing with graph size, and unacceptable latency. Those three map exactly onto the next three slides.</aside>
+        <aside class="notes">7:00–8:30. Don’t frame v1 as a failure — it was the prototype that validated the UX and the pipeline shape. But single-shot full-graph generation has three structural problems: a permanently huge prompt, error rate growing with graph size, and unacceptable latency. Those three map exactly onto the next three slides.</aside>
       </section>
 
       <!-- 06 · Planner -->
       <section data-background-image="../agent-plugin-governance/assets/atmos-prism-darkhan-basshybayev.jpg" data-background-size="cover">
         <div class="eyebrow"><span class="idx">04</span>Planner</div>
-        <h2 class="slide-title">Plan first, build later: the Planner only decides "what exists and how it connects".</h2>
+        <h2 class="slide-title">Plan first, build later: the Planner only decides “what exists and how it connects”.</h2>
         <div class="spec-list">
           <div class="spec-row">
             <span class="num">P-1</span>
@@ -175,7 +175,7 @@
           </div>
         </div>
         <div class="foot-line"><span>planner_prompts.py · max_tokens 4096</span><span>The plan is the single source of truth for topology</span></div>
-        <aside class="notes">8:30–10:00. The Planner's key role: its plan is the topology source of truth for everything downstream — Builders divide work by it, the Assembler wires edges by it. Retries are targeted re-asks carrying the error, not blind repeats. JSON-parse corrections are appended as user messages rather than system messages, because some providers drop trailing system messages.</aside>
+        <aside class="notes">8:30–10:00. The Planner’s key role: its plan is the topology source of truth for everything downstream — Builders divide work by it, the Assembler wires edges by it. Retries are targeted re-asks carrying the error, not blind repeats. JSON-parse corrections are appended as user messages rather than system messages, because some providers drop trailing system messages.</aside>
       </section>
 
       <!-- 07 · Builder -->
@@ -187,7 +187,7 @@
           <div class="glass">
             <div class="num">PROMPT</div>
             <h3>Trimmed per node type</h3>
-            <p>The system prompt carries only that type's schema snippet; the user prompt carries node identity, the instruction, and the full plan for cross-references.</p>
+            <p>The system prompt carries only that type’s schema snippet; the user prompt carries node identity, the instruction, and the full plan for cross-references.</p>
           </div>
           <div class="glass">
             <div class="num">SCOPE</div>
@@ -196,18 +196,18 @@
           </div>
           <div class="glass">
             <div class="num">REFINE</div>
-            <h3>"keep" nodes skip the model</h3>
+            <h3>“keep” nodes skip the model</h3>
             <p>During incremental edits, nodes the plan marks as keep are deep-copied as-is; update nodes carry their existing config into the prompt and change only what the instruction touches.</p>
           </div>
         </div>
         <div class="foot-line"><span>node_builder_prompts.py · get_node_builder_system_prompt(node_type)</span></div>
-        <aside class="notes">10:00–11:30. The developer takeaway: swap "one big call that must get everything right" for "N small calls that each get one small thing right". Narrower tasks improve quality and latency at the same time. The keep/update semantics are what make refine safe for existing graphs.</aside>
+        <aside class="notes">10:00–11:30. The developer takeaway: swap “one big call that must get everything right” for “N small calls that each get one small thing right”. Narrower tasks improve quality and latency at the same time. The keep/update semantics are what make refine safe for existing graphs.</aside>
       </section>
 
       <!-- 08 · Problem 1: too many tools → PR #40611 -->
       <section data-background-image="../agent-plugin-governance/assets/bg-server-kevin-ache.jpg" data-background-size="cover">
         <div class="eyebrow"><span class="idx">06</span>Problem 1 · Hundreds of Installed Tools</div>
-        <h2 class="slide-title">Everything doesn't fit, and "first 80" cuts the wrong ones — so inject dynamically.</h2>
+        <h2 class="slide-title">Everything doesn’t fit, and “first 80” cuts the wrong ones — so inject dynamically.</h2>
         <p class="slide-lead">The old approach injected a fixed slice: the first 80 installed tools. The more a workspace installs, the more likely the relevant tool falls outside the slice — and the model starts inventing tool names.</p>
         <div class="spec-list">
           <div class="spec-row">
@@ -235,7 +235,7 @@
           <span>tool_catalogue.py · router failure falls back to the legacy 80 slice</span>
           <a class="pr-chip" href="https://github.com/langgenius/dify/pull/40611"><small>langgenius/dify</small>PR #40611</a>
         </div>
-        <aside class="notes">11:30–13:30. Two layers worth unpacking: first, the routing call is trivially cheap (256 tokens, temperature 0) and the real ranking runs locally on the server — deterministic and reproducible. Second, hydration is the trust boundary — the LLM only contributes parameter bindings; identity and schema always come from the catalogue. That's the guarantee behind "it uses what you actually installed".</aside>
+        <aside class="notes">11:30–13:30. Two layers worth unpacking: first, the routing call is trivially cheap (256 tokens, temperature 0) and the real ranking runs locally on the server — deterministic and reproducible. Second, hydration is the trust boundary — the LLM only contributes parameter bindings; identity and schema always come from the catalogue. That’s the guarantee behind “it uses what you actually installed”.</aside>
       </section>
 
       <!-- 09 · Problem 2: graph must render → PR #32130 -->
@@ -252,7 +252,7 @@
           <div class="spec-row">
             <span class="num">R-2</span>
             <strong>Variable reference reconciliation</strong>
-            <span>Each reference is checked against the source node's declared outputs; unambiguous mismatches are rewritten, missing start variables are auto-declared.</span>
+            <span>Each reference is checked against the source node’s declared outputs; unambiguous mismatches are rewritten, missing start variables are auto-declared.</span>
           </div>
           <div class="spec-row">
             <span class="num">R-3</span>
@@ -312,27 +312,27 @@
       <!-- 11 · Differentiation -->
       <section data-background-image="../agent-plugin-governance/assets/bg-glass-joshua-gandara.jpg" data-background-size="cover">
         <div class="eyebrow"><span class="idx">09</span>Versus Other DSL Generators</div>
-        <h2 class="slide-title">The difference isn't whether it generates — it's what happens after.</h2>
+        <h2 class="slide-title">The difference isn’t whether it generates — it’s what happens after.</h2>
         <div class="grid-2 card-row" style="gap:22px;">
           <div class="glass">
             <div class="num">A</div>
             <h3>A loadable draft, not a blob of text</h3>
-            <p>Most approaches stop at "here's some YAML/JSON". Here, structural correctness is guaranteed by the deterministic assembly layer — the output lands on the canvas wired, runnable, and editable.</p>
+            <p>Most approaches stop at “here’s some YAML/JSON”. Here, structural correctness is guaranteed by the deterministic assembly layer — the output lands on the canvas wired, runnable, and editable.</p>
           </div>
           <div class="glass">
             <div class="num">B</div>
             <h3>Workspace-aware</h3>
-            <p>Only references tools that are actually installed; identity and parameter schemas come from the server-side catalogue, so it can't hallucinate tools or misspell their names.</p>
+            <p>Only references tools that are actually installed; identity and parameter schemas come from the server-side catalogue, so it can’t hallucinate tools or misspell their names.</p>
           </div>
           <div class="glass">
             <div class="num">C</div>
             <h3>Refine is incremental</h3>
-            <p>Clear keep/update semantics preserve existing wiring, container relationships, and branch handles. One change doesn't mean regenerating from scratch — the line between "generate again" and "keep editing".</p>
+            <p>Clear keep/update semantics preserve existing wiring, container relationships, and branch handles. One change doesn’t mean regenerating from scratch — the line between “generate again” and “keep editing”.</p>
           </div>
           <div class="glass">
             <div class="num">D</div>
             <h3>Failures are explainable</h3>
-            <p>Machine-readable error codes point at specific nodes so the frontend can highlight exactly what's wrong — instead of "generation failed, please retry".</p>
+            <p>Machine-readable error codes point at specific nodes so the frontend can highlight exactly what’s wrong — instead of “generation failed, please retry”.</p>
           </div>
         </div>
         <aside class="notes">17:00–19:00. Converge on differentiation. All four points trace back to the architecture: the deterministic assembly layer makes output loadable; routing plus hydration makes it workspace-aware; the plan as topology source of truth makes refine incremental; fail-closed validation makes failures explainable.</aside>
