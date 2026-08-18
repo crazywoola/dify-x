@@ -20,8 +20,8 @@
   --glass-border-soft: rgba(255, 255, 255, 0.10);
   --hairline: rgba(255, 255, 255, 0.24);
 
-  --sans: "Inter", "Noto Sans SC", "PingFang SC", "Helvetica Neue", sans-serif;
-  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --sans: "Inter", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
 
   --page-x: 110px;
   --page-top: 84px;
@@ -31,7 +31,7 @@
 html[lang="zh-CN"] {
   --leading-title: 1.18;
   --leading-body: 1.62;
-  --tracking-title: -0.006em;
+  --tracking-title: 0; /* CJK glyphs should not be negatively tracked */
 }
 html[lang="en"] {
   --leading-title: 1.08;
@@ -41,8 +41,23 @@ html[lang="en"] {
 
 /* ── Base ─────────────────────────────────────────────── */
 .reveal-viewport { background: #0a0d16; }
-.reveal { font-family: var(--sans); font-size: 21px; color: var(--ink); }
+.reveal {
+  font-family: var(--sans);
+  font-size: 21px;
+  color: var(--ink);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .reveal .slides { text-align: left; }
+
+/* CJK line breaking: strict rules, no mid-word breaks in Latin runs. */
+html[lang="zh-CN"] .reveal {
+  line-break: strict;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
 
 .reveal .slides section {
   width: 100%;
@@ -71,8 +86,9 @@ html[lang="en"] {
   color: var(--ink);
   text-transform: none;
   margin: 0;
+  text-wrap: balance;
 }
-.reveal p { margin: 0; }
+.reveal p { margin: 0; text-wrap: pretty; }
 .reveal a { color: var(--accent-bright); text-decoration: none; }
 .reveal a:hover { color: #fff; }
 
@@ -271,7 +287,7 @@ body.chrome-thanks .reveal .slide-number { color: rgba(17, 19, 24, 0.4); }
 }
 .spec-row .num { font-family: var(--mono); font-size: 15px; color: var(--accent-bright); letter-spacing: .08em; }
 .spec-row strong { font-size: 21.5px; font-weight: 650; color: var(--ink); }
-.spec-row span { font-size: 19px; line-height: 1.55; color: var(--ink-secondary); }
+.spec-row span { font-size: 19px; line-height: 1.55; color: var(--ink-secondary); text-wrap: pretty; }
 .spec-row span code { font-family: var(--mono); font-size: .86em; color: var(--accent-bright); }
 
 /* ── Split layout ─────────────────────────────────────── */
@@ -283,7 +299,7 @@ body.chrome-thanks .reveal .slide-number { color: rgba(17, 19, 24, 0.4); }
   border-left: 2px solid var(--accent-bright);
   padding: 6px 0 8px 24px;
 }
-.stat .value { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.stat .value { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
 .stat .value small { font-size: 24px; font-weight: 600; color: var(--ink-secondary); margin-left: 4px; }
 .stat .label { margin-top: 12px; font-family: var(--mono); font-size: 14px; letter-spacing: .08em; color: var(--ink-tertiary); }
 
