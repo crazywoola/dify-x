@@ -756,7 +756,7 @@
       <div class="hero-meta fx">
         <span>banana@dify.ai</span>
         <span>Developer Relations @ Dify</span>
-        <span class="hero-count"><b id="deckCount" data-to="15">0</b><span data-i18n="decksUnit">Decks</span></span>
+        <span class="hero-count"><b id="deckCount">0</b><span data-i18n="decksUnit">Decks</span></span>
         <span class="hero-clock"><b id="clock">--:--:--</b><span data-i18n="localTime">Local time</span></span>
       </div>
 
@@ -778,7 +778,7 @@
       <div class="list-bar">
         <div class="list-bar-id">
           <span class="list-bar-title" data-i18n="indexTitle">Index</span>
-          <span class="list-bar-count"><b id="deckCount2" data-to="15">0</b><span data-i18n="presentationsUnit">Presentations</span></span>
+          <span class="list-bar-count"><b id="deckCount2">0</b><span data-i18n="presentationsUnit">Presentations</span></span>
         </div>
         <div class="list-bar-tools">
           <div class="filters" id="filters" role="tablist" aria-label="Filter decks"></div>
@@ -972,7 +972,13 @@ var DECKS = [
         tEn: 'Enterprise Agents: Product Forms and Scenario Fit',
         tZh: '企业 Agent：产品形态与场景选择',
         dEn: 'A 45-minute lecture for first-year undergraduate and graduate students: compare embedded copilots, expert workbenches, service, process, monitoring, and analyst agents—and see one capability become three different products.',
-        dZh: '面向大一与研一新生的 45 分钟讲座：从工作单元出发，比较嵌入式 Copilot、专家工作台、服务、流程、监测与分析 Agent 分别适合哪些企业场景，并用同一能力演示三种产品化方式。' }
+        dZh: '面向大一与研一新生的 45 分钟讲座：从工作单元出发，比较嵌入式 Copilot、专家工作台、服务、流程、监测与分析 Agent 分别适合哪些企业场景，并用同一能力演示三种产品化方式。' },
+      { n: '15', f: 'platform',
+        hrefEn: 'marketplace-partners/index_en.html', hrefZh: 'marketplace-partners/index.html',
+        labelEn: 'Dify · Technology partners', labelZh: 'Dify · 技术伙伴',
+        tEn: 'Dify Marketplace and its partner program', tZh: 'Dify Marketplace 与技术伙伴合作方案',
+        dEn: 'See how plugins fit into workflows and RAG, compare three partner engagements, and prepare a runnable use case.',
+        dZh: '通过工作流与知识流水线了解插件的用法，比较三种合作方式，并准备可运行的用例。' }
     ];
 var FILTERS = [['all'], ['platform'], ['customer'], ['workshop'], ['notes']];
 var T = {
@@ -1107,7 +1113,7 @@ var T = {
       }
     }
     function countTo(el) {
-      var to = parseInt(el.getAttribute('data-to'), 10) || 0;
+      var to = DECKS.length;
       if (RM) { el.textContent = to; return; }
       buildOdometer(el, String(to).length);
       var t0 = performance.now();

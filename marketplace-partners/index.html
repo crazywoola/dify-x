@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dify Marketplace · 技术伙伴合作方案</title>
+<link rel="icon" href="../assets/logo.svg">
+<link rel="stylesheet" href="../agent-plugin-governance/assets/reveal/reset.css">
+<link rel="stylesheet" href="../agent-plugin-governance/assets/reveal/reveal.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<nav aria-label="语言"><a href="index.html" lang="zh-CN" aria-current="page">中文</a><span>/</span><a href="index_en.html" lang="en">EN</a></nav>
+<div class="reveal"><div class="slides">
+<section data-slide-id="cover" class="cover" data-background-color="#fafaf6">
+<article><p class="kicker">Dify 技术生态</p><h1>Marketplace</h1><h2>技术伙伴合作方案</h2><p class="lead">从发布一个插件，到让用户用它完成一项工作。</p><footer>插件与模板　/　工作流与知识库　/　合作方式</footer></article>
+<aside class="notes">面向模型、工具、数据服务提供方及方案开发者。</aside>
+</section>
+<section data-slide-id="catalog" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">Marketplace</p><h2>插件提供能力，模板展示用法</h2><p class="">开发者可以安装模型、工具和数据源插件。伙伴可以把插件配进可导入的模板，附上配置步骤和示例输入，让用户跑通第一遍。</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-marketplace.webp" alt="Marketplace 中的模型提供方、搜索工具和数据源"><figcaption>Marketplace 中的模型提供方、搜索工具和数据源</figcaption></figure></div></article>
+<aside class="notes">例如，AMD 工作坊演示了从 Marketplace 安装 Lemonade 模型提供方，再连接本地推理服务的过程。 另一个模板示例来自 Dify × EdgeOne 社区案例征集。开发者提供孩子的名字、年龄和当天经历，Dify 生成睡前故事，EdgeOne Pages 提供访问页面。</aside>
+</section>
+<section data-slide-id="workflow" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">Workflow</p><h2>搜索插件如何参与一次调研？</h2><p class="">图中的工作流用模型生成检索主题，按条件调用 Tavily Search，把结果写入变量，再由推理模型整理答案。用户可以沿节点查看每一步。</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-workflow.webp" alt="工作流画布 · 迭代分支内的 Tavily Search 节点"><figcaption>工作流画布 · 迭代分支内的 Tavily Search 节点</figcaption></figure></div></article>
+<aside class="notes">演示时从 IF/ELSE 沿线走到搜索和变量赋值，展示伙伴的工具接收什么、返回什么。</aside>
+</section>
+<section data-slide-id="rag" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">知识流水线 · RAG</p><h2>让资料可以被检索</h2><p class="">以资料问答为例，流水线从数据源读取内容，将其处理后写入知识库。回答问题时，工作流检索相关片段，交给模型作为回答依据。</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-knowledge.webp" alt="知识流水线 · 从数据源到知识库的处理步骤"><figcaption>知识流水线 · 从数据源到知识库的处理步骤</figcaption></figure></div></article>
+<aside class="notes">数据伙伴可用一份样本文档和一个测试问题演示接入过程，检查检索结果是否包含原文依据。</aside>
+</section>
+<section data-slide-id="tiers" class="" data-background-color="#fafaf6">
+<article><p class="kicker">合作方案 · 试行框架</p><h2>哪种合作适合你的产品？</h2><div class="columns"><div><strong>Tier C</strong><h3>探索计划 · 30 天</h3><p class="">适合已通过上架审核、需要验证需求的产品。准备演示，记录基线与用户反馈，第 30 天复盘。</p></div><div><strong>Tier B</strong><h3>增长伙伴 · 90 天</h3><p class="">适合已有真实用户的集成。每轮评审一个模板，共做一篇内容或一场技术活动，再复盘转化。</p></div><div><strong>Tier A</strong><h3>战略共建伙伴 · 半年</h3><p class="">围绕共同客户需求共建一个旗舰方案。双方指定负责人，完成客户验证、联合发布和成果跟踪。</p></div></div><p class="note">C 是产品探索阶段。A、B 的伙伴身份须经双方确认，产品上架、集成认证和运营推荐各自审核。</p></article>
+<aside class="notes">各档均需先核验质量、安全与维护责任。已有成果的团队可直接参加 A 或 B 候选评估。</aside>
+</section>
+<section data-slide-id="package" class="" data-background-color="#fafaf6">
+<article><p class="kicker">合作示例 · B 档增长包</p><h2>围绕一个模板，安排 90 天合作</h2><div class="row"><h3>伙伴准备</h3><p class="">例如，为知识问答模板提供插件、样本文档、设置教程和维护联系人，让另一位开发者能够复现答案。</p></div><div class="row"><h3>双方交付</h3><p class="">共同评审模板，再选择发布一篇教程或举办一场技术演示。提前确认可用人力、渠道、日期及各自负责人。</p></div><div class="row"><h3>期末复盘</h3><p class="">检查用户在哪一步停下，改进配置或教程，并约定下一轮验证的问题。</p></div></article>
+<aside class="notes">这是试行增长包的使用示例。技术支持、推广档期与投入以双方确认的项目记录为准。</aside>
+</section>
+<section data-slide-id="adoption" class="" data-background-color="#fafaf6">
+<article><p class="kicker">成效复核</p><h2>多少工作区首次成功运行了集成？</h2><div class="row"><h3>上线前</h3><p class="">约定成功事件，例如第一次用模板检索到样本文档。记录基线、数据来源和观察周期。</p></div><div class="row"><h3>观察期间</h3><p class="">分别记录安装、首次成功和持续使用。按工作区去重，排除内部测试、机器人和异常流量。</p></div><p class="note">推荐位按批次申请。30 天验证期与实际曝光天数分别记录，位置和起止日期以确认排期为准。</p></article>
+<aside class="notes">低频企业集成可跟踪客户验证、PoC 进度或部署结果。对外使用数据时写明口径与覆盖范围。</aside>
+</section>
+<section data-slide-id="apply" class="dark" data-background-color="#1836aa">
+<article><p class="kicker">发起合作</p><h2>带一个能跑通的用例来</h2><div class="row"><h3>说明场景</h3><p class="">提供产品或插件链接，说明谁会使用它、需要完成什么工作。</p></div><div class="row"><h3>提供演示</h3><p class="">附模板或工作流、样例输入与预期输出，以及维护联系人。</p></div><div class="row"><h3>商定合作</h3><p class="">带上已有用户反馈。双方核对质量、安全和维护条件，再确定交付物、资源及复盘日期。</p></div><p class="action"><a href="https://marketplace.dify.ai/">前往 Marketplace · Become a Partner ↗</a></p></article>
+<aside class="notes">在 Marketplace 的 Partners 区域进入 Become a Partner。</aside>
+</section>
+</div></div>
+<script src="../agent-plugin-governance/assets/reveal/reveal.js"></script>
+<script src="../agent-plugin-governance/assets/reveal/plugin/notes/notes.js"></script>
+<script>
+  function syncLanguageLinks() {
+    document.querySelectorAll('nav a').forEach(link => {
+      link.hash = '/' + Reveal.getIndices().h;
+    });
+  }
+  Reveal.on('ready', syncLanguageLinks);
+  Reveal.on('slidechanged', syncLanguageLinks);
+  Reveal.initialize({ width: 1600, height: 900, margin: 0.04, center: false, hash: true, transition: 'fade', slideNumber: 'c/t', plugins: [RevealNotes] });
+</script>
+</body>
+</html>

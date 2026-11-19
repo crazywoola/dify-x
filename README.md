@@ -14,6 +14,7 @@ Online:
 - Single decks: open each directory's `index.html` (CN) or `index_en.html` (EN).
 
 ## Repo map
+- `marketplace-partners/`: bilingual Dify Marketplace guide for technology partners.
 - `index.html`: single bilingual home page (EN / 中文) — the **SIGNAL** redesign: warm-charcoal darkroom palette with bone type and one signal vermilion, Instrument Serif display + JetBrains Mono metadata, full-viewport hero cover (char-mask title, cursor parallax + lamp, particle canvas with click ripples, marquee divider) above a scrolling archive with sticky filter bar and **list / grid dual views** (FLIP-switched, keys `1` / `2`). Codrops-style motion throughout: staggered flip-wave language switch, odometer counters, ⌘K quick-jump overlay, `?` shortcuts help, signal-panel page transition into decks, j/k row navigation, directional row reveals, per-letter hover wave, sweep + tilt + press-feedback hover, magnetic chips and asterisk, elastic language pill, text-roll footer links, velocity-driven marquee with letter wave, live clock, ghost-number parallax, footer letter draw-in. `L` toggles language. Decks live in the `DECKS` array in this file.
 - `assets/`: brand assets (`logo.svg`, `bilibili.png`, `xiaohongshu.png`).
 - `agent-plugin-governance/`: 29-slide bilingual Enterprise Agent deck on plugin governance and the Dify 1.15 → 1.16.0 → 1.16.1 production path. Also bundles a vendored reveal.js 4.5.0 runtime under `assets/reveal/` that other decks reuse.
@@ -35,6 +36,7 @@ Online:
 - `stripe-agent-workshop/`: bilingual 45-minute workshop "From Scenario to System" — Agent product forms plus the Dify Workflow Generator pipeline. See `README.md` and `source-map.md`; `starter/stripe-billing/` holds an unrelated Stripe Sandbox skill kept for reference.
 
 ## Decks
+- [Marketplace partner program](marketplace-partners/index_en.html) · [中文](marketplace-partners/index.html) — eight slides on plugins, workflows, RAG and partner engagements.
 - `agent-plugin-governance/index.html`: Enterprise Agents from plugin governance to production collaboration — L1/L2/L3 controls, Agent system architecture, sandbox security, observability, upgrade gates, and the Human × Agent × Workflow × Governance operating model.
 - `agent-systems/index.html`: production-grade agent systems — HITL review points, explicit deliverables, SOP-driven Skills, command-node / POSIX-style sandbox runtime, and collaborative workflow development.
 - `agent-systems-sg/index.html`: full-screen image-based agent systems deck variant for SG, with existing speaker notes retained for presenter mode. No English variant.

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dify Marketplace · A guide for technology partners</title>
+<link rel="icon" href="../assets/logo.svg">
+<link rel="stylesheet" href="../agent-plugin-governance/assets/reveal/reset.css">
+<link rel="stylesheet" href="../agent-plugin-governance/assets/reveal/reveal.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<nav aria-label="Language"><a href="index.html" lang="zh-CN">中文</a><span>/</span><a href="index_en.html" lang="en" aria-current="page">EN</a></nav>
+<div class="reveal"><div class="slides">
+<section data-slide-id="cover" class="cover" data-background-color="#fafaf6">
+<article><p class="kicker">Dify ecosystem</p><h1>Marketplace</h1><h2>A guide for technology partners</h2><p class="lead">From publishing a plugin to helping a user complete a task.</p><footer>Plugins and templates　/　Workflows and knowledge bases　/　Partner programs</footer></article>
+<aside class="notes">For model, tool and data providers, and teams building solutions with Dify.</aside>
+</section>
+<section data-slide-id="catalog" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">Marketplace</p><h2>Plugins add capabilities. Templates show them in use.</h2><p class="">Builders can install models, tools and data sources. Partners can package a plugin in a template with setup steps and a sample input so users can try it in their own workspace.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-marketplace.webp" alt="Model providers, search tools and data sources in the Marketplace"><figcaption>Model providers, search tools and data sources in the Marketplace</figcaption></figure></div></article>
+<aside class="notes">The AMD workshop shows how to install the Lemonade model provider from the Marketplace and connect it to a local inference server. A template example from the Dify × EdgeOne community showcase turns a child’s name, age and daily events into a bedtime story. Dify generates the story and EdgeOne Pages hosts the interface.</aside>
+</section>
+<section data-slide-id="workflow" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">Workflow</p><h2>Where does search fit in a research workflow?</h2><p class="">The model proposes a search topic. A branch calls Tavily Search and saves the findings in a variable. A reasoning model then uses the collected material to compose an answer.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-workflow.webp" alt="Workflow canvas · Tavily Search inside the iteration branch"><figcaption>Workflow canvas · Tavily Search inside the iteration branch</figcaption></figure></div></article>
+<aside class="notes">Trace the IF/ELSE branch through Tavily Search to the variable assignment. Show the input to the tool and where its output goes.</aside>
+</section>
+<section data-slide-id="rag" class="" data-background-color="#fafaf6">
+<article><div class="spread"><div><p class="kicker">Knowledge pipeline · RAG</p><h2>Preparing documents for retrieval</h2><p class="">For document Q&A, a pipeline reads and processes source material into a knowledge base. At query time, a workflow retrieves relevant passages and gives them to the model as evidence for its answer.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-knowledge.webp" alt="Knowledge pipeline · processing steps from data source to knowledge base"><figcaption>Knowledge pipeline · processing steps from data source to knowledge base</figcaption></figure></div></article>
+<aside class="notes">A data partner can supply one sample document and a test question, then check whether retrieval returns the supporting passage.</aside>
+</section>
+<section data-slide-id="tiers" class="" data-background-color="#fafaf6">
+<article><p class="kicker">Partner program · pilot framework</p><h2>Which engagement fits your product?</h2><div class="columns"><div><strong>Tier C</strong><h3>Discovery · 30 days</h3><p class="">For listed products testing demand. Prepare a demo, record a baseline and user feedback, and review results on day 30.</p></div><div><strong>Tier B</strong><h3>Growth Partner · 90 days</h3><p class="">For integrations with evidence of use. Review a template, publish joint content or host a technical event, then review conversion.</p></div><div><strong>Tier A</strong><h3>Strategic Partner · 6 months</h3><p class="">Build a flagship solution around a shared customer need. Name owners on both sides, validate with customers, launch together and track outcomes.</p></div></div><p class="note">C is a product discovery stage. A and B partner status requires mutual confirmation. Listing, certification and promotional placement each have their own review.</p></article>
+<aside class="notes">Quality, safety and maintenance ownership are prerequisites. Teams with existing results can be assessed directly for A or B.</aside>
+</section>
+<section data-slide-id="package" class="" data-background-color="#fafaf6">
+<article><p class="kicker">Example engagement · Tier B</p><h2>A 90-day plan for one template</h2><div class="row"><h3>Partner contribution</h3><p class="">For a document Q&A template, supply the plugin, a sample document, setup instructions and a maintainer so another builder can reproduce an answer.</p></div><div class="row"><h3>Joint delivery</h3><p class="">Review the template together, then choose a tutorial or a live technical demo. Agree on team capacity, channel, dates and owners in advance.</p></div><div class="row"><h3>End-of-cycle review</h3><p class="">Find where users stopped, revise the setup or guide, and agree on what to test next.</p></div></article>
+<aside class="notes">This illustrates the pilot growth package. Technical support, promotion dates and resources are agreed for each project.</aside>
+</section>
+<section data-slide-id="adoption" class="" data-background-color="#fafaf6">
+<article><p class="kicker">Measuring adoption</p><h2>How many workspaces used the integration successfully for the first time?</h2><div class="row"><h3>Before launch</h3><p class="">Define success, such as a template retrieving its sample document for the first time. Record the baseline, data source and observation window.</p></div><div class="row"><h3>During the observation window</h3><p class="">Track installs, first successful use and repeat use separately. Count each activated workspace once and exclude internal tests, bots and anomalous traffic.</p></div><p class="note">Teams can apply for a featured slot. Track the 30-day validation window separately from actual exposure. Placement and display dates depend on the confirmed schedule.</p></article>
+<aside class="notes">For low-frequency enterprise integrations, review customer validation, proof-of-concept progress or deployment outcomes. State coverage and metric definitions when sharing results.</aside>
+</section>
+<section data-slide-id="apply" class="dark" data-background-color="#1836aa">
+<article><p class="kicker">Starting a partnership</p><h2>Bring a use case we can run</h2><div class="row"><h3>Describe the task</h3><p class="">Share the product or plugin link, who it serves and the task they need to complete.</p></div><div class="row"><h3>Share a demo</h3><p class="">Include a template or workflow, sample input, expected output and a maintenance contact.</p></div><div class="row"><h3>Agree on scope</h3><p class="">Bring any user feedback. Together, review quality, safety and maintenance, then agree on deliverables, resources and a review date.</p></div><p class="action"><a href="https://marketplace.dify.ai/">Visit Marketplace · Become a Partner ↗</a></p></article>
+<aside class="notes">Use Become a Partner in the Partners section of the Marketplace.</aside>
+</section>
+</div></div>
+<script src="../agent-plugin-governance/assets/reveal/reveal.js"></script>
+<script src="../agent-plugin-governance/assets/reveal/plugin/notes/notes.js"></script>
+<script>
+  function syncLanguageLinks() {
+    document.querySelectorAll('nav a').forEach(link => {
+      link.hash = '/' + Reveal.getIndices().h;
+    });
+  }
+  Reveal.on('ready', syncLanguageLinks);
+  Reveal.on('slidechanged', syncLanguageLinks);
+  Reveal.initialize({ width: 1600, height: 900, margin: 0.04, center: false, hash: true, transition: 'fade', slideNumber: 'c/t', plugins: [RevealNotes] });
+</script>
+</body>
+</html>
