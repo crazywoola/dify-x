@@ -12,37 +12,53 @@
 <body>
 <nav aria-label="Language"><a href="index.html" lang="zh-CN">中文</a><span>/</span><a href="index_en.html" lang="en" aria-current="page">EN</a></nav>
 <div class="reveal"><div class="slides">
-<section data-slide-id="cover" class="cover" data-background-color="#fafaf6">
-<article><p class="kicker">Dify ecosystem</p><h1>Marketplace</h1><h2>A guide for technology partners</h2><p class="lead">From publishing a plugin to helping a user complete a task.</p><footer>Plugins and templates　/　Workflows and knowledge bases　/　Partner programs</footer></article>
-<aside class="notes">For model, tool and data providers, and teams building solutions with Dify.</aside>
+<section data-slide-id="cover">
+  <article>
+<div class="weave" aria-hidden="true"></div><div class="cover-text"><h1>Dify Marketplace<br><em>A partner guide</em></h1><p>Publish plugins and templates that put your product into developers’ workflows.</p></div><img class="cover-logo" src="../assets/logo.svg" alt="Dify">
+  </article>
+  <aside class="notes">For model, tool and data providers, and teams building solutions with Dify.</aside>
 </section>
-<section data-slide-id="catalog" class="" data-background-color="#fafaf6">
-<article><div class="spread"><div><p class="kicker">Marketplace</p><h2>Plugins add capabilities. Templates show them in use.</h2><p class="">Builders can install models, tools and data sources. Partners can package a plugin in a template with setup steps and a sample input so users can try it in their own workspace.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-marketplace.webp" alt="Model providers, search tools and data sources in the Marketplace"><figcaption>Model providers, search tools and data sources in the Marketplace</figcaption></figure></div></article>
-<aside class="notes">The AMD workshop shows how to install the Lemonade model provider from the Marketplace and connect it to a local inference server. A template example from the Dify × EdgeOne community showcase turns a child’s name, age and daily events into a bedtime story. Dify generates the story and EdgeOne Pages hosts the interface.</aside>
+<section data-slide-id="catalog">
+  <article>
+<header><p class="label">Marketplace</p><h2>A plugin connects your product.<br><em>A template shows it at work.</em></h2></header><div class="catalog-body"><div class="catalog-copy"><div class="item"><h3>Plugins</h3><p>Give builders access to your model, search tool or data source inside Dify.</p></div><div class="item"><h3>Templates</h3><p>Share a workflow with setup instructions and a sample input so builders can run it in their own workspace.</p></div></div><figure class="shot marketplace"><img src="../amd-x-dify-hackathon/assets/dify-product-marketplace.webp" alt="Dify Marketplace plugin catalog"></figure></div>
+  </article>
+  <aside class="notes">The AMD workshop shows how to install the Lemonade model provider from the Marketplace and connect it to a local inference server. A template example from the Dify × EdgeOne community showcase turns a child’s name, age and daily events into a bedtime story. Dify generates the story and EdgeOne Pages hosts the interface.</aside>
 </section>
-<section data-slide-id="workflow" class="" data-background-color="#fafaf6">
-<article><div class="spread"><div><p class="kicker">Workflow</p><h2>Where does search fit in a research workflow?</h2><p class="">The model proposes a search topic. A branch calls Tavily Search and saves the findings in a variable. A reasoning model then uses the collected material to compose an answer.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-workflow.webp" alt="Workflow canvas · Tavily Search inside the iteration branch"><figcaption>Workflow canvas · Tavily Search inside the iteration branch</figcaption></figure></div></article>
-<aside class="notes">Trace the IF/ELSE branch through Tavily Search to the variable assignment. Show the input to the tool and where its output goes.</aside>
+<section data-slide-id="workflow">
+  <article>
+<header><p class="label">Workflow</p><h2>A <em>search plugin</em> inside a research workflow</h2></header><div class="workflow-body"><figure class="shot workflow"><img src="../amd-x-dify-hackathon/assets/dify-product-workflow.webp" alt="Workflow canvas with Tavily Search inside an iteration branch"></figure><div class="workflow-copy"><div class="item"><h3>Choose a topic</h3><p>The model proposes a topic for the next search.</p></div><div class="item"><h3>Run the search</h3><p>When the branch calls Tavily Search, it saves the findings in a workflow variable.</p></div><div class="item"><h3>Write the answer</h3><p>The reasoning model draws on the collected material to write its answer.</p></div></div></div>
+  </article>
+  <aside class="notes">Trace the IF/ELSE branch through Tavily Search to the variable assignment. Show the input to the tool and where its output goes.</aside>
 </section>
-<section data-slide-id="rag" class="" data-background-color="#fafaf6">
-<article><div class="spread"><div><p class="kicker">Knowledge pipeline · RAG</p><h2>Preparing documents for retrieval</h2><p class="">For document Q&A, a pipeline reads and processes source material into a knowledge base. At query time, a workflow retrieves relevant passages and gives them to the model as evidence for its answer.</p></div><figure><img src="../amd-x-dify-hackathon/assets/dify-product-knowledge.webp" alt="Knowledge pipeline · processing steps from data source to knowledge base"><figcaption>Knowledge pipeline · processing steps from data source to knowledge base</figcaption></figure></div></article>
-<aside class="notes">A data partner can supply one sample document and a test question, then check whether retrieval returns the supporting passage.</aside>
+<section data-slide-id="rag">
+  <article>
+<header><p class="label">Knowledge pipeline / RAG</p><h2>How source material <em>informs an answer</em></h2></header><figure class="shot knowledge"><img src="../amd-x-dify-hackathon/assets/dify-product-knowledge.webp" alt="Pipeline from the Tavily data source through the Q&A processor to the knowledge base"></figure><div class="duo"><div class="item"><h3>Prepare the knowledge base</h3><p>This pipeline reads material from Tavily, processes it into Q&A chunks and indexes them in a knowledge base.</p></div><div class="item"><h3>Retrieve evidence at query time</h3><p>A Q&A workflow retrieves passages relevant to the user’s question and gives them to the model to ground its answer.</p></div></div>
+  </article>
+  <aside class="notes">A data partner can supply one sample document and a test question, then check whether retrieval returns the supporting passage.</aside>
 </section>
-<section data-slide-id="tiers" class="" data-background-color="#fafaf6">
-<article><p class="kicker">Partner program · pilot framework</p><h2>Which engagement fits your product?</h2><div class="columns"><div><strong>Tier C</strong><h3>Discovery · 30 days</h3><p class="">For listed products testing demand. Prepare a demo, record a baseline and user feedback, and review results on day 30.</p></div><div><strong>Tier B</strong><h3>Growth Partner · 90 days</h3><p class="">For integrations with evidence of use. Review a template, publish joint content or host a technical event, then review conversion.</p></div><div><strong>Tier A</strong><h3>Strategic Partner · 6 months</h3><p class="">Build a flagship solution around a shared customer need. Name owners on both sides, validate with customers, launch together and track outcomes.</p></div></div><p class="note">C is a product discovery stage. A and B partner status requires mutual confirmation. Listing, certification and promotional placement each have their own review.</p></article>
-<aside class="notes">Quality, safety and maintenance ownership are prerequisites. Teams with existing results can be assessed directly for A or B.</aside>
+<section data-slide-id="tiers">
+  <article>
+<header><p class="label">Partner program / Pilot</p><h2>Choose a partnership <em>that fits your product</em></h2></header><div class="tiers"><div class="tier"><div class="tier-id">Tier C</div><h3>Discovery</h3><strong>30 days</strong><p>Test demand after listing. Prepare a demo, record a baseline and review usage and feedback on day 30.</p></div><div class="tier"><div class="tier-id">Tier B</div><h3>Growth Partner</h3><strong>90 days</strong><p>Grow a proven use case. Review a template, publish a tutorial or host a technical event, then assess conversion.</p></div><div class="tier"><div class="tier-id">Tier A</div><h3>Strategic Partner</h3><strong>6 months</strong><p>Build a flagship solution for a shared customer need. Appoint owners, validate with customers, launch together and track outcomes.</p></div></div><p class="fine">Discovery is a product trial. Both teams confirm A or B partner status. Listing, certification and promotion each have a separate review.</p>
+  </article>
+  <aside class="notes">Quality, safety and maintenance ownership are prerequisites. Teams with existing results can be assessed directly for A or B.</aside>
 </section>
-<section data-slide-id="package" class="" data-background-color="#fafaf6">
-<article><p class="kicker">Example engagement · Tier B</p><h2>A 90-day plan for one template</h2><div class="row"><h3>Partner contribution</h3><p class="">For a document Q&A template, supply the plugin, a sample document, setup instructions and a maintainer so another builder can reproduce an answer.</p></div><div class="row"><h3>Joint delivery</h3><p class="">Review the template together, then choose a tutorial or a live technical demo. Agree on team capacity, channel, dates and owners in advance.</p></div><div class="row"><h3>End-of-cycle review</h3><p class="">Find where users stopped, revise the setup or guide, and agree on what to test next.</p></div></article>
-<aside class="notes">This illustrates the pilot growth package. Technical support, promotion dates and resources are agreed for each project.</aside>
+<section data-slide-id="package">
+  <article>
+<div class="split"><div class="panel"><header><p class="label">Tier B / Example</p><h2>A <em>90-day</em> plan<br>for a Q&A template</h2></header><p>The goal is for new users to get their first answer from their own documents.</p></div><div class="steps"><div class="item"><h3>Make the demo reproducible</h3><p>The partner supplies the plugin, sample document, setup guide and maintainer contact so another builder can run the demo.</p></div><div class="item"><h3>Review and share the template</h3><p>Together, review the template and choose a tutorial or live demo. Agree on owners, channel and date.</p></div><div class="item"><h3>Use the results to improve setup</h3><p>Find where users got stuck, revise the template or guide, and agree on what to test next.</p></div></div></div>
+  </article>
+  <aside class="notes">This illustrates the pilot growth package. Technical support, promotion dates and resources are agreed for each project.</aside>
 </section>
-<section data-slide-id="adoption" class="" data-background-color="#fafaf6">
-<article><p class="kicker">Measuring adoption</p><h2>How many workspaces used the integration successfully for the first time?</h2><div class="row"><h3>Before launch</h3><p class="">Define success, such as a template retrieving its sample document for the first time. Record the baseline, data source and observation window.</p></div><div class="row"><h3>During the observation window</h3><p class="">Track installs, first successful use and repeat use separately. Count each activated workspace once and exclude internal tests, bots and anomalous traffic.</p></div><p class="note">Teams can apply for a featured slot. Track the 30-day validation window separately from actual exposure. Placement and display dates depend on the confirmed schedule.</p></article>
-<aside class="notes">For low-frequency enterprise integrations, review customer validation, proof-of-concept progress or deployment outcomes. State coverage and metric definitions when sharing results.</aside>
+<section data-slide-id="adoption">
+  <article>
+<header><p class="label">Measuring adoption</p><h2>From the first successful run <em>to repeat use</em></h2></header><div class="journey"><div class="item"><h3>Install</h3><p>Record which workspaces install the plugin or import the template.</p></div><div class="item"><h3>First success</h3><p>For example, the template retrieves the expected passage for the first time.</p></div><div class="item"><h3>Repeat use</h3><p>Check which activated workspaces return in the follow-up period.</p></div></div><div class="duo"><div class="item"><h3>Count unique workspaces</h3><p>Agree on the success event, baseline and window before launch. Count each newly activated workspace once, excluding tests, bots and anomalous traffic.</p></div><div class="item"><h3>Track featured placement separately</h3><p>Teams can apply for a featured slot. Discovery runs for 30 days. The confirmed schedule sets the placement and actual display dates.</p></div></div>
+  </article>
+  <aside class="notes">For low-frequency enterprise integrations, review customer validation, proof-of-concept progress or deployment outcomes. State coverage and metric definitions when sharing results.</aside>
 </section>
-<section data-slide-id="apply" class="dark" data-background-color="#1836aa">
-<article><p class="kicker">Starting a partnership</p><h2>Bring a use case we can run</h2><div class="row"><h3>Describe the task</h3><p class="">Share the product or plugin link, who it serves and the task they need to complete.</p></div><div class="row"><h3>Share a demo</h3><p class="">Include a template or workflow, sample input, expected output and a maintenance contact.</p></div><div class="row"><h3>Agree on scope</h3><p class="">Bring any user feedback. Together, review quality, safety and maintenance, then agree on deliverables, resources and a review date.</p></div><p class="action"><a href="https://marketplace.dify.ai/">Visit Marketplace · Become a Partner ↗</a></p></article>
-<aside class="notes">Use Become a Partner in the Partners section of the Marketplace.</aside>
+<section data-slide-id="apply">
+  <article>
+<div class="closing"><header><p class="label">Working with Dify</p><h2>Show us your integration <em>in action</em></h2></header><div class="closing-body"><div class="item"><h3>Who uses your product, and why?</h3><p>Share the product link, target users, the task they need to complete and any feedback.</p></div><div class="item"><h3>How can we try it?</h3><p>Include a workflow or template, sample input, expected output and a maintenance contact.</p></div></div><a class="cta" href="https://marketplace.dify.ai/">Explore the Marketplace partner program <span aria-hidden="true">↗</span></a><p class="fine">Open the Partners section and select Become a Partner.</p></div><div class="end-art" aria-hidden="true"></div>
+  </article>
+  <aside class="notes">Select Become a Partner in the Partners section of the Marketplace. Both teams review quality, safety and maintenance before agreeing on deliverables, resources and a review date.</aside>
 </section>
 </div></div>
 <script src="../agent-plugin-governance/assets/reveal/reveal.js"></script>
@@ -55,7 +71,7 @@
   }
   Reveal.on('ready', syncLanguageLinks);
   Reveal.on('slidechanged', syncLanguageLinks);
-  Reveal.initialize({ width: 1600, height: 900, margin: 0.04, center: false, hash: true, transition: 'fade', slideNumber: 'c/t', plugins: [RevealNotes] });
+  Reveal.initialize({ width: 1600, height: 900, margin: 0, center: false, hash: true, transition: 'fade', slideNumber: 'c/t', controls: true, progress: false, plugins: [RevealNotes] });
 </script>
 </body>
 </html>

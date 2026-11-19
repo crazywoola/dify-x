@@ -14,3 +14,5 @@ The primary source is the November 4, 2026 integrated pilot proposal, *Dify Mark
 The [catalog image](../amd-x-dify-hackathon/assets/dify-product-marketplace.webp) and both canvas images are Dify product screenshots from the repository’s AMD workshop. They illustrate the interfaces at capture time.
 
 Historical context reviewed includes the author's plugin governance retrospective (September 20), template review proposal (October 26), plugin maintenance priorities (August), and Dify × EdgeOne community case collection (June). These informed the emphasis on maintainers, reproducible examples and follow-up after launch.
+
+The pixel pattern on the opening and closing slides is a crop of the [Singapore deck’s section artwork](../agent-systems-sg/assets/assets/4.png). The product views on slides 2 and 4 are cropped to emphasize the catalog and pipeline nodes respectively.
