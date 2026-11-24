@@ -1,6 +1,6 @@
 # Plugin governance: what we have done · 插件治理：这半年做了什么
 
-A 15-slide review of Dify plugin governance from May to November 2026, written for a non-technical audience (the CMO Office bi-weekly of 24 November 2026). It covers what was built, what the November audit found, how the new rules performed in their first two weeks, and how the work connects to the leadership discussion on acquisition cost, trust and partners.
+A 15-slide review of Dify plugin governance from May to November 2026, written for a non-technical audience (the CMO Office bi-weekly of 24 November 2026). It covers what was built, what the data shows about demand, how other ecosystems signal trust, and a proposal to run governance as a trust and partner channel.
 
 中文版按中文表达习惯重写，不是英文版的逐字翻译；两种语言共享同一套页序、数据、来源和 `data-slide-id`。
 
@@ -9,10 +9,10 @@ A 15-slide review of Dify plugin governance from May to November 2026, written f
 | Section | Slides | Content |
 |---|---:|---|
 | Summary | 01–02 | Cover and the short version |
-| What leadership is asking | 03–04 | Goals and pain points from the CMO Office group; where the marketplace fits |
-| Why it matters | 05–07 | Marketplace scale, growth in submissions, trust |
-| What we did | 08–13 | Timeline, Phase 1, November audit, usage, new rules, first two weeks in numbers |
-| What we know and what is next | 14–15 | Measurement scorecard and next steps |
+| Why now | 03–05 | What leadership is asking, marketplace scale, growth in submissions and reviewer concentration |
+| What we did | 06–09 | Six months in one page, November audit, usage concentration, new rules and their first two weeks |
+| What we learned | 10–12 | Demand signals from community plugins, connector coverage in Japan, how other ecosystems signal trust |
+| What we propose | 13–15 | Three moves, measurement scorecard, 90-day checkpoints and asks |
 
 ## Files
 
@@ -27,7 +27,9 @@ A 15-slide review of Dify plugin governance from May to November 2026, written f
 ## Evidence boundaries
 
 - Slide 03 paraphrases an internal discussion. It contains no direct quotations and names roles, not people.
-- Slide 04 and the third column of slide 15 are Community Ops' proposal, not an agreed position.
-- "1 in 8" on slide 05 is derived (160 new plugins ÷ 1,278 total).
-- Figures on slides 06 and 13 were counted from GitHub on 24 November 2026 and will drift.
-- The Phase 1 targets on slide 09 have not been measured against a baseline.
+- Slides 13 and 15 are proposals by Community Ops. Nothing on them is scoped, staffed or agreed, and the 90-day thresholds are starting points for discussion.
+- "1 in 8" on slide 04 is derived (160 new plugins ÷ 1,278 total).
+- Figures on slides 05 and 09 were counted from GitHub on 24 November 2026 and will drift.
+- "Vendor-published" on slide 10 is a heuristic (author name appears in the plugin name), not a census.
+- The system list on slide 11 is a first pass chosen by Community Ops and has not been reviewed by the Japan team.
+- The Phase 1 targets on slide 06 have not been measured against a baseline.

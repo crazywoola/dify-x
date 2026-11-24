@@ -10,24 +10,32 @@
 
 | Slides | Source | Use | Boundary |
 |---|---|---|---|
-| `s02`, `s07`–`s10`, `s12`, `s15` | Plugin governance review, Feishu, 23 Nov 2026 | Timeline, Phase 1 deliverables, audit findings, November rules, next steps | Internal review document; figures are as stated there. |
-| `s03`, `s04`, `s14`, `s15` | CMO Office Bi-Weekly group discussion and attached research, 21–24 Nov 2026 | Leadership goals and pain points | Paraphrased by Community Ops. Roles only, no quotations. |
-| `s04`, `s05` | Marketplace ops dashboard, snapshot 24 Nov 2026, 30-day view | Totals and 30-day gains | Read from a screenshot. "1 in 8" is derived. |
-| `s04`, `s07`, `s11`, `s14` | Community Ops data: production plugin calls, 21 Oct – 19 Nov 2026 | 12.83M calls, 868 plugins, concentration, official versus community share | Rolling 30-day window; the last day is partial. Read shares, not daily peaks. |
-| `s07` | Community Ops data: self-hosted telemetry as of 17 Nov 2026 | Daily and monthly active instances | Telemetry live since 28 Jul 2026; no growth claim is made. |
-| `s02`, `s04`, `s06`, `s13`, `s14` | GitHub, [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins), counted 24 Nov 2026 | Submissions per month, time to merge, governance check outcomes, replies to notices | See counting rules below. |
-| `s07` | Japan enterprise survey, Sep 2026 (38 valid responses) | What enterprise users asked for | Survey of Japanese enterprise users only. |
-| `s12` | [Marketplace Curation Policy](https://github.com/langgenius/dify-plugins/blob/main/docs/marketplace-curation-policy.md) | Published rules for authors | Public document. |
+| `s02`, `s06`, `s07`, `s09`, `s15` | Plugin governance review, Feishu, 23 Nov 2026 | Timeline, Phase 1 deliverables, audit findings, November rules | Internal review document; figures are as stated there. |
+| `s03`, `s13`, `s14`, `s15` | CMO Office Bi-Weekly group discussion and attached research, 21–24 Nov 2026 | Leadership goals and pain points | Paraphrased by Community Ops. Roles only, no quotations. |
+| `s04` | Marketplace ops dashboard, snapshot 24 Nov 2026, 30-day view | Totals and 30-day gains | Read from a screenshot. "1 in 8" is derived. |
+| `s02`, `s08`, `s10`, `s14` | Community Ops data: production plugin calls, 21 Oct – 19 Nov 2026 | 12.83M calls, 868 plugins, concentration, community share | Rolling 30-day window; the last day is partial. Read shares, not daily peaks. |
+| `s02`, `s05`, `s09`, `s14` | GitHub, [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) and [langgenius/dify](https://github.com/langgenius/dify), counted 24 Nov 2026 | Submissions per month, reviewer concentration, time to merge, check outcomes, replies to requests | See counting rules below. |
+| `s02`, `s10`, `s11`, `s12` | Package metadata of 1,026 plugins in langgenius/dify-plugins and 279 plugin folders in [langgenius/dify-official-plugins](https://github.com/langgenius/dify-official-plugins), 24 Nov 2026 | Verified mark, vendor-published heuristic, connector coverage, Japanese descriptions | See counting rules below. |
+| `s12` | [Terraform Registry](https://developer.hashicorp.com/terraform/registry/providers), [Docker Hub trusted content](https://docs.docker.com/docker-hub/image-library/trusted-content/), VS Code Marketplace, npm, PyPI, GitHub and Chrome Web Store documentation; contribution policies of curl, Gentoo and QEMU | How other ecosystems signal trust | Each practice was read on the provider's own documentation on 24 Nov 2026. |
+| `s12` | [Marketplace Curation Policy](https://github.com/langgenius/dify-plugins/blob/main/docs/marketplace-curation-policy.md) | Our own duplicate rule | Public document. |
 
 ## Counting rules
 
-- **Submissions per month (`s06`)**: pull requests opened on langgenius/dify-plugins in each calendar month of 2026. November covers 1–24 Nov. Opened: May 98, Jun 138, Jul 168, Aug 186, Sep 183, Oct 347, Nov 331. Merged: 83, 113, 143, 113, 142, 286, 264.
-- **Time to merge (`s06`)**: median hours from open to merge for merged pull requests opened in that month. Sep 14.2, Oct 17.6, Nov 15.8.
-- **Governance check outcomes (`s13`)**: 331 runs of the Governance workflow between 11 and 24 Nov, grouped by pull request title into 188 submissions. 122 never failed. 66 failed at least once; 31 of those passed on their latest run and 35 did not. A failed run can occasionally be a workflow error rather than a rule, so the 35% is approximate.
-- **Replies to notices (`s13`)**: for each of the 36 request threads, whether the plugin author commented after the request. 7 of 36 as of 24 Nov 2026 14:30 CST.
+- **Submissions per month (`s05`)**: pull requests opened on langgenius/dify-plugins in each calendar month of 2026. November covers 1–24 Nov. Opened: May 98, Jun 138, Jul 168, Aug 186, Sep 183, Oct 347, Nov 331.
+- **Reviewer concentration (`s02`, `s05`, `s14`)**: merged pull requests in the month that carry a review by the most active reviewer. Sep 140 of 142, Oct 279 of 286, Nov 255 of 264.
+- **Time to merge (`s05`)**: median hours from open to merge. Sep 14.2, Oct 17.6, Nov 15.8.
+- **Main repository (`s05`)**: pull requests opened on langgenius/dify: 379 in Oct 2025, 1,442 in Oct 2026.
+- **Check outcomes (`s02`, `s09`, `s14`)**: 331 runs of the Governance workflow between 11 and 24 Nov, grouped by pull request title into 188 submissions. 122 never failed. 66 failed at least once; 31 of those passed on their latest run and 35 did not. A failed run can occasionally be a workflow error rather than a rule, so "one in three" is approximate.
+- **Replies to requests (`s09`)**: for each of the 36 request threads, whether the plugin author commented after the request. 7 of 36 as of 24 Nov 2026 14:30 CST.
+- **Community plugin calls (`s10`)**: calls to plugins not published under the official account: 391,322 in the window. Shares are of that total. The chat-bot line sums six plugins in the top 20.
+- **Vendor-published (`s10`)**: 282 plugins whose author name appears in the plugin name (or the reverse); 49 had at least one call; 3,011 calls in total.
+- **Connector coverage (`s11`)**: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. The twelve systems were chosen by Community Ops.
+- **Japanese descriptions (`s11`)**: plugins whose Japanese description field contains kana: 260 of 1,026. 403 fill the field at all.
+- **Verified mark (`s02`, `s12`)**: packages whose metadata sets the verified flag: 7 of 1,026.
 
 ## Not claimed
 
 - No claim that governance caused growth in installs, usage or revenue.
 - No cost in money: reviewer time is not recorded (slide `s14`).
 - No outcome for the 24 November deadline; cases are reviewed one by one.
+- No claim that a trust tier certifies code as safe (slide `s12` says the opposite).
