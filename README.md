@@ -32,6 +32,7 @@ Online:
 - `oceanbase/`: Dify × Oceanbase integration guide and sample `docker-compose.yaml`.
 - `osmo-banana/`: 12-minute demo deck on a local-first Mac screen recording workbench.
 - `paypal/`: payment risk control deck (CN/EN) covering auth rate defense, ATO, and dispute-abuse playbooks.
+- `plugin-governance-review/`: 15-slide plugin governance review (CN/EN) with `README.md`, `source-map.md`, and QA contact sheets.
 - `pupu/`: low-to-pro-code developer practice (CN/EN) with slide visuals.
 - `stripe-agent-workshop/`: bilingual 45-minute workshop "From Scenario to System" — Agent product forms plus the Dify Workflow Generator pipeline. See `README.md` and `source-map.md`; `starter/stripe-billing/` holds an unrelated Stripe Sandbox skill kept for reference.
 
@@ -50,6 +51,7 @@ Online:
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
 - `osmo-banana/index.html`: a 12-minute demo on a local-first Mac screen recording workbench (local recording, polished exports, auto zoom, smoothed cursor, webcam cutout, annotations, batch export).
 - `paypal/index.html`: payment risk & auth-defense playbook (card testing, ATO, dispute/chargeback abuse mitigation).
+- `plugin-governance-review/index.html`: Plugin governance: what we have done — a 15-slide, non-technical review of May to November 2026: safety checks, the November catalog audit, two weeks of the new rules in numbers, and the link to acquisition cost, trust and partners.
 - `pupu/index.html`: building with Dify as a developer (plugin architecture, triggers, observability).
 - `stripe-agent-workshop/index.html`: From Scenario to System — choosing the Agent product form from the work itself, then the Dify Workflow Generator path from one sentence to an inspectable plan and a runnable graph.
 - English versions live in each folder's `index_en.html`, except `agent-systems-sg/` which is English-only.
