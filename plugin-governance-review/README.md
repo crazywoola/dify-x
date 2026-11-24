@@ -12,7 +12,7 @@ A 17-slide review of Dify plugin governance from May to November 2026, written f
 | Why now | 03–05 | The questions raised at the bi-weekly, marketplace scale, growth in submissions and reviewer concentration |
 | What we did | 06–09 | Six months in one page, November audit, usage concentration, new rules and their first two weeks |
 | What we learned | 10–13 | Demand signals from community plugins, connector coverage for large Japanese companies, how other ecosystems signal trust, and a side-by-side read of DeepSeek Harness |
-| What we propose | 14–17 | Three moves, what the work buys the company, measurement scorecard, and a closing statement with what we are watching |
+| Proposal and payoff | 14–17 | Three moves, what the work buys the company, the measurement scorecard, and a closing statement with what we are watching |
 
 ## Files
 
