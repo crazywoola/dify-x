@@ -40,7 +40,7 @@
 ## Not claimed
 
 - No claim that governance caused growth in installs, usage or revenue.
-- No cost in money: reviewer time is not recorded (slide `s14`).
+- No cost in money: reviewer time is not recorded (slide `s16` lists it as a line to add).
 - No outcome for the 24 November deadline; cases are reviewed one by one.
 - No claim that a trust tier certifies code as safe (slide `s12` says the opposite).
 - No claim about what leadership wants: slide `s03` presents the questions raised at the bi-weekly, paraphrased and anonymised.
