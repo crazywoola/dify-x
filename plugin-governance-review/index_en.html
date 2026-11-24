@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261124-4">
+  <link rel="stylesheet" href="styles.css?v=20261124-10">
 </head>
 <body>
   <div class="deck-brand"><img src="../assets/logo.svg" alt="Dify"><span>Dify · Community Ops · Plugin governance review</span></div>
@@ -25,11 +25,11 @@
         <div>
           <div class="eyebrow">CMO Office Bi-Weekly · 24 November 2026</div>
           <h1>Plugin governance:<br><span>what we have done</span></h1>
-          <p>May to November 2026. From basic package checks to marketplace rules that catch real problems, and how governance becomes a trust and partner channel.</p>
+          <p>May to November 2026: what we built, what the data shows, and why the marketplace is where Dify’s trust layer begins.</p>
         </div>
-        <div class="cover-meta"><span>Community Operations · Dify Marketplace</span><span>15 slides</span></div>
+        <div class="cover-meta"><span>Community Operations · Dify Marketplace</span><span>17 slides</span></div>
       </div>
-      <aside class="notes">Review of plugin governance for the CMO Office bi-weekly. Sources: the Feishu review dated 23 Nov 2026, Community Ops data, the Marketplace ops dashboard snapshot of 24 Nov, GitHub activity on langgenius/dify-plugins, and the CMO Office group discussion of 21 to 24 Nov.</aside>
+      <aside class="notes">Review of plugin governance for the CMO Office bi-weekly. Sources: the Feishu review dated 23 Nov 2026, Community Ops data, the Marketplace ops dashboard snapshot of 24 Nov, GitHub activity on langgenius/dify-plugins, the CMO Office group discussion of 21 to 24 Nov, the public documentation of DeepSeek Harness, and the reports listed in research.md.</aside>
     </section>
 
     <!-- 02 -->
@@ -37,42 +37,42 @@
       <div class="eyebrow">The short version</div>
       <h2>We built the checks. Now governance can become our trust and partner channel.</h2>
       <div class="grid c3 panes">
-        <div class="pane"><span class="label blue">What we did</span><strong>Checks at every step, rules for the catalog</strong><p>Every plugin is checked at submission, merge and publishing. Since 10 November, rules on categories, duplicates and packaging check every submission.</p></div>
-        <div class="pane"><span class="label blue">What we learned</span><strong>Usage shows where demand is</strong><p>50 plugins carry 99% of calls. The community’s most-used plugins connect Dify to AI agents and to chat tools. In Japan, most local business systems have no connector yet.</p></div>
-        <div class="pane amber"><span class="label amber">What we propose</span><strong>Three moves, checked after 90 days</strong><p>Trust tiers on every plugin, a fast lane for partners, and an assurance pack for enterprise buyers.</p></div>
+        <div class="pane"><span class="label blue">What we did</span><strong>Checks at every step, rules for the catalog</strong><p>Every plugin is checked when it is submitted, merged and published. Since 10 November, every submission is also checked for category, duplicates and packaging.</p></div>
+        <div class="pane"><span class="label blue">What we learned</span><strong>Usage shows where demand is</strong><p>50 plugins carry 99% of calls. The most-used community plugins connect Dify to AI agents and to chat tools. For large Japanese companies, SAP, ServiceNow and most Japanese business systems have no connector.</p></div>
+        <div class="pane amber"><span class="label amber">What we propose</span><strong>Three moves, reviewed after 90 days</strong><p>Trust tiers on every plugin, a fast lane for partners, and a security-review pack for enterprise buyers — the first bricks of Dify’s trust layer.</p></div>
       </div>
       <div class="grid c4 stats">
-        <div class="stat sm"><b>3.5×</b><span>more submissions per month than in May</span></div>
-        <div class="stat sm"><b>97%</b><span>of merged submissions are reviewed by one person</span></div>
-        <div class="stat sm"><b>1 in 3</b><span>submissions is now stopped automatically</span></div>
+        <div class="stat sm"><b>3.5×</b><span>as many submissions in October as in May</span></div>
+        <div class="stat sm"><b>97%</b><span>of merged submissions were reviewed by one person</span></div>
+        <div class="stat sm"><b>1 in 3</b><span>new submissions is stopped by an automatic check</span></div>
         <div class="stat sm amber"><b>7 of 1,026</b><span>community plugins carry a verified mark</span></div>
       </div>
-      <div class="source-bar"><span>Sources: Plugin governance review (Feishu, 23 Nov 2026); GitHub, langgenius/dify-plugins (24 Nov); Community Ops data (21 Oct – 19 Nov)</span><span>02 / 15</span></div>
+      <div class="source-bar"><span>Sources: Plugin governance review (Feishu, 23 Nov 2026); GitHub, langgenius/dify-plugins (24 Nov); Community Ops data (21 Oct – 19 Nov)</span><span>02 / 17</span></div>
       <aside class="notes">Three parts: what we did, what we learned, what we propose. 3.5 times: 347 pull requests opened in October against 98 in May. 97%: 255 of the 264 submissions merged from 1 to 24 Nov carry a review by the same reviewer. 1 in 3: 66 of 188 submissions failed the governance check at least once between 11 and 24 Nov. 7 of 1,026: packages in the community repository whose metadata is marked verified.</aside>
     </section>
 
     <!-- 03 -->
     <section data-slide-id="s03-leadership">
-      <div class="eyebrow">What leadership is asking · CMO Office group, 21–24 Nov</div>
-      <h2>Leadership wants every activity judged by what it costs and what it brings in</h2>
+      <div class="eyebrow">Questions raised at the bi-weekly · 21–24 Nov 2026</div>
+      <h2>What does each activity cost, and what does it bring back?</h2>
       <div class="split s-60">
         <div class="rows">
-          <div class="row"><b>CEO<small>Goal</small></b><p>Know what each acquisition channel costs before discussing anything else. Re-rank channels every three to six months, the way a trading desk re-ranks its strategies.</p></div>
-          <div class="row"><b>CMO Office<small>Direction</small></b><p>Move marketing from broadcast to ecosystem and trust. Open source becomes a source of trust and buying signals, not just traffic.</p></div>
-          <div class="row"><b>Japan team<small>Finding</small></b><p>Social and user-generated content volume shows no link to revenue. Effort should go to selling with partners and direct business development.</p></div>
-          <div class="row"><b>Shared playbook<small>AI search</small></b><p>AI assistants recommend what trusted third parties say. Fix the pages buyers already reach, then measure and repeat.</p></div>
+          <div class="row"><b>Channel economics<small>Cost and return</small></b><p>Know what each acquisition channel costs before discussing anything else. Re-rank channels every three to six months, the way a trading desk re-ranks its strategies.</p></div>
+          <div class="row"><b>Ecosystem and trust<small>Direction</small></b><p>Move marketing from broadcast to ecosystem and trust. Open source becomes a source of trust and buying signals, not just traffic.</p></div>
+          <div class="row"><b>Japan market<small>Finding</small></b><p>The volume of social posts and user-generated content shows no link to revenue. Effort should go to selling with partners and direct business development.</p></div>
+          <div class="row"><b>AI search<small>Industry research</small></b><p>AI assistants recommend what trusted third parties say. Fix the pages buyers already reach, then measure and repeat.</p></div>
         </div>
         <div class="box amber">
-          <span class="label amber">Pain points we heard</span>
+          <span class="label amber">Three questions behind them</span>
           <ol class="pain">
-            <li>There is no shared baseline of cost per channel, so priorities cannot be set.</li>
-            <li>Activity cannot be tied to deals, because the attribution data is missing.</li>
-            <li>Low-quality, AI-generated contributions are turning community upkeep into a hidden cost.</li>
+            <li>Which acquisition channel actually pays for itself?</li>
+            <li>Which activity led to a deal?</li>
+            <li>What does community upkeep cost when AI-written contributions arrive at volume?</li>
           </ol>
         </div>
       </div>
-      <div class="source-bar"><span>Source: CMO Office Bi-Weekly group chat and the research shared there, 21–24 Nov 2026. Paraphrased by Community Ops.</span><span>03 / 15</span></div>
-      <aside class="notes">Paraphrase, not quotation. The CEO asked the team to hold channel acquisition cost as a shared baseline and to treat channel effectiveness as knowledge that expires every three to six months. The CMO Office research recommends ecosystem and trust over broadcast and repositions open source as a trust and signal entry point. The Japan team reported that social and UGC volume did not track revenue, with the caveat that the figures were collected by scraping and are not exact. The shared AI-search playbook stresses third-party sources and a measure-and-repeat loop.</aside>
+      <div class="source-bar"><span>Raised in the CMO Office bi-weekly discussion, 21–24 Nov 2026. Paraphrased and anonymised by Community Ops; no speaker is named.</span><span>03 / 17</span></div>
+      <aside class="notes">Paraphrase, not quotation, and anonymised: no speaker or team is named. The discussion covered holding channel acquisition cost as a shared baseline and treating channel effectiveness as knowledge that expires every three to six months; a recommendation to move from broadcast to ecosystem and trust, with open source repositioned as a trust and signal entry point; a Japan finding that social and UGC volume did not track revenue, collected by scraping and not exact; and an AI-search playbook built on third-party sources and a measure-and-repeat loop.</aside>
     </section>
 
     <!-- 04 -->
@@ -89,7 +89,7 @@
           <img class="shot" src="assets/marketplace-dashboard-30d.png" alt="Marketplace ops dashboard: new plugins per day and new installs per day over the last 30 days">
         </div>
       </div>
-      <div class="source-bar"><span>Source: Marketplace ops dashboard, snapshot 24 Nov 2026, 30-day view. “1 in 8” = 160 new plugins ÷ 1,278 total.</span><span>04 / 15</span></div>
+      <div class="source-bar"><span>Source: Marketplace ops dashboard, snapshot 24 Nov 2026, 30-day view. “1 in 8” = 160 new plugins ÷ 1,278 total.</span><span>04 / 17</span></div>
       <aside class="notes">All time: 1,278 plugins, 388 templates, 30,313,428 installs, 333,969 template uses. Last 30 days: 160 plugins published, 39 templates published, 3,564,483 installs gained, 88,510 template uses gained. The dashboard total is a different count from the November audit (1,270 packages, 950 unique plugins).</aside>
     </section>
 
@@ -104,14 +104,14 @@
           <div class="bar-labels"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov*</span></div>
         </div>
         <div class="rows">
-          <div class="row"><span class="num">3.5×</span><p>more submissions in October than in May</p></div>
+          <div class="row"><span class="num">3.5×</span><p>as many submissions in October as in May</p></div>
           <div class="row"><span class="num">97%</span><p>of submissions merged in November were reviewed by the same person (255 of 264)</p></div>
           <div class="row"><span class="num">16–18 h</span><p>typical time from submission to merge</p></div>
         </div>
       </div>
-      <div class="band amber"><b>Why this matters</b>&nbsp; The same wave is hitting the main Dify repository: 1,442 pull requests in October, 3.8 times last October. The research shared in the group calls this the hidden cost of community upkeep. Today that cost is one person’s time.</div>
-      <div class="source-bar"><span>Source: GitHub, langgenius/dify-plugins and langgenius/dify pull requests, counted 24 Nov 2026. *November covers 1–24 Nov. Time to merge is the median.</span><span>05 / 15</span></div>
-      <aside class="notes">Opened per month on dify-plugins: May 98, Jun 138, Jul 168, Aug 186, Sep 183, Oct 347, Nov 331. Merged pull requests carrying a review by the same reviewer: Sep 140 of 142, Oct 279 of 286, Nov 255 of 264. Median hours to merge: Sep 14.2, Oct 17.6, Nov 15.8. Main repository langgenius/dify: 379 pull requests opened in Oct 2025, 1,442 in Oct 2026; the share closed without merging stayed near 17 to 19 percent, so the pressure is volume. Reviewer hours are not recorded.</aside>
+      <div class="band amber"><b>This is industry-wide</b>&nbsp; GitHub reports more than 90 million pull requests merged a month, up from about 25 million in early 2023, and says the cost to create has dropped but the cost to review has not. Dify’s main repository received 3.8 times as many pull requests this October as last.</div>
+      <div class="source-bar"><span>Sources: GitHub, langgenius/dify-plugins and langgenius/dify pull requests, counted 24 Nov 2026 (*November covers 1–24 Nov; time to merge is the median); GitHub blog, 12 Feb and 18 Jun 2026.</span><span>05 / 17</span></div>
+      <aside class="notes">Opened per month on dify-plugins: May 98, Jun 138, Jul 168, Aug 186, Sep 183, Oct 347, Nov 331. Merged pull requests carrying a review by the same reviewer: Sep 140 of 142, Oct 279 of 286, Nov 255 of 264. Median hours to merge: Sep 14.2, Oct 17.6, Nov 15.8. Main repository langgenius/dify: 379 pull requests opened in Oct 2025, 1,442 in Oct 2026; the share closed without merging stayed near 17 to 19 percent, so the pressure is volume. Reviewer hours are not recorded. Outside view: GitHub says developers merged about 25 million pull requests a month in January 2023 and more than 90 million today. WordPress.org reviewed 12,713 plugins in 2025, 40.6% more than in 2024, with a team of the same size, and credits better review tools.</aside>
     </section>
 
     <!-- 06 -->
@@ -120,9 +120,9 @@
       <h2>Six months, two stages: safety first, then catalog quality</h2>
       <div class="phases tight"><span>Phase 1 · Safety checks</span><span>November · Catalog quality</span></div>
       <div class="tl tight"><div class="ev "><b>27 May</b><i></i><p>Governance proposal</p></div><div class="ev "><b>June</b><i></i><p>Review rules agreed</p></div><div class="ev "><b>7 Jul</b><i></i><p>Authors rate their plugin’s risk</p></div><div class="ev "><b>10 Aug</b><i></i><p>Automatic checks before and after merge</p></div><div class="ev "><b>20 Sep</b><i></i><p>Phase 1 closed</p></div><div class="ev nov"><b>Early Nov</b><i></i><p>Audit of all 1,270 packages</p></div><div class="ev nov"><b>10–11 Nov</b><i></i><p>New rules live; first submissions blocked</p></div><div class="ev now"><b>24 Nov</b><i></i><p>Deadline to fix existing listings</p></div></div>
-      <div class="mini"><div><span class="label blue">1 · Submit</span><p>Authors state how sensitive the plugin is. A bot replies at once when that is missing or unclear.</p></div><div><span class="label blue">2 · Review and merge</span><p>Packages are scanned for leaked secrets, files that should not ship, bundled binaries and risky dependencies.</p></div><div><span class="label blue">3 · Publish</span><p>Each package is checked once more after merge, and its scan report is kept with the release.</p></div></div>
+      <div class="mini"><div><span class="label blue">1 · Submit</span><p>Authors state how sensitive the plugin is. A bot replies at once when that is missing or unclear.</p></div><div><span class="label blue">2 · Review and merge</span><p>Packages are scanned for leaked secrets, files that should not ship, bundled executable files and risky dependencies.</p></div><div><span class="label blue">3 · Publish</span><p>Each package is checked once more after merge, and its scan report is kept with the release.</p></div></div>
       <div class="band amber"><b>Still to be measured</b>&nbsp; The Phase 1 targets (95% check completeness, almost no new high-risk plugins, review time down 30%) have no baseline yet.</div>
-      <div class="source-bar"><span>Sources: Plugin governance review, 23 Nov 2026 (Feishu); Community Ops plugin governance page (status check of 20 Sep)</span><span>06 / 15</span></div>
+      <div class="source-bar"><span>Sources: Plugin governance review, 23 Nov 2026 (Feishu); Community Ops plugin governance page (status check of 20 Sep)</span><span>06 / 17</span></div>
       <aside class="notes">27 May: proposal covering submission, listing and maintenance. June: what blocks versus what goes to human review. 7 Jul: risk self-assessment and bot feedback. 10 Aug: pre-check and post-merge re-check. 20 Sep: Phase 1 confirmed closed. November: full audit; 10 Nov four governance changes merged; 11 Nov first real submissions blocked; 24 Nov first author remediation deadline. Authors can also run the same checks locally, and the official plugin repository has basic quality checks.</aside>
     </section>
 
@@ -144,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="source-bar"><span>Source: Dify plugin market audit, November 2026 (1,270 packages), as summarised in the governance review</span><span>07 / 15</span></div>
+      <div class="source-bar"><span>Source: Dify plugin market audit, November 2026 (1,270 packages), as summarised in the governance review</span><span>07 / 17</span></div>
       <aside class="notes">Full unpack of 1,270 packages in the community repository: 950 unique plugin directories, 647 author directories, 659 authors by package metadata. 803 packages (63.2%) had no tag. 16 template-family groups, 107 unique OpenAI-compatible gateway plugins, 305 redundant old-version packages (24%).</aside>
     </section>
 
@@ -160,12 +160,12 @@
         </div>
         <div class="rows">
           <div class="row"><span class="num">12.8M</span><p>plugin calls in production over 30 days</p></div>
-          <div class="row"><span class="num">97%</span><p>of calls go to official plugins (226 of the 868 plugins seen)</p></div>
-          <div class="row"><span class="num">71%</span><p>of plugins seen had fewer than 100 calls in 30 days</p></div>
+          <div class="row"><span class="num">97%</span><p>of calls go to official plugins (226 of the 868 plugins in the data)</p></div>
+          <div class="row"><span class="num">71%</span><p>of those 868 plugins had fewer than 100 calls in 30 days</p></div>
         </div>
       </div>
       <div class="band tint"><b>What this means</b>&nbsp; Usage tells us where to review first. Before any plugin is merged into another or removed, we still check user impact case by case.</div>
-      <div class="source-bar"><span>Source: Community Ops data, production plugin calls, rolling 30 days (21 Oct – 19 Nov 2026); 868 plugins seen. Shares, not daily peaks.</span><span>08 / 15</span></div>
+      <div class="source-bar"><span>Source: Community Ops data, production plugin calls, rolling 30 days (21 Oct – 19 Nov 2026); 868 plugins in the data. Shares, not daily peaks.</span><span>08 / 17</span></div>
       <aside class="notes">12,830,288 calls; 868 unique plugins. Top 10 = 82.2%, top 50 = 98.7%, remaining 818 = 1.3%. Official: 226 plugins, 96.9% of calls. Community: 642 plugins, 3.1%. 616 of 868 (71%) had fewer than 100 calls. The governance review quotes 98.4% for the earlier window of 7 Oct to 5 Nov; same picture. Counters can undercount on restarts and the last day of the window is partial, so read shares and averages.</aside>
     </section>
 
@@ -180,7 +180,7 @@
         </div>
         <div>
           <span class="label">First two weeks · 11–24 Nov</span>
-          <div class="flow sm"><div class="ok" style="flex:122"><b>122</b><span>passed first time</span></div><div class="fixed" style="flex:40"><b>31</b><span>fixed</span></div><div class="open" style="flex:44"><b>35</b><span>open</span></div></div>
+          <div class="flow sm"><div class="ok" style="flex:122"><b>122</b><span>passed first time</span></div><div class="fixed" style="flex:40"><b>31</b><span>fixed</span></div><div class="open" style="flex:44"><b>35</b><span>not yet</span></div></div>
           <div class="rows compact" style="margin-top:22px">
             <div class="row"><span class="num">188</span><p>submissions checked; 66 were stopped at least once</p></div>
             <div class="row"><span class="num">31</span><p>fixed by the author and now passing</p></div>
@@ -188,7 +188,7 @@
           </div>
         </div>
       </div>
-      <div class="source-bar"><span>Sources: Plugin governance review (23 Nov); GitHub, langgenius/dify-plugins: check results grouped by submission and replies to the 36 requests, counted 24 Nov 2026</span><span>09 / 15</span></div>
+      <div class="source-bar"><span>Sources: Plugin governance review (23 Nov); GitHub, langgenius/dify-plugins: check results grouped by submission and replies to the 36 requests, counted 24 Nov 2026</span><span>09 / 17</span></div>
       <aside class="notes">10 Nov: four governance changes merged (tags, packaging, near-duplicates, policy). First real blocks on 11 Nov: one update with conflicting tags across versions, one submission with no category; both were fixed and merged. Counts: 331 governance runs between 11 and 24 Nov grouped by pull request title into 188 submissions; 122 never failed; 66 failed at least once, of which 31 passed on their latest run and 35 did not (some were closed). A failed run can occasionally be a workflow error, so one in three is approximate. Next for existing listings: case-by-case review.</aside>
     </section>
 
@@ -199,35 +199,35 @@
       <div class="split s-55" style="margin-top:30px">
         <div>
           <span class="label">Share of calls to community-built plugins, 30 days</span>
-          <div class="hbars"><div class="hbar"><div><strong>Dify as an MCP server</strong><small>lets AI agents call Dify workflows</small><i style="--v:45"></i></div><b>45%</b></div><div class="hbar"><div><strong>Text tools</strong><small>everyday text clean-up inside workflows</small><i style="--v:16"></i></div><b>16%</b></div><div class="hbar"><div><strong>Chat bots: LINE, Slack, WeCom</strong><small>six separate plugins in the top 20</small><i style="--v:8"></i></div><b>8%</b></div><div class="hbar"><div><strong>Google Sheets</strong><small>read and write spreadsheets</small><i style="--v:5"></i></div><b>5%</b></div><div class="hbar rest"><div><strong>All other community plugins</strong><small>more than 630 plugins</small><i style="--v:25"></i></div><b>25%</b></div></div>
+          <div class="hbars"><div class="hbar"><div><strong>AI agents calling Dify</strong><small>one plugin; workflows become agent tools</small><i style="--v:45"></i></div><b>45%</b></div><div class="hbar"><div><strong>Text tools</strong><small>everyday text clean-up inside workflows</small><i style="--v:16"></i></div><b>16%</b></div><div class="hbar"><div><strong>Chat bots: LINE, Slack, WeCom</strong><small>six separate plugins in the top 20</small><i style="--v:8"></i></div><b>8%</b></div><div class="hbar"><div><strong>Google Sheets</strong><small>read and write spreadsheets</small><i style="--v:5"></i></div><b>5%</b></div><div class="hbar rest"><div><strong>All other community plugins</strong><small>more than 630 plugins</small><i style="--v:25"></i></div><b>25%</b></div></div>
         </div>
         <div>
           <div class="box amber"><span class="label amber">Listing is not usage</span><p style="color:var(--ink)">About 280 plugins look vendor-published: the author name matches the product. Only 49 of them were called at all in 30 days, for 0.02% of all calls.</p></div>
           <div class="box tint" style="margin-top:14px"><span class="label blue">What it means for go-to-market</span><p style="color:var(--ink)">Make Dify easy for AI agents to call, and meet business users in the chat tools they already use. Reward partners for usage, not for the number of listings.</p></div>
         </div>
       </div>
-      <div class="source-bar"><span>Sources: Community Ops data, production plugin calls 21 Oct – 19 Nov 2026 (community-built = not published by Dify; 391K calls); langgenius/dify-plugins</span><span>10 / 15</span></div>
-      <aside class="notes">Community-built plugins received 391,322 calls in the window, 3.1% of all plugin calls. One plugin that exposes Dify workflows as an MCP server took 45% of them; text tools 16%; six chat-channel bots for LINE, Slack and WeCom 8% together; Google Sheets 5%. Vendor-published is a heuristic: 282 plugins whose author name appears in the plugin name; 49 had any call, 3,011 calls in total. Treat it as a pattern, not a census.</aside>
+      <div class="source-bar"><span>Sources: Community Ops data, production plugin calls 21 Oct – 19 Nov 2026 (community-built = not published by Dify; 391K calls); langgenius/dify-plugins</span><span>10 / 17</span></div>
+      <aside class="notes">Community-built plugins received 391,322 calls in the window, 3.1% of all plugin calls. One plugin that exposes Dify workflows as an MCP server, the common way for AI agents to call outside tools, took 45% of them; text tools 16%; six chat-channel bots for LINE, Slack and WeCom 8% together; Google Sheets 5%. Vendor-published is a heuristic: 282 plugins whose author name appears in the plugin name; 49 had any call, 3,011 calls in total. Treat it as a pattern, not a census.</aside>
     </section>
 
     <!-- 11 -->
     <section data-slide-id="s11-japan">
       <div class="eyebrow">What we learned · Japan</div>
-      <h2>For partner-led selling in Japan, the connector shelf is still thin</h2>
+      <h2>For large Japanese companies, the global suites are covered. SAP, ServiceNow and the Japanese systems are not.</h2>
       <div class="split s-55" style="margin-top:30px">
         <div>
-          <span class="label">Business systems common in Japan: is there a connector?</span>
-          <div class="chips"><div class="cchip yes">LINE<small>3 community plugins</small></div><div class="cchip yes">kintone<small>1 community author</small></div><div class="cchip yes">Backlog<small>1 community plugin</small></div><div class="cchip part">freee<small>indirect only</small></div><div class="cchip ">LINE WORKS<small>none</small></div><div class="cchip ">Garoon<small>none</small></div><div class="cchip ">Chatwork<small>none</small></div><div class="cchip ">Sansan<small>none</small></div><div class="cchip ">Money Forward<small>none</small></div><div class="cchip ">SmartHR<small>none</small></div><div class="cchip ">CloudSign<small>none</small></div><div class="cchip ">KING OF TIME<small>none</small></div></div>
+          <span class="label">Twelve systems large Japanese companies run: is there a Dify connector?</span>
+          <div class="chips"><div class="cchip yes">Microsoft 365<small>official</small></div><div class="cchip yes">Salesforce<small>official</small></div><div class="cchip yes">Box<small>official</small></div><div class="cchip yes">Slack<small>official</small></div><div class="cchip part">kintone<small>community only · 1 author</small></div><div class="cchip part">LINE<small>community only</small></div><div class="cchip ">SAP<small>none</small></div><div class="cchip ">ServiceNow<small>none</small></div><div class="cchip ">Garoon<small>none</small></div><div class="cchip ">intra-mart<small>none</small></div><div class="cchip ">SAP Concur<small>none</small></div><div class="cchip ">Sansan<small>none</small></div></div>
         </div>
         <div class="rows">
-          <div class="row"><span class="num">3 of 12</span><p>of the systems we checked have a dedicated connector</p></div>
-          <div class="row"><span class="num">0</span><p>of those are official Dify plugins; all come from community authors</p></div>
+          <div class="row"><span class="num">6 of 12</span><p>have no connector at all, from Dify or from the community</p></div>
+          <div class="row"><span class="num">43,000</span><p>companies use kintone. Our only connector comes from one community author.</p></div>
           <div class="row"><span class="num">25%</span><p>of community plugins have a description written in Japanese (260 of 1,026)</p></div>
         </div>
       </div>
-      <div class="band"><b>Proposal</b>&nbsp; Use this list as the first brief for partners. Global tools such as Slack, Teams, Salesforce, Box and Google Workspace are already covered by official plugins. The list is a first pass and needs the Japan team’s review.</div>
-      <div class="source-bar"><span>Source: text search of 1,026 community plugins and 279 official plugin folders on GitHub, 24 Nov 2026. The list of systems is our own first pass.</span><span>11 / 15</span></div>
-      <aside class="notes">Method: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. Found: three LINE plugins, two kintone plugins from one author, one Backlog plugin; freee appears only as an accounting sync inside another plugin. Nothing found for LINE WORKS, Garoon, Chatwork, Sansan, Money Forward, SmartHR, CloudSign or KING OF TIME. A description written in Japanese means the Japanese description field contains kana; 403 plugins fill that field, 260 with Japanese text. The enterprise survey in Japan asked for search and plugin types that work in Japanese.</aside>
+      <div class="band"><b>Proposal</b>&nbsp; Use the six gaps as the first brief for partners in Japan. The shortlist is our judgement of what a system integrator would expect, and it needs the Japan team’s review.</div>
+      <div class="source-bar"><span>Sources: text search of 1,026 community plugins and 279 official plugin folders on GitHub, 24 Nov 2026; kintone figure from Cybozu, Sep 2026. The shortlist of systems is our own judgement.</span><span>11 / 17</span></div>
+      <aside class="notes">Method: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. Official plugins exist for Microsoft 365 (Teams, Outlook, SharePoint, OneDrive), Salesforce, Box (as a data source) and Slack. kintone has two plugins from one community author, with 94 calls in 30 days. LINE has three community plugins; it is a customer channel with more than 100 million monthly users in Japan, not an internal system. Nothing was found for SAP, ServiceNow, Garoon, intra-mart, SAP Concur or Sansan, nor for LINE WORKS, Chatwork, Money Forward, SmartHR, CloudSign, KING OF TIME, COMPANY, desknet’s NEO, OBIC or HENNGE. Vendor-stated reach: Box 22,000 companies in Japan; Garoon 8,700 companies; intra-mart 11,900. SAP and ServiceNow are on the list by judgement; we found no verified customer counts for Japan.</aside>
     </section>
 
     <!-- 12 -->
@@ -236,55 +236,82 @@
       <h2>Six practices recur in the ecosystems enterprises already trust. We have two in place.</h2>
       <div class="score">
         <div class="sc bm head"><span>Practice</span><span>Who does it</span><span>Dify Marketplace today</span><span>Status</span></div>
-        <div class="sc bm"><strong>Tiers that say who stands behind a listing</strong><p>Terraform Registry: Official, Partner, Community. Docker Hub: Official, Verified Publisher, Sponsored OSS.</p><p style="color:var(--ink)">Official and everything else; 7 of 1,026 marked verified</p><span class="chip no">Not yet</span></div>
-        <div class="sc bm"><strong>Verified publisher identity</strong><p>VS Code: proven domain ownership and six months in good standing. PyPI: two-factor sign-in for every publisher.</p><p style="color:var(--ink)">The author is whatever the package says</p><span class="chip no">Not yet</span></div>
-        <div class="sc bm"><strong>Scan before listing, remove when needed</strong><p>VS Code scans every upload with several malware engines and keeps a block list.</p><p style="color:var(--ink)">Checks at submit and after merge since August</p><span class="chip">In place</span></div>
-        <div class="sc bm"><strong>No duplicate listings</strong><p>Chrome Web Store: one developer may not publish several extensions that do the same thing.</p><p style="color:var(--ink)">Rule live since 10 November</p><span class="chip">In place</span></div>
-        <div class="sc bm"><strong>Signed record of how a package was built</strong><p>npm, PyPI and GitHub let publishers attach a signed build record.</p><p style="color:var(--ink)">Scan report kept; no signed record</p><span class="chip part">Partly</span></div>
-        <div class="sc bm"><strong>A stated policy on AI-written contributions</strong><p>curl: disclose and verify. Gentoo and QEMU: not accepted. GitHub: limits by account history.</p><p style="color:var(--ink)">None yet</p><span class="chip no">Not yet</span></div>
+        <div class="sc bm"><strong>Tiers that say who stands behind a listing</strong><p>Terraform Registry: Official, Partner, Community. Docker Hub: Official, Verified Publisher. n8n: verified community nodes.</p><p style="color:var(--ink)">Official and everything else; 7 of 1,026 marked verified</p><span class="chip no">Not yet</span></div>
+        <div class="sc bm"><strong>Verified publishers, protected accounts</strong><p>VS Code: proven domain and six months in good standing. npm and PyPI: two-step sign-in required to publish.</p><p style="color:var(--ink)">The author is whatever the package says</p><span class="chip no">Not yet</span></div>
+        <div class="sc bm"><strong>Scan before listing, remove when needed</strong><p>VS Code scans every upload with several antivirus engines and keeps a block list.</p><p style="color:var(--ink)">Checks at submission and after merge since August</p><span class="chip">In place</span></div>
+        <div class="sc bm"><strong>No duplicate listings</strong><p>Chrome Web Store bans duplicate extensions from one developer. n8n rejects nodes that copy an existing one.</p><p style="color:var(--ink)">Rule live since 10 November</p><span class="chip">In place</span></div>
+        <div class="sc bm"><strong>Signed record of how a package was built</strong><p>npm, PyPI and GitHub support it. n8n has required it for community nodes since May 2026.</p><p style="color:var(--ink)">Scan report kept; no signed record</p><span class="chip part">Partly</span></div>
+        <div class="sc bm"><strong>A stated policy on AI-written contributions</strong><p>curl: disclose AI use and verify it yourself. Gentoo and QEMU: not accepted. GitHub: caps open pull requests from outside contributors.</p><p style="color:var(--ink)">None yet</p><span class="chip no">Not yet</span></div>
       </div>
-      <div class="band"><b>The pattern</b>&nbsp; A badge tells the buyer who stands behind a plugin. It does not claim the code is safe, and the platforms say so themselves.</div>
-      <div class="source-bar"><span>Sources: official documentation of Terraform Registry, Docker Hub, VS Code Marketplace, PyPI, npm, GitHub, Chrome Web Store; contribution policies of curl, Gentoo and QEMU. Checked 24 Nov 2026.</span><span>12 / 15</span></div>
-      <aside class="notes">Each practice was checked on the provider’s own documentation. Terraform Partner tier requires membership of the HashiCorp technology partner programme. npm requires two-factor sign-in for maintainers of high-impact packages and states that provenance does not guarantee the absence of malicious code. GitHub artifact attestations use Sigstore; GitHub added pull request limits by account age and merged history in October 2026 and has no feature that labels AI-written pull requests. NetBSD also restricts AI-generated code. Our own status: scanning and the duplicate rule are in place; a scan report is uploaded but not signed.</aside>
+      <div class="band tightband"><b>The pattern</b>&nbsp; A badge tells the buyer who stands behind a plugin; it does not certify the code. Our closest peer, n8n, has vetted its verified nodes by hand since May 2025.</div>
+      <div class="source-bar"><span>Sources: documentation of Terraform Registry, Docker Hub, VS Code Marketplace, npm, PyPI, GitHub, Chrome Web Store, n8n; policies of curl, Gentoo, QEMU. Read 24 Nov 2026.</span><span>12 / 17</span></div>
+      <aside class="notes">Each practice was read on the provider’s own documentation. Terraform’s Partner badge requires joining the HashiCorp technology partner programme. npm now requires two-step sign-in, or a special token, to publish any package, and says a provenance record does not guarantee the absence of malicious code. PyPI has required two-step sign-in for all accounts since January 2024. GitHub lets a repository cap how many pull requests an outside contributor may have open and exempt older accounts or past contributors; we found no feature that labels AI-written pull requests. curl ended its bug bounty on 31 January 2026, citing low-quality AI reports. n8n launched verified community nodes on 27 May 2025: MIT licence, no run-time dependencies, one service per node, review of up to four weeks. The official registry for MCP servers, in preview since September 2025, verifies who owns a name but says to assume minimal moderation. Our own status: scanning and the duplicate rule are in place; a scan report is uploaded but not signed.</aside>
     </section>
 
     <!-- 13 -->
-    <section data-slide-id="s13-play">
-      <div class="eyebrow">What we propose · Three moves</div>
-      <h2>Three moves turn governance from a cost into a trust and partner channel</h2>
-      <div class="grid c3 panes" style="margin-top:36px"><div class="pane "><span class="label blue">Serves · Enterprise buyers</span><strong>Trust tiers on every plugin</strong><p>Official, Partner and Community, on the model of Terraform and Docker Hub. A tier says who stands behind a plugin: a verified company, an active maintainer, passing checks.</p><span class="label foot" style="color:var(--ink)">First step: tier the 50 most-used plugins</span></div><div class="pane "><span class="label blue">Serves · Partner-led selling</span><strong>A fast lane for partners</strong><p>Verified partners get a committed review time and a named contact. They are ranked by real usage, not by how many plugins they list.</p><span class="label foot" style="color:var(--ink)">First step: brief partners on the Japan connector list</span></div><div class="pane amber"><span class="label amber">Serves · Security review and renewal</span><strong>An assurance pack for enterprises</strong><p>A list of approved plugins per workspace, with each plugin’s check record and maintenance status, ready to hand to a security team.</p><span class="label foot" style="color:var(--ink)">First step: scope it with product</span></div></div>
-      <div class="band tint"><b>Why now</b>&nbsp; Today the trust system is one reviewer’s judgement. Tiers and a fast lane make that judgement visible, repeatable and shared. These are proposals: each needs product and engineering time.</div>
-      <div class="source-bar"><span>Sources: benchmark on the previous slide; Japan enterprise survey (Sep 2026); CMO Office group discussion (21–24 Nov). Proposal by Community Ops.</span><span>13 / 15</span></div>
-      <aside class="notes">Each move answers something leadership raised. Tiers answer the request for clear safety signals from the Japan survey and the point that enterprises pick open source to avoid lock-in and pass security review. The fast lane answers the shift to selling with partners. The assurance pack answers the observation in the shared research that paying customers of commercial open source buy certainty: maintained components, security fixes on a schedule, audit records. None of the three is scoped or staffed.</aside>
+    <section data-slide-id="s13-harness">
+      <div class="eyebrow">What we learned · A parallel ecosystem</div>
+      <h2>DeepSeek’s harness answers the same problem with a small, self-declared catalog</h2>
+      <div class="score">
+        <div class="sc cmp head"><span>Question</span><span>Dify Marketplace today</span><span>DeepSeek Harness</span></div>
+        <div class="sc cmp"><strong>How something joins</strong><p>Anyone opens a pull request; checks run automatically</p><p style="color:var(--ink)">Publish a package, then list it in a market index the user adds</p></div>
+        <div class="sc cmp"><strong>Who vouches for a listing</strong><p>Author metadata only; 7 of 1,026 carry a verified mark</p><p style="color:var(--ink)">Official bundles ship from DeepSeek; an index entry is self-declared</p></div>
+        <div class="sc cmp"><strong>Who decides what is shown</strong><p>One central catalog, ranked by installs</p><p style="color:var(--ink)">The user, index by index; no index is on by default</p></div>
+        <div class="sc cmp"><strong>Compatibility</strong><p>Not declared per plugin</p><p style="color:var(--ink)">Every plugin declares the harness versions it supports; install enforces it</p></div>
+        <div class="sc cmp"><strong>Outside contributions</strong><p>188 submissions in two weeks; 97% of merges by one reviewer</p><p style="color:var(--ink)">The core takes no outside pull requests; plugins grow as tagged third-party projects</p></div>
+      </div>
+      <div class="band tightband"><b>The same problem, two answers</b>&nbsp; DeepSeek keeps the catalog small and leaves each index’s owner to vouch for its entries — its own documentation says the format cannot verify them. We already have the scale; what we lack is the signal. The three moves keep the open door and make the trust visible.</div>
+      <div class="source-bar"><span>Sources: deepseek-ai/deepseek-harness (public, MIT) and @deepseek-ai/dsh on npm; package documentation read 24 Nov 2026, links and quotes in research.md. Different in kind: a harness plugin installs into a local profile, a Dify plugin runs as a hosted service — compared for design.</span><span>13 / 17</span></div>
+      <aside class="notes">DeepSeek Harness is a public agent runtime from DeepSeek; this slide reads its ecosystem design, not a competitor teardown. Public facts: the repository is MIT and was created on 13 August 2026; the CLI is on npm with 48 versions since 10 August 2026; the CLI package alone depends on 88 DeepSeek-built plugin packages. Its repository accepts no outside pull requests — CONTRIBUTING says the team “cannot accept external pull requests at the moment” and points contributors to publish plugins tagged with the dsh-plugin topic. The plugin market is an experimental bundle that ships switched off, and no index is configured by default; a user adds JSON index addresses, including private Git repositories. Index entries are self-declared: the format’s known limitations say the validator “cannot verify that name, version, publishTimestamp, engines.dsh, or display fields match the package they describe”. Installs are pinned: the exact name@version for npm, or a commit-pinned git+https URL. Every plugin declares the harness versions it supports (engines.dsh), enforced at installation and startup, with exemptions that must be explicitly acknowledged. Skills load their full instructions on demand from one merged catalog.</aside>
     </section>
 
     <!-- 14 -->
-    <section data-slide-id="s14-measure">
+    <section data-slide-id="s14-play">
+      <div class="eyebrow">What we propose · Three moves</div>
+      <h2>Three moves turn governance from a cost into a trust and partner channel</h2>
+      <div class="grid c3 panes" style="margin-top:36px"><div class="pane "><span class="label blue">For enterprise buyers</span><strong>Trust tiers on every plugin</strong><p>Official, Partner and Community, on the model of Terraform and Docker Hub. A tier says who stands behind a plugin: a verified company, an active maintainer, passing checks.</p><span class="label foot" style="color:var(--ink)">First step: tier the 50 most-used plugins</span></div><div class="pane "><span class="label blue">For selling with partners</span><strong>A fast lane for partners</strong><p>Verified partners get a committed review time and a named contact. We rank them by real usage, not by how many plugins they list.</p><span class="label foot" style="color:var(--ink)">First step: brief partners in Japan on the six gaps</span></div><div class="pane amber"><span class="label amber">For security review and renewal</span><strong>A security-review pack</strong><p>For each workspace, a list of approved plugins with every plugin’s check record and maintenance status, ready to hand to a customer’s security team.</p><span class="label foot" style="color:var(--ink)">First step: scope it with product</span></div></div>
+      <div class="band tint"><b>Why buyers care</b>&nbsp; In a 2026 industry survey, 55% of respondents named avoiding vendor lock-in as a reason to adopt open source. In 2025, a worm compromised more than 500 packages on npm. These three moves are proposals; each needs product and engineering time.</div>
+      <div class="source-bar"><span>Sources: Perforce OpenLogic, 2026 State of Open Source Report (24 Mar 2026); CISA alert on the npm compromise (23 Sep 2025); benchmark on slide 12. Proposal by Community Ops.</span><span>14 / 17</span></div>
+      <aside class="notes">Each move answers a question raised at the bi-weekly. Tiers answer the request for clear safety signals in the Japan survey. The fast lane answers the shift to selling with partners. The security-review pack answers the point in the research shared at the bi-weekly that paying customers of commercial open source buy certainty: maintained components, security fixes on a schedule, audit records. Outside evidence: the lock-in figure is from a Perforce press release, where it is 63% in the EU and the UK; the npm worm is the one CISA calls Shai-Hulud; Microsoft says it reviewed 136 extensions for malicious code and removed 110 from its Visual Studio Marketplace in 2025, as of June. Today the trust system is one reviewer’s judgement; tiers and a fast lane make that judgement visible, repeatable and shared. None of the three moves is scoped or staffed.</aside>
+    </section>
+
+    <!-- 15 -->
+    <section data-slide-id="s15-why">
+      <div class="eyebrow">Why it matters · What this buys us</div>
+      <h2>A good marketplace is where Dify’s trust layer starts</h2>
+      <div class="grid c4 panes"><div class="pane"><span class="label blue">Brand</span><strong>A name buyers and partners trust</strong><p>Tiers and verified marks turn a catalog into a brand: a plugin on Dify Marketplace would mean someone checked it, and partners list where buyers look.</p></div><div class="pane"><span class="label blue">Distinctive</span><strong>Something no rival marketplace ships</strong><p>The security-review pack is a product feature competitors do not have. Governance stops being overhead and becomes a reason to buy.</p></div><div class="pane"><span class="label blue">Data</span><strong>Numbers the company can steer by</strong><p>Seven measured lines every quarter, plus usage that shows what customers actually integrate: the marketplace becomes a demand sensor, not a cost centre.</p></div><div class="pane amber"><span class="label amber">Efficiency</span><strong>One reviewer absorbs three times the load</strong><p>Automatic checks stop about one in three submissions before a person sees them. WordPress.org absorbed 41% more reviews with the same team.</p></div></div>
+      <div class="band tint"><b>Our practice</b>&nbsp; Checks at every step, every package opened once, rules with teeth, numbers every quarter. <b>The return</b>&nbsp; buyers get certainty, partners get a fast lane, and Dify gets the trust layer every later product stands on.</div>
+      <div class="source-bar"><span>Sources: Community Ops data (21 Oct – 19 Nov); GitHub, langgenius/dify-plugins (24 Nov); WordPress.org plugins team report (7 Jan 2026); benchmark on slide 12</span><span>15 / 17</span></div>
+      <aside class="notes">The strategic case, not a status update. The four returns answer “what does this buy the company”: brand (the marketplace name becomes an asset), distinctive (the security-review pack is a feature no competing marketplace ships), data (seven measured lines plus usage concentration make the marketplace a demand sensor), efficiency (automation absorbs one in three submissions; WordPress absorbed 41% more with the same team). The trust layer is the point: enterprise security review, the partner programme and the agent ecosystem all stand on a marketplace whose listings mean something. The three moves on the previous slide are the first bricks; none is scoped or staffed, and nothing here claims governance caused growth in installs, usage or revenue.</aside>
+    </section>
+
+    <!-- 16 -->
+    <section data-slide-id="s16-measure">
       <div class="eyebrow">What we propose · Measurement</div>
       <h2>What we can already measure, and what we still cannot</h2>
       <div class="score">
         <div class="sc head"><span></span><span>Question</span><span>What we have today</span><span>Status</span></div>
         <div class="sc"><b>Supply</b><strong>How many plugins arrive?</strong><p>160 new plugins in 30 days</p><span class="chip">Measured</span></div>
-        <div class="sc"><b>Use</b><strong>Which plugins matter?</strong><p>12.8M calls in 30 days; 50 plugins carry 99%</p><span class="chip">Measured</span></div>
+        <div class="sc"><b>Use</b><strong>Which plugins are really used?</strong><p>12.8M calls in 30 days; 50 plugins carry 99%</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Load</b><strong>How much review work is there?</strong><p>331 submissions in November; 97% reviewed by one person</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Automation</b><strong>How much do the checks absorb?</strong><p>About 1 in 3 submissions stopped automatically</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Cost</b><strong>What does one reviewed plugin cost?</strong><p>Reviewer time per submission is not recorded</p><span class="chip no">Not yet</span></div>
         <div class="sc"><b>Value</b><strong>Which plugins come from partners, and who installs them?</strong><p>No link yet between plugins, partners and customer accounts</p><span class="chip no">Not yet</span></div>
         <div class="sc"><b>Targets</b><strong>Did Phase 1 hit its targets?</strong><p>No baseline or measurement window yet</p><span class="chip no">Not yet</span></div>
       </div>
-      <div class="band"><b>Proposal</b>&nbsp; Report these seven lines every quarter, on the same cycle as the channel review. Tiers and partner tagging close the “Value” gap.</div>
-      <div class="source-bar"><span>Sources: Marketplace ops dashboard (24 Nov); Community Ops data (21 Oct – 19 Nov); GitHub (24 Nov); Plugin governance review (23 Nov)</span><span>14 / 15</span></div>
-      <aside class="notes">This is the governance team’s answer to the request for a shared, numeric baseline. Four lines are measurable today from existing systems. Three are not: reviewer time, the link between plugins and partner or customer accounts, and the Phase 1 acceptance targets. The quarterly cadence follows the three-to-six-month refresh asked for in the group.</aside>
+      <div class="band tightband"><b>Proposal</b>&nbsp; Report these seven lines every quarter, alongside the channel review. The number to add is how many customers use a partner plugin: Atlassian reports more than 40% of its customers with a Marketplace app, Salesforce 91% with an AppExchange app.</div>
+      <div class="source-bar"><span>Sources: Marketplace ops dashboard (24 Nov); Community Ops data (21 Oct – 19 Nov); GitHub (24 Nov); Atlassian blog (26 Oct 2026); Salesforce blog (12 May 2025)</span><span>16 / 17</span></div>
+      <aside class="notes">This is the governance team’s answer to the call for a shared, numeric baseline. Four lines are measurable today from existing systems. Three are not: reviewer time, the link between plugins and partner or customer accounts, and the Phase 1 acceptance targets. The quarterly cadence follows the three-to-six-month refresh raised at the bi-weekly.</aside>
     </section>
 
-    <!-- 15 -->
-    <section data-slide-id="s15-next">
+    <!-- 17 -->
+    <section data-slide-id="s17-next">
       <div class="eyebrow">What we propose · The next 90 days</div>
       <h2>The next 90 days: three checkpoints, and three things we need from this meeting</h2>
       <div class="split s-60" style="margin-top:34px">
         <div>
           <span class="label">Proposed checkpoints for late February</span>
-          <div class="score" style="margin-top:14px"><div class="sc gate head"><span></span><span>What should be true</span><span>If it is not</span></div><div class="sc gate"><b class="gn">1</b><strong>The 50 most-used plugins and every partner plugin carry a tier and a category</strong><p>Tiers stay an internal label and are not shown to users</p></div><div class="sc gate"><b class="gn">2</b><strong>At least two partners take on a connector from the Japan list</strong><p>We stop presenting the marketplace as a partner channel in Japan</p></div><div class="sc gate"><b class="gn">3</b><strong>Reviewer time is recorded, and a second reviewer handles a third of merges</strong><p>We narrow intake: stricter automatic rejection, a slower lane for unverified authors</p></div></div>
+          <div class="score" style="margin-top:14px"><div class="sc gate head"><span></span><span>What should be true</span><span>If it is not</span></div><div class="sc gate"><b class="gn">1</b><strong>The 50 most-used plugins and every partner plugin carry a tier and a category</strong><p>Tiers stay an internal label and are not shown to users</p></div><div class="sc gate"><b class="gn">2</b><strong>At least two partners commit to building one of the six missing connectors for Japan</strong><p>We stop presenting the marketplace as a partner channel in Japan</p></div><div class="sc gate"><b class="gn">3</b><strong>Reviewer time is recorded, and a second reviewer handles a third of merges</strong><p>We narrow intake: stricter automatic rejection, a slower lane for unverified authors</p></div></div>
         </div>
         <div class="box amber">
           <span class="label amber">What we need from this meeting</span>
@@ -295,9 +322,9 @@
           </ol>
         </div>
       </div>
-      <div class="band"><b>Meanwhile</b>&nbsp; The 24 November clean-up is reviewed case by case.</div>
-      <div class="source-bar"><span>Sources: Plugin governance review (23 Nov); Community Ops Q4 proposal; CMO Office group discussion (21–24 Nov). Checkpoints and thresholds are proposals by Community Ops.</span><span>15 / 15</span></div>
-      <aside class="notes">The checkpoints follow the same habit as the go-to-market research shared in the group: state what should be true in 90 days and what changes if it is not. The thresholds are starting points for discussion, not commitments. Routine governance continues through automatic checks plus human review. Bot pre-check and a cool-down for repeat offenders stay in requirements review; likes and ratings have simple limits today, and trusted ranking still needs its own evidence.</aside>
+      <div class="band tightband"><b>A precedent</b>&nbsp; WordPress.org reviewed 41% more plugins in 2025 with a team of the same size, and credits better review tools. Meanwhile, the 24 November clean-up is reviewed case by case.</div>
+      <div class="source-bar"><span>Sources: Plugin governance review (23 Nov); Community Ops Q4 proposal; WordPress.org plugins team report (7 Jan 2026). Checkpoints and thresholds are proposals by Community Ops.</span><span>17 / 17</span></div>
+      <aside class="notes">The checkpoints follow the same habit as the industry research shared at the bi-weekly: state what should be true in 90 days and what changes if it is not. The thresholds are starting points for discussion, not commitments. Routine governance continues through automatic checks plus human review. Bot pre-check and a cool-down for repeat offenders stay in requirements review; likes and ratings have simple limits today, and trusted ranking still needs its own evidence.</aside>
     </section>
 
   </div></div>
