@@ -12,7 +12,7 @@ A 17-slide review of Dify plugin governance from May to November 2026, written f
 | Why now | 03–05 | The questions raised at the bi-weekly, marketplace scale, growth in submissions and reviewer concentration |
 | What we did | 06–09 | Six months in one page, November audit, usage concentration, new rules and their first two weeks |
 | What we learned | 10–13 | Demand signals from community plugins, connector coverage for large Japanese companies, how other ecosystems signal trust, and a side-by-side read of DeepSeek Harness |
-| What we propose | 14–17 | Three moves, what the work buys the company, measurement scorecard, 90-day checkpoints and asks |
+| What we propose | 14–17 | Three moves, what the work buys the company, measurement scorecard, and a closing statement with what we are watching |
 
 ## Files
 
@@ -28,7 +28,8 @@ A 17-slide review of Dify plugin governance from May to November 2026, written f
 ## Evidence boundaries
 
 - Slide 03 paraphrases an internal discussion. It contains no direct quotations and it is anonymised: no speaker, team or role is named, and the slide presents the questions raised rather than any claim about what leadership wants.
-- Slides 14 and 17 are proposals by Community Ops. Nothing on them is scoped, staffed or agreed, and the 90-day thresholds are starting points for discussion.
+- Slide 14 is a proposal by Community Ops. Nothing on it is scoped, staffed or agreed.
+- Slide 17 makes no ask and sets no threshold. It is a statement plus five observations, each traceable to an earlier slide, and it names what we are watching next.
 - Slide 13 compares ecosystem design with DeepSeek Harness, a public agent runtime. A harness plugin installs into a local profile and a Dify plugin runs as a hosted service; the slide makes no like-for-like product claim.
 - Slide 15 frames the same internal figures used elsewhere as four returns — brand, distinctive features, data, efficiency. No outside revenue or growth claim is made.
 - "1 in 8" on slide 04 is derived (160 new plugins ÷ 1,278 total).

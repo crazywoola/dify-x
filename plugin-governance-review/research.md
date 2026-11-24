@@ -39,7 +39,7 @@ We found no GitHub feature that labels AI-written pull requests. That is "none f
 
 The official registry for MCP servers has been in preview since 8 September 2025. It verifies who owns a name (by GitHub login or DNS record) but states that "consumers should assume minimal-to-no moderation" ([MCP Registry moderation policy](https://modelcontextprotocol.io/registry/moderation-policy)).
 
-## 3. The review load is industry-wide (slides 5 and 17)
+## 3. The review load is industry-wide (slides 5 and 15)
 
 | Fact | Quote from the source | Source |
 |---|---|---|
