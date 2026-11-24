@@ -37,4 +37,4 @@ A 17-slide review of Dify plugin governance from May to November 2026, written f
 - "Vendor-published" on slide 10 is a heuristic (author name appears in the plugin name), not a census.
 - The twelve systems on slide 11 were chosen by Community Ops for large Japanese companies; SAP and ServiceNow are there by judgement, without a verified Japan customer count, and the Japan team has not reviewed the list.
 - Outside figures (GitHub, WordPress.org, Perforce, CISA, Atlassian, Salesforce, Cybozu) are quoted from the pages linked in `research.md`; they are context, not evidence about Dify.
-- The Phase 1 targets on slide 06 have not been measured against a baseline.
+- The Phase 1 targets on slide 06 are the acceptance bar for the first quarterly report. No baseline has been measured yet, which is why slide 16 lists them as a line to add.

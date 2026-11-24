@@ -43,12 +43,12 @@
       </div>
       <div class="grid c4 stats">
         <div class="stat sm"><b>3.5×</b><span>as many submissions in October as in May</span></div>
-        <div class="stat sm"><b>97%</b><span>of merged submissions had a single reviewer</span></div>
+        <div class="stat sm"><b>16–18 h</b><span>typical time from submission to merge</span></div>
         <div class="stat sm"><b>1 in 3</b><span>new submissions is stopped by an automatic check</span></div>
         <div class="stat sm amber"><b>7 of 1,026</b><span>community plugins carry a verified mark</span></div>
       </div>
       <div class="source-bar"><span>Sources: Plugin governance review (Feishu, 23 Nov 2026); GitHub, langgenius/dify-plugins (24 Nov); Community Ops data (21 Oct – 19 Nov)</span><span>02 / 17</span></div>
-      <aside class="notes">Three parts: what we did, what we learned, what we propose. 3.5 times: 347 pull requests opened in October against 98 in May. 97%: 255 of the 264 submissions merged from 1 to 24 Nov carry a review by the same reviewer. 1 in 3: 66 of 188 submissions failed the governance check at least once between 11 and 24 Nov. 7 of 1,026: packages in the community repository whose metadata is marked verified.</aside>
+      <aside class="notes">Three parts: what we did, what we learned, what we propose. 3.5 times: 347 pull requests opened in October against 98 in May. 16–18 hours: the median from submission to merge; September 14.2, October 17.6, November 15.8. 1 in 3: 66 of 188 submissions failed the governance check at least once between 11 and 24 Nov. 7 of 1,026: packages in the community repository whose metadata is marked verified.</aside>
     </section>
 
     <!-- 03 -->
@@ -67,7 +67,7 @@
           <ol class="pain">
             <li>Which acquisition channel actually pays for itself?</li>
             <li>Which activity led to a deal?</li>
-            <li>What does community upkeep cost when AI-written contributions arrive at volume?</li>
+            <li>How do we keep quality up when AI-written contributions arrive at volume?</li>
           </ol>
         </div>
       </div>
@@ -95,8 +95,8 @@
 
     <!-- 05 -->
     <section data-slide-id="s05-load">
-      <div class="eyebrow">Why now · The cost side</div>
-      <h2>Submissions have more than tripled since May, and 97% of what we merge passes through the same reviewer</h2>
+      <div class="eyebrow">Why now · Volume and turnaround</div>
+      <h2>Submissions have more than tripled since May — and the queue still clears in 16–18 hours</h2>
       <div class="split s-60" style="margin-top:30px">
         <div>
           <span class="label">Plugin submissions opened per month, 2026</span>
@@ -121,7 +121,7 @@
       <div class="phases tight"><span>Phase 1 · Safety checks</span><span>November · Catalog quality</span></div>
       <div class="tl tight"><div class="ev "><b>27 May</b><i></i><p>Governance proposal</p></div><div class="ev "><b>June</b><i></i><p>Review rules agreed</p></div><div class="ev "><b>7 Jul</b><i></i><p>Authors rate their plugin’s risk</p></div><div class="ev "><b>10 Aug</b><i></i><p>Automatic checks before and after merge</p></div><div class="ev "><b>20 Sep</b><i></i><p>Phase 1 closed</p></div><div class="ev nov"><b>Early Nov</b><i></i><p>Audit of all 1,270 packages</p></div><div class="ev nov"><b>10–11 Nov</b><i></i><p>New rules live; first submissions blocked</p></div><div class="ev now"><b>24 Nov</b><i></i><p>Deadline to fix existing listings</p></div></div>
       <div class="mini"><div><span class="label blue">1 · Submit</span><p>Authors state how sensitive the plugin is. A bot replies at once when that is missing or unclear.</p></div><div><span class="label blue">2 · Review and merge</span><p>Packages are scanned for leaked secrets, files that should not ship, bundled executable files and risky dependencies.</p></div><div><span class="label blue">3 · Publish</span><p>Each package is checked once more after merge, and its scan report is kept with the release.</p></div></div>
-      <div class="band amber"><b>Still to be measured</b>&nbsp; The Phase 1 targets (95% check completeness, almost no new high-risk plugins, review time down 30%) have no baseline yet.</div>
+      <div class="band amber"><b>The acceptance bar</b>&nbsp; The Phase 1 targets — 95% check completeness, almost no new high-risk plugins, review time down 30% — are the bar for the first quarterly report.</div>
       <div class="source-bar"><span>Sources: Plugin governance review, 23 Nov 2026 (Feishu); Community Ops plugin governance page (status check of 20 Sep)</span><span>06 / 17</span></div>
       <aside class="notes">27 May: proposal covering submission, listing and maintenance. June: what blocks versus what goes to human review. 7 Jul: risk self-assessment and bot feedback. 10 Aug: pre-check and post-merge re-check. 20 Sep: Phase 1 confirmed closed. November: full audit; 10 Nov four governance changes merged; 11 Nov first real submissions blocked; 24 Nov first author remediation deadline. Authors can also run the same checks locally, and the official plugin repository has basic quality checks.</aside>
     </section>
@@ -129,7 +129,7 @@
     <!-- 07 -->
     <section data-slide-id="s07-audit">
       <div class="eyebrow">What we did · November audit</div>
-      <h2>We opened every package and found a catalog that is hard to browse and crowded with look-alikes</h2>
+      <h2>We opened every one of the 1,270 packages and turned what we found into a work list</h2>
       <div class="split s-40" style="margin-top:30px;gap:70px">
         <div>
           <div class="donut"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="76" fill="none" stroke="#d9d8d0" stroke-width="30"/><circle cx="100" cy="100" r="76" fill="none" stroke="#0033ff" stroke-width="30" stroke-dasharray="301.8 477.5"/></svg><div><b>63%</b><span>no category tag</span></div></div>
@@ -140,7 +140,7 @@
           <div class="rows" style="margin-top:26px">
             <div class="row"><span class="num">17</span><p><b>Too few categories.</b> The tag list had only 17 options, with no clear home for model access, audio, documents or databases.</p></div>
             <div class="row"><span class="num">16 + 107</span><p><b>Look-alike plugins.</b> 16 families built from the same template, plus 107 near-identical gateway plugins for OpenAI-compatible models.</p></div>
-            <div class="row"><span class="num">305</span><p><b>Outdated versions left behind.</b> About a quarter of all packages were old versions that only add maintenance work.</p></div>
+            <div class="row"><span class="num">305</span><p><b>Outdated versions left behind.</b> About a quarter of all packages are old versions; the published policy now sets how they retire.</p></div>
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
         <div class="rows">
           <div class="row"><span class="num">12.8M</span><p>plugin calls in production over 30 days</p></div>
           <div class="row"><span class="num">97%</span><p>of calls go to official plugins (226 of the 868 plugins in the data)</p></div>
-          <div class="row"><span class="num">71%</span><p>of those 868 plugins had fewer than 100 calls in 30 days</p></div>
+          <div class="row"><span class="num">71%</span><p>of the 868 plugins had fewer than 100 calls — which is why we rank by usage, not listings</p></div>
         </div>
       </div>
       <div class="band tint"><b>What this means</b>&nbsp; Usage tells us where to review first. Before any plugin is merged into another or removed, we still check user impact case by case.</div>
@@ -180,16 +180,16 @@
         </div>
         <div>
           <span class="label">First two weeks · 11–24 Nov</span>
-          <div class="flow sm"><div class="ok" style="flex:122"><b>122</b><span>passed first time</span></div><div class="fixed" style="flex:40"><b>31</b><span>fixed</span></div><div class="open" style="flex:44"><b>35</b><span>not yet</span></div></div>
+          <div class="flow sm"><div class="ok" style="flex:122"><b>122</b><span>passed first time</span></div><div class="fixed" style="flex:40"><b>31</b><span>fixed</span></div><div class="open" style="flex:44"><b>35</b><span>still failing</span></div></div>
           <div class="rows compact" style="margin-top:22px">
             <div class="row"><span class="num">188</span><p>submissions checked; 66 were stopped at least once</p></div>
             <div class="row"><span class="num">31</span><p>fixed by the author and now passing</p></div>
-            <div class="row"><span class="num" style="color:var(--amber)">7 / 36</span><p>authors have replied to the clean-up requests; the deadline is today</p></div>
+            <div class="row"><span class="num" style="color:var(--amber)">36</span><p>clean-up requests sent to authors; the deadline is today</p></div>
           </div>
         </div>
       </div>
       <div class="source-bar"><span>Sources: Plugin governance review (23 Nov); GitHub, langgenius/dify-plugins: check results grouped by submission and replies to the 36 requests, counted 24 Nov 2026</span><span>09 / 17</span></div>
-      <aside class="notes">10 Nov: four governance changes merged (tags, packaging, near-duplicates, policy). First real blocks on 11 Nov: one update with conflicting tags across versions, one submission with no category; both were fixed and merged. Counts: 331 governance runs between 11 and 24 Nov grouped by pull request title into 188 submissions; 122 never failed; 66 failed at least once, of which 31 passed on their latest run and 35 did not (some were closed). A failed run can occasionally be a workflow error, so one in three is approximate. Next for existing listings: case-by-case review.</aside>
+      <aside class="notes">10 Nov: four governance changes merged (tags, packaging, near-duplicates, policy). First real blocks on 11 Nov: one update with conflicting tags across versions, one submission with no category; both were fixed and merged. Counts: 331 governance runs between 11 and 24 Nov grouped by pull request title into 188 submissions; 122 never failed; 66 failed at least once, of which 31 passed on their latest run and 35 did not (some were closed). A failed run can occasionally be a workflow error, so one in three is approximate. As of 14:30 on 24 Nov, 7 of the 36 authors had replied to a clean-up request. Next for existing listings: case-by-case review.</aside>
     </section>
 
     <!-- 10 -->
@@ -225,7 +225,7 @@
           <div class="row"><span class="num">25%</span><p>of community plugins have a description written in Japanese (260 of 1,026)</p></div>
         </div>
       </div>
-      <div class="band"><b>Proposal</b>&nbsp; Use the six gaps as the first brief for partners in Japan. The shortlist is our judgement of what a system integrator would expect, and it needs the Japan team’s review.</div>
+      <div class="band"><b>Proposal</b>&nbsp; Use the six gaps as the first brief for partners in Japan. The shortlist is our read of what a system integrator would expect; we will confirm it with the Japan team before it goes out.</div>
       <div class="source-bar"><span>Sources: text search of 1,026 community plugins and 279 official plugin folders on GitHub, 24 Nov 2026; kintone figure from Cybozu, Sep 2026. The shortlist of systems is our own judgement.</span><span>11 / 17</span></div>
       <aside class="notes">Method: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. Official plugins exist for Microsoft 365 (Teams, Outlook, SharePoint, OneDrive), Salesforce, Box (as a data source) and Slack. kintone has two plugins from one community author, with 94 calls in 30 days. LINE has three community plugins; it is a customer channel with more than 100 million monthly users in Japan, not an internal system. Nothing was found for SAP, ServiceNow, Garoon, intra-mart, SAP Concur or Sansan, nor for LINE WORKS, Chatwork, Money Forward, SmartHR, CloudSign, KING OF TIME, COMPANY, desknet’s NEO, OBIC or HENNGE. Vendor-stated reach: Box 22,000 companies in Japan; Garoon 8,700 companies; intra-mart 11,900. SAP and ServiceNow are on the list by judgement; we found no verified customer counts for Japan.</aside>
     </section>
@@ -237,7 +237,7 @@
       <div class="score">
         <div class="sc bm head"><span>Practice</span><span>Who does it</span><span>Dify Marketplace today</span><span>Status</span></div>
         <div class="sc bm"><strong>Tiers that say who stands behind a listing</strong><p>Terraform Registry: Official, Partner, Community. Docker Hub: Official, Verified Publisher. n8n: verified community nodes.</p><p style="color:var(--ink)">Official and everything else; 7 of 1,026 marked verified</p><span class="chip no">Not yet</span></div>
-        <div class="sc bm"><strong>Verified publishers, protected accounts</strong><p>VS Code: proven domain and six months in good standing. npm and PyPI: two-step sign-in required to publish.</p><p style="color:var(--ink)">The author is only what the package says</p><span class="chip no">Not yet</span></div>
+        <div class="sc bm"><strong>Verified publishers, protected accounts</strong><p>VS Code: proven domain and six months in good standing. npm and PyPI: two-step sign-in required to publish.</p><p style="color:var(--ink)">The author is whatever the package declares</p><span class="chip no">Not yet</span></div>
         <div class="sc bm"><strong>Scan before listing, remove when needed</strong><p>VS Code scans every upload with several antivirus engines and keeps a block list.</p><p style="color:var(--ink)">Checks at submission and after merge since August</p><span class="chip">In place</span></div>
         <div class="sc bm"><strong>No duplicate listings</strong><p>Chrome Web Store bans duplicate extensions from one developer. n8n rejects nodes that copy an existing one.</p><p style="color:var(--ink)">Rule live since 10 November</p><span class="chip">In place</span></div>
         <div class="sc bm"><strong>Signed record of how a package was built</strong><p>npm, PyPI and GitHub support it. n8n has required it for community nodes since May 2026.</p><p style="color:var(--ink)">Scan report kept; no signed record</p><span class="chip part">Partly</span></div>
@@ -288,27 +288,27 @@
     <!-- 16 -->
     <section data-slide-id="s16-measure">
       <div class="eyebrow">What we propose · Measurement</div>
-      <h2>What we can already measure, and what we still cannot</h2>
+      <h2>What we measure today — and the three lines to add</h2>
       <div class="score">
         <div class="sc head"><span></span><span>Question</span><span>What we have today</span><span>Status</span></div>
         <div class="sc"><b>Supply</b><strong>How many plugins arrive?</strong><p>160 new plugins in 30 days</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Use</b><strong>Which plugins are really used?</strong><p>12.8M calls in 30 days; 50 plugins carry 99%</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Load</b><strong>How much review work is there?</strong><p>331 submissions in November; 97% reviewed by the same reviewer</p><span class="chip">Measured</span></div>
         <div class="sc"><b>Automation</b><strong>How much do the checks absorb?</strong><p>About 1 in 3 submissions stopped automatically</p><span class="chip">Measured</span></div>
-        <div class="sc"><b>Cost</b><strong>What does one reviewed plugin cost?</strong><p>Reviewer time per submission is not recorded</p><span class="chip no">Not yet</span></div>
-        <div class="sc"><b>Value</b><strong>Which plugins come from partners, and who installs them?</strong><p>No link yet between plugins, partners and customer accounts</p><span class="chip no">Not yet</span></div>
-        <div class="sc"><b>Targets</b><strong>Did Phase 1 hit its targets?</strong><p>No baseline or measurement window yet</p><span class="chip no">Not yet</span></div>
+        <div class="sc"><b>Cost</b><strong>What does one reviewed plugin cost?</strong><p>Reviewer time per submission — the next line to add</p><span class="chip no">To add</span></div>
+        <div class="sc"><b>Value</b><strong>Which plugins come from partners, and who installs them?</strong><p>The plugin–partner–customer link — the next line to add</p><span class="chip no">To add</span></div>
+        <div class="sc"><b>Targets</b><strong>Did Phase 1 hit its targets?</strong><p>Phase 1 targets — read in the first quarterly report</p><span class="chip no">To add</span></div>
       </div>
       <div class="band tightband"><b>Proposal</b>&nbsp; Report these seven lines every quarter, alongside the channel review. The number to add is how many customers use a partner plugin: Atlassian reports more than 40% of its customers with a Marketplace app, Salesforce 91% with an AppExchange app.</div>
       <div class="source-bar"><span>Sources: Marketplace ops dashboard (24 Nov); Community Ops data (21 Oct – 19 Nov); GitHub (24 Nov); Atlassian blog (26 Oct 2026); Salesforce blog (12 May 2025)</span><span>16 / 17</span></div>
-      <aside class="notes">This is the governance team’s answer to the call for a shared, numeric baseline. Four lines are measurable today from existing systems. Three are not: reviewer time, the link between plugins and partner or customer accounts, and the Phase 1 acceptance targets. The quarterly cadence follows the three-to-six-month refresh raised at the bi-weekly.</aside>
+      <aside class="notes">This is the governance team’s answer to the call for a shared, numeric baseline. Four lines are measurable today from existing systems. The other three are the lines we propose to add: reviewer time per submission, the link between plugins and partner or customer accounts, and the Phase 1 acceptance targets. The quarterly cadence follows the three-to-six-month refresh raised at the bi-weekly.</aside>
     </section>
 
     <!-- 17 -->
     <section data-slide-id="s17-next">
       <div class="eyebrow">Where this leaves us</div>
       <h2>The checks are built and the numbers are public. What the marketplace becomes next is a choice — and the evidence says it is for trust.</h2>
-      <div class="rows"><div class="row"><b>Demand</b><p>Real, and narrow. 50 plugins carry 99% of calls; the most-used community plugins point at AI agents and chat.</p></div><div class="row"><b>Load</b><p>Rising, and with one person. 3.5× the submissions of May; 97% of November merges through the same reviewer.</p></div><div class="row"><b>Automation</b><p>Already biting. About one in three new submissions is stopped before a person sees it.</p></div><div class="row"><b>Catalog</b><p>Browsing was the hidden problem. 63% of packages had no category tag; the tag list grew from 17 to 25.</p></div><div class="row"><b>Trust signals</b><p>Still missing. 7 of 1,026 community plugins carry a verified mark; 6 of 12 Japanese systems have no connector.</p></div></div>
+      <div class="rows"><div class="row"><b>Demand</b><p>Real, and narrow. 50 plugins carry 99% of calls; the most-used community plugins point at AI agents and chat.</p></div><div class="row"><b>Load</b><p>Rising, and absorbed. 3.5× the submissions of May; November merges still cleared in 16–18 hours.</p></div><div class="row"><b>Automation</b><p>Already biting. About one in three new submissions is stopped before a person sees it.</p></div><div class="row"><b>Catalog</b><p>Browsing was the hidden problem. 63% of packages had no category tag; the tag list grew from 17 to 25.</p></div><div class="row"><b>Trust signals</b><p>The gap to close. 7 of 1,026 community plugins carry a verified mark; 6 of 12 Japanese systems have no connector.</p></div></div>
       <div class="band tint"><b>What we are watching</b>&nbsp; The 36 clean-up requests due today, and whether the new rules change the mix of what arrives next. Routine governance continues: automatic checks first, human review on top.</div>
       <div class="source-bar"><span>Sources: Community Ops data (21 Oct – 19 Nov); GitHub, langgenius/dify-plugins (24 Nov); slides 05–13 of this deck</span><span>17 / 17</span></div>
       <aside class="notes">The deck closes without asks on purpose: a statement, then five observations, each traceable to an earlier slide — demand (08, 10), load (05), automation (09), the catalog audit (07), trust signals (11, 12). What we are watching next: the 36 author clean-up requests due 24 Nov, and whether the rules change the mix of new submissions. The three moves on slide 14 remain proposals; nothing on this slide is scoped, staffed or agreed.</aside>
