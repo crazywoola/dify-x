@@ -188,6 +188,7 @@ a{color:inherit}
 .sc.gate strong{font-size:24px;line-height:1.3}
 .reveal .sc.gate p{font-size:22px;line-height:1.38;color:var(--muted)}
 .chip.part{background:var(--tint);color:var(--blue)}
+.band.tightband{margin-top:22px;padding:18px 32px;line-height:1.4}
 
 /* Chinese calibration */
 html[lang="zh-CN"] .reveal h2{font-size:56px;line-height:1.16;letter-spacing:-.02em}

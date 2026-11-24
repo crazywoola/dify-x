@@ -16,7 +16,9 @@
 | `s02`, `s08`, `s10`, `s14` | Community Ops data: production plugin calls, 21 Oct – 19 Nov 2026 | 12.83M calls, 868 plugins, concentration, community share | Rolling 30-day window; the last day is partial. Read shares, not daily peaks. |
 | `s02`, `s05`, `s09`, `s14` | GitHub, [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) and [langgenius/dify](https://github.com/langgenius/dify), counted 24 Nov 2026 | Submissions per month, reviewer concentration, time to merge, check outcomes, replies to requests | See counting rules below. |
 | `s02`, `s10`, `s11`, `s12` | Package metadata of 1,026 plugins in langgenius/dify-plugins and 279 plugin folders in [langgenius/dify-official-plugins](https://github.com/langgenius/dify-official-plugins), 24 Nov 2026 | Verified mark, vendor-published heuristic, connector coverage, Japanese descriptions | See counting rules below. |
-| `s12` | [Terraform Registry](https://developer.hashicorp.com/terraform/registry/providers), [Docker Hub trusted content](https://docs.docker.com/docker-hub/image-library/trusted-content/), VS Code Marketplace, npm, PyPI, GitHub and Chrome Web Store documentation; contribution policies of curl, Gentoo and QEMU | How other ecosystems signal trust | Each practice was read on the provider's own documentation on 24 Nov 2026. |
+| `s12` | [Terraform Registry](https://developer.hashicorp.com/terraform/registry/providers), [Docker Hub trusted content](https://docs.docker.com/docker-hub/image-library/trusted-content/), VS Code Marketplace, npm, PyPI, GitHub and Chrome Web Store documentation; contribution policies of curl, Gentoo and QEMU | How other ecosystems signal trust | Each practice was read on the provider's own documentation on 24 Nov 2026; quotes and links are in [research.md](research.md). n8n is included as the closest peer. |
+| `s05`, `s13`, `s14`, `s15` | Public sources quoted in [research.md](research.md): GitHub blog, WordPress.org plugins team, Perforce, CISA, Atlassian, Salesforce | Industry context for review load, buyer concerns and marketplace attach rates | Quoted from the linked pages on 24 Nov 2026. Context only; not evidence about Dify. |
+| `s11` | Vendor-stated adoption figures in [research.md](research.md), section 6 | Why each system is on the Japan list | Definitions differ between vendors; SAP and ServiceNow have no verified Japan figure. |
 | `s12` | [Marketplace Curation Policy](https://github.com/langgenius/dify-plugins/blob/main/docs/marketplace-curation-policy.md) | Our own duplicate rule | Public document. |
 
 ## Counting rules
@@ -29,7 +31,7 @@
 - **Replies to requests (`s09`)**: for each of the 36 request threads, whether the plugin author commented after the request. 7 of 36 as of 24 Nov 2026 14:30 CST.
 - **Community plugin calls (`s10`)**: calls to plugins not published under the official account: 391,322 in the window. Shares are of that total. The chat-bot line sums six plugins in the top 20.
 - **Vendor-published (`s10`)**: 282 plugins whose author name appears in the plugin name (or the reverse); 49 had at least one call; 3,011 calls in total.
-- **Connector coverage (`s11`)**: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. The twelve systems were chosen by Community Ops.
+- **Connector coverage (`s11`)**: keyword search over plugin names and descriptions, then over every text file in the latest version of each package. The twelve systems were chosen by Community Ops for large Japanese companies: four have official plugins (Microsoft 365, Salesforce, Box, Slack), two have community plugins only (kintone, LINE), six have none (SAP, ServiceNow, Garoon, intra-mart, SAP Concur, Sansan).
 - **Japanese descriptions (`s11`)**: plugins whose Japanese description field contains kana: 260 of 1,026. 403 fill the field at all.
 - **Verified mark (`s02`, `s12`)**: packages whose metadata sets the verified flag: 7 of 1,026.
 
@@ -39,3 +41,4 @@
 - No cost in money: reviewer time is not recorded (slide `s14`).
 - No outcome for the 24 November deadline; cases are reviewed one by one.
 - No claim that a trust tier certifies code as safe (slide `s12` says the opposite).
+- No partner-sourced revenue benchmark: none could be confirmed with its sample size.

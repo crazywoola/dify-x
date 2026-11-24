@@ -11,7 +11,7 @@ A 15-slide review of Dify plugin governance from May to November 2026, written f
 | Summary | 01–02 | Cover and the short version |
 | Why now | 03–05 | What leadership is asking, marketplace scale, growth in submissions and reviewer concentration |
 | What we did | 06–09 | Six months in one page, November audit, usage concentration, new rules and their first two weeks |
-| What we learned | 10–12 | Demand signals from community plugins, connector coverage in Japan, how other ecosystems signal trust |
+| What we learned | 10–12 | Demand signals from community plugins, connector coverage for large Japanese companies, how other ecosystems signal trust |
 | What we propose | 13–15 | Three moves, measurement scorecard, 90-day checkpoints and asks |
 
 ## Files
@@ -21,6 +21,7 @@ A 15-slide review of Dify plugin governance from May to November 2026, written f
 - `styles.css`: self-contained editorial frame for this deck (1920 × 1080 canvas).
 - `assets/marketplace-dashboard-30d.png`: crop of the Marketplace ops dashboard, snapshot of 24 November 2026.
 - `source-map.md`: per-slide sources, counting rules and evidence boundaries.
+- `research.md`: outside evidence with links and quotes: how other ecosystems signal trust, the n8n comparison, review load, buyer concerns, and business systems in Japan.
 - `qa/contact-sheet-en.png`, `qa/contact-sheet-zh.png`: 4 × 4 visual review sheets.
 - Reveal.js is reused from `../agent-plugin-governance/assets/reveal/`.
 
@@ -31,5 +32,6 @@ A 15-slide review of Dify plugin governance from May to November 2026, written f
 - "1 in 8" on slide 04 is derived (160 new plugins ÷ 1,278 total).
 - Figures on slides 05 and 09 were counted from GitHub on 24 November 2026 and will drift.
 - "Vendor-published" on slide 10 is a heuristic (author name appears in the plugin name), not a census.
-- The system list on slide 11 is a first pass chosen by Community Ops and has not been reviewed by the Japan team.
+- The twelve systems on slide 11 were chosen by Community Ops for large Japanese companies; SAP and ServiceNow are there by judgement, without a verified Japan customer count, and the Japan team has not reviewed the list.
+- Outside figures (GitHub, WordPress.org, Perforce, CISA, Atlassian, Salesforce, Cybozu) are quoted from the pages linked in `research.md`; they are context, not evidence about Dify.
 - The Phase 1 targets on slide 06 have not been measured against a baseline.
