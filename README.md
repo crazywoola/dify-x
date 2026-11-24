@@ -51,7 +51,7 @@ Online:
 - `milvus/index.html`: RAG evolution with vector DB practice (theme switching, context/role docs).
 - `osmo-banana/index.html`: a 12-minute demo on a local-first Mac screen recording workbench (local recording, polished exports, auto zoom, smoothed cursor, webcam cutout, annotations, batch export).
 - `paypal/index.html`: payment risk & auth-defense playbook (card testing, ATO, dispute/chargeback abuse mitigation).
-- `plugin-governance-review/index.html`: Plugin governance: what we have done — a 15-slide, non-technical review of May to November 2026: safety checks, the November catalog audit, two weeks of the new rules in numbers, and the link to acquisition cost, trust and partners.
+- `plugin-governance-review/index.html`: Plugin governance: what we have done — a 15-slide, non-technical review of May to November 2026: what was built, demand signals from usage, how other ecosystems signal trust, and a proposal to run governance as a trust and partner channel.
 - `pupu/index.html`: building with Dify as a developer (plugin architecture, triggers, observability).
 - `stripe-agent-workshop/index.html`: From Scenario to System — choosing the Agent product form from the work itself, then the Dify Workflow Generator path from one sentence to an inspectable plan and a runnable graph.
 - English versions live in each folder's `index_en.html`, except `agent-systems-sg/` which is English-only.
