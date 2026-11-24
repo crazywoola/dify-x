@@ -189,6 +189,10 @@ a{color:inherit}
 .reveal .sc.gate p{font-size:22px;line-height:1.38;color:var(--muted)}
 .chip.part{background:var(--tint);color:var(--blue)}
 .band.tightband{margin-top:22px;padding:18px 32px;line-height:1.4}
+.sc.cmp{grid-template-columns:300px 1fr 1fr;min-height:88px}
+.sc.cmp.head{min-height:44px}
+.reveal .sc.cmp p{font-size:22px;line-height:1.38}
+.sc.cmp>strong{font-size:23px;line-height:1.28}
 
 /* Chinese calibration */
 html[lang="zh-CN"] .reveal h2{font-size:56px;line-height:1.16;letter-spacing:-.02em}

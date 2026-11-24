@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261124-9">
+  <link rel="stylesheet" href="styles.css?v=20261124-10">
 </head>
 <body>
   <div class="deck-brand"><img src="../assets/logo.svg" alt="Dify"><span>Dify · Community Ops · 插件治理回顾</span></div>
@@ -25,11 +25,11 @@
         <div>
           <div class="eyebrow">CMO Office 双周会 · 2026 年 11 月 24 日</div>
           <h1>插件治理：<br><span>这半年做了什么</span></h1>
-          <p>2026 年 5 月至 11 月。做了什么，数据说明了什么，以及把治理做成 Dify 信任渠道和伙伴渠道的提议。</p>
+          <p>2026 年 5 月至 11 月。做了什么，数据说明了什么，以及为什么插件市场是 Dify 信任层的起点。</p>
         </div>
-        <div class="cover-meta"><span>Community Operations · Dify Marketplace</span><span>共 15 页</span></div>
+        <div class="cover-meta"><span>Community Operations · Dify Marketplace</span><span>共 17 页</span></div>
       </div>
-      <aside class="notes">面向 CMO Office 双周会的插件治理回顾。来源：2026 年 11 月 23 日的飞书回顾文档、Community Ops 数据、11 月 24 日的 Marketplace 运营看板快照、langgenius/dify-plugins 的 GitHub 记录，11 月 21 日至 24 日 CMO Office 群内的讨论，以及 research.md 里列出的公开文档和报告。</aside>
+      <aside class="notes">面向 CMO Office 双周会的插件治理回顾。来源：2026 年 11 月 23 日的飞书回顾文档、Community Ops 数据、11 月 24 日的 Marketplace 运营看板快照、langgenius/dify-plugins 的 GitHub 记录，11 月 21 日至 24 日 CMO Office 群内的讨论，DeepSeek Harness 的公开文档，以及 research.md 里列出的公开文档和报告。</aside>
     </section>
 
     <!-- 02 -->
@@ -39,7 +39,7 @@
       <div class="grid c3 panes">
         <div class="pane"><span class="label blue">做了什么</span><strong>每个环节有检查，目录有规则</strong><p>插件在提交、合并、发布三个环节都要过检查。11 月 10 日起，每次提交还要过分类、查重、打包三道规则。</p></div>
         <div class="pane"><span class="label blue">看到了什么</span><strong>调用数据告诉我们需求在哪</strong><p>50 个插件承担了 99% 的调用。社区里用得最多的插件，是把 Dify 接到 AI Agent 和聊天工具上的。面向日本大企业，SAP、ServiceNow 和多数日本本土系统还没有连接器。</p></div>
-        <div class="pane amber"><span class="label amber">提议做什么</span><strong>三个动作，90 天后回看</strong><p>给每个插件标上信任层级，给伙伴开一条快速通道，给企业买家备一份安全评审材料包。</p></div>
+        <div class="pane amber"><span class="label amber">提议做什么</span><strong>三个动作，90 天后回看</strong><p>给每个插件标上信任层级，给伙伴开一条快速通道，给企业买家备一份安全评审材料包——Dify 信任层的第一批砖。</p></div>
       </div>
       <div class="grid c4 stats">
         <div class="stat sm"><b>3.5×</b><span>10 月的提交量是 5 月的 3.5 倍</span></div>
@@ -47,32 +47,32 @@
         <div class="stat sm"><b>约 1/3</b><span>的新提交被自动检查拦下</span></div>
         <div class="stat sm amber"><b>7 / 1,026</b><span>社区插件带有认证标记</span></div>
       </div>
-      <div class="source-bar"><span>来源：插件治理阶段回顾（飞书，2026-11-23）；GitHub，langgenius/dify-plugins（11 月 24 日）；Community Ops 数据（10 月 21 日–11 月 19 日）</span><span>02 / 15</span></div>
+      <div class="source-bar"><span>来源：插件治理阶段回顾（飞书，2026-11-23）；GitHub，langgenius/dify-plugins（11 月 24 日）；Community Ops 数据（10 月 21 日–11 月 19 日）</span><span>02 / 17</span></div>
       <aside class="notes">三部分：做了什么、看到了什么、提议做什么。3.5 倍：10 月新开 347 个 PR，5 月为 98 个。97%：11 月 1–24 日合并的 264 次提交中，255 次由同一位审核人审过。三分之一：11 月 11–24 日的 188 次提交中有 66 次至少没通过一回治理检查。1,026 个中的 7 个：社区仓中元数据标记为 verified 的包。</aside>
     </section>
 
     <!-- 03 -->
     <section data-slide-id="s03-leadership">
-      <div class="eyebrow">管理层在问什么 · CMO Office 群，11 月 21–24 日</div>
-      <h2>管理层要的是：每一项工作都说清花了多少、带来了什么</h2>
+      <div class="eyebrow">双周会上被问到的问题 · 11 月 21–24 日</div>
+      <h2>每件事花了多少、带回了什么？</h2>
       <div class="split s-60">
         <div class="rows">
-          <div class="row"><b>CEO<small>目标</small></b><p>先弄清每个获客渠道的成本，再谈别的。像量化交易团队一样，每三到六个月给渠道重新排一次优先级。</p></div>
-          <div class="row"><b>CMO Office<small>方向</small></b><p>营销从广播转向生态与信任。开源从“流量入口”变成“信任与信号入口”。</p></div>
-          <div class="row"><b>日本团队<small>发现</small></b><p>社媒发帖量和用户自发内容的数量，与营收看不出相关。精力应转向与伙伴联合销售和 BD 直接拜访。</p></div>
-          <div class="row"><b>群内分享的打法<small>AI 搜索</small></b><p>AI 助手推荐的是可信第三方的说法。先修好买家已经会看到的页面，再测量、再迭代。</p></div>
+          <div class="row"><b>渠道账<small>成本与回报</small></b><p>先弄清每个获客渠道的成本，再谈别的。像量化交易团队一样，每三到六个月给渠道重新排一次优先级。</p></div>
+          <div class="row"><b>生态与信任<small>方向</small></b><p>营销从广播转向生态与信任。开源从“流量入口”变成“信任与信号入口”。</p></div>
+          <div class="row"><b>日本市场<small>发现</small></b><p>社媒发帖量和用户自发内容的数量，与营收看不出相关。精力应转向与伙伴联合销售和 BD 直接拜访。</p></div>
+          <div class="row"><b>AI 搜索<small>行业研究</small></b><p>AI 助手推荐的是可信第三方的说法。先修好买家已经会看到的页面，再测量、再迭代。</p></div>
         </div>
         <div class="box amber">
-          <span class="label amber">听到的痛点</span>
+          <span class="label amber">背后的三个问题</span>
           <ol class="pain">
-            <li>没有一份大家共用的渠道成本基线，优先级排不出来。</li>
-            <li>归因数据缺失，做了什么和成交之间连不上。</li>
-            <li>AI 生成的低质量贡献越来越多，社区维护正在变成一笔隐性成本。</li>
+            <li>哪个获客渠道真的划得来？</li>
+            <li>哪件事带来了成交？</li>
+            <li>AI 写的东西成批涌进来之后，社区维护要花多少？</li>
           </ol>
         </div>
       </div>
-      <div class="source-bar"><span>来源：CMO Office Bi-Weekly 群聊及群内分享的研究材料，2026 年 11 月 21–24 日。由 Community Ops 转述。</span><span>03 / 15</span></div>
-      <aside class="notes">以下为转述，不是原话。CEO 要求团队把各渠道的获客成本作为共同基线，并把渠道有效性当作每三到六个月就会过期的知识。CMO Office 的调研建议从广播转向生态与信任，把开源重新定位为信任与信号入口。日本团队反馈社媒和 UGC 的数量与营收不相关，并说明数据来自抓取、不是精确值。群内分享的 AI 搜索打法强调第三方信源和“测量—迭代”的循环。</aside>
+      <div class="source-bar"><span>来自 CMO Office 双周会上的讨论，2026 年 11 月 21–24 日。由 Community Ops 转述并匿名化，不指明发言人。</span><span>03 / 17</span></div>
+      <aside class="notes">以下为转述，不是原话，并已匿名化：不指明发言人或团队。讨论涉及：把各渠道获客成本作为共同基线，并把渠道有效性当作每三到六个月就会过期的知识；建议从广播转向生态与信任，把开源重新定位为信任与信号入口；日本市场方面，社媒和 UGC 数量与营收不相关（数据来自抓取，不是精确值）；以及一套建立在第三方信源和“测量—迭代”循环上的 AI 搜索打法。</aside>
     </section>
 
     <!-- 04 -->
@@ -89,7 +89,7 @@
           <img class="shot" src="assets/marketplace-dashboard-30d.png" alt="Marketplace 运营看板：最近 30 天每日新增插件与每日新增安装">
         </div>
       </div>
-      <div class="source-bar"><span>来源：Marketplace 运营看板，2026 年 11 月 24 日快照，30 天视图。“8 个里有 1 个”= 160 个新插件 ÷ 1,278 个总数。</span><span>04 / 15</span></div>
+      <div class="source-bar"><span>来源：Marketplace 运营看板，2026 年 11 月 24 日快照，30 天视图。“8 个里有 1 个”= 160 个新插件 ÷ 1,278 个总数。</span><span>04 / 17</span></div>
       <aside class="notes">累计：1,278 个插件、388 个模板、30,313,428 次安装、333,969 次模板使用。最近 30 天：发布 160 个插件、39 个模板，新增 3,564,483 次安装、88,510 次模板使用。看板的总数与 11 月审计的口径不同（审计为 1,270 个包、950 个唯一插件）。</aside>
     </section>
 
@@ -110,7 +110,7 @@
         </div>
       </div>
       <div class="band amber"><b>这是全行业的事</b>&nbsp; GitHub 说，全平台每月合并的 PR 从 2023 年初的约 2,500 万涨到 9,000 多万；写代码的成本降了，审代码的成本没降。Dify 主仓库今年 10 月收到的 PR 是去年同期的 3.8 倍。</div>
-      <div class="source-bar"><span>来源：GitHub，langgenius/dify-plugins 与 langgenius/dify 的 PR，2026 年 11 月 24 日统计（*11 月为 1–24 日；合并用时取中位数）；GitHub 博客，2026 年 2 月 12 日、6 月 18 日。</span><span>05 / 15</span></div>
+      <div class="source-bar"><span>来源：GitHub，langgenius/dify-plugins 与 langgenius/dify 的 PR，2026 年 11 月 24 日统计（*11 月为 1–24 日；合并用时取中位数）；GitHub 博客，2026 年 2 月 12 日、6 月 18 日。</span><span>05 / 17</span></div>
       <aside class="notes">dify-plugins 每月新开 PR：5 月 98、6 月 138、7 月 168、8 月 186、9 月 183、10 月 347、11 月 331。已合并 PR 中由同一位审核人审过的：9 月 142 中的 140、10 月 286 中的 279、11 月 264 中的 255。合并中位用时：9 月 14.2 小时、10 月 17.6 小时、11 月 15.8 小时。主仓库 langgenius/dify：2025 年 10 月新开 379 个 PR，2026 年 10 月 1,442 个；未合并即关闭的比例保持在 17%–19% 左右，压力来自数量。审核工时目前没有记录。外部参照：GitHub 称 2023 年 1 月全平台每月合并约 2,500 万个 PR，如今超过 9,000 万。WordPress.org 2025 年审核了 12,713 个插件，比 2024 年多 40.6%，团队规模没变，官方把这归功于审核工具的改进。</aside>
     </section>
 
@@ -122,7 +122,7 @@
       <div class="tl tight"><div class="ev "><b>5 月 27 日</b><i></i><p>提出治理提案</p></div><div class="ev "><b>6 月</b><i></i><p>明确审核规范</p></div><div class="ev "><b>7 月 7 日</b><i></i><p>作者自评风险</p></div><div class="ev "><b>8 月 10 日</b><i></i><p>合并前后自动检查</p></div><div class="ev "><b>9 月 20 日</b><i></i><p>一期结项</p></div><div class="ev nov"><b>11 月上旬</b><i></i><p>1,270 个包全量审计</p></div><div class="ev nov"><b>11 月 10–11 日</b><i></i><p>新规则上线，首批提交被拦</p></div><div class="ev now"><b>11 月 24 日</b><i></i><p>存量整改期限</p></div></div>
       <div class="mini"><div><span class="label blue">1 · 提交</span><p>作者说明插件的敏感程度；信息缺失或不清楚时，机器人立刻回复。</p></div><div><span class="label blue">2 · 审核与合并</span><p>自动扫描泄露的密钥、不该发布的文件、夹带的可执行文件和有风险的依赖。</p></div><div><span class="label blue">3 · 发布</span><p>合并后再检查一次，扫描报告随版本保存。</p></div></div>
       <div class="band amber"><b>尚待实测</b>&nbsp; 一期验收目标（检查完整率 95%、高风险新增接近零、审核用时下降 30%）还没有基线。</div>
-      <div class="source-bar"><span>来源：插件治理阶段回顾，2026 年 11 月 23 日（飞书）；Community Ops 插件治理页面（9 月 20 日的状态核对）</span><span>06 / 15</span></div>
+      <div class="source-bar"><span>来源：插件治理阶段回顾，2026 年 11 月 23 日（飞书）；Community Ops 插件治理页面（9 月 20 日的状态核对）</span><span>06 / 17</span></div>
       <aside class="notes">5 月 27 日：提案覆盖提交、上架与运行维护。6 月：明确哪些直接阻断、哪些交人工复核。7 月 7 日：风险自评与机器人反馈。8 月 10 日：预检查与合并后复验。9 月 20 日：一期确认结项。11 月：全量审计；10 日四项治理变更合并；11 日首批真实提交被拦；24 日为首轮作者整改期限。作者也可以在本地跑同一套检查，官方插件仓库有了基础质量检查。</aside>
     </section>
 
@@ -144,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="source-bar"><span>来源：Dify 插件市场调查，2026 年 11 月（1,270 个包），据治理回顾文档的汇总</span><span>07 / 15</span></div>
+      <div class="source-bar"><span>来源：Dify 插件市场调查，2026 年 11 月（1,270 个包），据治理回顾文档的汇总</span><span>07 / 17</span></div>
       <aside class="notes">全量解包社区仓 1,270 个包：950 个唯一插件目录、647 个作者目录、按包内元数据计 659 位作者。803 个包（63.2%）没有标签。16 组模板同源、107 个 OpenAI 兼容网关类唯一插件、305 个冗余旧版本包（24%）。</aside>
     </section>
 
@@ -165,7 +165,7 @@
         </div>
       </div>
       <div class="band tint"><b>这说明什么</b>&nbsp; 调用量告诉我们先复核哪里。但整合或下架任何插件之前，仍要逐个确认对用户的影响。</div>
-      <div class="source-bar"><span>来源：Community Ops 数据，生产环境插件调用，30 天滚动窗口（2026 年 10 月 21 日–11 月 19 日）；数据中共 868 个插件。看占比，不看单日峰值。</span><span>08 / 15</span></div>
+      <div class="source-bar"><span>来源：Community Ops 数据，生产环境插件调用，30 天滚动窗口（2026 年 10 月 21 日–11 月 19 日）；数据中共 868 个插件。看占比，不看单日峰值。</span><span>08 / 17</span></div>
       <aside class="notes">共 12,830,288 次调用，868 个唯一插件。前 10 占 82.2%，前 50 占 98.7%，其余 818 个占 1.3%。官方插件 226 个，占调用 96.9%；社区插件 642 个，占 3.1%。868 个里有 616 个（71%）调用不到 100 次。治理回顾文档引用的 98.4% 是更早的窗口（10 月 7 日–11 月 5 日），结论一致。计数器在重启时可能低估，窗口最后一天是不完整的，所以看占比和均值。</aside>
     </section>
 
@@ -188,7 +188,7 @@
           </div>
         </div>
       </div>
-      <div class="source-bar"><span>来源：插件治理阶段回顾（11 月 23 日）；GitHub，langgenius/dify-plugins：检查结果按提交归并、36 条请求的回复情况，2026 年 11 月 24 日统计</span><span>09 / 15</span></div>
+      <div class="source-bar"><span>来源：插件治理阶段回顾（11 月 23 日）；GitHub，langgenius/dify-plugins：检查结果按提交归并、36 条请求的回复情况，2026 年 11 月 24 日统计</span><span>09 / 17</span></div>
       <aside class="notes">11 月 10 日：四项治理变更合并（标签、打包、近似重复、政策）。11 日首批真实拦截：一次版本间标签冲突的更新、一次没有分类的提交，都已修复并合并。统计口径：11 月 11–24 日 331 次治理检查运行，按 PR 标题归并为 188 次提交；122 次从未失败；66 次至少失败一回，其中 31 次最近一次运行已通过，35 次仍未通过（部分已关闭）。个别失败可能是工作流本身出错，所以“三分之一”是近似值。存量的下一步：逐条复核。</aside>
     </section>
 
@@ -206,7 +206,7 @@
           <div class="box tint" style="margin-top:14px"><span class="label blue">对 GTM 意味着什么</span><p style="color:var(--ink)">让 AI Agent 更容易调用 Dify；到业务用户已经在用的聊天工具里去。衡量伙伴看使用量，不看上架数量。</p></div>
         </div>
       </div>
-      <div class="source-bar"><span>来源：Community Ops 数据，生产环境插件调用，2026 年 10 月 21 日–11 月 19 日（社区插件 = 非 Dify 官方发布，39.1 万次调用）；langgenius/dify-plugins</span><span>10 / 15</span></div>
+      <div class="source-bar"><span>来源：Community Ops 数据，生产环境插件调用，2026 年 10 月 21 日–11 月 19 日（社区插件 = 非 Dify 官方发布，39.1 万次调用）；langgenius/dify-plugins</span><span>10 / 17</span></div>
       <aside class="notes">窗口内社区插件共被调用 391,322 次，占全部插件调用的 3.1%。其中一个把 Dify 工作流暴露为 MCP 服务的插件占 45%（MCP 是 AI Agent 调用外部工具的通用方式）；文本工具占 16%；LINE、Slack、企业微信的 6 个聊天机器人合计 8%；Google Sheets 占 5%。“厂商发布”是启发式判断：作者名出现在插件名里的 282 个插件；其中 49 个有过调用，合计 3,011 次。把它当作规律，不要当作普查。</aside>
     </section>
 
@@ -226,7 +226,7 @@
         </div>
       </div>
       <div class="band"><b>提议</b>&nbsp; 把这六个空缺作为给日本伙伴的第一份需求简报。这份清单是我们对“SIer 会期待接什么”的判断，需要日本团队确认。</div>
-      <div class="source-bar"><span>来源：对 GitHub 上 1,026 个社区插件和 279 个官方插件目录的文本搜索，2026 年 11 月 24 日；kintone 数字来自 Cybozu，2026 年 9 月。系统清单是我们自己的判断。</span><span>11 / 15</span></div>
+      <div class="source-bar"><span>来源：对 GitHub 上 1,026 个社区插件和 279 个官方插件目录的文本搜索，2026 年 11 月 24 日；kintone 数字来自 Cybozu，2026 年 9 月。系统清单是我们自己的判断。</span><span>11 / 17</span></div>
       <aside class="notes">方法：先对插件名称和描述做关键词搜索，再对每个包最新版本里的所有文本文件做搜索。有官方插件的：Microsoft 365（Teams、Outlook、SharePoint、OneDrive）、Salesforce、Box（作为数据源）、Slack。kintone 有同一位社区作者的两个插件，30 天调用 94 次。LINE 有三个社区插件；它是面向客户的渠道，在日本月活超过 1 亿，不是内部系统。SAP、ServiceNow、Garoon、intra-mart、SAP Concur、Sansan 都没有找到；LINE WORKS、Chatwork、Money Forward、SmartHR、CloudSign、KING OF TIME、COMPANY、desknet’s NEO、OBIC、HENNGE 也没有。厂商公布的覆盖面：Box 在日本 2.2 万家公司；Garoon 8,700 家；intra-mart 1.19 万家。SAP 和 ServiceNow 入选靠的是判断，我们没有找到经过核实的日本客户数。</aside>
     </section>
 
@@ -244,22 +244,49 @@
         <div class="sc bm"><strong>对 AI 生成的贡献有明文政策</strong><p>curl：必须说明用了 AI，并亲自核实。Gentoo、QEMU：不接受。GitHub：限制外部贡献者同时打开的 PR 数。</p><p style="color:var(--ink)">还没有</p><span class="chip no">尚无</span></div>
       </div>
       <div class="band tightband"><b>共同点</b>&nbsp; 徽章告诉买家的是“谁在为这个插件背书”，不是给代码打包票。离我们最近的同行 n8n，从 2025 年 5 月起人工审核它的“认证节点”。</div>
-      <div class="source-bar"><span>来源：Terraform Registry、Docker Hub、VS Code Marketplace、npm、PyPI、GitHub、Chrome Web Store、n8n 的官方文档；curl、Gentoo、QEMU 的贡献政策。2026 年 11 月 24 日阅读。</span><span>12 / 15</span></div>
+      <div class="source-bar"><span>来源：Terraform Registry、Docker Hub、VS Code Marketplace、npm、PyPI、GitHub、Chrome Web Store、n8n 的官方文档；curl、Gentoo、QEMU 的贡献政策。2026 年 11 月 24 日阅读。</span><span>12 / 17</span></div>
       <aside class="notes">每一项都在对方的官方文档上读过。Terraform 的 Partner 徽章要求加入 HashiCorp 技术伙伴计划。npm 现在要求发布任何包都必须两步验证（或使用专门的令牌），并明确说 provenance 记录不保证没有恶意代码。PyPI 自 2024 年 1 月起要求所有账号两步验证。GitHub 允许仓库限制外部贡献者同时打开的 PR 数，并可豁免老账号或有过贡献的人；我们没有找到给 AI 生成的 PR 打标签的功能。curl 在 2026 年 1 月 31 日停掉了漏洞赏金，理由之一是低质量的 AI 报告。n8n 的认证社区节点于 2025 年 5 月 27 日上线：MIT 许可、无运行时依赖、一个节点对应一个服务，审核最长四周。MCP 服务器的官方注册表自 2025 年 9 月起处于预览阶段，它核实名称归属，但自己说应当假定几乎没有审核。我们自己的现状：扫描和查重规则已经到位；扫描报告会上传，但没有签名。</aside>
     </section>
 
     <!-- 13 -->
-    <section data-slide-id="s13-play">
+    <section data-slide-id="s13-harness">
+      <div class="eyebrow">看到了什么 · 同向对比</div>
+      <h2>DeepSeek harness 面对同一个问题：目录做小，条目自证</h2>
+      <div class="score">
+        <div class="sc cmp head"><span>问题</span><span>Dify Marketplace 现状</span><span>DeepSeek Harness</span></div>
+        <div class="sc cmp"><strong>怎么进来</strong><p>谁都能提 PR，自动检查跟着跑</p><p style="color:var(--ink)">发布一个包，再列进一个由用户自己添加的市场索引</p></div>
+        <div class="sc cmp"><strong>谁为条目背书</strong><p>只有包里的作者信息；1,026 个中 7 个带认证标记</p><p style="color:var(--ink)">官方套件由 DeepSeek 发布；索引条目是自证的</p></div>
+        <div class="sc cmp"><strong>谁决定看到什么</strong><p>一个中央目录，按安装量排序</p><p style="color:var(--ink)">用户自己，一个一个索引地加；默认一个都不开</p></div>
+        <div class="sc cmp"><strong>兼容性</strong><p>插件不声明支持的 Dify 版本</p><p style="color:var(--ink)">每个插件声明支持的 harness 版本，安装时强制校验</p></div>
+        <div class="sc cmp"><strong>外部贡献</strong><p>两周 188 次提交，97% 的合并出自一位审核人</p><p style="color:var(--ink)">核心仓库不接受外部 PR，生态靠打了标签的第三方项目长出来</p></div>
+      </div>
+      <div class="band tightband"><b>同一个问题，两种答法</b>&nbsp; DeepSeek 把目录做小，让每个索引的发布者自己为条目背书——它的文档明说，这个格式无法核实条目。我们已经有规模，缺的是信号。三个动作保留开放的大门，把信任变成看得见的东西。</div>
+      <div class="source-bar"><span>来源：deepseek-ai/deepseek-harness（公开，MIT）与 npm 上的 @deepseek-ai/dsh；2026 年 11 月 24 日阅读包文档，链接与引文见 research.md。两者性质不同：harness 插件装进本地 profile，Dify 插件是托管服务——比的是设计。</span><span>13 / 17</span></div>
+      <aside class="notes">DeepSeek Harness 是 DeepSeek 公开的 agent 运行时；这一页读的是它的生态设计，不是竞品拆解。公开事实：仓库为 MIT，2026 年 8 月 13 日创建；CLI 在 npm 上自 8 月 10 日起有 48 个版本；CLI 包本身就依赖 88 个 DeepSeek 自建的插件包。它自己的仓库不接受外部 PR——CONTRIBUTING 说团队“暂时无法接受外部 pull request”，并让贡献者去发布带 dsh-plugin 标签的插件。插件市场是一个默认关闭的实验性套件，默认不配置任何索引；用户自己添加 JSON 索引地址，包括私有 Git 仓库。索引条目是自证的：该格式的已知限制写明，校验器“无法核实 name、version、publishTimestamp、engines.dsh 或展示字段与所描述的包一致”。安装是钉死的：npm 用精确的 name@version，Git 用钉死的 git+https URL。每个插件都声明自己支持的 harness 版本（engines.dsh），安装和启动时强制校验，豁免必须显式确认。技能从一份合并后的目录里按需加载完整说明。</aside>
+    </section>
+
+    <!-- 14 -->
+    <section data-slide-id="s14-play">
       <div class="eyebrow">提议做什么 · 三个动作</div>
       <h2>三个动作，把治理从成本变成信任渠道和伙伴渠道</h2>
       <div class="grid c3 panes" style="margin-top:36px"><div class="pane "><span class="label blue">面向企业买家</span><strong>给每个插件标上信任层级</strong><p>分官方、伙伴、社区三层，参照 Terraform 和 Docker Hub。层级回答的是“谁在为这个插件负责”：公司经过核实、有人在维护、检查通过。</p><span class="label foot" style="color:var(--ink)">第一步：先给调用量前 50 的插件定层级</span></div><div class="pane "><span class="label blue">面向伙伴联合销售</span><strong>给伙伴开一条快速通道</strong><p>经过核实的伙伴，有承诺的审核时限和固定对接人。给伙伴排序看真实使用量，不看上架了多少个。</p><span class="label foot" style="color:var(--ink)">第一步：把日本的六个空缺交给伙伴</span></div><div class="pane amber"><span class="label amber">面向安全评审与续约</span><strong>一份安全评审材料包</strong><p>每个工作空间一份“已批准插件”清单，附上每个插件的检查记录和维护状态，可以直接交给客户的安全团队。</p><span class="label foot" style="color:var(--ink)">第一步：和产品一起定范围</span></div></div>
       <div class="band tint"><b>买家为什么在意</b>&nbsp; 2026 年的一项行业调查里，55% 的受访者把“避免被厂商锁定”列为采用开源的原因。2025 年，一个蠕虫攻陷了 npm 上 500 多个包。以上三项都是提议，每一项都需要产品和研发投入。</div>
-      <div class="source-bar"><span>来源：Perforce OpenLogic《2026 State of Open Source Report》（2026 年 3 月 24 日）；CISA 关于 npm 供应链事件的警报（2025 年 9 月 23 日）；上一页的对标。Community Ops 的提议。</span><span>13 / 15</span></div>
-      <aside class="notes">每个动作都对应管理层提过的一件事。层级对应日本调研里“要有明确的安全信号”。快速通道对应“转向与伙伴一起卖”。安全评审材料包对应群内研究里的观察：商业开源的付费客户买的是确定性，也就是有人维护、按时修安全问题、留有审计记录。外部证据：锁定的数字来自 Perforce 的新闻稿，在欧盟和英国是 63%；npm 蠕虫就是 CISA 所说的 Shai-Hulud；微软称 2025 年截至 6 月，已对 136 个扩展做恶意代码审查，并从 Visual Studio Marketplace 下架了其中 110 个。今天的“信任体系”其实是一位审核人的判断，层级和快速通道能让这种判断看得见、可重复、有人分担。三项目前都还没有定范围、也没有排人。</aside>
+      <div class="source-bar"><span>来源：Perforce OpenLogic《2026 State of Open Source Report》（2026 年 3 月 24 日）；CISA 关于 npm 供应链事件的警报（2025 年 9 月 23 日）；第 12 页的对标。Community Ops 的提议。</span><span>14 / 17</span></div>
+      <aside class="notes">每个动作都对应双周会上被问到的一个问题。层级对应日本调研里“要有明确的安全信号”。快速通道对应“转向与伙伴一起卖”。安全评审材料包对应双周会上分享的研究里的观察：商业开源的付费客户买的是确定性，也就是有人维护、按时修安全问题、留有审计记录。外部证据：锁定的数字来自 Perforce 的新闻稿，在欧盟和英国是 63%；npm 蠕虫就是 CISA 所说的 Shai-Hulud；微软称 2025 年截至 6 月，已对 136 个扩展做恶意代码审查，并从 Visual Studio Marketplace 下架了其中 110 个。今天的“信任体系”其实是一位审核人的判断，层级和快速通道能让这种判断看得见、可重复、有人分担。三项目前都还没有定范围、也没有排人。</aside>
     </section>
 
-    <!-- 14 -->
-    <section data-slide-id="s14-measure">
+    <!-- 15 -->
+    <section data-slide-id="s15-why">
+      <div class="eyebrow">为什么重要 · 这么做换回了什么</div>
+      <h2>好的插件市场，是 Dify 信任层的地基</h2>
+      <div class="grid c4 panes"><div class="pane"><span class="label blue">创品牌</span><strong>一个买家认的名字</strong><p>层级和认证标记把目录变成品牌：挂在 Dify Marketplace 上，就意味着有人查过；伙伴也会往买家看的地方放插件。</p></div><div class="pane"><span class="label blue">搞特色</span><strong>对手市场没有的东西</strong><p>安全评审材料包是别家市场没有的产品能力。治理从成本，变成了购买理由。</p></div><div class="pane"><span class="label blue">提数据</span><strong>公司能拿来调方向的数字</strong><p>每季度七行度量，加上“客户真正在接什么”的调用数据：市场从成本中心，变成需求传感器。</p></div><div class="pane amber"><span class="label amber">增效能</span><strong>一个人扛住三倍的量</strong><p>约三分之一的提交，在被人看到之前就被自动拦下。WordPress.org 团队没加人，多审了 41%。</p></div></div>
+      <div class="band tint"><b>我们的实践</b>&nbsp; 每个环节有检查、1,270 个包逐个打开过、规则带牙齿、每季度有数字。<b>回报</b>&nbsp; 买家拿到确定性，伙伴拿到快速通道，Dify 拿到后面每个产品都要站在上面的信任层。</div>
+      <div class="source-bar"><span>来源：Community Ops 数据（10 月 21 日–11 月 19 日）；GitHub，langgenius/dify-plugins（11 月 24 日）；WordPress.org 插件团队年度报告（2026 年 1 月 7 日）；第 12 页的对标</span><span>15 / 17</span></div>
+      <aside class="notes">这是战略账，不是工作汇报。四个回报回答的是“这件事给公司换来了什么”：品牌（市场名字变成资产）、特色（安全评审材料包是别家市场没有的能力）、数据（七行度量加上调用集中度，让市场变成需求传感器）、效能（自动检查消化约三分之一的提交；WordPress 团队没加人，多审了 41%）。信任层是关键：企业安全评审、伙伴计划、agent 生态，都要站在一个“条目有意义”的市场上。上一页的三个动作是第一批砖；都还没有定范围、没有排人，这里也没有任何“治理带来了增长”的结论。</aside>
+    </section>
+
+    <!-- 16 -->
+    <section data-slide-id="s16-measure">
       <div class="eyebrow">提议做什么 · 度量</div>
       <h2>哪些已经能量化，哪些还不能</h2>
       <div class="score">
@@ -273,12 +300,12 @@
         <div class="sc"><b>目标</b><strong>一期达标了吗？</strong><p>还没有基线和统计窗口</p><span class="chip no">尚未量化</span></div>
       </div>
       <div class="band tightband"><b>提议</b>&nbsp; 这七行每季度汇报一次，和渠道复盘同步。还要补一个数：有多少客户在用伙伴插件。Atlassian 说 40% 以上的客户装了 Marketplace 应用，Salesforce 说 91% 的客户至少用了一个 AppExchange 应用。</div>
-      <div class="source-bar"><span>来源：Marketplace 运营看板（11 月 24 日）；Community Ops 数据（10 月 21 日–11 月 19 日）；GitHub（11 月 24 日）；Atlassian 博客（2026 年 10 月 26 日）；Salesforce 博客（2025 年 5 月 12 日）</span><span>14 / 15</span></div>
-      <aside class="notes">这是治理这条线对“要有一份共同的数字基线”的回应。四行今天就能从现有系统里取数；三行还不行：审核工时、插件与伙伴或客户账户的关联、一期验收目标。按季度汇报，对应群里提出的三到六个月更新一次。</aside>
+      <div class="source-bar"><span>来源：Marketplace 运营看板（11 月 24 日）；Community Ops 数据（10 月 21 日–11 月 19 日）；GitHub（11 月 24 日）；Atlassian 博客（2026 年 10 月 26 日）；Salesforce 博客（2025 年 5 月 12 日）</span><span>16 / 17</span></div>
+      <aside class="notes">这是治理这条线交出的共同数字基线。四行今天就能从现有系统里取数；三行还不行：审核工时、插件与伙伴或客户账户的关联、一期验收目标。按季度汇报，对应双周会上提过的三到六个月更新节奏。</aside>
     </section>
 
-    <!-- 15 -->
-    <section data-slide-id="s15-next">
+    <!-- 17 -->
+    <section data-slide-id="s17-next">
       <div class="eyebrow">提议做什么 · 接下来 90 天</div>
       <h2>接下来 90 天：三个检验点，以及需要这次会议定下的三件事</h2>
       <div class="split s-60" style="margin-top:34px">
@@ -296,8 +323,8 @@
         </div>
       </div>
       <div class="band tightband"><b>可参照的先例</b>&nbsp; WordPress.org 2025 年多审了 41% 的插件，团队规模没变，官方归功于工具改进。11 月 24 日到期的整改正在逐条复核。</div>
-      <div class="source-bar"><span>来源：插件治理阶段回顾（11 月 23 日）；Community Ops Q4 提案；WordPress.org 插件团队年度报告（2026 年 1 月 7 日）。检验点和阈值是 Community Ops 的提议。</span><span>15 / 15</span></div>
-      <aside class="notes">检验点的写法沿用群里那份 GTM 调研的习惯：写明 90 天后应该成立什么、不成立时改什么。阈值是讨论的起点，不是承诺。日常治理继续走自动检查加人工审核。机器人预检查和重复违规作者冷却仍在需求评审阶段；Like / Rating 已有简单限制，可信排名仍需各自的证据。</aside>
+      <div class="source-bar"><span>来源：插件治理阶段回顾（11 月 23 日）；Community Ops Q4 提案；WordPress.org 插件团队年度报告（2026 年 1 月 7 日）。检验点和阈值是 Community Ops 的提议。</span><span>17 / 17</span></div>
+      <aside class="notes">检验点的写法沿用双周会上那份行业调研的习惯：写明 90 天后应该成立什么、不成立时改什么。阈值是讨论的起点，不是承诺。日常治理继续走自动检查加人工审核。机器人预检查和重复违规作者冷却仍在需求评审阶段；Like / Rating 已有简单限制，可信排名仍需各自的证据。</aside>
     </section>
 
   </div></div>

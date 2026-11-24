@@ -39,7 +39,7 @@ We found no GitHub feature that labels AI-written pull requests. That is "none f
 
 The official registry for MCP servers has been in preview since 8 September 2025. It verifies who owns a name (by GitHub login or DNS record) but states that "consumers should assume minimal-to-no moderation" ([MCP Registry moderation policy](https://modelcontextprotocol.io/registry/moderation-policy)).
 
-## 3. The review load is industry-wide (slides 5 and 15)
+## 3. The review load is industry-wide (slides 5 and 17)
 
 | Fact | Quote from the source | Source |
 |---|---|---|
@@ -48,7 +48,7 @@ The official registry for MCP servers has been in preview since 8 September 2025
 | WordPress.org absorbed 40.6% more plugin reviews with a team of the same size | "reviewed 12,713 plugins, representing a 40.6% increase compared to 2024" and "the team has remained the same size. The queue has stayed stable thanks to improvements in the tools" | [WordPress plugins team, 7 Jan 2026](https://make.wordpress.org/plugins/2026/01/07/a-year-in-the-plugins-team-2025/) |
 | curl's share of valid security reports fell | "Starting 2025, the confirmed-rate plummeted to below 5%." | [Daniel Stenberg, 26 Jan 2026](https://daniel.haxx.se/blog/2026/01/26/the-end-of-the-curl-bug-bounty/) |
 
-## 4. Why enterprise buyers care (slide 13)
+## 4. Why enterprise buyers care (slide 14)
 
 | Fact | Quote from the source | Source |
 |---|---|---|
@@ -59,14 +59,14 @@ The official registry for MCP servers has been in preview since 8 September 2025
 
 The last row is why the deck proposes a security-review pack and does not lead with a bill of materials: demand for it in contracts is still low.
 
-## 5. A marketplace as a channel (slide 14)
+## 5. A marketplace as a channel (slide 16)
 
 | Fact | Quote from the source | Source |
 |---|---|---|
 | Atlassian Marketplace | "The Atlassian Marketplace has surpassed $7B in lifetime sales" and "more than 40% of Atlassian customers had at least one Marketplace app installed" (end of June 2026) | [Atlassian blog, 26 Oct 2026](https://www.atlassian.com/blog/teamwork/atlassian-marketplace-7-billion) |
 | Salesforce AppExchange | "91% of Salesforce customers use at least one AppExchange app." | [Salesforce blog, 12 May 2025](https://www.salesforce.com/blog/what-is-a-salesforce-partner/) |
 
-Both companies report the share of customers who use a marketplace app, not the number of listings. That is the measure slide 14 proposes to add.
+Both companies report the share of customers who use a marketplace app, not the number of listings. That is the measure slide 16 proposes to add.
 
 ## 6. Business systems in Japan (slide 11)
 
@@ -96,3 +96,23 @@ The list is built around what large Japanese companies run. Figures are vendor-s
 - **Partner-sourced revenue benchmarks.** We found no 2025–2026 survey that states both a partner-sourced revenue share and its sample size on a page we could read, so the deck makes no such claim.
 - **Microsoft Teams, Slack, SAP and ServiceNow customer counts for Japan.** Not found on a primary page.
 - **Tackle, Canalys, Crossbeam and Benchmarkit figures.** Not confirmed on a primary page.
+
+## 8. A parallel ecosystem: DeepSeek Harness (slide 13)
+
+DeepSeek Harness is a public agent runtime — "DeepSeek Harness: Everything is a Plugin." Every row below was read on 24 November 2026 from its public repository or from the packages it publishes on npm.
+
+| Fact | Quote from the source | Source |
+|---|---|---|
+| Public repository, MIT licence, created 13 Aug 2026 | "DeepSeek Harness: Everything is a Plugin." | [GitHub repository](https://github.com/deepseek-ai/deepseek-harness) |
+| 286,312 stars and 35,661 forks on 24 Nov 2026 | — | [GitHub repository](https://github.com/deepseek-ai/deepseek-harness) |
+| CLI on npm: 48 versions since 10 Aug 2026, latest 0.2.2-rc.5 | — | [npm registry](https://registry.npmjs.org/@deepseek-ai/dsh) |
+| The CLI package alone depends on 88 `@deepseek-ai` plugin packages | — | [package.json on npm](https://registry.npmjs.org/@deepseek-ai/dsh) |
+| The core repository takes no outside pull requests | "We are sorry that we cannot accept external pull requests at the moment." | [CONTRIBUTING.md](https://github.com/deepseek-ai/deepseek-harness/blob/master/CONTRIBUTING.md) |
+| The ecosystem grows as tagged third-party plugins | "Associate your GitHub project with the `dsh-plugin` topic to help others discover your plugin." | [CONTRIBUTING.md](https://github.com/deepseek-ai/deepseek-harness/blob/master/CONTRIBUTING.md) |
+| The market is a user-configured list of JSON indexes, off by default | "Shipped profiles leave it disabled." / "No index source is configured by default, so the Host sends no index request until a user adds one." | [plugin-market-bundle](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/experimental/plugin-market-bundle/README.md), [plugin-market](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/boot/plugin-market/README.md) |
+| An index entry is self-declared | "the validator cannot verify that `name`, `version`, `publishTimestamp`, `engines.dsh`, or display fields match the package they describe" | [plugin-market-index](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/util/plugin-market-index/README.md) |
+| Installs are pinned to an exact version or commit | "it returns the exact pnpm spec, `name@version` for npm and a commit-pinned `git+https` URL with an optional `path:` parameter for Git" | [plugin-market-index](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/util/plugin-market-index/README.md) |
+| Compatibility is declared and enforced | "Installation and profile startup enforce the declared `engines.dsh` range" | [repository README](https://github.com/deepseek-ai/deepseek-harness) |
+| Skills load on demand from one merged catalog | "loads the selected skill's full instructions on demand" | [dsh-skill](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/skill/README.md) |
+
+**What the comparison is and is not.** A harness plugin installs into a local profile; a Dify plugin runs as a hosted service. Slide 13 compares ecosystem design — how a listing earns trust, who decides what is shown, how compatibility is declared — not the products themselves. The star count is context for the size of the project, not a quality claim.
